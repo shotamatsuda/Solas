@@ -32,11 +32,11 @@
 #include <cassert>
 #include <cmath>
 #include <ostream>
-#include <type_traits>
 
 #include "solas/math/promotion.h"
 #include "solas/math/size.h"
 #include "solas/math/vector.h"
+#include "solas/utility/enablers.h"
 
 namespace solas {
 namespace math {
@@ -92,9 +92,9 @@ class Rect final {
   // Scalar arithmetic
   Rect& operator*=(T scalar);
   Rect& operator/=(T scalar);
-  template <typename U, std::enable_if_t<std::is_scalar<U>::value> * = nullptr>
+  template <typename U, EnableIfScalar<U> * = nullptr>
   Rect<Promote<T, U>> operator*(U scalar) const;
-  template <typename U, std::enable_if_t<std::is_scalar<U>::value> * = nullptr>
+  template <typename U, EnableIfScalar<U> * = nullptr>
   Rect<Promote<T, U>> operator/(U scalar) const;
 
   // Attributes
@@ -155,14 +155,15 @@ class Rect final {
   bool contains(const Rect<U>& rect) const;
 
  public:
-  Vector2<T> origin;
-  Size2<T> size;
-
-  // Aliases
-  T& x;
-  T& y;
-  T& width;
-  T& height;
+  union {
+    Vector2<T> origin;
+    struct { T x; T y; };
+  };
+  union {
+    Size2<T> size;
+    struct { T width; T height; };
+    struct { T w; T h; };
+  };
 };
 
 using Recti = Rect<int>;
@@ -179,71 +180,43 @@ using Rectangled = Rectangle<double>;
 
 template <typename T>
 inline Rect<T>::Rect()
-    : x(origin.x),
-      y(origin.y),
-      width(size.width),
-      height(size.height) {}
+    : origin(),
+      size() {}
 
 template <typename T>
 inline Rect<T>::Rect(const Vector2<T>& origin)
     : origin(origin),
-      x(this->origin.x),
-      y(this->origin.y),
-      width(size.width),
-      height(size.height) {}
+      size() {}
 
 template <typename T>
 inline Rect<T>::Rect(const Size2<T>& size)
-    : size(size),
-      x(origin.x),
-      y(origin.y),
-      width(this->size.width),
-      height(this->size.height) {}
+    : origin(),
+      size(size) {}
 
 template <typename T>
 inline Rect<T>::Rect(T x, T y, T width, T height)
     : origin(x, y),
-      size(width, height),
-      x(origin.x),
-      y(origin.y),
-      width(size.width),
-      height(size.height) {}
+      size(width, height) {}
 
 template <typename T>
 inline Rect<T>::Rect(T x, T y, const Size2<T>& size)
     : origin(x, y),
-      size(size),
-      x(origin.x),
-      y(origin.y),
-      width(this->size.width),
-      height(this->size.height) {}
+      size(size) {}
 
 template <typename T>
 inline Rect<T>::Rect(const Vector2<T>& origin, T width, T height)
     : origin(origin),
-      size(width, height),
-      x(this->origin.x),
-      y(this->origin.y),
-      width(size.width),
-      height(size.height) {}
+      size(width, height) {}
 
 template <typename T>
 inline Rect<T>::Rect(const Vector2<T>& origin, const Size2<T>& size)
     : origin(origin),
-      size(size),
-      x(this->origin.x),
-      y(this->origin.y),
-      width(this->size.width),
-      height(this->size.height) {}
+      size(size) {}
 
 template <typename T>
 inline Rect<T>::Rect(const Vector2<T>& p1, const Vector2<T>& p2)
     : origin(std::min(p1.x, p2.x), std::min(p1.y, p2.y)),
-      size(std::max(p1.x, p2.x) - origin.x, std::max(p1.y, p2.y) - origin.y),
-      x(origin.x),
-      y(origin.y),
-      width(size.width),
-      height(size.height) {}
+      size(std::max(p1.x, p2.x) - origin.x, std::max(p1.y, p2.y) - origin.y) {}
 
 #pragma mark Implicit conversion
 
@@ -251,22 +224,14 @@ template <typename T>
 template <typename U>
 inline Rect<T>::Rect(const Rect<U>& other)
     : origin(other.origin),
-      size(other.size),
-      x(origin.x),
-      y(origin.y),
-      width(size.width),
-      height(size.height) {}
+      size(other.size) {}
 
 #pragma mark Copy and assign
 
 template <typename T>
 inline Rect<T>::Rect(const Rect<T>& other)
     : origin(other.origin),
-      size(other.size),
-      x(origin.x),
-      y(origin.y),
-      width(size.width),
-      height(size.height) {}
+      size(other.size) {}
 
 template <typename T>
 inline Rect<T>& Rect<T>::operator=(const Rect<T>& other) {
@@ -376,21 +341,19 @@ inline Rect<T>& Rect<T>::operator/=(T scalar) {
 }
 
 template <typename T>
-template <typename U, std::enable_if_t<std::is_scalar<U>::value> *>
+template <typename U, EnableIfScalar<U> *>
 inline Rect<Promote<T, U>> Rect<T>::operator*(U scalar) const {
   return scaled(scalar);
 }
 
 template <typename T>
-template <typename U, std::enable_if_t<std::is_scalar<U>::value> *>
+template <typename U, EnableIfScalar<U> *>
 inline Rect<Promote<T, U>> Rect<T>::operator/(U scalar) const {
   assert(scalar);
   return scaled(static_cast<Promote<T>>(1) / scalar);
 }
 
-template <
-  typename T, typename U,
-  std::enable_if_t<std::is_scalar<U>::value> * = nullptr>
+template <typename T, typename U, EnableIfScalar<U> * = nullptr>
 inline Rect<Promote<T, U>> operator*(U scalar, const Rect<T>& rect) {
   return rect * scalar;
 }

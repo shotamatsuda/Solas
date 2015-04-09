@@ -70,8 +70,6 @@ using Types = ::testing::Types<
   std::uint16_t,
   std::int32_t,
   std::uint32_t,
-  std::int64_t,
-  std::uint64_t,
   float,
   double
 >;

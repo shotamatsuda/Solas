@@ -46,16 +46,20 @@ class Singleton {
   ~Singleton();
 
   // Disallow copy and assign
-  Singleton& operator=(const Singleton&) = delete;
-  Singleton(const Singleton&) = delete;
+  Singleton(const Singleton& other) = delete;
+  Singleton& operator=(const Singleton& other) = delete;
 
   // Accessing the instance
-  T& operator*() { return *get(); }
-  T * operator->() { return get(); }
   T * get();
+  const T * get() const { return get(); }
+  T& operator*() { return *get(); }
+  const T& operator*() const { return *get(); }
+  T * operator->() { return get(); }
+  const T * operator->() const { return get(); }
 
   // Implicit conversion
   operator T&() { return *get(); }
+  const operator T&() const { return *get(); }
 
  private:
   std::atomic<T *> instance_;

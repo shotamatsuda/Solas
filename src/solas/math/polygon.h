@@ -34,6 +34,7 @@
 #include <initializer_list>
 #include <iterator>
 #include <ostream>
+#include <utility>
 #include <vector>
 
 #include "solas/math/promotion.h"
@@ -55,8 +56,12 @@ class Polygon final {
  public:
   // Constructors
   Polygon() = default;
+  Polygon(std::initializer_list<T> list);
+  Polygon(std::initializer_list<Vector2<T>> list);
   template <typename Container>
-  explicit Polygon(const Container& vertices);
+  explicit Polygon(const Container& container);
+  template <typename InputIterator>
+  Polygon(InputIterator begin, InputIterator end);
 
   // Implicit conversion
   template <typename U>
@@ -67,18 +72,21 @@ class Polygon final {
   Polygon(Polygon&& other) = default;
   Polygon& operator=(const Polygon& other) = default;
   Polygon& operator=(Polygon&& other) = default;
+  Polygon& operator=(std::initializer_list<T> list);
+  Polygon& operator=(std::initializer_list<Vector2<T>> list);
 
   // Mutators
-  void set(std::vector<Vector2<T>>&& vertices);
-  template <typename Vertices>
-  void set(const Vertices& vertices);
   void set(std::initializer_list<T> list);
   void set(std::initializer_list<Vector2<T>> list);
+  template <typename Container>
+  void set(const Container& container);
+  template <typename InputIterator>
+  void set(InputIterator begin, InputIterator end);
   void reset();
 
   // Element access
-  T& operator[](std::size_t index) { return at(index); }
-  const T& operator[](std::size_t index) const { return at(index); }
+  Vector2<T>& operator[](std::size_t index) { return at(index); }
+  const Vector2<T>& operator[](std::size_t index) const { return at(index); }
   Vector2<T>& at(std::size_t index);
   const Vector2<T>& at(std::size_t index) const;
   Vector2<T>& front();
@@ -95,6 +103,8 @@ class Polygon final {
   // Modifiers
   void add(T x, T y);
   void add(const Vector2<T>& vertex);
+  void insert(T x, T y, std::size_t index);
+  void insert(const Vector2<T>& vertex, std::size_t index);
 
   // Attributes
   bool empty() const { return vertices_.empty(); }
@@ -114,6 +124,10 @@ class Polygon final {
   ReverseIterator rend() { return ReverseIterator(end()); }
   ConstReverseIterator rend() const { return ReverseIterator(end()); }
 
+  // Pointer
+  Vector2<T> * ptr() { return vertices_.data(); }
+  const Vector2<T> * ptr() const { return vertices_.data(); }
+
  private:
   std::vector<Vector2<T>> vertices_;
 };
@@ -121,22 +135,74 @@ class Polygon final {
 #pragma mark -
 
 template <typename T>
+inline Polygon<T>::Polygon(std::initializer_list<T> list) {
+  set(std::move(list));
+}
+
+template <typename T>
+inline Polygon<T>::Polygon(std::initializer_list<Vector2<T>> list) {
+  set(std::move(list));
+}
+
+template <typename T>
 template <typename Container>
-inline Polygon<T>::Polygon(const Container& vertices)
-    : vertices_(std::begin(vertices), std::end(vertices)) {}
+inline Polygon<T>::Polygon(const Container& container) {
+  set(container);
+}
+
+template <typename T>
+template <typename InputIterator>
+inline Polygon<T>::Polygon(InputIterator begin, InputIterator end) {
+  set(begin, end);
+}
+
+#pragma mark Implicit conversion
+
+template <typename T>
+template <typename U>
+inline Polygon<T>::Polygon(const Polygon<U>& other) {
+  std::copy(other.vertices_.begin(), other.vertices_.end(), vertices_.begin());
+}
+
+#pragma mark Copy and assign
+
+template <typename T>
+inline Polygon<T>& Polygon<T>::operator=(std::initializer_list<T> list) {
+  set(std::move(list));
+  return *this;
+}
+  
+template <typename T>
+inline Polygon<T>& Polygon<T>::operator=(
+    std::initializer_list<Vector2<T>> list) {
+  set(std::move(list));
+  return *this;
+}
 
 #pragma mark Mutators
 
 template <typename T>
-inline void Polygon<T>::set(std::vector<Vector2<T>>&& vertices) {
-  vertices_.swap(vertices);
+inline void Polygon<T>::set(std::initializer_list<T> list) {
+  // TODO:
+}
+  
+template <typename T>
+inline void Polygon<T>::set(std::initializer_list<Vector2<T>> list) {
+  set(list.begin(), list.end());
 }
 
 template <typename T>
-template <typename Vertices>
-inline void Polygon<T>::set(const Vertices& vertices) {
-  vertices_.resize(vertices.size());
-  std::copy(vertices.begin(), vertices.end(), vertices_.begin());
+template <typename Container>
+inline void Polygon<T>::set(const Container& container) {
+  set(container.begin(), container.end());
+}
+
+template <typename T>
+template <typename InputIterator>
+inline void Polygon<T>::set(InputIterator begin, InputIterator end) {
+  reset();
+  vertices_.resize(std::distance(begin, end));
+  std::copy(begin, end, vertices_.begin());
 }
 
 template <typename T>
@@ -200,32 +266,49 @@ inline bool Polygon<T>::operator!=(const Polygon<U>& other) const {
 
 template <typename T>
 inline void Polygon<T>::add(T x, T y) {
+  // TODO:
 }
 
 template <typename T>
 inline void Polygon<T>::add(const Vector2<T>& vertex) {
+  // TODO:
+}
+
+template <typename T>
+inline void Polygon<T>::insert(T x, T y, std::size_t index) {
+  // TODO:
+}
+
+template <typename T>
+inline void Polygon<T>::insert(const Vector2<T>& vertex, std::size_t index) {
+  // TODO:
 }
 
 #pragma mark Attributes
 
 template <typename T>
 inline Promote<T> Polygon<T>::apothem() const {
+  // TODO:
 }
 
 template <typename T>
 inline Promote<T> Polygon<T>::area() const {
+  // TODO:
 }
 
 template <typename T>
 inline Promote<T> Polygon<T>::circumference() const {
+  // TODO:
 }
 
 template <typename T>
 inline Vector2<Promote<T>> Polygon<T>::centroid() const {
+  // TODO:
 }
 
 template <typename T>
 inline Rect<Promote<T>> Polygon<T>::bounds() const {
+  // TODO:
 }
 
 #pragma mark Stream

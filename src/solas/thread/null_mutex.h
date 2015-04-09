@@ -37,8 +37,8 @@ class NullMutex {
   NullMutex() = default;
 
   // Disallow copy and assign
-  NullMutex& operator=(const NullMutex&) = delete;
-  NullMutex(const NullMutex&) = delete;
+  NullMutex& operator=(const NullMutex& other) = delete;
+  NullMutex(const NullMutex& other) = delete;
 
   // Lockable concept
   void lock() {}

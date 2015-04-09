@@ -28,7 +28,7 @@
 #ifndef SOLAS_UTILITY_ENUM_H_
 #define SOLAS_UTILITY_ENUM_H_
 
-#define SOLAS_UTILITY_ENUM_BITWISE_OPERATORS(T, Base)                          \
+#define SOLAS_ENUM_BITWISE_OPERATORS(T, Base)                                  \
     constexpr Base operator%(T a, T b) {                                       \
       return static_cast<Base>(static_cast<Base>(a) & static_cast<Base>(b));   \
     };                                                                         \

@@ -29,7 +29,6 @@
 #define SOLAS_MATH_TRIANGLE2_H_
 
 #include <cassert>
-#include <cstddef>
 #include <initializer_list>
 #include <iterator>
 #include <ostream>
@@ -40,23 +39,23 @@
 namespace solas {
 namespace math {
 
-template <std::size_t Dimension, typename T>
+template <typename T, int D>
 class Triangle;
 
 template <typename T>
-using Triangle2 = Triangle<2, T>;
+using Triangle2 = Triangle<T, 2>;
 template <typename T>
-using Triangle3 = Triangle<3, T>;
+using Triangle3 = Triangle<T, 3>;
 
 template <typename T>
-class Triangle<2, T> final {
+class Triangle<T, 2> final {
  public:
   using Type = T;
   using Iterator = Vector2<T> *;
   using ConstIterator = const Vector2<T> *;
   using ReverseIterator = std::reverse_iterator<Iterator>;
   using ConstReverseIterator = std::reverse_iterator<ConstIterator>;
-  static const std::size_t Dimension;
+  static constexpr auto dimensions = Vector2<T>::dimensions;
 
  public:
   // Constructors
@@ -66,7 +65,9 @@ class Triangle<2, T> final {
   Triangle(std::initializer_list<T> list);
   Triangle(std::initializer_list<Vector2<T>> list);
   template <typename Container>
-  explicit Triangle(const Container& vertices);
+  explicit Triangle(const Container& container);
+  template <typename InputIterator>
+  Triangle(InputIterator begin, InputIterator end);
 
   // Implicit conversion
   template <typename U>
@@ -88,14 +89,20 @@ class Triangle<2, T> final {
   void set(std::initializer_list<T> list);
   void set(std::initializer_list<Vector2<T>> list);
   template <typename Container>
-  void set(const Container& vertices);
+  void set(const Container& container);
+  template <typename InputIterator>
+  void set(InputIterator begin, InputIterator end);
   void reset();
 
   // Element access
-  T& operator[](int index) { return at(index); }
-  const T& operator[](int index) const { return at(index); }
-  T& at(int index);
-  const T& at(int index) const;
+  Vector2<T>& operator[](int index) { return at(index); }
+  const Vector2<T>& operator[](int index) const { return at(index); }
+  Vector2<T>& at(int index);
+  const Vector2<T>& at(int index) const;
+  Vector2<T>& front() { return a; }
+  const Vector2<T>& front() const { return a; }
+  Vector2<T>& back() { return c; }
+  const Vector2<T>& back() const { return c; }
 
   // Comparison
   template <typename U>
@@ -118,13 +125,19 @@ class Triangle<2, T> final {
   const Vector2<T> * ptr() const { return &a; }
 
  public:
-  Vector2<T> a;
-  Vector2<T> b;
-  Vector2<T> c;
+  union {
+    Vector2<T> a;
+    struct { T x1; T y1; };
+  };
+  union {
+    Vector2<T> b;
+    struct { T x2; T y2; };
+  };
+  union {
+    Vector2<T> c;
+    struct { T x3; T y3; };
+  };
 };
-
-template <typename T>
-const std::size_t Triangle2<T>::Dimension = 2;
 
 using Triangle2i = Triangle2<int>;
 using Triangle2f = Triangle2<float>;
@@ -158,8 +171,14 @@ inline Triangle2<T>::Triangle(std::initializer_list<Vector2<T>> list) {
 
 template <typename T>
 template <typename Container>
-inline Triangle2<T>::Triangle(const Container& vertices) {
-  set(vertices);
+inline Triangle2<T>::Triangle(const Container& container) {
+  set(container);
+}
+
+template <typename T>
+template <typename InputIterator>
+inline Triangle2<T>::Triangle(InputIterator begin, InputIterator end) {
+  set(begin, end);
 }
 
 #pragma mark Copy and assign
@@ -209,21 +228,23 @@ inline void Triangle2<T>::set(std::initializer_list<T> list) {
 
 template <typename T>
 inline void Triangle2<T>::set(std::initializer_list<Vector2<T>> list) {
-  reset();
-  auto itr = list.begin();
-  if (itr == list.end()) return; a = *itr++;
-  if (itr == list.end()) return; b = *itr++;
-  if (itr == list.end()) return; c = *itr++;
+  set(list.begin(), list.end());
 }
 
 template <typename T>
 template <typename Container>
-inline void Triangle2<T>::set(const Container& vertices) {
+inline void Triangle2<T>::set(const Container& container) {
+  set(container.begin(), container.end());
+}
+
+template <typename T>
+template <typename InputIterator>
+inline void Triangle2<T>::set(InputIterator begin, InputIterator end) {
   reset();
-  auto itr = std::begin(vertices);
-  if (itr == std::end(vertices)) return; a = decltype(a)(*itr++);
-  if (itr == std::end(vertices)) return; b = decltype(b)(*itr++);
-  if (itr == std::end(vertices)) return; c = decltype(c)(*itr++);
+  auto itr = begin;
+  if (itr == end) return; a = decltype(a)(*itr++);
+  if (itr == end) return; b = decltype(b)(*itr++);
+  if (itr == end) return; c = decltype(c)(*itr++);
 }
 
 template <typename T>
@@ -234,7 +255,7 @@ inline void Triangle2<T>::reset() {
 #pragma mark Element access
 
 template <typename T>
-inline T& Triangle2<T>::at(int index) {
+inline Vector2<T>& Triangle2<T>::at(int index) {
   switch (index) {
     case 0:
       return a;
@@ -250,7 +271,7 @@ inline T& Triangle2<T>::at(int index) {
 }
 
 template <typename T>
-inline const T& Triangle2<T>::at(int index) const {
+inline const Vector2<T>& Triangle2<T>::at(int index) const {
   switch (index) {
     case 0:
       return a;

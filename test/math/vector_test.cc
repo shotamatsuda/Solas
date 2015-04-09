@@ -70,8 +70,6 @@ using Types = ::testing::Types<
   std::uint16_t,
   std::int32_t,
   std::uint32_t,
-  std::int64_t,
-  std::uint64_t,
   float,
   double
 >;
@@ -201,6 +199,78 @@ TYPED_TEST(VectorTest, ConstructibleWithInitializerList) {
   ASSERT_EQ(v4_5.z, z);
   ASSERT_EQ(v4_5.w, w);
   Vector4<TypeParam> v4_6{x, y, z, w, this->Random()};
+  ASSERT_EQ(v4_6.x, x);
+  ASSERT_EQ(v4_6.y, y);
+  ASSERT_EQ(v4_6.z, z);
+  ASSERT_EQ(v4_6.w, w);
+}
+
+TYPED_TEST(VectorTest, ConstructibleWithContainer) {
+  const auto x = this->Random();
+  const auto y = this->Random();
+  const auto z = this->Random();
+  const auto w = this->Random();
+
+  Vector2<TypeParam> v2_1(std::vector<TypeParam>{});
+  ASSERT_EQ(v2_1.x, TypeParam());
+  ASSERT_EQ(v2_1.y, TypeParam());
+  Vector2<TypeParam> v2_2(std::vector<TypeParam>{x});
+  ASSERT_EQ(v2_2.x, x);
+  ASSERT_EQ(v2_2.y, TypeParam());
+  Vector2<TypeParam> v2_3(std::vector<TypeParam>{x, y});
+  ASSERT_EQ(v2_3.x, x);
+  ASSERT_EQ(v2_3.y, y);
+  Vector2<TypeParam> v2_4(std::vector<TypeParam>{x, y, this->Random()});
+  ASSERT_EQ(v2_4.x, x);
+  ASSERT_EQ(v2_4.y, y);
+
+  Vector3<TypeParam> v3_1(std::vector<TypeParam>{});
+  ASSERT_EQ(v3_1.x, TypeParam());
+  ASSERT_EQ(v3_1.y, TypeParam());
+  ASSERT_EQ(v3_1.z, TypeParam());
+  Vector3<TypeParam> v3_2(std::vector<TypeParam>{x});
+  ASSERT_EQ(v3_2.x, x);
+  ASSERT_EQ(v3_2.y, TypeParam());
+  ASSERT_EQ(v3_2.z, TypeParam());
+  Vector3<TypeParam> v3_3(std::vector<TypeParam>{x, y});
+  ASSERT_EQ(v3_3.x, x);
+  ASSERT_EQ(v3_3.y, y);
+  ASSERT_EQ(v3_3.z, TypeParam());
+  Vector3<TypeParam> v3_4(std::vector<TypeParam>{x, y, z});
+  ASSERT_EQ(v3_4.x, x);
+  ASSERT_EQ(v3_4.y, y);
+  ASSERT_EQ(v3_4.z, z);
+  Vector3<TypeParam> v3_5(std::vector<TypeParam>{x, y, z, this->Random()});
+  ASSERT_EQ(v3_5.x, x);
+  ASSERT_EQ(v3_5.y, y);
+  ASSERT_EQ(v3_5.z, z);
+
+  Vector4<TypeParam> v4_1(std::vector<TypeParam>{});
+  ASSERT_EQ(v4_1.x, TypeParam());
+  ASSERT_EQ(v4_1.y, TypeParam());
+  ASSERT_EQ(v4_1.z, TypeParam());
+  ASSERT_EQ(v4_1.w, TypeParam());
+  Vector4<TypeParam> v4_2(std::vector<TypeParam>{x});
+  ASSERT_EQ(v4_2.x, x);
+  ASSERT_EQ(v4_2.y, TypeParam());
+  ASSERT_EQ(v4_2.z, TypeParam());
+  ASSERT_EQ(v4_2.w, TypeParam());
+  Vector4<TypeParam> v4_3(std::vector<TypeParam>{x, y});
+  ASSERT_EQ(v4_3.x, x);
+  ASSERT_EQ(v4_3.y, y);
+  ASSERT_EQ(v4_3.z, TypeParam());
+  ASSERT_EQ(v4_3.w, TypeParam());
+  Vector4<TypeParam> v4_4(std::vector<TypeParam>{x, y, z});
+  ASSERT_EQ(v4_4.x, x);
+  ASSERT_EQ(v4_4.y, y);
+  ASSERT_EQ(v4_4.z, z);
+  ASSERT_EQ(v4_4.w, TypeParam());
+  Vector4<TypeParam> v4_5(std::vector<TypeParam>{x, y, z, w});
+  ASSERT_EQ(v4_5.x, x);
+  ASSERT_EQ(v4_5.y, y);
+  ASSERT_EQ(v4_5.z, z);
+  ASSERT_EQ(v4_5.w, w);
+  Vector4<TypeParam> v4_6(std::vector<TypeParam>{x, y, z, w, this->Random()});
   ASSERT_EQ(v4_6.x, x);
   ASSERT_EQ(v4_6.y, y);
   ASSERT_EQ(v4_6.z, z);

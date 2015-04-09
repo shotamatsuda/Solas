@@ -29,36 +29,36 @@
 #define SOLAS_MATH_SIZE3_H_
 
 #include <cmath>
-#include <cstddef>
 #include <initializer_list>
 #include <ostream>
-#include <type_traits>
 #include <utility>
 
 #include "solas/math/axis.h"
 #include "solas/math/promotion.h"
 #include "solas/math/vector.h"
+#include "solas/utility/enablers.h"
 
 namespace solas {
 namespace math {
 
-template <std::size_t Dimension, typename T>
+template <typename T, int D>
 class Size;
 
 template <typename T>
-using Size2 = Size<2, T>;
+using Size2 = Size<T, 2>;
 template <typename T>
-using Size3 = Size<3, T>;
+using Size3 = Size<T, 3>;
 
 template <typename T>
-class Size<3, T> final {
+class Size<T, 3> final {
  public:
   using Type = T;
+  using Index = typename Vector3<T>::Index;
   using Iterator = typename Vector3<T>::Iterator;
   using ConstIterator = typename Vector3<T>::ConstIterator;
   using ReverseIterator = typename Vector3<T>::ReverseIterator;
   using ConstReverseIterator = typename Vector3<T>::ConstReverseIterator;
-  static const std::size_t Dimension;
+  static constexpr auto dimensions = Vector3<T>::dimensions;
 
  public:
   // Constructors
@@ -67,7 +67,9 @@ class Size<3, T> final {
   Size(T width, T height, T depth = T());
   Size(std::initializer_list<T> list);
   template <typename Container>
-  explicit Size(const Container& values);
+  explicit Size(const Container& container);
+  template <typename InputIterator>
+  Size(InputIterator begin, InputIterator end);
 
   // Implicit conversion
   template <typename U>
@@ -78,6 +80,7 @@ class Size<3, T> final {
   explicit Size(const Size2<U>& other);
   explicit Size(const Vector2<T>& other);
   explicit Size(const Vector3<T>& other);
+  explicit Size(const Vector4<T>& other);
 
   // Copy and assign
   Size(const Size3<T>& other);
@@ -96,18 +99,24 @@ class Size<3, T> final {
   void set(T width, T height, T depth = T());
   void set(std::initializer_list<T> list);
   template <typename Container>
-  void set(const Container& values);
+  void set(const Container& container);
+  template <typename InputIterator>
+  void set(InputIterator begin, InputIterator end);
   void reset();
 
   // Element access
-  T& operator[](int index) { return at(index); }
-  const T& operator[](int index) const { return at(index); }
+  T& operator[](Index index) { return at(index); }
+  const T& operator[](Index index) const { return at(index); }
   T& operator[](Axis axis) { return at(axis); }
   const T& operator[](Axis axis) const { return at(axis); }
-  T& at(int index);
-  const T& at(int index) const;
+  T& at(Index index);
+  const T& at(Index index) const;
   T& at(Axis axis);
   const T& at(Axis axis) const;
+  T& front() { return vector.front(); }
+  const T& front() const { return vector.front(); }
+  T& back() { return vector.back(); }
+  const T& back() const { return vector.back(); }
 
   // Comparison
   template <typename U>
@@ -143,13 +152,13 @@ class Size<3, T> final {
   Size3<T>& operator-=(T scalar);
   Size3<T>& operator*=(T scalar);
   Size3<T>& operator/=(T scalar);
-  template <typename U, std::enable_if_t<std::is_scalar<U>::value> * = nullptr>
+  template <typename U, EnableIfScalar<U> * = nullptr>
   Size3<Promote<T, U>> operator+(U scalar) const;
-  template <typename U, std::enable_if_t<std::is_scalar<U>::value> * = nullptr>
+  template <typename U, EnableIfScalar<U> * = nullptr>
   Size3<Promote<T, U>> operator-(U scalar) const;
-  template <typename U, std::enable_if_t<std::is_scalar<U>::value> * = nullptr>
+  template <typename U, EnableIfScalar<U> * = nullptr>
   Size3<Promote<T, U>> operator*(U scalar) const;
-  template <typename U, std::enable_if_t<std::is_scalar<U>::value> * = nullptr>
+  template <typename U, EnableIfScalar<U> * = nullptr>
   Size3<Promote<T, U>> operator/(U scalar) const;
 
   // Vector arithmetic
@@ -176,9 +185,9 @@ class Size<3, T> final {
 
   // Conversion
   template <typename U>
-  explicit operator Vector3<U>() { return vector; }
+  explicit operator Vector3<U>&() { return vector; }
   template <typename U>
-  explicit operator const Vector3<U>() const { return vector; }
+  explicit operator const Vector3<U>&() const { return vector; }
 
   // Iterator
   Iterator begin() { return vector.begin(); }
@@ -195,16 +204,12 @@ class Size<3, T> final {
   const T * ptr() const { return vector.ptr(); }
 
  public:
-  Vector3<T> vector;
-
-  // Aliases
-  T& width;
-  T& height;
-  T& depth;
+  union {
+    Vector3<T> vector;
+    struct { T width; T height; T depth; };
+    struct { T w; T h; T d; };
+  };
 };
-
-template <typename T>
-const std::size_t Size3<T>::Dimension = 3;
 
 using Size3i = Size3<int>;
 using Size3f = Size3<float>;
@@ -214,80 +219,61 @@ using Size3d = Size3<double>;
 
 template < typename T>
 inline Size3<T>::Size()
-    : width(vector.x),
-      height(vector.y),
-      depth(vector.z) {}
+    : vector() {}
 
 template <typename T>
 inline Size3<T>::Size(T value)
-    : vector(value),
-      width(vector.x),
-      height(vector.y),
-      depth(vector.z) {}
+    : vector(value) {}
 
 template <typename T>
 inline Size3<T>::Size(T width, T height, T depth)
-    : vector(width, height, depth),
-      width(vector.x),
-      height(vector.y),
-      depth(vector.z) {}
+    : vector(width, height, depth) {}
 
 template <typename T>
 inline Size3<T>::Size(std::initializer_list<T> list)
-    : vector(list),
-      width(vector.x),
-      height(vector.y),
-      depth(vector.z) {}
+    : vector(list) {}
 
 template <typename T>
 template <typename Container>
-inline Size3<T>::Size(const Container& values)
-    : vector(values),
-      width(vector.x),
-      height(vector.y) {}
+inline Size3<T>::Size(const Container& container)
+    : vector(container) {}
+
+template <typename T>
+template <typename InputIterator>
+inline Size3<T>::Size(InputIterator begin, InputIterator end)
+    : vector(begin, end) {}
 
 #pragma mark Implicit conversion
 
 template <typename T>
 template <typename U>
 inline Size3<T>::Size(const Size3<U>& other)
-    : vector(other.vector),
-      width(vector.x),
-      height(vector.y),
-      depth(vector.z) {}
+    : vector(other.vector) {}
 
 #pragma mark Explicit conversion
 
 template <typename T>
 template <typename U>
 inline Size3<T>::Size(const Size2<U>& other)
-    : vector(other.vector),
-      width(vector.x),
-      height(vector.y),
-      depth(vector.z) {}
+    : vector(other.vector) {}
 
 template <typename T>
 inline Size3<T>::Size(const Vector2<T>& other)
-    : vector(other),
-      width(vector.x),
-      height(vector.y),
-      depth() {}
+    : vector(other) {}
 
 template <typename T>
 inline Size3<T>::Size(const Vector3<T>& other)
-    : vector(other),
-      width(vector.x),
-      height(vector.y),
-      depth(vector.z) {}
+    : vector(other) {}
+
+template <typename T>
+inline Size3<T>::Size(const Vector4<T>& other)
+    : vector(other) {}
 
 #pragma mark Copy and assign
 
 template <typename T>
 inline Size3<T>::Size(const Size3<T>& other)
-    : vector(other.vector),
-      width(vector.x),
-      height(vector.y),
-      depth(vector.z) {}
+    : vector(other.vector) {}
 
 template <typename T>
 inline Size3<T>& Size3<T>::operator=(const Size3<T>& other) {
@@ -349,8 +335,14 @@ inline void Size3<T>::set(std::initializer_list<T> list) {
 
 template <typename T>
 template <typename Container>
-inline void Size3<T>::set(const Container& values) {
-  vector.set(values);
+inline void Size3<T>::set(const Container& container) {
+  vector.set(container);
+}
+
+template <typename T>
+template <typename InputIterator>
+inline void Size3<T>::set(InputIterator begin, InputIterator end) {
+  vector.set(begin, end);
 }
 
 template <typename T>
@@ -361,23 +353,23 @@ inline void Size3<T>::reset() {
 #pragma mark Element access
 
 template <typename T>
-inline T& Size3<T>::at(int index) {
+inline T& Size3<T>::at(Index index) {
   return vector.at(index);
 }
 
 template <typename T>
-inline const T& Size3<T>::at(int index) const {
+inline const T& Size3<T>::at(Index index) const {
   return vector.at(index);
 }
 
 template <typename T>
 inline T& Size3<T>::at(Axis axis) {
-  return vector.at(axis);
+  return at(static_cast<Index>(axis));
 }
 
 template <typename T>
 inline const T& Size3<T>::at(Axis axis) const {
-  return vector.at(axis);
+  return at(static_cast<Index>(axis));
 }
 
 #pragma mark Comparison
@@ -500,32 +492,30 @@ inline Size3<T>& Size3<T>::operator/=(T scalar) {
 }
 
 template <typename T>
-template <typename U, std::enable_if_t<std::is_scalar<U>::value> *>
+template <typename U, EnableIfScalar<U> *>
 inline Size3<Promote<T, U>> Size3<T>::operator+(U scalar) const {
   return Size3<Promote<T, U>>(vector + scalar);
 }
 
 template <typename T>
-template <typename U, std::enable_if_t<std::is_scalar<U>::value> *>
+template <typename U, EnableIfScalar<U> *>
 inline Size3<Promote<T, U>> Size3<T>::operator-(U scalar) const {
   return Size3<Promote<T, U>>(vector - scalar);
 }
 
 template <typename T>
-template <typename U, std::enable_if_t<std::is_scalar<U>::value> *>
+template <typename U, EnableIfScalar<U> *>
 inline Size3<Promote<T, U>> Size3<T>::operator*(U scalar) const {
   return Size3<Promote<T, U>>(vector * scalar);
 }
 
 template <typename T>
-template <typename U, std::enable_if_t<std::is_scalar<U>::value> *>
+template <typename U, EnableIfScalar<U> *>
 inline Size3<Promote<T, U>> Size3<T>::operator/(U scalar) const {
   return Size3<Promote<T, U>>(vector / scalar);
 }
 
-template <
-  typename T, typename U,
-  std::enable_if_t<std::is_scalar<U>::value> * = nullptr>
+template <typename T, typename U, EnableIfScalar<U> * = nullptr>
 inline Size3<Promote<T, U>> operator*(U scalar, const Size3<T>& size) {
   return size * scalar;
 }

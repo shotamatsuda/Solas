@@ -28,4 +28,9 @@
 #ifndef SOLAS_GRAPHICS_H_
 #define SOLAS_GRAPHICS_H_
 
+#include "solas/graphics/color.h"
+#include "solas/graphics/context_holder.h"
+#include "solas/graphics/core_graphics_renderer.h"
+#include "solas/graphics/renderer.h"
+
 #endif  // SOLAS_GRAPHICS_H_

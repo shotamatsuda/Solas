@@ -30,40 +30,40 @@
 
 #include <cassert>
 #include <cmath>
-#include <cstddef>
 #include <initializer_list>
 #include <iterator>
 #include <limits>
 #include <ostream>
-#include <type_traits>
 #include <utility>
 
 #include "solas/math/axis.h"
 #include "solas/math/promotion.h"
 #include "solas/math/random.h"
+#include "solas/utility/enablers.h"
 
 namespace solas {
 namespace math {
 
-template <std::size_t Dimension, typename T>
+template <typename T, int D>
 class Vector;
 
 template <typename T>
-using Vector2 = Vector<2, T>;
+using Vector2 = Vector<T, 2>;
 template <typename T>
-using Vector3 = Vector<3, T>;
+using Vector3 = Vector<T, 3>;
 template <typename T>
-using Vector4 = Vector<4, T>;
+using Vector4 = Vector<T, 4>;
 
 template <typename T>
-class Vector<2, T> final {
+class Vector<T, 2> final {
  public:
   using Type = T;
+  using Index = typename std::underlying_type<Axis>::type;
   using Iterator = T *;
   using ConstIterator = const T *;
   using ReverseIterator = std::reverse_iterator<Iterator>;
   using ConstReverseIterator = std::reverse_iterator<ConstIterator>;
-  static const std::size_t Dimension;
+  static constexpr int dimensions = 2;
 
  public:
   // Constructors
@@ -72,7 +72,9 @@ class Vector<2, T> final {
   Vector(T x, T y);
   Vector(std::initializer_list<T> list);
   template <typename Container>
-  explicit Vector(const Container& values);
+  explicit Vector(const Container& container);
+  template <typename InputIterator>
+  Vector(InputIterator begin, InputIterator end);
 
   // Implicit conversion
   template <typename U>
@@ -101,18 +103,24 @@ class Vector<2, T> final {
   void set(T x, T y);
   void set(std::initializer_list<T> list);
   template <typename Container>
-  void set(const Container& values);
+  void set(const Container& container);
+  template <typename InputIterator>
+  void set(InputIterator begin, InputIterator end);
   void reset();
 
   // Element access
-  T& operator[](int index) { return at(index); }
-  const T& operator[](int index) const { return at(index); }
+  T& operator[](Index index) { return at(index); }
+  const T& operator[](Index index) const { return at(index); }
   T& operator[](Axis axis) { return at(axis); }
   const T& operator[](Axis axis) const { return at(axis); }
-  T& at(int index);
-  const T& at(int index) const;
+  T& at(Index index);
+  const T& at(Index index) const;
   T& at(Axis axis);
   const T& at(Axis axis) const;
+  T& front() { return x; }
+  const T& front() const { return x; }
+  T& back() { return y; }
+  const T& back() const { return y; }
 
   // Comparison
   template <typename U>
@@ -148,13 +156,13 @@ class Vector<2, T> final {
   Vector2<T>& operator-=(T scalar);
   Vector2<T>& operator*=(T scalar);
   Vector2<T>& operator/=(T scalar);
-  template <typename U, std::enable_if_t<std::is_scalar<U>::value> * = nullptr>
+  template <typename U, EnableIfScalar<U> * = nullptr>
   Vector2<Promote<T, U>> operator+(U scalar) const;
-  template <typename U, std::enable_if_t<std::is_scalar<U>::value> * = nullptr>
+  template <typename U, EnableIfScalar<U> * = nullptr>
   Vector2<Promote<T, U>> operator-(U scalar) const;
-  template <typename U, std::enable_if_t<std::is_scalar<U>::value> * = nullptr>
+  template <typename U, EnableIfScalar<U> * = nullptr>
   Vector2<Promote<T, U>> operator*(U scalar) const;
-  template <typename U, std::enable_if_t<std::is_scalar<U>::value> * = nullptr>
+  template <typename U, EnableIfScalar<U> * = nullptr>
   Vector2<Promote<T, U>> operator/(U scalar) const;
 
   // Attributes
@@ -217,9 +225,6 @@ class Vector<2, T> final {
   T y;
 };
 
-template <typename T>
-const std::size_t Vector2<T>::Dimension = 2;
-
 using Vector2i = Vector2<int>;
 using Vector2f = Vector2<float>;
 using Vector2d = Vector2<double>;
@@ -232,7 +237,7 @@ using Vec2d = Vec2<double>;
 
 #pragma mark -
 
-template < typename T>
+template <typename T>
 inline Vector2<T>::Vector()
     : x(),
       y() {}
@@ -254,8 +259,14 @@ inline Vector2<T>::Vector(std::initializer_list<T> list) {
 
 template <typename T>
 template <typename Container>
-inline Vector2<T>::Vector(const Container& values) {
-  set(values);
+inline Vector2<T>::Vector(const Container& container) {
+  set(container);
+}
+
+template <typename T>
+template <typename InputIterator>
+inline Vector2<T>::Vector(InputIterator begin, InputIterator end) {
+  set(begin, end);
 }
 
 #pragma mark Implicit conversion
@@ -334,19 +345,22 @@ inline void Vector2<T>::set(T x, T y) {
 
 template <typename T>
 inline void Vector2<T>::set(std::initializer_list<T> list) {
-  reset();
-  auto itr = list.begin();
-  if (itr == list.end()) return; x = *itr++;
-  if (itr == list.end()) return; y = *itr++;
+  set(list.begin(), list.end());
 }
 
 template <typename T>
 template <typename Container>
-inline void Vector2<T>::set(const Container& values) {
+inline void Vector2<T>::set(const Container& container) {
+  set(container.begin(), container.end());
+}
+
+template <typename T>
+template <typename InputIterator>
+inline void Vector2<T>::set(InputIterator begin, InputIterator end) {
   reset();
-  auto itr = values.begin();
-  if (itr == values.end()) return; x = *itr++;
-  if (itr == values.end()) return; y = *itr++;
+  auto itr = begin;
+  if (itr == end) return; x = *itr++;
+  if (itr == end) return; y = *itr++;
 }
 
 template <typename T>
@@ -357,7 +371,7 @@ inline void Vector2<T>::reset() {
 #pragma mark Element access
 
 template <typename T>
-inline T& Vector2<T>::at(int index) {
+inline T& Vector2<T>::at(Index index) {
   switch (index) {
     case 0:
       return x;
@@ -371,7 +385,7 @@ inline T& Vector2<T>::at(int index) {
 }
 
 template <typename T>
-inline const T& Vector2<T>::at(int index) const {
+inline const T& Vector2<T>::at(Index index) const {
   switch (index) {
     case 0:
       return x;
@@ -386,12 +400,12 @@ inline const T& Vector2<T>::at(int index) const {
 
 template <typename T>
 inline T& Vector2<T>::at(Axis axis) {
-  return at(static_cast<int>(axis));
+  return at(static_cast<Index>(axis));
 }
 
 template <typename T>
 inline const T& Vector2<T>::at(Axis axis) const {
-  return at(static_cast<int>(axis));
+  return at(static_cast<Index>(axis));
 }
 
 #pragma mark Comparison
@@ -539,7 +553,7 @@ inline Vector2<T>& Vector2<T>::operator/=(T scalar) {
 }
 
 template <typename T>
-template <typename U, std::enable_if_t<std::is_scalar<U>::value> *>
+template <typename U, EnableIfScalar<U> *>
 inline Vector2<Promote<T, U>> Vector2<T>::operator+(U scalar) const {
   using V = Promote<T, U>;
   return Vector2<V>(static_cast<V>(x) + scalar,
@@ -547,7 +561,7 @@ inline Vector2<Promote<T, U>> Vector2<T>::operator+(U scalar) const {
 }
 
 template <typename T>
-template <typename U, std::enable_if_t<std::is_scalar<U>::value> *>
+template <typename U, EnableIfScalar<U> *>
 inline Vector2<Promote<T, U>> Vector2<T>::operator-(U scalar) const {
   using V = Promote<T, U>;
   return Vector2<V>(static_cast<V>(x) - scalar,
@@ -555,7 +569,7 @@ inline Vector2<Promote<T, U>> Vector2<T>::operator-(U scalar) const {
 }
 
 template <typename T>
-template <typename U, std::enable_if_t<std::is_scalar<U>::value> *>
+template <typename U, EnableIfScalar<U> *>
 inline Vector2<Promote<T, U>> Vector2<T>::operator*(U scalar) const {
   using V = Promote<T, U>;
   return Vector2<V>(static_cast<V>(x) * scalar,
@@ -563,7 +577,7 @@ inline Vector2<Promote<T, U>> Vector2<T>::operator*(U scalar) const {
 }
 
 template <typename T>
-template <typename U, std::enable_if_t<std::is_scalar<U>::value> *>
+template <typename U, EnableIfScalar<U> *>
 inline Vector2<Promote<T, U>> Vector2<T>::operator/(U scalar) const {
   using V = Promote<T, U>;
   assert(scalar);
@@ -571,9 +585,7 @@ inline Vector2<Promote<T, U>> Vector2<T>::operator/(U scalar) const {
                     static_cast<V>(y) / scalar);
 }
 
-template <
-  typename T, typename U,
-  std::enable_if_t<std::is_scalar<U>::value> * = nullptr>
+template <typename T, typename U, EnableIfScalar<U> * = nullptr>
 inline Vector2<Promote<T, U>> operator*(U scalar, const Vector2<T>& vector) {
   return vector * scalar;
 }

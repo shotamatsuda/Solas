@@ -29,7 +29,6 @@
 #define SOLAS_MATH_LINE2_H_
 
 #include <cassert>
-#include <cstddef>
 #include <initializer_list>
 #include <iterator>
 #include <ostream>
@@ -41,23 +40,23 @@
 namespace solas {
 namespace math {
 
-template <std::size_t Dimension, typename T>
+template <typename T, int D>
 class Line;
 
 template <typename T>
-using Line2 = Line<2, T>;
+using Line2 = Line<T, 2>;
 template <typename T>
-using Line3 = Line<3, T>;
+using Line3 = Line<T, 3>;
 
 template <typename T>
-class Line<2, T> final {
+class Line<T, 2> final {
  public:
   using Type = T;
   using Iterator = Vector2<T> *;
   using ConstIterator = const Vector2<T> *;
   using ReverseIterator = std::reverse_iterator<Iterator>;
   using ConstReverseIterator = std::reverse_iterator<ConstIterator>;
-  static const std::size_t Dimension;
+  static constexpr auto dimensions = Vector2<T>::dimensions;
 
  public:
   // Constructors
@@ -67,7 +66,9 @@ class Line<2, T> final {
   Line(std::initializer_list<T> list);
   Line(std::initializer_list<Vector2<T>> list);
   template <typename Container>
-  explicit Line(const Container& vertices);
+  explicit Line(const Container& container);
+  template <typename InputIterator>
+  Line(InputIterator begin, InputIterator end);
 
   // Implicit conversion
   template <typename U>
@@ -89,14 +90,20 @@ class Line<2, T> final {
   void set(std::initializer_list<T> list);
   void set(std::initializer_list<Vector2<T>> list);
   template <typename Container>
-  void set(const Container& vertices);
+  void set(const Container& container);
+  template <typename InputIterator>
+  void set(InputIterator begin, InputIterator end);
   void reset();
 
   // Element access
-  T& operator[](int index) { return at(index); }
-  const T& operator[](int index) const { return at(index); }
-  T& at(int index);
-  const T& at(int index) const;
+  Vector2<T>& operator[](int index) { return at(index); }
+  const Vector2<T>& operator[](int index) const { return at(index); }
+  Vector2<T>& at(int index);
+  const Vector2<T>& at(int index) const;
+  Vector2<T>& front() { return a; }
+  const Vector2<T>& front() const { return a; }
+  Vector2<T>& back() { return b; }
+  const Vector2<T>& back() const { return b; }
 
   // Comparison
   template <typename U>
@@ -119,12 +126,15 @@ class Line<2, T> final {
   const Vector2<T> * ptr() const { return &a; }
 
  public:
-  Vector2<T> a;
-  Vector2<T> b;
+  union {
+    Vector2<T> a;
+    struct { T x1; T y1; };
+  };
+  union {
+    Vector2<T> b;
+    struct { T x2; T y2; };
+  };
 };
-
-template <typename T>
-const std::size_t Line2<T>::Dimension = 2;
 
 using Line2i = Line2<int>;
 using Line2f = Line2<float>;
@@ -154,8 +164,14 @@ inline Line2<T>::Line(std::initializer_list<Vector2<T>> list) {
 
 template <typename T>
 template <typename Container>
-inline Line2<T>::Line(const Container& vertices) {
-  set(vertices);
+inline Line2<T>::Line(const Container& container) {
+  set(container);
+}
+
+template <typename T>
+template <typename InputIterator>
+inline Line2<T>::Line(InputIterator begin, InputIterator end) {
+  set(begin, end);
 }
 
 #pragma mark Copy and assign
@@ -198,19 +214,22 @@ inline void Line2<T>::set(std::initializer_list<T> list) {
 
 template <typename T>
 inline void Line2<T>::set(std::initializer_list<Vector2<T>> list) {
-  reset();
-  auto itr = list.begin();
-  if (itr == list.end()) return; a = *itr++;
-  if (itr == list.end()) return; b = *itr++;
+  set(list.begin(), list.end());
 }
 
 template <typename T>
 template <typename Container>
-inline void Line2<T>::set(const Container& vertices) {
+inline void Line2<T>::set(const Container& container) {
+  set(container.begin(), container.end());
+}
+
+template <typename T>
+template <typename InputIterator>
+inline void Line2<T>::set(InputIterator begin, InputIterator end) {
   reset();
-  auto itr = std::begin(vertices);
-  if (itr == std::end(vertices)) return; a = decltype(a)(*itr++);
-  if (itr == std::end(vertices)) return; b = decltype(b)(*itr++);
+  auto itr = begin;
+  if (itr == end) return; a = decltype(a)(*itr++);
+  if (itr == end) return; b = decltype(b)(*itr++);
 }
 
 template <typename T>
@@ -221,7 +240,7 @@ inline void Line2<T>::reset() {
 #pragma mark Element access
 
 template <typename T>
-inline T& Line2<T>::at(int index) {
+inline Vector2<T>& Line2<T>::at(int index) {
   switch (index) {
     case 0:
       return a;
@@ -235,7 +254,7 @@ inline T& Line2<T>::at(int index) {
 }
 
 template <typename T>
-inline const T& Line2<T>::at(int index) const {
+inline const Vector2<T>& Line2<T>::at(int index) const {
   switch (index) {
     case 0:
       return a;

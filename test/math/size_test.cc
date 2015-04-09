@@ -70,8 +70,6 @@ using Types = ::testing::Types<
   std::uint16_t,
   std::int32_t,
   std::uint32_t,
-  std::int64_t,
-  std::uint64_t,
   float,
   double
 >;
@@ -154,6 +152,46 @@ TYPED_TEST(SizeTest, ConstructibleWithInitializerList) {
   ASSERT_EQ(s3_5.width, width);
   ASSERT_EQ(s3_5.height, height);
   ASSERT_EQ(s3_5.depth, depth);
+}
+
+TYPED_TEST(SizeTest, ConstructibleWithContainer) {
+  const auto w = this->Random();
+  const auto h = this->Random();
+  const auto d = this->Random();
+
+  Size2<TypeParam> s2_1(std::vector<TypeParam>{});
+  ASSERT_EQ(s2_1.width, TypeParam());
+  ASSERT_EQ(s2_1.height, TypeParam());
+  Size2<TypeParam> s2_2(std::vector<TypeParam>{w});
+  ASSERT_EQ(s2_2.width, w);
+  ASSERT_EQ(s2_2.height, TypeParam());
+  Size2<TypeParam> s2_3(std::vector<TypeParam>{w, h});
+  ASSERT_EQ(s2_3.width, w);
+  ASSERT_EQ(s2_3.height, h);
+  Size2<TypeParam> s2_4(std::vector<TypeParam>{w, h, this->Random()});
+  ASSERT_EQ(s2_4.width, w);
+  ASSERT_EQ(s2_4.height, h);
+
+  Size3<TypeParam> s3_1(std::vector<TypeParam>{});
+  ASSERT_EQ(s3_1.width, TypeParam());
+  ASSERT_EQ(s3_1.height, TypeParam());
+  ASSERT_EQ(s3_1.depth, TypeParam());
+  Size3<TypeParam> s3_2(std::vector<TypeParam>{w});
+  ASSERT_EQ(s3_2.width, w);
+  ASSERT_EQ(s3_2.height, TypeParam());
+  ASSERT_EQ(s3_2.depth, TypeParam());
+  Size3<TypeParam> s3_3(std::vector<TypeParam>{w, h});
+  ASSERT_EQ(s3_3.width, w);
+  ASSERT_EQ(s3_3.height, h);
+  ASSERT_EQ(s3_3.depth, TypeParam());
+  Size3<TypeParam> s3_4(std::vector<TypeParam>{w, h, d});
+  ASSERT_EQ(s3_4.width, w);
+  ASSERT_EQ(s3_4.height, h);
+  ASSERT_EQ(s3_4.depth, d);
+  Size3<TypeParam> s3_5(std::vector<TypeParam>{w, h, d, this->Random()});
+  ASSERT_EQ(s3_5.width, w);
+  ASSERT_EQ(s3_5.height, h);
+  ASSERT_EQ(s3_5.depth, d);
 }
 
 TYPED_TEST(SizeTest, CopyConstructible) {
