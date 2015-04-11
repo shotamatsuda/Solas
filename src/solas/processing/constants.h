@@ -52,6 +52,9 @@ constexpr Real DEG_TO_RAD = math::degree<Real>;
 constexpr Real RAD_TO_DEG = math::radian<Real>;
 
 enum Constant {
+  // General
+  NONE,
+
   // Shapes
   VERTEX,
   BEZIER_VERTEX,
@@ -178,6 +181,10 @@ enum Constant {
   AMBIENT,
   DIRECTIONAL,
   SPOT,
+
+  // Mouse constants
+  MIDDLE,
+  OTHER,
 
   // Key constants
   BACKSPACE,

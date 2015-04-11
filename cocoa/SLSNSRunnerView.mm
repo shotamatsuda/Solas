@@ -52,6 +52,12 @@
 
 #pragma mark Creating Events
 
+- (solas::app::MouseEvent)mouseEventWithEvent:(NSEvent *)event
+    type:(solas::app::MouseEvent::Type)type;
+- (solas::app::KeyEvent)keyEventWithEvent:(NSEvent *)event
+    type:(solas::app::KeyEvent::Type)type;
+- (solas::app::TouchEvent)touchEventWithEvent:(NSEvent *)event
+    type:(solas::app::TouchEvent::Type)type;
 - (solas::app::KeyModifier)keyModifiersForEvent:(NSEvent *)event;
 
 @end
@@ -206,10 +212,12 @@
 
 #pragma mark Creating Events
 
-- (solas::app::MouseEvent)mouseEventWithEvent:(NSEvent *)event {
+- (solas::app::MouseEvent)mouseEventWithEvent:(NSEvent *)event
+    type:(solas::app::MouseEvent::Type)type {
   const CGPoint location = [self convertPoint:event.locationInWindow
                                      fromView:self.window.contentView];
   const solas::app::MouseEvent mouseEvent(
+      type,
       solas::math::Vec2d(location.x, location.y),
       solas::math::Vec2d(_previousMouseLocation.x, _previousMouseLocation.y),
       static_cast<solas::app::MouseButton>(event.buttonNumber),
@@ -219,11 +227,13 @@
   return std::move(mouseEvent);
 }
 
-- (solas::app::KeyEvent)keyEventWithEvent:(NSEvent *)event {
+- (solas::app::KeyEvent)keyEventWithEvent:(NSEvent *)event
+    type:(solas::app::KeyEvent::Type)type {
   return solas::app::KeyEvent();
 }
 
-- (solas::app::TouchEvent)touchEventWithEvent:(NSEvent *)event {
+- (solas::app::TouchEvent)touchEventWithEvent:(NSEvent *)event
+    type:(solas::app::TouchEvent::Type)type {
   return solas::app::TouchEvent();
 }
 
@@ -255,91 +265,104 @@
 
 - (void)notifyMouseDownWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:mouseDown:)]) {
-    const auto mouseEvent([self mouseEventWithEvent:event]);
+    const auto mouseEvent([self mouseEventWithEvent:event
+        type:solas::app::MouseEvent::Type::DOWN]);
     [_eventDelegate sender:self mouseDown:SLSMouseEventMake(&mouseEvent)];
   }
 }
 
 - (void)notifyMouseDragWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:mouseDrag:)]) {
-    const auto mouseEvent([self mouseEventWithEvent:event]);
+    const auto mouseEvent([self mouseEventWithEvent:event
+        type:solas::app::MouseEvent::Type::DRAG]);
     [_eventDelegate sender:self mouseDrag:SLSMouseEventMake(&mouseEvent)];
   }
 }
 
 - (void)notifyMouseUpWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:mouseUp:)]) {
-    const auto mouseEvent([self mouseEventWithEvent:event]);
+    const auto mouseEvent([self mouseEventWithEvent:event
+        type:solas::app::MouseEvent::Type::UP]);
     [_eventDelegate sender:self mouseUp:SLSMouseEventMake(&mouseEvent)];
   }
 }
 
 - (void)notifyMouseMoveWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:mouseMove:)]) {
-    const auto mouseEvent([self mouseEventWithEvent:event]);
+    const auto mouseEvent([self mouseEventWithEvent:event
+        type:solas::app::MouseEvent::Type::MOVE]);
     [_eventDelegate sender:self mouseMove:SLSMouseEventMake(&mouseEvent)];
   }
 }
 
 - (void)notifyMouseEnterWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:mouseEnter:)]) {
-    const auto mouseEvent([self mouseEventWithEvent:event]);
+    const auto mouseEvent([self mouseEventWithEvent:event
+        type:solas::app::MouseEvent::Type::ENTER]);
     [_eventDelegate sender:self mouseEnter:SLSMouseEventMake(&mouseEvent)];
   }
 }
 
 - (void)notifyMouseExitWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:mouseExit:)]) {
-    const auto mouseEvent([self mouseEventWithEvent:event]);
+    const auto mouseEvent([self mouseEventWithEvent:event
+        type:solas::app::MouseEvent::Type::EXIT]);
     [_eventDelegate sender:self mouseExit:SLSMouseEventMake(&mouseEvent)];
   }
 }
 
 - (void)notifyScrollWheelWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:scrollWheel:)]) {
-    const auto mouseEvent([self mouseEventWithEvent:event]);
+    const auto mouseEvent([self mouseEventWithEvent:event
+        type:solas::app::MouseEvent::Type::WHEEL]);
     [_eventDelegate sender:self scrollWheel:SLSMouseEventMake(&mouseEvent)];
   }
 }
 
 - (void)notifyKeyDownWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:keyDown:)]) {
-    const auto keyEvent([self keyEventWithEvent:event]);
+    const auto keyEvent([self keyEventWithEvent:event
+        type:solas::app::KeyEvent::Type::DOWN]);
     [_eventDelegate sender:self keyDown:SLSKeyEventMake(&keyEvent)];
   }
 }
 
 - (void)notifyKeyUpWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:keyUp:)]) {
-    const auto keyEvent([self keyEventWithEvent:event]);
+    const auto keyEvent([self keyEventWithEvent:event
+        type:solas::app::KeyEvent::Type::UP]);
     [_eventDelegate sender:self keyUp:SLSKeyEventMake(&keyEvent)];
   }
 }
 
 - (void)notifyTouchesBeginWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:touchesBegin:)]) {
-    const auto touchEvent([self touchEventWithEvent:event]);
+    const auto touchEvent([self touchEventWithEvent:event
+        type:solas::app::TouchEvent::Type::BEGIN]);
     [_eventDelegate sender:self touchesBegin:SLSTouchEventMake(&touchEvent)];
   }
 }
 
 - (void)notifyTouchesMoveWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:touchesMove:)]) {
-    const auto touchEvent([self touchEventWithEvent:event]);
+    const auto touchEvent([self touchEventWithEvent:event
+        type:solas::app::TouchEvent::Type::MOVE]);
     [_eventDelegate sender:self touchesMove:SLSTouchEventMake(&touchEvent)];
   }
 }
 
 - (void)notifyTouchesCancelWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:touchesCancel:)]) {
-    const auto touchEvent([self touchEventWithEvent:event]);
+    const auto touchEvent([self touchEventWithEvent:event
+        type:solas::app::TouchEvent::Type::CANCEL]);
     [_eventDelegate sender:self touchesCancel:SLSTouchEventMake(&touchEvent)];
   }
 }
 
 - (void)notifyTouchesEndWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:touchesEnd:)]) {
-    const auto touchEvent([self touchEventWithEvent:event]);
+    const auto touchEvent([self touchEventWithEvent:event
+        type:solas::app::TouchEvent::Type::END]);
     [_eventDelegate sender:self touchesEnd:SLSTouchEventMake(&touchEvent)];
   }
 }

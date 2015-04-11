@@ -40,6 +40,7 @@ namespace app {
 class MouseEvent final {
  public:
   enum class Type {
+    UNDEFINED,
     DOWN,
     DRAG,
     UP,
@@ -52,7 +53,8 @@ class MouseEvent final {
  public:
   // Constructors
   MouseEvent();
-  MouseEvent(const math::Vec2d& location,
+  MouseEvent(Type type,
+             const math::Vec2d& location,
              const math::Vec2d& previous_location,
              MouseButton button,
              KeyModifier modifiers,
@@ -66,12 +68,13 @@ class MouseEvent final {
   MouseEvent& operator=(const MouseEvent& other) = delete;
 
   // Attributes
-  bool empty() const { return button == MouseButton::UNDEFINED; }
+  bool empty() const { return type == Type::UNDEFINED; }
 
   // Conversion
   operator bool() const { return !empty(); }
 
  public:
+  const Type type;
   const math::Vec2d location;
   const math::Vec2d previous_location;
   const MouseButton button;
@@ -82,15 +85,18 @@ class MouseEvent final {
 #pragma mark -
 
 inline MouseEvent::MouseEvent()
-    : button(MouseButton::UNDEFINED),
+    : type(Type::UNDEFINED),
+      button(MouseButton::UNDEFINED),
       modifiers(KeyModifier::NONE) {}
 
-inline MouseEvent::MouseEvent(const math::Vec2d& location,
+inline MouseEvent::MouseEvent(Type type,
+                              const math::Vec2d& location,
                               const math::Vec2d& previous_location,
                               MouseButton button,
                               KeyModifier modifiers,
                               const math::Vec3d& wheel)
-    : location(location),
+    : type(type),
+      location(location),
       previous_location(previous_location),
       button(button),
       modifiers(modifiers),

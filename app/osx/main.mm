@@ -26,28 +26,84 @@
 
 #include <iostream>
 
-#include "solas/math.h"
 #include "solas/app.h"
-#include "solas/graphics.h"
+#include "solas/processing.h"
 
-class App : public solas::app::Runnable {
+namespace app {
+
+using namespace solas::processing;
+
+class Sketch : public solas::processing::Sketch {
  public:
+  void setup() {
+  }
+
+  void update() {
+  }
+
+  void draw() {
+    background(0xff);
+    ellipse(100, 100, 100, 100);
+  }
+
+  void post() {
+  }
+
+  void exit() {
+  }
+
+  void mousePressed() {
+  }
+
+  void mouseDragged() {
+    ellipse(mouse_x(), mouse_y(), 100, 100);
+  }
+
+  void mouseReleased() {
+  }
+
+  void mouseMoved() {
+  }
+
+  void mouseEntered() {
+  }
+
+  void mouseExited() {
+  }
+
+  void mouseWheel() {
+  }
+
+  void keyPressed() {
+  }
+
+  void keyReleased() {
+  }
+
+  void touchesBegan() {
+  }
+
+  void touchesMoved() {
+  }
+
+  void touchesCancelled() {
+  }
+
+  void touchesEnded() {
+  }
+
+  void motionBegan() {
+  }
+
+  void motionCancelled() {
+  }
+
+  void motionEnded() {
+  }
 };
 
+}  // namespace app
+
 int main(int argc, char **argv) {
-
-  std::cout << "bool " << typeid(bool).name() << std::endl;
-  std::cout << "char " << typeid(char).name() << std::endl;
-  std::cout << "int8_t " << typeid(std::int8_t).name() << std::endl;
-  std::cout << "uint8_t " << typeid(std::uint8_t).name() << std::endl;
-  std::cout << "int16_t " << typeid(std::int16_t).name() << std::endl;
-  std::cout << "uint16_t " << typeid(std::uint16_t).name() << std::endl;
-  std::cout << "int32_t " << typeid(std::int32_t).name() << std::endl;
-  std::cout << "uint32_t " << typeid(std::uint32_t).name() << std::endl;
-  std::cout << "int64_t " << typeid(std::int64_t).name() << std::endl;
-  std::cout << "uint64_t " << typeid(std::uint64_t).name() << std::endl;
-  std::cout << "float " << typeid(float).name() << std::endl;
-  std::cout << "double " << typeid(double).name() << std::endl;
-
-  return solas::app::Run<App>(argc, argv);
+  return solas::app::Run<app::Sketch>(argc, argv);
 }

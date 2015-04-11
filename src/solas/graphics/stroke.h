@@ -37,11 +37,13 @@ enum class StrokeType {
   NONE,
   SOLID
 };
+
 enum class StrokeCap {
   SQUARE,
   PROJECT,
   ROUND
 };
+
 enum class StrokeJoin {
   MITER,
   BEVEL,
@@ -56,6 +58,7 @@ class Stroke {
  public:
   // Constructors
   Stroke();
+  Stroke(const Color4<T>& color, T weight);
   Stroke(const Color4<T>& color, T weight, StrokeCap cap, StrokeJoin join);
 
   // Copy and assign
@@ -85,6 +88,14 @@ template <typename T>
 inline Stroke<T>::Stroke()
     : type(StrokeType::NONE),
       weight(),
+      cap(StrokeCap::SQUARE),
+      join(StrokeJoin::MITER) {}
+
+template <typename T>
+inline Stroke<T>::Stroke(const Color4<T>& color, T weight)
+    : type(StrokeType::SOLID),
+      color(color),
+      weight(weight),
       cap(StrokeCap::SQUARE),
       join(StrokeJoin::MITER) {}
 

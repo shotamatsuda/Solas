@@ -29,8 +29,11 @@
 #define SOLAS_GRAPHICS_H_
 
 #include "solas/graphics/color.h"
+#include "solas/graphics/color_depth.h"
 #include "solas/graphics/context_holder.h"
-#include "solas/graphics/core_graphics_renderer.h"
-#include "solas/graphics/renderer.h"
+#include "solas/graphics/core.h"
+#include "solas/graphics/fill.h"
+#include "solas/graphics/font.h"
+#include "solas/graphics/stroke.h"
 
 #endif  // SOLAS_GRAPHICS_H_

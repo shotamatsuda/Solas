@@ -33,8 +33,8 @@ namespace app {
 
 class GestureEvent final {
  public:
-  // Attributes
-  bool empty() const { return true; }
+  // Constructors
+  GestureEvent() {}
 };
 
 #pragma mark -

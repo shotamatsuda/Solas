@@ -78,7 +78,7 @@ class Runnable {
   virtual void motionCancel(const MotionEvent& event) {}
   virtual void motionEnd(const MotionEvent& event) {}
 
-  // Contexts
+  // Context
   const graphics::ContextHolder& context() const;
 
  private:
@@ -116,7 +116,7 @@ inline void Runnable::exit(const AppEvent& event) {
   exit();
 }
 
-#pragma mark Contexts
+#pragma mark Context
 
 inline const graphics::ContextHolder& Runnable::context() const {
   return context_;

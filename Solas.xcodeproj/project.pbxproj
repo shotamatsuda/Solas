@@ -16,8 +16,6 @@
 		930398531AB2B1BD00577048 /* plane_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 930398501AB2B1BD00577048 /* plane_test.cc */; };
 		930398541AB2B1BD00577048 /* size_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 930398511AB2B1BD00577048 /* size_test.cc */; };
 		930398551AB2B1BD00577048 /* vector_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 930398521AB2B1BD00577048 /* vector_test.cc */; };
-		930D51E01AD3CDE2006EEF1B /* processing.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D51DD1AD3CDE2006EEF1B /* processing.h */; };
-		930D51E11AD3CDE2006EEF1B /* processing.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D51DD1AD3CDE2006EEF1B /* processing.h */; };
 		930D51EA1AD42B76006EEF1B /* color.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D51E71AD42B76006EEF1B /* color.h */; };
 		930D51EB1AD42B76006EEF1B /* color.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D51E71AD42B76006EEF1B /* color.h */; };
 		930D51EC1AD42B76006EEF1B /* color3.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D51E81AD42B76006EEF1B /* color3.h */; };
@@ -25,6 +23,10 @@
 		930D51EE1AD42B76006EEF1B /* color4.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D51E91AD42B76006EEF1B /* color4.h */; };
 		930D51EF1AD42B76006EEF1B /* color4.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D51E91AD42B76006EEF1B /* color4.h */; };
 		930D52021AD52BBF006EEF1B /* color_depth.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D52001AD52BBF006EEF1B /* color_depth.h */; };
+		931CCB8A1AD88A150047542F /* graphics.cc in Sources */ = {isa = PBXBuildFile; fileRef = 931CCB881AD88A150047542F /* graphics.cc */; };
+		931CCB8B1AD88A150047542F /* graphics.cc in Sources */ = {isa = PBXBuildFile; fileRef = 931CCB881AD88A150047542F /* graphics.cc */; };
+		931CCB8C1AD88A150047542F /* graphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 931CCB891AD88A150047542F /* graphics.h */; };
+		931CCB8D1AD88A150047542F /* graphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 931CCB891AD88A150047542F /* graphics.h */; };
 		93229E6D1ACD6DDA008D27EA /* singleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E6C1ACD6DDA008D27EA /* singleton.h */; };
 		93229E6E1ACD6DDA008D27EA /* singleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E6C1ACD6DDA008D27EA /* singleton.h */; };
 		93229E711ACEAF05008D27EA /* null_mutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E701ACEAF05008D27EA /* null_mutex.h */; };
@@ -39,6 +41,16 @@
 		93229F1D1AD24485008D27EA /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229F1A1AD2447C008D27EA /* main.mm */; };
 		93229F1E1AD24487008D27EA /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229F161AD2447C008D27EA /* main.mm */; };
 		93229F241AD2454A008D27EA /* SolasTouch.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93E913761AB27E2600DDF7F9 /* SolasTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		933803231AD88BA800F41F92 /* style.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803221AD88BA800F41F92 /* style.h */; };
+		933803241AD88BA800F41F92 /* style.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803221AD88BA800F41F92 /* style.h */; };
+		933803271AD88DC200F41F92 /* font.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803251AD88DC200F41F92 /* font.cc */; };
+		933803281AD88DC200F41F92 /* font.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803251AD88DC200F41F92 /* font.cc */; };
+		933803291AD88DC200F41F92 /* font.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803261AD88DC200F41F92 /* font.h */; };
+		9338032A1AD88DC200F41F92 /* font.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803261AD88DC200F41F92 /* font.h */; };
+		933803331AD8B7EC00F41F92 /* core.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803311AD8B7EC00F41F92 /* core.cc */; };
+		933803341AD8B7EC00F41F92 /* core.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803311AD8B7EC00F41F92 /* core.cc */; };
+		933803351AD8B7EC00F41F92 /* core.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803321AD8B7EC00F41F92 /* core.h */; };
+		933803361AD8B7EC00F41F92 /* core.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803321AD8B7EC00F41F92 /* core.h */; };
 		934FAAA41AD6E21600FACF2E /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 934FAAA21AD6E21600FACF2E /* math.h */; };
 		934FAAA51AD6E21600FACF2E /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 934FAAA21AD6E21600FACF2E /* math.h */; };
 		934FAAA61AD6E21600FACF2E /* processing.h in Headers */ = {isa = PBXBuildFile; fileRef = 934FAAA31AD6E21600FACF2E /* processing.h */; };
@@ -70,10 +82,6 @@
 		939E96841AD384C500A7E21E /* SLSRunnerLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 939E96801AD384C500A7E21E /* SLSRunnerLayer.mm */; };
 		939E96861AD3864600A7E21E /* SLSCADisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 939E96851AD3864600A7E21E /* SLSCADisplayLink.m */; };
 		939E968A1AD391F800A7E21E /* SLSCVDisplayLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 938987D71AD21F2000DEC9E9 /* SLSCVDisplayLink.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		939E96911AD3B61600A7E21E /* core_graphics_renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 939E968D1AD3B61600A7E21E /* core_graphics_renderer.mm */; };
-		939E96921AD3B61600A7E21E /* core_graphics_renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 939E968D1AD3B61600A7E21E /* core_graphics_renderer.mm */; };
-		939E96931AD3B61600A7E21E /* core_graphics_renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E968E1AD3B61600A7E21E /* core_graphics_renderer.h */; };
-		939E96941AD3B61600A7E21E /* core_graphics_renderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E968E1AD3B61600A7E21E /* core_graphics_renderer.h */; };
 		93A45B271AD0CE1E00969DC2 /* null_mutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E701ACEAF05008D27EA /* null_mutex.h */; };
 		93A45B281AD0CE2500969DC2 /* promotion.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A9C0011ACC4DBC0081D3A0 /* promotion.h */; };
 		93A45B291AD0CE2500969DC2 /* random.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E5F1ACD2FE6008D27EA /* random.h */; };
@@ -90,7 +98,7 @@
 		93A45B3E1AD0D32B00969DC2 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B3D1AD0D32B00969DC2 /* GLKit.framework */; };
 		93A45B401AD0D33800969DC2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B3F1AD0D33700969DC2 /* UIKit.framework */; };
 		93A45B421AD0D94A00969DC2 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B351AD0D23700969DC2 /* boost.framework */; };
-		93A45B431AD0DCDD00969DC2 /* boost.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93A45B351AD0D23700969DC2 /* boost.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		93A45B431AD0DCDD00969DC2 /* boost.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93A45B351AD0D23700969DC2 /* boost.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93A45B461AD1438900969DC2 /* app.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B451AD1438900969DC2 /* app.h */; };
 		93A45B541AD14C4400969DC2 /* gesture_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B4F1AD14C4400969DC2 /* gesture_event.h */; };
 		93A45B551AD14C4400969DC2 /* gesture_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B4F1AD14C4400969DC2 /* gesture_event.h */; };
@@ -139,11 +147,9 @@
 		93CAA6551AD1AE32005EDC09 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		93CAA6571AD1AF01005EDC09 /* SLSNSApplication.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CAA6561AD1AF01005EDC09 /* SLSNSApplication.xib */; };
 		93E15B541AC1AFDE00AA079C /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E913581AB27DE400DDF7F9 /* Solas.framework */; };
-		93E15B561AC1AFFA00AA079C /* Solas.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93E913581AB27DE400DDF7F9 /* Solas.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		93E15B561AC1AFFA00AA079C /* Solas.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93E913581AB27DE400DDF7F9 /* Solas.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93E913951AB27FE600DDF7F9 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F3BCB81AA2215A00FBF369 /* AppKit.framework */; };
 		93E913A11AB2807E00DDF7F9 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E913A01AB2807E00DDF7F9 /* GLKit.framework */; };
-		93E913BE1AB2811500DDF7F9 /* edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913A41AB2811500DDF7F9 /* edge.h */; };
-		93E913BF1AB2811500DDF7F9 /* edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913A41AB2811500DDF7F9 /* edge.h */; };
 		93E913CA1AB2811500DDF7F9 /* line.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913AA1AB2811500DDF7F9 /* line.h */; };
 		93E913CB1AB2811500DDF7F9 /* line.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913AA1AB2811500DDF7F9 /* line.h */; };
 		93E913CE1AB2811500DDF7F9 /* plane.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913AC1AB2811500DDF7F9 /* plane.h */; };
@@ -250,13 +256,14 @@
 		930398501AB2B1BD00577048 /* plane_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = plane_test.cc; sourceTree = "<group>"; };
 		930398511AB2B1BD00577048 /* size_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = size_test.cc; sourceTree = "<group>"; };
 		930398521AB2B1BD00577048 /* vector_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vector_test.cc; sourceTree = "<group>"; };
-		930D51DD1AD3CDE2006EEF1B /* processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = processing.h; sourceTree = "<group>"; };
 		930D51E21AD3CE4E006EEF1B /* context_holder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = context_holder.h; sourceTree = "<group>"; };
 		930D51E71AD42B76006EEF1B /* color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = color.h; sourceTree = "<group>"; };
 		930D51E81AD42B76006EEF1B /* color3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = color3.h; sourceTree = "<group>"; };
 		930D51E91AD42B76006EEF1B /* color4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = color4.h; sourceTree = "<group>"; };
 		930D52001AD52BBF006EEF1B /* color_depth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = color_depth.h; sourceTree = "<group>"; };
 		930D52051AD5530F006EEF1B /* enablers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = enablers.h; sourceTree = "<group>"; };
+		931CCB881AD88A150047542F /* graphics.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = graphics.cc; sourceTree = "<group>"; };
+		931CCB891AD88A150047542F /* graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphics.h; sourceTree = "<group>"; };
 		93229E5F1ACD2FE6008D27EA /* random.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = random.h; sourceTree = "<group>"; };
 		93229E6C1ACD6DDA008D27EA /* singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = singleton.h; sourceTree = "<group>"; };
 		93229E701ACEAF05008D27EA /* null_mutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = null_mutex.h; sourceTree = "<group>"; };
@@ -276,6 +283,12 @@
 		93229F181AD2447C008D27EA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		93229F191AD2447C008D27EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93229F1A1AD2447C008D27EA /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		933803221AD88BA800F41F92 /* style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = style.h; sourceTree = "<group>"; };
+		933803251AD88DC200F41F92 /* font.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = font.cc; sourceTree = "<group>"; };
+		933803261AD88DC200F41F92 /* font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = font.h; sourceTree = "<group>"; };
+		933803311AD8B7EC00F41F92 /* core.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = core.cc; sourceTree = "<group>"; };
+		933803321AD8B7EC00F41F92 /* core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
+		933803371AD8C72400F41F92 /* event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = event.h; sourceTree = "<group>"; };
 		934FAAA21AD6E21600FACF2E /* math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math.h; sourceTree = "<group>"; };
 		934FAAA31AD6E21600FACF2E /* processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = processing.h; sourceTree = "<group>"; };
 		934FAAA81AD6E25400FACF2E /* types.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
@@ -301,10 +314,6 @@
 		939E96801AD384C500A7E21E /* SLSRunnerLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSRunnerLayer.mm; sourceTree = "<group>"; };
 		939E96851AD3864600A7E21E /* SLSCADisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSCADisplayLink.m; sourceTree = "<group>"; };
 		939E96891AD38BB300A7E21E /* SLSRunDisplayDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSRunDisplayDelegate.h; sourceTree = "<group>"; };
-		939E968B1AD3A51700A7E21E /* renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = renderer.h; sourceTree = "<group>"; };
-		939E968D1AD3B61600A7E21E /* core_graphics_renderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = core_graphics_renderer.mm; sourceTree = "<group>"; };
-		939E968E1AD3B61600A7E21E /* core_graphics_renderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core_graphics_renderer.h; sourceTree = "<group>"; };
-		93A281851AD6CBA500E1BE38 /* processing.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = processing.cc; sourceTree = "<group>"; };
 		93A45B351AD0D23700969DC2 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/osx/framework/boost.framework; sourceTree = "<group>"; };
 		93A45B371AD0D25300969DC2 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/ios/framework/boost.framework; sourceTree = "<group>"; };
 		93A45B3D1AD0D32B00969DC2 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/GLKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -354,7 +363,6 @@
 		93E913581AB27DE400DDF7F9 /* Solas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Solas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E913761AB27E2600DDF7F9 /* SolasTouch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SolasTouch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93E913A01AB2807E00DDF7F9 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		93E913A41AB2811500DDF7F9 /* edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = edge.h; sourceTree = "<group>"; };
 		93E913AA1AB2811500DDF7F9 /* line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = line.h; sourceTree = "<group>"; };
 		93E913AC1AB2811500DDF7F9 /* plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plane.h; sourceTree = "<group>"; };
 		93E913AF1AB2811500DDF7F9 /* rect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rect.h; sourceTree = "<group>"; };
@@ -543,10 +551,14 @@
 				934FAAA91AD6E28700FACF2E /* sketch.cc */,
 				934FAAB01AD6E29200FACF2E /* layer.h */,
 				934FAAAF1AD6E29200FACF2E /* layer.cc */,
+				931CCB891AD88A150047542F /* graphics.h */,
+				931CCB881AD88A150047542F /* graphics.cc */,
 				934FAAA81AD6E25400FACF2E /* types.h */,
 				934FAABE1AD6EE4100FACF2E /* constants.h */,
 				934FAABC1AD6EB6700FACF2E /* input.h */,
 				934FAAA21AD6E21600FACF2E /* math.h */,
+				933803221AD88BA800F41F92 /* style.h */,
+				933803371AD8C72400F41F92 /* event.h */,
 			);
 			path = processing;
 			sourceTree = "<group>";
@@ -634,8 +646,6 @@
 				939E963A1AD250AF00A7E21E /* runner_factory.cc */,
 				93CAA6521AD1ADBB005EDC09 /* run.h */,
 				93CAA6531AD1AE32005EDC09 /* run.mm */,
-				930D51DD1AD3CDE2006EEF1B /* processing.h */,
-				93A281851AD6CBA500E1BE38 /* processing.cc */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -672,7 +682,6 @@
 				93A9C0011ACC4DBC0081D3A0 /* promotion.h */,
 				93229E5F1ACD2FE6008D27EA /* random.h */,
 				93229E721ACECD00008D27EA /* axis.h */,
-				93E913A41AB2811500DDF7F9 /* edge.h */,
 				93E913B71AB2811500DDF7F9 /* vector.h */,
 				93E913B81AB2811500DDF7F9 /* vector2.h */,
 				93E913B91AB2811500DDF7F9 /* vector3.h */,
@@ -726,10 +735,11 @@
 				930D52001AD52BBF006EEF1B /* color_depth.h */,
 				93B707D91AD62C6300E3E8AA /* fill.h */,
 				93B707D81AD62C5E00E3E8AA /* stroke.h */,
+				933803261AD88DC200F41F92 /* font.h */,
+				933803251AD88DC200F41F92 /* font.cc */,
 				930D51E21AD3CE4E006EEF1B /* context_holder.h */,
-				939E968B1AD3A51700A7E21E /* renderer.h */,
-				939E968E1AD3B61600A7E21E /* core_graphics_renderer.h */,
-				939E968D1AD3B61600A7E21E /* core_graphics_renderer.mm */,
+				933803321AD8B7EC00F41F92 /* core.h */,
+				933803311AD8B7EC00F41F92 /* core.cc */,
 			);
 			path = graphics;
 			sourceTree = "<group>";
@@ -833,20 +843,20 @@
 				930D52021AD52BBF006EEF1B /* color_depth.h in Headers */,
 				930398381AB2AEF400577048 /* enum.h in Headers */,
 				93E913CA1AB2811500DDF7F9 /* line.h in Headers */,
+				931CCB8C1AD88A150047542F /* graphics.h in Headers */,
 				93CAA64D1AD1AD4B005EDC09 /* SLSApplicationMain.h in Headers */,
 				930D51EA1AD42B76006EEF1B /* color.h in Headers */,
+				933803351AD8B7EC00F41F92 /* core.h in Headers */,
 				93A45B341AD0CE2F00969DC2 /* benchmark.h in Headers */,
 				93CAA60C1AD191DC005EDC09 /* SLSRunner.h in Headers */,
 				93E913D41AB2811500DDF7F9 /* rect.h in Headers */,
 				93A45B541AD14C4400969DC2 /* gesture_event.h in Headers */,
 				93E913D81AB2811500DDF7F9 /* size2.h in Headers */,
-				93E913BE1AB2811500DDF7F9 /* edge.h in Headers */,
 				93E913EC1AB2811500DDF7F9 /* math.h in Headers */,
 				93CAA6361AD1A2A5005EDC09 /* SLSNSApplicationDelegate.h in Headers */,
 				934FAAAD1AD6E28700FACF2E /* sketch.h in Headers */,
 				93E913E41AB2811500DDF7F9 /* vector.h in Headers */,
 				93E913EA1AB2811500DDF7F9 /* vector4.h in Headers */,
-				939E96931AD3B61600A7E21E /* core_graphics_renderer.h in Headers */,
 				93CAA6131AD191E5005EDC09 /* SLSRunEventDelegate.h in Headers */,
 				934FAAA61AD6E21600FACF2E /* processing.h in Headers */,
 				930D51EE1AD42B76006EEF1B /* color4.h in Headers */,
@@ -854,6 +864,7 @@
 				93A45B2D1AD0CE2500969DC2 /* promotion.h in Headers */,
 				93A45B581AD14C4400969DC2 /* motion_event.h in Headers */,
 				930D51EC1AD42B76006EEF1B /* color3.h in Headers */,
+				933803291AD88DC200F41F92 /* font.h in Headers */,
 				93A9C0071ACF59260081D3A0 /* SLSNSRunnerView.h in Headers */,
 				93E913DE1AB2811500DDF7F9 /* sphere.h in Headers */,
 				93A45B561AD14C4400969DC2 /* key_event.h in Headers */,
@@ -869,8 +880,8 @@
 				93CAA6471AD1A843005EDC09 /* SLSNSBundle+Bundle.h in Headers */,
 				930398351AB2AEE700577048 /* utility.h in Headers */,
 				93F38E411AB5F859009E3626 /* triangle2.h in Headers */,
+				933803231AD88BA800F41F92 /* style.h in Headers */,
 				9303982B1AB2AE9900577048 /* constants.h in Headers */,
-				930D51E01AD3CDE2006EEF1B /* processing.h in Headers */,
 				93CAA6151AD191E5005EDC09 /* SLSTargetConditionals.h in Headers */,
 				93A9C00C1ACF63060081D3A0 /* polygon.h in Headers */,
 				93A45B2F1AD0CE2500969DC2 /* axis.h in Headers */,
@@ -902,6 +913,7 @@
 				939E96411AD250AF00A7E21E /* runner_factory.h in Headers */,
 				93A45B301AD0CE2900969DC2 /* graphics.h in Headers */,
 				93E913D51AB2811500DDF7F9 /* rect.h in Headers */,
+				933803241AD88BA800F41F92 /* style.h in Headers */,
 				930D51EF1AD42B76006EEF1B /* color4.h in Headers */,
 				93E913D91AB2811500DDF7F9 /* size2.h in Headers */,
 				93A45B5D1AD14C4400969DC2 /* touch_event.h in Headers */,
@@ -912,15 +924,15 @@
 				93F38E921AB60972009E3626 /* thread.h in Headers */,
 				93A45B571AD14C4400969DC2 /* key_event.h in Headers */,
 				930D51EB1AD42B76006EEF1B /* color.h in Headers */,
+				9338032A1AD88DC200F41F92 /* font.h in Headers */,
 				93A45B281AD0CE2500969DC2 /* promotion.h in Headers */,
 				93A45B5B1AD14C4400969DC2 /* mouse_event.h in Headers */,
 				93A45B291AD0CE2500969DC2 /* random.h in Headers */,
-				930D51E11AD3CDE2006EEF1B /* processing.h in Headers */,
 				93A45B331AD0CE2F00969DC2 /* benchmark.h in Headers */,
-				93E913BF1AB2811500DDF7F9 /* edge.h in Headers */,
 				938987CA1AD1B96E00DEC9E9 /* SolasTouch.h in Headers */,
 				93A45B551AD14C4400969DC2 /* gesture_event.h in Headers */,
 				93E913ED1AB2811500DDF7F9 /* math.h in Headers */,
+				933803361AD8B7EC00F41F92 /* core.h in Headers */,
 				93E913E51AB2811500DDF7F9 /* vector.h in Headers */,
 				93E913EB1AB2811500DDF7F9 /* vector4.h in Headers */,
 				93E913DF1AB2811500DDF7F9 /* sphere.h in Headers */,
@@ -928,7 +940,6 @@
 				93E913E31AB2811500DDF7F9 /* triangle.h in Headers */,
 				93E913DB1AB2811500DDF7F9 /* size3.h in Headers */,
 				93CAA6481AD1A843005EDC09 /* SLSNSBundle+Bundle.h in Headers */,
-				939E96941AD3B61600A7E21E /* core_graphics_renderer.h in Headers */,
 				93A45B2A1AD0CE2500969DC2 /* axis.h in Headers */,
 				93229E901AD23DF3008D27EA /* SLSUIApplicationDelegate.h in Headers */,
 				930398361AB2AEE700577048 /* utility.h in Headers */,
@@ -947,6 +958,7 @@
 				93A45B461AD1438900969DC2 /* app.h in Headers */,
 				93CAA6101AD191E4005EDC09 /* SLSRunEventDelegate.h in Headers */,
 				93A45B591AD14C4400969DC2 /* motion_event.h in Headers */,
+				931CCB8D1AD88A150047542F /* graphics.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1051,7 +1063,7 @@
 		93F8AD6717C8B39800310877 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = sgss;
 				TargetAttributes = {
 					930398481AB2B0DF00577048 = {
@@ -1159,15 +1171,17 @@
 				93F38E8F1AB60972009E3626 /* dispatch.mm in Sources */,
 				934FAAB11AD6E29200FACF2E /* layer.cc in Sources */,
 				93CAA64F1AD1AD4B005EDC09 /* SLSNSApplicationMain.mm in Sources */,
+				933803331AD8B7EC00F41F92 /* core.cc in Sources */,
 				938987CC1AD1B98900DEC9E9 /* Solas.m in Sources */,
 				93A9C0081ACF59260081D3A0 /* SLSNSRunnerView.mm in Sources */,
 				939E963E1AD250AF00A7E21E /* runner_factory.cc in Sources */,
 				939E968A1AD391F800A7E21E /* SLSCVDisplayLink.mm in Sources */,
 				93CAA6541AD1AE32005EDC09 /* run.mm in Sources */,
 				934FAAAB1AD6E28700FACF2E /* sketch.cc in Sources */,
+				933803271AD88DC200F41F92 /* font.cc in Sources */,
 				93A9BFFE1AC99A430081D3A0 /* benchmark.cc in Sources */,
-				939E96911AD3B61600A7E21E /* core_graphics_renderer.mm in Sources */,
 				93CAA61D1AD19BE3005EDC09 /* SLSNSRunnerWindowController.m in Sources */,
+				931CCB8A1AD88A150047542F /* graphics.cc in Sources */,
 				93CAA6381AD1A2A5005EDC09 /* SLSNSApplicationDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1182,15 +1196,17 @@
 				93229ED41AD2428E008D27EA /* SLSUIRunnerViewController.m in Sources */,
 				934FAAB21AD6E29200FACF2E /* layer.cc in Sources */,
 				93CAA60F1AD191DC005EDC09 /* SLSRunner.mm in Sources */,
+				933803341AD8B7EC00F41F92 /* core.cc in Sources */,
 				93229EC71AD2409E008D27EA /* SLSUIApplicationMain.mm in Sources */,
 				939E96861AD3864600A7E21E /* SLSCADisplayLink.m in Sources */,
 				93F38E901AB60972009E3626 /* dispatch.mm in Sources */,
 				93229E8D1AD23BB4008D27EA /* SLSUIRunnerView.mm in Sources */,
 				939E963F1AD250AF00A7E21E /* runner_factory.cc in Sources */,
 				934FAAAC1AD6E28700FACF2E /* sketch.cc in Sources */,
+				933803281AD88DC200F41F92 /* font.cc in Sources */,
 				938987CE1AD1B99600DEC9E9 /* SolasTouch.m in Sources */,
-				939E96921AD3B61600A7E21E /* core_graphics_renderer.mm in Sources */,
 				93A9BFFF1AC99A430081D3A0 /* benchmark.cc in Sources */,
+				931CCB8B1AD88A150047542F /* graphics.cc in Sources */,
 				93CAA64A1AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -59,7 +59,7 @@ class Triangle<T, 3> final {
 
  public:
   // Constructors
-  Triangle() = default;
+  Triangle();
   Triangle(T x1, T y1, T z1, T x2, T y2, T z2, T x3, T y3, T z3);
   Triangle(const Vector3<T>& a, const Vector3<T>& b, const Vector3<T>& c);
   Triangle(std::initializer_list<T> list);
@@ -144,6 +144,12 @@ using Triangle3f = Triangle3<float>;
 using Triangle3d = Triangle3<double>;
 
 #pragma mark -
+
+template <typename T>
+inline Triangle3<T>::Triangle()
+    : a(),
+      b(),
+      c() {}
 
 template <typename T>
 inline Triangle3<T>::Triangle(T x1, T y1, T z1,

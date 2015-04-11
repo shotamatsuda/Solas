@@ -34,6 +34,7 @@ namespace app {
 class TouchEvent final {
  public:
   enum class Type {
+    UNDEFINED,
     BEGIN,
     MOVE,
     CANCEL,
@@ -41,11 +42,30 @@ class TouchEvent final {
   };
 
  public:
+  // Constructors
+  TouchEvent();
+
+  // Copy and move
+  TouchEvent(const TouchEvent& other) = default;
+  TouchEvent(TouchEvent&& other) = default;
+
+  // Disallow assign
+  TouchEvent& operator=(const TouchEvent& other) = delete;
+
   // Attributes
-  bool empty() const { return true; }
+  bool empty() const { return type == Type::UNDEFINED; }
+
+  // Conversion
+  operator bool() const { return !empty(); }
+
+ public:
+  const Type type;
 };
 
 #pragma mark -
+
+inline TouchEvent::TouchEvent()
+    : type(Type::UNDEFINED) {}
 
 }  // namespace app
 }  // namespace solas

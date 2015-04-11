@@ -34,7 +34,7 @@
 namespace solas {
 namespace processing {
 
-// Time & Date
+// Time and date
 int year();
 int month();
 int day();
@@ -44,7 +44,7 @@ int second();
 
 #pragma mark -
 
-#pragma mark Time & Date
+#pragma mark Time and date
 
 inline int year() {
   using clock = std::chrono::system_clock;

@@ -33,12 +33,14 @@
 
 #include "solas/app/runner.h"
 #include "solas/app/runner_options.h"
-#include "solas/utility/singleton.h"
 
 namespace solas {
 namespace app {
 
 class RunnerFactory {
+ private:
+  friend class solas::utility::Singleton<RunnerFactory>;
+
  public:
   // Disallow copy and assign
   RunnerFactory(const RunnerFactory&) = delete;
@@ -58,7 +60,6 @@ class RunnerFactory {
  private:
   // Constructors
   RunnerFactory() = default;
-  friend class solas::utility::Singleton<RunnerFactory>;
 
  private:
   std::function<std::unique_ptr<Runner>()> invocation_;

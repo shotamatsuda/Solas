@@ -34,17 +34,37 @@ namespace app {
 class MotionEvent final {
  public:
   enum class Type {
+    UNDEFINED,
     BEGIN,
     CANCEL,
     END
   };
 
  public:
+  // Constructors
+  MotionEvent();
+
+  // Copy and move
+  MotionEvent(const MotionEvent& other) = default;
+  MotionEvent(MotionEvent&& other) = default;
+
+  // Disallow assign
+  MotionEvent& operator=(const MotionEvent& other) = delete;
+
   // Attributes
-  bool empty() const { return true; }
+  bool empty() const { return type == Type::UNDEFINED; }
+
+  // Conversion
+  operator bool() const { return !empty(); }
+
+ public:
+  const Type type;
 };
 
 #pragma mark -
+
+inline MotionEvent::MotionEvent()
+    : type(Type::UNDEFINED) {}
 
 }  // namespace app
 }  // namespace solas

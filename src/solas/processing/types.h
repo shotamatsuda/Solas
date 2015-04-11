@@ -30,13 +30,21 @@
 
 #include <tuple>
 
+#include "solas/app/gesture_event.h"
+#include "solas/app/key_event.h"
+#include "solas/app/motion_event.h"
+#include "solas/app/mouse_event.h"
+#include "solas/app/runnable.h"
+#include "solas/app/touch_event.h"
 #include "solas/graphics/color.h"
+#include "solas/graphics/font.h"
 #include "solas/math/size.h"
 #include "solas/math/vector.h"
 
 namespace solas {
 namespace processing {
 
+// Real
 using Real = double;
 using Real2 = std::tuple<Real, Real>;
 using Real3 = std::tuple<Real, Real, Real>;
@@ -44,7 +52,12 @@ using Real4 = std::tuple<Real, Real, Real, Real>;
 using Real5 = std::tuple<Real, Real, Real, Real, Real>;
 using Real6 = std::tuple<Real, Real, Real, Real, Real, Real>;
 using Real7 = std::tuple<Real, Real, Real, Real, Real, Real, Real>;
+
+// Graphics
 using Color = graphics::Color4<Real>;
+using Font = graphics::Font;
+
+// Math
 template <int Dimensions>
 using Vec = math::Vector<Real, Dimensions>;
 using Vec2 = math::Vector2<Real>;
@@ -54,6 +67,14 @@ template <int Dimensions>
 using Size = math::Size<Real, Dimensions>;
 using Size2 = math::Size2<Real>;
 using Size3 = math::Size3<Real>;
+
+// Events
+using app::AppEvent;
+using app::MouseEvent;
+using app::KeyEvent;
+using app::TouchEvent;
+using app::GestureEvent;
+using app::MotionEvent;
 
 }  // namespace processing
 }  // namespace solas

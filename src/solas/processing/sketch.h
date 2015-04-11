@@ -28,144 +28,426 @@
 #ifndef SOLAS_PROCESSING_SKETCH_H_
 #define SOLAS_PROCESSING_SKETCH_H_
 
-#include "solas/processing/constants.h"
-#include "solas/processing/input.h"
-#include "solas/processing/math.h"
+#include <chrono>
+#include <cstdint>
+#include <functional>
+#include <list>
+
+#include "solas/app/runnable.h"
+#include "solas/graphics/context_holder.h"
+#include "solas/processing/event.h"
+#include "solas/processing/layer.h"
 #include "solas/processing/types.h"
 
 namespace solas {
 namespace processing {
 
-class Sketch {
+class Sketch : public app::Runnable, public Layer {
  public:
-  // Structure
-  void pushStyle();
-  void popStyle();
+  // Constructors
+  Sketch();
 
-  // Shape > 2D primitive
-  void point(Real x, Real y) const;
-  void point(const Vec2& p) const;
-  void line(Real x1, Real y1, Real x2, Real y2) const;
-  void line(const Vec2& a, const Vec2& b) const;
-  void triangle(Real x1, Real y1, Real x2, Real y2, Real x3, Real y3) const;
-  void triangle(const Vec2& a, const Vec2& b, const Vec2& c) const;
-  void quad(Real x1, Real y1, Real x2, Real y2,
-            Real x3, Real y3, Real x4, Real y4) const;
-  void quad(const Vec2& a, const Vec2& b, const Vec2& c, const Vec2& d) const;
-  void rect(Real a, Real b, Real c, Real d) const;
-  void rect(Real a, Real b, Real c, Real d, Real r) const;
-  void rect(Real a, Real b, Real c, Real d,
-            Real tl, Real tr, Real br, Real bl) const;
-  void rect(Real a, Real b, Real c, Real d, Constant mode) const;
-  void rect(Real a, Real b, Real c, Real d, Real r, Constant mode) const;
-  void rect(Real a, Real b, Real c, Real d,
-            Real tl, Real tr, Real br, Real bl, Constant mode) const;
-  void rect(const Vec2& a, const Vec2& b) const;
-  void rect(const Vec2& a, const Vec2& b, Real r) const;
-  void rect(const Vec2& a, const Vec2& b,
-            Real tl, Real tr, Real br, Real bl) const;
-  void rect(const Vec2& a, const Size2& b) const;
-  void rect(const Vec2& a, const Size2& b, Real r) const;
-  void rect(const Vec2& a, const Size2& b,
-            Real tl, Real tr, Real br, Real bl) const;
-  void arc(Real a, Real b, Real c, Real d, Real start, Real stop) const;
-  void arc(Real a, Real b, Real c, Real d,
-           Real start, Real stop, Constant mode) const;
-  void arc(const Vec2& a, const Vec2& b, Real start, Real stop) const;
-  void arc(const Vec2& a, const Vec2& b,
-           Real start, Real stop, Constant mode) const;
-  void arc(const Vec2& a, const Size2& b, Real start, Real stop) const;
-  void arc(const Vec2& a, const Size2& b,
-           Real start, Real stop, Constant mode) const;
-  void ellipse(Real a, Real b, Real c, Real d) const;
-  void ellipse(Real a, Real b, Real c, Real d, Constant mode) const;
-  void ellipse(const Vec2& a, const Vec2& b) const;
-  void ellipse(const Vec2& a, const Size2& b) const;
+  // Disallow copy and assign
+  Sketch(const Sketch& other) = delete;
+  Sketch& operator=(const Sketch& other) = delete;
 
-  // Shape > Attributes
-  void smooth();
-  void noSmooth();
-  Real strokeWeight() const;
-  void strokeWeight(Real weight);
-  Constant strokeCap() const;
-  void strokeCap(Constant cap);
-  Constant strokeJoin() const;
-  void strokeJoin(Constant join);
-  Constant rectMode() const;
-  void rectMode(Constant mode);
-  Constant ellipseMode() const;
-  void ellipseMode(Constant mode);
+  // Move
+  Sketch(Sketch&& other) = default;
 
-  // Transform
-  void applyMatrix(Real n00, Real n01, Real n02,
-                   Real n10, Real n11, Real n12);
-  void applyMatrix(Real n00, Real n01, Real n02, Real n03,
-                   Real n10, Real n11, Real n12, Real n13,
-                   Real n20, Real n21, Real n22, Real n23,
-                   Real n30, Real n31, Real n32, Real n33);
-  void applyMatrix(const Vec3& n0, const Vec3& n1);
-  void applyMatrix(const Vec4& n0, const Vec4& n1,
-                   const Vec4& n2, const Vec4& n3);
-  void popMatrix();
-  void pushMatrix();
-  void resetMatrix();
-  void scale(Real s);
-  void scale(Real x, Real y);
-  void scale(Real x, Real y, Real z);
-  void scale(const Vec2& p);
-  void scale(const Vec3& p);
-  void translate(Real x, Real y);
-  void translate(Real x, Real y, Real z);
-  void translate(const Vec2& p);
-  void translate(const Vec3& p);
-  void rotate(Real radians);
-  void rotate(Real radians, Real x, Real y);
-  void rotate(Real radians, Real x, Real y, Real z);
-  void rotate(Real radians, const Vec2& p);
-  void rotate(Real radians, const Vec3& p);
-  void rotateX(Real radians);
-  void rotateY(Real radians);
-  void shearX(Real radians);
-  void shearY(Real radians);
+  // Mouse
+  const Vec2& mouse() const override;
+  Real mouse_x() const override;
+  Real mouse_y() const override;
+  const Vec2& pmouse() const override;
+  Real pmouse_x() const override;
+  Real pmouse_y() const override;
+  Constant mouse_button() const override;
+  bool mouse_pressed() const override;
 
-  // Input > Time & Date
-  std::chrono::milliseconds::rep millis() const;
+  // Keyboard
+  char key() const override;
+  std::uint32_t key_code() const override;
+  bool key_pressed() const override;
 
-  // Color > Setting
-  void colorMode(Constant mode);
-  void colorMode(Constant mode, Real max);
-  void colorMode(Constant mode, Real max1, Real max2, Real max3);
-  void colorMode(Constant mode, Real max1, Real max2, Real max3, Real max_a);
-  void fill(Real value);
-  void fill(Real value, Real alpha);
-  void fill(Real v1, Real v2, Real v3);
-  void fill(Real v1, Real v2, Real v3, Real alpha);
-  void fill(const Color& color);
-  void fill(const Color& color, Real alpha);
-  void noFill();
-  void stroke(Real value);
-  void stroke(Real value, Real alpha);
-  void stroke(Real v1, Real v2, Real v3);
-  void stroke(Real v1, Real v2, Real v3, Real alpha);
-  void stroke(const Color& color);
-  void stroke(const Color& color, Real alpha);
-  void noStroke();
-  void background(Real value) const;
-  void background(Real value, Real alpha) const;
-  void background(Real v1, Real v2, Real v3) const;
-  void background(Real v1, Real v2, Real v3, Real alpha) const;
-  void background(const Color& color) const;
-  void background(const Color& color, Real alpha) const;
-  void clear() const;
+  // Time and date
+  std::chrono::milliseconds::rep millis() const override;
 
-  // Color > Creating & Reading
-  Color color(Real value) const;
-  Color color(Real value, Real alpha) const;
-  Color color(Real v1, Real v2, Real v3) const;
-  Color color(Real v1, Real v2, Real v3, Real alpha) const;
-  Color color(const Color& color) const;
-  Color color(const Color& color, Real alpha) const;
+ protected:
+  // Lifecycle intended to be overriden
+  void setup() override {}
+  void update() override {}
+  void draw() override {}
+  void post() override {}
+  void exit() override {}
+
+  // Events
+  virtual void mousePressed(const MouseEvent& event);
+  virtual void mouseDragged(const MouseEvent& event);
+  virtual void mouseReleased(const MouseEvent& event);
+  virtual void mouseMoved(const MouseEvent& event);
+  virtual void mouseEntered(const MouseEvent& event);
+  virtual void mouseExited(const MouseEvent& event);
+  virtual void mouseWheel(const MouseEvent& event);
+  virtual void keyPressed(const KeyEvent& event);
+  virtual void keyReleased(const KeyEvent& event);
+  virtual void touchesBegan(const TouchEvent& event);
+  virtual void touchesMoved(const TouchEvent& event);
+  virtual void touchesCancelled(const TouchEvent& event);
+  virtual void touchesEnded(const TouchEvent& event);
+  virtual void motionBegan(const MotionEvent& event);
+  virtual void motionCancelled(const MotionEvent& event);
+  virtual void motionEnded(const MotionEvent& event);
+
+  // Event handlers
+  template <typename Event>
+  void enqueueEvent(const Event& event);
+  void dequeueEvent(const Event& event);
+  void dequeueEvents();
+  void handleMouseEvent(const MouseEvent& event);
+  void handleKeyEvent(const KeyEvent& event);
+  void handleTouchEvent(const TouchEvent& event);
+  void handleGestureEvent(const GestureEvent& event);
+  void handleMotionEvent(const MotionEvent& event);
+
+  // Events intended to be overriden
+  virtual void mousePressed() {}
+  virtual void mouseDragged() {}
+  virtual void mouseReleased() {}
+  virtual void mouseMoved() {}
+  virtual void mouseEntered() {}
+  virtual void mouseExited() {}
+  virtual void mouseWheel() {}
+  virtual void keyPressed() {}
+  virtual void keyReleased() {}
+  virtual void touchesBegan() {}
+  virtual void touchesMoved() {}
+  virtual void touchesCancelled() {}
+  virtual void touchesEnded() {}
+  virtual void motionBegan() {}
+  virtual void motionCancelled() {}
+  virtual void motionEnded() {}
+
+ private:
+  // Lifecycle overridden from Runnable
+  void setup(const AppEvent& event) override;
+  void update(const AppEvent& event) override;
+  void draw(const AppEvent& event) override;
+  void post(const AppEvent& event) override;
+  void exit(const AppEvent& event) override;
+
+  // Events overridden from Runnable
+  void mouseDown(const MouseEvent& event) override;
+  void mouseDrag(const MouseEvent& event) override;
+  void mouseUp(const MouseEvent& event) override;
+  void mouseMove(const MouseEvent& event) override;
+  void mouseEnter(const MouseEvent& event) override;
+  void mouseExit(const MouseEvent& event) override;
+  void scrollWheel(const MouseEvent& event) override;
+  void keyDown(const KeyEvent& event) override;
+  void keyUp(const KeyEvent& event) override;
+  void touchesBegin(const TouchEvent& event) override;
+  void touchesMove(const TouchEvent& event) override;
+  void touchesCancel(const TouchEvent& event) override;
+  void touchesEnd(const TouchEvent& event) override;
+  void motionBegin(const MotionEvent& event) override;
+  void motionCancel(const MotionEvent& event) override;
+  void motionEnd(const MotionEvent& event) override;
+
+  // Context
+  const graphics::ContextHolder& context() const override;
+
+ private:
+  std::chrono::system_clock::time_point setup_time_;
+  std::list<Event> event_queue_;
+
+  // Mouse
+  Vec2 dmouse_;
+  Vec2 emouse_;
+  union {
+    Vec2 mouse_;
+    struct { Real mouse_x_; Real mouse_y_; };
+  };
+  union {
+    Vec2 pmouse_;
+    struct { Real pmouse_x_; Real pmouse_y_; };
+  };
+  Constant mouse_button_;
+  bool mouse_pressed_;
+
+  // Keyboard
+  char key_;
+  std::uint32_t key_code_;
+  bool key_pressed_;
 };
+
+#pragma mark -
+
+inline Sketch::Sketch()
+    : setup_time_(),
+      mouse_(),
+      pmouse_(),
+      mouse_button_(NONE),
+      mouse_pressed_(),
+      key_(),
+      key_code_(),
+      key_pressed_() {}
+
+#pragma mark Mouse
+
+inline const Vec2& Sketch::mouse() const {
+  return mouse_;
+}
+
+inline Real Sketch::mouse_x() const {
+  return mouse_x_;
+}
+
+inline Real Sketch::mouse_y() const {
+  return mouse_y_;
+}
+
+inline const Vec2& Sketch::pmouse() const {
+  return pmouse_;
+}
+
+inline Real Sketch::pmouse_x() const {
+  return pmouse_x_;
+}
+
+inline Real Sketch::pmouse_y() const {
+  return pmouse_y_;
+}
+
+inline Constant Sketch::mouse_button() const {
+  return mouse_button_;
+}
+
+inline bool Sketch::mouse_pressed() const {
+  return mouse_pressed_;
+}
+
+#pragma mark Keyboard
+
+inline char Sketch::key() const {
+  return key_;
+}
+
+inline std::uint32_t Sketch::key_code() const {
+  return key_code_;
+}
+
+inline bool Sketch::key_pressed() const {
+  return key_pressed_;
+}
+
+#pragma mark Time and date
+
+inline std::chrono::milliseconds::rep Sketch::millis() const {
+  using clock = std::chrono::system_clock;
+  using unit = std::chrono::milliseconds;
+  return std::chrono::duration_cast<unit>(clock::now() - setup_time_).count();
+}
+
+#pragma mark Events
+
+inline void Sketch::mousePressed(const MouseEvent& event) {
+  mousePressed();
+}
+
+inline void Sketch::mouseDragged(const MouseEvent& event) {
+  mouseDragged();
+}
+
+inline void Sketch::mouseReleased(const MouseEvent& event) {
+  mouseReleased();
+}
+
+inline void Sketch::mouseMoved(const MouseEvent& event) {
+  mouseMoved();
+}
+
+inline void Sketch::mouseEntered(const MouseEvent& event) {
+  mouseEntered();
+}
+
+inline void Sketch::mouseExited(const MouseEvent& event) {
+  mouseExited();
+}
+
+inline void Sketch::mouseWheel(const MouseEvent& event) {
+  mouseWheel();
+}
+
+inline void Sketch::keyPressed(const KeyEvent& event) {
+  keyPressed();
+}
+
+inline void Sketch::keyReleased(const KeyEvent& event) {
+  keyReleased();
+}
+
+inline void Sketch::touchesBegan(const TouchEvent& event) {
+  touchesBegan();
+}
+
+inline void Sketch::touchesMoved(const TouchEvent& event) {
+  touchesMoved();
+}
+
+inline void Sketch::touchesCancelled(const TouchEvent& event) {
+  touchesCancelled();
+}
+
+inline void Sketch::touchesEnded(const TouchEvent& event) {
+  touchesEnded();
+}
+
+inline void Sketch::motionBegan(const MotionEvent& event) {
+  motionBegan();
+}
+
+inline void Sketch::motionCancelled(const MotionEvent& event) {
+  motionCancelled();
+}
+
+inline void Sketch::motionEnded(const MotionEvent& event) {
+  motionEnded();
+}
+
+#pragma mark Event handlers
+
+template <typename Event>
+inline void Sketch::enqueueEvent(const Event& event) {
+  event_queue_.emplace_back(event);
+}
+
+inline void Sketch::dequeueEvent(const Event& event) {
+  switch (event.type) {
+    case Event::Type::MOUSE:
+      handleMouseEvent(event.mouse());
+      break;
+    case Event::Type::KEY:
+      handleKeyEvent(event.key());
+      break;
+    case Event::Type::TOUCH:
+      handleTouchEvent(event.touch());
+      break;
+    case Event::Type::GESTURE:
+      handleGestureEvent(event.gesture());
+      break;
+    case Event::Type::MOTION:
+      handleMotionEvent(event.motion());
+      break;
+    default:
+      assert(false);
+      break;
+  }
+}
+
+inline void Sketch::dequeueEvents() {
+  for (const auto& event : event_queue_) {
+    dequeueEvent(event);
+  }
+  event_queue_.clear();
+}
+
+#pragma mark Lifecycle overridden from Runnable
+
+inline void Sketch::setup(const AppEvent& event) {
+  setup_time_ = std::chrono::system_clock::now();
+  Runnable::setup(event);
+}
+
+inline void Sketch::update(const AppEvent& event) {
+  Runnable::update(event);
+}
+
+inline void Sketch::draw(const AppEvent& event) {
+  pmouse_ = dmouse_;
+  Runnable::draw(event);
+  dmouse_ = mouse_;
+  dequeueEvents();
+}
+
+inline void Sketch::post(const AppEvent& event) {
+  Runnable::post(event);
+}
+
+inline void Sketch::exit(const AppEvent& event) {
+  Runnable::exit(event);
+}
+
+#pragma mark Events overridden from Runnable
+
+inline void Sketch::mouseDown(const MouseEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void Sketch::mouseDrag(const MouseEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void Sketch::mouseUp(const MouseEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void Sketch::mouseMove(const MouseEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void Sketch::mouseEnter(const MouseEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void Sketch::mouseExit(const MouseEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void Sketch::scrollWheel(const MouseEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void Sketch::keyDown(const KeyEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void Sketch::keyUp(const KeyEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void Sketch::touchesBegin(const TouchEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void Sketch::touchesMove(const TouchEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void Sketch::touchesCancel(const TouchEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void Sketch::touchesEnd(const TouchEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void Sketch::motionBegin(const MotionEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void Sketch::motionCancel(const MotionEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void Sketch::motionEnd(const MotionEvent& event) {
+  enqueueEvent(event);
+}
+
+#pragma mark Context
+
+inline const graphics::ContextHolder& Sketch::context() const {
+  return Runnable::context();
+}
 
 }  // namespace processing
 }  // namespace solas

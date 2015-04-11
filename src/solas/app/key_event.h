@@ -32,17 +32,38 @@ namespace solas {
 namespace app {
 
 class KeyEvent final {
+ public:
   enum class Type {
+    UNDEFINED,
     DOWN,
     UP
   };
 
  public:
+  // Constructors
+  KeyEvent();
+
+  // Copy and move
+  KeyEvent(const KeyEvent& other) = default;
+  KeyEvent(KeyEvent&& other) = default;
+
+  // Disallow assign
+  KeyEvent& operator=(const KeyEvent& other) = delete;
+
   // Attributes
-  bool empty() const { return true; }
+  bool empty() const { return type == Type::UNDEFINED; }
+
+  // Conversion
+  operator bool() const { return !empty(); }
+
+ public:
+  const Type type;
 };
 
 #pragma mark -
+
+inline KeyEvent::KeyEvent()
+    : type(Type::UNDEFINED) {}
 
 }  // namespace app
 }  // namespace solas

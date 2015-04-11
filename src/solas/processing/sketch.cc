@@ -26,8 +26,135 @@
 
 #include "solas/processing/sketch.h"
 
+#include <cassert>
+
+#include "solas/app/mouse_button.h"
+#include "solas/processing/event.h"
+#include "solas/processing/types.h"
+
 namespace solas {
 namespace processing {
+
+#pragma mark Event handlers
+
+void Sketch::handleMouseEvent(const MouseEvent& event) {
+  if (event.type == MouseEvent::Type::DRAG ||
+      event.type == MouseEvent::Type::MOVE ||
+      event.type == MouseEvent::Type::DOWN) {
+    pmouse_ = emouse_;
+    mouse_ = event.location;
+  }
+  switch (event.button) {
+    case app::MouseButton::LEFT:
+      mouse_button_ = LEFT;
+      break;
+    case app::MouseButton::MIDDLE:
+      mouse_button_ = MIDDLE;
+      break;
+    case app::MouseButton::RIGHT:
+      mouse_button_ = RIGHT;
+      break;
+    default:
+      mouse_button_ = OTHER;
+      break;
+  }
+  switch (event.type) {
+    case MouseEvent::Type::DOWN:
+      mouse_pressed_ = true;
+      break;
+    case MouseEvent::Type::UP:
+      mouse_pressed_ = false;
+      break;
+    default:
+      break;
+  }
+  if (event.type == MouseEvent::Type::DRAG ||
+      event.type == MouseEvent::Type::MOVE) {
+    emouse_ = mouse_;
+  }
+  switch (event.type) {
+    case MouseEvent::Type::DOWN:
+      mousePressed(event);
+      break;
+    case MouseEvent::Type::DRAG:
+      mouseDragged(event);
+      break;
+    case MouseEvent::Type::UP:
+      mouseReleased(event);
+      break;
+    case MouseEvent::Type::MOVE:
+      mouseMoved(event);
+      break;
+    case MouseEvent::Type::ENTER:
+      mouseEntered(event);
+      break;
+    case MouseEvent::Type::EXIT:
+      mouseExited(event);
+      break;
+    case MouseEvent::Type::WHEEL:
+      mouseWheel(event);
+      break;
+    default:
+      assert(false);
+      break;
+  }
+}
+
+void Sketch::handleKeyEvent(const KeyEvent& event) {
+  switch (event.type) {
+    case KeyEvent::Type::DOWN:
+      keyPressed(event);
+      break;
+    case KeyEvent::Type::UP:
+      keyReleased(event);
+      break;
+    default:
+      assert(false);
+      break;
+  }
+}
+
+void Sketch::handleTouchEvent(const TouchEvent& event) {
+  switch (event.type) {
+    case TouchEvent::Type::BEGIN:
+      touchesBegan(event);
+      break;
+    case TouchEvent::Type::MOVE:
+      touchesMoved(event);
+      break;
+    case TouchEvent::Type::CANCEL:
+      touchesCancelled(event);
+      break;
+    case TouchEvent::Type::END:
+      touchesEnded(event);
+      break;
+    default:
+      assert(false);
+      break;
+  }
+}
+
+void Sketch::handleGestureEvent(const GestureEvent& event) {
+  // No event is defined yet
+}
+
+void Sketch::handleMotionEvent(const MotionEvent& event) {
+
+  switch (event.type) {
+    case MotionEvent::Type::BEGIN:
+      motionBegan(event);
+      break;
+    case MotionEvent::Type::CANCEL:
+      motionCancelled(event);
+      break;
+    case MotionEvent::Type::END:
+      motionEnded(event);
+      break;
+    default:
+      assert(false);
+      break;
+  }
+}
 
 }  // namespace processing
 }  // namespace solas

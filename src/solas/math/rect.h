@@ -120,6 +120,10 @@ class Rect final {
   Vector2<T> top_right() const;
   Vector2<T> bottom_left() const;
   Vector2<T> bottom_right() const;
+  Vector2<T> tl() const { return top_left(); }
+  Vector2<T> tr() const { return top_right(); }
+  Vector2<T> bl() const { return bottom_left(); }
+  Vector2<T> br() const { return bottom_right(); }
 
   // Canonicalization
   bool canonical() const { return width > 0 && height > 0; }

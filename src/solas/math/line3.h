@@ -60,7 +60,7 @@ class Line<T, 3> final {
 
  public:
   // Constructors
-  Line() = default;
+  Line();
   Line(T x1, T y1, T z1, T x2, T y2, T z2);
   Line(const Vector3<T>& a, const Vector3<T>& b);
   Line(std::initializer_list<T> list);
@@ -141,6 +141,11 @@ using Line3f = Line3<float>;
 using Line3d = Line3<double>;
 
 #pragma mark -
+
+template <typename T>
+inline Line3<T>::Line()
+    : a(),
+      b() {}
 
 template <typename T>
 inline Line3<T>::Line(T x1, T y1, T z1, T x2, T y2, T z2)

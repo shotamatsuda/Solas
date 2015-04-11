@@ -38,6 +38,17 @@
 #include "solas/app/touch_event.h"
 #include "solas/math/vector.h"
 
+@interface SLSUIRunnerView ()
+
+#pragma mark Creating Events
+
+- (solas::app::MouseEvent)mouseEventWithEvent:(UIEvent *)event
+    type:(solas::app::MouseEvent::Type)type;
+- (solas::app::MotionEvent)motionEventWithEvent:(UIEvent *)event
+    type:(solas::app::MotionEvent::Type)type;
+
+@end
+
 @implementation SLSUIRunnerView
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -122,49 +133,56 @@
 
 - (void)notifyTouchesBeginWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:touchesBegin:)]) {
-    const auto touchEvent([self touchEventWithEvent:event]);
+    const auto touchEvent([self touchEventWithEvent:event
+        type:solas::app::TouchEvent::Type::BEGIN]);
     [_eventDelegate sender:self touchesBegin:SLSTouchEventMake(&touchEvent)];
   }
 }
 
 - (void)notifyTouchesMoveWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:touchesMove:)]) {
-    const auto touchEvent([self touchEventWithEvent:event]);
+    const auto touchEvent([self touchEventWithEvent:event
+        type:solas::app::TouchEvent::Type::MOVE]);
     [_eventDelegate sender:self touchesMove:SLSTouchEventMake(&touchEvent)];
   }
 }
 
 - (void)notifyTouchesCancelWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:touchesCancel:)]) {
-    const auto touchEvent([self touchEventWithEvent:event]);
+    const auto touchEvent([self touchEventWithEvent:event
+        type:solas::app::TouchEvent::Type::CANCEL]);
     [_eventDelegate sender:self touchesCancel:SLSTouchEventMake(&touchEvent)];
   }
 }
 
 - (void)notifyTouchesEndWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:touchesEnd:)]) {
-    const auto touchEvent([self touchEventWithEvent:event]);
+    const auto touchEvent([self touchEventWithEvent:event
+        type:solas::app::TouchEvent::Type::END]);
     [_eventDelegate sender:self touchesEnd:SLSTouchEventMake(&touchEvent)];
   }
 }
 
 - (void)notifyMotionBeginWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:motionBegin:)]) {
-    const auto motionEvent([self motionEventWithEvent:event]);
+    const auto motionEvent([self motionEventWithEvent:event
+        type:solas::app::MotionEvent::Type::BEGIN]);
     [_eventDelegate sender:self motionBegin:SLSMotionEventMake(&motionEvent)];
   }
 }
 
 - (void)notifyMotionCancelWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:motionCancel:)]) {
-    const auto motionEvent([self motionEventWithEvent:event]);
+    const auto motionEvent([self motionEventWithEvent:event
+        type:solas::app::MotionEvent::Type::CANCEL]);
     [_eventDelegate sender:self motionCancel:SLSMotionEventMake(&motionEvent)];
   }
 }
 
 - (void)notifyMotionEndWithEvent:(id)event {
   if ([_eventDelegate respondsToSelector:@selector(sender:motionEnd:)]) {
-    const auto motionEvent([self motionEventWithEvent:event]);
+    const auto motionEvent([self motionEventWithEvent:event
+        type:solas::app::MotionEvent::Type::END]);
     [_eventDelegate sender:self motionEnd:SLSMotionEventMake(&motionEvent)];
   }
 }

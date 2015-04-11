@@ -44,20 +44,10 @@
 @property (nonatomic, strong, readonly) NSSet *previousTouches;
 @property (nonatomic, strong) SLSRunnerLayer *runnerLayer;
 
-#ifdef __cplusplus
-
 #pragma mark Controlling Loop
 
 - (void)startLoop;
 - (void)stopLoop;
-
-#pragma mark Creating Events
-
-- (solas::app::MouseEvent)mouseEventWithEvent:(id)event;
-- (solas::app::KeyEvent)keyEventWithEvent:(id)event;
-- (solas::app::TouchEvent)touchEventWithEvent:(id)event;
-
-#endif  // __cplusplus
 
 #pragma mark Notifying Events to the Delegate
 
