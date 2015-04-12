@@ -146,15 +146,15 @@ class Graphics {
   void popMatrix();
   void pushMatrix();
   void resetMatrix();
+  void translate(Real x, Real y);
+  void translate(Real x, Real y, Real z);
+  void translate(const Vec2& vector);
+  void translate(const Vec3& vector);
   void scale(Real scalar);
   void scale(Real x, Real y);
   void scale(Real x, Real y, Real z);
   void scale(const Vec2& vector);
   void scale(const Vec3& vector);
-  void translate(Real x, Real y);
-  void translate(Real x, Real y, Real z);
-  void translate(const Vec2& delta);
-  void translate(const Vec3& delta);
   void rotate(Real angle);
   void rotate(Real angle, Real x, Real y);
   void rotate(Real angle, Real x, Real y, Real z);
@@ -162,8 +162,24 @@ class Graphics {
   void rotate(Real angle, const Vec3& center);
   void rotateX(Real angle);
   void rotateY(Real angle);
+  void rotateZ(Real angle);
   void shearX(Real angle);
   void shearY(Real angle);
+
+  // Vertex
+  void beginShape();
+  void beginShape(Constant kind);
+  void endShape(Constant mode);
+  void beginContour();
+  void endContour();
+  void vertex(Real x, Real y);
+  void vertex(const Vec2& vector);
+  void curveVertex(Real x, Real y);
+  void curveVertex(const Vec2& vector);
+  void bezierVertex(Real x, Real y);
+  void bezierVertex(const Vec2& vector);
+  void quadraticVertex(Real x, Real y);
+  void quadraticVertex(const Vec2& vector);
 
   // Color settings
   void colorMode(Constant mode);
@@ -213,8 +229,8 @@ class Graphics {
 
  private:
   // Creating fill and stroke
-  graphics::Fill<Real> fill() const;
-  graphics::Stroke<Real> stroke() const;
+  graphics::Fill fill() const;
+  graphics::Stroke stroke() const;
 
  private:
   Style style_;
@@ -428,6 +444,97 @@ inline void Graphics::strokeWeight(Real weight) {
   style_.stroke_weight = weight;
 }
 
+#pragma mark Transform
+
+inline void Graphics::applyMatrix(Real n00, Real n01, Real n02,
+                                  Real n10, Real n11, Real n12) {
+  // TODO(sgss):
+}
+
+inline void Graphics::applyMatrix(Real n00, Real n01, Real n02, Real n03,
+                                  Real n10, Real n11, Real n12, Real n13,
+                                  Real n20, Real n21, Real n22, Real n23,
+                                  Real n30, Real n31, Real n32, Real n33) {
+  // TODO(sgss):
+}
+
+inline void Graphics::applyMatrix(const Vec3& n0, const Vec3& n1) {
+  // TODO(sgss):
+}
+
+inline void Graphics::applyMatrix(const Vec4& n0, const Vec4& n1,
+                                  const Vec4& n2, const Vec4& n3) {
+  // TODO(sgss):
+}
+
+inline void Graphics::resetMatrix() {
+  // TODO(sgss):
+}
+
+inline void Graphics::translate(Real x, Real y) {
+  translate(x, y, 0.0);
+}
+
+inline void Graphics::translate(const Vec2& vector) {
+  translate(vector.x, vector.y, 0.0);
+}
+
+inline void Graphics::translate(const Vec3& vector) {
+  translate(vector.x, vector.y, vector.z);
+}
+
+inline void Graphics::scale(Real scalar) {
+  scale(scalar, scalar, scalar);
+}
+
+inline void Graphics::scale(Real x, Real y) {
+  scale(x, y, 1.0);
+}
+
+inline void Graphics::scale(const Vec2& vector) {
+  scale(vector.x, vector.y, 1.0);
+}
+
+inline void Graphics::scale(const Vec3& vector) {
+  scale(vector.x, vector.y, vector.z);
+}
+
+inline void Graphics::rotate(Real angle, Real x, Real y) {
+  // TODO(sgss):
+}
+
+inline void Graphics::rotate(Real angle, Real x, Real y, Real z) {
+  // TODO(sgss):
+}
+
+inline void Graphics::rotate(Real angle, const Vec2& center) {
+  // TODO(sgss):
+}
+
+inline void Graphics::rotate(Real angle, const Vec3& center) {
+  // TODO(sgss):
+}
+
+inline void Graphics::rotateX(Real angle) {
+  // TODO(sgss):
+}
+
+inline void Graphics::rotateY(Real angle) {
+  // TODO(sgss):
+}
+
+inline void Graphics::rotateZ(Real angle) {
+  // TODO(sgss):
+}
+
+inline void Graphics::shearX(Real angle) {
+  // TODO(sgss):
+}
+
+inline void Graphics::shearY(Real angle) {
+  // TODO(sgss):
+}
+
 #pragma mark Color settings
 
 inline void Graphics::colorMode(Constant mode) {
@@ -602,38 +709,38 @@ inline Real Graphics::alpha(const Color& color) {
 }
 
 inline Real Graphics::hue(const Color& color) {
-  // TODO:
+  // TODO(sgss):
   return 0;
 }
 
 inline Real Graphics::saturation(const Color& color) {
-  // TODO:
+  // TODO(sgss):
   return 0;
 }
 
 inline Real Graphics::brightness(const Color& color) {
-  // TODO:
+  // TODO(sgss):
   return 0;
 }
 
 #pragma mark Creating fill and stroke
 
-inline graphics::Fill<Real> Graphics::fill() const {
-  return graphics::Fill<Real>(style_.fill_color);
+inline graphics::Fill Graphics::fill() const {
+  return graphics::Fill(style_.fill_color);
 }
 
-inline graphics::Stroke<Real> Graphics::stroke() const {
-  auto stroke_cap = graphics::StrokeCap::SQUARE;
-  auto stroke_join = graphics::StrokeJoin::MITER;
+inline graphics::Stroke Graphics::stroke() const {
+  auto stroke_cap = graphics::Stroke::Cap::SQUARE;
+  auto stroke_join = graphics::Stroke::Join::MITER;
   switch (style_.stroke_cap) {
     case SQUARE:
-      stroke_cap = graphics::StrokeCap::SQUARE;
+      stroke_cap = graphics::Stroke::Cap::SQUARE;
       break;
     case PROJECT:
-      stroke_cap = graphics::StrokeCap::PROJECT;
+      stroke_cap = graphics::Stroke::Cap::PROJECT;
       break;
     case ROUND:
-      stroke_cap = graphics::StrokeCap::ROUND;
+      stroke_cap = graphics::Stroke::Cap::ROUND;
       break;
     default:
       assert(false);
@@ -641,19 +748,19 @@ inline graphics::Stroke<Real> Graphics::stroke() const {
   }
   switch (style_.stroke_join) {
     case MITER:
-      stroke_join = graphics::StrokeJoin::MITER;
+      stroke_join = graphics::Stroke::Join::MITER;
       break;
     case BEVEL:
-      stroke_join = graphics::StrokeJoin::BEVEL;
+      stroke_join = graphics::Stroke::Join::BEVEL;
       break;
     case ROUND:
-      stroke_join = graphics::StrokeJoin::ROUND;
+      stroke_join = graphics::Stroke::Join::ROUND;
       break;
     default:
       assert(false);
       break;
   }
-  return graphics::Stroke<Real>(
+  return graphics::Stroke(
       style_.stroke_color, style_.stroke_weight,
       stroke_cap, stroke_join);
 }

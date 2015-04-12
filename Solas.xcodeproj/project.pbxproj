@@ -30,25 +30,22 @@
 		93229E6D1ACD6DDA008D27EA /* singleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E6C1ACD6DDA008D27EA /* singleton.h */; };
 		93229E6E1ACD6DDA008D27EA /* singleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E6C1ACD6DDA008D27EA /* singleton.h */; };
 		93229E711ACEAF05008D27EA /* null_mutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E701ACEAF05008D27EA /* null_mutex.h */; };
-		93229E8C1AD23BB4008D27EA /* SLSUIRunnerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E8A1AD23BB4008D27EA /* SLSUIRunnerView.h */; };
+		93229E8C1AD23BB4008D27EA /* SLSUIRunnerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E8A1AD23BB4008D27EA /* SLSUIRunnerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93229E8D1AD23BB4008D27EA /* SLSUIRunnerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229E8B1AD23BB4008D27EA /* SLSUIRunnerView.mm */; };
-		93229E901AD23DF3008D27EA /* SLSUIApplicationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E8E1AD23DF3008D27EA /* SLSUIApplicationDelegate.h */; };
+		93229E901AD23DF3008D27EA /* SLSUIApplicationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E8E1AD23DF3008D27EA /* SLSUIApplicationDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93229E911AD23DF3008D27EA /* SLSUIApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229E8F1AD23DF3008D27EA /* SLSUIApplicationDelegate.mm */; };
 		93229EC71AD2409E008D27EA /* SLSUIApplicationMain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229EC61AD2409E008D27EA /* SLSUIApplicationMain.mm */; };
-		93229ED31AD2428E008D27EA /* SLSUIRunnerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229ED01AD2428D008D27EA /* SLSUIRunnerViewController.h */; };
+		93229ED31AD2428E008D27EA /* SLSUIRunnerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229ED01AD2428D008D27EA /* SLSUIRunnerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93229ED41AD2428E008D27EA /* SLSUIRunnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93229ED11AD2428D008D27EA /* SLSUIRunnerViewController.m */; };
 		93229ED51AD2428E008D27EA /* SLSUIRunnerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93229ED21AD2428D008D27EA /* SLSUIRunnerViewController.xib */; };
-		93229F1D1AD24485008D27EA /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229F1A1AD2447C008D27EA /* main.mm */; };
-		93229F1E1AD24487008D27EA /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229F161AD2447C008D27EA /* main.mm */; };
-		93229F241AD2454A008D27EA /* SolasTouch.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93E913761AB27E2600DDF7F9 /* SolasTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		933803231AD88BA800F41F92 /* style.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803221AD88BA800F41F92 /* style.h */; };
 		933803241AD88BA800F41F92 /* style.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803221AD88BA800F41F92 /* style.h */; };
 		933803271AD88DC200F41F92 /* font.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803251AD88DC200F41F92 /* font.cc */; };
 		933803281AD88DC200F41F92 /* font.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803251AD88DC200F41F92 /* font.cc */; };
 		933803291AD88DC200F41F92 /* font.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803261AD88DC200F41F92 /* font.h */; };
 		9338032A1AD88DC200F41F92 /* font.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803261AD88DC200F41F92 /* font.h */; };
-		933803331AD8B7EC00F41F92 /* core.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803311AD8B7EC00F41F92 /* core.cc */; };
-		933803341AD8B7EC00F41F92 /* core.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803311AD8B7EC00F41F92 /* core.cc */; };
+		933803331AD8B7EC00F41F92 /* core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 933803311AD8B7EC00F41F92 /* core.mm */; };
+		933803341AD8B7EC00F41F92 /* core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 933803311AD8B7EC00F41F92 /* core.mm */; };
 		933803351AD8B7EC00F41F92 /* core.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803321AD8B7EC00F41F92 /* core.h */; };
 		933803361AD8B7EC00F41F92 /* core.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803321AD8B7EC00F41F92 /* core.h */; };
 		934FAAA41AD6E21600FACF2E /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 934FAAA21AD6E21600FACF2E /* math.h */; };
@@ -63,21 +60,14 @@
 		934FAAB21AD6E29200FACF2E /* layer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934FAAAF1AD6E29200FACF2E /* layer.cc */; };
 		934FAAB31AD6E29200FACF2E /* layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 934FAAB01AD6E29200FACF2E /* layer.h */; };
 		934FAAB41AD6E29200FACF2E /* layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 934FAAB01AD6E29200FACF2E /* layer.h */; };
-		938987C91AD1B96B00DEC9E9 /* Solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 938987C71AD1B93F00DEC9E9 /* Solas.h */; };
-		938987CA1AD1B96E00DEC9E9 /* SolasTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 938987C81AD1B93F00DEC9E9 /* SolasTouch.h */; };
-		938987CC1AD1B98900DEC9E9 /* Solas.m in Sources */ = {isa = PBXBuildFile; fileRef = 938987CB1AD1B98900DEC9E9 /* Solas.m */; };
-		938987CE1AD1B99600DEC9E9 /* SolasTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 938987CD1AD1B99600DEC9E9 /* SolasTouch.m */; };
 		938987DC1AD4AA0900DEC9E9 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B351AD0D23700969DC2 /* boost.framework */; };
 		938A07ED1AB2D7E700CAE8CA /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E913581AB27DE400DDF7F9 /* Solas.framework */; };
-		939E962B1AD24AB200A7E21E /* SolasTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E913761AB27E2600DDF7F9 /* SolasTouch.framework */; };
-		939E962C1AD24B4200A7E21E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B3F1AD0D33700969DC2 /* UIKit.framework */; };
 		939E963E1AD250AF00A7E21E /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
 		939E963F1AD250AF00A7E21E /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
 		939E96401AD250AF00A7E21E /* runner_factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E963B1AD250AF00A7E21E /* runner_factory.h */; };
 		939E96411AD250AF00A7E21E /* runner_factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E963B1AD250AF00A7E21E /* runner_factory.h */; };
-		939E96771AD2616500A7E21E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 939E96761AD2616500A7E21E /* Default-568h@2x.png */; };
-		939E96811AD384C500A7E21E /* SLSRunnerLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E967F1AD384C500A7E21E /* SLSRunnerLayer.h */; };
-		939E96821AD384C500A7E21E /* SLSRunnerLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E967F1AD384C500A7E21E /* SLSRunnerLayer.h */; };
+		939E96811AD384C500A7E21E /* SLSRunnerLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E967F1AD384C500A7E21E /* SLSRunnerLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		939E96821AD384C500A7E21E /* SLSRunnerLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E967F1AD384C500A7E21E /* SLSRunnerLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		939E96831AD384C500A7E21E /* SLSRunnerLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 939E96801AD384C500A7E21E /* SLSRunnerLayer.mm */; };
 		939E96841AD384C500A7E21E /* SLSRunnerLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 939E96801AD384C500A7E21E /* SLSRunnerLayer.mm */; };
 		939E96861AD3864600A7E21E /* SLSCADisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 939E96851AD3864600A7E21E /* SLSCADisplayLink.m */; };
@@ -97,8 +87,6 @@
 		93A45B381AD0D25300969DC2 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B371AD0D25300969DC2 /* boost.framework */; };
 		93A45B3E1AD0D32B00969DC2 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B3D1AD0D32B00969DC2 /* GLKit.framework */; };
 		93A45B401AD0D33800969DC2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B3F1AD0D33700969DC2 /* UIKit.framework */; };
-		93A45B421AD0D94A00969DC2 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B351AD0D23700969DC2 /* boost.framework */; };
-		93A45B431AD0DCDD00969DC2 /* boost.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93A45B351AD0D23700969DC2 /* boost.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93A45B461AD1438900969DC2 /* app.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B451AD1438900969DC2 /* app.h */; };
 		93A45B541AD14C4400969DC2 /* gesture_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B4F1AD14C4400969DC2 /* gesture_event.h */; };
 		93A45B551AD14C4400969DC2 /* gesture_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B4F1AD14C4400969DC2 /* gesture_event.h */; };
@@ -112,21 +100,26 @@
 		93A45B5D1AD14C4400969DC2 /* touch_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B531AD14C4400969DC2 /* touch_event.h */; };
 		93A9BFFE1AC99A430081D3A0 /* benchmark.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93A9BFFD1AC99A430081D3A0 /* benchmark.cc */; };
 		93A9BFFF1AC99A430081D3A0 /* benchmark.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93A9BFFD1AC99A430081D3A0 /* benchmark.cc */; };
-		93A9C0071ACF59260081D3A0 /* SLSNSRunnerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A9C0051ACF59260081D3A0 /* SLSNSRunnerView.h */; };
+		93A9C0071ACF59260081D3A0 /* SLSNSRunnerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A9C0051ACF59260081D3A0 /* SLSNSRunnerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93A9C0081ACF59260081D3A0 /* SLSNSRunnerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93A9C0061ACF59260081D3A0 /* SLSNSRunnerView.mm */; };
 		93A9C00C1ACF63060081D3A0 /* polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A9C00A1ACF63060081D3A0 /* polygon.h */; };
 		93B707DB1AD692DF00E3E8AA /* app_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707DA1AD692DF00E3E8AA /* app_event.h */; };
-		93CAA60C1AD191DC005EDC09 /* SLSRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA60A1AD191DC005EDC09 /* SLSRunner.h */; };
-		93CAA60D1AD191DC005EDC09 /* SLSRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA60A1AD191DC005EDC09 /* SLSRunner.h */; };
+		93BE2F3C1ADA1A7500175565 /* path.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F3A1ADA1A7500175565 /* path.cc */; };
+		93BE2F3D1ADA1A7500175565 /* path.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F3B1ADA1A7500175565 /* path.h */; };
+		93BE2F3E1ADA1A7800175565 /* path.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F3A1ADA1A7500175565 /* path.cc */; };
+		93BE2F411ADA1A8100175565 /* shape.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F3F1ADA1A8100175565 /* shape.cc */; };
+		93BE2F421ADA1A8100175565 /* shape.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F3F1ADA1A8100175565 /* shape.cc */; };
+		93BE2F431ADA1A8100175565 /* shape.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F401ADA1A8100175565 /* shape.h */; };
+		93BE2F441ADA1A8100175565 /* shape.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F401ADA1A8100175565 /* shape.h */; };
+		93CAA60C1AD191DC005EDC09 /* SLSRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA60A1AD191DC005EDC09 /* SLSRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93CAA60D1AD191DC005EDC09 /* SLSRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA60A1AD191DC005EDC09 /* SLSRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93CAA60E1AD191DC005EDC09 /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
 		93CAA60F1AD191DC005EDC09 /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
-		93CAA6101AD191E4005EDC09 /* SLSRunEventDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B5F1AD1546300969DC2 /* SLSRunEventDelegate.h */; };
-		93CAA6111AD191E4005EDC09 /* SLSEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B5E1AD14DC200969DC2 /* SLSEvents.h */; };
-		93CAA6121AD191E4005EDC09 /* SLSTargetConditionals.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B601AD1552700969DC2 /* SLSTargetConditionals.h */; };
-		93CAA6131AD191E5005EDC09 /* SLSRunEventDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B5F1AD1546300969DC2 /* SLSRunEventDelegate.h */; };
-		93CAA6141AD191E5005EDC09 /* SLSEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B5E1AD14DC200969DC2 /* SLSEvents.h */; };
-		93CAA6151AD191E5005EDC09 /* SLSTargetConditionals.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B601AD1552700969DC2 /* SLSTargetConditionals.h */; };
-		93CAA61B1AD19BE3005EDC09 /* SLSNSRunnerWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6181AD19BE3005EDC09 /* SLSNSRunnerWindowController.h */; };
+		93CAA6101AD191E4005EDC09 /* SLSEventDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B5F1AD1546300969DC2 /* SLSEventDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93CAA6111AD191E4005EDC09 /* SLSEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B5E1AD14DC200969DC2 /* SLSEvents.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93CAA6131AD191E5005EDC09 /* SLSEventDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B5F1AD1546300969DC2 /* SLSEventDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93CAA6141AD191E5005EDC09 /* SLSEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B5E1AD14DC200969DC2 /* SLSEvents.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93CAA61B1AD19BE3005EDC09 /* SLSNSRunnerWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6181AD19BE3005EDC09 /* SLSNSRunnerWindowController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93CAA61D1AD19BE3005EDC09 /* SLSNSRunnerWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6191AD19BE3005EDC09 /* SLSNSRunnerWindowController.m */; };
 		93CAA61F1AD19BE3005EDC09 /* SLSNSRunnerWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CAA61A1AD19BE3005EDC09 /* SLSNSRunnerWindowController.xib */; };
 		93CAA6251AD19C8D005EDC09 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CAA6241AD19C8C005EDC09 /* Foundation.framework */; };
@@ -135,19 +128,17 @@
 		93CAA62B1AD19CC1005EDC09 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CAA62A1AD19CC0005EDC09 /* CoreGraphics.framework */; };
 		93CAA62D1AD19CDF005EDC09 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CAA62C1AD19CDE005EDC09 /* QuartzCore.framework */; };
 		93CAA62F1AD19CEC005EDC09 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CAA62E1AD19CEC005EDC09 /* QuartzCore.framework */; };
-		93CAA6361AD1A2A5005EDC09 /* SLSNSApplicationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6341AD1A2A5005EDC09 /* SLSNSApplicationDelegate.h */; };
+		93CAA6361AD1A2A5005EDC09 /* SLSNSApplicationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6341AD1A2A5005EDC09 /* SLSNSApplicationDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93CAA6381AD1A2A5005EDC09 /* SLSNSApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6351AD1A2A5005EDC09 /* SLSNSApplicationDelegate.mm */; };
-		93CAA6471AD1A843005EDC09 /* SLSNSBundle+Bundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6451AD1A843005EDC09 /* SLSNSBundle+Bundle.h */; };
-		93CAA6481AD1A843005EDC09 /* SLSNSBundle+Bundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6451AD1A843005EDC09 /* SLSNSBundle+Bundle.h */; };
+		93CAA6471AD1A843005EDC09 /* SLSNSBundle+Bundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6451AD1A843005EDC09 /* SLSNSBundle+Bundle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93CAA6481AD1A843005EDC09 /* SLSNSBundle+Bundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6451AD1A843005EDC09 /* SLSNSBundle+Bundle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93CAA6491AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */; };
 		93CAA64A1AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */; };
-		93CAA64D1AD1AD4B005EDC09 /* SLSApplicationMain.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA64B1AD1AD4B005EDC09 /* SLSApplicationMain.h */; };
+		93CAA64D1AD1AD4B005EDC09 /* SLSApplicationMain.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA64B1AD1AD4B005EDC09 /* SLSApplicationMain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93CAA64F1AD1AD4B005EDC09 /* SLSNSApplicationMain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA64C1AD1AD4B005EDC09 /* SLSNSApplicationMain.mm */; };
 		93CAA6541AD1AE32005EDC09 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		93CAA6551AD1AE32005EDC09 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		93CAA6571AD1AF01005EDC09 /* SLSNSApplication.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CAA6561AD1AF01005EDC09 /* SLSNSApplication.xib */; };
-		93E15B541AC1AFDE00AA079C /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E913581AB27DE400DDF7F9 /* Solas.framework */; };
-		93E15B561AC1AFFA00AA079C /* Solas.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93E913581AB27DE400DDF7F9 /* Solas.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93E913951AB27FE600DDF7F9 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F3BCB81AA2215A00FBF369 /* AppKit.framework */; };
 		93E913A11AB2807E00DDF7F9 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E913A01AB2807E00DDF7F9 /* GLKit.framework */; };
 		93E913CA1AB2811500DDF7F9 /* line.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913AA1AB2811500DDF7F9 /* line.h */; };
@@ -176,6 +167,13 @@
 		93E913EB1AB2811500DDF7F9 /* vector4.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913BA1AB2811500DDF7F9 /* vector4.h */; };
 		93E913EC1AB2811500DDF7F9 /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913BB1AB2811500DDF7F9 /* math.h */; };
 		93E913ED1AB2811500DDF7F9 /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913BB1AB2811500DDF7F9 /* math.h */; };
+		93EBABAF1AD97CED00BF8959 /* SLSDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9441AD94669009D0646 /* SLSDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93EBABB01AD97CED00BF8959 /* SLSDisplayDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E96891AD38BB300A7E21E /* SLSDisplayDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93EBABB11AD97CED00BF8959 /* SLSDisplayLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 938987D61AD21F2000DEC9E9 /* SLSDisplayLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93EBABB21AD97CEE00BF8959 /* SLSDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9441AD94669009D0646 /* SLSDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93EBABB31AD97CEE00BF8959 /* SLSDisplayDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E96891AD38BB300A7E21E /* SLSDisplayDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93EBABB41AD97CEE00BF8959 /* SLSDisplayLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 938987D61AD21F2000DEC9E9 /* SLSDisplayLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93EBABB51AD97CEE00BF8959 /* SLSApplicationMain.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA64B1AD1AD4B005EDC09 /* SLSApplicationMain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93EFE0761AB350E900148E7C /* rect_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93EFE0751AB350E900148E7C /* rect_test.cc */; };
 		93F38E381AB56D2D009E3626 /* sphere_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93F38E371AB56D2D009E3626 /* sphere_test.cc */; };
 		93F38E3C1AB56DE8009E3626 /* line2.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E391AB56DE8009E3626 /* line2.h */; };
@@ -189,24 +187,16 @@
 		93F38E901AB60972009E3626 /* dispatch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F38E871AB60972009E3626 /* dispatch.mm */; };
 		93F38E911AB60972009E3626 /* thread.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E881AB60972009E3626 /* thread.h */; };
 		93F38E921AB60972009E3626 /* thread.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E881AB60972009E3626 /* thread.h */; };
+		93FEF93D1AD941AF009D0646 /* SLSNSGraphicsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF93C1AD941AF009D0646 /* SLSNSGraphicsContext.m */; };
+		93FEF9411AD941EA009D0646 /* SLSUIGraphicsContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF9401AD941EA009D0646 /* SLSUIGraphicsContext.m */; };
+		93FEF9421AD943CF009D0646 /* SLSGraphicsContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF93F1AD941BD009D0646 /* SLSGraphicsContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93FEF9431AD943CF009D0646 /* SLSGraphicsContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF93F1AD941BD009D0646 /* SLSGraphicsContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93FEF9A41AD97B2F009D0646 /* Solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9A21AD97B2A009D0646 /* Solas.h */; };
+		93FEF9A51AD97B31009D0646 /* SolasTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9A31AD97B2A009D0646 /* SolasTouch.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		93229F1F1AD2452D008D27EA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93F8AD6717C8B39800310877 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 93E913751AB27E2600DDF7F9;
-			remoteInfo = SolasTouch;
-		};
 		938A07EB1AB2D7E300CAE8CA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93F8AD6717C8B39800310877 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 93E913571AB27DE400DDF7F9;
-			remoteInfo = Solas;
-		};
-		93E15B521AC1AFDB00AA079C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 93F8AD6717C8B39800310877 /* Project object */;
 			proxyType = 1;
@@ -218,31 +208,10 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		930398471AB2B0DF00577048 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
+			buildActionMask = 12;
+			dstPath = "";
 			dstSubfolderSpec = 0;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-		93229F221AD2453C008D27EA /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				93229F241AD2454A008D27EA /* SolasTouch.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		93E15B551AC1AFEE00AA079C /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				93E15B561AC1AFFA00AA079C /* Solas.framework in CopyFiles */,
-				93A45B431AD0DCDD00969DC2 /* boost.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,17 +245,10 @@
 		93229ED01AD2428D008D27EA /* SLSUIRunnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIRunnerViewController.h; sourceTree = "<group>"; };
 		93229ED11AD2428D008D27EA /* SLSUIRunnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIRunnerViewController.m; sourceTree = "<group>"; };
 		93229ED21AD2428D008D27EA /* SLSUIRunnerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSUIRunnerViewController.xib; sourceTree = "<group>"; };
-		93229EED1AD24403008D27EA /* SolasTouchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolasTouchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		93229F141AD2447C008D27EA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		93229F151AD2447C008D27EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93229F161AD2447C008D27EA /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
-		93229F181AD2447C008D27EA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		93229F191AD2447C008D27EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93229F1A1AD2447C008D27EA /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		933803221AD88BA800F41F92 /* style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = style.h; sourceTree = "<group>"; };
 		933803251AD88DC200F41F92 /* font.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = font.cc; sourceTree = "<group>"; };
 		933803261AD88DC200F41F92 /* font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = font.h; sourceTree = "<group>"; };
-		933803311AD8B7EC00F41F92 /* core.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = core.cc; sourceTree = "<group>"; };
+		933803311AD8B7EC00F41F92 /* core.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = core.mm; sourceTree = "<group>"; };
 		933803321AD8B7EC00F41F92 /* core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
 		933803371AD8C72400F41F92 /* event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = event.h; sourceTree = "<group>"; };
 		934FAAA21AD6E21600FACF2E /* math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math.h; sourceTree = "<group>"; };
@@ -299,21 +261,16 @@
 		934FAABC1AD6EB6700FACF2E /* input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = input.h; sourceTree = "<group>"; };
 		934FAABE1AD6EE4100FACF2E /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		938987C61AD1B93F00DEC9E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		938987C71AD1B93F00DEC9E9 /* Solas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Solas.h; sourceTree = "<group>"; };
-		938987C81AD1B93F00DEC9E9 /* SolasTouch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SolasTouch.h; sourceTree = "<group>"; };
-		938987CB1AD1B98900DEC9E9 /* Solas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Solas.m; sourceTree = "<group>"; };
-		938987CD1AD1B99600DEC9E9 /* SolasTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SolasTouch.m; sourceTree = "<group>"; };
 		938987D61AD21F2000DEC9E9 /* SLSDisplayLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDisplayLink.h; sourceTree = "<group>"; };
 		938987D71AD21F2000DEC9E9 /* SLSCVDisplayLink.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSCVDisplayLink.mm; sourceTree = "<group>"; };
 		938987DD1AD5F32100DEC9E9 /* functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = functions.h; sourceTree = "<group>"; };
 		938A07E41AB2D41D00CAE8CA /* benchmark.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = benchmark.h; sourceTree = "<group>"; };
 		939E963A1AD250AF00A7E21E /* runner_factory.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = runner_factory.cc; sourceTree = "<group>"; };
 		939E963B1AD250AF00A7E21E /* runner_factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = runner_factory.h; sourceTree = "<group>"; };
-		939E96761AD2616500A7E21E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		939E967F1AD384C500A7E21E /* SLSRunnerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSRunnerLayer.h; sourceTree = "<group>"; };
 		939E96801AD384C500A7E21E /* SLSRunnerLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSRunnerLayer.mm; sourceTree = "<group>"; };
 		939E96851AD3864600A7E21E /* SLSCADisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSCADisplayLink.m; sourceTree = "<group>"; };
-		939E96891AD38BB300A7E21E /* SLSRunDisplayDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSRunDisplayDelegate.h; sourceTree = "<group>"; };
+		939E96891AD38BB300A7E21E /* SLSDisplayDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSDisplayDelegate.h; sourceTree = "<group>"; };
 		93A45B351AD0D23700969DC2 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/osx/framework/boost.framework; sourceTree = "<group>"; };
 		93A45B371AD0D25300969DC2 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/ios/framework/boost.framework; sourceTree = "<group>"; };
 		93A45B3D1AD0D32B00969DC2 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/GLKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -325,8 +282,7 @@
 		93A45B521AD14C4400969DC2 /* mouse_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mouse_event.h; sourceTree = "<group>"; };
 		93A45B531AD14C4400969DC2 /* touch_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = touch_event.h; sourceTree = "<group>"; };
 		93A45B5E1AD14DC200969DC2 /* SLSEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSEvents.h; sourceTree = "<group>"; };
-		93A45B5F1AD1546300969DC2 /* SLSRunEventDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSRunEventDelegate.h; sourceTree = "<group>"; };
-		93A45B601AD1552700969DC2 /* SLSTargetConditionals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSTargetConditionals.h; sourceTree = "<group>"; };
+		93A45B5F1AD1546300969DC2 /* SLSEventDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSEventDelegate.h; sourceTree = "<group>"; };
 		93A9BFFD1AC99A430081D3A0 /* benchmark.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = benchmark.cc; sourceTree = "<group>"; };
 		93A9C0011ACC4DBC0081D3A0 /* promotion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = promotion.h; sourceTree = "<group>"; };
 		93A9C0051ACF59260081D3A0 /* SLSNSRunnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSNSRunnerView.h; sourceTree = "<group>"; };
@@ -335,6 +291,10 @@
 		93B707D81AD62C5E00E3E8AA /* stroke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stroke.h; sourceTree = "<group>"; };
 		93B707D91AD62C6300E3E8AA /* fill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fill.h; sourceTree = "<group>"; };
 		93B707DA1AD692DF00E3E8AA /* app_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = app_event.h; sourceTree = "<group>"; };
+		93BE2F3A1ADA1A7500175565 /* path.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = path.cc; sourceTree = "<group>"; };
+		93BE2F3B1ADA1A7500175565 /* path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = path.h; sourceTree = "<group>"; };
+		93BE2F3F1ADA1A8100175565 /* shape.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shape.cc; sourceTree = "<group>"; };
+		93BE2F401ADA1A8100175565 /* shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shape.h; sourceTree = "<group>"; };
 		93CAA6081AD16EED005EDC09 /* key_modifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = key_modifier.h; sourceTree = "<group>"; };
 		93CAA6091AD16F40005EDC09 /* mouse_button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mouse_button.h; sourceTree = "<group>"; };
 		93CAA60A1AD191DC005EDC09 /* SLSRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSRunner.h; sourceTree = "<group>"; };
@@ -383,18 +343,24 @@
 		93F38E3F1AB5F859009E3626 /* triangle2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangle2.h; sourceTree = "<group>"; };
 		93F38E401AB5F859009E3626 /* triangle3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangle3.h; sourceTree = "<group>"; };
 		93F38E461AB5FA8B009E3626 /* graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphics.h; sourceTree = "<group>"; };
-		93F38E521AB5FC4E009E3626 /* Solas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Solas.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F38E861AB60972009E3626 /* dispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dispatch.h; sourceTree = "<group>"; };
 		93F38E871AB60972009E3626 /* dispatch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dispatch.mm; sourceTree = "<group>"; };
 		93F38E881AB60972009E3626 /* thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thread.h; sourceTree = "<group>"; };
-		93F3BBD01AA2056C00FBF369 /* project_debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_debug.xcconfig; sourceTree = "<group>"; };
-		93F3BBD11AA2056C00FBF369 /* project_release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_release.xcconfig; sourceTree = "<group>"; };
-		93F3BBD21AA2056C00FBF369 /* project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
-		93F3BBF71AA2080D00FBF369 /* product_debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = product_debug.xcconfig; sourceTree = "<group>"; };
-		93F3BBF81AA2080D00FBF369 /* product_release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = product_release.xcconfig; sourceTree = "<group>"; };
-		93F3BBF91AA2080D00FBF369 /* product_test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = product_test.xcconfig; sourceTree = "<group>"; };
-		93F3BBFA1AA2080D00FBF369 /* product.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = product.xcconfig; sourceTree = "<group>"; };
+		93F3BBD01AA2056C00FBF369 /* ProjectDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProjectDebug.xcconfig; sourceTree = "<group>"; };
+		93F3BBD11AA2056C00FBF369 /* ProjectRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProjectRelease.xcconfig; sourceTree = "<group>"; };
+		93F3BBD21AA2056C00FBF369 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		93F3BBF91AA2080D00FBF369 /* Test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Test.xcconfig; sourceTree = "<group>"; };
+		93F3BBFA1AA2080D00FBF369 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
 		93F3BCB81AA2215A00FBF369 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		93FEF9351AD92C90009D0646 /* matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
+		93FEF9361AD92CA8009D0646 /* matrix2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix2.h; sourceTree = "<group>"; };
+		93FEF9371AD92CAE009D0646 /* matrix3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix3.h; sourceTree = "<group>"; };
+		93FEF93C1AD941AF009D0646 /* SLSNSGraphicsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSNSGraphicsContext.m; sourceTree = "<group>"; };
+		93FEF93F1AD941BD009D0646 /* SLSGraphicsContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSGraphicsContext.h; sourceTree = "<group>"; };
+		93FEF9401AD941EA009D0646 /* SLSUIGraphicsContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIGraphicsContext.m; sourceTree = "<group>"; };
+		93FEF9441AD94669009D0646 /* SLSDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSDefines.h; sourceTree = "<group>"; };
+		93FEF9A21AD97B2A009D0646 /* Solas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Solas.h; sourceTree = "<group>"; };
+		93FEF9A31AD97B2A009D0646 /* SolasTouch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SolasTouch.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -404,15 +370,6 @@
 			files = (
 				938987DC1AD4AA0900DEC9E9 /* boost.framework in Frameworks */,
 				938A07ED1AB2D7E700CAE8CA /* Solas.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		93229EEA1AD24403008D27EA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				939E962B1AD24AB200A7E21E /* SolasTouch.framework in Frameworks */,
-				939E962C1AD24B4200A7E21E /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,15 +396,6 @@
 				93A45B401AD0D33800969DC2 /* UIKit.framework in Frameworks */,
 				93A45B3E1AD0D32B00969DC2 /* GLKit.framework in Frameworks */,
 				93CAA62F1AD19CEC005EDC09 /* QuartzCore.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		93F38E4F1AB5FC4E009E3626 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				93A45B421AD0D94A00969DC2 /* boost.framework in Frameworks */,
-				93E15B541AC1AFDE00AA079C /* Solas.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,70 +426,53 @@
 			path = math;
 			sourceTree = "<group>";
 		};
-		930955021A4FB1E200D09023 /* config */ = {
+		930955021A4FB1E200D09023 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
-				93F3BBD21AA2056C00FBF369 /* project.xcconfig */,
-				93F3BBD01AA2056C00FBF369 /* project_debug.xcconfig */,
-				93F3BBD11AA2056C00FBF369 /* project_release.xcconfig */,
-				93F3BBFA1AA2080D00FBF369 /* product.xcconfig */,
-				93F3BBF71AA2080D00FBF369 /* product_debug.xcconfig */,
-				93F3BBF81AA2080D00FBF369 /* product_release.xcconfig */,
-				93F3BBF91AA2080D00FBF369 /* product_test.xcconfig */,
+				938987C61AD1B93F00DEC9E9 /* Info.plist */,
+				93F3BBD21AA2056C00FBF369 /* Project.xcconfig */,
+				93F3BBD01AA2056C00FBF369 /* ProjectDebug.xcconfig */,
+				93F3BBD11AA2056C00FBF369 /* ProjectRelease.xcconfig */,
+				93F3BBFA1AA2080D00FBF369 /* Framework.xcconfig */,
+				93F3BBF91AA2080D00FBF369 /* Test.xcconfig */,
 			);
+			name = Configurations;
 			path = config;
 			sourceTree = "<group>";
 		};
-		93229EC41AD2402A008D27EA /* osx */ = {
+		93229EC41AD2402A008D27EA /* AppKit Specific */ = {
 			isa = PBXGroup;
 			children = (
+				93A9C0051ACF59260081D3A0 /* SLSNSRunnerView.h */,
+				93A9C0061ACF59260081D3A0 /* SLSNSRunnerView.mm */,
+				93FEF93C1AD941AF009D0646 /* SLSNSGraphicsContext.m */,
+				938987D71AD21F2000DEC9E9 /* SLSCVDisplayLink.mm */,
+				93CAA6181AD19BE3005EDC09 /* SLSNSRunnerWindowController.h */,
+				93CAA6191AD19BE3005EDC09 /* SLSNSRunnerWindowController.m */,
+				93CAA61A1AD19BE3005EDC09 /* SLSNSRunnerWindowController.xib */,
 				93CAA64C1AD1AD4B005EDC09 /* SLSNSApplicationMain.mm */,
 				93CAA6341AD1A2A5005EDC09 /* SLSNSApplicationDelegate.h */,
 				93CAA6351AD1A2A5005EDC09 /* SLSNSApplicationDelegate.mm */,
 				93CAA6561AD1AF01005EDC09 /* SLSNSApplication.xib */,
-				93A9C0051ACF59260081D3A0 /* SLSNSRunnerView.h */,
-				93A9C0061ACF59260081D3A0 /* SLSNSRunnerView.mm */,
-				93CAA6181AD19BE3005EDC09 /* SLSNSRunnerWindowController.h */,
-				93CAA6191AD19BE3005EDC09 /* SLSNSRunnerWindowController.m */,
-				93CAA61A1AD19BE3005EDC09 /* SLSNSRunnerWindowController.xib */,
 			);
-			name = osx;
+			name = "AppKit Specific";
 			sourceTree = "<group>";
 		};
-		93229EC51AD24031008D27EA /* ios */ = {
+		93229EC51AD24031008D27EA /* UIKit Specific */ = {
 			isa = PBXGroup;
 			children = (
-				93229EC61AD2409E008D27EA /* SLSUIApplicationMain.mm */,
-				93229E8E1AD23DF3008D27EA /* SLSUIApplicationDelegate.h */,
-				93229E8F1AD23DF3008D27EA /* SLSUIApplicationDelegate.mm */,
 				93229E8A1AD23BB4008D27EA /* SLSUIRunnerView.h */,
 				93229E8B1AD23BB4008D27EA /* SLSUIRunnerView.mm */,
+				93FEF9401AD941EA009D0646 /* SLSUIGraphicsContext.m */,
+				939E96851AD3864600A7E21E /* SLSCADisplayLink.m */,
 				93229ED01AD2428D008D27EA /* SLSUIRunnerViewController.h */,
 				93229ED11AD2428D008D27EA /* SLSUIRunnerViewController.m */,
 				93229ED21AD2428D008D27EA /* SLSUIRunnerViewController.xib */,
+				93229EC61AD2409E008D27EA /* SLSUIApplicationMain.mm */,
+				93229E8E1AD23DF3008D27EA /* SLSUIApplicationDelegate.h */,
+				93229E8F1AD23DF3008D27EA /* SLSUIApplicationDelegate.mm */,
 			);
-			name = ios;
-			sourceTree = "<group>";
-		};
-		93229F131AD2447C008D27EA /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				939E96761AD2616500A7E21E /* Default-568h@2x.png */,
-				93229F141AD2447C008D27EA /* Images.xcassets */,
-				93229F151AD2447C008D27EA /* Info.plist */,
-				93229F161AD2447C008D27EA /* main.mm */,
-			);
-			path = ios;
-			sourceTree = "<group>";
-		};
-		93229F171AD2447C008D27EA /* osx */ = {
-			isa = PBXGroup;
-			children = (
-				93229F181AD2447C008D27EA /* Images.xcassets */,
-				93229F191AD2447C008D27EA /* Info.plist */,
-				93229F1A1AD2447C008D27EA /* main.mm */,
-			);
-			path = osx;
+			name = "UIKit Specific";
 			sourceTree = "<group>";
 		};
 		934FAAA11AD6E21600FACF2E /* processing */ = {
@@ -561,18 +492,6 @@
 				933803371AD8C72400F41F92 /* event.h */,
 			);
 			path = processing;
-			sourceTree = "<group>";
-		};
-		938987C51AD1B93F00DEC9E9 /* framework */ = {
-			isa = PBXGroup;
-			children = (
-				938987C61AD1B93F00DEC9E9 /* Info.plist */,
-				938987C71AD1B93F00DEC9E9 /* Solas.h */,
-				938987CB1AD1B98900DEC9E9 /* Solas.m */,
-				938987C81AD1B93F00DEC9E9 /* SolasTouch.h */,
-				938987CD1AD1B99600DEC9E9 /* SolasTouch.m */,
-			);
-			path = framework;
 			sourceTree = "<group>";
 		};
 		938987CF1AD1BA3600DEC9E9 /* app */ = {
@@ -603,29 +522,29 @@
 			path = utility;
 			sourceTree = "<group>";
 		};
-		93A45B3A1AD0D2BC00969DC2 /* system frameworks */ = {
+		93A45B3A1AD0D2BC00969DC2 /* System Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				93E9138F1AB27E9400DDF7F9 /* osx */,
-				93E913901AB27EE800DDF7F9 /* ios */,
+				93E9138F1AB27E9400DDF7F9 /* OS X */,
+				93E913901AB27EE800DDF7F9 /* iOS */,
 			);
-			name = "system frameworks";
+			name = "System Frameworks";
 			sourceTree = "<group>";
 		};
-		93A45B3B1AD0D2E500969DC2 /* osx */ = {
+		93A45B3B1AD0D2E500969DC2 /* OS X */ = {
 			isa = PBXGroup;
 			children = (
 				93A45B351AD0D23700969DC2 /* boost.framework */,
 			);
-			name = osx;
+			name = "OS X";
 			sourceTree = "<group>";
 		};
-		93A45B3C1AD0D2E800969DC2 /* ios */ = {
+		93A45B3C1AD0D2E800969DC2 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
 				93A45B371AD0D25300969DC2 /* boost.framework */,
 			);
-			name = ios;
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		93A45B441AD1438900969DC2 /* app */ = {
@@ -650,7 +569,7 @@
 			path = app;
 			sourceTree = "<group>";
 		};
-		93E9138F1AB27E9400DDF7F9 /* osx */ = {
+		93E9138F1AB27E9400DDF7F9 /* OS X */ = {
 			isa = PBXGroup;
 			children = (
 				93F3BCB81AA2215A00FBF369 /* AppKit.framework */,
@@ -659,10 +578,10 @@
 				93E913A01AB2807E00DDF7F9 /* GLKit.framework */,
 				93CAA62C1AD19CDE005EDC09 /* QuartzCore.framework */,
 			);
-			name = osx;
+			name = "OS X";
 			sourceTree = "<group>";
 		};
-		93E913901AB27EE800DDF7F9 /* ios */ = {
+		93E913901AB27EE800DDF7F9 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
 				93CAA6281AD19CB0005EDC09 /* CoreGraphics.framework */,
@@ -671,7 +590,7 @@
 				93A45B3F1AD0D33700969DC2 /* UIKit.framework */,
 				93CAA62E1AD19CEC005EDC09 /* QuartzCore.framework */,
 			);
-			name = ios;
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		93E913A21AB2811500DDF7F9 /* math */ = {
@@ -686,6 +605,9 @@
 				93E913B81AB2811500DDF7F9 /* vector2.h */,
 				93E913B91AB2811500DDF7F9 /* vector3.h */,
 				93E913BA1AB2811500DDF7F9 /* vector4.h */,
+				93FEF9351AD92C90009D0646 /* matrix.h */,
+				93FEF9361AD92CA8009D0646 /* matrix2.h */,
+				93FEF9371AD92CAE009D0646 /* matrix3.h */,
 				93E913B01AB2811500DDF7F9 /* size.h */,
 				93E913B11AB2811500DDF7F9 /* size2.h */,
 				93E913B21AB2811500DDF7F9 /* size3.h */,
@@ -703,27 +625,28 @@
 			path = math;
 			sourceTree = "<group>";
 		};
-		93F38E441AB5FA26009E3626 /* cocoa */ = {
+		93F38E441AB5FA26009E3626 /* Objective-C Sources */ = {
 			isa = PBXGroup;
 			children = (
 				93CAA60A1AD191DC005EDC09 /* SLSRunner.h */,
 				93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */,
-				939E96891AD38BB300A7E21E /* SLSRunDisplayDelegate.h */,
-				93A45B5F1AD1546300969DC2 /* SLSRunEventDelegate.h */,
-				938987D61AD21F2000DEC9E9 /* SLSDisplayLink.h */,
-				938987D71AD21F2000DEC9E9 /* SLSCVDisplayLink.mm */,
-				939E96851AD3864600A7E21E /* SLSCADisplayLink.m */,
 				939E967F1AD384C500A7E21E /* SLSRunnerLayer.h */,
 				939E96801AD384C500A7E21E /* SLSRunnerLayer.mm */,
-				93CAA64B1AD1AD4B005EDC09 /* SLSApplicationMain.h */,
-				93A45B601AD1552700969DC2 /* SLSTargetConditionals.h */,
+				93FEF9441AD94669009D0646 /* SLSDefines.h */,
 				93A45B5E1AD14DC200969DC2 /* SLSEvents.h */,
+				93A45B5F1AD1546300969DC2 /* SLSEventDelegate.h */,
+				939E96891AD38BB300A7E21E /* SLSDisplayDelegate.h */,
+				93FEF93F1AD941BD009D0646 /* SLSGraphicsContext.h */,
+				938987D61AD21F2000DEC9E9 /* SLSDisplayLink.h */,
+				93CAA64B1AD1AD4B005EDC09 /* SLSApplicationMain.h */,
 				93CAA6451AD1A843005EDC09 /* SLSNSBundle+Bundle.h */,
 				93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */,
-				93229EC41AD2402A008D27EA /* osx */,
-				93229EC51AD24031008D27EA /* ios */,
+				93229EC41AD2402A008D27EA /* AppKit Specific */,
+				93229EC51AD24031008D27EA /* UIKit Specific */,
+				93FEF9A11AD97B0E009D0646 /* Framework Headers */,
 			);
-			path = cocoa;
+			name = "Objective-C Sources";
+			path = objc;
 			sourceTree = "<group>";
 		};
 		93F38E451AB5FA8B009E3626 /* graphics */ = {
@@ -735,22 +658,17 @@
 				930D52001AD52BBF006EEF1B /* color_depth.h */,
 				93B707D91AD62C6300E3E8AA /* fill.h */,
 				93B707D81AD62C5E00E3E8AA /* stroke.h */,
+				93BE2F3B1ADA1A7500175565 /* path.h */,
+				93BE2F3A1ADA1A7500175565 /* path.cc */,
+				93BE2F401ADA1A8100175565 /* shape.h */,
+				93BE2F3F1ADA1A8100175565 /* shape.cc */,
 				933803261AD88DC200F41F92 /* font.h */,
 				933803251AD88DC200F41F92 /* font.cc */,
 				930D51E21AD3CE4E006EEF1B /* context_holder.h */,
 				933803321AD8B7EC00F41F92 /* core.h */,
-				933803311AD8B7EC00F41F92 /* core.cc */,
+				933803311AD8B7EC00F41F92 /* core.mm */,
 			);
 			path = graphics;
-			sourceTree = "<group>";
-		};
-		93F38E721AB5FD01009E3626 /* app */ = {
-			isa = PBXGroup;
-			children = (
-				93229F171AD2447C008D27EA /* osx */,
-				93229F131AD2447C008D27EA /* ios */,
-			);
-			path = app;
 			sourceTree = "<group>";
 		};
 		93F38E831AB60972009E3626 /* thread */ = {
@@ -763,7 +681,7 @@
 			path = thread;
 			sourceTree = "<group>";
 		};
-		93F3BBD51AA205AA00FBF369 /* src */ = {
+		93F3BBD51AA205AA00FBF369 /* C++ Sources */ = {
 			isa = PBXGroup;
 			children = (
 				93A45B451AD1438900969DC2 /* app.h */,
@@ -779,11 +697,11 @@
 				930398341AB2AEE700577048 /* utility.h */,
 				930398331AB2AEE700577048 /* utility */,
 			);
-			name = src;
+			name = "C++ Sources";
 			path = src/solas;
 			sourceTree = "<group>";
 		};
-		93F3BBD61AA205C200FBF369 /* test */ = {
+		93F3BBD61AA205C200FBF369 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				938987CF1AD1BA3600DEC9E9 /* app */,
@@ -792,43 +710,49 @@
 				938987D11AD1BA3600DEC9E9 /* thread */,
 				938A07E81AB2D78400CAE8CA /* utility */,
 			);
+			name = Tests;
 			path = test;
 			sourceTree = "<group>";
 		};
-		93F3BCB71AA2214B00FBF369 /* linked frameworks */ = {
+		93F3BCB71AA2214B00FBF369 /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				93A45B3B1AD0D2E500969DC2 /* osx */,
-				93A45B3C1AD0D2E800969DC2 /* ios */,
+				93A45B3B1AD0D2E500969DC2 /* OS X */,
+				93A45B3C1AD0D2E800969DC2 /* iOS */,
 			);
-			name = "linked frameworks";
+			name = "Linked Frameworks";
 			sourceTree = "<group>";
 		};
 		93F8AD6617C8B39800310877 = {
 			isa = PBXGroup;
 			children = (
-				93F3BBD51AA205AA00FBF369 /* src */,
-				93F38E441AB5FA26009E3626 /* cocoa */,
-				93F38E721AB5FD01009E3626 /* app */,
-				93F3BBD61AA205C200FBF369 /* test */,
-				930955021A4FB1E200D09023 /* config */,
-				938987C51AD1B93F00DEC9E9 /* framework */,
-				93F3BCB71AA2214B00FBF369 /* linked frameworks */,
-				93A45B3A1AD0D2BC00969DC2 /* system frameworks */,
-				93F8AD7017C8B39800310877 /* products */,
+				93F3BBD51AA205AA00FBF369 /* C++ Sources */,
+				93F38E441AB5FA26009E3626 /* Objective-C Sources */,
+				93F3BBD61AA205C200FBF369 /* Tests */,
+				930955021A4FB1E200D09023 /* Configurations */,
+				93F3BCB71AA2214B00FBF369 /* Linked Frameworks */,
+				93A45B3A1AD0D2BC00969DC2 /* System Frameworks */,
+				93F8AD7017C8B39800310877 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		93F8AD7017C8B39800310877 /* products */ = {
+		93F8AD7017C8B39800310877 /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				93E913581AB27DE400DDF7F9 /* Solas.framework */,
 				93E913761AB27E2600DDF7F9 /* SolasTouch.framework */,
 				930398491AB2B0DF00577048 /* SolasTest */,
-				93F38E521AB5FC4E009E3626 /* Solas.app */,
-				93229EED1AD24403008D27EA /* SolasTouchApp.app */,
 			);
-			name = products;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93FEF9A11AD97B0E009D0646 /* Framework Headers */ = {
+			isa = PBXGroup;
+			children = (
+				93FEF9A21AD97B2A009D0646 /* Solas.h */,
+				93FEF9A31AD97B2A009D0646 /* SolasTouch.h */,
+			);
+			name = "Framework Headers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -847,18 +771,22 @@
 				93CAA64D1AD1AD4B005EDC09 /* SLSApplicationMain.h in Headers */,
 				930D51EA1AD42B76006EEF1B /* color.h in Headers */,
 				933803351AD8B7EC00F41F92 /* core.h in Headers */,
+				93BE2F3D1ADA1A7500175565 /* path.h in Headers */,
 				93A45B341AD0CE2F00969DC2 /* benchmark.h in Headers */,
 				93CAA60C1AD191DC005EDC09 /* SLSRunner.h in Headers */,
 				93E913D41AB2811500DDF7F9 /* rect.h in Headers */,
 				93A45B541AD14C4400969DC2 /* gesture_event.h in Headers */,
 				93E913D81AB2811500DDF7F9 /* size2.h in Headers */,
+				93EBABAF1AD97CED00BF8959 /* SLSDefines.h in Headers */,
 				93E913EC1AB2811500DDF7F9 /* math.h in Headers */,
 				93CAA6361AD1A2A5005EDC09 /* SLSNSApplicationDelegate.h in Headers */,
 				934FAAAD1AD6E28700FACF2E /* sketch.h in Headers */,
 				93E913E41AB2811500DDF7F9 /* vector.h in Headers */,
 				93E913EA1AB2811500DDF7F9 /* vector4.h in Headers */,
-				93CAA6131AD191E5005EDC09 /* SLSRunEventDelegate.h in Headers */,
+				93EBABB11AD97CED00BF8959 /* SLSDisplayLink.h in Headers */,
+				93CAA6131AD191E5005EDC09 /* SLSEventDelegate.h in Headers */,
 				934FAAA61AD6E21600FACF2E /* processing.h in Headers */,
+				93BE2F431ADA1A8100175565 /* shape.h in Headers */,
 				930D51EE1AD42B76006EEF1B /* color4.h in Headers */,
 				93CAA61B1AD19BE3005EDC09 /* SLSNSRunnerWindowController.h in Headers */,
 				93A45B2D1AD0CE2500969DC2 /* promotion.h in Headers */,
@@ -882,18 +810,19 @@
 				93F38E411AB5F859009E3626 /* triangle2.h in Headers */,
 				933803231AD88BA800F41F92 /* style.h in Headers */,
 				9303982B1AB2AE9900577048 /* constants.h in Headers */,
-				93CAA6151AD191E5005EDC09 /* SLSTargetConditionals.h in Headers */,
 				93A9C00C1ACF63060081D3A0 /* polygon.h in Headers */,
 				93A45B2F1AD0CE2500969DC2 /* axis.h in Headers */,
+				93FEF9431AD943CF009D0646 /* SLSGraphicsContext.h in Headers */,
 				93F38E471AB5FA8B009E3626 /* graphics.h in Headers */,
 				93E913E61AB2811500DDF7F9 /* vector2.h in Headers */,
 				93229E6D1ACD6DDA008D27EA /* singleton.h in Headers */,
-				938987C91AD1B96B00DEC9E9 /* Solas.h in Headers */,
 				93A45B5C1AD14C4400969DC2 /* touch_event.h in Headers */,
 				93E913CE1AB2811500DDF7F9 /* plane.h in Headers */,
 				939E96811AD384C500A7E21E /* SLSRunnerLayer.h in Headers */,
 				93F38E8D1AB60972009E3626 /* dispatch.h in Headers */,
+				93FEF9A41AD97B2F009D0646 /* Solas.h in Headers */,
 				93B707DB1AD692DF00E3E8AA /* app_event.h in Headers */,
+				93EBABB01AD97CED00BF8959 /* SLSDisplayDelegate.h in Headers */,
 				93229E711ACEAF05008D27EA /* null_mutex.h in Headers */,
 				93E913D61AB2811500DDF7F9 /* size.h in Headers */,
 				93A45B5A1AD14C4400969DC2 /* mouse_event.h in Headers */,
@@ -908,17 +837,21 @@
 				934FAAA71AD6E21600FACF2E /* processing.h in Headers */,
 				934FAAA51AD6E21600FACF2E /* math.h in Headers */,
 				930398391AB2AEF400577048 /* enum.h in Headers */,
+				93EBABB21AD97CEE00BF8959 /* SLSDefines.h in Headers */,
 				93E913CB1AB2811500DDF7F9 /* line.h in Headers */,
 				934FAAAE1AD6E28700FACF2E /* sketch.h in Headers */,
+				93BE2F441ADA1A8100175565 /* shape.h in Headers */,
 				939E96411AD250AF00A7E21E /* runner_factory.h in Headers */,
 				93A45B301AD0CE2900969DC2 /* graphics.h in Headers */,
 				93E913D51AB2811500DDF7F9 /* rect.h in Headers */,
 				933803241AD88BA800F41F92 /* style.h in Headers */,
 				930D51EF1AD42B76006EEF1B /* color4.h in Headers */,
 				93E913D91AB2811500DDF7F9 /* size2.h in Headers */,
+				93FEF9A51AD97B31009D0646 /* SolasTouch.h in Headers */,
 				93A45B5D1AD14C4400969DC2 /* touch_event.h in Headers */,
 				93229E6E1ACD6DDA008D27EA /* singleton.h in Headers */,
 				93CAA60D1AD191DC005EDC09 /* SLSRunner.h in Headers */,
+				93FEF9421AD943CF009D0646 /* SLSGraphicsContext.h in Headers */,
 				930D51ED1AD42B76006EEF1B /* color3.h in Headers */,
 				93CAA6111AD191E4005EDC09 /* SLSEvents.h in Headers */,
 				93F38E921AB60972009E3626 /* thread.h in Headers */,
@@ -927,9 +860,9 @@
 				9338032A1AD88DC200F41F92 /* font.h in Headers */,
 				93A45B281AD0CE2500969DC2 /* promotion.h in Headers */,
 				93A45B5B1AD14C4400969DC2 /* mouse_event.h in Headers */,
+				93EBABB31AD97CEE00BF8959 /* SLSDisplayDelegate.h in Headers */,
 				93A45B291AD0CE2500969DC2 /* random.h in Headers */,
 				93A45B331AD0CE2F00969DC2 /* benchmark.h in Headers */,
-				938987CA1AD1B96E00DEC9E9 /* SolasTouch.h in Headers */,
 				93A45B551AD14C4400969DC2 /* gesture_event.h in Headers */,
 				93E913ED1AB2811500DDF7F9 /* math.h in Headers */,
 				933803361AD8B7EC00F41F92 /* core.h in Headers */,
@@ -946,19 +879,20 @@
 				93F38E8E1AB60972009E3626 /* dispatch.h in Headers */,
 				9303982A1AB2AE9900577048 /* constants.h in Headers */,
 				934FAAB41AD6E29200FACF2E /* layer.h in Headers */,
+				93EBABB41AD97CEE00BF8959 /* SLSDisplayLink.h in Headers */,
 				93E913E71AB2811500DDF7F9 /* vector2.h in Headers */,
 				939E96821AD384C500A7E21E /* SLSRunnerLayer.h in Headers */,
 				93229ED31AD2428E008D27EA /* SLSUIRunnerViewController.h in Headers */,
 				93229E8C1AD23BB4008D27EA /* SLSUIRunnerView.h in Headers */,
-				93CAA6121AD191E4005EDC09 /* SLSTargetConditionals.h in Headers */,
 				93A45B2B1AD0CE2500969DC2 /* polygon.h in Headers */,
 				93A45B271AD0CE1E00969DC2 /* null_mutex.h in Headers */,
 				93E913CF1AB2811500DDF7F9 /* plane.h in Headers */,
 				93E913D71AB2811500DDF7F9 /* size.h in Headers */,
 				93A45B461AD1438900969DC2 /* app.h in Headers */,
-				93CAA6101AD191E4005EDC09 /* SLSRunEventDelegate.h in Headers */,
+				93CAA6101AD191E4005EDC09 /* SLSEventDelegate.h in Headers */,
 				93A45B591AD14C4400969DC2 /* motion_event.h in Headers */,
 				931CCB8D1AD88A150047542F /* graphics.h in Headers */,
+				93EBABB51AD97CEE00BF8959 /* SLSApplicationMain.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -983,25 +917,6 @@
 			productReference = 930398491AB2B0DF00577048 /* SolasTest */;
 			productType = "com.apple.product-type.tool";
 		};
-		93229EEC1AD24403008D27EA /* SolasTouchApp */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 93229F0D1AD24404008D27EA /* Build configuration list for PBXNativeTarget "SolasTouchApp" */;
-			buildPhases = (
-				93229EE91AD24403008D27EA /* Sources */,
-				93229EEA1AD24403008D27EA /* Frameworks */,
-				93229EEB1AD24403008D27EA /* Resources */,
-				93229F221AD2453C008D27EA /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				93229F201AD2452D008D27EA /* PBXTargetDependency */,
-			);
-			name = SolasTouchApp;
-			productName = SolasTouchApp;
-			productReference = 93229EED1AD24403008D27EA /* SolasTouchApp.app */;
-			productType = "com.apple.product-type.application";
-		};
 		93E913571AB27DE400DDF7F9 /* Solas */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93E9136B1AB27DE400DDF7F9 /* Build configuration list for PBXNativeTarget "Solas" */;
@@ -1010,6 +925,7 @@
 				93E913541AB27DE400DDF7F9 /* Frameworks */,
 				93E913551AB27DE400DDF7F9 /* Headers */,
 				93E913561AB27DE400DDF7F9 /* Resources */,
+				93EBABC61AD97F7A00BF8959 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1038,25 +954,6 @@
 			productReference = 93E913761AB27E2600DDF7F9 /* SolasTouch.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		93F38E511AB5FC4E009E3626 /* SolasApp */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 93F38E6C1AB5FC4E009E3626 /* Build configuration list for PBXNativeTarget "SolasApp" */;
-			buildPhases = (
-				93F38E4E1AB5FC4E009E3626 /* Sources */,
-				93F38E4F1AB5FC4E009E3626 /* Frameworks */,
-				93F38E501AB5FC4E009E3626 /* Resources */,
-				93E15B551AC1AFEE00AA079C /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				93E15B531AC1AFDB00AA079C /* PBXTargetDependency */,
-			);
-			name = SolasApp;
-			productName = SolasApp;
-			productReference = 93F38E521AB5FC4E009E3626 /* Solas.app */;
-			productType = "com.apple.product-type.application";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1069,16 +966,10 @@
 					930398481AB2B0DF00577048 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
-					93229EEC1AD24403008D27EA = {
-						CreatedOnToolsVersion = 6.2;
-					};
 					93E913571AB27DE400DDF7F9 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
 					93E913751AB27E2600DDF7F9 = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-					93F38E511AB5FC4E009E3626 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
 				};
@@ -1092,34 +983,24 @@
 				Base,
 			);
 			mainGroup = 93F8AD6617C8B39800310877;
-			productRefGroup = 93F8AD7017C8B39800310877 /* products */;
+			productRefGroup = 93F8AD7017C8B39800310877 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				93E913571AB27DE400DDF7F9 /* Solas */,
 				93E913751AB27E2600DDF7F9 /* SolasTouch */,
 				930398481AB2B0DF00577048 /* SolasTest */,
-				93F38E511AB5FC4E009E3626 /* SolasApp */,
-				93229EEC1AD24403008D27EA /* SolasTouchApp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		93229EEB1AD24403008D27EA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				939E96771AD2616500A7E21E /* Default-568h@2x.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		93E913561AB27DE400DDF7F9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93CAA61F1AD19BE3005EDC09 /* SLSNSRunnerWindowController.xib in Resources */,
 				93CAA6571AD1AF01005EDC09 /* SLSNSApplication.xib in Resources */,
+				93CAA61F1AD19BE3005EDC09 /* SLSNSRunnerWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1131,14 +1012,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		93F38E501AB5FC4E009E3626 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		93EBABC61AD97F7A00BF8959 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${PROJECT_DIR}/src/solas\"\nfor H in $(find . -name \"*.h\"); do\n  ditto \"${H}\" \"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/${H}\"\ndone";
 		};
-/* End PBXResourcesBuildPhase section */
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		930398451AB2B0DF00577048 /* Sources */ = {
@@ -1153,26 +1043,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		93229EE91AD24403008D27EA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				93229F1E1AD24487008D27EA /* main.mm in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		93E913531AB27DE400DDF7F9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				939E96831AD384C500A7E21E /* SLSRunnerLayer.mm in Sources */,
+				93BE2F411ADA1A8100175565 /* shape.cc in Sources */,
 				93CAA6491AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */,
 				93CAA60E1AD191DC005EDC09 /* SLSRunner.mm in Sources */,
 				93F38E8F1AB60972009E3626 /* dispatch.mm in Sources */,
 				934FAAB11AD6E29200FACF2E /* layer.cc in Sources */,
 				93CAA64F1AD1AD4B005EDC09 /* SLSNSApplicationMain.mm in Sources */,
-				933803331AD8B7EC00F41F92 /* core.cc in Sources */,
-				938987CC1AD1B98900DEC9E9 /* Solas.m in Sources */,
+				933803331AD8B7EC00F41F92 /* core.mm in Sources */,
+				93FEF93D1AD941AF009D0646 /* SLSNSGraphicsContext.m in Sources */,
+				93BE2F3C1ADA1A7500175565 /* path.cc in Sources */,
 				93A9C0081ACF59260081D3A0 /* SLSNSRunnerView.mm in Sources */,
 				939E963E1AD250AF00A7E21E /* runner_factory.cc in Sources */,
 				939E968A1AD391F800A7E21E /* SLSCVDisplayLink.mm in Sources */,
@@ -1191,58 +1075,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				939E96841AD384C500A7E21E /* SLSRunnerLayer.mm in Sources */,
+				93BE2F421ADA1A8100175565 /* shape.cc in Sources */,
 				93229E911AD23DF3008D27EA /* SLSUIApplicationDelegate.mm in Sources */,
 				93CAA6551AD1AE32005EDC09 /* run.mm in Sources */,
 				93229ED41AD2428E008D27EA /* SLSUIRunnerViewController.m in Sources */,
 				934FAAB21AD6E29200FACF2E /* layer.cc in Sources */,
 				93CAA60F1AD191DC005EDC09 /* SLSRunner.mm in Sources */,
-				933803341AD8B7EC00F41F92 /* core.cc in Sources */,
+				933803341AD8B7EC00F41F92 /* core.mm in Sources */,
 				93229EC71AD2409E008D27EA /* SLSUIApplicationMain.mm in Sources */,
+				93BE2F3E1ADA1A7800175565 /* path.cc in Sources */,
 				939E96861AD3864600A7E21E /* SLSCADisplayLink.m in Sources */,
 				93F38E901AB60972009E3626 /* dispatch.mm in Sources */,
 				93229E8D1AD23BB4008D27EA /* SLSUIRunnerView.mm in Sources */,
 				939E963F1AD250AF00A7E21E /* runner_factory.cc in Sources */,
 				934FAAAC1AD6E28700FACF2E /* sketch.cc in Sources */,
 				933803281AD88DC200F41F92 /* font.cc in Sources */,
-				938987CE1AD1B99600DEC9E9 /* SolasTouch.m in Sources */,
 				93A9BFFF1AC99A430081D3A0 /* benchmark.cc in Sources */,
 				931CCB8B1AD88A150047542F /* graphics.cc in Sources */,
 				93CAA64A1AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		93F38E4E1AB5FC4E009E3626 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				93229F1D1AD24485008D27EA /* main.mm in Sources */,
+				93FEF9411AD941EA009D0646 /* SLSUIGraphicsContext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		93229F201AD2452D008D27EA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 93E913751AB27E2600DDF7F9 /* SolasTouch */;
-			targetProxy = 93229F1F1AD2452D008D27EA /* PBXContainerItemProxy */;
-		};
 		938A07EC1AB2D7E300CAE8CA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 93E913571AB27DE400DDF7F9 /* Solas */;
 			targetProxy = 938A07EB1AB2D7E300CAE8CA /* PBXContainerItemProxy */;
-		};
-		93E15B531AC1AFDB00AA079C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 93E913571AB27DE400DDF7F9 /* Solas */;
-			targetProxy = 93E15B521AC1AFDB00AA079C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		9303984E1AB2B0DF00577048 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F3BBF91AA2080D00FBF369 /* product_test.xcconfig */;
+			baseConfigurationReference = 93F3BBF91AA2080D00FBF369 /* Test.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1257,7 +1125,7 @@
 		};
 		9303984F1AB2B0DF00577048 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F3BBF91AA2080D00FBF369 /* product_test.xcconfig */;
+			baseConfigurationReference = 93F3BBF91AA2080D00FBF369 /* Test.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1269,49 +1137,9 @@
 			};
 			name = Release;
 		};
-		93229F0E1AD24404008D27EA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F3BBF71AA2080D00FBF369 /* product_debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/boost/ios/framework",
-				);
-				INFOPLIST_FILE = app/ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		93229F0F1AD24404008D27EA /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F3BBF81AA2080D00FBF369 /* product_release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/boost/ios/framework",
-				);
-				INFOPLIST_FILE = app/ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		93E9136C1AB27DE400DDF7F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F3BBF71AA2080D00FBF369 /* product_debug.xcconfig */;
+			baseConfigurationReference = 93F3BBFA1AA2080D00FBF369 /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1324,7 +1152,7 @@
 					"$(PROJECT_DIR)/build/boost/osx/framework",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = framework/Info.plist;
+				INFOPLIST_FILE = config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
@@ -1339,7 +1167,7 @@
 		};
 		93E9136D1AB27DE400DDF7F9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F3BBF81AA2080D00FBF369 /* product_release.xcconfig */;
+			baseConfigurationReference = 93F3BBFA1AA2080D00FBF369 /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1352,7 +1180,7 @@
 					"$(PROJECT_DIR)/build/boost/osx/framework",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = framework/Info.plist;
+				INFOPLIST_FILE = config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
@@ -1366,7 +1194,7 @@
 		};
 		93E9138A1AB27E2600DDF7F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F3BBF71AA2080D00FBF369 /* product_debug.xcconfig */;
+			baseConfigurationReference = 93F3BBFA1AA2080D00FBF369 /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1379,7 +1207,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/boost/ios/framework",
 				);
-				INFOPLIST_FILE = framework/Info.plist;
+				INFOPLIST_FILE = config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1395,7 +1223,7 @@
 		};
 		93E9138B1AB27E2600DDF7F9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F3BBF81AA2080D00FBF369 /* product_release.xcconfig */;
+			baseConfigurationReference = 93F3BBFA1AA2080D00FBF369 /* Framework.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1408,7 +1236,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/boost/ios/framework",
 				);
-				INFOPLIST_FILE = framework/Info.plist;
+				INFOPLIST_FILE = config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1422,48 +1250,9 @@
 			};
 			name = Release;
 		};
-		93F38E6D1AB5FC4E009E3626 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F3BBF71AA2080D00FBF369 /* product_debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/boost/osx/framework",
-				);
-				INFOPLIST_FILE = app/osx/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = Solas;
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		93F38E6E1AB5FC4E009E3626 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F3BBF81AA2080D00FBF369 /* product_release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/boost/osx/framework",
-				);
-				INFOPLIST_FILE = app/osx/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_NAME = Solas;
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
 		93F8AD7617C8B39800310877 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F3BBD01AA2056C00FBF369 /* project_debug.xcconfig */;
+			baseConfigurationReference = 93F3BBD01AA2056C00FBF369 /* ProjectDebug.xcconfig */;
 			buildSettings = {
 				ONLY_ACTIVE_ARCH = YES;
 			};
@@ -1471,7 +1260,7 @@
 		};
 		93F8AD7717C8B39800310877 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F3BBD11AA2056C00FBF369 /* project_release.xcconfig */;
+			baseConfigurationReference = 93F3BBD11AA2056C00FBF369 /* ProjectRelease.xcconfig */;
 			buildSettings = {
 			};
 			name = Release;
@@ -1484,15 +1273,6 @@
 			buildConfigurations = (
 				9303984E1AB2B0DF00577048 /* Debug */,
 				9303984F1AB2B0DF00577048 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		93229F0D1AD24404008D27EA /* Build configuration list for PBXNativeTarget "SolasTouchApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				93229F0E1AD24404008D27EA /* Debug */,
-				93229F0F1AD24404008D27EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1511,15 +1291,6 @@
 			buildConfigurations = (
 				93E9138A1AB27E2600DDF7F9 /* Debug */,
 				93E9138B1AB27E2600DDF7F9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		93F38E6C1AB5FC4E009E3626 /* Build configuration list for PBXNativeTarget "SolasApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				93F38E6D1AB5FC4E009E3626 /* Debug */,
-				93F38E6E1AB5FC4E009E3626 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

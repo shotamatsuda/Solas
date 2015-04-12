@@ -34,6 +34,7 @@
 #include <iterator>
 #include <limits>
 #include <ostream>
+#include <tuple>
 #include <utility>
 
 #include "solas/math/axis.h"
@@ -58,18 +59,19 @@ template <typename T>
 class Vector<T, 2> final {
  public:
   using Type = T;
-  using Index = typename std::underlying_type<Axis>::type;
   using Iterator = T *;
   using ConstIterator = const T *;
   using ReverseIterator = std::reverse_iterator<Iterator>;
   using ConstReverseIterator = std::reverse_iterator<ConstIterator>;
-  static constexpr int dimensions = 2;
+  static const constexpr int dimensions = 2;
 
  public:
   // Constructors
   Vector();
   explicit Vector(T value);
   Vector(T x, T y);
+  template <typename... Args>
+  Vector(const std::tuple<Args...>& tuple);
   Vector(std::initializer_list<T> list);
   template <typename Container>
   explicit Vector(const Container& container);
@@ -89,6 +91,8 @@ class Vector<T, 2> final {
   // Copy and assign
   Vector(const Vector2<T>& other) = default;
   Vector2<T>& operator=(const Vector2<T>& other) = default;
+  template <typename... Args>
+  Vector2<T>& operator=(const std::tuple<Args...>& tuple);
   Vector2<T>& operator=(std::initializer_list<T> list);
 
   // Factory
@@ -101,6 +105,8 @@ class Vector<T, 2> final {
   // Mutators
   void set(T value);
   void set(T x, T y);
+  template <typename... Args>
+  void set(const std::tuple<Args...>& tuple);
   void set(std::initializer_list<T> list);
   template <typename Container>
   void set(const Container& container);
@@ -109,12 +115,12 @@ class Vector<T, 2> final {
   void reset();
 
   // Element access
-  T& operator[](Index index) { return at(index); }
-  const T& operator[](Index index) const { return at(index); }
+  T& operator[](int index) { return at(index); }
+  const T& operator[](int index) const { return at(index); }
   T& operator[](Axis axis) { return at(axis); }
   const T& operator[](Axis axis) const { return at(axis); }
-  T& at(Index index);
-  const T& at(Index index) const;
+  T& at(int index);
+  const T& at(int index) const;
   T& at(Axis axis);
   const T& at(Axis axis) const;
   T& front() { return x; }
@@ -229,12 +235,6 @@ using Vector2i = Vector2<int>;
 using Vector2f = Vector2<float>;
 using Vector2d = Vector2<double>;
 
-template <typename T>
-using Vec2 = Vector2<T>;
-using Vec2i = Vec2<int>;
-using Vec2f = Vec2<float>;
-using Vec2d = Vec2<double>;
-
 #pragma mark -
 
 template <typename T>
@@ -251,6 +251,12 @@ template <typename T>
 inline Vector2<T>::Vector(T x, T y)
     : x(x),
       y(y) {}
+
+template <typename T>
+template <typename... Args>
+inline Vector2<T>::Vector(const std::tuple<Args...>& tuple) {
+  set(tuple);
+}
 
 template <typename T>
 inline Vector2<T>::Vector(std::initializer_list<T> list) {
@@ -292,6 +298,13 @@ inline Vector2<T>::Vector(const Vector4<U>& other)
       y(other.y) {}
 
 #pragma mark Copy and assign
+
+template <typename T>
+template <typename... Args>
+inline Vector2<T>& Vector2<T>::operator=(const std::tuple<Args...>& tuple) {
+  set(tuple);
+  return *this;
+}
 
 template <typename T>
 inline Vector2<T>& Vector2<T>::operator=(std::initializer_list<T> list) {
@@ -344,6 +357,12 @@ inline void Vector2<T>::set(T x, T y) {
 }
 
 template <typename T>
+template <typename... Args>
+inline void Vector2<T>::set(const std::tuple<Args...>& tuple) {
+  std::tie(x, y) = tuple;
+}
+
+template <typename T>
 inline void Vector2<T>::set(std::initializer_list<T> list) {
   set(list.begin(), list.end());
 }
@@ -371,7 +390,7 @@ inline void Vector2<T>::reset() {
 #pragma mark Element access
 
 template <typename T>
-inline T& Vector2<T>::at(Index index) {
+inline T& Vector2<T>::at(int index) {
   switch (index) {
     case 0:
       return x;
@@ -385,7 +404,7 @@ inline T& Vector2<T>::at(Index index) {
 }
 
 template <typename T>
-inline const T& Vector2<T>::at(Index index) const {
+inline const T& Vector2<T>::at(int index) const {
   switch (index) {
     case 0:
       return x;
@@ -400,12 +419,12 @@ inline const T& Vector2<T>::at(Index index) const {
 
 template <typename T>
 inline T& Vector2<T>::at(Axis axis) {
-  return at(static_cast<Index>(axis));
+  return at(static_cast<int>(axis));
 }
 
 template <typename T>
 inline const T& Vector2<T>::at(Axis axis) const {
-  return at(static_cast<Index>(axis));
+  return at(static_cast<int>(axis));
 }
 
 #pragma mark Comparison
@@ -716,5 +735,3 @@ inline std::ostream& operator<<(std::ostream& os, const Vector2<T>& other) {
 }  // namespace solas
 
 #endif  // SOLAS_MATH_VECTOR2_H_
-
-#include "solas/math/vector3.h"

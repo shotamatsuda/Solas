@@ -29,93 +29,78 @@
 #include "solas/app.h"
 #include "solas/processing.h"
 
+namespace app {
+
+using namespace solas::processing;
+
 class Sketch : public solas::processing::Sketch {
  public:
   void setup() {
-    std::cout << "setup" << std::endl;
   }
 
   void update() {
-    std::cout << "update" << std::endl;
   }
 
   void draw() {
-    std::cout << "draw" << std::endl;
   }
 
   void post() {
-    std::cout << "post" << std::endl;
   }
 
   void exit() {
-    std::cout << "exit" << std::endl;
   }
 
   void mousePressed() {
-    std::cout << "mousePressed" << std::endl;
   }
 
   void mouseDragged() {
-    std::cout << "mouseDragged" << std::endl;
   }
 
   void mouseReleased() {
-    std::cout << "mouseReleased" << std::endl;
   }
 
   void mouseMoved() {
-    std::cout << "mouseMoved" << std::endl;
   }
 
   void mouseEntered() {
-    std::cout << "mouseEntered" << std::endl;
   }
 
   void mouseExited() {
-    std::cout << "mouseExited" << std::endl;
   }
 
   void mouseWheel() {
-    std::cout << "mouseWheel" << std::endl;
   }
 
   void keyPressed() {
-    std::cout << "keyPressed" << std::endl;
   }
 
   void keyReleased() {
-    std::cout << "keyReleased" << std::endl;
   }
 
   void touchesBegan() {
-    std::cout << "touchesBegan" << std::endl;
   }
 
   void touchesMoved() {
-    std::cout << "touchesMoved" << std::endl;
   }
 
   void touchesCancelled() {
-    std::cout << "touchesCancelled" << std::endl;
   }
 
   void touchesEnded() {
-    std::cout << "touchesEnded" << std::endl;
   }
 
   void motionBegan() {
-    std::cout << "motionBegan" << std::endl;
   }
 
   void motionCancelled() {
-    std::cout << "motionCancelled" << std::endl;
   }
 
   void motionEnded() {
-    std::cout << "motionEnded" << std::endl;
   }
 };
 
+}  // namespace app
+
 int main(int argc, char **argv) {
-  return solas::app::Run<Sketch>(argc, argv);
+  return solas::app::Run<app::Sketch>(argc, argv);
 }

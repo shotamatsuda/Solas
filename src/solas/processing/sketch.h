@@ -54,6 +54,10 @@ class Sketch : public app::Runnable, public Layer {
   // Move
   Sketch(Sketch&& other) = default;
 
+  // Structure
+  Real width() const override;
+  Real height() const override;
+
   // Mouse
   const Vec2& mouse() const override;
   Real mouse_x() const override;
@@ -160,6 +164,10 @@ class Sketch : public app::Runnable, public Layer {
   std::chrono::system_clock::time_point setup_time_;
   std::list<Event> event_queue_;
 
+  // Structure
+  Real width_;
+  Real height_;
+
   // Mouse
   Vec2 dmouse_;
   Vec2 emouse_;
@@ -184,6 +192,8 @@ class Sketch : public app::Runnable, public Layer {
 
 inline Sketch::Sketch()
     : setup_time_(),
+      width_(),
+      height_(),
       mouse_(),
       pmouse_(),
       mouse_button_(NONE),
@@ -191,6 +201,16 @@ inline Sketch::Sketch()
       key_(),
       key_code_(),
       key_pressed_() {}
+
+#pragma mark Structure
+
+inline Real Sketch::width() const {
+  return width_;
+}
+
+inline Real Sketch::height() const {
+  return height_;
+}
 
 #pragma mark Mouse
 
@@ -355,6 +375,8 @@ inline void Sketch::dequeueEvents() {
 
 inline void Sketch::setup(const AppEvent& event) {
   setup_time_ = std::chrono::system_clock::now();
+  width_ = event.size.width;
+  height_ = event.size.height;
   Runnable::setup(event);
 }
 
@@ -363,6 +385,8 @@ inline void Sketch::update(const AppEvent& event) {
 }
 
 inline void Sketch::draw(const AppEvent& event) {
+  width_ = event.size.width;
+  height_ = event.size.height;
   pmouse_ = dmouse_;
   Runnable::draw(event);
   dmouse_ = mouse_;

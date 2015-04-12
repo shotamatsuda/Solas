@@ -173,8 +173,6 @@ TYPED_TEST(RectTest, ImplicitlyConvertibleFromOtherTypes) {
   Rect<std::uint16_t> r_uint16(r);
   Rect<std::int32_t> r_int32(r);
   Rect<std::uint32_t> r_uint32(r);
-  Rect<std::int64_t> r_int64(r);
-  Rect<std::uint64_t> r_uint64(r);
   Rect<float> r_float(r);
   Rect<double> r_double(r);
   ASSERT_EQ(r_bool.x, static_cast<bool>(x));
@@ -185,8 +183,6 @@ TYPED_TEST(RectTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(r_uint16.x, static_cast<std::uint16_t>(x));
   ASSERT_EQ(r_int32.x, static_cast<std::int32_t>(x));
   ASSERT_EQ(r_uint32.x, static_cast<std::uint32_t>(x));
-  ASSERT_EQ(r_int64.x, static_cast<std::int64_t>(x));
-  ASSERT_EQ(r_uint64.x, static_cast<std::uint64_t>(x));
   ASSERT_EQ(r_float.x, static_cast<float>(x));
   ASSERT_EQ(r_double.x, static_cast<double>(x));
   ASSERT_EQ(r_bool.y, static_cast<bool>(y));
@@ -197,8 +193,6 @@ TYPED_TEST(RectTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(r_uint16.y, static_cast<std::uint16_t>(y));
   ASSERT_EQ(r_int32.y, static_cast<std::int32_t>(y));
   ASSERT_EQ(r_uint32.y, static_cast<std::uint32_t>(y));
-  ASSERT_EQ(r_int64.y, static_cast<std::int64_t>(y));
-  ASSERT_EQ(r_uint64.y, static_cast<std::uint64_t>(y));
   ASSERT_EQ(r_float.y, static_cast<float>(y));
   ASSERT_EQ(r_double.y, static_cast<double>(y));
   ASSERT_EQ(r_bool.width, static_cast<bool>(width));
@@ -209,8 +203,6 @@ TYPED_TEST(RectTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(r_uint16.width, static_cast<std::uint16_t>(width));
   ASSERT_EQ(r_int32.width, static_cast<std::int32_t>(width));
   ASSERT_EQ(r_uint32.width, static_cast<std::uint32_t>(width));
-  ASSERT_EQ(r_int64.width, static_cast<std::int64_t>(width));
-  ASSERT_EQ(r_uint64.width, static_cast<std::uint64_t>(width));
   ASSERT_EQ(r_float.width, static_cast<float>(width));
   ASSERT_EQ(r_double.width, static_cast<double>(width));
   ASSERT_EQ(r_bool.height, static_cast<bool>(height));
@@ -221,8 +213,6 @@ TYPED_TEST(RectTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(r_uint16.height, static_cast<std::uint16_t>(height));
   ASSERT_EQ(r_int32.height, static_cast<std::int32_t>(height));
   ASSERT_EQ(r_uint32.height, static_cast<std::uint32_t>(height));
-  ASSERT_EQ(r_int64.height, static_cast<std::int64_t>(height));
-  ASSERT_EQ(r_uint64.height, static_cast<std::uint64_t>(height));
   ASSERT_EQ(r_float.height, static_cast<float>(height));
   ASSERT_EQ(r_double.height, static_cast<double>(height));
 }

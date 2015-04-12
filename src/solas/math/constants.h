@@ -34,58 +34,58 @@ namespace solas {
 namespace math {
 
 template <typename T = double>
-constexpr T pi = boost::math::constants::pi<T>();
-template constexpr float pi<float>;
-template constexpr double pi<double>;
-template constexpr long double pi<long double>;
+const constexpr T pi = boost::math::constants::pi<T>();
+template const constexpr float pi<float>;
+template const constexpr double pi<double>;
+template const constexpr long double pi<long double>;
 
 template <typename T = double>
-constexpr T half_pi = boost::math::constants::half_pi<T>();
-template constexpr float half_pi<float>;
-template constexpr double half_pi<double>;
-template constexpr long double half_pi<long double>;
+const constexpr T half_pi = boost::math::constants::half_pi<T>();
+template const constexpr float half_pi<float>;
+template const constexpr double half_pi<double>;
+template const constexpr long double half_pi<long double>;
 
 template <typename T = double>
-constexpr T third_pi = boost::math::constants::third_pi<T>();
-template constexpr float third_pi<float>;
-template constexpr double third_pi<double>;
-template constexpr long double third_pi<long double>;
+const constexpr T third_pi = boost::math::constants::third_pi<T>();
+template const constexpr float third_pi<float>;
+template const constexpr double third_pi<double>;
+template const constexpr long double third_pi<long double>;
 
 template <typename T = double>
-constexpr T quarter_pi = boost::math::constants::half_pi<T>() / 2;
-template constexpr float quarter_pi<float>;
-template constexpr double quarter_pi<double>;
-template constexpr long double quarter_pi<long double>;
+const constexpr T quarter_pi = boost::math::constants::half_pi<T>() / 2;
+template const constexpr float quarter_pi<float>;
+template const constexpr double quarter_pi<double>;
+template const constexpr long double quarter_pi<long double>;
 
 template <typename T = double>
-constexpr T two_pi = boost::math::constants::two_pi<T>();
-template constexpr float two_pi<float>;
-template constexpr double two_pi<double>;
-template constexpr long double two_pi<long double>;
+const constexpr T two_pi = boost::math::constants::two_pi<T>();
+template const constexpr float two_pi<float>;
+template const constexpr double two_pi<double>;
+template const constexpr long double two_pi<long double>;
 
 template <typename T = double>
-constexpr T tau = boost::math::constants::two_pi<T>();
-template constexpr float tau<float>;
-template constexpr double tau<double>;
-template constexpr long double tau<long double>;
+const constexpr T tau = boost::math::constants::two_pi<T>();
+template const constexpr float tau<float>;
+template const constexpr double tau<double>;
+template const constexpr long double tau<long double>;
 
 template <typename T = double>
-constexpr T e = boost::math::constants::e<T>();
-template constexpr float e<float>;
-template constexpr double e<double>;
-template constexpr long double e<long double>;
+const constexpr T e = boost::math::constants::e<T>();
+template const constexpr float e<float>;
+template const constexpr double e<double>;
+template const constexpr long double e<long double>;
 
 template <typename T = double>
-constexpr T degree = boost::math::constants::degree<T>();
-template constexpr float degree<float>;
-template constexpr double degree<double>;
-template constexpr long double degree<long double>;
+const constexpr T degree = boost::math::constants::degree<T>();
+template const constexpr float degree<float>;
+template const constexpr double degree<double>;
+template const constexpr long double degree<long double>;
 
 template <typename T = double>
-constexpr T radian = boost::math::constants::radian<T>();
-template constexpr float radian<float>;
-template constexpr double radian<double>;
-template constexpr long double radian<long double>;
+const constexpr T radian = boost::math::constants::radian<T>();
+template const constexpr float radian<float>;
+template const constexpr double radian<double>;
+template const constexpr long double radian<long double>;
 
 }  // namespace math
 }  // namespace solas

@@ -68,14 +68,16 @@ class Event {
   const MotionEvent& motion() const;
 
  public:
-  Type type;
+  const Type type;
 
  private:
-  const MouseEvent mouse_;
-  const KeyEvent key_;
-  const TouchEvent touch_;
-  const GestureEvent gesture_;
-  const MotionEvent motion_;
+  union {
+    MouseEvent mouse_;
+    KeyEvent key_;
+    TouchEvent touch_;
+    GestureEvent gesture_;
+    MotionEvent motion_;
+  };
 };
 
 #pragma mark -

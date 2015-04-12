@@ -38,15 +38,11 @@ enum class FillType {
   SOLID
 };
 
-template <typename T>
 class Fill {
- public:
-  using Type = T;
-
  public:
   // Constructors
   Fill();
-  explicit Fill(const Color4<T>& color);
+  explicit Fill(const Color4d& color);
 
   // Copy and assign
   Fill(const Fill& other) = default;
@@ -63,29 +59,25 @@ class Fill {
 
  public:
   FillType type;
-  Color4<T> color;
+  Color4d color;
 };
 
 #pragma mark -
 
-template <typename T>
-inline Fill<T>::Fill()
+inline Fill::Fill()
     : type(FillType::NONE) {}
 
-template <typename T>
-inline Fill<T>::Fill(const Color4<T>& color)
+inline Fill::Fill(const Color4d& color)
     : type(FillType::SOLID),
       color(color) {}
 
 #pragma mark Comparison
 
-template <typename T>
-inline bool Fill<T>::operator==(const Fill& other) const {
+inline bool Fill::operator==(const Fill& other) const {
   return type == other.type && color == other.color;
 }
 
-template <typename T>
-inline bool Fill<T>::operator!=(const Fill& other) const {
+inline bool Fill::operator!=(const Fill& other) const {
   return !operator==(other);
 }
 

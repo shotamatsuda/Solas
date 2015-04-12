@@ -31,34 +31,34 @@
 namespace solas {
 namespace math {
 
-template <typename T>
-constexpr T Lerp(T start, T stop, T amount);
-template <typename T>
-constexpr T Norm(T amount, T start, T stop);
-template <typename T>
-constexpr T Clamp(T value, T min, T max);
-template <typename T>
-constexpr T Map(T value, T min1, T max1, T min2, T max2);
+template <typename T, typename U, typename V>
+constexpr T Lerp(T start, U stop, V amount);
+template <typename T, typename U, typename V>
+constexpr T Norm(T amount, U start, V stop);
+template <typename T, typename U, typename V>
+constexpr T Clamp(T value, U min, V max);
+template <typename T, typename U, typename V>
+constexpr T Map(T value, U min1, U max1, V min2, V max2);
 
 #pragma mark -
 
-template <typename T>
-constexpr T Lerp(T start, T stop, T amount) {
+template <typename T, typename U, typename V>
+constexpr T Lerp(T start, U stop, V amount) {
   return start + (stop - start) * amount;
 }
 
-template <typename T>
-constexpr T Norm(T amount, T start, T stop) {
+template <typename T, typename U, typename V>
+constexpr T Norm(T amount, U start, V stop) {
   return (amount - start) / (stop - start);
 }
 
-template <typename T>
-constexpr T Clamp(T value, T min, T max) {
+template <typename T, typename U, typename V>
+constexpr T Clamp(T value, U min, V max) {
   return (value < min ? min : (value > max ? max : value));
 }
 
-template <typename T>
-constexpr T Map(T value, T min1, T max1, T min2, T max2) {
+template <typename T, typename U, typename V>
+constexpr T Map(T value, U min1, U max1, V min2, V max2) {
   return min2 + (max2 - min2) * ((value - min1) / (max1 - min1));
 }
 

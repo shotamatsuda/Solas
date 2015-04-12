@@ -95,8 +95,7 @@ void Sketch::handleMouseEvent(const MouseEvent& event) {
       mouseWheel(event);
       break;
     default:
-      assert(false);
-      break;
+      break;  // Ignore unknown types of event
   }
 }
 
@@ -109,8 +108,7 @@ void Sketch::handleKeyEvent(const KeyEvent& event) {
       keyReleased(event);
       break;
     default:
-      assert(false);
-      break;
+      break;  // Ignore unknown types of event
   }
 }
 
@@ -129,8 +127,7 @@ void Sketch::handleTouchEvent(const TouchEvent& event) {
       touchesEnded(event);
       break;
     default:
-      assert(false);
-      break;
+      break;  // Ignore unknown types of event
   }
 }
 
@@ -151,8 +148,7 @@ void Sketch::handleMotionEvent(const MotionEvent& event) {
       motionEnded(event);
       break;
     default:
-      assert(false);
-      break;
+      break;  // Ignore unknown types of event
   }
 }
 

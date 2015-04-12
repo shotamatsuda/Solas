@@ -31,6 +31,7 @@
 #include "solas/math/axis.h"
 #include "solas/math/constants.h"
 #include "solas/math/line.h"
+#include "solas/math/matrix.h"
 #include "solas/math/plane.h"
 #include "solas/math/polygon.h"
 #include "solas/math/promotion.h"

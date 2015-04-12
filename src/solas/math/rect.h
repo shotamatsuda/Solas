@@ -174,12 +174,6 @@ using Recti = Rect<int>;
 using Rectf = Rect<float>;
 using Rectd = Rect<double>;
 
-template <typename T>
-using Rectangle = Rect<T>;
-using Rectanglei = Rectangle<int>;
-using Rectanglef = Rectangle<float>;
-using Rectangled = Rectangle<double>;
-
 #pragma mark -
 
 template <typename T>

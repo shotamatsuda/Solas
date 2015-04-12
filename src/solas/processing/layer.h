@@ -41,7 +41,6 @@ namespace processing {
 class Layer : public Graphics {
  public:
   // Constructors
-  Layer();
   explicit Layer(Layer *parent);
 
   // Disallow copy and assign
@@ -50,6 +49,10 @@ class Layer : public Graphics {
 
   // Move
   Layer(Layer&& other);
+
+  // Structure
+  virtual Real width() const;
+  virtual Real height() const;
 
   // Mouse
   virtual const Vec2& mouse() const;
@@ -70,6 +73,9 @@ class Layer : public Graphics {
   virtual std::chrono::milliseconds::rep millis() const;
 
  protected:
+  // Constructors
+  Layer();
+
   // Context
   const graphics::ContextHolder& context() const override;
 
@@ -88,6 +94,18 @@ inline Layer::Layer(Layer *parent)
 inline Layer::Layer(Layer&& other)
     : parent_(other.parent_) {
   other.parent_ = nullptr;
+}
+
+#pragma mark Structure
+
+inline Real Layer::width() const {
+  assert(parent_);
+  return parent_->width();
+}
+
+inline Real Layer::height() const {
+  assert(parent_);
+  return parent_->height();
 }
 
 #pragma mark Mouse

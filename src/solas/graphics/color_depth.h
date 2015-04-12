@@ -1,5 +1,5 @@
 //
-//  solas/graphics/channel_depth.h
+//  solas/graphics/color_depth.h
 //
 //  MIT License
 //
@@ -25,8 +25,8 @@
 //
 
 #pragma once
-#ifndef SOLAS_GRAPHICS_CHANNEL_DEPTH_H_
-#define SOLAS_GRAPHICS_CHANNEL_DEPTH_H_
+#ifndef SOLAS_GRAPHICS_COLOR_DEPTH_H_
+#define SOLAS_GRAPHICS_COLOR_DEPTH_H_
 
 #include <cmath>
 #include <limits>
@@ -47,9 +47,9 @@ using FloatingColorDepth = ColorDepth<T, EnableIfFloating<T>>;
 
 template <typename T>
 struct ColorDepth<T, EnableIfIntegral<T>> {
-  static constexpr int bits = std::numeric_limits<T>::digits;
-  static constexpr T min = std::numeric_limits<T>::min();
-  static constexpr T max = std::numeric_limits<T>::max();
+  static const constexpr int bits = std::numeric_limits<T>::digits;
+  static const constexpr T min = std::numeric_limits<T>::min();
+  static const constexpr T max = std::numeric_limits<T>::max();
 
   // Conversions
   static T Clamp(T value);
@@ -61,9 +61,9 @@ struct ColorDepth<T, EnableIfIntegral<T>> {
 
 template <typename T>
 struct ColorDepth<T, EnableIfFloating<T>> {
-  static constexpr int bits = sizeof(T) * 8;
-  static constexpr T min = 0.0;
-  static constexpr T max = 1.0;
+  static const constexpr int bits = sizeof(T) * 8;
+  static const constexpr T min = 0.0;
+  static const constexpr T max = 1.0;
 
   // Conversions
   static T Clamp(T value);
@@ -119,4 +119,4 @@ inline EnableIfFloating<U, T> FloatingColorDepth<T>::Convert(U value) {
 }  // namespace graphics
 }  // namespace solas
 
-#endif  // SOLAS_GRAPHICS_CHANNEL_DEPTH_H_
+#endif  // SOLAS_GRAPHICS_COLOR_DEPTH_H_

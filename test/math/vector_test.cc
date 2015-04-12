@@ -26,7 +26,9 @@
 
 #include <cstdint>
 #include <random>
+#include <tuple>
 #include <type_traits>
+#include <vector>
 
 #include "gtest/gtest.h"
 
@@ -127,6 +129,28 @@ TYPED_TEST(VectorTest, ConstructibleWithValues) {
   ASSERT_EQ(v3.z, z);
 
   Vector4<TypeParam> v4(x, y, z, w);
+  ASSERT_EQ(v4.x, x);
+  ASSERT_EQ(v4.y, y);
+  ASSERT_EQ(v4.z, z);
+  ASSERT_EQ(v4.w, w);
+}
+
+TYPED_TEST(VectorTest, ConstructibleWithTuple) {
+  const auto x = this->Random();
+  const auto y = this->Random();
+  const auto z = this->Random();
+  const auto w = this->Random();
+
+  Vector2<TypeParam> v2(std::make_tuple(x, y));
+  ASSERT_EQ(v2.x, x);
+  ASSERT_EQ(v2.y, y);
+
+  Vector3<TypeParam> v3(std::make_tuple(x, y, z));
+  ASSERT_EQ(v3.x, x);
+  ASSERT_EQ(v3.y, y);
+  ASSERT_EQ(v3.z, z);
+
+  Vector4<TypeParam> v4(std::make_tuple(x, y, z, w));
   ASSERT_EQ(v4.x, x);
   ASSERT_EQ(v4.y, y);
   ASSERT_EQ(v4.z, z);
@@ -318,6 +342,106 @@ TYPED_TEST(VectorTest, CopyAssignable) {
   ASSERT_EQ(v4_1, v4_2);
 }
 
+TYPED_TEST(VectorTest, TupleAssignable) {
+  const auto x = this->Random();
+  const auto y = this->Random();
+  const auto z = this->Random();
+  const auto w = this->Random();
+
+  Vector2<TypeParam> v2;
+  v2 = std::make_tuple(x, y);
+  ASSERT_EQ(v2.x, x);
+  ASSERT_EQ(v2.y, y);
+
+  Vector3<TypeParam> v3;
+  v3 = std::make_tuple(x, y, z);
+  ASSERT_EQ(v3.x, x);
+  ASSERT_EQ(v3.y, y);
+  ASSERT_EQ(v3.z, z);
+
+  Vector4<TypeParam> v4;
+  v4 = std::make_tuple(x, y, z, w);
+  ASSERT_EQ(v4.x, x);
+  ASSERT_EQ(v4.y, y);
+  ASSERT_EQ(v4.z, z);
+  ASSERT_EQ(v4.w, w);
+}
+
+TYPED_TEST(VectorTest, InitializerListAssignable) {
+  const auto x = this->Random();
+  const auto y = this->Random();
+  const auto z = this->Random();
+  const auto w = this->Random();
+
+  Vector2<TypeParam> v2;
+  v2 = {};
+  ASSERT_EQ(v2.x, TypeParam());
+  ASSERT_EQ(v2.y, TypeParam());
+  v2 = {x};
+  ASSERT_EQ(v2.x, x);
+  ASSERT_EQ(v2.y, TypeParam());
+  v2 = {x, y};
+  ASSERT_EQ(v2.x, x);
+  ASSERT_EQ(v2.y, y);
+  v2 = {x, y, this->Random()};
+  ASSERT_EQ(v2.x, x);
+  ASSERT_EQ(v2.y, y);
+
+  Vector3<TypeParam> v3;
+  v3 = {};
+  ASSERT_EQ(v3.x, TypeParam());
+  ASSERT_EQ(v3.y, TypeParam());
+  ASSERT_EQ(v3.z, TypeParam());
+  v3 = {x};
+  ASSERT_EQ(v3.x, x);
+  ASSERT_EQ(v3.y, TypeParam());
+  ASSERT_EQ(v3.z, TypeParam());
+  v3 = {x, y};
+  ASSERT_EQ(v3.x, x);
+  ASSERT_EQ(v3.y, y);
+  ASSERT_EQ(v3.z, TypeParam());
+  v3 = {x, y, z};
+  ASSERT_EQ(v3.x, x);
+  ASSERT_EQ(v3.y, y);
+  ASSERT_EQ(v3.z, z);
+  v3 = {x, y, z, this->Random()};
+  ASSERT_EQ(v3.x, x);
+  ASSERT_EQ(v3.y, y);
+  ASSERT_EQ(v3.z, z);
+
+  Vector4<TypeParam> v4;
+  v4 = {};
+  ASSERT_EQ(v4.x, TypeParam());
+  ASSERT_EQ(v4.y, TypeParam());
+  ASSERT_EQ(v4.z, TypeParam());
+  ASSERT_EQ(v4.w, TypeParam());
+  v4 = {x};
+  ASSERT_EQ(v4.x, x);
+  ASSERT_EQ(v4.y, TypeParam());
+  ASSERT_EQ(v4.z, TypeParam());
+  ASSERT_EQ(v4.w, TypeParam());
+  v4 = {x, y};
+  ASSERT_EQ(v4.x, x);
+  ASSERT_EQ(v4.y, y);
+  ASSERT_EQ(v4.z, TypeParam());
+  ASSERT_EQ(v4.w, TypeParam());
+  v4 = {x, y, z};
+  ASSERT_EQ(v4.x, x);
+  ASSERT_EQ(v4.y, y);
+  ASSERT_EQ(v4.z, z);
+  ASSERT_EQ(v4.w, TypeParam());
+  v4 = {x, y, z, w};
+  ASSERT_EQ(v4.x, x);
+  ASSERT_EQ(v4.y, y);
+  ASSERT_EQ(v4.z, z);
+  ASSERT_EQ(v4.w, w);
+  v4 = {x, y, z, w, this->Random()};
+  ASSERT_EQ(v4.x, x);
+  ASSERT_EQ(v4.y, y);
+  ASSERT_EQ(v4.z, z);
+  ASSERT_EQ(v4.w, w);
+}
+
 TYPED_TEST(VectorTest, ImplicitlyConvertibleFromOtherTypes) {
   const auto x = this->Random();
   const auto y = this->Random();
@@ -333,8 +457,6 @@ TYPED_TEST(VectorTest, ImplicitlyConvertibleFromOtherTypes) {
   Vector2<std::uint16_t> v2_uint16(v2);
   Vector2<std::int32_t> v2_int32(v2);
   Vector2<std::uint32_t> v2_uint32(v2);
-  Vector2<std::int64_t> v2_int64(v2);
-  Vector2<std::uint64_t> v2_uint64(v2);
   Vector2<float> v2_float(v2);
   Vector2<double> v2_double(v2);
   ASSERT_EQ(v2_bool.x, static_cast<bool>(x));
@@ -345,8 +467,6 @@ TYPED_TEST(VectorTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(v2_uint16.x, static_cast<std::uint16_t>(x));
   ASSERT_EQ(v2_int32.x, static_cast<std::int32_t>(x));
   ASSERT_EQ(v2_uint32.x, static_cast<std::uint32_t>(x));
-  ASSERT_EQ(v2_int64.x, static_cast<std::int64_t>(x));
-  ASSERT_EQ(v2_uint64.x, static_cast<std::uint64_t>(x));
   ASSERT_EQ(v2_float.x, static_cast<float>(x));
   ASSERT_EQ(v2_double.x, static_cast<double>(x));
   ASSERT_EQ(v2_bool.y, static_cast<bool>(y));
@@ -357,8 +477,6 @@ TYPED_TEST(VectorTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(v2_uint16.y, static_cast<std::uint16_t>(y));
   ASSERT_EQ(v2_int32.y, static_cast<std::int32_t>(y));
   ASSERT_EQ(v2_uint32.y, static_cast<std::uint32_t>(y));
-  ASSERT_EQ(v2_int64.y, static_cast<std::int64_t>(y));
-  ASSERT_EQ(v2_uint64.y, static_cast<std::uint64_t>(y));
   ASSERT_EQ(v2_float.y, static_cast<float>(y));
   ASSERT_EQ(v2_double.y, static_cast<double>(y));
 
@@ -371,8 +489,6 @@ TYPED_TEST(VectorTest, ImplicitlyConvertibleFromOtherTypes) {
   Vector3<std::uint16_t> v3_uint16(v3);
   Vector3<std::int32_t> v3_int32(v3);
   Vector3<std::uint32_t> v3_uint32(v3);
-  Vector3<std::int64_t> v3_int64(v3);
-  Vector3<std::uint64_t> v3_uint64(v3);
   Vector3<float> v3_float(v3);
   Vector3<double> v3_double(v3);
   ASSERT_EQ(v3_bool.x, static_cast<bool>(x));
@@ -383,8 +499,6 @@ TYPED_TEST(VectorTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(v3_uint16.x, static_cast<std::uint16_t>(x));
   ASSERT_EQ(v3_int32.x, static_cast<std::int32_t>(x));
   ASSERT_EQ(v3_uint32.x, static_cast<std::uint32_t>(x));
-  ASSERT_EQ(v3_int64.x, static_cast<std::int64_t>(x));
-  ASSERT_EQ(v3_uint64.x, static_cast<std::uint64_t>(x));
   ASSERT_EQ(v3_float.x, static_cast<float>(x));
   ASSERT_EQ(v3_double.x, static_cast<double>(x));
   ASSERT_EQ(v3_bool.y, static_cast<bool>(y));
@@ -395,8 +509,6 @@ TYPED_TEST(VectorTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(v3_uint16.y, static_cast<std::uint16_t>(y));
   ASSERT_EQ(v3_int32.y, static_cast<std::int32_t>(y));
   ASSERT_EQ(v3_uint32.y, static_cast<std::uint32_t>(y));
-  ASSERT_EQ(v3_int64.y, static_cast<std::int64_t>(y));
-  ASSERT_EQ(v3_uint64.y, static_cast<std::uint64_t>(y));
   ASSERT_EQ(v3_float.y, static_cast<float>(y));
   ASSERT_EQ(v3_double.y, static_cast<double>(y));
   ASSERT_EQ(v3_bool.z, static_cast<bool>(z));
@@ -407,8 +519,6 @@ TYPED_TEST(VectorTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(v3_uint16.z, static_cast<std::uint16_t>(z));
   ASSERT_EQ(v3_int32.z, static_cast<std::int32_t>(z));
   ASSERT_EQ(v3_uint32.z, static_cast<std::uint32_t>(z));
-  ASSERT_EQ(v3_int64.z, static_cast<std::int64_t>(z));
-  ASSERT_EQ(v3_uint64.z, static_cast<std::uint64_t>(z));
   ASSERT_EQ(v3_float.z, static_cast<float>(z));
   ASSERT_EQ(v3_double.z, static_cast<double>(z));
 
@@ -421,8 +531,6 @@ TYPED_TEST(VectorTest, ImplicitlyConvertibleFromOtherTypes) {
   Vector4<std::uint16_t> v4_uint16(v4);
   Vector4<std::int32_t> v4_int32(v4);
   Vector4<std::uint32_t> v4_uint32(v4);
-  Vector4<std::int64_t> v4_int64(v4);
-  Vector4<std::uint64_t> v4_uint64(v4);
   Vector4<float> v4_float(v4);
   Vector4<double> v4_double(v4);
   ASSERT_EQ(v4_bool.x, static_cast<bool>(x));
@@ -433,8 +541,6 @@ TYPED_TEST(VectorTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(v4_uint16.x, static_cast<std::uint16_t>(x));
   ASSERT_EQ(v4_int32.x, static_cast<std::int32_t>(x));
   ASSERT_EQ(v4_uint32.x, static_cast<std::uint32_t>(x));
-  ASSERT_EQ(v4_int64.x, static_cast<std::int64_t>(x));
-  ASSERT_EQ(v4_uint64.x, static_cast<std::uint64_t>(x));
   ASSERT_EQ(v4_float.x, static_cast<float>(x));
   ASSERT_EQ(v4_double.x, static_cast<double>(x));
   ASSERT_EQ(v4_bool.y, static_cast<bool>(y));
@@ -445,8 +551,6 @@ TYPED_TEST(VectorTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(v4_uint16.y, static_cast<std::uint16_t>(y));
   ASSERT_EQ(v4_int32.y, static_cast<std::int32_t>(y));
   ASSERT_EQ(v4_uint32.y, static_cast<std::uint32_t>(y));
-  ASSERT_EQ(v4_int64.y, static_cast<std::int64_t>(y));
-  ASSERT_EQ(v4_uint64.y, static_cast<std::uint64_t>(y));
   ASSERT_EQ(v4_float.y, static_cast<float>(y));
   ASSERT_EQ(v4_double.y, static_cast<double>(y));
   ASSERT_EQ(v4_bool.z, static_cast<bool>(z));
@@ -457,8 +561,6 @@ TYPED_TEST(VectorTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(v4_uint16.z, static_cast<std::uint16_t>(z));
   ASSERT_EQ(v4_int32.z, static_cast<std::int32_t>(z));
   ASSERT_EQ(v4_uint32.z, static_cast<std::uint32_t>(z));
-  ASSERT_EQ(v4_int64.z, static_cast<std::int64_t>(z));
-  ASSERT_EQ(v4_uint64.z, static_cast<std::uint64_t>(z));
   ASSERT_EQ(v4_float.z, static_cast<float>(z));
   ASSERT_EQ(v4_double.z, static_cast<double>(z));
   ASSERT_EQ(v4_bool.w, static_cast<bool>(w));
@@ -469,8 +571,6 @@ TYPED_TEST(VectorTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(v4_uint16.w, static_cast<std::uint16_t>(w));
   ASSERT_EQ(v4_int32.w, static_cast<std::int32_t>(w));
   ASSERT_EQ(v4_uint32.w, static_cast<std::uint32_t>(w));
-  ASSERT_EQ(v4_int64.w, static_cast<std::int64_t>(w));
-  ASSERT_EQ(v4_uint64.w, static_cast<std::uint64_t>(w));
   ASSERT_EQ(v4_float.w, static_cast<float>(w));
   ASSERT_EQ(v4_double.w, static_cast<double>(w));
 }

@@ -36,20 +36,20 @@
 namespace solas {
 namespace processing {
 
-constexpr Real EPSILON = std::numeric_limits<Real>::epsilon();
-constexpr Real MAX_REAL = std::numeric_limits<Real>::max();
-constexpr Real MIN_REAL = std::numeric_limits<Real>::min();
-constexpr Real MAX_INT = std::numeric_limits<int>::min();
-constexpr Real MIN_INT = std::numeric_limits<int>::min();
-constexpr Real PI = math::pi<Real>;
-constexpr Real HALF_PI = math::half_pi<Real>;
-constexpr Real THIRD_PI = math::third_pi<Real>;
-constexpr Real QUARTER_PI = math::quarter_pi<Real>;
-constexpr Real TWO_PI = math::two_pi<Real>;
-constexpr Real TAU = math::two_pi<Real>;
-constexpr Real E = math::e<Real>;
-constexpr Real DEG_TO_RAD = math::degree<Real>;
-constexpr Real RAD_TO_DEG = math::radian<Real>;
+const constexpr Real EPSILON = std::numeric_limits<Real>::epsilon();
+const constexpr Real MAX_REAL = std::numeric_limits<Real>::max();
+const constexpr Real MIN_REAL = std::numeric_limits<Real>::min();
+const constexpr Real MAX_INT = std::numeric_limits<int>::min();
+const constexpr Real MIN_INT = std::numeric_limits<int>::min();
+const constexpr Real PI = math::pi<Real>;
+const constexpr Real HALF_PI = math::half_pi<Real>;
+const constexpr Real THIRD_PI = math::third_pi<Real>;
+const constexpr Real QUARTER_PI = math::quarter_pi<Real>;
+const constexpr Real TWO_PI = math::two_pi<Real>;
+const constexpr Real TAU = math::two_pi<Real>;
+const constexpr Real E = math::e<Real>;
+const constexpr Real DEG_TO_RAD = math::degree<Real>;
+const constexpr Real RAD_TO_DEG = math::radian<Real>;
 
 enum Constant {
   // General

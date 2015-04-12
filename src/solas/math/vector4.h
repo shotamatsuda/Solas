@@ -34,6 +34,7 @@
 #include <iterator>
 #include <limits>
 #include <ostream>
+#include <tuple>
 #include <utility>
 
 #include "solas/math/axis.h"
@@ -58,18 +59,19 @@ template <typename T>
 class Vector<T, 4> final {
  public:
   using Type = T;
-  using Index = typename std::underlying_type<Axis>::type;
   using Iterator = T *;
   using ConstIterator = const T *;
   using ReverseIterator = std::reverse_iterator<Iterator>;
   using ConstReverseIterator = std::reverse_iterator<ConstIterator>;
-  static constexpr int dimensions = 4;
+  static const constexpr int dimensions = 4;
 
  public:
   // Constructors
   Vector();
   explicit Vector(T value);
   Vector(T x, T y, T z = T(), T w = T());
+  template <typename... Args>
+  Vector(const std::tuple<Args...>& tuple);
   Vector(std::initializer_list<T> list);
   template <typename Container>
   explicit Vector(const Container& container);
@@ -89,6 +91,8 @@ class Vector<T, 4> final {
   // Copy and assign
   Vector(const Vector4<T>& other) = default;
   Vector4<T>& operator=(const Vector4<T>& other) = default;
+  template <typename... Args>
+  Vector4<T>& operator=(const std::tuple<Args...>& tuple);
   Vector4<T>& operator=(std::initializer_list<T> list);
 
   // Factory
@@ -101,6 +105,8 @@ class Vector<T, 4> final {
   // Mutators
   void set(T value);
   void set(T x, T y, T z = T(), T w = T());
+  template <typename... Args>
+  void set(const std::tuple<Args...>& tuple);
   void set(std::initializer_list<T> list);
   template <typename Container>
   void set(const Container& container);
@@ -109,12 +115,12 @@ class Vector<T, 4> final {
   void reset();
 
   // Element access
-  T& operator[](Index index) { return at(index); }
-  const T& operator[](Index index) const { return at(index); }
+  T& operator[](int index) { return at(index); }
+  const T& operator[](int index) const { return at(index); }
   T& operator[](Axis axis) { return at(axis); }
   const T& operator[](Axis axis) const { return at(axis); }
-  T& at(Index index);
-  const T& at(Index index) const;
+  T& at(int index);
+  const T& at(int index) const;
   T& at(Axis axis);
   const T& at(Axis axis) const;
   T& front() { return x; }
@@ -229,12 +235,6 @@ using Vector4i = Vector4<int>;
 using Vector4f = Vector4<float>;
 using Vector4d = Vector4<double>;
 
-template <typename T>
-using Vec4 = Vector4<T>;
-using Vec4i = Vec4<int>;
-using Vec4f = Vec4<float>;
-using Vec4d = Vec4<double>;
-
 #pragma mark -
 
 template <typename T>
@@ -257,6 +257,12 @@ inline Vector4<T>::Vector(T x, T y, T z, T w)
       y(y),
       z(z),
       w(w) {}
+
+template <typename T>
+template <typename... Args>
+inline Vector4<T>::Vector(const std::tuple<Args...>& tuple) {
+  set(tuple);
+}
 
 template <typename T>
 inline Vector4<T>::Vector(std::initializer_list<T> list) {
@@ -304,6 +310,13 @@ inline Vector4<T>::Vector(const Vector3<U>& other)
       w() {}
 
 #pragma mark Copy and assign
+
+template <typename T>
+template <typename... Args>
+inline Vector4<T>& Vector4<T>::operator=(const std::tuple<Args...>& tuple) {
+  set(tuple);
+  return *this;
+}
 
 template <typename T>
 inline Vector4<T>& Vector4<T>::operator=(std::initializer_list<T> list) {
@@ -364,6 +377,12 @@ inline void Vector4<T>::set(T x, T y, T z, T w) {
 }
 
 template <typename T>
+template <typename... Args>
+inline void Vector4<T>::set(const std::tuple<Args...>& tuple) {
+  std::tie(x, y, z, w) = tuple;
+}
+
+template <typename T>
 inline void Vector4<T>::set(std::initializer_list<T> list) {
   set(list.begin(), list.end());
 }
@@ -393,7 +412,7 @@ inline void Vector4<T>::reset() {
 #pragma mark Element access
 
 template <typename T>
-inline T& Vector4<T>::at(Index index) {
+inline T& Vector4<T>::at(int index) {
   switch (index) {
     case 0:
       return x;
@@ -411,7 +430,7 @@ inline T& Vector4<T>::at(Index index) {
 }
 
 template <typename T>
-inline const T& Vector4<T>::at(Index index) const {
+inline const T& Vector4<T>::at(int index) const {
   switch (index) {
     case 0:
       return x;
@@ -430,12 +449,12 @@ inline const T& Vector4<T>::at(Index index) const {
 
 template <typename T>
 inline T& Vector4<T>::at(Axis axis) {
-  return at(static_cast<Index>(axis));
+  return at(static_cast<int>(axis));
 }
 
 template <typename T>
 inline const T& Vector4<T>::at(Axis axis) const {
-  return at(static_cast<Index>(axis));
+  return at(static_cast<int>(axis));
 }
 
 #pragma mark Comparison

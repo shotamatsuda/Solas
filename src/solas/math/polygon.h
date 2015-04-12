@@ -183,7 +183,7 @@ inline Polygon<T>& Polygon<T>::operator=(
 
 template <typename T>
 inline void Polygon<T>::set(std::initializer_list<T> list) {
-  // TODO:
+  // TODO(sgss):
 }
   
 template <typename T>
@@ -266,49 +266,49 @@ inline bool Polygon<T>::operator!=(const Polygon<U>& other) const {
 
 template <typename T>
 inline void Polygon<T>::add(T x, T y) {
-  // TODO:
+  // TODO(sgss):
 }
 
 template <typename T>
 inline void Polygon<T>::add(const Vector2<T>& vertex) {
-  // TODO:
+  // TODO(sgss):
 }
 
 template <typename T>
 inline void Polygon<T>::insert(T x, T y, std::size_t index) {
-  // TODO:
+  // TODO(sgss):
 }
 
 template <typename T>
 inline void Polygon<T>::insert(const Vector2<T>& vertex, std::size_t index) {
-  // TODO:
+  // TODO(sgss):
 }
 
 #pragma mark Attributes
 
 template <typename T>
 inline Promote<T> Polygon<T>::apothem() const {
-  // TODO:
+  // TODO(sgss):
 }
 
 template <typename T>
 inline Promote<T> Polygon<T>::area() const {
-  // TODO:
+  // TODO(sgss):
 }
 
 template <typename T>
 inline Promote<T> Polygon<T>::circumference() const {
-  // TODO:
+  // TODO(sgss):
 }
 
 template <typename T>
 inline Vector2<Promote<T>> Polygon<T>::centroid() const {
-  // TODO:
+  // TODO(sgss):
 }
 
 template <typename T>
 inline Rect<Promote<T>> Polygon<T>::bounds() const {
-  // TODO:
+  // TODO(sgss):
 }
 
 #pragma mark Stream

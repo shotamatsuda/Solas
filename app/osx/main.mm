@@ -42,8 +42,7 @@ class Sketch : public solas::processing::Sketch {
   }
 
   void draw() {
-    background(0xff);
-    ellipse(100, 100, 100, 100);
+    ellipse(mouse_x(), mouse_y(), 100, 100);
   }
 
   void post() {
@@ -56,7 +55,6 @@ class Sketch : public solas::processing::Sketch {
   }
 
   void mouseDragged() {
-    ellipse(mouse_x(), mouse_y(), 100, 100);
   }
 
   void mouseReleased() {

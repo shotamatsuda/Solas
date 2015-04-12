@@ -33,33 +33,31 @@
 namespace solas {
 namespace graphics {
 
-enum class StrokeType {
-  NONE,
-  SOLID
-};
-
-enum class StrokeCap {
-  SQUARE,
-  PROJECT,
-  ROUND
-};
-
-enum class StrokeJoin {
-  MITER,
-  BEVEL,
-  ROUND
-};
-
-template <typename T>
 class Stroke {
  public:
-  using Type = T;
+  enum class Type {
+    NONE,
+    SOLID
+  };
+
+  enum class Cap {
+    SQUARE,
+    PROJECT,
+    ROUND
+  };
+
+  enum class Join {
+    MITER,
+    BEVEL,
+    ROUND
+  };
 
  public:
   // Constructors
   Stroke();
-  Stroke(const Color4<T>& color, T weight);
-  Stroke(const Color4<T>& color, T weight, StrokeCap cap, StrokeJoin join);
+  Stroke(const Color4d& color, double weight);
+  Stroke(const Color4d& color, double weight,
+         Stroke::Cap cap, Stroke::Join join);
 
   // Copy and assign
   Stroke(const Stroke& other) = default;
@@ -72,37 +70,34 @@ class Stroke {
   bool operator!=(const Stroke& other) const;
 
   // Conversion
-  operator bool() const { return type != StrokeType::NONE; }
+  operator bool() const { return type != Stroke::Type::NONE; }
 
  public:
-  StrokeType type;
-  Color4<T> color;
-  T weight;
-  StrokeCap cap;
-  StrokeJoin join;
+  Stroke::Type type;
+  Color4d color;
+  double weight;
+  Stroke::Cap cap;
+  Stroke::Join join;
 };
 
 #pragma mark -
 
-template <typename T>
-inline Stroke<T>::Stroke()
-    : type(StrokeType::NONE),
+inline Stroke::Stroke()
+    : type(Stroke::Type::NONE),
       weight(),
-      cap(StrokeCap::SQUARE),
-      join(StrokeJoin::MITER) {}
+      cap(Stroke::Cap::SQUARE),
+      join(Stroke::Join::MITER) {}
 
-template <typename T>
-inline Stroke<T>::Stroke(const Color4<T>& color, T weight)
-    : type(StrokeType::SOLID),
+inline Stroke::Stroke(const Color4d& color, double weight)
+    : type(Stroke::Type::SOLID),
       color(color),
       weight(weight),
-      cap(StrokeCap::SQUARE),
-      join(StrokeJoin::MITER) {}
+      cap(Stroke::Cap::SQUARE),
+      join(Stroke::Join::MITER) {}
 
-template <typename T>
-inline Stroke<T>::Stroke(const Color4<T>& color, T weight,
-                         StrokeCap cap, StrokeJoin join)
-    : type(StrokeType::SOLID),
+inline Stroke::Stroke(const Color4d& color, double weight,
+                      Stroke::Cap cap, Stroke::Join join)
+    : type(Stroke::Type::SOLID),
       color(color),
       weight(weight),
       cap(cap),
@@ -110,14 +105,12 @@ inline Stroke<T>::Stroke(const Color4<T>& color, T weight,
 
 #pragma mark Comparison
 
-template <typename T>
-inline bool Stroke<T>::operator==(const Stroke& other) const {
+inline bool Stroke::operator==(const Stroke& other) const {
   return (type == other.type && weight == other.weight &&
           cap == other.cap && join == other.join);
 }
 
-template <typename T>
-inline bool Stroke<T>::operator!=(const Stroke& other) const {
+inline bool Stroke::operator!=(const Stroke& other) const {
   return !operator==(other);
 }
 

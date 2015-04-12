@@ -74,9 +74,9 @@ class Random {
   template <typename T>
   T uniform(T min, T max);
   template <typename T>
-  T normal();
+  T gaussian();
   template <typename T>
-  T normal(Promote<T> mean, Promote<T> stddev);
+  T gaussian(Promote<T> mean, Promote<T> stddev);
 
  private:
   Engine engine_;
@@ -157,14 +157,14 @@ inline T Random<Engine, Mutex>::uniform(T min, T max) {
 
 template <typename Engine, typename Mutex>
 template <typename T>
-inline T Random<Engine, Mutex>::normal() {
+inline T Random<Engine, Mutex>::gaussian() {
   std::lock_guard<Mutex> lock(mutex_);
   return std::normal_distribution<Promote<T>>()(engine_);
 }
 
 template <typename Engine, typename Mutex>
 template <typename T>
-inline T Random<Engine, Mutex>::normal(Promote<T> mean, Promote<T> stddev) {
+inline T Random<Engine, Mutex>::gaussian(Promote<T> mean, Promote<T> stddev) {
   std::lock_guard<Mutex> lock(mutex_);
   return std::normal_distribution<Promote<T>>(mean, stddev)(engine_);
 }

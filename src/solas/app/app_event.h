@@ -29,6 +29,7 @@
 #define SOLAS_APP_APP_EVENT_H_
 
 #include "solas/graphics/context_holder.h"
+#include "solas/math/size.h"
 
 namespace solas {
 namespace app {
@@ -38,7 +39,7 @@ class AppEvent final {
   // Constructors
   AppEvent() {}
   template <typename Context>
-  explicit AppEvent(const Context& context);
+  AppEvent(const Context& context, const math::Size2d& size);
 
   // Copy and move
   AppEvent(const AppEvent& other) = default;
@@ -49,13 +50,15 @@ class AppEvent final {
 
  public:
   const graphics::ContextHolder context;
+  const math::Size2d size;
 };
 
 #pragma mark -
 
 template <typename Context>
-inline AppEvent::AppEvent(const Context& context)
-    : context(context) {}
+inline AppEvent::AppEvent(const Context& context, const math::Size2d& size)
+    : context(context),
+      size(size) {}
 
 }  // namespace app
 }  // namespace solas

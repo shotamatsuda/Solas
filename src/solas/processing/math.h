@@ -34,6 +34,7 @@
 
 #include "solas/math/constants.h"
 #include "solas/math/functions.h"
+#include "solas/math/random.h"
 #include "solas/processing/types.h"
 
 namespace solas {
@@ -79,6 +80,18 @@ Real atan(Real value);
 Real atan2(Real x, Real y);
 Real degrees(Real radians);
 Real radians(Real degrees);
+
+// Random
+Real noise(Real x);
+Real noise(Real x, Real y);
+Real noise(Real x, Real y, Real z);
+Real noiseDetail(Real lod);
+Real noiseDetail(Real lod, Real falloff);
+void noiseSeed(Real seed);
+Real random(Real high);
+Real random(Real low, Real high);
+Real randomGaussian();
+void randomSeed(Real seed);
 
 #pragma mark -
 
@@ -232,6 +245,24 @@ inline Real degrees(Real radians) {
 
 inline Real radians(Real degrees) {
   return degrees * math::degree<Real>;
+}
+
+#pragma mark Random
+
+inline Real random(Real high) {
+  return math::Random<>::Shared().uniform<Real>(high);
+}
+
+inline Real random(Real low, Real high) {
+  return math::Random<>::Shared().uniform<Real>(low, high);
+}
+
+inline Real randomGaussian() {
+  return math::Random<>::Shared().normal<Real>();
+}
+
+inline void randomSeed(Real seed) {
+  math::Random<>::Shared().seed(seed);
 }
 
 }  // namespace processing

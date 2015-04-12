@@ -31,6 +31,7 @@
 #include <cmath>
 #include <initializer_list>
 #include <ostream>
+#include <tuple>
 #include <utility>
 
 #include "solas/math/axis.h"
@@ -53,18 +54,19 @@ template <typename T>
 class Size<T, 3> final {
  public:
   using Type = T;
-  using Index = typename Vector3<T>::Index;
   using Iterator = typename Vector3<T>::Iterator;
   using ConstIterator = typename Vector3<T>::ConstIterator;
   using ReverseIterator = typename Vector3<T>::ReverseIterator;
   using ConstReverseIterator = typename Vector3<T>::ConstReverseIterator;
-  static constexpr auto dimensions = Vector3<T>::dimensions;
+  static const constexpr auto dimensions = Vector3<T>::dimensions;
 
  public:
   // Constructors
   Size();
   explicit Size(T value);
   Size(T width, T height, T depth = T());
+  template <typename... Args>
+  Size(const std::tuple<Args...>& tuple);
   Size(std::initializer_list<T> list);
   template <typename Container>
   explicit Size(const Container& container);
@@ -85,6 +87,8 @@ class Size<T, 3> final {
   // Copy and assign
   Size(const Size3<T>& other);
   Size3<T>& operator=(const Size3<T>& other);
+  template <typename... Args>
+  Size3<T>& operator=(const std::tuple<Args...>& tuple);
   Size3<T>& operator=(std::initializer_list<T> list);
 
   // Factory
@@ -97,6 +101,8 @@ class Size<T, 3> final {
   // Mutators
   void set(T value);
   void set(T width, T height, T depth = T());
+  template <typename... Args>
+  void set(const std::tuple<Args...>& tuple);
   void set(std::initializer_list<T> list);
   template <typename Container>
   void set(const Container& container);
@@ -105,12 +111,12 @@ class Size<T, 3> final {
   void reset();
 
   // Element access
-  T& operator[](Index index) { return at(index); }
-  const T& operator[](Index index) const { return at(index); }
+  T& operator[](int index) { return at(index); }
+  const T& operator[](int index) const { return at(index); }
   T& operator[](Axis axis) { return at(axis); }
   const T& operator[](Axis axis) const { return at(axis); }
-  T& at(Index index);
-  const T& at(Index index) const;
+  T& at(int index);
+  const T& at(int index) const;
   T& at(Axis axis);
   const T& at(Axis axis) const;
   T& front() { return vector.front(); }
@@ -217,7 +223,7 @@ using Size3d = Size3<double>;
 
 #pragma mark -
 
-template < typename T>
+template <typename T>
 inline Size3<T>::Size()
     : vector() {}
 
@@ -228,6 +234,11 @@ inline Size3<T>::Size(T value)
 template <typename T>
 inline Size3<T>::Size(T width, T height, T depth)
     : vector(width, height, depth) {}
+
+template <typename T>
+template <typename... Args>
+inline Size3<T>::Size(const std::tuple<Args...>& tuple)
+    : vector(tuple) {}
 
 template <typename T>
 inline Size3<T>::Size(std::initializer_list<T> list)
@@ -284,6 +295,13 @@ inline Size3<T>& Size3<T>::operator=(const Size3<T>& other) {
 }
 
 template <typename T>
+template <typename... Args>
+inline Size3<T>& Size3<T>::operator=(const std::tuple<Args...>& tuple) {
+  vector.set(tuple);
+  return *this;
+}
+
+template <typename T>
 inline Size3<T>& Size3<T>::operator=(std::initializer_list<T> list) {
   vector.set(std::move(list));
   return *this;
@@ -329,6 +347,12 @@ inline void Size3<T>::set(T width, T height, T depth) {
 }
 
 template <typename T>
+template <typename... Args>
+inline void Size3<T>::set(const std::tuple<Args...>& tuple) {
+  vector.set(tuple);
+}
+
+template <typename T>
 inline void Size3<T>::set(std::initializer_list<T> list) {
   vector.set(list);
 }
@@ -353,23 +377,23 @@ inline void Size3<T>::reset() {
 #pragma mark Element access
 
 template <typename T>
-inline T& Size3<T>::at(Index index) {
+inline T& Size3<T>::at(int index) {
   return vector.at(index);
 }
 
 template <typename T>
-inline const T& Size3<T>::at(Index index) const {
+inline const T& Size3<T>::at(int index) const {
   return vector.at(index);
 }
 
 template <typename T>
 inline T& Size3<T>::at(Axis axis) {
-  return at(static_cast<Index>(axis));
+  return at(static_cast<int>(axis));
 }
 
 template <typename T>
 inline const T& Size3<T>::at(Axis axis) const {
-  return at(static_cast<Index>(axis));
+  return at(static_cast<int>(axis));
 }
 
 #pragma mark Comparison

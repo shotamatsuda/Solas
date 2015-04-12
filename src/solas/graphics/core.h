@@ -35,6 +35,7 @@
 #include "solas/graphics/fill.h"
 #include "solas/graphics/stroke.h"
 #include "solas/math/line.h"
+#include "solas/math/matrix.h"
 #include "solas/math/rect.h"
 #include "solas/math/vector.h"
 
@@ -46,36 +47,36 @@ using Real = double;
 
 // Drawing 2D primitives
 void DrawPoint(const ContextHolder& holder,
-               const Fill<Real>& fill,
-               const Stroke<Real>& stroke,
-               const math::Vec2<Real>& point);
+               const Fill& fill,
+               const Stroke& stroke,
+               const math::Vector2<Real>& point);
 void DrawLine(const ContextHolder& holder,
-              const Fill<Real>& fill,
-              const Stroke<Real>& stroke,
+              const Fill& fill,
+              const Stroke& stroke,
               const math::Line2<Real>& line);
 void DrawRect(const ContextHolder& holder,
-              const Fill<Real>& fill,
-              const Stroke<Real>& stroke,
+              const Fill& fill,
+              const Stroke& stroke,
               const math::Rect<Real>& rect);
 void DrawRoundedRect(const ContextHolder& holder,
-                     const Fill<Real>& fill,
-                     const Stroke<Real>& stroke,
+                     const Fill& fill,
+                     const Stroke& stroke,
                      const math::Rect<Real>& rect,
                      Real radius);
 void DrawRoundedRect(const ContextHolder& holder,
-                     const Fill<Real>& fill,
-                     const Stroke<Real>& stroke,
+                     const Fill& fill,
+                     const Stroke& stroke,
                      const math::Rect<Real>& rect,
                      const std::tuple<Real, Real, Real, Real>& radii);
 void DrawArc(const ContextHolder& holder,
-             const Fill<Real>& fill,
-             const Stroke<Real>& stroke,
+             const Fill& fill,
+             const Stroke& stroke,
              const math::Rect<Real>& rect,
              Real start_angle,
              Real stop_angle);
 void DrawEllipse(const ContextHolder& holder,
-                 const Fill<Real>& fill,
-                 const Stroke<Real>& stroke,
+                 const Fill& fill,
+                 const Stroke& stroke,
                  const math::Rect<Real>& rect);
 
 // Clearing the buffer
@@ -85,6 +86,19 @@ void Clear(const ContextHolder& holder, const Color4<Real>& color);
 // Configuring antialias
 void EnableAntialias(const ContextHolder& holder);
 void DisableAntialias(const ContextHolder& holder);
+
+// Transform
+void SetMatrix(const ContextHolder& holder,
+               const math::Matrix2<Real>& matrix);
+void ConcatMatrix(const ContextHolder& holder,
+                  const math::Matrix2<Real>& matrix);
+void PushMatrix(const ContextHolder& holder);
+void PopMatrix(const ContextHolder& holder);
+void Translate(const ContextHolder& holder,
+               const math::Vector2<Real>& vector);
+void Scale(const ContextHolder& holder,
+           const math::Vector2<Real>& vector);
+void Rotate(const ContextHolder& holder, Real angle);
 
 }  // namespace core
 }  // namespace graphics

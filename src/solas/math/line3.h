@@ -56,7 +56,7 @@ class Line<T, 3> final {
   using ConstIterator = const Vector3<T> *;
   using ReverseIterator = std::reverse_iterator<Iterator>;
   using ConstReverseIterator = std::reverse_iterator<ConstIterator>;
-  static constexpr auto dimensions = Vector3<T>::dimensions;
+  static const constexpr auto dimensions = Vector3<T>::dimensions;
 
  public:
   // Constructors

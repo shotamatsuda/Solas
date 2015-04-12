@@ -31,6 +31,8 @@
 #include <tuple>
 
 #include "solas/graphics/core.h"
+#include "solas/math/rect.h"
+#include "solas/math/vector.h"
 #include "solas/processing/constants.h"
 #include "solas/processing/types.h"
 
@@ -64,9 +66,13 @@ inline Real4 CanonicalizeArgs(Real a, Real b, Real c, Real d, Constant mode) {
 #pragma mark Point and lines
 
 void Graphics::point(Real x, Real y) const {
+  const Vec2 point(x, y);
+  graphics::core::DrawPoint(context(), fill(), stroke(), point);
 }
 
 void Graphics::line(Real x1, Real y1, Real x2, Real y2) const {
+  const math::Line2<Real> line(x1, y1, x2, y2);
+  graphics::core::DrawLine(context(), fill(), stroke(), line);
 }
 
 void Graphics::triangle(Real x1, Real y1,
@@ -131,6 +137,28 @@ void Graphics::smooth() {
 
 void Graphics::noSmooth() {
   graphics::core::DisableAntialias(context());
+}
+
+#pragma mark Transform
+
+void Graphics::pushMatrix() {
+  graphics::core::PushMatrix(context());
+}
+
+void Graphics::popMatrix() {
+  graphics::core::PopMatrix(context());
+}
+
+void Graphics::translate(Real x, Real y, Real z) {
+  graphics::core::Translate(context(), Vec2(x, y));
+}
+
+void Graphics::scale(Real x, Real y, Real z) {
+  graphics::core::Scale(context(), Vec2(x, y));
+}
+
+void Graphics::rotate(Real angle) {
+  graphics::core::Rotate(context(), angle);
 }
 
 #pragma mark Color settings

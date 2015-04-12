@@ -31,10 +31,10 @@
 #include <cstdint>
 #include <initializer_list>
 #include <ostream>
+#include <tuple>
 #include <utility>
 
 #include "solas/graphics/color_depth.h"
-#include "solas/math/promotion.h"
 #include "solas/math/vector.h"
 
 namespace solas {
@@ -52,18 +52,19 @@ template <typename T>
 class Color<T, 4> final {
  public:
   using Type = T;
-  using Index = typename math::Vector4<T>::Index;
   using Iterator = typename math::Vector4<T>::Iterator;
   using ConstIterator = typename math::Vector4<T>::ConstIterator;
   using ReverseIterator = typename math::Vector4<T>::ReverseIterator;
   using ConstReverseIterator = typename math::Vector4<T>::ConstReverseIterator;
-  static constexpr auto channels = math::Vector4<T>::dimensions;
+  static const constexpr auto channels = math::Vector4<T>::dimensions;
 
  public:
   // Constructors
   Color();
   explicit Color(T gray, T alpha = 1);
   Color(T red, T green, T blue, T alpha = 1);
+  template <typename... Args>
+  Color(const std::tuple<Args...>& tuple);
   Color(std::initializer_list<T> list);
   template <typename Container>
   explicit Color(const Container& container);
@@ -83,6 +84,8 @@ class Color<T, 4> final {
   // Copy and assign
   Color(const Color4<T>& other);
   Color4<T>& operator=(const Color4<T>& other);
+  template <typename... Args>
+  Color4<T>& operator=(const std::tuple<Args...>& tuple);
   Color4<T>& operator=(std::initializer_list<T> list);
 
   // Factory
@@ -95,6 +98,8 @@ class Color<T, 4> final {
   // Mutators
   void set(T gray, T alpha = 1);
   void set(T red, T green, T blue, T alpha = 1);
+  template <typename... Args>
+  void set(const std::tuple<Args...>& tuple);
   void set(std::initializer_list<T> list);
   template <typename Container>
   void set(const Container& container);
@@ -103,10 +108,10 @@ class Color<T, 4> final {
   void reset();
 
   // Element access
-  T& operator[](Index index) { return at(index); }
-  const T& operator[](Index index) const { return at(index); }
-  T& at(Index index);
-  const T& at(Index index) const;
+  T& operator[](int index) { return at(index); }
+  const T& operator[](int index) const { return at(index); }
+  T& at(int index);
+  const T& at(int index) const;
   T& front() { return vector.front(); }
   const T& front() const { return vector.front(); }
   T& back() { return vector.back(); }
@@ -156,7 +161,7 @@ using Color4d = Color4<double>;
 
 #pragma mark -
 
-template < typename T>
+template <typename T>
 inline Color4<T>::Color()
     : vector() {}
 
@@ -167,6 +172,11 @@ inline Color4<T>::Color(T gray, T alpha)
 template <typename T>
 inline Color4<T>::Color(T red, T green, T blue, T alpha)
     : vector(red, green, blue, alpha) {}
+
+template <typename T>
+template <typename... Args>
+inline Color4<T>::Color(const std::tuple<Args...>& tuple)
+    : vector(tuple) {}
 
 template <typename T>
 inline Color4<T>::Color(std::initializer_list<T> list)
@@ -215,6 +225,13 @@ inline Color4<T>& Color4<T>::operator=(const Color4<T>& other) {
   if (&other != this) {
     vector = other.vector;
   }
+  return *this;
+}
+
+template <typename T>
+template <typename... Args>
+inline Color4<T>& Color4<T>::operator=(const std::tuple<Args...>& tuple) {
+  vector.set(tuple);
   return *this;
 }
 
@@ -278,6 +295,12 @@ inline void Color4<T>::set(T red, T green, T blue, T alpha) {
 }
 
 template <typename T>
+template <typename... Args>
+inline void Color4<T>::set(const std::tuple<Args...>& tuple) {
+  vector.set(tuple);
+}
+
+template <typename T>
 inline void Color4<T>::set(std::initializer_list<T> list) {
   vector.set(list);
 }
@@ -302,12 +325,12 @@ inline void Color4<T>::reset() {
 #pragma mark Element access
 
 template <typename T>
-inline T& Color4<T>::at(Index index) {
+inline T& Color4<T>::at(int index) {
   return vector.at(index);
 }
 
 template <typename T>
-inline const T& Color4<T>::at(Index index) const {
+inline const T& Color4<T>::at(int index) const {
   return vector.at(index);
 }
 

@@ -31,6 +31,7 @@
 #include <cstdint>
 #include <initializer_list>
 #include <ostream>
+#include <tuple>
 #include <utility>
 
 #include "solas/graphics/color_depth.h"
@@ -51,18 +52,19 @@ template <typename T>
 class Color<T, 3> final {
  public:
   using Type = T;
-  using Index = typename math::Vector3<T>::Index;
   using Iterator = typename math::Vector3<T>::Iterator;
   using ConstIterator = typename math::Vector3<T>::ConstIterator;
   using ReverseIterator = typename math::Vector3<T>::ReverseIterator;
   using ConstReverseIterator = typename math::Vector3<T>::ConstReverseIterator;
-  static constexpr auto channels = math::Vector3<T>::dimensions;
+  static const constexpr auto channels = math::Vector3<T>::dimensions;
 
  public:
   // Constructors
   Color();
   explicit Color(T gray);
   Color(T red, T green, T blue);
+  template <typename... Args>
+  Color(const std::tuple<Args...>& tuple);
   Color(std::initializer_list<T> list);
   template <typename Container>
   explicit Color(const Container& container);
@@ -82,6 +84,8 @@ class Color<T, 3> final {
   // Copy and assign
   Color(const Color3<T>& other);
   Color3<T>& operator=(const Color3<T>& other);
+  template <typename... Args>
+  Color3<T>& operator=(const std::tuple<Args...>& tuple);
   Color3<T>& operator=(std::initializer_list<T> list);
 
   // Factory
@@ -92,6 +96,8 @@ class Color<T, 3> final {
   // Mutators
   void set(T gray);
   void set(T red, T green, T blue);
+  template <typename... Args>
+  void set(const std::tuple<Args...>& tuple);
   void set(std::initializer_list<T> list);
   template <typename Container>
   void set(const Container& container);
@@ -100,10 +106,10 @@ class Color<T, 3> final {
   void reset();
 
   // Element access
-  T& operator[](Index index) { return at(index); }
-  const T& operator[](Index index) const { return at(index); }
-  T& at(Index index);
-  const T& at(Index index) const;
+  T& operator[](int index) { return at(index); }
+  const T& operator[](int index) const { return at(index); }
+  T& at(int index);
+  const T& at(int index) const;
   T& front() { return vector.front(); }
   const T& front() const { return vector.front(); }
   T& back() { return vector.back(); }
@@ -165,6 +171,11 @@ inline Color3<T>::Color(T red, T green, T blue)
     : vector(red, green, blue) {}
 
 template <typename T>
+template <typename... Args>
+inline Color3<T>::Color(const std::tuple<Args...>& tuple)
+    : vector(tuple) {}
+
+template <typename T>
 inline Color3<T>::Color(std::initializer_list<T> list)
     : vector(list) {}
 
@@ -215,6 +226,13 @@ inline Color3<T>& Color3<T>::operator=(const Color3<T>& other) {
 }
 
 template <typename T>
+template <typename... Args>
+inline Color3<T>& Color3<T>::operator=(const std::tuple<Args...>& tuple) {
+  vector.set(tuple);
+  return *this;
+}
+
+template <typename T>
 inline Color3<T>& Color3<T>::operator=(std::initializer_list<T> list) {
   vector.set(std::move(list));
   return *this;
@@ -254,6 +272,12 @@ inline void Color3<T>::set(T red, T green, T blue) {
 }
 
 template <typename T>
+template <typename... Args>
+inline void Color3<T>::set(const std::tuple<Args...>& tuple) {
+  vector.set(tuple);
+}
+
+template <typename T>
 inline void Color3<T>::set(std::initializer_list<T> list) {
   vector.set(list);
 }
@@ -278,12 +302,12 @@ inline void Color3<T>::reset() {
 #pragma mark Element access
 
 template <typename T>
-inline T& Color3<T>::at(Index index) {
+inline T& Color3<T>::at(int index) {
   return vector.at(index);
 }
 
 template <typename T>
-inline const T& Color3<T>::at(Index index) const {
+inline const T& Color3<T>::at(int index) const {
   return vector.at(index);
 }
 

@@ -26,7 +26,9 @@
 
 #include <cstdint>
 #include <random>
+#include <tuple>
 #include <type_traits>
+#include <vector>
 
 #include "gtest/gtest.h"
 
@@ -109,6 +111,21 @@ TYPED_TEST(SizeTest, ConstructibleWithValues) {
   ASSERT_EQ(s2.height, height);
 
   Size3<TypeParam> s3(width, height, depth);
+  ASSERT_EQ(s3.width, width);
+  ASSERT_EQ(s3.height, height);
+  ASSERT_EQ(s3.depth, depth);
+}
+
+TYPED_TEST(SizeTest, ConstructibleWithTuple) {
+  const auto width = this->Random();
+  const auto height = this->Random();
+  const auto depth = this->Random();
+
+  Size2<TypeParam> s2(std::make_tuple(width, height));
+  ASSERT_EQ(s2.width, width);
+  ASSERT_EQ(s2.height, height);
+
+  Size3<TypeParam> s3(std::make_tuple(width, height, depth));
   ASSERT_EQ(s3.width, width);
   ASSERT_EQ(s3.height, height);
   ASSERT_EQ(s3.depth, depth);
@@ -224,6 +241,65 @@ TYPED_TEST(SizeTest, CopyAssignable) {
   ASSERT_EQ(s3_1, s3_2);
 }
 
+TYPED_TEST(SizeTest, TupleAssignable) {
+  const auto width = this->Random();
+  const auto height = this->Random();
+  const auto depth = this->Random();
+
+  Size2<TypeParam> s2;
+  s2 = std::make_tuple(width, height);
+  ASSERT_EQ(s2.width, width);
+  ASSERT_EQ(s2.height, height);
+
+  Size3<TypeParam> s3;
+  s3 = std::make_tuple(width, height, depth);
+  ASSERT_EQ(s3.width, width);
+  ASSERT_EQ(s3.height, height);
+  ASSERT_EQ(s3.depth, depth);
+}
+
+TYPED_TEST(SizeTest, InitializerListAssignable) {
+  const auto width = this->Random();
+  const auto height = this->Random();
+  const auto depth = this->Random();
+
+  Size2<TypeParam> s2;
+  s2 = {};
+  ASSERT_EQ(s2.width, TypeParam());
+  ASSERT_EQ(s2.height, TypeParam());
+  s2 = {width};
+  ASSERT_EQ(s2.width, width);
+  ASSERT_EQ(s2.height, TypeParam());
+  s2 = {width, height};
+  ASSERT_EQ(s2.width, width);
+  ASSERT_EQ(s2.height, height);
+  s2 = {width, height, this->Random()};
+  ASSERT_EQ(s2.width, width);
+  ASSERT_EQ(s2.height, height);
+
+  Size3<TypeParam> s3;
+  s3 = {};
+  ASSERT_EQ(s3.width, TypeParam());
+  ASSERT_EQ(s3.height, TypeParam());
+  ASSERT_EQ(s3.depth, TypeParam());
+  s3 = {width};
+  ASSERT_EQ(s3.width, width);
+  ASSERT_EQ(s3.height, TypeParam());
+  ASSERT_EQ(s3.depth, TypeParam());
+  s3 = {width, height};
+  ASSERT_EQ(s3.width, width);
+  ASSERT_EQ(s3.height, height);
+  ASSERT_EQ(s3.depth, TypeParam());
+  s3 = {width, height, depth};
+  ASSERT_EQ(s3.width, width);
+  ASSERT_EQ(s3.height, height);
+  ASSERT_EQ(s3.depth, depth);
+  s3 = {width, height, depth, this->Random()};
+  ASSERT_EQ(s3.width, width);
+  ASSERT_EQ(s3.height, height);
+  ASSERT_EQ(s3.depth, depth);
+}
+
 TYPED_TEST(SizeTest, ImplicitlyConvertibleFromOtherTypes) {
   const auto width = this->Random();
   const auto height = this->Random();
@@ -238,8 +314,6 @@ TYPED_TEST(SizeTest, ImplicitlyConvertibleFromOtherTypes) {
   Size2<std::uint16_t> s2_uint16(s2);
   Size2<std::int32_t> s2_int32(s2);
   Size2<std::uint32_t> s2_uint32(s2);
-  Size2<std::int64_t> s2_int64(s2);
-  Size2<std::uint64_t> s2_uint64(s2);
   Size2<float> s2_float(s2);
   Size2<double> s2_double(s2);
   ASSERT_EQ(s2_bool.width, static_cast<bool>(width));
@@ -250,8 +324,6 @@ TYPED_TEST(SizeTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(s2_uint16.width, static_cast<std::uint16_t>(width));
   ASSERT_EQ(s2_int32.width, static_cast<std::int32_t>(width));
   ASSERT_EQ(s2_uint32.width, static_cast<std::uint32_t>(width));
-  ASSERT_EQ(s2_int64.width, static_cast<std::int64_t>(width));
-  ASSERT_EQ(s2_uint64.width, static_cast<std::uint64_t>(width));
   ASSERT_EQ(s2_float.width, static_cast<float>(width));
   ASSERT_EQ(s2_double.width, static_cast<double>(width));
   ASSERT_EQ(s2_bool.height, static_cast<bool>(height));
@@ -262,8 +334,6 @@ TYPED_TEST(SizeTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(s2_uint16.height, static_cast<std::uint16_t>(height));
   ASSERT_EQ(s2_int32.height, static_cast<std::int32_t>(height));
   ASSERT_EQ(s2_uint32.height, static_cast<std::uint32_t>(height));
-  ASSERT_EQ(s2_int64.height, static_cast<std::int64_t>(height));
-  ASSERT_EQ(s2_uint64.height, static_cast<std::uint64_t>(height));
   ASSERT_EQ(s2_float.height, static_cast<float>(height));
   ASSERT_EQ(s2_double.height, static_cast<double>(height));
 
@@ -276,8 +346,6 @@ TYPED_TEST(SizeTest, ImplicitlyConvertibleFromOtherTypes) {
   Size3<std::uint16_t> s3_uint16(s3);
   Size3<std::int32_t> s3_int32(s3);
   Size3<std::uint32_t> s3_uint32(s3);
-  Size3<std::int64_t> s3_int64(s3);
-  Size3<std::uint64_t> s3_uint64(s3);
   Size3<float> s3_float(s3);
   Size3<double> s3_double(s3);
   ASSERT_EQ(s3_bool.width, static_cast<bool>(width));
@@ -288,8 +356,6 @@ TYPED_TEST(SizeTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(s3_uint16.width, static_cast<std::uint16_t>(width));
   ASSERT_EQ(s3_int32.width, static_cast<std::int32_t>(width));
   ASSERT_EQ(s3_uint32.width, static_cast<std::uint32_t>(width));
-  ASSERT_EQ(s3_int64.width, static_cast<std::int64_t>(width));
-  ASSERT_EQ(s3_uint64.width, static_cast<std::uint64_t>(width));
   ASSERT_EQ(s3_float.width, static_cast<float>(width));
   ASSERT_EQ(s3_double.width, static_cast<double>(width));
   ASSERT_EQ(s3_bool.height, static_cast<bool>(height));
@@ -300,8 +366,6 @@ TYPED_TEST(SizeTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(s3_uint16.height, static_cast<std::uint16_t>(height));
   ASSERT_EQ(s3_int32.height, static_cast<std::int32_t>(height));
   ASSERT_EQ(s3_uint32.height, static_cast<std::uint32_t>(height));
-  ASSERT_EQ(s3_int64.height, static_cast<std::int64_t>(height));
-  ASSERT_EQ(s3_uint64.height, static_cast<std::uint64_t>(height));
   ASSERT_EQ(s3_float.height, static_cast<float>(height));
   ASSERT_EQ(s3_double.height, static_cast<double>(height));
   ASSERT_EQ(s3_bool.depth, static_cast<bool>(depth));
@@ -312,8 +376,6 @@ TYPED_TEST(SizeTest, ImplicitlyConvertibleFromOtherTypes) {
   ASSERT_EQ(s3_uint16.depth, static_cast<std::uint16_t>(depth));
   ASSERT_EQ(s3_int32.depth, static_cast<std::int32_t>(depth));
   ASSERT_EQ(s3_uint32.depth, static_cast<std::uint32_t>(depth));
-  ASSERT_EQ(s3_int64.depth, static_cast<std::int64_t>(depth));
-  ASSERT_EQ(s3_uint64.depth, static_cast<std::uint64_t>(depth));
   ASSERT_EQ(s3_float.depth, static_cast<float>(depth));
   ASSERT_EQ(s3_double.depth, static_cast<double>(depth));
 }
