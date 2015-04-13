@@ -42,11 +42,11 @@ using namespace solas::processing;
 class Sketch : public solas::processing::Sketch {
  public:
   void setup() {
-    for (int i = 0; i < 500; ++i) {
-      auto boid = std::make_unique<Zoro>(this);
+    boids.resize(width() * height() / 4000);
+    for (auto& boid : boids) {
+      boid = std::make_unique<Zoro>(this);
       boid->location.x = random(width());
       boid->location.y = random(height());
-      boids.emplace_back(std::move(boid));
     }
     noFill();
     noStroke();
@@ -56,7 +56,7 @@ class Sketch : public solas::processing::Sketch {
     for (auto& boid : boids) {
       boid->flock(boids);
       boid->update();
-      boid->wraparound();
+      boid->wraparound(insets);
     }
   }
 
@@ -68,6 +68,7 @@ class Sketch : public solas::processing::Sketch {
 
  public:
   std::list<std::unique_ptr<Boid>> boids;
+  static constexpr double insets = 50;
 };
 
 }  // namespace zorozoro

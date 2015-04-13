@@ -30,7 +30,7 @@ using namespace solas::processing;
 class Zoro : public Boid {
  public:
   explicit Zoro(Layer *parent);
-  void wraparound() override;
+  void wraparound(double insets) override;
   void update() override;
   void draw() override;
 

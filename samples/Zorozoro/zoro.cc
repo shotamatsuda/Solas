@@ -32,9 +32,9 @@ Zoro::Zoro(Layer *parent)
   tail.length = segment;
 }
 
-void Zoro::wraparound() {
+void Zoro::wraparound(double insets) {
   const Vec2 before = location;
-  Boid::wraparound();
+  Boid::wraparound(insets);
   const Vec2 delta = location - before;
   body.location += delta;
   tail.location += delta;
@@ -61,9 +61,9 @@ void Zoro::draw() {
   strokeJoin(ROUND);
   pushMatrix();
   beginShape();
-  vertex(location);
+  vertex(location - (body.location - location).normalize() * thickness / 2);
   vertex(body.location);
-  vertex(tail.location);
+  vertex(tail.location + (tail.location - body.location).normalize() * thickness / 2);
   endShape();
   popStyle();
 

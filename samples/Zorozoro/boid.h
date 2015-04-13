@@ -41,7 +41,7 @@ class Boid : public solas::processing::Layer {
   void flock(const std::list<std::unique_ptr<Boid>>& boids);
   virtual void update();
   virtual void draw() = 0;
-  virtual void wraparound();
+  virtual void wraparound(double insets);
   Vec2 separate(const std::list<std::unique_ptr<Boid>>& boids);
   Vec2 align(const std::list<std::unique_ptr<Boid>>& boids);
   Vec2 cohere(const std::list<std::unique_ptr<Boid>>& boids);
@@ -53,10 +53,10 @@ class Boid : public solas::processing::Layer {
   Vec2 velocity;
   Vec2 acceleration;
   static constexpr double max_force = 0.03;
-  static constexpr double max_velocity = 2.0;
-  static constexpr double separation_distance = 45.0;
-  static constexpr double alignment_distance = 70.0;
-  static constexpr double cohesion_distance = 80.0;
+  static constexpr double max_velocity = 2;
+  static constexpr double separation_distance = 45;
+  static constexpr double alignment_distance = 70;
+  static constexpr double cohesion_distance = 80;
 };
 
 }  // namespace zorozoro

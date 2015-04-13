@@ -49,6 +49,7 @@
   if (self) {
     self.needsDisplayOnBoundsChange = YES;
     self.drawsAsynchronously = YES;
+    self.actions = @{ @"contents" : [NSNull null] };
     [self startLoop];
   }
   return self;

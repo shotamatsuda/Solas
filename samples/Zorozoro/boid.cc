@@ -48,9 +48,10 @@ void Boid::update() {
   location += velocity;
 }
 
-void Boid::wraparound() {
-  location.x += -width() * std::floor(location.x / width());
-  location.y += -height() * std::floor(location.y / height());
+void Boid::wraparound(double insets) {
+  const Vec2 span(width() + insets * 2, height() + insets * 2);
+  location.x += -span.x * std::floor((location.x + insets) / span.x);
+  location.y += -span.y * std::floor((location.y + insets) / span.y);
 }
 
 Vec2 Boid::separate(const std::list<std::unique_ptr<Boid>>& boids) {

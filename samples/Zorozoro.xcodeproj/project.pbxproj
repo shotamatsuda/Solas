@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		934D39DC1ADBBC87002AD78F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 934D39DB1ADBBC87002AD78F /* Default-568h@2x.png */; };
 		939125791AD99D5A0017C951 /* spring.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939125771AD99D5A0017C951 /* spring.cc */; };
 		9391257C1AD99E710017C951 /* zoro.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9391257A1AD99E710017C951 /* zoro.cc */; };
 		93CA68091ADB5C4B009F131B /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF9901AD97397009D0646 /* main.mm */; };
@@ -14,8 +15,6 @@
 		93CA680B1ADB5C4B009F131B /* boid.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF9981AD973F1009D0646 /* boid.cc */; };
 		93CA680C1ADB5C4B009F131B /* zoro.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9391257A1AD99E710017C951 /* zoro.cc */; };
 		93CA680D1ADB5C4B009F131B /* spring.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939125771AD99D5A0017C951 /* spring.cc */; };
-		93CA680E1ADB5C5B009F131B /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93EBABD21AD98A4C00BF8959 /* boost.framework */; };
-		93CA680F1ADB5C5B009F131B /* boost.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93EBABD21AD98A4C00BF8959 /* boost.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93CA68111ADB5C5F009F131B /* SolasTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF9811AD972EA009D0646 /* SolasTouch.framework */; };
 		93CA68121ADB5C5F009F131B /* SolasTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF9811AD972EA009D0646 /* SolasTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93EBABC71AD980ED00BF8959 /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF97F1AD972EA009D0646 /* Solas.framework */; };
@@ -72,7 +71,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				93CA680F1ADB5C5B009F131B /* boost.framework in Embed Frameworks */,
 				93CA68121ADB5C5F009F131B /* SolasTouch.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -93,11 +91,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		934D39DB1ADBBC87002AD78F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		939125771AD99D5A0017C951 /* spring.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spring.cc; sourceTree = "<group>"; };
 		939125781AD99D5A0017C951 /* spring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spring.h; sourceTree = "<group>"; };
 		9391257A1AD99E710017C951 /* zoro.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = zoro.cc; sourceTree = "<group>"; };
 		9391257B1AD99E710017C951 /* zoro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zoro.h; sourceTree = "<group>"; };
-		93CA67E11ADB5BF4009F131B /* ZorozoroTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZorozoroTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93CA67E11ADB5BF4009F131B /* Zorozoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zorozoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93EBABBC1AD97E3A00BF8959 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Project.xcconfig; path = ../../config/Project.xcconfig; sourceTree = "<group>"; };
 		93EBABBD1AD97E3A00BF8959 /* ProjectDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = ProjectDebug.xcconfig; path = ../../config/ProjectDebug.xcconfig; sourceTree = "<group>"; };
 		93EBABBE1AD97E3A00BF8959 /* ProjectRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = ProjectRelease.xcconfig; path = ../../config/ProjectRelease.xcconfig; sourceTree = "<group>"; };
@@ -119,7 +118,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93CA680E1ADB5C5B009F131B /* boost.framework in Frameworks */,
 				93CA68111ADB5C5F009F131B /* SolasTouch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +134,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		934D39DD1ADBBC8C002AD78F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				934D39DB1ADBBC87002AD78F /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			path = Zorozoro;
+			sourceTree = "<group>";
+		};
 		93EBABD11AD98A4C00BF8959 /* OS X */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +174,7 @@
 			children = (
 				93FEF9501AD97263009D0646 /* Source */,
 				93FEF9751AD972AA009D0646 /* Configurations */,
+				934D39DD1ADBBC8C002AD78F /* Supporting Files */,
 				93EBABD41AD98A4C00BF8959 /* Linked Frameworks */,
 				93FEF94F1AD97263009D0646 /* Products */,
 				93FEF9761AD972E8009D0646 /* Solas.xcodeproj */,
@@ -177,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				93FEF94E1AD97263009D0646 /* Zorozoro.app */,
-				93CA67E11ADB5BF4009F131B /* ZorozoroTouch.app */,
+				93CA67E11ADB5BF4009F131B /* Zorozoro.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -241,7 +249,7 @@
 			);
 			name = ZorozoroTouch;
 			productName = ZorozoroTouch;
-			productReference = 93CA67E11ADB5BF4009F131B /* ZorozoroTouch.app */;
+			productReference = 93CA67E11ADB5BF4009F131B /* Zorozoro.app */;
 			productType = "com.apple.product-type.application";
 		};
 		93FEF94D1AD97263009D0646 /* Zorozoro */ = {
@@ -274,6 +282,7 @@
 				TargetAttributes = {
 					93CA67E01ADB5BF4009F131B = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = CMMH8M4457;
 					};
 					93FEF94D1AD97263009D0646 = {
 						CreatedOnToolsVersion = 6.2;
@@ -334,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934D39DC1ADBBC87002AD78F /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,20 +401,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/../build/boost/osx/framework",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/../src",
+					"$(PROJECT_DIR)/../build/boost/ios/framework",
 				);
 				INFOPLIST_FILE = "Info-iOS.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Zorozoro;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src";
 			};
 			name = Debug;
 		};
@@ -412,20 +422,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/../build/boost/osx/framework",
-				);
-				HEADER_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/../src",
+					"$(PROJECT_DIR)/../build/boost/ios/framework",
 				);
 				INFOPLIST_FILE = "Info-iOS.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Zorozoro;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -463,6 +474,7 @@
 				INFOPLIST_FILE = "Info-OSX.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src";
 			};
 			name = Debug;
 		};
@@ -477,6 +489,7 @@
 				INFOPLIST_FILE = "Info-OSX.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src";
 			};
 			name = Release;
 		};
