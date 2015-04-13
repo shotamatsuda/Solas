@@ -34,6 +34,7 @@
 
 #include "solas/graphics/context_holder.h"
 #include "solas/graphics/fill.h"
+#include "solas/graphics/path.h"
 #include "solas/graphics/stroke.h"
 #include "solas/processing/constants.h"
 #include "solas/processing/style.h"
@@ -133,6 +134,22 @@ class Graphics {
   Constant ellipseMode() const;
   void ellipseMode(Constant mode);
 
+  // Shape vertex
+  void beginShape();
+  void beginShape(Constant kind);
+  void endShape();
+  void endShape(Constant mode);
+  void beginContour();
+  void endContour();
+  void vertex(Real x, Real y);
+  void vertex(const Vec2& point);
+  void curveVertex(Real x, Real y);
+  void curveVertex(const Vec2& point);
+  void quadraticVertex(Real cx, Real cy, Real x, Real y);
+  void quadraticVertex(const Vec2& c, const Vec2& point);
+  void bezierVertex(Real cx1, Real cy1, Real cx2, Real cy2, Real x, Real y);
+  void bezierVertex(const Vec2& c1, const Vec2& c2, const Vec2& point);
+
   // Transform
   void applyMatrix(Real n00, Real n01, Real n02,
                    Real n10, Real n11, Real n12);
@@ -165,21 +182,6 @@ class Graphics {
   void rotateZ(Real angle);
   void shearX(Real angle);
   void shearY(Real angle);
-
-  // Vertex
-  void beginShape();
-  void beginShape(Constant kind);
-  void endShape(Constant mode);
-  void beginContour();
-  void endContour();
-  void vertex(Real x, Real y);
-  void vertex(const Vec2& vector);
-  void curveVertex(Real x, Real y);
-  void curveVertex(const Vec2& vector);
-  void bezierVertex(Real x, Real y);
-  void bezierVertex(const Vec2& vector);
-  void quadraticVertex(Real x, Real y);
-  void quadraticVertex(const Vec2& vector);
 
   // Color settings
   void colorMode(Constant mode);
@@ -235,6 +237,7 @@ class Graphics {
  private:
   Style style_;
   std::list<Style> style_stack_;
+  graphics::Path shape_;
 };
 
 #pragma mark -
@@ -249,8 +252,12 @@ inline void Graphics::pushStyle() {
 
 inline void Graphics::popStyle() {
   assert(!style_stack_.empty());
-  style_ = style_stack_.back();
   style_stack_.pop_back();
+  if (style_stack_.empty()) {
+    style_.reset();
+  } else {
+    style_ = style_stack_.back();
+  }
 }
 
 #pragma mark Point and lines
@@ -442,6 +449,75 @@ inline Real Graphics::strokeWeight() const {
 
 inline void Graphics::strokeWeight(Real weight) {
   style_.stroke_weight = weight;
+}
+
+#pragma mark Shape vertex
+
+inline void Graphics::beginShape() {
+  shape_ = graphics::Path();
+}
+
+inline void Graphics::beginShape(Constant kind) {
+  // TODO(sgss): Support kind
+  shape_ = graphics::Path();
+}
+
+inline void Graphics::endShape(Constant mode) {
+  if (mode == CLOSE) {
+    shape_.close();
+  }
+  endShape();
+}
+
+inline void Graphics::beginContour() {
+  // TODO(sgss):
+}
+
+inline void Graphics::endContour() {
+  // TODO(sgss):
+}
+
+inline void Graphics::vertex(Real x, Real y) {
+  if (shape_.empty()) {
+    shape_.moveTo(x, y);
+  } else {
+    shape_.lineTo(x, y);
+  }
+}
+
+inline void Graphics::vertex(const Vec2& point) {
+  if (shape_.empty()) {
+    shape_.moveTo(point);
+  } else {
+    shape_.lineTo(point);
+  }
+}
+
+inline void Graphics::curveVertex(Real x, Real y) {
+  shape_.curveTo(x, y);
+}
+
+inline void Graphics::curveVertex(const Vec2& point) {
+  shape_.curveTo(point);
+}
+
+inline void Graphics::quadraticVertex(Real cx, Real cy, Real x, Real y) {
+  shape_.quadraticTo(cx, cy, x, y);
+}
+
+inline void Graphics::quadraticVertex(const Vec2& c, const Vec2& point) {
+  shape_.quadraticTo(c, point);
+}
+
+inline void Graphics::bezierVertex(Real cx1, Real cy1,
+                                   Real cx2, Real cy2,
+                                   Real x, Real y) {
+  shape_.bezierTo(cx1, cy1, cx2, cy2, x, y);
+}
+
+inline void Graphics::bezierVertex(const Vec2& c1, const Vec2& c2,
+                                   const Vec2& point) {
+  shape_.bezierTo(c1, c2, point);
 }
 
 #pragma mark Transform
@@ -726,10 +802,16 @@ inline Real Graphics::brightness(const Color& color) {
 #pragma mark Creating fill and stroke
 
 inline graphics::Fill Graphics::fill() const {
+  if (!style_.fill) {
+    return graphics::Fill();
+  }
   return graphics::Fill(style_.fill_color);
 }
 
 inline graphics::Stroke Graphics::stroke() const {
+  if (!style_.stroke) {
+    return graphics::Stroke();
+  }
   auto stroke_cap = graphics::Stroke::Cap::SQUARE;
   auto stroke_join = graphics::Stroke::Join::MITER;
   switch (style_.stroke_cap) {

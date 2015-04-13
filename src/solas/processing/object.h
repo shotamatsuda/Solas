@@ -1,5 +1,5 @@
 //
-//  sketch.h
+//  solas/processing/object.h
 //
 //  MIT License
 //
@@ -24,50 +24,7 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#pragma once
+#ifndef SOLAS_PROCESSING_OBJECT_H_
+#define SOLAS_PROCESSING_OBJECT_H_
 
-#include <list>
-#include <memory>
-#include <utility>
-
-#include "solas/processing.h"
-
-#include "boid.h"
-#include "zoro.h"
-
-namespace zorozoro {
-
-using namespace solas::processing;
-
-class Sketch : public solas::processing::Sketch {
- public:
-  void setup() {
-    for (int i = 0; i < 500; ++i) {
-      auto boid = std::make_unique<Zoro>(this);
-      boid->location.x = random(width());
-      boid->location.y = random(height());
-      boids.emplace_back(std::move(boid));
-    }
-    noFill();
-    noStroke();
-  }
-
-  void update() {
-    for (auto& boid : boids) {
-      boid->flock(boids);
-      boid->update();
-      boid->wraparound();
-    }
-  }
-
-  void draw() {
-    for (const auto& boid : boids) {
-      boid->draw();
-    }
-  }
-
- public:
-  std::list<std::unique_ptr<Boid>> boids;
-};
-
-}  // namespace zorozoro
+#endif  // SOLAS_PROCESSING_OBJECT_H_

@@ -1,5 +1,5 @@
 //
-//  sketch.h
+//  solas/noise/improved.h
 //
 //  MIT License
 //
@@ -25,49 +25,21 @@
 //
 
 #pragma once
+#ifndef SOLAS_NOISE_IMPROVED_H_
+#define SOLAS_NOISE_IMPROVED_H_
 
-#include <list>
-#include <memory>
-#include <utility>
+namespace solas {
+namespace noise {
 
-#include "solas/processing.h"
-
-#include "boid.h"
-#include "zoro.h"
-
-namespace zorozoro {
-
-using namespace solas::processing;
-
-class Sketch : public solas::processing::Sketch {
- public:
-  void setup() {
-    for (int i = 0; i < 500; ++i) {
-      auto boid = std::make_unique<Zoro>(this);
-      boid->location.x = random(width());
-      boid->location.y = random(height());
-      boids.emplace_back(std::move(boid));
-    }
-    noFill();
-    noStroke();
-  }
-
-  void update() {
-    for (auto& boid : boids) {
-      boid->flock(boids);
-      boid->update();
-      boid->wraparound();
-    }
-  }
-
-  void draw() {
-    for (const auto& boid : boids) {
-      boid->draw();
-    }
-  }
-
- public:
-  std::list<std::unique_ptr<Boid>> boids;
+template <typename T>
+struct Improved final {
+  T operator()(T x);
+  T operator()(T x, T y);
+  T operator()(T x, T y, T z);
+  T operator()(T x, T y, T z, T w);
 };
 
-}  // namespace zorozoro
+}  // namespace noise
+}  // namespace solas
+
+#endif  // SOLAS_NOISE_IMPROVED_H_

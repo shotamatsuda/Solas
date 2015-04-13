@@ -263,9 +263,9 @@ inline bool Sketch::key_pressed() const {
 #pragma mark Time and date
 
 inline std::chrono::milliseconds::rep Sketch::millis() const {
-  using clock = std::chrono::system_clock;
-  using unit = std::chrono::milliseconds;
-  return std::chrono::duration_cast<unit>(clock::now() - setup_time_).count();
+  using Clock = std::chrono::system_clock;
+  using Unit = std::chrono::milliseconds;
+  return std::chrono::duration_cast<Unit>(Clock::now() - setup_time_).count();
 }
 
 #pragma mark Events

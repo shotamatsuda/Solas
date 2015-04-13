@@ -47,38 +47,38 @@ int second();
 #pragma mark Time and date
 
 inline int year() {
-  using clock = std::chrono::system_clock;
-  const auto now = clock::to_time_t(clock::now());
+  using Clock = std::chrono::system_clock;
+  const auto now = Clock::to_time_t(Clock::now());
   return std::localtime(&now)->tm_year;
 }
 
 inline int month() {
-  using clock = std::chrono::system_clock;
-  const auto now = clock::to_time_t(clock::now());
+  using Clock = std::chrono::system_clock;
+  const auto now = Clock::to_time_t(Clock::now());
   return std::localtime(&now)->tm_mon + 1;
 }
 
 inline int day() {
-  using clock = std::chrono::system_clock;
-  const auto now = clock::to_time_t(clock::now());
+  using Clock = std::chrono::system_clock;
+  const auto now = Clock::to_time_t(Clock::now());
   return std::localtime(&now)->tm_mday;
 }
 
 inline int hour() {
-  using clock = std::chrono::system_clock;
-  const auto now = clock::to_time_t(clock::now());
+  using Clock = std::chrono::system_clock;
+  const auto now = Clock::to_time_t(Clock::now());
   return std::localtime(&now)->tm_hour;
 }
 
 inline int minute() {
-  using clock = std::chrono::system_clock;
-  const auto now = clock::to_time_t(clock::now());
+  using Clock = std::chrono::system_clock;
+  const auto now = Clock::to_time_t(Clock::now());
   return std::localtime(&now)->tm_min;
 }
 
 inline int second() {
-  using clock = std::chrono::system_clock;
-  const auto now = clock::to_time_t(clock::now());
+  using Clock = std::chrono::system_clock;
+  const auto now = Clock::to_time_t(Clock::now());
   return std::localtime(&now)->tm_sec;
 }
 

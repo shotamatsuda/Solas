@@ -35,6 +35,9 @@ namespace graphics {
 
 class Stroke {
  public:
+  using Real = double;
+
+ public:
   enum class Type {
     NONE,
     SOLID
@@ -55,8 +58,8 @@ class Stroke {
  public:
   // Constructors
   Stroke();
-  Stroke(const Color4d& color, double weight);
-  Stroke(const Color4d& color, double weight,
+  Stroke(const Color4<Real>& color, Real weight);
+  Stroke(const Color4<Real>& color, Real weight,
          Stroke::Cap cap, Stroke::Join join);
 
   // Copy and assign
@@ -74,8 +77,8 @@ class Stroke {
 
  public:
   Stroke::Type type;
-  Color4d color;
-  double weight;
+  Color4<Real> color;
+  Real weight;
   Stroke::Cap cap;
   Stroke::Join join;
 };
@@ -88,14 +91,14 @@ inline Stroke::Stroke()
       cap(Stroke::Cap::SQUARE),
       join(Stroke::Join::MITER) {}
 
-inline Stroke::Stroke(const Color4d& color, double weight)
+inline Stroke::Stroke(const Color4<Real>& color, Real weight)
     : type(Stroke::Type::SOLID),
       color(color),
       weight(weight),
       cap(Stroke::Cap::SQUARE),
       join(Stroke::Join::MITER) {}
 
-inline Stroke::Stroke(const Color4d& color, double weight,
+inline Stroke::Stroke(const Color4<Real>& color, Real weight,
                       Stroke::Cap cap, Stroke::Join join)
     : type(Stroke::Type::SOLID),
       color(color),

@@ -40,9 +40,12 @@ enum class FillType {
 
 class Fill {
  public:
+  using Real = double;
+
+ public:
   // Constructors
   Fill();
-  explicit Fill(const Color4d& color);
+  explicit Fill(const Color4<Real>& color);
 
   // Copy and assign
   Fill(const Fill& other) = default;
@@ -59,7 +62,7 @@ class Fill {
 
  public:
   FillType type;
-  Color4d color;
+  Color4<Real> color;
 };
 
 #pragma mark -
@@ -67,7 +70,7 @@ class Fill {
 inline Fill::Fill()
     : type(FillType::NONE) {}
 
-inline Fill::Fill(const Color4d& color)
+inline Fill::Fill(const Color4<Real>& color)
     : type(FillType::SOLID),
       color(color) {}
 

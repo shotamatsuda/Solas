@@ -54,11 +54,11 @@ class MouseEvent final {
   // Constructors
   MouseEvent();
   MouseEvent(Type type,
-             const math::Vector2d& location,
-             const math::Vector2d& previous_location,
+             const math::Vec2d& location,
+             const math::Vec2d& previous_location,
              MouseButton button,
              KeyModifier modifiers,
-             const math::Vector3d& wheel = math::Vector3d());
+             const math::Vec3d& wheel = math::Vec3d());
 
   // Copy and move
   MouseEvent(const MouseEvent& other) = default;
@@ -75,11 +75,11 @@ class MouseEvent final {
 
  public:
   const Type type;
-  const math::Vector2d location;
-  const math::Vector2d previous_location;
+  const math::Vec2d location;
+  const math::Vec2d previous_location;
   const MouseButton button;
   const KeyModifier modifiers;
-  const math::Vector3d wheel;
+  const math::Vec3d wheel;
 };
 
 #pragma mark -
@@ -90,11 +90,11 @@ inline MouseEvent::MouseEvent()
       modifiers(KeyModifier::NONE) {}
 
 inline MouseEvent::MouseEvent(Type type,
-                              const math::Vector2d& location,
-                              const math::Vector2d& previous_location,
+                              const math::Vec2d& location,
+                              const math::Vec2d& previous_location,
                               MouseButton button,
                               KeyModifier modifiers,
-                              const math::Vector3d& wheel)
+                              const math::Vec3d& wheel)
     : type(type),
       location(location),
       previous_location(previous_location),

@@ -116,9 +116,9 @@ class Triangle<T, 2> final {
   Iterator end() { return ++&c; }
   ConstIterator end() const { return ++&c; }
   ReverseIterator rbegin() { return ReverseIterator(begin()); }
-  ConstReverseIterator rbegin() const { return ReverseIterator(begin()); }
+  ConstReverseIterator rbegin() const { return ConstReverseIterator(begin()); }
   ReverseIterator rend() { return ReverseIterator(end()); }
-  ConstReverseIterator rend() const { return ReverseIterator(end()); }
+  ConstReverseIterator rend() const { return ConstReverseIterator(end()); }
 
   // Pointer
   Vector2<T> * ptr() { return &a; }

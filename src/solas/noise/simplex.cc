@@ -1,5 +1,5 @@
 //
-//  sketch.h
+//  solas/noise/simplex.cc
 //
 //  MIT License
 //
@@ -24,50 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#pragma once
+#include "solas/noise/simplex.h"
 
-#include <list>
-#include <memory>
-#include <utility>
+namespace solas {
+namespace noise {
 
-#include "solas/processing.h"
-
-#include "boid.h"
-#include "zoro.h"
-
-namespace zorozoro {
-
-using namespace solas::processing;
-
-class Sketch : public solas::processing::Sketch {
- public:
-  void setup() {
-    for (int i = 0; i < 500; ++i) {
-      auto boid = std::make_unique<Zoro>(this);
-      boid->location.x = random(width());
-      boid->location.y = random(height());
-      boids.emplace_back(std::move(boid));
-    }
-    noFill();
-    noStroke();
-  }
-
-  void update() {
-    for (auto& boid : boids) {
-      boid->flock(boids);
-      boid->update();
-      boid->wraparound();
-    }
-  }
-
-  void draw() {
-    for (const auto& boid : boids) {
-      boid->draw();
-    }
-  }
-
- public:
-  std::list<std::unique_ptr<Boid>> boids;
-};
-
-}  // namespace zorozoro
+}  // namespace noise
+}  // namespace solas

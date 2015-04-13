@@ -28,10 +28,24 @@
 #ifndef SOLAS_GRAPHICS_PATH_H_
 #define SOLAS_GRAPHICS_PATH_H_
 
+#include <iterator>
+#include <vector>
+
+#include "solas/graphics/segment.h"
+#include "solas/math/rect.h"
+#include "solas/math/vector.h"
+
 namespace solas {
 namespace graphics {
 
 class Path final {
+ public:
+  using Real = double;
+  using Iterator = std::vector<Segment>::iterator;
+  using ConstIterator = std::vector<Segment>::const_iterator;
+  using ReverseIterator = std::reverse_iterator<Iterator>;
+  using ConstReverseIterator = std::reverse_iterator<ConstIterator>;
+
  public:
   // Constructors
   Path() = default;
@@ -42,23 +56,117 @@ class Path final {
   Path& operator=(const Path& other) = default;
   Path& operator=(Path&& other) = default;
 
+  // Mutators
+  void reset();
+
   // Comparison
   bool operator==(const Path& other) const;
   bool operator!=(const Path& other) const;
 
+  // Attributes
+  bool empty() const { return segments_.empty(); }
+
+  // Configuring segments
+  void close();
+  void moveTo(Real x, Real y);
+  void moveTo(const math::Vec2<Real>& point);
+  void lineTo(Real x, Real y);
+  void lineTo(const math::Vec2<Real>& point);
+  void curveTo(Real x, Real y);
+  void curveTo(const math::Vec2<Real>& point);
+  void quadraticTo(Real cx, Real cy, Real x, Real y);
+  void quadraticTo(const math::Vec2<Real>& control,
+                   const math::Vec2<Real>& point);
+  void bezierTo(Real cx1, Real cy1, Real cx2, Real cy2, Real x, Real y);
+  void bezierTo(const math::Vec2<Real>& control1,
+                const math::Vec2<Real>& control2,
+                const math::Vec2<Real>& point);
+
+  // Iterator
+  Iterator begin() { return segments_.begin(); }
+  ConstIterator begin() const { return segments_.begin(); }
+  Iterator end() { return segments_.end(); }
+  ConstIterator end() const { return segments_.end(); }
+  ReverseIterator rbegin() { return ReverseIterator(begin()); }
+  ConstReverseIterator rbegin() const { return ConstReverseIterator(begin()); }
+  ReverseIterator rend() { return ReverseIterator(end()); }
+  ConstReverseIterator rend() const { return ConstReverseIterator(end()); }
+
+  // Pointer
+  Segment * ptr() { return segments_.data(); }
+  const Segment * ptr() const { return segments_.data(); }
+
  private:
-  // Properties
+  std::vector<Segment> segments_;
 };
 
 #pragma mark -
+
+#pragma mark Mutators
+
+inline void Path::reset() {
+  segments_.clear();
+}
+
 #pragma mark Comparison
 
 inline bool Path::operator==(const Path& other) const {
-  return &other == this;
+  return segments_ == other.segments_;
 }
 
 inline bool Path::operator!=(const Path& other) const {
   return !operator==(other);
+}
+
+#pragma mark Configuring segments
+
+inline void Path::close() {
+  segments_.emplace_back(Segment::Type::CLOSE);
+}
+
+inline void Path::moveTo(Real x, Real y) {
+  moveTo({x, y});
+}
+
+inline void Path::moveTo(const math::Vec2<Real>& point) {
+  segments_.emplace_back(Segment::Type::MOVE, point);
+}
+
+inline void Path::lineTo(Real x, Real y) {
+  lineTo({x, y});
+}
+
+inline void Path::lineTo(const math::Vec2<Real>& point) {
+  segments_.emplace_back(Segment::Type::LINE, point);
+}
+
+inline void Path::curveTo(Real x, Real y) {
+  curveTo({x, y});
+}
+
+inline void Path::curveTo(const math::Vec2<Real>& point) {
+  segments_.emplace_back(Segment::Type::CURVE, point);
+}
+
+inline void Path::quadraticTo(Real cx, Real cy, Real x, Real y) {
+  quadraticTo({cx, cy}, {x, y});
+}
+
+inline void Path::quadraticTo(const math::Vec2<Real>& control,
+                              const math::Vec2<Real>& point) {
+  segments_.emplace_back(Segment::Type::QUADRATIC, control, point);
+}
+
+inline void Path::bezierTo(Real cx1, Real cy1,
+                           Real cx2, Real cy2,
+                           Real x, Real y) {
+  bezierTo({cx1, cy1}, {cx2, cy2}, {x, y});
+}
+
+inline void Path::bezierTo(const math::Vec2<Real>& control1,
+                           const math::Vec2<Real>& control2,
+                           const math::Vec2<Real>& point) {
+  segments_.emplace_back(Segment::Type::BEZIER, control1, control2, point);
 }
 
 }  // namespace graphics

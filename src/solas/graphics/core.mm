@@ -87,12 +87,14 @@ inline CGLineJoin ConvertStrokeJoin(Stroke::Join join) {
 void DrawPoint(const ContextHolder& holder,
                const Fill& fill,
                const Stroke& stroke,
-               const math::Vector2<Real>& point) {
+               const math::Vec2<Real>& point) {
   auto context = holder.get<CGContextRef>();
   if (stroke) {
     const auto& color = stroke.color;
+    CGContextSaveGState(context);
     CGContextSetRGBFillColor(context, color.r, color.g, color.b, color.a);
     CGContextFillEllipseInRect(context, CGRectMake(point.x, point.y, 1.0, 1.0));
+    CGContextRestoreGState(context);
   }
 }
 
@@ -103,14 +105,17 @@ void DrawLine(const ContextHolder& holder,
   auto context = holder.get<CGContextRef>();
   if (fill) {
     const auto& color = fill.color;
+    CGContextSaveGState(context);
     CGContextSetRGBFillColor(context, color.r, color.g, color.b, color.a);
     CGContextBeginPath(context);
     CGContextMoveToPoint(context, line.x1, line.y1);
     CGContextAddLineToPoint(context, line.x2, line.y2);
     CGContextFillPath(context);
+    CGContextRestoreGState(context);
   }
   if (stroke) {
     const auto& color = stroke.color;
+    CGContextSaveGState(context);
     CGContextSetRGBStrokeColor(context, color.r, color.g, color.b, color.a);
     CGContextSetLineWidth(context, stroke.weight);
     CGContextSetLineCap(context, ConvertStrokeCap(stroke.cap));
@@ -119,6 +124,7 @@ void DrawLine(const ContextHolder& holder,
     CGContextMoveToPoint(context, line.x1, line.y1);
     CGContextAddLineToPoint(context, line.x2, line.y2);
     CGContextStrokePath(context);
+    CGContextRestoreGState(context);
   }
 }
 
@@ -129,18 +135,22 @@ void DrawRect(const ContextHolder& holder,
   auto context = holder.get<CGContextRef>();
   if (fill) {
     const auto& color = fill.color;
+    CGContextSaveGState(context);
     CGContextSetRGBFillColor(context, color.r, color.g, color.b, color.a);
     CGContextFillRect(context,
         CGRectMake(rect.x, rect.y, rect.width, rect.height));
+    CGContextRestoreGState(context);
   }
   if (stroke) {
     const auto& color = stroke.color;
+    CGContextSaveGState(context);
     CGContextSetRGBStrokeColor(context, color.r, color.g, color.b, color.a);
     CGContextSetLineWidth(context, stroke.weight);
     CGContextSetLineCap(context, ConvertStrokeCap(stroke.cap));
     CGContextSetLineJoin(context, ConvertStrokeJoin(stroke.join));
     CGContextStrokeRect(context,
         CGRectMake(rect.x, rect.y, rect.width, rect.height));
+    CGContextRestoreGState(context);
   }
 }
 
@@ -173,9 +183,72 @@ void DrawEllipse(const ContextHolder& holder,
   auto context = holder.get<CGContextRef>();
   if (fill) {
     const auto& color = fill.color;
+    CGContextSaveGState(context);
     CGContextSetRGBFillColor(context, color.r, color.g, color.b, color.a);
     CGContextFillEllipseInRect(context,
         CGRectMake(rect.x, rect.y, rect.width, rect.height));
+    CGContextRestoreGState(context);
+  }
+  if (stroke) {
+    const auto& color = stroke.color;
+    CGContextSaveGState(context);
+    CGContextSetRGBStrokeColor(context, color.r, color.g, color.b, color.a);
+    CGContextSetLineWidth(context, stroke.weight);
+    CGContextSetLineCap(context, ConvertStrokeCap(stroke.cap));
+    CGContextSetLineJoin(context, ConvertStrokeJoin(stroke.join));
+    CGContextStrokeEllipseInRect(context,
+        CGRectMake(rect.x, rect.y, rect.width, rect.height));
+    CGContextRestoreGState(context);
+  }
+}
+
+void DrawPath(const ContextHolder& holder,
+              const Fill& fill,
+              const Stroke& stroke,
+              const Path& path) {
+  if (!fill && !stroke) {
+    return;
+  }
+  if (path.empty()) {
+    return;
+  }
+  auto context = holder.get<CGContextRef>();
+  CGContextSaveGState(context);
+  CGContextBeginPath(context);
+  for (const auto& segment : path) {
+    switch (segment.type) {
+      case Segment::Type::MOVE:
+        CGContextMoveToPoint(context, segment.point.x, segment.point.y);
+        break;
+      case Segment::Type::LINE:
+        CGContextAddLineToPoint(context, segment.point.x, segment.point.y);
+        break;
+      case Segment::Type::CURVE:
+        CGContextAddLineToPoint(context, segment.point.x, segment.point.y);
+        break;
+      case Segment::Type::QUADRATIC:
+        // TODO(sgss):
+        break;
+      case Segment::Type::BEZIER:
+        CGContextAddCurveToPoint(context,
+            segment.control1.x, segment.control1.y,
+            segment.control2.x, segment.control2.y,
+            segment.point.x, segment.point.y);
+        break;
+      case Segment::Type::CLOSE:
+        CGContextClosePath(context);
+        break;
+      default:
+        assert(false);
+        break;
+    }
+  }
+  CGPathDrawingMode mode = kCGPathFillStroke;
+  if (fill) {
+    const auto& color = fill.color;
+    CGContextSetRGBFillColor(context, color.r, color.g, color.b, color.a);
+  } else {
+    mode = kCGPathStroke;
   }
   if (stroke) {
     const auto& color = stroke.color;
@@ -183,9 +256,11 @@ void DrawEllipse(const ContextHolder& holder,
     CGContextSetLineWidth(context, stroke.weight);
     CGContextSetLineCap(context, ConvertStrokeCap(stroke.cap));
     CGContextSetLineJoin(context, ConvertStrokeJoin(stroke.join));
-    CGContextStrokeEllipseInRect(context,
-        CGRectMake(rect.x, rect.y, rect.width, rect.height));
+  } else {
+    mode = kCGPathFill;
   }
+  CGContextDrawPath(context, mode);
+  CGContextRestoreGState(context);
 }
 
 #pragma mark Clearing the buffer
@@ -240,13 +315,13 @@ void PopMatrix(const ContextHolder& holder) {
 }
 
 void Translate(const ContextHolder& holder,
-               const math::Vector2<Real>& vector) {
+               const math::Vec2<Real>& vector) {
   auto context = holder.get<CGContextRef>();
   CGContextTranslateCTM(context, vector.x, vector.y);
 }
 
 void Scale(const ContextHolder& holder,
-           const math::Vector2<Real>& vector) {
+           const math::Vec2<Real>& vector) {
   auto context = holder.get<CGContextRef>();
   CGContextScaleCTM(context, vector.x, vector.y);
 }

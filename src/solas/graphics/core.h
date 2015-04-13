@@ -33,6 +33,7 @@
 #include "solas/graphics/color.h"
 #include "solas/graphics/context_holder.h"
 #include "solas/graphics/fill.h"
+#include "solas/graphics/path.h"
 #include "solas/graphics/stroke.h"
 #include "solas/math/line.h"
 #include "solas/math/matrix.h"
@@ -49,7 +50,7 @@ using Real = double;
 void DrawPoint(const ContextHolder& holder,
                const Fill& fill,
                const Stroke& stroke,
-               const math::Vector2<Real>& point);
+               const math::Vec2<Real>& point);
 void DrawLine(const ContextHolder& holder,
               const Fill& fill,
               const Stroke& stroke,
@@ -78,6 +79,10 @@ void DrawEllipse(const ContextHolder& holder,
                  const Fill& fill,
                  const Stroke& stroke,
                  const math::Rect<Real>& rect);
+void DrawPath(const ContextHolder& holder,
+              const Fill& fill,
+              const Stroke& stroke,
+              const Path& path);
 
 // Clearing the buffer
 void Clear(const ContextHolder& holder);
@@ -95,9 +100,9 @@ void ConcatMatrix(const ContextHolder& holder,
 void PushMatrix(const ContextHolder& holder);
 void PopMatrix(const ContextHolder& holder);
 void Translate(const ContextHolder& holder,
-               const math::Vector2<Real>& vector);
+               const math::Vec2<Real>& vector);
 void Scale(const ContextHolder& holder,
-           const math::Vector2<Real>& vector);
+           const math::Vec2<Real>& vector);
 void Rotate(const ContextHolder& holder, Real angle);
 
 }  // namespace core

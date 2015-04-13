@@ -49,8 +49,8 @@ void Boid::update() {
 }
 
 void Boid::wraparound() {
-  location.x += -width() * int(location.x / width());
-  location.y += -height() * int(location.y / height());
+  location.x += -width() * std::floor(location.x / width());
+  location.y += -height() * std::floor(location.y / height());
 }
 
 Vec2 Boid::separate(const std::list<std::unique_ptr<Boid>>& boids) {

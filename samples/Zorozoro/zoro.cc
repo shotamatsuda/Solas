@@ -21,7 +21,8 @@
 namespace zorozoro {
 
 Zoro::Zoro(Layer *parent)
-    : Boid(parent) {
+    : Boid(parent),
+      eye_shutter() {
   const auto segment = length / 2;
   body.location = location + velocity * -segment;
   body.mass = 2;
@@ -57,11 +58,40 @@ void Zoro::draw() {
   pushStyle();
   stroke(0);
   strokeWeight(thickness);
-  strokeCap(PROJECT);
   strokeJoin(ROUND);
-  line(location, body.location);
-  line(body.location, tail.location);
+  pushMatrix();
+  beginShape();
+  vertex(location);
+  vertex(body.location);
+  vertex(tail.location);
+  endShape();
   popStyle();
+
+  float half = thickness / 2;
+  float third = thickness / 3;
+  float quarter = thickness / 4;
+  pushStyle();
+  pushMatrix();
+  translate(location);
+  rotate(rotation);
+  translate(-thickness / 2 + half, -thickness / 2 - quarter);
+  for (int i = 0; i < 2; ++i) {
+    rectMode(CENTER);
+    noStroke();
+    fill(0);
+    rect(0, 0, thickness, thickness);
+    fill(0xff);
+    rect(0, 0, half, half);
+    fill(0);
+    rectMode(CORNER);
+    rect(-quarter, -quarter, third, third);
+    rect(-quarter, -quarter, half, half * eye_shutter);
+    translate(thickness + quarter, 0);
+  }
+  popMatrix();
+  popStyle();
+
+  popMatrix();
   popMatrix();
 }
 

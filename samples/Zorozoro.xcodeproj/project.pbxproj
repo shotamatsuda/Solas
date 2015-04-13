@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		939125791AD99D5A0017C951 /* spring.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939125771AD99D5A0017C951 /* spring.cc */; };
 		9391257C1AD99E710017C951 /* zoro.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9391257A1AD99E710017C951 /* zoro.cc */; };
+		93CA68091ADB5C4B009F131B /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF9901AD97397009D0646 /* main.mm */; };
+		93CA680A1ADB5C4B009F131B /* sketch.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93EBABD91AD98AA500BF8959 /* sketch.cc */; };
+		93CA680B1ADB5C4B009F131B /* boid.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF9981AD973F1009D0646 /* boid.cc */; };
+		93CA680C1ADB5C4B009F131B /* zoro.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9391257A1AD99E710017C951 /* zoro.cc */; };
+		93CA680D1ADB5C4B009F131B /* spring.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939125771AD99D5A0017C951 /* spring.cc */; };
+		93CA680E1ADB5C5B009F131B /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93EBABD21AD98A4C00BF8959 /* boost.framework */; };
+		93CA680F1ADB5C5B009F131B /* boost.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93EBABD21AD98A4C00BF8959 /* boost.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93CA68111ADB5C5F009F131B /* SolasTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF9811AD972EA009D0646 /* SolasTouch.framework */; };
+		93CA68121ADB5C5F009F131B /* SolasTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF9811AD972EA009D0646 /* SolasTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93EBABC71AD980ED00BF8959 /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF97F1AD972EA009D0646 /* Solas.framework */; };
 		93EBABC81AD980ED00BF8959 /* Solas.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF97F1AD972EA009D0646 /* Solas.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93EBABD71AD98A6200BF8959 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93EBABD01AD98A4C00BF8959 /* boost.framework */; };
@@ -19,6 +28,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		93CA68131ADB5C5F009F131B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 93E913751AB27E2600DDF7F9;
+			remoteInfo = SolasTouch;
+		};
 		93EBABC91AD980ED00BF8959 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
@@ -50,6 +66,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		93CA68101ADB5C5B009F131B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				93CA680F1ADB5C5B009F131B /* boost.framework in Embed Frameworks */,
+				93CA68121ADB5C5F009F131B /* SolasTouch.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93EBABCB1AD980EE00BF8959 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -69,6 +97,7 @@
 		939125781AD99D5A0017C951 /* spring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spring.h; sourceTree = "<group>"; };
 		9391257A1AD99E710017C951 /* zoro.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = zoro.cc; sourceTree = "<group>"; };
 		9391257B1AD99E710017C951 /* zoro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zoro.h; sourceTree = "<group>"; };
+		93CA67E11ADB5BF4009F131B /* ZorozoroTouch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZorozoroTouch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93EBABBC1AD97E3A00BF8959 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Project.xcconfig; path = ../../config/Project.xcconfig; sourceTree = "<group>"; };
 		93EBABBD1AD97E3A00BF8959 /* ProjectDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = ProjectDebug.xcconfig; path = ../../config/ProjectDebug.xcconfig; sourceTree = "<group>"; };
 		93EBABBE1AD97E3A00BF8959 /* ProjectRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = ProjectRelease.xcconfig; path = ../../config/ProjectRelease.xcconfig; sourceTree = "<group>"; };
@@ -86,6 +115,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		93CA67DE1ADB5BF4009F131B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93CA680E1ADB5C5B009F131B /* boost.framework in Frameworks */,
+				93CA68111ADB5C5F009F131B /* SolasTouch.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93FEF94B1AD97263009D0646 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -139,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				93FEF94E1AD97263009D0646 /* Zorozoro.app */,
+				93CA67E11ADB5BF4009F131B /* ZorozoroTouch.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,6 +225,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		93CA67E01ADB5BF4009F131B /* ZorozoroTouch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "ZorozoroTouch" */;
+			buildPhases = (
+				93CA67DD1ADB5BF4009F131B /* Sources */,
+				93CA67DE1ADB5BF4009F131B /* Frameworks */,
+				93CA67DF1ADB5BF4009F131B /* Resources */,
+				93CA68101ADB5C5B009F131B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				93CA68141ADB5C5F009F131B /* PBXTargetDependency */,
+			);
+			name = ZorozoroTouch;
+			productName = ZorozoroTouch;
+			productReference = 93CA67E11ADB5BF4009F131B /* ZorozoroTouch.app */;
+			productType = "com.apple.product-type.application";
+		};
 		93FEF94D1AD97263009D0646 /* Zorozoro */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93FEF96B1AD97263009D0646 /* Build configuration list for PBXNativeTarget "Zorozoro" */;
@@ -214,6 +272,9 @@
 				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "takram design engineering";
 				TargetAttributes = {
+					93CA67E01ADB5BF4009F131B = {
+						CreatedOnToolsVersion = 6.2;
+					};
 					93FEF94D1AD97263009D0646 = {
 						CreatedOnToolsVersion = 6.2;
 					};
@@ -239,6 +300,7 @@
 			projectRoot = "";
 			targets = (
 				93FEF94D1AD97263009D0646 /* Zorozoro */,
+				93CA67E01ADB5BF4009F131B /* ZorozoroTouch */,
 			);
 		};
 /* End PBXProject section */
@@ -268,6 +330,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		93CA67DF1ADB5BF4009F131B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93FEF94C1AD97263009D0646 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,6 +347,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		93CA67DD1ADB5BF4009F131B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93CA680D1ADB5C4B009F131B /* spring.cc in Sources */,
+				93CA68091ADB5C4B009F131B /* main.mm in Sources */,
+				93CA680B1ADB5C4B009F131B /* boid.cc in Sources */,
+				93CA680C1ADB5C4B009F131B /* zoro.cc in Sources */,
+				93CA680A1ADB5C4B009F131B /* sketch.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		93FEF94A1AD97263009D0646 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,6 +374,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		93CA68141ADB5C5F009F131B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SolasTouch;
+			targetProxy = 93CA68131ADB5C5F009F131B /* PBXContainerItemProxy */;
+		};
 		93EBABCA1AD980ED00BF8959 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Solas;
@@ -301,6 +387,48 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		93CA68011ADB5BF5009F131B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../build/boost/osx/framework",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../src",
+				);
+				INFOPLIST_FILE = "Info-iOS.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		93CA68021ADB5BF5009F131B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../build/boost/osx/framework",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/../src",
+				);
+				INFOPLIST_FILE = "Info-iOS.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		93FEF9691AD97263009D0646 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93EBABBE1AD97E3A00BF8959 /* ProjectRelease.xcconfig */;
@@ -355,6 +483,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "ZorozoroTouch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93CA68011ADB5BF5009F131B /* Debug */,
+				93CA68021ADB5BF5009F131B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		93FEF9491AD97263009D0646 /* Build configuration list for PBXProject "Zorozoro" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

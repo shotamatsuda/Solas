@@ -129,6 +129,13 @@ void Graphics::ellipse(Real a, Real b, Real c, Real d, Constant mode) const {
   graphics::core::DrawEllipse(context(), fill(), stroke(), rect);
 }
 
+#pragma mark Shape vertex
+
+void Graphics::endShape() {
+  graphics::core::DrawPath(context(), fill(), stroke(), shape_);
+  shape_.reset();
+}
+
 #pragma mark Shape attributes
 
 void Graphics::smooth() {

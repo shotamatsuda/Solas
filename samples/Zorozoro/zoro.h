@@ -38,6 +38,7 @@ class Zoro : public Boid {
   Spring body;
   Spring tail;
   double rotation;
+  double eye_shutter;
   static constexpr double length = 28;
   static constexpr double thickness = 10;
 };

@@ -47,6 +47,8 @@ namespace math {
 
 template <typename T, int D>
 class Vector;
+template <typename T, int D>
+using Vec = Vector<T, D>;
 
 template <typename T>
 using Vector2 = Vector<T, 2>;
@@ -183,7 +185,7 @@ class Vector<T, 3> final {
 
   // Magnitude
   Promote<T> magnitude() const;
-  Promote<T> magnitude_squared() const;
+  Promote<T> magnitudeSquared() const;
   template <typename U>
   Vector3<T>& limit(U limit);
   template <typename U>
@@ -202,7 +204,7 @@ class Vector<T, 3> final {
   template <typename U>
   Promote<T> distance(const Vector3<U>& other) const;
   template <typename U>
-  Promote<T> distance_squared(const Vector3<U>& other) const;
+  Promote<T> distanceSquared(const Vector3<U>& other) const;
 
   // Product
   template <typename U>
@@ -220,9 +222,9 @@ class Vector<T, 3> final {
   Iterator end() { return ++&z; }
   ConstIterator end() const { return ++&z; }
   ReverseIterator rbegin() { return ReverseIterator(begin()); }
-  ConstReverseIterator rbegin() const { return ReverseIterator(begin()); }
+  ConstReverseIterator rbegin() const { return ConstReverseIterator(begin()); }
   ReverseIterator rend() { return ReverseIterator(end()); }
-  ConstReverseIterator rend() const { return ReverseIterator(end()); }
+  ConstReverseIterator rend() const { return ConstReverseIterator(end()); }
 
   // Pointer
   T * ptr() { return &x; }
@@ -237,6 +239,12 @@ class Vector<T, 3> final {
 using Vector3i = Vector3<int>;
 using Vector3f = Vector3<float>;
 using Vector3d = Vector3<double>;
+
+template <typename T>
+using Vec3 = Vector3<T>;
+using Vec3i = Vector3<int>;
+using Vec3f = Vector3<float>;
+using Vec3d = Vector3<double>;
 
 #pragma mark -
 
@@ -673,18 +681,18 @@ inline Promote<T> Vector3<T>::angle(const Vector3<U>& other) const {
 
 template <typename T>
 inline Promote<T> Vector3<T>::magnitude() const {
-  return std::sqrt(magnitude_squared());
+  return std::sqrt(magnitudeSquared());
 }
 
 template <typename T>
-inline Promote<T> Vector3<T>::magnitude_squared() const {
+inline Promote<T> Vector3<T>::magnitudeSquared() const {
   return static_cast<Promote<T>>(x) * x + y * y + z * z;
 }
 
 template <typename T>
 template <typename U>
 inline Vector3<T>& Vector3<T>::limit(U limit) {
-  if (magnitude_squared() > static_cast<Promote<T>>(limit) * limit) {
+  if (magnitudeSquared() > static_cast<Promote<T>>(limit) * limit) {
     normalize();
     *this *= limit;
   }
@@ -738,8 +746,8 @@ inline Promote<T> Vector3<T>::distance(const Vector3<U>& other) const {
 
 template <typename T>
 template <typename U>
-inline Promote<T> Vector3<T>::distance_squared(const Vector3<U>& other) const {
-  return (*this - other).magnitude_squared();
+inline Promote<T> Vector3<T>::distanceSquared(const Vector3<U>& other) const {
+  return (*this - other).magnitudeSquared();
 }
 
 #pragma mark Product

@@ -258,7 +258,7 @@ inline Real random(Real low, Real high) {
 }
 
 inline Real randomGaussian() {
-  return math::Random<>::Shared().normal<Real>();
+  return math::Random<>::Shared().gaussian<Real>();
 }
 
 inline void randomSeed(Real seed) {

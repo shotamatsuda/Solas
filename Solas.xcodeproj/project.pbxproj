@@ -111,6 +111,32 @@
 		93BE2F421ADA1A8100175565 /* shape.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F3F1ADA1A8100175565 /* shape.cc */; };
 		93BE2F431ADA1A8100175565 /* shape.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F401ADA1A8100175565 /* shape.h */; };
 		93BE2F441ADA1A8100175565 /* shape.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F401ADA1A8100175565 /* shape.h */; };
+		93BE2F541ADA29A500175565 /* noise1234.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F4E1ADA29A500175565 /* noise1234.cpp */; };
+		93BE2F551ADA29A500175565 /* noise1234.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F4E1ADA29A500175565 /* noise1234.cpp */; };
+		93BE2F561ADA29A500175565 /* noise1234.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F4F1ADA29A500175565 /* noise1234.h */; };
+		93BE2F571ADA29A500175565 /* noise1234.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F4F1ADA29A500175565 /* noise1234.h */; };
+		93BE2F581ADA29A500175565 /* sdnoise1234.c in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F501ADA29A500175565 /* sdnoise1234.c */; };
+		93BE2F591ADA29A500175565 /* sdnoise1234.c in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F501ADA29A500175565 /* sdnoise1234.c */; };
+		93BE2F5A1ADA29A500175565 /* sdnoise1234.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F511ADA29A500175565 /* sdnoise1234.h */; };
+		93BE2F5B1ADA29A500175565 /* sdnoise1234.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F511ADA29A500175565 /* sdnoise1234.h */; };
+		93BE2F5C1ADA29A500175565 /* simplexnoise1234.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F521ADA29A500175565 /* simplexnoise1234.cpp */; };
+		93BE2F5D1ADA29A500175565 /* simplexnoise1234.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F521ADA29A500175565 /* simplexnoise1234.cpp */; };
+		93BE2F5E1ADA29A500175565 /* simplexnoise1234.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F531ADA29A500175565 /* simplexnoise1234.h */; };
+		93BE2F5F1ADA29A500175565 /* simplexnoise1234.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F531ADA29A500175565 /* simplexnoise1234.h */; };
+		93BE2F621ADA2B7C00175565 /* noise.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F611ADA2B7C00175565 /* noise.h */; };
+		93BE2F631ADA2B7C00175565 /* noise.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F611ADA2B7C00175565 /* noise.h */; };
+		93BE2F661ADA2C5000175565 /* simplex.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F641ADA2C5000175565 /* simplex.cc */; };
+		93BE2F671ADA2C5000175565 /* simplex.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F641ADA2C5000175565 /* simplex.cc */; };
+		93BE2F681ADA2C5000175565 /* simplex.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F651ADA2C5000175565 /* simplex.h */; };
+		93BE2F691ADA2C5000175565 /* simplex.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F651ADA2C5000175565 /* simplex.h */; };
+		93BE2F6C1ADA2C8E00175565 /* improved.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F6A1ADA2C8E00175565 /* improved.cc */; };
+		93BE2F6D1ADA2C8E00175565 /* improved.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F6A1ADA2C8E00175565 /* improved.cc */; };
+		93BE2F6E1ADA2C8E00175565 /* improved.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F6B1ADA2C8E00175565 /* improved.h */; };
+		93BE2F6F1ADA2C8E00175565 /* improved.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F6B1ADA2C8E00175565 /* improved.h */; };
+		93BE2F721ADA32E800175565 /* segment.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F701ADA32E800175565 /* segment.cc */; };
+		93BE2F731ADA32E800175565 /* segment.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F701ADA32E800175565 /* segment.cc */; };
+		93BE2F741ADA32E800175565 /* segment.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F711ADA32E800175565 /* segment.h */; };
+		93BE2F751ADA32E800175565 /* segment.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F711ADA32E800175565 /* segment.h */; };
 		93CAA60C1AD191DC005EDC09 /* SLSRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA60A1AD191DC005EDC09 /* SLSRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93CAA60D1AD191DC005EDC09 /* SLSRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA60A1AD191DC005EDC09 /* SLSRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93CAA60E1AD191DC005EDC09 /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
@@ -265,6 +291,7 @@
 		938987D71AD21F2000DEC9E9 /* SLSCVDisplayLink.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSCVDisplayLink.mm; sourceTree = "<group>"; };
 		938987DD1AD5F32100DEC9E9 /* functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = functions.h; sourceTree = "<group>"; };
 		938A07E41AB2D41D00CAE8CA /* benchmark.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = benchmark.h; sourceTree = "<group>"; };
+		938BF1A31ADA6E890085B660 /* object.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = object.h; sourceTree = "<group>"; };
 		939E963A1AD250AF00A7E21E /* runner_factory.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = runner_factory.cc; sourceTree = "<group>"; };
 		939E963B1AD250AF00A7E21E /* runner_factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = runner_factory.h; sourceTree = "<group>"; };
 		939E967F1AD384C500A7E21E /* SLSRunnerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSRunnerLayer.h; sourceTree = "<group>"; };
@@ -295,6 +322,19 @@
 		93BE2F3B1ADA1A7500175565 /* path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = path.h; sourceTree = "<group>"; };
 		93BE2F3F1ADA1A8100175565 /* shape.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = shape.cc; sourceTree = "<group>"; };
 		93BE2F401ADA1A8100175565 /* shape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = shape.h; sourceTree = "<group>"; };
+		93BE2F4E1ADA29A500175565 /* noise1234.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = noise1234.cpp; sourceTree = "<group>"; };
+		93BE2F4F1ADA29A500175565 /* noise1234.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = noise1234.h; sourceTree = "<group>"; };
+		93BE2F501ADA29A500175565 /* sdnoise1234.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = sdnoise1234.c; sourceTree = "<group>"; };
+		93BE2F511ADA29A500175565 /* sdnoise1234.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sdnoise1234.h; sourceTree = "<group>"; };
+		93BE2F521ADA29A500175565 /* simplexnoise1234.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = simplexnoise1234.cpp; sourceTree = "<group>"; };
+		93BE2F531ADA29A500175565 /* simplexnoise1234.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simplexnoise1234.h; sourceTree = "<group>"; };
+		93BE2F611ADA2B7C00175565 /* noise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = noise.h; sourceTree = "<group>"; };
+		93BE2F641ADA2C5000175565 /* simplex.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; lineEnding = 0; path = simplex.cc; sourceTree = "<group>"; };
+		93BE2F651ADA2C5000175565 /* simplex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = simplex.h; sourceTree = "<group>"; };
+		93BE2F6A1ADA2C8E00175565 /* improved.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = improved.cc; sourceTree = "<group>"; };
+		93BE2F6B1ADA2C8E00175565 /* improved.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = improved.h; sourceTree = "<group>"; };
+		93BE2F701ADA32E800175565 /* segment.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = segment.cc; sourceTree = "<group>"; };
+		93BE2F711ADA32E800175565 /* segment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = segment.h; sourceTree = "<group>"; };
 		93CAA6081AD16EED005EDC09 /* key_modifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = key_modifier.h; sourceTree = "<group>"; };
 		93CAA6091AD16F40005EDC09 /* mouse_button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mouse_button.h; sourceTree = "<group>"; };
 		93CAA60A1AD191DC005EDC09 /* SLSRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSRunner.h; sourceTree = "<group>"; };
@@ -484,6 +524,7 @@
 				934FAAAF1AD6E29200FACF2E /* layer.cc */,
 				931CCB891AD88A150047542F /* graphics.h */,
 				931CCB881AD88A150047542F /* graphics.cc */,
+				938BF1A31ADA6E890085B660 /* object.h */,
 				934FAAA81AD6E25400FACF2E /* types.h */,
 				934FAABE1AD6EE4100FACF2E /* constants.h */,
 				934FAABC1AD6EB6700FACF2E /* input.h */,
@@ -567,6 +608,39 @@
 				93CAA6531AD1AE32005EDC09 /* run.mm */,
 			);
 			path = app;
+			sourceTree = "<group>";
+		};
+		93BE2F4C1ADA29A400175565 /* Contributed Sources */ = {
+			isa = PBXGroup;
+			children = (
+				93BE2F4D1ADA29A500175565 /* aqsis */,
+			);
+			name = "Contributed Sources";
+			path = lib;
+			sourceTree = "<group>";
+		};
+		93BE2F4D1ADA29A500175565 /* aqsis */ = {
+			isa = PBXGroup;
+			children = (
+				93BE2F4F1ADA29A500175565 /* noise1234.h */,
+				93BE2F4E1ADA29A500175565 /* noise1234.cpp */,
+				93BE2F511ADA29A500175565 /* sdnoise1234.h */,
+				93BE2F501ADA29A500175565 /* sdnoise1234.c */,
+				93BE2F531ADA29A500175565 /* simplexnoise1234.h */,
+				93BE2F521ADA29A500175565 /* simplexnoise1234.cpp */,
+			);
+			path = aqsis;
+			sourceTree = "<group>";
+		};
+		93BE2F601ADA2B7C00175565 /* noise */ = {
+			isa = PBXGroup;
+			children = (
+				93BE2F6B1ADA2C8E00175565 /* improved.h */,
+				93BE2F6A1ADA2C8E00175565 /* improved.cc */,
+				93BE2F651ADA2C5000175565 /* simplex.h */,
+				93BE2F641ADA2C5000175565 /* simplex.cc */,
+			);
+			path = noise;
 			sourceTree = "<group>";
 		};
 		93E9138F1AB27E9400DDF7F9 /* OS X */ = {
@@ -660,6 +734,8 @@
 				93B707D81AD62C5E00E3E8AA /* stroke.h */,
 				93BE2F3B1ADA1A7500175565 /* path.h */,
 				93BE2F3A1ADA1A7500175565 /* path.cc */,
+				93BE2F711ADA32E800175565 /* segment.h */,
+				93BE2F701ADA32E800175565 /* segment.cc */,
 				93BE2F401ADA1A8100175565 /* shape.h */,
 				93BE2F3F1ADA1A8100175565 /* shape.cc */,
 				933803261AD88DC200F41F92 /* font.h */,
@@ -692,6 +768,8 @@
 				93F38E451AB5FA8B009E3626 /* graphics */,
 				93E913BB1AB2811500DDF7F9 /* math.h */,
 				93E913A21AB2811500DDF7F9 /* math */,
+				93BE2F611ADA2B7C00175565 /* noise.h */,
+				93BE2F601ADA2B7C00175565 /* noise */,
 				93F38E881AB60972009E3626 /* thread.h */,
 				93F38E831AB60972009E3626 /* thread */,
 				930398341AB2AEE700577048 /* utility.h */,
@@ -730,6 +808,7 @@
 				93F38E441AB5FA26009E3626 /* Objective-C Sources */,
 				93F3BBD61AA205C200FBF369 /* Tests */,
 				930955021A4FB1E200D09023 /* Configurations */,
+				93BE2F4C1ADA29A400175565 /* Contributed Sources */,
 				93F3BCB71AA2214B00FBF369 /* Linked Frameworks */,
 				93A45B3A1AD0D2BC00969DC2 /* System Frameworks */,
 				93F8AD7017C8B39800310877 /* Products */,
@@ -765,12 +844,14 @@
 				934FAAB31AD6E29200FACF2E /* layer.h in Headers */,
 				93F38E3C1AB56DE8009E3626 /* line2.h in Headers */,
 				930D52021AD52BBF006EEF1B /* color_depth.h in Headers */,
+				93BE2F621ADA2B7C00175565 /* noise.h in Headers */,
 				930398381AB2AEF400577048 /* enum.h in Headers */,
 				93E913CA1AB2811500DDF7F9 /* line.h in Headers */,
 				931CCB8C1AD88A150047542F /* graphics.h in Headers */,
 				93CAA64D1AD1AD4B005EDC09 /* SLSApplicationMain.h in Headers */,
 				930D51EA1AD42B76006EEF1B /* color.h in Headers */,
 				933803351AD8B7EC00F41F92 /* core.h in Headers */,
+				93BE2F741ADA32E800175565 /* segment.h in Headers */,
 				93BE2F3D1ADA1A7500175565 /* path.h in Headers */,
 				93A45B341AD0CE2F00969DC2 /* benchmark.h in Headers */,
 				93CAA60C1AD191DC005EDC09 /* SLSRunner.h in Headers */,
@@ -780,9 +861,11 @@
 				93EBABAF1AD97CED00BF8959 /* SLSDefines.h in Headers */,
 				93E913EC1AB2811500DDF7F9 /* math.h in Headers */,
 				93CAA6361AD1A2A5005EDC09 /* SLSNSApplicationDelegate.h in Headers */,
+				93BE2F6E1ADA2C8E00175565 /* improved.h in Headers */,
 				934FAAAD1AD6E28700FACF2E /* sketch.h in Headers */,
 				93E913E41AB2811500DDF7F9 /* vector.h in Headers */,
 				93E913EA1AB2811500DDF7F9 /* vector4.h in Headers */,
+				93BE2F5A1ADA29A500175565 /* sdnoise1234.h in Headers */,
 				93EBABB11AD97CED00BF8959 /* SLSDisplayLink.h in Headers */,
 				93CAA6131AD191E5005EDC09 /* SLSEventDelegate.h in Headers */,
 				934FAAA61AD6E21600FACF2E /* processing.h in Headers */,
@@ -795,6 +878,7 @@
 				933803291AD88DC200F41F92 /* font.h in Headers */,
 				93A9C0071ACF59260081D3A0 /* SLSNSRunnerView.h in Headers */,
 				93E913DE1AB2811500DDF7F9 /* sphere.h in Headers */,
+				93BE2F5E1ADA29A500175565 /* simplexnoise1234.h in Headers */,
 				93A45B561AD14C4400969DC2 /* key_event.h in Headers */,
 				93F38E911AB60972009E3626 /* thread.h in Headers */,
 				93E913E81AB2811500DDF7F9 /* vector3.h in Headers */,
@@ -812,11 +896,13 @@
 				9303982B1AB2AE9900577048 /* constants.h in Headers */,
 				93A9C00C1ACF63060081D3A0 /* polygon.h in Headers */,
 				93A45B2F1AD0CE2500969DC2 /* axis.h in Headers */,
+				93BE2F681ADA2C5000175565 /* simplex.h in Headers */,
 				93FEF9431AD943CF009D0646 /* SLSGraphicsContext.h in Headers */,
 				93F38E471AB5FA8B009E3626 /* graphics.h in Headers */,
 				93E913E61AB2811500DDF7F9 /* vector2.h in Headers */,
 				93229E6D1ACD6DDA008D27EA /* singleton.h in Headers */,
 				93A45B5C1AD14C4400969DC2 /* touch_event.h in Headers */,
+				93BE2F561ADA29A500175565 /* noise1234.h in Headers */,
 				93E913CE1AB2811500DDF7F9 /* plane.h in Headers */,
 				939E96811AD384C500A7E21E /* SLSRunnerLayer.h in Headers */,
 				93F38E8D1AB60972009E3626 /* dispatch.h in Headers */,
@@ -839,11 +925,13 @@
 				930398391AB2AEF400577048 /* enum.h in Headers */,
 				93EBABB21AD97CEE00BF8959 /* SLSDefines.h in Headers */,
 				93E913CB1AB2811500DDF7F9 /* line.h in Headers */,
+				93BE2F6F1ADA2C8E00175565 /* improved.h in Headers */,
 				934FAAAE1AD6E28700FACF2E /* sketch.h in Headers */,
 				93BE2F441ADA1A8100175565 /* shape.h in Headers */,
 				939E96411AD250AF00A7E21E /* runner_factory.h in Headers */,
 				93A45B301AD0CE2900969DC2 /* graphics.h in Headers */,
 				93E913D51AB2811500DDF7F9 /* rect.h in Headers */,
+				93BE2F5F1ADA29A500175565 /* simplexnoise1234.h in Headers */,
 				933803241AD88BA800F41F92 /* style.h in Headers */,
 				930D51EF1AD42B76006EEF1B /* color4.h in Headers */,
 				93E913D91AB2811500DDF7F9 /* size2.h in Headers */,
@@ -866,6 +954,7 @@
 				93A45B551AD14C4400969DC2 /* gesture_event.h in Headers */,
 				93E913ED1AB2811500DDF7F9 /* math.h in Headers */,
 				933803361AD8B7EC00F41F92 /* core.h in Headers */,
+				93BE2F691ADA2C5000175565 /* simplex.h in Headers */,
 				93E913E51AB2811500DDF7F9 /* vector.h in Headers */,
 				93E913EB1AB2811500DDF7F9 /* vector4.h in Headers */,
 				93E913DF1AB2811500DDF7F9 /* sphere.h in Headers */,
@@ -877,14 +966,18 @@
 				93229E901AD23DF3008D27EA /* SLSUIApplicationDelegate.h in Headers */,
 				930398361AB2AEE700577048 /* utility.h in Headers */,
 				93F38E8E1AB60972009E3626 /* dispatch.h in Headers */,
+				93BE2F751ADA32E800175565 /* segment.h in Headers */,
 				9303982A1AB2AE9900577048 /* constants.h in Headers */,
 				934FAAB41AD6E29200FACF2E /* layer.h in Headers */,
 				93EBABB41AD97CEE00BF8959 /* SLSDisplayLink.h in Headers */,
 				93E913E71AB2811500DDF7F9 /* vector2.h in Headers */,
+				93BE2F631ADA2B7C00175565 /* noise.h in Headers */,
 				939E96821AD384C500A7E21E /* SLSRunnerLayer.h in Headers */,
 				93229ED31AD2428E008D27EA /* SLSUIRunnerViewController.h in Headers */,
+				93BE2F571ADA29A500175565 /* noise1234.h in Headers */,
 				93229E8C1AD23BB4008D27EA /* SLSUIRunnerView.h in Headers */,
 				93A45B2B1AD0CE2500969DC2 /* polygon.h in Headers */,
+				93BE2F5B1ADA29A500175565 /* sdnoise1234.h in Headers */,
 				93A45B271AD0CE1E00969DC2 /* null_mutex.h in Headers */,
 				93E913CF1AB2811500DDF7F9 /* plane.h in Headers */,
 				93E913D71AB2811500DDF7F9 /* size.h in Headers */,
@@ -944,6 +1037,7 @@
 				93E913721AB27E2600DDF7F9 /* Frameworks */,
 				93E913731AB27E2600DDF7F9 /* Headers */,
 				93E913741AB27E2600DDF7F9 /* Resources */,
+				93CA68151ADB5C81009F131B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1015,6 +1109,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		93CA68151ADB5C81009F131B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"${PROJECT_DIR}/src/solas\"\nfor H in $(find . -name \"*.h\"); do\n  ditto \"${H}\" \"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/${H}\"\ndone";
+		};
 		93EBABC61AD97F7A00BF8959 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1053,20 +1160,26 @@
 				93CAA60E1AD191DC005EDC09 /* SLSRunner.mm in Sources */,
 				93F38E8F1AB60972009E3626 /* dispatch.mm in Sources */,
 				934FAAB11AD6E29200FACF2E /* layer.cc in Sources */,
+				93BE2F541ADA29A500175565 /* noise1234.cpp in Sources */,
 				93CAA64F1AD1AD4B005EDC09 /* SLSNSApplicationMain.mm in Sources */,
 				933803331AD8B7EC00F41F92 /* core.mm in Sources */,
 				93FEF93D1AD941AF009D0646 /* SLSNSGraphicsContext.m in Sources */,
 				93BE2F3C1ADA1A7500175565 /* path.cc in Sources */,
 				93A9C0081ACF59260081D3A0 /* SLSNSRunnerView.mm in Sources */,
 				939E963E1AD250AF00A7E21E /* runner_factory.cc in Sources */,
+				93BE2F721ADA32E800175565 /* segment.cc in Sources */,
 				939E968A1AD391F800A7E21E /* SLSCVDisplayLink.mm in Sources */,
 				93CAA6541AD1AE32005EDC09 /* run.mm in Sources */,
 				934FAAAB1AD6E28700FACF2E /* sketch.cc in Sources */,
+				93BE2F661ADA2C5000175565 /* simplex.cc in Sources */,
+				93BE2F6C1ADA2C8E00175565 /* improved.cc in Sources */,
+				93BE2F5C1ADA29A500175565 /* simplexnoise1234.cpp in Sources */,
 				933803271AD88DC200F41F92 /* font.cc in Sources */,
 				93A9BFFE1AC99A430081D3A0 /* benchmark.cc in Sources */,
 				93CAA61D1AD19BE3005EDC09 /* SLSNSRunnerWindowController.m in Sources */,
 				931CCB8A1AD88A150047542F /* graphics.cc in Sources */,
 				93CAA6381AD1A2A5005EDC09 /* SLSNSApplicationDelegate.mm in Sources */,
+				93BE2F581ADA29A500175565 /* sdnoise1234.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1080,20 +1193,26 @@
 				93CAA6551AD1AE32005EDC09 /* run.mm in Sources */,
 				93229ED41AD2428E008D27EA /* SLSUIRunnerViewController.m in Sources */,
 				934FAAB21AD6E29200FACF2E /* layer.cc in Sources */,
+				93BE2F551ADA29A500175565 /* noise1234.cpp in Sources */,
 				93CAA60F1AD191DC005EDC09 /* SLSRunner.mm in Sources */,
 				933803341AD8B7EC00F41F92 /* core.mm in Sources */,
 				93229EC71AD2409E008D27EA /* SLSUIApplicationMain.mm in Sources */,
 				93BE2F3E1ADA1A7800175565 /* path.cc in Sources */,
 				939E96861AD3864600A7E21E /* SLSCADisplayLink.m in Sources */,
 				93F38E901AB60972009E3626 /* dispatch.mm in Sources */,
+				93BE2F731ADA32E800175565 /* segment.cc in Sources */,
 				93229E8D1AD23BB4008D27EA /* SLSUIRunnerView.mm in Sources */,
 				939E963F1AD250AF00A7E21E /* runner_factory.cc in Sources */,
 				934FAAAC1AD6E28700FACF2E /* sketch.cc in Sources */,
+				93BE2F671ADA2C5000175565 /* simplex.cc in Sources */,
+				93BE2F6D1ADA2C8E00175565 /* improved.cc in Sources */,
+				93BE2F5D1ADA29A500175565 /* simplexnoise1234.cpp in Sources */,
 				933803281AD88DC200F41F92 /* font.cc in Sources */,
 				93A9BFFF1AC99A430081D3A0 /* benchmark.cc in Sources */,
 				931CCB8B1AD88A150047542F /* graphics.cc in Sources */,
 				93CAA64A1AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */,
 				93FEF9411AD941EA009D0646 /* SLSUIGraphicsContext.m in Sources */,
+				93BE2F591ADA29A500175565 /* sdnoise1234.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

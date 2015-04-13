@@ -59,10 +59,10 @@ using Font = graphics::Font;
 
 // Math
 template <int Dimensions>
-using Vec = math::Vector<Real, Dimensions>;
-using Vec2 = math::Vector2<Real>;
-using Vec3 = math::Vector3<Real>;
-using Vec4 = math::Vector4<Real>;
+using Vec = math::Vec<Real, Dimensions>;
+using Vec2 = math::Vec2<Real>;
+using Vec3 = math::Vec3<Real>;
+using Vec4 = math::Vec4<Real>;
 template <int Dimensions>
 using Size = math::Size<Real, Dimensions>;
 using Size2 = math::Size2<Real>;

@@ -47,6 +47,8 @@ namespace math {
 
 template <typename T, int D>
 class Vector;
+template <typename T, int D>
+using Vec = Vector<T, D>;
 
 template <typename T>
 using Vector2 = Vector<T, 2>;
@@ -110,8 +112,8 @@ class Vector<T, 2> final {
   void set(std::initializer_list<T> list);
   template <typename Container>
   void set(const Container& container);
-  template <typename InputIterator>
-  void set(InputIterator begin, InputIterator end);
+//  template <typename InputIterator>
+//  void set(InputIterator begin, InputIterator end);
   void reset();
 
   // Element access
@@ -181,7 +183,7 @@ class Vector<T, 2> final {
 
   // Magnitude
   Promote<T> magnitude() const;
-  Promote<T> magnitude_squared() const;
+  Promote<T> magnitudeSquared() const;
   template <typename U>
   Vector2<T>& limit(U limit);
   template <typename U>
@@ -200,7 +202,7 @@ class Vector<T, 2> final {
   template <typename U>
   Promote<T> distance(const Vector2<U>& other) const;
   template <typename U>
-  Promote<T> distance_squared(const Vector2<U>& other) const;
+  Promote<T> distanceSquared(const Vector2<U>& other) const;
 
   // Products
   template <typename U>
@@ -218,9 +220,9 @@ class Vector<T, 2> final {
   Iterator end() { return ++&y; }
   ConstIterator end() const { return ++&y; }
   ReverseIterator rbegin() { return ReverseIterator(begin()); }
-  ConstReverseIterator rbegin() const { return ReverseIterator(begin()); }
+  ConstReverseIterator rbegin() const { return ConstReverseIterator(begin()); }
   ReverseIterator rend() { return ReverseIterator(end()); }
-  ConstReverseIterator rend() const { return ReverseIterator(end()); }
+  ConstReverseIterator rend() const { return ConstReverseIterator(end()); }
 
   // Pointer
   T * ptr() { return &x; }
@@ -234,6 +236,12 @@ class Vector<T, 2> final {
 using Vector2i = Vector2<int>;
 using Vector2f = Vector2<float>;
 using Vector2d = Vector2<double>;
+
+template <typename T>
+using Vec2 = Vector2<T>;
+using Vec2i = Vector2<int>;
+using Vec2f = Vector2<float>;
+using Vec2d = Vector2<double>;
 
 #pragma mark -
 
@@ -364,7 +372,13 @@ inline void Vector2<T>::set(const std::tuple<Args...>& tuple) {
 
 template <typename T>
 inline void Vector2<T>::set(std::initializer_list<T> list) {
-  set(list.begin(), list.end());
+//  set(list.begin(), list.end());
+  reset();
+  const auto begin = list.begin();
+  const auto end = list.end();
+  auto itr = begin;
+  if (itr == end) return; x = *itr++;
+  if (itr == end) return; y = *itr++;
 }
 
 template <typename T>
@@ -373,14 +387,14 @@ inline void Vector2<T>::set(const Container& container) {
   set(container.begin(), container.end());
 }
 
-template <typename T>
-template <typename InputIterator>
-inline void Vector2<T>::set(InputIterator begin, InputIterator end) {
-  reset();
-  auto itr = begin;
-  if (itr == end) return; x = *itr++;
-  if (itr == end) return; y = *itr++;
-}
+//template <typename T>
+//template <typename InputIterator>
+//inline void Vector2<T>::set(InputIterator begin, InputIterator end) {
+//  reset();
+//  auto itr = begin;
+//  if (itr == end) return; x = *itr++;
+//  if (itr == end) return; y = *itr++;
+//}
 
 template <typename T>
 inline void Vector2<T>::reset() {
@@ -628,18 +642,18 @@ inline Promote<T> Vector2<T>::angle(const Vector2<U>& other) const {
 
 template <typename T>
 inline Promote<T> Vector2<T>::magnitude() const {
-  return std::sqrt(magnitude_squared());
+  return std::sqrt(magnitudeSquared());
 }
 
 template <typename T>
-inline Promote<T> Vector2<T>::magnitude_squared() const {
+inline Promote<T> Vector2<T>::magnitudeSquared() const {
   return static_cast<Promote<T>>(x) * x + y * y;
 }
 
 template <typename T>
 template <typename U>
 inline Vector2<T>& Vector2<T>::limit(U limit) {
-  if (magnitude_squared() > static_cast<Promote<T>>(limit) * limit) {
+  if (magnitudeSquared() > static_cast<Promote<T>>(limit) * limit) {
     normalize();
     *this *= limit;
   }
@@ -692,8 +706,8 @@ inline Promote<T> Vector2<T>::distance(const Vector2<U>& other) const {
 
 template <typename T>
 template <typename U>
-inline Promote<T> Vector2<T>::distance_squared(const Vector2<U>& other) const {
-  return (*this - other).magnitude_squared();
+inline Promote<T> Vector2<T>::distanceSquared(const Vector2<U>& other) const {
+  return (*this - other).magnitudeSquared();
 }
 
 #pragma mark Products

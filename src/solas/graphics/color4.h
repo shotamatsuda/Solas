@@ -52,11 +52,11 @@ template <typename T>
 class Color<T, 4> final {
  public:
   using Type = T;
-  using Iterator = typename math::Vector4<T>::Iterator;
-  using ConstIterator = typename math::Vector4<T>::ConstIterator;
-  using ReverseIterator = typename math::Vector4<T>::ReverseIterator;
-  using ConstReverseIterator = typename math::Vector4<T>::ConstReverseIterator;
-  static const constexpr auto channels = math::Vector4<T>::dimensions;
+  using Iterator = typename math::Vec4<T>::Iterator;
+  using ConstIterator = typename math::Vec4<T>::ConstIterator;
+  using ReverseIterator = typename math::Vec4<T>::ReverseIterator;
+  using ConstReverseIterator = typename math::Vec4<T>::ConstReverseIterator;
+  static const constexpr auto channels = math::Vec4<T>::dimensions;
 
  public:
   // Constructors
@@ -78,8 +78,8 @@ class Color<T, 4> final {
   // Explicit conversion
   template <typename U>
   explicit Color(const Color3<U>& other);
-  explicit Color(const math::Vector3<T>& other);
-  explicit Color(const math::Vector4<T>& other);
+  explicit Color(const math::Vec3<T>& other);
+  explicit Color(const math::Vec4<T>& other);
 
   // Copy and assign
   Color(const Color4<T>& other);
@@ -125,9 +125,9 @@ class Color<T, 4> final {
 
   // Conversion
   template <typename U>
-  explicit operator math::Vector4<U>&() { return vector; }
+  explicit operator math::Vec4<U>&() { return vector; }
   template <typename U>
-  explicit operator const math::Vector4<U>&() const { return vector; }
+  explicit operator const math::Vec4<U>&() const { return vector; }
   explicit operator std::uint32_t() const;
   explicit operator std::uint64_t() const;
 
@@ -147,7 +147,7 @@ class Color<T, 4> final {
 
  public:
   union {
-    math::Vector4<T> vector;
+    math::Vec4<T> vector;
     struct { T red; T green; T blue; T alpha; };
     struct { T r; T g; T b; T a; };
   };
@@ -207,11 +207,11 @@ inline Color4<T>::Color(const Color3<U>& other)
     : vector(other.vector) {}
 
 template <typename T>
-inline Color4<T>::Color(const math::Vector3<T>& other)
+inline Color4<T>::Color(const math::Vec3<T>& other)
     : vector(other.vector) {}
 
 template <typename T>
-inline Color4<T>::Color(const math::Vector4<T>& other)
+inline Color4<T>::Color(const math::Vec4<T>& other)
     : vector(other) {}
 
 #pragma mark Copy and assign

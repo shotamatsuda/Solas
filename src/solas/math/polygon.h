@@ -120,9 +120,9 @@ class Polygon final {
   Iterator end() { return vertices_.end(); }
   ConstIterator end() const { return vertices_.end(); }
   ReverseIterator rbegin() { return ReverseIterator(begin()); }
-  ConstReverseIterator rbegin() const { return ReverseIterator(begin()); }
+  ConstReverseIterator rbegin() const { return ConstReverseIterator(begin()); }
   ReverseIterator rend() { return ReverseIterator(end()); }
-  ConstReverseIterator rend() const { return ReverseIterator(end()); }
+  ConstReverseIterator rend() const { return ConstReverseIterator(end()); }
 
   // Pointer
   Vector2<T> * ptr() { return vertices_.data(); }

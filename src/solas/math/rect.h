@@ -106,24 +106,24 @@ class Rect final {
   Vector2<Promote<T>> centroid() const;
 
   // Edges
-  T min_x() const;
-  T max_x() const;
-  T min_y() const;
-  T max_y() const;
+  T minX() const;
+  T maxX() const;
+  T minY() const;
+  T maxY() const;
   T left() const;
   T right() const;
   T top() const;
   T bottom() const;
 
   // Corners
-  Vector2<T> top_left() const;
-  Vector2<T> top_right() const;
-  Vector2<T> bottom_left() const;
-  Vector2<T> bottom_right() const;
-  Vector2<T> tl() const { return top_left(); }
-  Vector2<T> tr() const { return top_right(); }
-  Vector2<T> bl() const { return bottom_left(); }
-  Vector2<T> br() const { return bottom_right(); }
+  Vector2<T> topLeft() const;
+  Vector2<T> topRight() const;
+  Vector2<T> bottomLeft() const;
+  Vector2<T> bottomRight() const;
+  Vector2<T> tl() const { return topLeft(); }
+  Vector2<T> tr() const { return topRight(); }
+  Vector2<T> bl() const { return bottomLeft(); }
+  Vector2<T> br() const { return bottomRight(); }
 
   // Canonicalization
   bool canonical() const { return width > 0 && height > 0; }
@@ -386,64 +386,64 @@ inline Vector2<Promote<T>> Rect<T>::centroid() const {
 #pragma mark Edges
 
 template <typename T>
-inline T Rect<T>::min_x() const {
+inline T Rect<T>::minX() const {
   return std::min<T>(x, x + width);
 }
 
 template <typename T>
-inline T Rect<T>::max_x() const {
+inline T Rect<T>::maxX() const {
   return std::max<T>(x, x + width);
 }
 
 template <typename T>
-inline T Rect<T>::min_y() const {
+inline T Rect<T>::minY() const {
   return std::min<T>(y, y + height);
 }
 
 template <typename T>
-inline T Rect<T>::max_y() const {
+inline T Rect<T>::maxY() const {
   return std::max<T>(y, y + height);
 }
 
 template <typename T>
 inline T Rect<T>::left() const {
-  return min_x();
+  return minX();
 }
 
 template <typename T>
 inline T Rect<T>::right() const {
-  return max_x();
+  return maxX();
 }
 
 template <typename T>
 inline T Rect<T>::top() const {
-  return min_y();
+  return minY();
 }
 
 template <typename T>
 inline T Rect<T>::bottom() const {
-  return max_y();
+  return maxY();
 }
 
 #pragma mark Corners
 
 template <typename T>
-inline Vector2<T> Rect<T>::top_left() const {
+inline Vector2<T> Rect<T>::topLeft() const {
   return Vector2<T>(left(), top());
 }
 
 template <typename T>
-inline Vector2<T> Rect<T>::top_right() const {
+inline Vector2<T> Rect<T>::topRight() const {
   return Vector2<T>(right(), top());
 }
 
 template <typename T>
-inline Vector2<T> Rect<T>::bottom_left() const {
+inline Vector2<T> Rect<T>::bottomLeft() const {
   return Vector2<T>(left(), bottom());
 }
 
 template <typename T>
-inline Vector2<T> Rect<T>::bottom_right() const {
+inline Vector2<T> Rect<T>::bottomRight() const {
   return Vector2<T>(right(), bottom());
 }
 
