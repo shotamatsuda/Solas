@@ -1,5 +1,5 @@
 //
-//  main.mm
+//  main_touch.cc
 //
 //  MIT License
 //
@@ -24,33 +24,18 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
+#define NANOVG_GLES2_IMPLEMENTATION
+
+#include <OpenGLES/ES2/gl.h>
+
+#include "nanovg.h"
+#include "nanovg_gl.h"
 #include "solas/app.h"
 
-//#include <OpenGL/gl.h>
-#include <OpenGLES/ES2/gl.h>
-#include "nanovg.h"
-//#define NANOVG_GL2_IMPLEMENTATION
-#define NANOVG_GLES2_IMPLEMENTATION
-#include "nanovg_gl.h"
-
-class App : public solas::app::Runnable {
+class App : public solas::app::Sketch {
  public:
   void setup() {
-//    vg = nvgCreateGL2(NVG_ANTIALIAS | NVG_STENCIL_STROKES | NVG_DEBUG);
-    vg = nvgCreateGLES2(NVG_ANTIALIAS | NVG_STENCIL_STROKES | NVG_DEBUG);
-  }
-
-  void draw(const solas::app::AppEvent& event) {
-    glClearColor(1.0, 1.0, 1.0, 1.0);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    nvgBeginFrame(vg, event.size.width, event.size.height,
-                  event.size.width / event.size.height);
-    nvgBeginPath(vg);
-    nvgEllipse(vg, 200, 200, 100, 100);
-    nvgStrokeColor(vg, nvgRGB(0,0,0));
-    nvgStrokeWidth(vg, 5);
-    nvgStroke(vg);
-    nvgEndFrame(vg);
+    vg = nvgCreateGLES2(NVG_ANTIALIAS | NVG_DEBUG);
   }
 
   NVGcontext *vg;

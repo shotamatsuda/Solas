@@ -1,5 +1,5 @@
 //
-//  solas/app.h
+//  main.cc
 //
 //  MIT License
 //
@@ -24,25 +24,42 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#pragma once
-#ifndef SOLAS_APP_H_
-#define SOLAS_APP_H_
+#define NANOVG_GL2_IMPLEMENTATION
 
-#include "solas/app/app_event.h"
-#include "solas/app/event.h"
-#include "solas/app/gesture_event.h"
-#include "solas/app/key_event.h"
-#include "solas/app/key_modifier.h"
-#include "solas/app/layer.h"
-#include "solas/app/motion_event.h"
-#include "solas/app/mouse_button.h"
-#include "solas/app/mouse_event.h"
-#include "solas/app/run.h"
-#include "solas/app/runnable.h"
-#include "solas/app/runner.h"
-#include "solas/app/runner_factory.h"
-#include "solas/app/runner_options.h"
-#include "solas/app/sketch.h"
-#include "solas/app/touch_event.h"
+#include <OpenGL/gl.h>
 
-#endif  // SOLAS_APP_H_
+#include "nanovg.h"
+#include "nanovg_gl.h"
+#include "solas/app.h"
+#include "solas/math/random.h"
+
+class App : public solas::app::Sketch {
+ public:
+  void setup() {
+    vg = nvgCreateGL2(NVG_DEBUG);
+  }
+
+  void draw() {
+    glClearColor(1.0, 1.0, 1.0, 1.0);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    nvgBeginFrame(vg, width(), height(), width() / height());
+    for (int i = 0; i < 5000; ++i) {
+      nvgBeginPath(vg);
+      nvgEllipse(vg, mouse_x() + solas::math::Random<>::Shared().uniform<int>(-100, 100), mouse_y() + solas::math::Random<>::Shared().uniform<int>(-100, 100), 10, 10);
+      if (mouse_pressed()) {
+        nvgFillColor(vg, nvgRGB(0,0,0));
+        nvgFill(vg);
+      }
+      nvgStrokeColor(vg, nvgRGB(0,0,0));
+      nvgStrokeWidth(vg, 2);
+      nvgStroke(vg);
+    }
+    nvgEndFrame(vg);
+  }
+
+  NVGcontext *vg;
+};
+
+int main(int argc, char **argv) {
+  return solas::app::Run<App>(argc, argv);
+}

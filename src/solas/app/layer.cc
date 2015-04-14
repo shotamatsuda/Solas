@@ -1,5 +1,5 @@
 //
-//  solas/app.h
+//  solas/processing/layer.cc
 //
 //  MIT License
 //
@@ -24,25 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#pragma once
-#ifndef SOLAS_APP_H_
-#define SOLAS_APP_H_
-
-#include "solas/app/app_event.h"
-#include "solas/app/event.h"
-#include "solas/app/gesture_event.h"
-#include "solas/app/key_event.h"
-#include "solas/app/key_modifier.h"
 #include "solas/app/layer.h"
-#include "solas/app/motion_event.h"
-#include "solas/app/mouse_button.h"
-#include "solas/app/mouse_event.h"
-#include "solas/app/run.h"
-#include "solas/app/runnable.h"
-#include "solas/app/runner.h"
-#include "solas/app/runner_factory.h"
-#include "solas/app/runner_options.h"
-#include "solas/app/sketch.h"
-#include "solas/app/touch_event.h"
 
-#endif  // SOLAS_APP_H_
+namespace solas {
+namespace app {
+
+}  // namespace app
+}  // namespace solas

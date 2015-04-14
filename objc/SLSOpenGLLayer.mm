@@ -65,8 +65,6 @@
     (CGLPixelFormatAttribute)8,
     kCGLPFADepthSize,
     (CGLPixelFormatAttribute)24,
-    kCGLPFAStencilSize,
-    (CGLPixelFormatAttribute)8,
     kCGLPFASampleBuffers,
     (CGLPixelFormatAttribute)1,
     kCGLPFASamples,

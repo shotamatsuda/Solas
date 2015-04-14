@@ -26,6 +26,7 @@
 
 #import "SLSUIOpenGLESView.h"
 
+#import <GLKit/GLKit.h>
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/ES2/gl.h>
 #import <QuartzCore/QuartzCore.h>
@@ -39,7 +40,7 @@
 
 @interface SLSUIOpenGLESView ()
 
-@property (nonatomic, weak) CAEAGLLayer *EAGLLayer;
+@property (nonatomic, strong) GLKView *GLView;
 @property (nonatomic, strong) SLSDisplayLink *displayLink;
 
 @end
@@ -49,11 +50,17 @@
 - (id)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
-    _EAGLLayer = (CAEAGLLayer *)self.layer;
-    _EAGLLayer.opaque = YES;
-    _EAGLLayer.drawableProperties = self.drawableProperties;
-    _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-    [self startLoop];
+    _GLView = [[GLKView alloc] initWithFrame:self.bounds];
+    _GLView.autoresizingMask =
+        (UIViewAutoresizingFlexibleWidth |
+         UIViewAutoresizingFlexibleHeight);
+    _GLView.context = [[EAGLContext alloc]
+        initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    _GLView.drawableColorFormat = GLKViewDrawableColorFormatRGBA8888;
+    _GLView.drawableDepthFormat = GLKViewDrawableDepthFormat24;
+    _GLView.drawableStencilFormat = GLKViewDrawableStencilFormat8;
+    _GLView.drawableMultisample = GLKViewDrawableMultisample4X;
+    [self addSubview:_GLView];
   }
   return self;
 }
@@ -61,43 +68,46 @@
 - (id)initWithCoder:(NSCoder *)coder {
   self = [super initWithCoder:coder];
   if (self) {
-    _EAGLLayer = (CAEAGLLayer *)self.layer;
-    _EAGLLayer.opaque = YES;
-    _EAGLLayer.drawableProperties = self.drawableProperties;
-    _context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    _GLView = [[GLKView alloc] initWithFrame:self.bounds];
+    _GLView.autoresizingMask =
+    (UIViewAutoresizingFlexibleWidth |
+     UIViewAutoresizingFlexibleHeight);
+    [self addSubview:_GLView];
+    _GLView.context = [[EAGLContext alloc]
+        initWithAPI:kEAGLRenderingAPIOpenGLES2];
     [self startLoop];
   }
   return self;
 }
 
-- (void)dealloc {
-  if ([EAGLContext currentContext] == _context) {
-    [EAGLContext setCurrentContext:nil];
-  }
-}
+//- (void)dealloc {
+//  if ([EAGLContext currentContext] == _context) {
+//    [EAGLContext setCurrentContext:nil];
+//  }
+//}
 
-+ (Class)layerClass {
-  return [CAEAGLLayer class];
-}
-
-- (NSDictionary *)drawableProperties {
-  return @{
-    kEAGLDrawablePropertyRetainedBacking : @NO,
-    kEAGLDrawablePropertyColorFormat : kEAGLColorFormatRGBA8
-  };
-}
-
-- (void)layoutSubviews {
-  [EAGLContext setCurrentContext:_context];
-  const solas::app::AppEvent event(_context, solas::math::Size2d(
-      self.bounds.size.width, self.bounds.size.height));
-  if ([_displayDelegate respondsToSelector:@selector(sender:update:)]) {
-    [_displayDelegate sender:self update:SLSAppEventMake(&event)];
-  }
-  if ([_displayDelegate respondsToSelector:@selector(sender:draw:)]) {
-    [_displayDelegate sender:self draw:SLSAppEventMake(&event)];
-  }
-}
+//+ (Class)layerClass {
+//  return [CAEAGLLayer class];
+//}
+//
+//- (NSDictionary *)drawableProperties {
+//  return @{
+//    kEAGLDrawablePropertyRetainedBacking : @NO,
+//    kEAGLDrawablePropertyColorFormat : kEAGLColorFormatRGBA8
+//  };
+//}
+//
+//- (void)layoutSubviews {
+//  [EAGLContext setCurrentContext:_context];
+//  const solas::app::AppEvent event(_context, solas::math::Size2d(
+//      self.bounds.size.width, self.bounds.size.height));
+//  if ([_displayDelegate respondsToSelector:@selector(sender:update:)]) {
+//    [_displayDelegate sender:self update:SLSAppEventMake(&event)];
+//  }
+//  if ([_displayDelegate respondsToSelector:@selector(sender:draw:)]) {
+//    [_displayDelegate sender:self draw:SLSAppEventMake(&event)];
+//  }
+//}
 
 #pragma mark Controlling Loop
 
@@ -117,7 +127,7 @@
 }
 
 - (void)setNeedsDisplayOnMainThread {
-  [super performSelectorOnMainThread:@selector(setNeedsLayout)
+  [super performSelectorOnMainThread:@selector(setNeedsDisplay)
                           withObject:self
                        waitUntilDone:YES];
 }
