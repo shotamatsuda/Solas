@@ -1,5 +1,5 @@
 //
-//  SLSNSRunnerView.h
+//  SLSNSOpenGLView.h
 //
 //  MIT License
 //
@@ -25,49 +25,20 @@
 //
 
 #import <AppKit/AppKit.h>
-#import <QuartzCore/QuartzCore.h>
 
-#import "SLSEventDelegate.h"
-#import "SLSRunnerLayer.h"
+#import "SLSDisplayDelegate.h"
+#import "SLSDisplaySource.h"
+#import "SLSNSEventView.h"
 
-#ifdef __cplusplus
-
-#include "solas/app/gesture_event.h"
-#include "solas/app/key_event.h"
-#include "solas/app/mouse_event.h"
-#include "solas/app/touch_event.h"
-
-#endif  // __cplusplus
-
-@interface SLSNSRunnerView : NSView
-
-@property (nonatomic, assign, readonly) CGPoint previousMouseLocation;
-@property (nonatomic, strong, readonly) NSSet *previousTouches;
-@property (nonatomic, strong) CALayer<SLSRunnerLayer> *runnerLayer;
+@interface SLSNSOpenGLView : SLSNSEventView <SLSDisplaySource>
 
 #pragma mark Controlling Loop
 
 - (void)startLoop;
 - (void)stopLoop;
 
-#pragma mark Notifying Events to the Delegate
-
-- (void)notifyMouseDownWithEvent:(id)event;
-- (void)notifyMouseDragWithEvent:(id)event;
-- (void)notifyMouseUpWithEvent:(id)event;
-- (void)notifyMouseMoveWithEvent:(id)event;
-- (void)notifyMouseEnterWithEvent:(id)event;
-- (void)notifyMouseExitWithEvent:(id)event;
-- (void)notifyScrollWheelWithEvent:(id)event;
-- (void)notifyKeyDownWithEvent:(id)event;
-- (void)notifyKeyUpWithEvent:(id)event;
-- (void)notifyTouchesBeginWithEvent:(id)event;
-- (void)notifyTouchesMoveWithEvent:(id)event;
-- (void)notifyTouchesCancelWithEvent:(id)event;
-- (void)notifyTouchesEndWithEvent:(id)event;
-
 #pragma mark Managing the Delegate
 
-@property (atomic, weak) id<SLSEventDelegate> eventDelegate;
+@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
 
 @end

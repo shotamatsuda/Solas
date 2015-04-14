@@ -1,5 +1,5 @@
 //
-//  SLSNSRunnerView.mm
+//  SLSNSEventView.mm
 //
 //  MIT License
 //
@@ -24,14 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSNSRunnerView.h"
+#import "SLSNSEventView.h"
 
-#import <QuartzCore/QuartzCore.h>
+#import "SLSEvents.h"
 
-#import "SLSOpenGLLayer.h"
-#import "SLSRunnerLayer.h"
-
-#include <cstdint>
 #include <utility>
 
 #include "solas/app/gesture_event.h"
@@ -42,10 +38,12 @@
 #include "solas/app/touch_event.h"
 #include "solas/math/vector.h"
 
-@interface SLSNSRunnerView ()
+@interface SLSNSEventView ()
 
 #pragma mark Initialization
 
+@property (nonatomic, assign) CGPoint previousMouseLocation;
+@property (nonatomic, strong) NSSet *previousTouches;
 @property (nonatomic, strong) NSTrackingArea *trackingArea;
 
 - (void)setUpTrackingArea;
@@ -62,12 +60,11 @@
 
 @end
 
-@implementation SLSNSRunnerView
+@implementation SLSNSEventView
 
 - (instancetype)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
-    self.wantsLayer = YES;
     self.acceptsTouchEvents = YES;
     [self setUpTrackingArea];
   }
@@ -77,25 +74,15 @@
 - (instancetype)initWithCoder:(NSCoder *)coder {
   self = [super initWithCoder:coder];
   if (self) {
-    self.wantsLayer = YES;
     self.acceptsTouchEvents = YES;
     [self setUpTrackingArea];
   }
   return self;
 }
 
-- (CALayer *)makeBackingLayer {
-  _runnerLayer = [SLSOpenGLLayer layer];
-  return _runnerLayer;
-}
-
 - (void)setFrameSize:(CGSize)size {
   [super setFrameSize:size];
   [self setUpTrackingArea];
-}
-
-- (BOOL)isOpaque {
-  return NO;
 }
 
 - (BOOL)isFlipped {
@@ -198,16 +185,6 @@
             owner:self
          userInfo:nil];
   [self addTrackingArea:_trackingArea];
-}
-
-#pragma mark Controlling Loop
-
-- (void)startLoop {
-
-}
-
-- (void)stopLoop {
-
 }
 
 #pragma mark Creating Events

@@ -1,5 +1,5 @@
 //
-//  SLSOpenGLLayer.h
+//  SLSNSEventView.h
 //
 //  MIT License
 //
@@ -24,21 +24,31 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-#import <QuartzCore/QuartzCore.h>
+#import <AppKit/AppKit.h>
 
-#import "SLSDisplayDelegate.h"
-#import "SLSDisplaySource.h"
+#import "SLSEventDelegate.h"
+#import "SLSEventSource.h"
 
-@interface SLSOpenGLLayer : CAOpenGLLayer <SLSDisplaySource>
+@interface SLSNSEventView : NSView <SLSEventSource>
 
-#pragma mark Controlling Loop
+#pragma mark Notifying Events to the Delegate
 
-- (void)startLoop;
-- (void)stopLoop;
+- (void)notifyMouseDownWithEvent:(id)event;
+- (void)notifyMouseDragWithEvent:(id)event;
+- (void)notifyMouseUpWithEvent:(id)event;
+- (void)notifyMouseMoveWithEvent:(id)event;
+- (void)notifyMouseEnterWithEvent:(id)event;
+- (void)notifyMouseExitWithEvent:(id)event;
+- (void)notifyScrollWheelWithEvent:(id)event;
+- (void)notifyKeyDownWithEvent:(id)event;
+- (void)notifyKeyUpWithEvent:(id)event;
+- (void)notifyTouchesBeginWithEvent:(id)event;
+- (void)notifyTouchesMoveWithEvent:(id)event;
+- (void)notifyTouchesCancelWithEvent:(id)event;
+- (void)notifyTouchesEndWithEvent:(id)event;
 
 #pragma mark Managing the Delegate
 
-@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
+@property (atomic, weak) id<SLSEventDelegate> eventDelegate;
 
 @end

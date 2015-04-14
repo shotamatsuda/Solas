@@ -1,5 +1,5 @@
 //
-//  SLSOpenGLLayer.h
+//  SLSEventSource.h
 //
 //  MIT License
 //
@@ -25,20 +25,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <QuartzCore/QuartzCore.h>
 
-#import "SLSDisplayDelegate.h"
-#import "SLSDisplaySource.h"
+#import "SLSEventDelegate.h"
 
-@interface SLSOpenGLLayer : CAOpenGLLayer <SLSDisplaySource>
-
-#pragma mark Controlling Loop
-
-- (void)startLoop;
-- (void)stopLoop;
+@protocol SLSEventSource <NSObject>
 
 #pragma mark Managing the Delegate
 
-@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
+@property (atomic, weak) id<SLSEventDelegate> eventDelegate;
 
 @end

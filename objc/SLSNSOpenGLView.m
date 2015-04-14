@@ -1,5 +1,5 @@
 //
-//  SLSOpenGLLayer.h
+//  SLSNSOpenGLView.m
 //
 //  MIT License
 //
@@ -24,21 +24,69 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import "SLSNSOpenGLView.h"
+
 #import <QuartzCore/QuartzCore.h>
 
-#import "SLSDisplayDelegate.h"
 #import "SLSDisplaySource.h"
+#import "SLSOpenGLLayer.h"
 
-@interface SLSOpenGLLayer : CAOpenGLLayer <SLSDisplaySource>
+@interface SLSNSOpenGLView ()
+
+#pragma mark Initialization
+
+@property (nonatomic, strong) CALayer<SLSDisplaySource> *displaySource;
+
+@end
+
+@implementation SLSNSOpenGLView
+
+- (instancetype)initWithFrame:(CGRect)frame {
+  self = [super initWithFrame:frame];
+  if (self) {
+    self.wantsLayer = YES;
+    NSAssert([self.layer conformsToProtocol:@protocol(SLSDisplaySource)], @"");
+    _displaySource = (CALayer<SLSDisplaySource> *)self.layer;
+  }
+  return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+  self = [super initWithCoder:coder];
+  if (self) {
+    self.wantsLayer = YES;
+    NSAssert([self.layer conformsToProtocol:@protocol(SLSDisplaySource)], @"");
+    _displaySource = (CALayer<SLSDisplaySource> *)self.layer;
+  }
+  return self;
+}
+
+- (CALayer *)makeBackingLayer {
+  return [SLSOpenGLLayer layer];
+}
+
+- (BOOL)isOpaque {
+  return NO;
+}
 
 #pragma mark Controlling Loop
 
-- (void)startLoop;
-- (void)stopLoop;
+- (void)startLoop {
+  [_displaySource startLoop];
+}
+
+- (void)stopLoop {
+  [_displaySource stopLoop];
+}
 
 #pragma mark Managing the Delegate
 
-@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
+- (id<SLSDisplayDelegate>)displayDelegate {
+  return _displaySource.displayDelegate;
+}
+
+- (void)setDisplayDelegate:(id<SLSDisplayDelegate>)displayDelegate {
+  _displaySource.displayDelegate = displayDelegate;
+}
 
 @end

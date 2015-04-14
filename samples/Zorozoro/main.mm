@@ -27,17 +27,17 @@
 #include "solas/app.h"
 
 //#include <OpenGL/gl.h>
-#include <OpenGLES/ES3/gl.h>
+#include <OpenGLES/ES2/gl.h>
 #include "nanovg.h"
 //#define NANOVG_GL2_IMPLEMENTATION
-#define NANOVG_GLES3_IMPLEMENTATION
+#define NANOVG_GLES2_IMPLEMENTATION
 #include "nanovg_gl.h"
 
 class App : public solas::app::Runnable {
  public:
   void setup() {
 //    vg = nvgCreateGL2(NVG_ANTIALIAS | NVG_STENCIL_STROKES | NVG_DEBUG);
-    vg = nvgCreateGLES3(NVG_ANTIALIAS | NVG_STENCIL_STROKES | NVG_DEBUG);
+    vg = nvgCreateGLES2(NVG_ANTIALIAS | NVG_STENCIL_STROKES | NVG_DEBUG);
   }
 
   void draw(const solas::app::AppEvent& event) {

@@ -1,5 +1,5 @@
 //
-//  SLSOpenGLLayer.h
+//  SLSNSCoreGraphicsView.h
 //
 //  MIT License
 //
@@ -24,13 +24,13 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-#import <QuartzCore/QuartzCore.h>
+#import <AppKit/AppKit.h>
 
 #import "SLSDisplayDelegate.h"
 #import "SLSDisplaySource.h"
+#import "SLSNSEventView.h"
 
-@interface SLSOpenGLLayer : CAOpenGLLayer <SLSDisplaySource>
+@interface SLSNSCoreGraphicsView : SLSNSEventView <SLSDisplaySource>
 
 #pragma mark Controlling Loop
 

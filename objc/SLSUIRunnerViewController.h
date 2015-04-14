@@ -26,8 +26,9 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SLSDisplaySource.h"
+#import "SLSEventSource.h"
 #import "SLSRunner.h"
-#import "SLSUIRunnerView.h"
 
 @interface SLSUIRunnerViewController : UIViewController
 
@@ -35,7 +36,8 @@
 
 #pragma mark Accessing Views
 
-@property (nonatomic, readonly) SLSUIRunnerView *runnerView;
+@property (nonatomic, weak, readonly) id<SLSEventSource> eventSource;
+@property (nonatomic, weak, readonly) id<SLSDisplaySource> displaySource;
 
 #pragma mark Managing the Runner
 

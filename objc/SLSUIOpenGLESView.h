@@ -1,5 +1,5 @@
 //
-//  SLSUIEAGLRunnerView.h
+//  SLSUIOpenGLESView.h
 //
 //  MIT License
 //
@@ -24,31 +24,26 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <QuartzCore/QuartzCore.h>
 #import <UIKit/UIKit.h>
 
-#import "SLSEventDelegate.h"
-#import "SLSUIRunnerView.h"
+#import "SLSDisplayDelegate.h"
+#import "SLSDisplaySource.h"
+#import "SLSUIEventView.h"
 
-@interface SLSUIEAGLRunnerView : UIView
+@class EAGLContext;
 
-@property (nonatomic, readonly) CAEAGLLayer *EAGLLayer;
-@property (nonatomic, readonly) EAGLContext *EAGLContext;
-@property (nonatomic, readonly) NSDictionary *drawableProperties;
-@property (nonatomic, strong, readonly) NSSet *previousTouches;
+@interface SLSUIOpenGLESView : SLSUIEventView <SLSDisplaySource>
 
-#pragma mark Notifying Events to the Delegate
+@property (nonatomic, strong, readonly) EAGLContext *context;
+@property (nonatomic, copy, readonly) NSDictionary *drawableProperties;
 
-- (void)notifyTouchesBeginWithEvent:(id)event;
-- (void)notifyTouchesMoveWithEvent:(id)event;
-- (void)notifyTouchesCancelWithEvent:(id)event;
-- (void)notifyTouchesEndWithEvent:(id)event;
-- (void)notifyMotionBeginWithEvent:(id)event;
-- (void)notifyMotionCancelWithEvent:(id)event;
-- (void)notifyMotionEndWithEvent:(id)event;
+#pragma mark Controlling Loop
+
+- (void)startLoop;
+- (void)stopLoop;
 
 #pragma mark Managing the Delegate
 
-@property (atomic, weak) id<SLSEventDelegate> eventDelegate;
+@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
 
 @end

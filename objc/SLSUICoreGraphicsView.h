@@ -1,5 +1,5 @@
 //
-//  SLSUIRunnerView.h
+//  SLSUICoreGraphicsView.h
 //
 //  MIT License
 //
@@ -24,29 +24,21 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <QuartzCore/QuartzCore.h>
 #import <UIKit/UIKit.h>
 
-#import "SLSEventDelegate.h"
-#import "SLSRunnerLayer.h"
+#import "SLSDisplayDelegate.h"
+#import "SLSDisplaySource.h"
+#import "SLSUIEventView.h"
 
-@interface SLSUIRunnerView : UIView
+@interface SLSUICoreGraphicsView : SLSUIEventView <SLSDisplaySource>
 
-@property (nonatomic, strong, readonly) NSSet *previousTouches;
-@property (nonatomic, strong) CALayer<SLSRunnerLayer> *runnerLayer;
+#pragma mark Controlling Loop
 
-#pragma mark Notifying Events to the Delegate
-
-- (void)notifyTouchesBeginWithEvent:(id)event;
-- (void)notifyTouchesMoveWithEvent:(id)event;
-- (void)notifyTouchesCancelWithEvent:(id)event;
-- (void)notifyTouchesEndWithEvent:(id)event;
-- (void)notifyMotionBeginWithEvent:(id)event;
-- (void)notifyMotionCancelWithEvent:(id)event;
-- (void)notifyMotionEndWithEvent:(id)event;
+- (void)startLoop;
+- (void)stopLoop;
 
 #pragma mark Managing the Delegate
 
-@property (atomic, weak) id<SLSEventDelegate> eventDelegate;
+@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
 
 @end

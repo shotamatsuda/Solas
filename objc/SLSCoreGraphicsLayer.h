@@ -28,9 +28,9 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "SLSDisplayDelegate.h"
-#import "SLSRunnerLayer.h"
+#import "SLSDisplaySource.h"
 
-@interface SLSCoreGraphicsLayer : CALayer <SLSRunnerLayer>
+@interface SLSCoreGraphicsLayer : CALayer <SLSDisplaySource>
 
 #pragma mark Controlling Loop
 

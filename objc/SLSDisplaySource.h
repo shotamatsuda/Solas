@@ -1,5 +1,5 @@
 //
-//  SLSOpenGLLayer.h
+//  SLSDisplaySource.h
 //
 //  MIT License
 //
@@ -25,12 +25,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <QuartzCore/QuartzCore.h>
 
 #import "SLSDisplayDelegate.h"
-#import "SLSDisplaySource.h"
 
-@interface SLSOpenGLLayer : CAOpenGLLayer <SLSDisplaySource>
+@protocol SLSDisplaySource <NSObject>
 
 #pragma mark Controlling Loop
 

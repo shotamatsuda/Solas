@@ -1,5 +1,5 @@
 //
-//  SLSUIRunnerView.mm
+//  SLSUIEventView.mm
 //
 //  MIT License
 //
@@ -24,11 +24,8 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSUIRunnerView.h"
+#import "SLSUIEventView.h"
 
-#import <QuartzCore/QuartzCore.h>
-
-#import "SLSCoreGraphicsLayer.h"
 #import "SLSEvents.h"
 
 #include <utility>
@@ -38,7 +35,11 @@
 #include "solas/app/touch_event.h"
 #include "solas/math/vector.h"
 
-@interface SLSUIRunnerView ()
+@interface SLSUIEventView ()
+
+#pragma mark Initialization
+
+@property (nonatomic, strong) NSSet *previousTouches;
 
 #pragma mark Creating Events
 
@@ -49,31 +50,7 @@
 
 @end
 
-@implementation SLSUIRunnerView
-
-- (instancetype)initWithFrame:(CGRect)frame {
-  self = [super initWithFrame:frame];
-  if (self) {
-    _runnerLayer = [SLSCoreGraphicsLayer layer];
-    _runnerLayer.contentsScale = [UIScreen mainScreen].scale;
-    [self.layer addSublayer:_runnerLayer];
-  }
-  return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)coder {
-  self = [super initWithCoder:coder];
-  if (self) {
-    _runnerLayer = [SLSCoreGraphicsLayer layer];
-    _runnerLayer.contentsScale = [UIScreen mainScreen].scale;
-    [self.layer addSublayer:_runnerLayer];
-  }
-  return self;
-}
-
-- (BOOL)isOpaque {
-  return NO;
-}
+@implementation SLSUIEventView
 
 - (BOOL)isFlipped {
   return YES;
@@ -81,12 +58,6 @@
 
 - (BOOL)acceptsFirstResponder {
   return YES;
-}
-
-- (void)layoutSublayersOfLayer:(CALayer *)layer {
-  if (layer == self.layer) {
-    _runnerLayer.frame = self.bounds;
-  }
 }
 
 #pragma mark Responding to Events

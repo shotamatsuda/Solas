@@ -26,13 +26,14 @@
 
 #import "SLSNSRunnerWindowController.h"
 
+#import "SLSEventSource.h"
+#import "SLSDisplaySource.h"
 #import "SLSNSBundle+Bundle.h"
-#import "SLSNSRunnerView.h"
 #import "SLSRunner.h"
 
 @interface SLSNSRunnerWindowController ()
 
-@property (nonatomic, strong) IBOutlet SLSNSRunnerView *runnerView;
+@property (nonatomic, strong) IBOutlet NSView *contentView;
 
 @end
 
@@ -56,8 +57,12 @@
 - (void)windowDidLoad {
   [super windowDidLoad];
   self.window.backgroundColor = [NSColor whiteColor];
-  _runnerView.eventDelegate = _runner;
-  _runnerView.runnerLayer.displayDelegate = _runner;
+  NSAssert([_contentView conformsToProtocol:@protocol(SLSEventSource)], @"");
+  NSAssert([_contentView conformsToProtocol:@protocol(SLSDisplaySource)], @"");
+  _eventSource = (id<SLSEventSource>)_contentView;
+  _displaySource = (id<SLSDisplaySource>)_contentView;
+  _eventSource.eventDelegate = _runner;
+  _displaySource.displayDelegate = _runner;
 }
 
 #pragma mark Managing the Runner
@@ -65,8 +70,8 @@
 - (void)setRunner:(SLSRunner *)runner {
   if (runner != _runner) {
     _runner = runner;
-    _runnerView.eventDelegate = _runner;
-    _runnerView.runnerLayer.displayDelegate = _runner;
+    _eventSource.eventDelegate = _runner;
+    _displaySource.displayDelegate = _runner;
   }
 }
 
