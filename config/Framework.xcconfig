@@ -33,5 +33,5 @@ GCC_PREPROCESSOR_DEFINITIONS = $(inherited) __ASSERT_MACROS_DEFINE_VERSIONS_WITH
 OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names
 
 // Product Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc"
+HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/nanovg/src"
 LIBRARY_SEARCH_PATHS = $(inherited)

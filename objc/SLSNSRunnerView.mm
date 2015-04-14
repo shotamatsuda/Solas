@@ -28,7 +28,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-#import "SLSEvents.h"
+#import "SLSOpenGLLayer.h"
 #import "SLSRunnerLayer.h"
 
 #include <cstdint>
@@ -85,7 +85,7 @@
 }
 
 - (CALayer *)makeBackingLayer {
-  _runnerLayer = [SLSRunnerLayer layer];
+  _runnerLayer = [SLSOpenGLLayer layer];
   return _runnerLayer;
 }
 

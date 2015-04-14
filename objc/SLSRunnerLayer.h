@@ -29,7 +29,7 @@
 
 #import "SLSDisplayDelegate.h"
 
-@interface SLSRunnerLayer : CALayer
+@protocol SLSRunnerLayer <NSObject>
 
 #pragma mark Controlling Loop
 

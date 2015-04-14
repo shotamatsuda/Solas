@@ -24,23 +24,16 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import <UIKit/UIKit.h>
 
 #import "SLSEventDelegate.h"
 #import "SLSRunnerLayer.h"
 
-#ifdef __cplusplus
-
-#include "solas/app/gesture_event.h"
-#include "solas/app/motion_event.h"
-#include "solas/app/touch_event.h"
-
-#endif  // __cplusplus
-
 @interface SLSUIRunnerView : UIView
 
 @property (nonatomic, strong, readonly) NSSet *previousTouches;
-@property (nonatomic, strong) SLSRunnerLayer *runnerLayer;
+@property (nonatomic, strong) CALayer<SLSRunnerLayer> *runnerLayer;
 
 #pragma mark Notifying Events to the Delegate
 

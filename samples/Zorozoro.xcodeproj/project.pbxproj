@@ -473,7 +473,7 @@
 				);
 				INFOPLIST_FILE = "Info-OSX.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Zorozoro;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src";
 			};
 			name = Debug;
@@ -488,7 +488,7 @@
 				);
 				INFOPLIST_FILE = "Info-OSX.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Zorozoro;
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src";
 			};
 			name = Release;

@@ -28,8 +28,8 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+#import "SLSCoreGraphicsLayer.h"
 #import "SLSEvents.h"
-#import "SLSRunnerLayer.h"
 
 #include <utility>
 
@@ -54,7 +54,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
-    _runnerLayer = [SLSRunnerLayer layer];
+    _runnerLayer = [SLSCoreGraphicsLayer layer];
     _runnerLayer.contentsScale = [UIScreen mainScreen].scale;
     [self.layer addSublayer:_runnerLayer];
   }
@@ -64,7 +64,7 @@
 - (instancetype)initWithCoder:(NSCoder *)coder {
   self = [super initWithCoder:coder];
   if (self) {
-    _runnerLayer = [SLSRunnerLayer layer];
+    _runnerLayer = [SLSCoreGraphicsLayer layer];
     _runnerLayer.contentsScale = [UIScreen mainScreen].scale;
     [self.layer addSublayer:_runnerLayer];
   }

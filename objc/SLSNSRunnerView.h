@@ -25,6 +25,7 @@
 //
 
 #import <AppKit/AppKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 #import "SLSEventDelegate.h"
 #import "SLSRunnerLayer.h"
@@ -42,7 +43,7 @@
 
 @property (nonatomic, assign, readonly) CGPoint previousMouseLocation;
 @property (nonatomic, strong, readonly) NSSet *previousTouches;
-@property (nonatomic, strong) SLSRunnerLayer *runnerLayer;
+@property (nonatomic, strong) CALayer<SLSRunnerLayer> *runnerLayer;
 
 #pragma mark Controlling Loop
 

@@ -25,8 +25,37 @@
 //
 
 #include "solas/app.h"
-#include "sketch.h"
+
+//#include <OpenGL/gl.h>
+#include <OpenGLES/ES3/gl.h>
+#include "nanovg.h"
+//#define NANOVG_GL2_IMPLEMENTATION
+#define NANOVG_GLES3_IMPLEMENTATION
+#include "nanovg_gl.h"
+
+class App : public solas::app::Runnable {
+ public:
+  void setup() {
+//    vg = nvgCreateGL2(NVG_ANTIALIAS | NVG_STENCIL_STROKES | NVG_DEBUG);
+    vg = nvgCreateGLES3(NVG_ANTIALIAS | NVG_STENCIL_STROKES | NVG_DEBUG);
+  }
+
+  void draw(const solas::app::AppEvent& event) {
+    glClearColor(1.0, 1.0, 1.0, 1.0);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    nvgBeginFrame(vg, event.size.width, event.size.height,
+                  event.size.width / event.size.height);
+    nvgBeginPath(vg);
+    nvgEllipse(vg, 200, 200, 100, 100);
+    nvgStrokeColor(vg, nvgRGB(0,0,0));
+    nvgStrokeWidth(vg, 5);
+    nvgStroke(vg);
+    nvgEndFrame(vg);
+  }
+
+  NVGcontext *vg;
+};
 
 int main(int argc, char **argv) {
-  return solas::app::Run<zorozoro::Sketch>(argc, argv);
+  return solas::app::Run<App>(argc, argv);
 }

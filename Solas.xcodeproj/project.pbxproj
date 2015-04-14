@@ -60,6 +60,16 @@
 		934FAAB21AD6E29200FACF2E /* layer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934FAAAF1AD6E29200FACF2E /* layer.cc */; };
 		934FAAB31AD6E29200FACF2E /* layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 934FAAB01AD6E29200FACF2E /* layer.h */; };
 		934FAAB41AD6E29200FACF2E /* layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 934FAAB01AD6E29200FACF2E /* layer.h */; };
+		937E138B1ADBDDD3008DB7A7 /* nanovg.c in Sources */ = {isa = PBXBuildFile; fileRef = 937E13851ADBDD8F008DB7A7 /* nanovg.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		937E138C1ADBDDD3008DB7A7 /* nanovg.c in Sources */ = {isa = PBXBuildFile; fileRef = 937E13851ADBDD8F008DB7A7 /* nanovg.c */; settings = {COMPILER_FLAGS = "-w"; }; };
+		937E138F1ADBDE30008DB7A7 /* SLSOpenGLLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 937E138D1ADBDE30008DB7A7 /* SLSOpenGLLayer.h */; };
+		937E13911ADBDE30008DB7A7 /* SLSOpenGLLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 937E138E1ADBDE30008DB7A7 /* SLSOpenGLLayer.mm */; };
+		937E13951ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 937E13931ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.h */; };
+		937E13961ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 937E13931ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.h */; };
+		937E13971ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 937E13941ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.mm */; };
+		937E13981ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 937E13941ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.mm */; };
+		937E13B51ADBEA65008DB7A7 /* SLSUIEAGLRunnerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 937E13B31ADBEA65008DB7A7 /* SLSUIEAGLRunnerView.h */; };
+		937E13B61ADBEA65008DB7A7 /* SLSUIEAGLRunnerView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 937E13B41ADBEA65008DB7A7 /* SLSUIEAGLRunnerView.mm */; };
 		938987DC1AD4AA0900DEC9E9 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B351AD0D23700969DC2 /* boost.framework */; };
 		938A07ED1AB2D7E700CAE8CA /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E913581AB27DE400DDF7F9 /* Solas.framework */; };
 		939E963E1AD250AF00A7E21E /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
@@ -68,8 +78,6 @@
 		939E96411AD250AF00A7E21E /* runner_factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E963B1AD250AF00A7E21E /* runner_factory.h */; };
 		939E96811AD384C500A7E21E /* SLSRunnerLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E967F1AD384C500A7E21E /* SLSRunnerLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		939E96821AD384C500A7E21E /* SLSRunnerLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E967F1AD384C500A7E21E /* SLSRunnerLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		939E96831AD384C500A7E21E /* SLSRunnerLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 939E96801AD384C500A7E21E /* SLSRunnerLayer.mm */; };
-		939E96841AD384C500A7E21E /* SLSRunnerLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 939E96801AD384C500A7E21E /* SLSRunnerLayer.mm */; };
 		939E96861AD3864600A7E21E /* SLSCADisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 939E96851AD3864600A7E21E /* SLSCADisplayLink.m */; };
 		939E968A1AD391F800A7E21E /* SLSCVDisplayLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 938987D71AD21F2000DEC9E9 /* SLSCVDisplayLink.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		93A45B271AD0CE1E00969DC2 /* null_mutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E701ACEAF05008D27EA /* null_mutex.h */; };
@@ -286,6 +294,19 @@
 		934FAAB01AD6E29200FACF2E /* layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = layer.h; sourceTree = "<group>"; };
 		934FAABC1AD6EB6700FACF2E /* input.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = input.h; sourceTree = "<group>"; };
 		934FAABE1AD6EE4100FACF2E /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		937E13841ADBDD8F008DB7A7 /* fontstash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fontstash.h; sourceTree = "<group>"; };
+		937E13851ADBDD8F008DB7A7 /* nanovg.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = nanovg.c; sourceTree = "<group>"; };
+		937E13861ADBDD8F008DB7A7 /* nanovg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nanovg.h; sourceTree = "<group>"; };
+		937E13871ADBDD8F008DB7A7 /* nanovg_gl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nanovg_gl.h; sourceTree = "<group>"; };
+		937E13881ADBDD8F008DB7A7 /* nanovg_gl_utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nanovg_gl_utils.h; sourceTree = "<group>"; };
+		937E13891ADBDD8F008DB7A7 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
+		937E138A1ADBDD8F008DB7A7 /* stb_truetype.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_truetype.h; sourceTree = "<group>"; };
+		937E138D1ADBDE30008DB7A7 /* SLSOpenGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSOpenGLLayer.h; sourceTree = "<group>"; };
+		937E138E1ADBDE30008DB7A7 /* SLSOpenGLLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSOpenGLLayer.mm; sourceTree = "<group>"; };
+		937E13931ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSCoreGraphicsLayer.h; sourceTree = "<group>"; };
+		937E13941ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSCoreGraphicsLayer.mm; sourceTree = "<group>"; };
+		937E13B31ADBEA65008DB7A7 /* SLSUIEAGLRunnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIEAGLRunnerView.h; sourceTree = "<group>"; };
+		937E13B41ADBEA65008DB7A7 /* SLSUIEAGLRunnerView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIEAGLRunnerView.mm; sourceTree = "<group>"; };
 		938987C61AD1B93F00DEC9E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		938987D61AD21F2000DEC9E9 /* SLSDisplayLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDisplayLink.h; sourceTree = "<group>"; };
 		938987D71AD21F2000DEC9E9 /* SLSCVDisplayLink.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSCVDisplayLink.mm; sourceTree = "<group>"; };
@@ -295,7 +316,6 @@
 		939E963A1AD250AF00A7E21E /* runner_factory.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = runner_factory.cc; sourceTree = "<group>"; };
 		939E963B1AD250AF00A7E21E /* runner_factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = runner_factory.h; sourceTree = "<group>"; };
 		939E967F1AD384C500A7E21E /* SLSRunnerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSRunnerLayer.h; sourceTree = "<group>"; };
-		939E96801AD384C500A7E21E /* SLSRunnerLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSRunnerLayer.mm; sourceTree = "<group>"; };
 		939E96851AD3864600A7E21E /* SLSCADisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSCADisplayLink.m; sourceTree = "<group>"; };
 		939E96891AD38BB300A7E21E /* SLSDisplayDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSDisplayDelegate.h; sourceTree = "<group>"; };
 		93A45B351AD0D23700969DC2 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/osx/framework/boost.framework; sourceTree = "<group>"; };
@@ -503,6 +523,8 @@
 			children = (
 				93229E8A1AD23BB4008D27EA /* SLSUIRunnerView.h */,
 				93229E8B1AD23BB4008D27EA /* SLSUIRunnerView.mm */,
+				937E13B31ADBEA65008DB7A7 /* SLSUIEAGLRunnerView.h */,
+				937E13B41ADBEA65008DB7A7 /* SLSUIEAGLRunnerView.mm */,
 				93FEF9401AD941EA009D0646 /* SLSUIGraphicsContext.m */,
 				939E96851AD3864600A7E21E /* SLSCADisplayLink.m */,
 				93229ED01AD2428D008D27EA /* SLSUIRunnerViewController.h */,
@@ -533,6 +555,28 @@
 				933803371AD8C72400F41F92 /* event.h */,
 			);
 			path = processing;
+			sourceTree = "<group>";
+		};
+		937E135B1ADBDD8F008DB7A7 /* nanovg */ = {
+			isa = PBXGroup;
+			children = (
+				937E13831ADBDD8F008DB7A7 /* src */,
+			);
+			path = nanovg;
+			sourceTree = "<group>";
+		};
+		937E13831ADBDD8F008DB7A7 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				937E13841ADBDD8F008DB7A7 /* fontstash.h */,
+				937E13851ADBDD8F008DB7A7 /* nanovg.c */,
+				937E13861ADBDD8F008DB7A7 /* nanovg.h */,
+				937E13871ADBDD8F008DB7A7 /* nanovg_gl.h */,
+				937E13881ADBDD8F008DB7A7 /* nanovg_gl_utils.h */,
+				937E13891ADBDD8F008DB7A7 /* stb_image.h */,
+				937E138A1ADBDD8F008DB7A7 /* stb_truetype.h */,
+			);
+			path = src;
 			sourceTree = "<group>";
 		};
 		938987CF1AD1BA3600DEC9E9 /* app */ = {
@@ -614,6 +658,7 @@
 			isa = PBXGroup;
 			children = (
 				93BE2F4D1ADA29A500175565 /* aqsis */,
+				937E135B1ADBDD8F008DB7A7 /* nanovg */,
 			);
 			name = "Contributed Sources";
 			path = lib;
@@ -705,7 +750,10 @@
 				93CAA60A1AD191DC005EDC09 /* SLSRunner.h */,
 				93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */,
 				939E967F1AD384C500A7E21E /* SLSRunnerLayer.h */,
-				939E96801AD384C500A7E21E /* SLSRunnerLayer.mm */,
+				937E138D1ADBDE30008DB7A7 /* SLSOpenGLLayer.h */,
+				937E138E1ADBDE30008DB7A7 /* SLSOpenGLLayer.mm */,
+				937E13931ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.h */,
+				937E13941ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.mm */,
 				93FEF9441AD94669009D0646 /* SLSDefines.h */,
 				93A45B5E1AD14DC200969DC2 /* SLSEvents.h */,
 				93A45B5F1AD1546300969DC2 /* SLSEventDelegate.h */,
@@ -862,6 +910,7 @@
 				93E913EC1AB2811500DDF7F9 /* math.h in Headers */,
 				93CAA6361AD1A2A5005EDC09 /* SLSNSApplicationDelegate.h in Headers */,
 				93BE2F6E1ADA2C8E00175565 /* improved.h in Headers */,
+				937E13951ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.h in Headers */,
 				934FAAAD1AD6E28700FACF2E /* sketch.h in Headers */,
 				93E913E41AB2811500DDF7F9 /* vector.h in Headers */,
 				93E913EA1AB2811500DDF7F9 /* vector4.h in Headers */,
@@ -881,6 +930,7 @@
 				93BE2F5E1ADA29A500175565 /* simplexnoise1234.h in Headers */,
 				93A45B561AD14C4400969DC2 /* key_event.h in Headers */,
 				93F38E911AB60972009E3626 /* thread.h in Headers */,
+				937E138F1ADBDE30008DB7A7 /* SLSOpenGLLayer.h in Headers */,
 				93E913E81AB2811500DDF7F9 /* vector3.h in Headers */,
 				93E913E21AB2811500DDF7F9 /* triangle.h in Headers */,
 				93E913DA1AB2811500DDF7F9 /* size3.h in Headers */,
@@ -933,6 +983,7 @@
 				93E913D51AB2811500DDF7F9 /* rect.h in Headers */,
 				93BE2F5F1ADA29A500175565 /* simplexnoise1234.h in Headers */,
 				933803241AD88BA800F41F92 /* style.h in Headers */,
+				937E13961ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.h in Headers */,
 				930D51EF1AD42B76006EEF1B /* color4.h in Headers */,
 				93E913D91AB2811500DDF7F9 /* size2.h in Headers */,
 				93FEF9A51AD97B31009D0646 /* SolasTouch.h in Headers */,
@@ -954,6 +1005,7 @@
 				93A45B551AD14C4400969DC2 /* gesture_event.h in Headers */,
 				93E913ED1AB2811500DDF7F9 /* math.h in Headers */,
 				933803361AD8B7EC00F41F92 /* core.h in Headers */,
+				937E13B51ADBEA65008DB7A7 /* SLSUIEAGLRunnerView.h in Headers */,
 				93BE2F691ADA2C5000175565 /* simplex.h in Headers */,
 				93E913E51AB2811500DDF7F9 /* vector.h in Headers */,
 				93E913EB1AB2811500DDF7F9 /* vector4.h in Headers */,
@@ -1154,7 +1206,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				939E96831AD384C500A7E21E /* SLSRunnerLayer.mm in Sources */,
 				93BE2F411ADA1A8100175565 /* shape.cc in Sources */,
 				93CAA6491AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */,
 				93CAA60E1AD191DC005EDC09 /* SLSRunner.mm in Sources */,
@@ -1165,6 +1216,7 @@
 				933803331AD8B7EC00F41F92 /* core.mm in Sources */,
 				93FEF93D1AD941AF009D0646 /* SLSNSGraphicsContext.m in Sources */,
 				93BE2F3C1ADA1A7500175565 /* path.cc in Sources */,
+				937E138B1ADBDDD3008DB7A7 /* nanovg.c in Sources */,
 				93A9C0081ACF59260081D3A0 /* SLSNSRunnerView.mm in Sources */,
 				939E963E1AD250AF00A7E21E /* runner_factory.cc in Sources */,
 				93BE2F721ADA32E800175565 /* segment.cc in Sources */,
@@ -1180,6 +1232,8 @@
 				931CCB8A1AD88A150047542F /* graphics.cc in Sources */,
 				93CAA6381AD1A2A5005EDC09 /* SLSNSApplicationDelegate.mm in Sources */,
 				93BE2F581ADA29A500175565 /* sdnoise1234.c in Sources */,
+				937E13971ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.mm in Sources */,
+				937E13911ADBDE30008DB7A7 /* SLSOpenGLLayer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1187,7 +1241,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				939E96841AD384C500A7E21E /* SLSRunnerLayer.mm in Sources */,
 				93BE2F421ADA1A8100175565 /* shape.cc in Sources */,
 				93229E911AD23DF3008D27EA /* SLSUIApplicationDelegate.mm in Sources */,
 				93CAA6551AD1AE32005EDC09 /* run.mm in Sources */,
@@ -1198,6 +1251,7 @@
 				933803341AD8B7EC00F41F92 /* core.mm in Sources */,
 				93229EC71AD2409E008D27EA /* SLSUIApplicationMain.mm in Sources */,
 				93BE2F3E1ADA1A7800175565 /* path.cc in Sources */,
+				937E138C1ADBDDD3008DB7A7 /* nanovg.c in Sources */,
 				939E96861AD3864600A7E21E /* SLSCADisplayLink.m in Sources */,
 				93F38E901AB60972009E3626 /* dispatch.mm in Sources */,
 				93BE2F731ADA32E800175565 /* segment.cc in Sources */,
@@ -1213,6 +1267,8 @@
 				93CAA64A1AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */,
 				93FEF9411AD941EA009D0646 /* SLSUIGraphicsContext.m in Sources */,
 				93BE2F591ADA29A500175565 /* sdnoise1234.c in Sources */,
+				937E13981ADBDEB9008DB7A7 /* SLSCoreGraphicsLayer.mm in Sources */,
+				937E13B61ADBEA65008DB7A7 /* SLSUIEAGLRunnerView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
