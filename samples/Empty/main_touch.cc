@@ -35,28 +35,25 @@
 class App : public solas::app::View {
  public:
   void setup() {
-    vg = nvgCreateGLES3(NVG_DEBUG);
+    context = nvgCreateGLES3(NVG_DEBUG);
   }
 
   void draw() {
     glClearColor(1.0, 1.0, 1.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    nvgBeginFrame(vg, width(), height(), width() / height());
-    for (int i = 0; i < 1; ++i) {
-      nvgBeginPath(vg);
-      nvgEllipse(vg, touch().x, touch().y, 50, 50);
-      if (touch_pressed()) {
-        nvgFillColor(vg, nvgRGB(0,0,0));
-        nvgFill(vg);
-      }
-      nvgStrokeColor(vg, nvgRGB(0,0,0));
-      nvgStrokeWidth(vg, 2);
-      nvgStroke(vg);
+    nvgBeginFrame(context, width(), height(), width() / height());
+    nvgStrokeColor(context, nvgRGBAf(0,0,0, 0.3));
+    nvgStrokeWidth(context, 1);
+    for (int i = 0; i < 1000; ++i) {
+      nvgBeginPath(context);
+      nvgMoveTo(context, random(width()), random(height()));
+      nvgLineTo(context, random(width()), random(height()));
+      nvgStroke(context);
     }
-    nvgEndFrame(vg);
+    nvgEndFrame(context);
   }
 
-  NVGcontext *vg;
+  NVGcontext *context;
 };
 
 int main(int argc, char **argv) {
