@@ -31,7 +31,7 @@
 #include "solas/app.h"
 #include "zorozoro.h"
 
-#include "Solas/Solas.h"
+#include "Solas.h"
 
 @interface ZorozoroSaverView ()
 

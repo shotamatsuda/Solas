@@ -603,7 +603,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = Zorozoro;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src $(PROJECT_DIR)/../lib/nanovg/src";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src $(PROJECT_DIR)/../objc $(PROJECT_DIR)/../lib/nanovg/src";
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Debug;
@@ -621,7 +621,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = Zorozoro;
 				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src $(PROJECT_DIR)/../lib/nanovg/src";
+				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src $(PROJECT_DIR)/../objc $(PROJECT_DIR)/../lib/nanovg/src";
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Release;
