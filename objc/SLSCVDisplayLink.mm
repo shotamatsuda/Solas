@@ -39,7 +39,8 @@
 
 @property (nonatomic, retain) id target;
 @property (nonatomic, assign) SEL selector;
-@property (nonatomic, assign) CVDisplayLinkRef displayLink;
+@property (nonatomic, assign) CVDisplayLinkRef link;
+@property (nonatomic, assign) BOOL counter;
 
 @end
 
@@ -56,7 +57,9 @@ static CVReturn DisplayLinkCallback(
     void *userInfo) {
   @autoreleasepool {
     SLSDisplayLink *self = (__bridge SLSDisplayLink *)userInfo;
-    [self.target performSelector:self.selector];
+    if ((self.counter = !self.counter)) {
+      [self.target performSelector:self.selector];
+    }
   }
   return kCVReturnSuccess;
 }
@@ -68,8 +71,8 @@ static CVReturn DisplayLinkCallback(
   if (self) {
     _target = [target retain];
     _selector = selector;
-    CVDisplayLinkCreateWithActiveCGDisplays(&_displayLink);
-    CVDisplayLinkSetOutputCallback(_displayLink, &DisplayLinkCallback,
+    CVDisplayLinkCreateWithActiveCGDisplays(&_link);
+    CVDisplayLinkSetOutputCallback(_link, &DisplayLinkCallback,
                                    (__bridge void *)self);
   }
   return self;
@@ -80,23 +83,23 @@ static CVReturn DisplayLinkCallback(
 }
 
 - (void)dealloc {
-  if (_displayLink) {
-    if (CVDisplayLinkIsRunning(_displayLink)) {
-      CVDisplayLinkStop(_displayLink);
+  if (_link) {
+    if (CVDisplayLinkIsRunning(_link)) {
+      CVDisplayLinkStop(_link);
     }
-    CVDisplayLinkRelease(_displayLink);
-    _displayLink = NULL;
+    CVDisplayLinkRelease(_link);
+    _link = NULL;
   }
   [_target release];
   [super dealloc];
 }
 
 - (void)start {
-  CVDisplayLinkStart(_displayLink);
+  CVDisplayLinkStart(_link);
 }
 
 - (void)stop {
-  CVDisplayLinkStop(_displayLink);
+  CVDisplayLinkStop(_link);
 }
 
 @end

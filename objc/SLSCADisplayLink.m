@@ -32,7 +32,7 @@
 
 @property (nonatomic, retain) id target;
 @property (nonatomic, assign) SEL selector;
-@property (nonatomic, strong) CADisplayLink *displayLink;
+@property (nonatomic, strong) CADisplayLink *link;
 
 @end
 
@@ -43,8 +43,8 @@
   if (self) {
     _target = target;
     _selector = selector;
-    _displayLink = [CADisplayLink displayLinkWithTarget:target
-                                               selector:selector];
+    _link = [CADisplayLink displayLinkWithTarget:target selector:selector];
+    _link.frameInterval = 1;
   }
   return self;
 }
@@ -58,13 +58,13 @@
 }
 
 - (void)start {
-  [_displayLink addToRunLoop:[NSRunLoop mainRunLoop]
-                     forMode:NSRunLoopCommonModes];
+  [_link addToRunLoop:[NSRunLoop mainRunLoop]
+              forMode:NSRunLoopCommonModes];
 }
 
 - (void)stop {
-  [_displayLink removeFromRunLoop:[NSRunLoop mainRunLoop]
-                          forMode:NSRunLoopCommonModes];
+  [_link removeFromRunLoop:[NSRunLoop mainRunLoop]
+                   forMode:NSRunLoopCommonModes];
 }
 
 @end

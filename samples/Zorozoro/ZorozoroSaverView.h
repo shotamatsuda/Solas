@@ -1,5 +1,5 @@
 //
-//  Framework.xcconfig
+//  ZorozoroSaverView.h
 //
 //  MIT License
 //
@@ -24,11 +24,8 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-// Configuration for Xcode 6.1
+#import <ScreenSaver/ScreenSaver.h>
 
-// Product Linking
-OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names
+@interface ZorozoroSaverView : ScreenSaverView
 
-// Product Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/nanovg/src"
-LIBRARY_SEARCH_PATHS = $(inherited)
+@end

@@ -35,7 +35,7 @@
   self = [super init];
   if (self) {
     self.needsDisplayOnBoundsChange = YES;
-    self.asynchronous = YES;
+    self.asynchronous = NO;
   }
   return self;
 }

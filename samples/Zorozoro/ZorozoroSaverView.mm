@@ -1,5 +1,5 @@
 //
-//  SLSNSView.m
+//  ZorozoroSaverView.m
 //
 //  MIT License
 //
@@ -24,67 +24,67 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSNSView.h"
+#import "ZorozoroSaverView.h"
 
-#import <QuartzCore/QuartzCore.h>
+#include <memory>
 
-#import "SLSCGLayer.h"
-#import "SLSDisplayDelegate.h"
-#import "SLSDisplaySource.h"
+#include "solas/app.h"
+#include "zorozoro.h"
 
-@interface SLSNSView ()
+#include "Solas/Solas.h"
+
+@interface ZorozoroSaverView ()
 
 #pragma mark Initialization
 
+@property (nonatomic, strong) SLSRunner *runner;
 @property (nonatomic, strong) CALayer<SLSDisplaySource> *displaySource;
 
 @end
 
-@implementation SLSNSView
+@implementation ZorozoroSaverView
 
-- (instancetype)initWithFrame:(CGRect)frame {
-  self = [super initWithFrame:frame];
+- (instancetype)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview {
+  self = [super initWithFrame:frame isPreview:isPreview];
   if (self) {
     self.wantsLayer = YES;
+    self.animationTimeInterval = 1.0 / 30.0;
+    _runner = [[SLSRunner alloc] initWithRunnable:
+        std::make_unique<solas::app::Runner>(
+            std::make_unique<zorozoro::Zorozoro>())];
     NSAssert([self.layer conformsToProtocol:@protocol(SLSDisplaySource)], @"");
     _displaySource = (CALayer<SLSDisplaySource> *)self.layer;
+    _displaySource.displayDelegate = _runner;
   }
   return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)coder {
-  self = [super initWithCoder:coder];
-  if (self) {
-    self.wantsLayer = YES;
-    NSAssert([self.layer conformsToProtocol:@protocol(SLSDisplaySource)], @"");
-    _displaySource = (CALayer<SLSDisplaySource> *)self.layer;
-  }
-  return self;
-}
-
-- (BOOL)isOpaque {
-  return NO;
 }
 
 - (CALayer *)makeBackingLayer {
-  NSAssert(NO, @"Subclass must implement makeBackingLayer");
-  return nil;  // Implement in subviews
+  return [SLSNSGLLayer layer];
 }
 
-#pragma mark Invalidating the Display Source
+- (void)startAnimation {
+  [super startAnimation];
+}
 
-- (void)setDisplaySourceNeedsDisplay {
+- (void)stopAnimation {
+  [super stopAnimation];
+}
+
+- (void)drawRect:(NSRect)rect {
+  [super drawRect:rect];
+}
+
+- (void)animateOneFrame {
   [_displaySource setDisplaySourceNeedsDisplay];
 }
 
-#pragma mark Managing the Delegate
-
-- (id<SLSDisplayDelegate>)displayDelegate {
-  return _displaySource.displayDelegate;
+- (BOOL)hasConfigureSheet {
+  return NO;
 }
 
-- (void)setDisplayDelegate:(id<SLSDisplayDelegate>)displayDelegate {
-  _displaySource.displayDelegate = displayDelegate;
+- (NSWindow*)configureSheet {
+  return nil;
 }
 
 @end

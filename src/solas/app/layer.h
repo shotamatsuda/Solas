@@ -70,6 +70,10 @@ class Layer : public Utilities {
   virtual const math::Vec2d& ptouch() const;
   virtual bool touch_pressed() const;
 
+  // Aggregation
+  Layer& parent();
+  const Layer& parent() const;
+
  protected:
   // Constructors
   Layer();
@@ -159,6 +163,18 @@ inline const math::Vec2d& Layer::ptouch() const {
 inline bool Layer::touch_pressed() const {
   assert(parent_);
   return parent_->touch_pressed();
+}
+
+#pragma mark Aggregation
+
+inline Layer& Layer::parent() {
+  assert(parent_);
+  return *parent_;
+}
+
+inline const Layer& Layer::parent() const {
+  assert(parent_);
+  return *parent_;
 }
 
 }  // namespace app

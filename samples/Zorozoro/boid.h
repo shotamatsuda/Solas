@@ -1,5 +1,5 @@
 //
-//  Framework.xcconfig
+//  boid.h
 //
 //  MIT License
 //
@@ -24,11 +24,40 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-// Configuration for Xcode 6.1
+#pragma once
 
-// Product Linking
-OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names
+#include <list>
+#include <memory>
 
-// Product Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/nanovg/src"
-LIBRARY_SEARCH_PATHS = $(inherited)
+#include "solas/app.h"
+#include "solas/math.h"
+
+namespace zorozoro {
+
+using solas::math::Vec2d;
+
+class Boid : public solas::app::Layer {
+ public:
+  explicit Boid(Layer *parent);
+  void flock(const std::list<std::unique_ptr<Boid>>& boids);
+  virtual void update();
+  virtual void draw() = 0;
+  virtual void wraparound(double insets);
+  Vec2d separate(const std::list<std::unique_ptr<Boid>>& boids);
+  Vec2d align(const std::list<std::unique_ptr<Boid>>& boids);
+  Vec2d cohere(const std::list<std::unique_ptr<Boid>>& boids);
+  Vec2d seek(const Vec2d& target);
+  Vec2d steer(const Vec2d& direction);
+
+ public:
+  Vec2d location;
+  Vec2d velocity;
+  Vec2d acceleration;
+  static constexpr double max_force = 0.03;
+  static constexpr double max_velocity = 2;
+  static constexpr double separation_distance = 45;
+  static constexpr double alignment_distance = 70;
+  static constexpr double cohesion_distance = 80;
+};
+
+}  // namespace zorozoro

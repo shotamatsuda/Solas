@@ -1,5 +1,5 @@
 //
-//  Framework.xcconfig
+//  zorozoro/zorozoro.cc
 //
 //  MIT License
 //
@@ -24,11 +24,45 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-// Configuration for Xcode 6.1
+#include "zorozoro.h"
 
-// Product Linking
-OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names
+#include <list>
+#include <memory>
+#include <utility>
 
-// Product Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/nanovg/src"
-LIBRARY_SEARCH_PATHS = $(inherited)
+#include "nanovg.h"
+#include "solas/app.h"
+
+#include "boid.h"
+#include "zoro.h"
+
+namespace zorozoro {
+
+void Zorozoro::setup() {
+  context = createContext();
+  boids.resize(width() * height() / 4000);
+  for (auto& boid : boids) {
+    boid = std::make_unique<Zoro>(this);
+    boid->location.x = random(width());
+    boid->location.y = random(height());
+  }
+}
+
+void Zorozoro::update() {
+  for (auto& boid : boids) {
+    boid->flock(boids);
+    boid->update();
+    boid->wraparound(insets);
+  }
+}
+
+void Zorozoro::draw() {
+  clearContext();
+  nvgBeginFrame(context, width(), height(), width() / height());
+  for (const auto& boid : boids) {
+    boid->draw();
+  }
+  nvgEndFrame(context);
+}
+
+}  // namespace zorozoro

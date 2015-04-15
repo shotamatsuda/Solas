@@ -1,9 +1,9 @@
 //
-//  Framework.xcconfig
+//  zorozor_osx.cc
 //
 //  MIT License
 //
-//  Copyright (C) 2014-2015 Shota Matsuda
+//  Copyright (C) 2015 Shota Matsuda
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -24,11 +24,23 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-// Configuration for Xcode 6.1
+#include "zorozoro.h"
 
-// Product Linking
-OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names
+#include <OpenGL/gl.h>
 
-// Product Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/nanovg/src"
-LIBRARY_SEARCH_PATHS = $(inherited)
+#define NANOVG_GL2_IMPLEMENTATION
+#include "nanovg.h"
+#include "nanovg_gl.h"
+
+namespace zorozoro {
+
+NVGcontext * Zorozoro::createContext() {
+  return nvgCreateGL2(0);
+}
+
+void Zorozoro::clearContext() {
+  glClearColor(1, 1, 1, 1);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+}  // namespace zorozoro

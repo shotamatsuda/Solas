@@ -1,5 +1,5 @@
 //
-//  Framework.xcconfig
+//  zorozoro/zorozoro.h
 //
 //  MIT License
 //
@@ -24,11 +24,30 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-// Configuration for Xcode 6.1
+#include <list>
+#include <memory>
 
-// Product Linking
-OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names
+#include "nanovg.h"
+#include "solas/app.h"
 
-// Product Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/nanovg/src"
-LIBRARY_SEARCH_PATHS = $(inherited)
+#include "boid.h"
+
+namespace zorozoro {
+
+class Zorozoro : public solas::app::View {
+ public:
+  void setup();
+  void update();
+  void draw();
+
+ private:
+  NVGcontext * createContext();
+  void clearContext();
+
+ public:
+  NVGcontext *context;
+  std::list<std::unique_ptr<Boid>> boids;
+  static constexpr double insets = 50;
+};
+
+}  // namespace zorozoro

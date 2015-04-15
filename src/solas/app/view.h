@@ -77,6 +77,10 @@ class View : public app::Runnable, public Layer {
   const math::Vec2d& ptouch() const override;
   bool touch_pressed() const override;
 
+  // Aggregation
+  Layer& parent() = delete;
+  const Layer& parent() const = delete;
+
  protected:
   // Lifecycle intended to be overriden
   void setup() override {}

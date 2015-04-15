@@ -1,5 +1,5 @@
 //
-//  main.mm
+//  spring.cc
 //
 //  MIT License
 //
@@ -24,84 +24,17 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include <iostream>
+#include "spring.h"
 
-#include "solas/app.h"
-#include "solas/processing.h"
+namespace zorozoro {
 
-namespace app {
+using solas::math::Vec2d;
 
-using namespace solas::processing;
-
-class Sketch : public solas::processing::Sketch {
- public:
-  void setup() {
-  }
-
-  void update() {
-  }
-
-  void draw() {
-    ellipse(mouse_x(), mouse_y(), 100, 100);
-  }
-
-  void post() {
-  }
-
-  void exit() {
-  }
-
-  void mousePressed() {
-  }
-
-  void mouseDragged() {
-  }
-
-  void mouseReleased() {
-  }
-
-  void mouseMoved() {
-  }
-
-  void mouseEntered() {
-  }
-
-  void mouseExited() {
-  }
-
-  void mouseWheel() {
-  }
-
-  void keyPressed() {
-  }
-
-  void keyReleased() {
-  }
-
-  void touchesBegan() {
-  }
-
-  void touchesMoved() {
-  }
-
-  void touchesCancelled() {
-  }
-
-  void touchesEnded() {
-  }
-
-  void motionBegan() {
-  }
-
-  void motionCancelled() {
-  }
-
-  void motionEnded() {
-  }
-};
-
-}  // namespace app
-
-int main(int argc, char **argv) {
-  return solas::app::Run<app::Sketch>(argc, argv);
+void Spring::update(const Vec2d& target) {
+  velocity += ((target - location) * stiffness + gravity) / mass;
+  velocity *= damping;
+  location += velocity;
+  location = target + (location - target).normalize() * length;
 }
+
+}  // namespace zorozoro

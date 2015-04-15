@@ -1,5 +1,5 @@
 //
-//  Framework.xcconfig
+//  main.cc
 //
 //  MIT License
 //
@@ -24,11 +24,8 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-// Configuration for Xcode 6.1
+#include "zorozoro.h"
 
-// Product Linking
-OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names
-
-// Product Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/nanovg/src"
-LIBRARY_SEARCH_PATHS = $(inherited)
+int main(int argc, char **argv) {
+  return solas::app::Run<zorozoro::Zorozoro>(argc, argv);
+}

@@ -1,5 +1,5 @@
 //
-//  Framework.xcconfig
+//  spring.h
 //
 //  MIT License
 //
@@ -24,11 +24,30 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-// Configuration for Xcode 6.1
+#pragma once
 
-// Product Linking
-OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names
+#include "solas/app.h"
+#include "solas/math.h"
 
-// Product Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/nanovg/src"
-LIBRARY_SEARCH_PATHS = $(inherited)
+namespace zorozoro {
+
+using solas::math::Vec2d;
+
+class Spring {
+ public:
+
+ public:
+  Spring() = default;
+  void update(const solas::math::Vec2d& target);
+
+ public:
+  Vec2d location;
+  Vec2d velocity;
+  Vec2d gravity;
+  double mass;
+  double length;
+  static constexpr double stiffness = 0.2;
+  static constexpr double damping = 0.83;
+};
+
+}  // namespace zorozoro

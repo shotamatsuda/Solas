@@ -1,9 +1,9 @@
 //
-//  main.mm
+//  zorozoro_ios.cc
 //
 //  MIT License
 //
-//  Copyright (C) 2014-2015 Shota Matsuda
+//  Copyright (C) 2015 Shota Matsuda
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -24,83 +24,23 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include <iostream>
+#include "zorozoro.h"
 
-#include "solas/app.h"
-#include "solas/processing.h"
+#include <OpenGLES/ES3/gl.h>
 
-namespace app {
+#define NANOVG_GLES3_IMPLEMENTATION
+#include "nanovg.h"
+#include "nanovg_gl.h"
 
-using namespace solas::processing;
+namespace zorozoro {
 
-class Sketch : public solas::processing::Sketch {
- public:
-  void setup() {
-  }
-
-  void update() {
-  }
-
-  void draw() {
-  }
-
-  void post() {
-  }
-
-  void exit() {
-  }
-
-  void mousePressed() {
-  }
-
-  void mouseDragged() {
-  }
-
-  void mouseReleased() {
-  }
-
-  void mouseMoved() {
-  }
-
-  void mouseEntered() {
-  }
-
-  void mouseExited() {
-  }
-
-  void mouseWheel() {
-  }
-
-  void keyPressed() {
-  }
-
-  void keyReleased() {
-  }
-
-  void touchesBegan() {
-  }
-
-  void touchesMoved() {
-  }
-
-  void touchesCancelled() {
-  }
-
-  void touchesEnded() {
-  }
-
-  void motionBegan() {
-  }
-
-  void motionCancelled() {
-  }
-
-  void motionEnded() {
-  }
-};
-
-}  // namespace app
-
-int main(int argc, char **argv) {
-  return solas::app::Run<app::Sketch>(argc, argv);
+NVGcontext * Zorozoro::createContext() {
+  return nvgCreateGLES3(0);
 }
+
+void Zorozoro::clearContext() {
+  glClearColor(1, 1, 1, 1);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+}
+
+}  // namespace zorozoro
