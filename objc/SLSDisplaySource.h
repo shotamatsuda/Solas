@@ -30,10 +30,9 @@
 
 @protocol SLSDisplaySource <NSObject>
 
-#pragma mark Controlling Loop
+#pragma mark Invalidating the Display Source
 
-- (void)startLoop;
-- (void)stopLoop;
+- (void)displayImmediately;
 
 #pragma mark Managing the Delegate
 

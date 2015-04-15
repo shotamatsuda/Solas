@@ -1,5 +1,5 @@
 //
-//  SLSCoreGraphicsLayer.mm
+//  SLSNSViewController.m
 //
 //  MIT License
 //
@@ -24,68 +24,68 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSCoreGraphicsLayer.h"
+#import "SLSNSViewController.h"
 
-#import <CoreGraphics/CoreGraphics.h>
-
+#import "SLSEventSource.h"
 #import "SLSDisplayLink.h"
-#import "SLSEvents.h"
+#import "SLSDisplaySource.h"
+#import "SLSRunner.h"
 
-#include "solas/app/app_event.h"
-#include "solas/math/size.h"
+@interface SLSNSViewController ()
 
-@interface SLSCoreGraphicsLayer ()
+#pragma mark Controlling Animation
 
 @property (nonatomic, strong) SLSDisplayLink *displayLink;
 
-- (void)setNeedsDisplayOnMainThread;
-
 @end
 
-@implementation SLSCoreGraphicsLayer
+@implementation SLSNSViewController
 
-- (instancetype)init {
+- (instancetype)initWithRunner:(SLSRunner *)runner {
   self = [super init];
   if (self) {
-    self.needsDisplayOnBoundsChange = YES;
-    self.drawsAsynchronously = YES;
-    self.actions = @{ @"contents" : [NSNull null] };
-    [self startLoop];
+    _runner = runner;
+    [self loadView];
+    // Configure event and display sources
+    NSAssert([self.view conformsToProtocol:@protocol(SLSEventSource)], @"");
+    NSAssert([self.view conformsToProtocol:@protocol(SLSDisplaySource)], @"");
+    _eventSource = (id<SLSEventSource>)self.view;
+    _displaySource = (id<SLSDisplaySource>)self.view;
+    _eventSource.eventDelegate = _runner;
+    _displaySource.displayDelegate = _runner;
+    [self startAnimation];
   }
   return self;
 }
 
-#pragma mark Controlling Loop
+- (void)loadView {
+  NSAssert(NO, @"Subclass must implement loadView");
+}
 
-- (void)startLoop {
+#pragma mark Managing the Runner
+
+- (void)setRunner:(SLSRunner *)runner {
+  if (runner != _runner) {
+    _runner = runner;
+    _eventSource.eventDelegate = _runner;
+    _displaySource.displayDelegate = _runner;
+  }
+}
+
+#pragma mark Controlling Animation
+
+- (void)startAnimation {
   if (!_displayLink) {
     _displayLink = [SLSDisplayLink
-        displayLinkWithTarget:self
-                     selector:@selector(setNeedsDisplayOnMainThread)];
+        displayLinkWithTarget:_displaySource
+                     selector:@selector(displayImmediately)];
   }
   [_displayLink start];
 }
 
-- (void)stopLoop {
+- (void)stopAnimation {
   if (_displayLink) {
     [_displayLink stop];
-  }
-}
-
-- (void)setNeedsDisplayOnMainThread {
-  [super performSelectorOnMainThread:@selector(setNeedsDisplay)
-                          withObject:self
-                       waitUntilDone:YES];
-}
-
-- (void)drawInContext:(CGContextRef)context {
-  const solas::app::AppEvent event(context, solas::math::Size2d(
-      self.bounds.size.width, self.bounds.size.height));
-  if ([_displayDelegate respondsToSelector:@selector(sender:update:)]) {
-    [_displayDelegate sender:self update:SLSAppEventMake(&event)];
-  }
-  if ([_displayDelegate respondsToSelector:@selector(sender:draw:)]) {
-    [_displayDelegate sender:self draw:SLSAppEventMake(&event)];
   }
 }
 

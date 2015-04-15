@@ -24,9 +24,9 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#define NANOVG_GLES2_IMPLEMENTATION
+#define NANOVG_GLES3_IMPLEMENTATION
 
-#include <OpenGLES/ES2/gl.h>
+#include <OpenGLES/ES3/gl.h>
 
 #include "nanovg.h"
 #include "nanovg_gl.h"
@@ -35,7 +35,25 @@
 class App : public solas::app::Sketch {
  public:
   void setup() {
-    vg = nvgCreateGLES2(NVG_ANTIALIAS | NVG_DEBUG);
+    vg = nvgCreateGLES3(NVG_DEBUG);
+  }
+
+  void draw() {
+    glClearColor(1.0, 1.0, 1.0, 1.0);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    nvgBeginFrame(vg, width(), height(), width() / height());
+    for (int i = 0; i < 1; ++i) {
+      nvgBeginPath(vg);
+      nvgEllipse(vg, touch().x, touch().y, 50, 50);
+      if (touch_pressed()) {
+        nvgFillColor(vg, nvgRGB(0,0,0));
+        nvgFill(vg);
+      }
+      nvgStrokeColor(vg, nvgRGB(0,0,0));
+      nvgStrokeWidth(vg, 2);
+      nvgStroke(vg);
+    }
+    nvgEndFrame(vg);
   }
 
   NVGcontext *vg;

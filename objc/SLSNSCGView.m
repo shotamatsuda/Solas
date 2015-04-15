@@ -1,5 +1,5 @@
 //
-//  SLSUIOpenGLESView.h
+//  SLSNSCGView.m
 //
 //  MIT License
 //
@@ -24,26 +24,14 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "SLSNSCGView.h"
 
-#import "SLSDisplayDelegate.h"
-#import "SLSDisplaySource.h"
-#import "SLSUIEventView.h"
+#import "SLSCGLayer.h"
 
-@class EAGLContext;
+@implementation SLSNSCGView
 
-@interface SLSUIOpenGLESView : SLSUIEventView <SLSDisplaySource>
-
-@property (nonatomic, strong, readonly) EAGLContext *context;
-@property (nonatomic, copy, readonly) NSDictionary *drawableProperties;
-
-#pragma mark Controlling Loop
-
-- (void)startLoop;
-- (void)stopLoop;
-
-#pragma mark Managing the Delegate
-
-@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
+- (CALayer *)makeBackingLayer {
+  return [SLSCGLayer layer];
+}
 
 @end

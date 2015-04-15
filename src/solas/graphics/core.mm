@@ -40,8 +40,6 @@
 
 #import <CoreGraphics/CoreGraphics.h>
 
-#import "SLSGraphicsContext.h"
-
 namespace solas {
 namespace graphics {
 namespace core {

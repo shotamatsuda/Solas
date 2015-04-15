@@ -63,11 +63,7 @@ class Sketch : public app::Runnable, public Layer {
 
   // Mouse
   const math::Vec2d& mouse() const override;
-  double mouse_x() const override;
-  double mouse_y() const override;
   const math::Vec2d& pmouse() const override;
-  double pmouse_x() const override;
-  double pmouse_y() const override;
   MouseButton mouse_button() const override;
   bool mouse_pressed() const override;
 
@@ -75,6 +71,11 @@ class Sketch : public app::Runnable, public Layer {
   char key() const override;
   std::uint32_t key_code() const override;
   bool key_pressed() const override;
+
+  // Touches
+  const math::Vec2d& touch() const override;
+  const math::Vec2d& ptouch() const override;
+  bool touch_pressed() const override;
 
  protected:
   // Lifecycle intended to be overriden
@@ -165,10 +166,10 @@ class Sketch : public app::Runnable, public Layer {
   double height_;
 
   // Mouse
-  math::Vec2d dmouse_;
-  math::Vec2d emouse_;
   math::Vec2d mouse_;
   math::Vec2d pmouse_;
+  math::Vec2d dmouse_;
+  math::Vec2d emouse_;
   MouseButton mouse_button_;
   bool mouse_pressed_;
 
@@ -176,6 +177,13 @@ class Sketch : public app::Runnable, public Layer {
   char key_;
   std::uint32_t key_code_;
   bool key_pressed_;
+
+  // Mouse
+  math::Vec2d touch_;
+  math::Vec2d ptouch_;
+  math::Vec2d dtouch_;
+  math::Vec2d etouch_;
+  bool touch_pressed_;
 };
 
 #pragma mark -
@@ -183,13 +191,12 @@ class Sketch : public app::Runnable, public Layer {
 inline Sketch::Sketch()
     : width_(),
       height_(),
-      mouse_(),
-      pmouse_(),
       mouse_button_(MouseButton::UNDEFINED),
       mouse_pressed_(),
       key_(),
       key_code_(),
-      key_pressed_() {}
+      key_pressed_(),
+      touch_pressed_() {}
 
 #pragma mark Structure
 
@@ -207,24 +214,8 @@ inline const math::Vec2d& Sketch::mouse() const {
   return mouse_;
 }
 
-inline double Sketch::mouse_x() const {
-  return mouse_.x;
-}
-
-inline double Sketch::mouse_y() const {
-  return mouse_.y;
-}
-
 inline const math::Vec2d& Sketch::pmouse() const {
   return pmouse_;
-}
-
-inline double Sketch::pmouse_x() const {
-  return pmouse_.x;
-}
-
-inline double Sketch::pmouse_y() const {
-  return pmouse_.y;
 }
 
 inline MouseButton Sketch::mouse_button() const {
@@ -247,6 +238,20 @@ inline std::uint32_t Sketch::key_code() const {
 
 inline bool Sketch::key_pressed() const {
   return key_pressed_;
+}
+
+#pragma mark Touches
+
+inline const math::Vec2d& Sketch::touch() const {
+  return touch_;
+}
+
+inline const math::Vec2d& Sketch::ptouch() const {
+  return ptouch_;
+}
+
+inline bool Sketch::touch_pressed() const {
+  return touch_pressed_;
 }
 
 #pragma mark Events
@@ -368,8 +373,10 @@ inline void Sketch::draw(const AppEvent& event) {
   width_ = event.size.width;
   height_ = event.size.height;
   pmouse_ = dmouse_;
+  ptouch_ = dtouch_;
   Runnable::draw(event);
   dmouse_ = mouse_;
+  dtouch_ = touch_;
   dequeueEvents();
 }
 

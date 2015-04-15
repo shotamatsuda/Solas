@@ -1,5 +1,5 @@
 //
-//  SLSUIEventView.mm
+//  SLSUIEventSourceView.mm
 //
 //  MIT License
 //
@@ -24,22 +24,22 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSUIEventView.h"
+#import "SLSUIEventSourceView.h"
 
 #import "SLSEvents.h"
 
 #include <utility>
+#include <vector>
 
 #include "solas/app/gesture_event.h"
 #include "solas/app/motion_event.h"
 #include "solas/app/touch_event.h"
 #include "solas/math/vector.h"
 
-@interface SLSUIEventView ()
-
-#pragma mark Initialization
-
-@property (nonatomic, strong) NSSet *previousTouches;
+@interface SLSUIEventSourceView () {
+ @private
+  std::vector<solas::math::Vec2d> _previousTouches;
+}
 
 #pragma mark Creating Events
 
@@ -50,7 +50,23 @@
 
 @end
 
-@implementation SLSUIEventView
+@implementation SLSUIEventSourceView
+
+- (instancetype)initWithFrame:(CGRect)frame {
+  self = [super initWithFrame:frame];
+  if (self) {
+    _internalContentsScaleFactor = 1.0;
+  }
+  return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)decoder {
+  self = [super initWithCoder:decoder];
+  if (self) {
+    _internalContentsScaleFactor = 1.0;
+  }
+  return self;
+}
 
 - (BOOL)isFlipped {
   return YES;
@@ -94,7 +110,15 @@
 
 - (solas::app::TouchEvent)touchEventWithEvent:(UIEvent *)event
     type:(solas::app::TouchEvent::Type)type {
-  return solas::app::TouchEvent();
+  CGFloat scale = self.internalContentsScaleFactor;
+  std::vector<solas::math::Vec2d> touches;
+  for (UITouch *touch in event.allTouches) {
+    CGPoint location = [touch locationInView:self];
+    touches.emplace_back(location.x * scale, location.y * scale);
+  }
+  const solas::app::TouchEvent touchEvent(type, touches, _previousTouches);
+  _previousTouches = touches;
+  return std::move(touchEvent);
 }
 
 - (solas::app::MotionEvent)motionEventWithEvent:(UIEvent *)event

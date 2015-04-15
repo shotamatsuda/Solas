@@ -1,5 +1,5 @@
 //
-//  SLSCADisplayLink.m
+//  SLSCGLayer.mm
 //
 //  MIT License
 //
@@ -24,47 +24,40 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSDisplayLink.h"
+#import "SLSCGLayer.h"
 
-#import <QuartzCore/QuartzCore.h>
+#include "solas/app/app_event.h"
+#include "solas/math/size.h"
 
-@interface SLSDisplayLink ()
+@implementation SLSCGLayer
 
-@property (nonatomic, retain) id target;
-@property (nonatomic, assign) SEL selector;
-@property (nonatomic, strong) CADisplayLink *displayLink;
-
-@end
-
-@implementation SLSDisplayLink
-
-- (instancetype)initWithTarget:(id)target selector:(SEL)selector {
+- (instancetype)init {
   self = [super init];
   if (self) {
-    _target = target;
-    _selector = selector;
-    _displayLink = [CADisplayLink displayLinkWithTarget:target
-                                               selector:selector];
+    self.needsDisplayOnBoundsChange = YES;
+    self.drawsAsynchronously = YES;
+    self.actions = @{ @"contents" : [NSNull null] };
   }
   return self;
 }
 
-+ (SLSDisplayLink *)displayLinkWithTarget:(id)target selector:(SEL)selector {
-  return [[self alloc] initWithTarget:target selector:selector];
+- (void)drawInContext:(CGContextRef)context {
+  const solas::app::AppEvent event(context, solas::math::Size2d(
+      self.bounds.size.width, self.bounds.size.height));
+  if ([_displayDelegate respondsToSelector:@selector(sender:update:)]) {
+    [_displayDelegate sender:self update:SLSAppEventMake(&event)];
+  }
+  if ([_displayDelegate respondsToSelector:@selector(sender:draw:)]) {
+    [_displayDelegate sender:self draw:SLSAppEventMake(&event)];
+  }
 }
 
-- (void)dealloc {
-  [self stop];
-}
+#pragma mark Invalidating the Display Source
 
-- (void)start {
-  [_displayLink addToRunLoop:[NSRunLoop mainRunLoop]
-                     forMode:NSRunLoopCommonModes];
-}
-
-- (void)stop {
-  [_displayLink removeFromRunLoop:[NSRunLoop mainRunLoop]
-                          forMode:NSRunLoopCommonModes];
+- (void)displayImmediately {
+  [self performSelectorOnMainThread:@selector(display)
+                         withObject:nil
+                      waitUntilDone:NO];
 }
 
 @end

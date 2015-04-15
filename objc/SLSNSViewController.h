@@ -1,5 +1,5 @@
 //
-//  SLSNSEventView.h
+//  SLSNSViewController.h
 //
 //  MIT License
 //
@@ -26,29 +26,22 @@
 
 #import <AppKit/AppKit.h>
 
-#import "SLSEventDelegate.h"
+#import "SLSAnimationSource.h"
+#import "SLSDisplaySource.h"
 #import "SLSEventSource.h"
+#import "SLSRunner.h"
 
-@interface SLSNSEventView : NSView <SLSEventSource>
+@interface SLSNSViewController : NSViewController <SLSAnimationSource>
 
-#pragma mark Notifying Events to the Delegate
+- (instancetype)initWithRunner:(SLSRunner *)runner;
 
-- (void)notifyMouseDownWithEvent:(id)event;
-- (void)notifyMouseDragWithEvent:(id)event;
-- (void)notifyMouseUpWithEvent:(id)event;
-- (void)notifyMouseMoveWithEvent:(id)event;
-- (void)notifyMouseEnterWithEvent:(id)event;
-- (void)notifyMouseExitWithEvent:(id)event;
-- (void)notifyScrollWheelWithEvent:(id)event;
-- (void)notifyKeyDownWithEvent:(id)event;
-- (void)notifyKeyUpWithEvent:(id)event;
-- (void)notifyTouchesBeginWithEvent:(id)event;
-- (void)notifyTouchesMoveWithEvent:(id)event;
-- (void)notifyTouchesCancelWithEvent:(id)event;
-- (void)notifyTouchesEndWithEvent:(id)event;
+#pragma mark Accessing Views
 
-#pragma mark Managing the Delegate
+@property (nonatomic, weak) id<SLSEventSource> eventSource;
+@property (nonatomic, weak) id<SLSDisplaySource> displaySource;
 
-@property (atomic, weak) id<SLSEventDelegate> eventDelegate;
+#pragma mark Managing the Runner
+
+@property (nonatomic, strong) SLSRunner *runner;
 
 @end

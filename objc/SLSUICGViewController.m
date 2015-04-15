@@ -1,7 +1,5 @@
 //
-//  SLSCoreGraphicsLayer.h
-//
-//  MIT License
+//  SLSUICGViewController.m
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
 //
@@ -24,21 +22,14 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-#import <QuartzCore/QuartzCore.h>
+#import "SLSUICGViewController.h"
 
-#import "SLSDisplayDelegate.h"
-#import "SLSDisplaySource.h"
+#import "SLSUICGView.h"
 
-@interface SLSCoreGraphicsLayer : CALayer <SLSDisplaySource>
+@implementation SLSUICGViewController
 
-#pragma mark Controlling Loop
-
-- (void)startLoop;
-- (void)stopLoop;
-
-#pragma mark Managing the Delegate
-
-@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
+- (void)loadView {
+  self.view = [[SLSUICGView alloc] init];
+}
 
 @end

@@ -36,9 +36,9 @@ namespace app {
 #pragma mark Event handlers
 
 void Sketch::handleMouseEvent(const MouseEvent& event) {
-  if (event.type == MouseEvent::Type::DRAG ||
-      event.type == MouseEvent::Type::MOVE ||
-      event.type == MouseEvent::Type::DOWN) {
+  if (event.type == MouseEvent::Type::DOWN ||
+      event.type == MouseEvent::Type::DRAG ||
+      event.type == MouseEvent::Type::MOVE) {
     pmouse_ = emouse_;
     mouse_ = event.location;
   }
@@ -98,6 +98,24 @@ void Sketch::handleKeyEvent(const KeyEvent& event) {
 }
 
 void Sketch::handleTouchEvent(const TouchEvent& event) {
+  if (event.type == TouchEvent::Type::BEGIN ||
+      event.type == TouchEvent::Type::MOVE) {
+    ptouch_ = etouch_;
+    touch_ = event.touches.front();
+  }
+  switch (event.type) {
+    case TouchEvent::Type::BEGIN:
+      touch_pressed_ = true;
+      break;
+    case TouchEvent::Type::END:
+      touch_pressed_ = false;
+      break;
+    default:
+      break;
+  }
+  if (event.type == TouchEvent::Type::MOVE) {
+    etouch_ = touch_;
+  }
   switch (event.type) {
     case TouchEvent::Type::BEGIN:
       touchesBegan(event);
@@ -121,7 +139,6 @@ void Sketch::handleGestureEvent(const GestureEvent& event) {
 }
 
 void Sketch::handleMotionEvent(const MotionEvent& event) {
-
   switch (event.type) {
     case MotionEvent::Type::BEGIN:
       motionBegan(event);

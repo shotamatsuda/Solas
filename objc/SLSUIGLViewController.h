@@ -1,5 +1,5 @@
 //
-//  SLSUIGraphicsContext.m
+//  SLSUIGLViewController.h
 //
 //  MIT License
 //
@@ -24,10 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSGraphicsContext.h"
-
 #import <UIKit/UIKit.h>
 
-CGContextRef SLSGraphicsGetCurrentContext(void) {
-  return UIGraphicsGetCurrentContext();
-}
+#import "SLSUIViewController.h"
+
+@interface SLSUIGLViewController : SLSUIViewController
+
+@end

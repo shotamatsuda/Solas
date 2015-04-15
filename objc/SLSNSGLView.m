@@ -1,5 +1,5 @@
 //
-//  SLSCADisplayLink.m
+//  SLSNSGLView.m
 //
 //  MIT License
 //
@@ -24,47 +24,14 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSDisplayLink.h"
+#import "SLSNSGLView.h"
 
-#import <QuartzCore/QuartzCore.h>
+#import "SLSNSGLLayer.h"
 
-@interface SLSDisplayLink ()
+@implementation SLSNSGLView
 
-@property (nonatomic, retain) id target;
-@property (nonatomic, assign) SEL selector;
-@property (nonatomic, strong) CADisplayLink *displayLink;
-
-@end
-
-@implementation SLSDisplayLink
-
-- (instancetype)initWithTarget:(id)target selector:(SEL)selector {
-  self = [super init];
-  if (self) {
-    _target = target;
-    _selector = selector;
-    _displayLink = [CADisplayLink displayLinkWithTarget:target
-                                               selector:selector];
-  }
-  return self;
-}
-
-+ (SLSDisplayLink *)displayLinkWithTarget:(id)target selector:(SEL)selector {
-  return [[self alloc] initWithTarget:target selector:selector];
-}
-
-- (void)dealloc {
-  [self stop];
-}
-
-- (void)start {
-  [_displayLink addToRunLoop:[NSRunLoop mainRunLoop]
-                     forMode:NSRunLoopCommonModes];
-}
-
-- (void)stop {
-  [_displayLink removeFromRunLoop:[NSRunLoop mainRunLoop]
-                          forMode:NSRunLoopCommonModes];
+- (CALayer *)makeBackingLayer {
+  return [SLSNSGLLayer layer];
 }
 
 @end

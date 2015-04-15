@@ -1,5 +1,5 @@
 //
-//  SLSNSGraphicsContext.m
+//  SLSUIViewController.h
 //
 //  MIT License
 //
@@ -24,10 +24,24 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSGraphicsContext.h"
+#import <UIKit/UIKit.h>
 
-#import <AppKit/AppKit.h>
+#import "SLSAnimationSource.h"
+#import "SLSDisplaySource.h"
+#import "SLSEventSource.h"
+#import "SLSRunner.h"
 
-CGContextRef SLSGraphicsGetCurrentContext() {
-  return [[NSGraphicsContext currentContext] graphicsPort];
-}
+@interface SLSUIViewController : UIViewController <SLSAnimationSource>
+
+- (instancetype)initWithRunner:(SLSRunner *)runner;
+
+#pragma mark Accessing Views
+
+@property (nonatomic, weak) id<SLSEventSource> eventSource;
+@property (nonatomic, weak) id<SLSDisplaySource> displaySource;
+
+#pragma mark Managing the Runner
+
+@property (nonatomic, strong) SLSRunner *runner;
+
+@end

@@ -43,9 +43,9 @@ class App : public solas::app::Sketch {
     glClearColor(1.0, 1.0, 1.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     nvgBeginFrame(vg, width(), height(), width() / height());
-    for (int i = 0; i < 5000; ++i) {
+    for (int i = 0; i < 1; ++i) {
       nvgBeginPath(vg);
-      nvgEllipse(vg, mouse_x() + solas::math::Random<>::Shared().uniform<int>(-100, 100), mouse_y() + solas::math::Random<>::Shared().uniform<int>(-100, 100), 10, 10);
+      nvgEllipse(vg, mouse().x, mouse().y, 10, 10);
       if (mouse_pressed()) {
         nvgFillColor(vg, nvgRGB(0,0,0));
         nvgFill(vg);

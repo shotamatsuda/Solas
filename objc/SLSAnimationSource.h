@@ -1,5 +1,5 @@
-//
-//  SLSCADisplayLink.m
+
+//  SLSAnimationSource.h
 //
 //  MIT License
 //
@@ -24,47 +24,13 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSDisplayLink.h"
+#import <Foundation/Foundation.h>
 
-#import <QuartzCore/QuartzCore.h>
+@protocol SLSAnimationSource <NSObject>
 
-@interface SLSDisplayLink ()
+#pragma mark Controlling Animation
 
-@property (nonatomic, retain) id target;
-@property (nonatomic, assign) SEL selector;
-@property (nonatomic, strong) CADisplayLink *displayLink;
-
-@end
-
-@implementation SLSDisplayLink
-
-- (instancetype)initWithTarget:(id)target selector:(SEL)selector {
-  self = [super init];
-  if (self) {
-    _target = target;
-    _selector = selector;
-    _displayLink = [CADisplayLink displayLinkWithTarget:target
-                                               selector:selector];
-  }
-  return self;
-}
-
-+ (SLSDisplayLink *)displayLinkWithTarget:(id)target selector:(SEL)selector {
-  return [[self alloc] initWithTarget:target selector:selector];
-}
-
-- (void)dealloc {
-  [self stop];
-}
-
-- (void)start {
-  [_displayLink addToRunLoop:[NSRunLoop mainRunLoop]
-                     forMode:NSRunLoopCommonModes];
-}
-
-- (void)stop {
-  [_displayLink removeFromRunLoop:[NSRunLoop mainRunLoop]
-                          forMode:NSRunLoopCommonModes];
-}
+- (void)startAnimation;
+- (void)stopAnimation;
 
 @end

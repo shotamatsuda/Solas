@@ -1,5 +1,5 @@
 //
-//  SLSNSOpenGLView.h
+//  SLSUICGView.h
 //
 //  MIT License
 //
@@ -24,21 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <AppKit/AppKit.h>
+#import <UIKit/UIKit.h>
 
-#import "SLSDisplayDelegate.h"
-#import "SLSDisplaySource.h"
-#import "SLSNSEventView.h"
+#import "SLSUIView.h"
 
-@interface SLSNSOpenGLView : SLSNSEventView <SLSDisplaySource>
-
-#pragma mark Controlling Loop
-
-- (void)startLoop;
-- (void)stopLoop;
-
-#pragma mark Managing the Delegate
-
-@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
+@interface SLSUICGView : SLSUIView
 
 @end

@@ -28,6 +28,8 @@
 #ifndef SOLAS_APP_TOUCH_EVENT_H_
 #define SOLAS_APP_TOUCH_EVENT_H_
 
+#include "solas/math/vector.h"
+
 namespace solas {
 namespace app {
 
@@ -44,6 +46,9 @@ class TouchEvent final {
  public:
   // Constructors
   TouchEvent();
+  TouchEvent(Type type,
+             const std::vector<math::Vec2d>& touches,
+             const std::vector<math::Vec2d>& previous_touches);
 
   // Copy and move
   TouchEvent(const TouchEvent& other) = default;
@@ -60,12 +65,22 @@ class TouchEvent final {
 
  public:
   const Type type;
+  const std::vector<math::Vec2d> touches;
+  const std::vector<math::Vec2d> previous_touches;
 };
 
 #pragma mark -
 
 inline TouchEvent::TouchEvent()
     : type(Type::UNDEFINED) {}
+
+inline TouchEvent::TouchEvent(
+    Type type,
+    const std::vector<math::Vec2d>& touches,
+    const std::vector<math::Vec2d>& previous_touches)
+    : type(type),
+      touches(touches),
+      previous_touches(previous_touches) {}
 
 }  // namespace app
 }  // namespace solas

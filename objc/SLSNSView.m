@@ -1,5 +1,5 @@
 //
-//  SLSNSOpenGLView.m
+//  SLSNSView.m
 //
 //  MIT License
 //
@@ -24,22 +24,25 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSNSOpenGLView.h"
+#import "SLSNSView.h"
 
 #import <QuartzCore/QuartzCore.h>
 
+#import "SLSCGLayer.h"
+#import "SLSDisplayDelegate.h"
 #import "SLSDisplaySource.h"
-#import "SLSOpenGLLayer.h"
 
-@interface SLSNSOpenGLView ()
+@interface SLSNSView ()
 
 #pragma mark Initialization
 
 @property (nonatomic, strong) CALayer<SLSDisplaySource> *displaySource;
 
+#pragma mark Window Notifications
+
 @end
 
-@implementation SLSNSOpenGLView
+@implementation SLSNSView
 
 - (instancetype)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
@@ -61,22 +64,19 @@
   return self;
 }
 
-- (CALayer *)makeBackingLayer {
-  return [SLSOpenGLLayer layer];
-}
-
 - (BOOL)isOpaque {
   return NO;
 }
 
-#pragma mark Controlling Loop
-
-- (void)startLoop {
-  [_displaySource startLoop];
+- (CALayer *)makeBackingLayer {
+  NSAssert(NO, @"Subclass must implement makeBackingLayer");
+  return nil;  // Implement in subviews
 }
 
-- (void)stopLoop {
-  [_displaySource stopLoop];
+#pragma mark Invalidating the Display Source
+
+- (void)displayImmediately {
+  [_displaySource displayImmediately];
 }
 
 #pragma mark Managing the Delegate

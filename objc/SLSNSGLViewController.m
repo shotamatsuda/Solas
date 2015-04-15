@@ -1,7 +1,5 @@
 //
-//  SLSOpenGLLayer.h
-//
-//  MIT License
+//  SLSNSGLViewController.m
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
 //
@@ -24,21 +22,14 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-#import <QuartzCore/QuartzCore.h>
+#import "SLSNSGLViewController.h"
 
-#import "SLSDisplayDelegate.h"
-#import "SLSDisplaySource.h"
+#import "SLSNSGLView.h"
 
-@interface SLSOpenGLLayer : CAOpenGLLayer <SLSDisplaySource>
+@implementation SLSNSGLViewController
 
-#pragma mark Controlling Loop
-
-- (void)startLoop;
-- (void)stopLoop;
-
-#pragma mark Managing the Delegate
-
-@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
+- (void)loadView {
+  self.view = [[SLSNSGLView alloc] init];
+}
 
 @end

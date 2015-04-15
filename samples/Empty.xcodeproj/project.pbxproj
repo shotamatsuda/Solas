@@ -134,6 +134,31 @@
 			path = Zorozoro;
 			sourceTree = "<group>";
 		};
+		93D73DB51ADD560F003F9A7A /* System Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93D73DB71ADD5618003F9A7A /* OS X */,
+				93D73DB81ADD561E003F9A7A /* iOS */,
+			);
+			name = "System Frameworks";
+			sourceTree = "<group>";
+		};
+		93D73DB71ADD5618003F9A7A /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				937E13BE1ADBF350008DB7A7 /* OpenGL.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+		93D73DB81ADD561E003F9A7A /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				937E13BC1ADBF34B008DB7A7 /* OpenGLES.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		93EBABD11AD98A4C00BF8959 /* OS X */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,12 +188,11 @@
 		93FEF9451AD97263009D0646 = {
 			isa = PBXGroup;
 			children = (
-				937E13BE1ADBF350008DB7A7 /* OpenGL.framework */,
-				937E13BC1ADBF34B008DB7A7 /* OpenGLES.framework */,
 				93FEF9501AD97263009D0646 /* Source */,
 				93FEF9751AD972AA009D0646 /* Configurations */,
 				934D39DD1ADBBC8C002AD78F /* Supporting Files */,
 				93EBABD41AD98A4C00BF8959 /* Linked Frameworks */,
+				93D73DB51ADD560F003F9A7A /* System Frameworks */,
 				93FEF94F1AD97263009D0646 /* Products */,
 				93FEF9761AD972E8009D0646 /* Solas.xcodeproj */,
 			);

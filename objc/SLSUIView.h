@@ -1,5 +1,5 @@
 //
-//  SLSUICoreGraphicsView.h
+//  SLSUIView.h
 //
 //  MIT License
 //
@@ -26,16 +26,14 @@
 
 #import <UIKit/UIKit.h>
 
-#import "SLSDisplayDelegate.h"
 #import "SLSDisplaySource.h"
-#import "SLSUIEventView.h"
+#import "SLSUIEventSourceView.h"
 
-@interface SLSUICoreGraphicsView : SLSUIEventView <SLSDisplaySource>
+@interface SLSUIView : SLSUIEventSourceView <SLSDisplaySource>
 
-#pragma mark Controlling Loop
+#pragma mark Invalidating the Display Source
 
-- (void)startLoop;
-- (void)stopLoop;
+- (void)displayImmediately;
 
 #pragma mark Managing the Delegate
 

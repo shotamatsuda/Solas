@@ -1,5 +1,5 @@
 //
-//  SLSNSRunnerWindowController.m
+//  SLSNSWindowController.m
 //
 //  MIT License
 //
@@ -24,32 +24,19 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSNSRunnerWindowController.h"
+#import "SLSNSWindowController.h"
 
-#import "SLSEventSource.h"
-#import "SLSDisplaySource.h"
 #import "SLSNSBundle+Bundle.h"
-#import "SLSRunner.h"
+#import "SLSNSViewController.h"
 
-@interface SLSNSRunnerWindowController ()
+@implementation SLSNSWindowController
 
-@property (nonatomic, strong) IBOutlet NSView *contentView;
-
-@end
-
-@implementation SLSNSRunnerWindowController
-
-- (instancetype)init {
-  return [self initWithRunner:nil];
-}
-
-- (instancetype)initWithRunner:(SLSRunner *)runner {
-  NSBundle *bundle = [NSBundle solasBundle];
-  NSString *path = [bundle pathForResource:@"SLSNSRunnerWindowController"
-                                    ofType:@"nib"];
+- (instancetype)initWithViewController:(SLSNSViewController *)viewController {
+  NSString *path = [[NSBundle solasBundle]
+      pathForResource:@"SLSNSWindowController" ofType:@"nib"];
   self = [super initWithWindowNibPath:path owner:self];
   if (self) {
-    _runner = runner;
+    _viewController = viewController;
   }
   return self;
 }
@@ -57,22 +44,10 @@
 - (void)windowDidLoad {
   [super windowDidLoad];
   self.window.backgroundColor = [NSColor whiteColor];
-  NSAssert([_contentView conformsToProtocol:@protocol(SLSEventSource)], @"");
-  NSAssert([_contentView conformsToProtocol:@protocol(SLSDisplaySource)], @"");
-  _eventSource = (id<SLSEventSource>)_contentView;
-  _displaySource = (id<SLSDisplaySource>)_contentView;
-  _eventSource.eventDelegate = _runner;
-  _displaySource.displayDelegate = _runner;
-}
-
-#pragma mark Managing the Runner
-
-- (void)setRunner:(SLSRunner *)runner {
-  if (runner != _runner) {
-    _runner = runner;
-    _eventSource.eventDelegate = _runner;
-    _displaySource.displayDelegate = _runner;
-  }
+  NSView *view = _viewController.view;
+  view.frame = ((NSView *)self.window.contentView).frame;
+  view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+  [self.window.contentView addSubview:view];
 }
 
 @end

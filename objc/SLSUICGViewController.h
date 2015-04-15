@@ -1,7 +1,5 @@
 //
-//  SLSUIEventView.h
-//
-//  MIT License
+//  SLSUICGViewController.h
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
 //
@@ -26,23 +24,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "SLSEventDelegate.h"
-#import "SLSEventSource.h"
+#import "SLSUIViewController.h"
 
-@interface SLSUIEventView : UIView <SLSEventSource>
-
-#pragma mark Notifying Events to the Delegate
-
-- (void)notifyTouchesBeginWithEvent:(id)event;
-- (void)notifyTouchesMoveWithEvent:(id)event;
-- (void)notifyTouchesCancelWithEvent:(id)event;
-- (void)notifyTouchesEndWithEvent:(id)event;
-- (void)notifyMotionBeginWithEvent:(id)event;
-- (void)notifyMotionCancelWithEvent:(id)event;
-- (void)notifyMotionEndWithEvent:(id)event;
-
-#pragma mark Managing the Delegate
-
-@property (atomic, weak) id<SLSEventDelegate> eventDelegate;
+@interface SLSUICGViewController : SLSUIViewController
 
 @end

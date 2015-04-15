@@ -1,5 +1,5 @@
 //
-//  SLSGraphicsContext.h
+//  SLSUIGLViewController.m
 //
 //  MIT License
 //
@@ -24,8 +24,14 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <CoreGraphics/CoreGraphics.h>
+#import "SLSUIGLViewController.h"
 
-#import "SLSDefines.h"
+#import "SLSUIGLView.h"
 
-SLS_EXTERN CGContextRef SLSGraphicsGetCurrentContext(void);
+@implementation SLSUIGLViewController
+
+- (void)loadView {
+  self.view = [[SLSUIGLView alloc] init];
+}
+
+@end

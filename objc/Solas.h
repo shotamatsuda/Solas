@@ -39,6 +39,6 @@ FOUNDATION_EXPORT const unsigned char SolasVersionString[];
 #import "SLSNSApplicationDelegate.h"
 #import "SLSNSBundle+Bundle.h"
 #import "SLSNSRunnerView.h"
-#import "SLSNSRunnerWindowController.h"
+#import "SLSNSWindowController.h"
 #import "SLSRunner.h"
 #import "SLSRunnerLayer.h"

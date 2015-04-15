@@ -27,10 +27,10 @@
 #import "SLSNSApplicationDelegate.h"
 
 #import "SLSRunner.h"
-#import "SLSNSRunnerWindowController.h"
-
-#include <memory>
-#include <utility>
+#import "SLSNSCGViewController.h"
+#import "SLSNSGLViewController.h"
+#import "SLSNSViewController.h"
+#import "SLSNSWindowController.h"
 
 #include "solas/app/runner_factory.h"
 
@@ -39,7 +39,8 @@
   NSMutableArray *_windowControllers;
 }
 
-// Window Notifications
+#pragma mark Window Notifications
+
 - (void)windowWillClose:(NSNotification *)notification;
 
 @end
@@ -94,6 +95,24 @@
   }
 }
 
+#pragma mark Received Actions
+
+- (IBAction)newWindow:(id)sender {
+  SLSRunner *runner = [[SLSRunner alloc]
+      initWithRunnable:solas::app::RunnerFactory::Shared().create()];
+  SLSNSViewController *viewController =
+      [[SLSNSGLViewController alloc] initWithRunner:runner];
+  SLSNSWindowController *windowController =
+      [[SLSNSWindowController alloc] initWithViewController:viewController];
+  [[NSNotificationCenter defaultCenter]
+      addObserver:self
+         selector:@selector(windowWillClose:)
+             name:NSWindowWillCloseNotification
+           object:windowController.window];
+  [_windowControllers addObject:windowController];
+  [windowController showWindow:self];
+}
+
 #pragma mark NSUserInterfaceValidations
 
 - (BOOL)validateUserInterfaceItem:(id<NSValidatedUserInterfaceItem>)item {
@@ -103,22 +122,6 @@
     return options.multiple_windows();
   }
   return NO;
-}
-
-#pragma mark Received Actions
-
-- (IBAction)newWindow:(id)sender {
-  SLSRunner *runner = [[SLSRunner alloc]
-      initWithRunnable:solas::app::RunnerFactory::Shared().create()];
-  SLSNSRunnerWindowController *windowController =
-      [[SLSNSRunnerWindowController alloc] initWithRunner:runner];
-  [[NSNotificationCenter defaultCenter]
-      addObserver:self
-         selector:@selector(windowWillClose:)
-             name:NSWindowWillCloseNotification
-           object:windowController.window];
-  [_windowControllers addObject:windowController];
-  [windowController showWindow:self];
 }
 
 @end

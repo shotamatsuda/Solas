@@ -55,11 +55,7 @@ class Layer {
 
   // Mouse
   virtual const math::Vec2d& mouse() const;
-  virtual double mouse_x() const;
-  virtual double mouse_y() const;
   virtual const math::Vec2d& pmouse() const;
-  virtual double pmouse_x() const;
-  virtual double pmouse_y() const;
   virtual MouseButton mouse_button() const;
   virtual bool mouse_pressed() const;
 
@@ -67,6 +63,11 @@ class Layer {
   virtual char key() const;
   virtual std::uint32_t key_code() const;
   virtual bool key_pressed() const;
+
+  // Touches
+  virtual const math::Vec2d& touch() const;
+  virtual const math::Vec2d& ptouch() const;
+  virtual bool touch_pressed() const;
 
  protected:
   // Constructors
@@ -108,29 +109,9 @@ inline const math::Vec2d& Layer::mouse() const {
   return parent_->mouse();
 }
 
-inline double Layer::mouse_x() const {
-  assert(parent_);
-  return parent_->mouse_x();
-}
-
-inline double Layer::mouse_y() const {
-  assert(parent_);
-  return parent_->mouse_y();
-}
-
 inline const math::Vec2d& Layer::pmouse() const {
   assert(parent_);
   return parent_->pmouse();
-}
-
-inline double Layer::pmouse_x() const {
-  assert(parent_);
-  return parent_->pmouse_x();
-}
-
-inline double Layer::pmouse_y() const {
-  assert(parent_);
-  return parent_->pmouse_y();
 }
 
 inline MouseButton Layer::mouse_button() const {
@@ -158,6 +139,23 @@ inline std::uint32_t Layer::key_code() const {
 inline bool Layer::key_pressed() const {
   assert(parent_);
   return parent_->key_pressed();
+}
+
+#pragma mark Touches
+
+inline const math::Vec2d& Layer::touch() const {
+  assert(parent_);
+  return parent_->touch();
+}
+
+inline const math::Vec2d& Layer::ptouch() const {
+  assert(parent_);
+  return parent_->ptouch();
+}
+
+inline bool Layer::touch_pressed() const {
+  assert(parent_);
+  return parent_->touch_pressed();
 }
 
 }  // namespace app

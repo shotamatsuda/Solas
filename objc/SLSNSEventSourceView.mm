@@ -1,5 +1,5 @@
 //
-//  SLSNSEventView.mm
+//  SLSNSEventSourceView.mm
 //
 //  MIT License
 //
@@ -24,7 +24,7 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSNSEventView.h"
+#import "SLSNSEventSourceView.h"
 
 #import "SLSEvents.h"
 
@@ -38,7 +38,7 @@
 #include "solas/app/touch_event.h"
 #include "solas/math/vector.h"
 
-@interface SLSNSEventView ()
+@interface SLSNSEventSourceView ()
 
 #pragma mark Initialization
 
@@ -60,7 +60,7 @@
 
 @end
 
-@implementation SLSNSEventView
+@implementation SLSNSEventSourceView
 
 - (instancetype)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];

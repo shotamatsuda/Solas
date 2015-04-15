@@ -27,7 +27,8 @@
 #import "SLSUIApplicationDelegate.h"
 
 #import "SLSRunner.h"
-#import "SLSUIRunnerViewController.h"
+#import "SLSUICGViewController.h"
+#import "SLSUIGLViewController.h"
 
 #include "solas/app/runner_factory.h"
 
@@ -36,8 +37,8 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
   SLSRunner *runner = [[SLSRunner alloc]
       initWithRunnable:solas::app::RunnerFactory::Shared().create()];
-  SLSUIRunnerViewController *viewController =
-      [[SLSUIRunnerViewController alloc] initWithRunner:runner];
+  SLSUIGLViewController *viewController =
+      [[SLSUIGLViewController alloc] initWithRunner:runner];
   _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   _window.rootViewController = viewController;
   [_window makeKeyAndVisible];

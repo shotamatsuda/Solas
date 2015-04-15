@@ -1,5 +1,5 @@
 //
-//  SLSUICoreGraphicsView.m
+//  SLSUIView.m
 //
 //  MIT License
 //
@@ -24,29 +24,31 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSUICoreGraphicsView.h"
+#import "SLSUIView.h"
 
 #import <QuartzCore/QuartzCore.h>
 
-#import "SLSCoreGraphicsLayer.h"
+#import "SLSCGLayer.h"
+#import "SLSDisplayDelegate.h"
 #import "SLSDisplaySource.h"
 
-@interface SLSUICoreGraphicsView ()
+@interface SLSUIView ()
 
 #pragma mark Initialization
 
 @property (nonatomic, strong) CALayer<SLSDisplaySource> *displaySource;
 
+#pragma mark Window Notifications
+
 @end
 
-@implementation SLSUICoreGraphicsView
+@implementation SLSUIView
 
 - (instancetype)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
     NSAssert([self.layer conformsToProtocol:@protocol(SLSDisplaySource)], @"");
     _displaySource = (CALayer<SLSDisplaySource> *)self.layer;
-    _displaySource.contentsScale = [UIScreen mainScreen].scale;
   }
   return self;
 }
@@ -56,27 +58,23 @@
   if (self) {
     NSAssert([self.layer conformsToProtocol:@protocol(SLSDisplaySource)], @"");
     _displaySource = (CALayer<SLSDisplaySource> *)self.layer;
-    _displaySource.contentsScale = [UIScreen mainScreen].scale;
   }
   return self;
-}
-
-+ (Class)layerClass {
-  return [SLSCoreGraphicsLayer class];
 }
 
 - (BOOL)isOpaque {
   return NO;
 }
 
-#pragma mark Controlling Loop
-
-- (void)startLoop {
-  [_displaySource startLoop];
++ (Class)layerClass {
+  NSAssert(NO, @"Subclass must implement layerClass");
+  return nil;  // Implement in subviews
 }
 
-- (void)stopLoop {
-  [_displaySource stopLoop];
+#pragma mark Invalidating the Display Source
+
+- (void)displayImmediately {
+  [_displaySource displayImmediately];
 }
 
 #pragma mark Managing the Delegate

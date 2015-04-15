@@ -1,5 +1,5 @@
 //
-//  SLSCADisplayLink.m
+//  SLSNSEventSourceView.h
 //
 //  MIT License
 //
@@ -24,47 +24,31 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSDisplayLink.h"
+#import <AppKit/AppKit.h>
 
-#import <QuartzCore/QuartzCore.h>
+#import "SLSEventDelegate.h"
+#import "SLSEventSource.h"
 
-@interface SLSDisplayLink ()
+@interface SLSNSEventSourceView : NSView <SLSEventSource>
 
-@property (nonatomic, retain) id target;
-@property (nonatomic, assign) SEL selector;
-@property (nonatomic, strong) CADisplayLink *displayLink;
+#pragma mark Notifying Events to the Delegate
 
-@end
+- (void)notifyMouseDownWithEvent:(id)event;
+- (void)notifyMouseDragWithEvent:(id)event;
+- (void)notifyMouseUpWithEvent:(id)event;
+- (void)notifyMouseMoveWithEvent:(id)event;
+- (void)notifyMouseEnterWithEvent:(id)event;
+- (void)notifyMouseExitWithEvent:(id)event;
+- (void)notifyScrollWheelWithEvent:(id)event;
+- (void)notifyKeyDownWithEvent:(id)event;
+- (void)notifyKeyUpWithEvent:(id)event;
+- (void)notifyTouchesBeginWithEvent:(id)event;
+- (void)notifyTouchesMoveWithEvent:(id)event;
+- (void)notifyTouchesCancelWithEvent:(id)event;
+- (void)notifyTouchesEndWithEvent:(id)event;
 
-@implementation SLSDisplayLink
+#pragma mark Managing the Delegate
 
-- (instancetype)initWithTarget:(id)target selector:(SEL)selector {
-  self = [super init];
-  if (self) {
-    _target = target;
-    _selector = selector;
-    _displayLink = [CADisplayLink displayLinkWithTarget:target
-                                               selector:selector];
-  }
-  return self;
-}
-
-+ (SLSDisplayLink *)displayLinkWithTarget:(id)target selector:(SEL)selector {
-  return [[self alloc] initWithTarget:target selector:selector];
-}
-
-- (void)dealloc {
-  [self stop];
-}
-
-- (void)start {
-  [_displayLink addToRunLoop:[NSRunLoop mainRunLoop]
-                     forMode:NSRunLoopCommonModes];
-}
-
-- (void)stop {
-  [_displayLink removeFromRunLoop:[NSRunLoop mainRunLoop]
-                          forMode:NSRunLoopCommonModes];
-}
+@property (atomic, weak) id<SLSEventDelegate> eventDelegate;
 
 @end

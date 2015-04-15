@@ -76,13 +76,11 @@ class Event {
   const Type type;
 
  private:
-  union {
-    MouseEvent mouse_;
-    KeyEvent key_;
-    TouchEvent touch_;
-    GestureEvent gesture_;
-    MotionEvent motion_;
-  };
+  MouseEvent mouse_;
+  KeyEvent key_;
+  TouchEvent touch_;
+  GestureEvent gesture_;
+  MotionEvent motion_;
 };
 
 #pragma mark -

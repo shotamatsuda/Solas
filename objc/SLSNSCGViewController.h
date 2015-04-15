@@ -1,7 +1,5 @@
 //
-//  SLSNSRunnerWindowController.h
-//
-//  MIT License
+//  SLSNSCGViewController.h
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
 //
@@ -26,21 +24,8 @@
 
 #import <AppKit/AppKit.h>
 
-#import "SLSDisplaySource.h"
-#import "SLSEventSource.h"
-#import "SLSRunner.h"
+#import "SLSNSViewController.h"
 
-@interface SLSNSRunnerWindowController : NSWindowController
-
-- (instancetype)initWithRunner:(SLSRunner *)runner;
-
-#pragma mark Accessing Views
-
-@property (nonatomic, weak, readonly) id<SLSEventSource> eventSource;
-@property (nonatomic, weak, readonly) id<SLSDisplaySource> displaySource;
-
-#pragma mark Managing the Runner
-
-@property (nonatomic, strong) SLSRunner *runner;
+@interface SLSNSCGViewController : SLSNSViewController
 
 @end

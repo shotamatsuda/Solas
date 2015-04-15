@@ -1,5 +1,5 @@
 //
-//  SLSCADisplayLink.m
+//  SLSCGLayer.h
 //
 //  MIT License
 //
@@ -24,47 +24,20 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSDisplayLink.h"
-
+#import <Foundation/Foundation.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface SLSDisplayLink ()
+#import "SLSDisplayDelegate.h"
+#import "SLSDisplaySource.h"
 
-@property (nonatomic, retain) id target;
-@property (nonatomic, assign) SEL selector;
-@property (nonatomic, strong) CADisplayLink *displayLink;
+@interface SLSCGLayer : CALayer <SLSDisplaySource>
 
-@end
+#pragma mark Invalidating the Display Source
 
-@implementation SLSDisplayLink
+- (void)displayImmediately;
 
-- (instancetype)initWithTarget:(id)target selector:(SEL)selector {
-  self = [super init];
-  if (self) {
-    _target = target;
-    _selector = selector;
-    _displayLink = [CADisplayLink displayLinkWithTarget:target
-                                               selector:selector];
-  }
-  return self;
-}
+#pragma mark Managing the Delegate
 
-+ (SLSDisplayLink *)displayLinkWithTarget:(id)target selector:(SEL)selector {
-  return [[self alloc] initWithTarget:target selector:selector];
-}
-
-- (void)dealloc {
-  [self stop];
-}
-
-- (void)start {
-  [_displayLink addToRunLoop:[NSRunLoop mainRunLoop]
-                     forMode:NSRunLoopCommonModes];
-}
-
-- (void)stop {
-  [_displayLink removeFromRunLoop:[NSRunLoop mainRunLoop]
-                          forMode:NSRunLoopCommonModes];
-}
+@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
 
 @end

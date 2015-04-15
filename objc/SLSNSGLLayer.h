@@ -1,5 +1,5 @@
 //
-//  SLSNSCoreGraphicsView.h
+//  SLSNSGLLayer.h
 //
 //  MIT License
 //
@@ -28,14 +28,12 @@
 
 #import "SLSDisplayDelegate.h"
 #import "SLSDisplaySource.h"
-#import "SLSNSEventView.h"
 
-@interface SLSNSCoreGraphicsView : SLSNSEventView <SLSDisplaySource>
+@interface SLSNSGLLayer : NSOpenGLLayer <SLSDisplaySource>
 
-#pragma mark Controlling Loop
+#pragma mark Invalidating the Display Source
 
-- (void)startLoop;
-- (void)stopLoop;
+- (void)displayImmediately;
 
 #pragma mark Managing the Delegate
 

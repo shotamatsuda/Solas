@@ -1,5 +1,5 @@
 //
-//  SLSCADisplayLink.m
+//  SLSUIEventSourceView.h
 //
 //  MIT License
 //
@@ -24,47 +24,27 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSDisplayLink.h"
+#import <UIKit/UIKit.h>
 
-#import <QuartzCore/QuartzCore.h>
+#import "SLSEventDelegate.h"
+#import "SLSEventSource.h"
 
-@interface SLSDisplayLink ()
+@interface SLSUIEventSourceView : UIView <SLSEventSource>
 
-@property (nonatomic, retain) id target;
-@property (nonatomic, assign) SEL selector;
-@property (nonatomic, strong) CADisplayLink *displayLink;
+@property (nonatomic, assign) CGFloat internalContentsScaleFactor;
 
-@end
+#pragma mark Notifying Events to the Delegate
 
-@implementation SLSDisplayLink
+- (void)notifyTouchesBeginWithEvent:(id)event;
+- (void)notifyTouchesMoveWithEvent:(id)event;
+- (void)notifyTouchesCancelWithEvent:(id)event;
+- (void)notifyTouchesEndWithEvent:(id)event;
+- (void)notifyMotionBeginWithEvent:(id)event;
+- (void)notifyMotionCancelWithEvent:(id)event;
+- (void)notifyMotionEndWithEvent:(id)event;
 
-- (instancetype)initWithTarget:(id)target selector:(SEL)selector {
-  self = [super init];
-  if (self) {
-    _target = target;
-    _selector = selector;
-    _displayLink = [CADisplayLink displayLinkWithTarget:target
-                                               selector:selector];
-  }
-  return self;
-}
+#pragma mark Managing the Delegate
 
-+ (SLSDisplayLink *)displayLinkWithTarget:(id)target selector:(SEL)selector {
-  return [[self alloc] initWithTarget:target selector:selector];
-}
-
-- (void)dealloc {
-  [self stop];
-}
-
-- (void)start {
-  [_displayLink addToRunLoop:[NSRunLoop mainRunLoop]
-                     forMode:NSRunLoopCommonModes];
-}
-
-- (void)stop {
-  [_displayLink removeFromRunLoop:[NSRunLoop mainRunLoop]
-                          forMode:NSRunLoopCommonModes];
-}
+@property (atomic, weak) id<SLSEventDelegate> eventDelegate;
 
 @end
