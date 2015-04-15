@@ -78,7 +78,7 @@
   if (!_displayLink) {
     _displayLink = [SLSDisplayLink
         displayLinkWithTarget:_displaySource
-                     selector:@selector(displayImmediately)];
+                     selector:@selector(setDisplaySourceNeedsDisplay)];
   }
   [_displayLink start];
 }

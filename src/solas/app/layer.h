@@ -32,12 +32,13 @@
 #include <cstdint>
 
 #include "solas/app/mouse_button.h"
+#include "solas/app/utilities.h"
 #include "solas/math/vector.h"
 
 namespace solas {
 namespace app {
 
-class Layer {
+class Layer : public Utilities {
  public:
   // Constructors
   explicit Layer(Layer *parent);

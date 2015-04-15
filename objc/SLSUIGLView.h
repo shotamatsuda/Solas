@@ -33,7 +33,7 @@
 
 #pragma mark Invalidating the Display Source
 
-- (void)displayImmediately;
+- (void)setDisplaySourceNeedsDisplay;
 
 #pragma mark Managing the Delegate
 

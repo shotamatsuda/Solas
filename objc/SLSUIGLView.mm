@@ -74,8 +74,8 @@
 
 #pragma mark Invalidating the Display Source
 
-- (void)displayImmediately {
-  [_view performSelectorOnMainThread:@selector(display)
+- (void)setDisplaySourceNeedsDisplay {
+  [_view performSelectorOnMainThread:@selector(setNeedsDisplay)
                           withObject:nil
                        waitUntilDone:NO];
 }

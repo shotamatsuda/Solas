@@ -34,6 +34,12 @@ namespace solas {
 namespace math {
 
 template <typename T = double>
+const constexpr T e = boost::math::constants::e<T>();
+template const constexpr float e<float>;
+template const constexpr double e<double>;
+template const constexpr long double e<long double>;
+
+template <typename T = double>
 const constexpr T pi = boost::math::constants::pi<T>();
 template const constexpr float pi<float>;
 template const constexpr double pi<double>;
@@ -68,12 +74,6 @@ const constexpr T tau = boost::math::constants::two_pi<T>();
 template const constexpr float tau<float>;
 template const constexpr double tau<double>;
 template const constexpr long double tau<long double>;
-
-template <typename T = double>
-const constexpr T e = boost::math::constants::e<T>();
-template const constexpr float e<float>;
-template const constexpr double e<double>;
-template const constexpr long double e<long double>;
 
 template <typename T = double>
 const constexpr T degree = boost::math::constants::degree<T>();

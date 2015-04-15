@@ -42,7 +42,7 @@
 #include "solas/app/runner.h"
 #include "solas/app/runner_factory.h"
 #include "solas/app/runner_options.h"
-#include "solas/app/sketch.h"
 #include "solas/app/touch_event.h"
+#include "solas/app/view.h"
 
 #endif  // SOLAS_APP_H_

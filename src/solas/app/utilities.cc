@@ -1,5 +1,5 @@
 //
-//  solas/processing/layer.cc
+//  solas/app/utilities.cc
 //
 //  MIT License
 //
@@ -24,10 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "solas/processing/layer.h"
+#include "solas/app/utilities.h"
 
 namespace solas {
-namespace processing {
+namespace app {
 
-}  // namespace processing
+}  // namespace app
 }  // namespace solas

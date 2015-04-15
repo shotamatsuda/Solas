@@ -1,5 +1,5 @@
 //
-//  main.mm
+//  ProjectRelease.xcconfig
 //
 //  MIT License
 //
@@ -24,9 +24,23 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "solas/app.h"
-#include "sketch.h"
+// Configuration for Xcode 6.1
 
-int main(int argc, char **argv) {
-  return solas::app::Run<zorozoro::Sketch>(argc, argv);
-}
+#include "Project.xcconfig"
+
+// Build Options
+DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+
+// Deployment
+COPY_PHASE_STRIP = YES
+
+// Apple LLVM 6.0 - Code Generation
+GCC_OPTIMIZATION_LEVEL = s
+GCC_FAST_MATH = YES
+
+// Apple LLVM 6.0 - Preprocessing
+ENABLE_NS_ASSERTIONS = NO
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) NDEBUG=1
+
+// User-Defined
+MTL_ENABLE_DEBUG_INFO = NO

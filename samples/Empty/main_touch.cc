@@ -1,5 +1,5 @@
 //
-//  main.cc
+//  main_touch.cc
 //
 //  MIT License
 //
@@ -24,19 +24,18 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#define NANOVG_GL2_IMPLEMENTATION
+#define NANOVG_GLES3_IMPLEMENTATION
 
-#include <OpenGL/gl.h>
+#include <OpenGLES/ES3/gl.h>
 
 #include "nanovg.h"
 #include "nanovg_gl.h"
 #include "solas/app.h"
-#include "solas/math/random.h"
 
-class App : public solas::app::Sketch {
+class App : public solas::app::View {
  public:
   void setup() {
-    vg = nvgCreateGL2(NVG_DEBUG);
+    vg = nvgCreateGLES3(NVG_DEBUG);
   }
 
   void draw() {
@@ -45,8 +44,8 @@ class App : public solas::app::Sketch {
     nvgBeginFrame(vg, width(), height(), width() / height());
     for (int i = 0; i < 1; ++i) {
       nvgBeginPath(vg);
-      nvgEllipse(vg, mouse().x, mouse().y, 10, 10);
-      if (mouse_pressed()) {
+      nvgEllipse(vg, touch().x, touch().y, 50, 50);
+      if (touch_pressed()) {
         nvgFillColor(vg, nvgRGB(0,0,0));
         nvgFill(vg);
       }

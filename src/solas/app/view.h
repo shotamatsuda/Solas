@@ -1,5 +1,5 @@
 //
-//  solas/processing/sketch.h
+//  solas/app/view.h
 //
 //  MIT License
 //
@@ -25,47 +25,46 @@
 //
 
 #pragma once
-#ifndef SOLAS_PROCESSING_SKETCH_H_
-#define SOLAS_PROCESSING_SKETCH_H_
+#ifndef SOLAS_APP_VIEW_H_
+#define SOLAS_APP_VIEW_H_
 
-#include <chrono>
 #include <cstdint>
-#include <functional>
 #include <list>
 
+#include "solas/app/event.h"
+#include "solas/app/gesture_event.h"
+#include "solas/app/key_event.h"
+#include "solas/app/layer.h"
+#include "solas/app/motion_event.h"
+#include "solas/app/mouse_button.h"
+#include "solas/app/mouse_event.h"
 #include "solas/app/runnable.h"
-#include "solas/graphics/context_holder.h"
-#include "solas/processing/event.h"
-#include "solas/processing/layer.h"
-#include "solas/processing/types.h"
+#include "solas/app/touch_event.h"
+#include "solas/math/vector.h"
 
 namespace solas {
-namespace processing {
+namespace app {
 
-class Sketch : public app::Runnable, public Layer {
+class View : public app::Runnable, public Layer {
  public:
   // Constructors
-  Sketch();
+  View();
 
   // Disallow copy and assign
-  Sketch(const Sketch& other) = delete;
-  Sketch& operator=(const Sketch& other) = delete;
+  View(const View& other) = delete;
+  View& operator=(const View& other) = delete;
 
   // Move
-  Sketch(Sketch&& other) = default;
+  View(View&& other) = default;
 
   // Structure
-  Real width() const override;
-  Real height() const override;
+  double width() const override;
+  double height() const override;
 
   // Mouse
-  const Vec2& mouse() const override;
-  Real mouse_x() const override;
-  Real mouse_y() const override;
-  const Vec2& pmouse() const override;
-  Real pmouse_x() const override;
-  Real pmouse_y() const override;
-  Constant mouse_button() const override;
+  const math::Vec2d& mouse() const override;
+  const math::Vec2d& pmouse() const override;
+  MouseButton mouse_button() const override;
   bool mouse_pressed() const override;
 
   // Keyboard
@@ -73,8 +72,10 @@ class Sketch : public app::Runnable, public Layer {
   std::uint32_t key_code() const override;
   bool key_pressed() const override;
 
-  // Time and date
-  std::chrono::milliseconds::rep millis() const override;
+  // Touches
+  const math::Vec2d& touch() const override;
+  const math::Vec2d& ptouch() const override;
+  bool touch_pressed() const override;
 
  protected:
   // Lifecycle intended to be overriden
@@ -157,191 +158,176 @@ class Sketch : public app::Runnable, public Layer {
   void motionCancel(const MotionEvent& event) override;
   void motionEnd(const MotionEvent& event) override;
 
-  // Context
-  const graphics::ContextHolder& context() const override;
-
  private:
-  std::chrono::system_clock::time_point setup_time_;
   std::list<Event> event_queue_;
 
   // Structure
-  Real width_;
-  Real height_;
+  double width_;
+  double height_;
 
   // Mouse
-  Vec2 dmouse_;
-  Vec2 emouse_;
-  union {
-    Vec2 mouse_;
-    struct { Real mouse_x_; Real mouse_y_; };
-  };
-  union {
-    Vec2 pmouse_;
-    struct { Real pmouse_x_; Real pmouse_y_; };
-  };
-  Constant mouse_button_;
+  math::Vec2d mouse_;
+  math::Vec2d pmouse_;
+  math::Vec2d dmouse_;
+  math::Vec2d emouse_;
+  MouseButton mouse_button_;
   bool mouse_pressed_;
 
   // Keyboard
   char key_;
   std::uint32_t key_code_;
   bool key_pressed_;
+
+  // Mouse
+  math::Vec2d touch_;
+  math::Vec2d ptouch_;
+  math::Vec2d dtouch_;
+  math::Vec2d etouch_;
+  bool touch_pressed_;
 };
 
 #pragma mark -
 
-inline Sketch::Sketch()
-    : setup_time_(),
-      width_(),
+inline View::View()
+    : width_(),
       height_(),
-      mouse_(),
-      pmouse_(),
-      mouse_button_(NONE),
+      mouse_button_(MouseButton::UNDEFINED),
       mouse_pressed_(),
       key_(),
       key_code_(),
-      key_pressed_() {}
+      key_pressed_(),
+      touch_pressed_() {}
 
 #pragma mark Structure
 
-inline Real Sketch::width() const {
+inline double View::width() const {
   return width_;
 }
 
-inline Real Sketch::height() const {
+inline double View::height() const {
   return height_;
 }
 
 #pragma mark Mouse
 
-inline const Vec2& Sketch::mouse() const {
+inline const math::Vec2d& View::mouse() const {
   return mouse_;
 }
 
-inline Real Sketch::mouse_x() const {
-  return mouse_x_;
-}
-
-inline Real Sketch::mouse_y() const {
-  return mouse_y_;
-}
-
-inline const Vec2& Sketch::pmouse() const {
+inline const math::Vec2d& View::pmouse() const {
   return pmouse_;
 }
 
-inline Real Sketch::pmouse_x() const {
-  return pmouse_x_;
-}
-
-inline Real Sketch::pmouse_y() const {
-  return pmouse_y_;
-}
-
-inline Constant Sketch::mouse_button() const {
+inline MouseButton View::mouse_button() const {
   return mouse_button_;
 }
 
-inline bool Sketch::mouse_pressed() const {
+inline bool View::mouse_pressed() const {
   return mouse_pressed_;
 }
 
 #pragma mark Keyboard
 
-inline char Sketch::key() const {
+inline char View::key() const {
   return key_;
 }
 
-inline std::uint32_t Sketch::key_code() const {
+inline std::uint32_t View::key_code() const {
   return key_code_;
 }
 
-inline bool Sketch::key_pressed() const {
+inline bool View::key_pressed() const {
   return key_pressed_;
 }
 
-#pragma mark Time and date
+#pragma mark Touches
 
-inline std::chrono::milliseconds::rep Sketch::millis() const {
-  using Clock = std::chrono::system_clock;
-  using Unit = std::chrono::milliseconds;
-  return std::chrono::duration_cast<Unit>(Clock::now() - setup_time_).count();
+inline const math::Vec2d& View::touch() const {
+  return touch_;
+}
+
+inline const math::Vec2d& View::ptouch() const {
+  return ptouch_;
+}
+
+inline bool View::touch_pressed() const {
+  return touch_pressed_;
 }
 
 #pragma mark Events
 
-inline void Sketch::mousePressed(const MouseEvent& event) {
+inline void View::mousePressed(const MouseEvent& event) {
   mousePressed();
 }
 
-inline void Sketch::mouseDragged(const MouseEvent& event) {
+inline void View::mouseDragged(const MouseEvent& event) {
   mouseDragged();
 }
 
-inline void Sketch::mouseReleased(const MouseEvent& event) {
+inline void View::mouseReleased(const MouseEvent& event) {
   mouseReleased();
 }
 
-inline void Sketch::mouseMoved(const MouseEvent& event) {
+inline void View::mouseMoved(const MouseEvent& event) {
   mouseMoved();
 }
 
-inline void Sketch::mouseEntered(const MouseEvent& event) {
+inline void View::mouseEntered(const MouseEvent& event) {
   mouseEntered();
 }
 
-inline void Sketch::mouseExited(const MouseEvent& event) {
+inline void View::mouseExited(const MouseEvent& event) {
   mouseExited();
 }
 
-inline void Sketch::mouseWheel(const MouseEvent& event) {
+inline void View::mouseWheel(const MouseEvent& event) {
   mouseWheel();
 }
 
-inline void Sketch::keyPressed(const KeyEvent& event) {
+inline void View::keyPressed(const KeyEvent& event) {
   keyPressed();
 }
 
-inline void Sketch::keyReleased(const KeyEvent& event) {
+inline void View::keyReleased(const KeyEvent& event) {
   keyReleased();
 }
 
-inline void Sketch::touchesBegan(const TouchEvent& event) {
+inline void View::touchesBegan(const TouchEvent& event) {
   touchesBegan();
 }
 
-inline void Sketch::touchesMoved(const TouchEvent& event) {
+inline void View::touchesMoved(const TouchEvent& event) {
   touchesMoved();
 }
 
-inline void Sketch::touchesCancelled(const TouchEvent& event) {
+inline void View::touchesCancelled(const TouchEvent& event) {
   touchesCancelled();
 }
 
-inline void Sketch::touchesEnded(const TouchEvent& event) {
+inline void View::touchesEnded(const TouchEvent& event) {
   touchesEnded();
 }
 
-inline void Sketch::motionBegan(const MotionEvent& event) {
+inline void View::motionBegan(const MotionEvent& event) {
   motionBegan();
 }
 
-inline void Sketch::motionCancelled(const MotionEvent& event) {
+inline void View::motionCancelled(const MotionEvent& event) {
   motionCancelled();
 }
 
-inline void Sketch::motionEnded(const MotionEvent& event) {
+inline void View::motionEnded(const MotionEvent& event) {
   motionEnded();
 }
 
 #pragma mark Event handlers
 
 template <typename Event>
-inline void Sketch::enqueueEvent(const Event& event) {
+inline void View::enqueueEvent(const Event& event) {
   event_queue_.emplace_back(event);
 }
 
-inline void Sketch::dequeueEvent(const Event& event) {
+inline void View::dequeueEvent(const Event& event) {
   switch (event.type) {
     case Event::Type::MOUSE:
       handleMouseEvent(event.mouse());
@@ -364,7 +350,7 @@ inline void Sketch::dequeueEvent(const Event& event) {
   }
 }
 
-inline void Sketch::dequeueEvents() {
+inline void View::dequeueEvents() {
   for (const auto& event : event_queue_) {
     dequeueEvent(event);
   }
@@ -373,107 +359,102 @@ inline void Sketch::dequeueEvents() {
 
 #pragma mark Lifecycle overridden from Runnable
 
-inline void Sketch::setup(const AppEvent& event) {
-  setup_time_ = std::chrono::system_clock::now();
+inline void View::setup(const AppEvent& event) {
   width_ = event.size.width;
   height_ = event.size.height;
   Runnable::setup(event);
 }
 
-inline void Sketch::update(const AppEvent& event) {
+inline void View::update(const AppEvent& event) {
   Runnable::update(event);
 }
 
-inline void Sketch::draw(const AppEvent& event) {
+inline void View::draw(const AppEvent& event) {
   width_ = event.size.width;
   height_ = event.size.height;
   pmouse_ = dmouse_;
+  ptouch_ = dtouch_;
   Runnable::draw(event);
   dmouse_ = mouse_;
+  dtouch_ = touch_;
   dequeueEvents();
 }
 
-inline void Sketch::post(const AppEvent& event) {
+inline void View::post(const AppEvent& event) {
   Runnable::post(event);
 }
 
-inline void Sketch::exit(const AppEvent& event) {
+inline void View::exit(const AppEvent& event) {
   Runnable::exit(event);
 }
 
 #pragma mark Events overridden from Runnable
 
-inline void Sketch::mouseDown(const MouseEvent& event) {
+inline void View::mouseDown(const MouseEvent& event) {
   enqueueEvent(event);
 }
 
-inline void Sketch::mouseDrag(const MouseEvent& event) {
+inline void View::mouseDrag(const MouseEvent& event) {
   enqueueEvent(event);
 }
 
-inline void Sketch::mouseUp(const MouseEvent& event) {
+inline void View::mouseUp(const MouseEvent& event) {
   enqueueEvent(event);
 }
 
-inline void Sketch::mouseMove(const MouseEvent& event) {
+inline void View::mouseMove(const MouseEvent& event) {
   enqueueEvent(event);
 }
 
-inline void Sketch::mouseEnter(const MouseEvent& event) {
+inline void View::mouseEnter(const MouseEvent& event) {
   enqueueEvent(event);
 }
 
-inline void Sketch::mouseExit(const MouseEvent& event) {
+inline void View::mouseExit(const MouseEvent& event) {
   enqueueEvent(event);
 }
 
-inline void Sketch::scrollWheel(const MouseEvent& event) {
+inline void View::scrollWheel(const MouseEvent& event) {
   enqueueEvent(event);
 }
 
-inline void Sketch::keyDown(const KeyEvent& event) {
+inline void View::keyDown(const KeyEvent& event) {
   enqueueEvent(event);
 }
 
-inline void Sketch::keyUp(const KeyEvent& event) {
+inline void View::keyUp(const KeyEvent& event) {
   enqueueEvent(event);
 }
 
-inline void Sketch::touchesBegin(const TouchEvent& event) {
+inline void View::touchesBegin(const TouchEvent& event) {
   enqueueEvent(event);
 }
 
-inline void Sketch::touchesMove(const TouchEvent& event) {
+inline void View::touchesMove(const TouchEvent& event) {
   enqueueEvent(event);
 }
 
-inline void Sketch::touchesCancel(const TouchEvent& event) {
+inline void View::touchesCancel(const TouchEvent& event) {
   enqueueEvent(event);
 }
 
-inline void Sketch::touchesEnd(const TouchEvent& event) {
+inline void View::touchesEnd(const TouchEvent& event) {
   enqueueEvent(event);
 }
 
-inline void Sketch::motionBegin(const MotionEvent& event) {
+inline void View::motionBegin(const MotionEvent& event) {
   enqueueEvent(event);
 }
 
-inline void Sketch::motionCancel(const MotionEvent& event) {
+inline void View::motionCancel(const MotionEvent& event) {
   enqueueEvent(event);
 }
 
-inline void Sketch::motionEnd(const MotionEvent& event) {
+inline void View::motionEnd(const MotionEvent& event) {
   enqueueEvent(event);
 }
 
-#pragma mark Context
-
-inline const graphics::ContextHolder& Sketch::context() const {
-  return Runnable::context();
-}
-
-}  // namespace processing
+}  // namespace app
 }  // namespace solas
 
-#endif  // SOLAS_PROCESSING_SKETCH_H_
+#endif  // SOLAS_APP_VIEW_H_

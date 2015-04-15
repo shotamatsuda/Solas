@@ -85,14 +85,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		934D39DB1ADBBC87002AD78F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		934D39DB1ADBBC87002AD78F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		937E13BC1ADBF34B008DB7A7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		937E13BE1ADBF350008DB7A7 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		93AD7CF91ADD3CF700B42B9E /* main_touch.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main_touch.cc; sourceTree = "<group>"; };
 		93CA67E11ADB5BF4009F131B /* Empty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Empty.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		93EBABBC1AD97E3A00BF8959 /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Project.xcconfig; path = ../../config/Project.xcconfig; sourceTree = "<group>"; };
-		93EBABBD1AD97E3A00BF8959 /* ProjectDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = ProjectDebug.xcconfig; path = ../../config/ProjectDebug.xcconfig; sourceTree = "<group>"; };
-		93EBABBE1AD97E3A00BF8959 /* ProjectRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = ProjectRelease.xcconfig; path = ../../config/ProjectRelease.xcconfig; sourceTree = "<group>"; };
+		93D73E0E1ADE29BE003F9A7A /* ProjectDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProjectDebug.xcconfig; sourceTree = SOURCE_ROOT; };
+		93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProjectRelease.xcconfig; sourceTree = SOURCE_ROOT; };
+		93D73E101ADE2A0A003F9A7A /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = SOURCE_ROOT; };
 		93EBABBF1AD97E8C00BF8959 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = SOURCE_ROOT; };
 		93EBABC01AD97E8C00BF8959 /* Info-OSX.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-OSX.plist"; sourceTree = SOURCE_ROOT; };
 		93EBABD01AD98A4C00BF8959 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/osx/framework/boost.framework; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 				93AD7CF91ADD3CF700B42B9E /* main_touch.cc */,
 			);
 			name = Source;
-			path = Zorozoro;
+			path = Empty;
 			sourceTree = "<group>";
 		};
 		93FEF9751AD972AA009D0646 /* Configurations */ = {
@@ -222,9 +222,9 @@
 			children = (
 				93EBABC01AD97E8C00BF8959 /* Info-OSX.plist */,
 				93EBABBF1AD97E8C00BF8959 /* Info-iOS.plist */,
-				93EBABBC1AD97E3A00BF8959 /* Project.xcconfig */,
-				93EBABBD1AD97E3A00BF8959 /* ProjectDebug.xcconfig */,
-				93EBABBE1AD97E3A00BF8959 /* ProjectRelease.xcconfig */,
+				93D73E101ADE2A0A003F9A7A /* Project.xcconfig */,
+				93D73E0E1ADE29BE003F9A7A /* ProjectDebug.xcconfig */,
+				93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */,
 			);
 			name = Configurations;
 			path = Zorozoro;
@@ -444,7 +444,7 @@
 		};
 		93FEF9691AD97263009D0646 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93EBABBE1AD97E3A00BF8959 /* ProjectRelease.xcconfig */;
+			baseConfigurationReference = 93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -456,7 +456,7 @@
 		};
 		93FEF96A1AD97263009D0646 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93EBABBE1AD97E3A00BF8959 /* ProjectRelease.xcconfig */;
+			baseConfigurationReference = 93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "-";

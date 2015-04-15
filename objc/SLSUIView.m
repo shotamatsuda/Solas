@@ -73,8 +73,8 @@
 
 #pragma mark Invalidating the Display Source
 
-- (void)displayImmediately {
-  [_displaySource displayImmediately];
+- (void)setDisplaySourceNeedsDisplay {
+  [_displaySource setDisplaySourceNeedsDisplay];
 }
 
 #pragma mark Managing the Delegate
