@@ -77,7 +77,7 @@
 - (void)setDisplaySourceNeedsDisplay {
   [_view performSelectorOnMainThread:@selector(setNeedsDisplay)
                           withObject:nil
-                       waitUntilDone:NO];
+                       waitUntilDone:YES];
 }
 
 #pragma mark GLKViewDelegate

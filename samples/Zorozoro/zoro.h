@@ -19,15 +19,18 @@
 #pragma once
 
 #include "solas/app.h"
+#include "solas/math.h"
 
 #include "boid.h"
 #include "spring.h"
 
 namespace zorozoro {
 
+using solas::math::Vec2d;
+
 class Zoro : public Boid {
  public:
-  explicit Zoro(Layer *parent);
+  Zoro(Layer *parent, const Vec2d& location);
   void wraparound(double insets) override;
   void update() override;
   void draw() override;

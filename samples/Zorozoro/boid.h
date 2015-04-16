@@ -38,7 +38,7 @@ using solas::math::Vec2d;
 
 class Boid : public solas::app::Layer {
  public:
-  explicit Boid(Layer *parent);
+  explicit Boid(Layer *parent, const Vec2d& location);
   void flock(const std::list<std::unique_ptr<Boid>>& boids);
   virtual void update();
   virtual void draw() = 0;

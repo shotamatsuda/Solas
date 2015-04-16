@@ -25,8 +25,8 @@ namespace zorozoro {
 
 using solas::math::Vec2d;
 
-Zoro::Zoro(Layer *parent)
-    : Boid(parent),
+Zoro::Zoro(Layer *parent, const Vec2d& location)
+    : Boid(parent, location),
       eye_shutter() {
   const auto segment = length / 2;
   body.location = location + velocity * -segment;

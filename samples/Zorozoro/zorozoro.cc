@@ -42,9 +42,7 @@ void Zorozoro::setup() {
   context = createContext();
   boids.resize(width() * height() / 4000);
   for (auto& boid : boids) {
-    boid = std::make_unique<Zoro>(this);
-    boid->location.x = random(width());
-    boid->location.y = random(height());
+    boid = std::make_unique<Zoro>(this, Vec2d(random(width()), random(height())));
   }
 }
 

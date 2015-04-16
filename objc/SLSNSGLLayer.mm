@@ -92,7 +92,7 @@
 - (void)setDisplaySourceNeedsDisplay {
   [self performSelectorOnMainThread:@selector(setNeedsDisplay)
                          withObject:nil
-                      waitUntilDone:NO];
+                      waitUntilDone:YES];
 }
 
 @end

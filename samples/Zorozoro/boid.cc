@@ -33,9 +33,10 @@ namespace zorozoro {
 
 using solas::math::Vec2d;
 
-Boid::Boid(Layer *parent)
+Boid::Boid(Layer *parent, const Vec2d& location)
     : Layer(parent),
-      velocity(Vec2d::Random().normalize()) {}
+      location(location),
+      velocity(Vec2d::Random(-1, 1).normalize()) {}
 
 void Boid::flock(const std::list<std::unique_ptr<Boid>>& boids) {
   acceleration.reset();
