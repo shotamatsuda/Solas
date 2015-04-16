@@ -36,6 +36,7 @@ namespace zorozoro {
 
 class Zorozoro : public solas::app::View {
  public:
+  Zorozoro();
   void setup();
   void update();
   void draw();
@@ -46,6 +47,8 @@ class Zorozoro : public solas::app::View {
 
  public:
   NVGcontext *context;
+  NVGcolor foreground;
+  NVGcolor background;
   std::list<std::unique_ptr<Boid>> boids;
   static constexpr double insets = 50;
 };

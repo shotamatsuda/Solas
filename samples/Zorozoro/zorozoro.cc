@@ -38,15 +38,21 @@
 
 namespace zorozoro {
 
+Zorozoro::Zorozoro()
+    : context(nullptr),
+      foreground(nvgRGB(0, 0, 0)),
+      background(nvgRGB(0xff, 0xff, 0xff)) {}
+
 void Zorozoro::setup() {
   context = createContext();
-  boids.resize(width() * height() / 4000);
+  boids.resize(width() * height() / 5000);
   for (auto& boid : boids) {
     boid = std::make_unique<Zoro>(this, Vec2d(random(width()), random(height())));
   }
 }
 
 void Zorozoro::update() {
+  if (!context) return;
   for (auto& boid : boids) {
     boid->flock(boids);
     boid->update();
@@ -56,6 +62,7 @@ void Zorozoro::update() {
 
 void Zorozoro::draw() {
   clearContext();
+  if (!context) return;
   nvgBeginFrame(context, width(), height(), width() / height());
   for (const auto& boid : boids) {
     boid->draw();

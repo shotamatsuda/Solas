@@ -59,20 +59,16 @@
   return self;
 }
 
+- (BOOL)isOpaque {
+  return NO;
+}
+
 - (CALayer *)makeBackingLayer {
   return [SLSNSGLLayer layer];
 }
 
-- (void)startAnimation {
-  [super startAnimation];
-}
-
-- (void)stopAnimation {
-  [super stopAnimation];
-}
-
 - (void)drawRect:(NSRect)rect {
-  [super drawRect:rect];
+  // Do nothing
 }
 
 - (void)animateOneFrame {

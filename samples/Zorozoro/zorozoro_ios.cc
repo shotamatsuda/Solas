@@ -39,7 +39,7 @@ NVGcontext * Zorozoro::createContext() {
 }
 
 void Zorozoro::clearContext() {
-  glClearColor(1, 1, 1, 1);
+  glClearColor(background.r, background.g, background.b, 1);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 

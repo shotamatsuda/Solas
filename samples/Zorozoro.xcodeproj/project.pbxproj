@@ -671,7 +671,7 @@
 		};
 		93FEF9691AD97263009D0646 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */;
+			baseConfigurationReference = 93D73E0E1ADE29BE003F9A7A /* ProjectDebug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

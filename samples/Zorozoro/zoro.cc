@@ -56,7 +56,8 @@ void Zoro::update() {
 }
 
 void Zoro::draw() {
-  NVGcontext *context = static_cast<Zorozoro&>(parent()).context;
+  const auto& zorozoro = static_cast<Zorozoro&>(parent());
+  NVGcontext *context = zorozoro.context;
   nvgSave(context);
   nvgRotate(context, rotation);
   nvgTranslate(context, -length / 3, thickness / 4);
@@ -70,7 +71,7 @@ void Zoro::draw() {
   nvgMoveTo(context, p1.x, p1.y);
   nvgLineTo(context, p2.x, p2.y);
   nvgLineTo(context, p3.x, p3.y);
-  nvgStrokeColor(context, nvgRGB(0, 0, 0));
+  nvgStrokeColor(context, zorozoro.foreground);
   nvgStrokeWidth(context, thickness);
   nvgLineJoin(context, NVG_ROUND);
   nvgStroke(context);
@@ -86,19 +87,19 @@ void Zoro::draw() {
   for (int i = 0; i < 2; ++i) {
     nvgBeginPath(context);
     nvgRect(context, -half, -half, thickness, thickness);
-    nvgFillColor(context, nvgRGB(0, 0, 0));
+    nvgFillColor(context, zorozoro.foreground);
     nvgFill(context);
     nvgBeginPath(context);
     nvgRect(context, -quarter, -quarter, half, half);
-    nvgFillColor(context, nvgRGB(0xff, 0xff, 0xff));
+    nvgFillColor(context, zorozoro.background);
     nvgFill(context);
     nvgBeginPath(context);
     nvgRect(context, -quarter, -quarter, third, third);
-    nvgFillColor(context, nvgRGB(0, 0, 0));
+    nvgFillColor(context, zorozoro.foreground);
     nvgFill(context);
     nvgBeginPath(context);
     nvgRect(context, -quarter, -quarter, half, half * eye_shutter);
-    nvgFillColor(context, nvgRGB(0, 0, 0));
+    nvgFillColor(context, zorozoro.foreground);
     nvgFill(context);
     nvgTranslate(context, thickness + quarter, 0);
   }

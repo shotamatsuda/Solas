@@ -63,6 +63,7 @@
 - (NSOpenGLContext *)openGLContextForPixelFormat:
     (NSOpenGLPixelFormat *)pixelFormat {
   NSOpenGLContext *context = [super openGLContextForPixelFormat:pixelFormat];
+  NSAssert(context, @"Failed to create OpenGL context");
   [context makeCurrentContext];
   // Synchronize buffer swaps with the vertical refresh rate
   [context setValues:(GLint[]) {1} forParameter:NSOpenGLCPSwapInterval];
