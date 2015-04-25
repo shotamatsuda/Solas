@@ -521,12 +521,8 @@
 		93D73DD81ADDE5E7003F9A7A /* SLSNSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DD61ADDE5E7003F9A7A /* SLSNSView.m */; };
 		93D73DE51ADDFF0B003F9A7A /* SLSUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DE31ADDFF0B003F9A7A /* SLSUIViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93D73DE61ADDFF0B003F9A7A /* SLSUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DE41ADDFF0B003F9A7A /* SLSUIViewController.m */; };
-		93D73DE91ADE00D9003F9A7A /* SLSUICGViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DE71ADE00D9003F9A7A /* SLSUICGViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93D73DEA1ADE00D9003F9A7A /* SLSUICGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DE81ADE00D9003F9A7A /* SLSUICGViewController.m */; };
 		93D73DED1ADE0116003F9A7A /* SLSUIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DEB1ADE0116003F9A7A /* SLSUIView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93D73DEE1ADE0116003F9A7A /* SLSUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DEC1ADE0116003F9A7A /* SLSUIView.m */; };
-		93D73DF11ADE01E6003F9A7A /* SLSUIGLViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DEF1ADE01E6003F9A7A /* SLSUIGLViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93D73DF21ADE01E6003F9A7A /* SLSUIGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DF01ADE01E6003F9A7A /* SLSUIGLViewController.m */; };
 		93D73DFD1ADE0758003F9A7A /* SLSUIGLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DFB1ADE0758003F9A7A /* SLSUIGLView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93D73DFE1ADE0758003F9A7A /* SLSUIGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DFC1ADE0758003F9A7A /* SLSUIGLView.mm */; };
 		93D73E031ADE250C003F9A7A /* utilities.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93D73E011ADE250C003F9A7A /* utilities.cc */; };
@@ -788,12 +784,8 @@
 		93D73DD61ADDE5E7003F9A7A /* SLSNSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSNSView.m; sourceTree = "<group>"; };
 		93D73DE31ADDFF0B003F9A7A /* SLSUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIViewController.h; sourceTree = "<group>"; };
 		93D73DE41ADDFF0B003F9A7A /* SLSUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIViewController.m; sourceTree = "<group>"; };
-		93D73DE71ADE00D9003F9A7A /* SLSUICGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUICGViewController.h; sourceTree = "<group>"; };
-		93D73DE81ADE00D9003F9A7A /* SLSUICGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUICGViewController.m; sourceTree = "<group>"; };
 		93D73DEB1ADE0116003F9A7A /* SLSUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIView.h; sourceTree = "<group>"; };
 		93D73DEC1ADE0116003F9A7A /* SLSUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIView.m; sourceTree = "<group>"; };
-		93D73DEF1ADE01E6003F9A7A /* SLSUIGLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIGLViewController.h; sourceTree = "<group>"; };
-		93D73DF01ADE01E6003F9A7A /* SLSUIGLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIGLViewController.m; sourceTree = "<group>"; };
 		93D73DFB1ADE0758003F9A7A /* SLSUIGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIGLView.h; sourceTree = "<group>"; };
 		93D73DFC1ADE0758003F9A7A /* SLSUIGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIGLView.mm; sourceTree = "<group>"; };
 		93D73E011ADE250C003F9A7A /* utilities.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utilities.cc; sourceTree = "<group>"; };
@@ -982,12 +974,8 @@
 				93AD7CD61ADCABA000B42B9E /* SLSUIEventSourceView.mm */,
 				93D73DEB1ADE0116003F9A7A /* SLSUIView.h */,
 				93D73DEC1ADE0116003F9A7A /* SLSUIView.m */,
-				93D73DEF1ADE01E6003F9A7A /* SLSUIGLViewController.h */,
-				93D73DF01ADE01E6003F9A7A /* SLSUIGLViewController.m */,
 				93D73DFB1ADE0758003F9A7A /* SLSUIGLView.h */,
 				93D73DFC1ADE0758003F9A7A /* SLSUIGLView.mm */,
-				93D73DE71ADE00D9003F9A7A /* SLSUICGViewController.h */,
-				93D73DE81ADE00D9003F9A7A /* SLSUICGViewController.m */,
 				93AD7CCD1ADCA5C700B42B9E /* SLSUICGView.h */,
 				93AD7CCE1ADCA5C700B42B9E /* SLSUICGView.m */,
 				939E96851AD3864600A7E21E /* SLSCADisplayLink.m */,
@@ -1792,13 +1780,11 @@
 				937E13961ADBDEB9008DB7A7 /* SLSCGLayer.h in Headers */,
 				933FD6B21AEB8B3B003AEC6C /* back.h in Headers */,
 				933FD6CA1AEB8B3B003AEC6C /* linear.h in Headers */,
-				93D73DE91ADE00D9003F9A7A /* SLSUICGViewController.h in Headers */,
 				93AD7CB81ADCA31900B42B9E /* SLSDisplaySource.h in Headers */,
 				93AD7CCF1ADCA5C700B42B9E /* SLSUICGView.h in Headers */,
 				936E24D11ADEA6C40004C396 /* stroke.h in Headers */,
 				93AD7CD71ADCABA000B42B9E /* SLSUIEventSourceView.h in Headers */,
 				93D73DD41ADDE3D7003F9A7A /* SLSAnimationSource.h in Headers */,
-				93D73DF11ADE01E6003F9A7A /* SLSUIGLViewController.h in Headers */,
 				933FD6DE1AEB8B3B003AEC6C /* reverse_inflector.h in Headers */,
 				93D73DED1ADE0116003F9A7A /* SLSUIView.h in Headers */,
 				936E24C61ADEA6C40004C396 /* mouse_button.h in Headers */,
@@ -2208,7 +2194,6 @@
 				93229E911AD23DF3008D27EA /* SLSUIApplicationDelegate.mm in Sources */,
 				93CAA6551AD1AE32005EDC09 /* run.mm in Sources */,
 				93229ED41AD2428E008D27EA /* SLSUIRunnerViewController.m in Sources */,
-				93D73DEA1ADE00D9003F9A7A /* SLSUICGViewController.m in Sources */,
 				93D73DFE1ADE0758003F9A7A /* SLSUIGLView.mm in Sources */,
 				931B16781AEBC7F4005F6B4C /* timeline.cc in Sources */,
 				93AD7CD01ADCA5C700B42B9E /* SLSUICGView.m in Sources */,
@@ -2231,7 +2216,6 @@
 				93A9BFFF1AC99A430081D3A0 /* benchmark.cc in Sources */,
 				93CAA64A1AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */,
 				93D73E041ADE250C003F9A7A /* utilities.cc in Sources */,
-				93D73DF21ADE01E6003F9A7A /* SLSUIGLViewController.m in Sources */,
 				93AD7CEC1ADD395500B42B9E /* view.cc in Sources */,
 				937E13981ADBDEB9008DB7A7 /* SLSCGLayer.mm in Sources */,
 			);
