@@ -22,7 +22,6 @@
 		930D52021AD52BBF006EEF1B /* color_depth.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D52001AD52BBF006EEF1B /* color_depth.h */; };
 		931B16781AEBC7F4005F6B4C /* timeline.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD5AC1AEB86EB003AEC6C /* timeline.cc */; };
 		931B16791AEBC7F4005F6B4C /* timeline.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD5AC1AEB86EB003AEC6C /* timeline.cc */; };
-		931B167A1AEBC7F5005F6B4C /* timeline.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD5AC1AEB86EB003AEC6C /* timeline.cc */; };
 		931B167B1AEBC7F5005F6B4C /* timeline.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD5AC1AEB86EB003AEC6C /* timeline.cc */; };
 		93229E6D1ACD6DDA008D27EA /* singleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E6C1ACD6DDA008D27EA /* singleton.h */; };
 		93229E6E1ACD6DDA008D27EA /* singleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E6C1ACD6DDA008D27EA /* singleton.h */; };
@@ -39,204 +38,70 @@
 		9338032A1AD88DC200F41F92 /* font.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803261AD88DC200F41F92 /* font.h */; };
 		933FD5281AEB1E3F003AEC6C /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5271AEB1E3F003AEC6C /* context_holder.h */; };
 		933FD5291AEB1E3F003AEC6C /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5271AEB1E3F003AEC6C /* context_holder.h */; };
-		933FD52A1AEB1E3F003AEC6C /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5271AEB1E3F003AEC6C /* context_holder.h */; };
 		933FD52B1AEB1E3F003AEC6C /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5271AEB1E3F003AEC6C /* context_holder.h */; };
 		933FD52D1AEB2314003AEC6C /* backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD52C1AEB22F7003AEC6C /* backend.h */; };
-		933FD52E1AEB2314003AEC6C /* backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD52C1AEB22F7003AEC6C /* backend.h */; };
 		933FD52F1AEB2314003AEC6C /* backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD52C1AEB22F7003AEC6C /* backend.h */; };
 		933FD5301AEB2315003AEC6C /* backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD52C1AEB22F7003AEC6C /* backend.h */; };
-		933FD5311AEB231E003AEC6C /* app.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B451AD1438900969DC2 /* app.h */; };
-		933FD5321AEB231E003AEC6C /* event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE21ADD395500B42B9E /* event.h */; };
-		933FD5331AEB231E003AEC6C /* app_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707DA1AD692DF00E3E8AA /* app_event.h */; };
-		933FD5341AEB231E003AEC6C /* mouse_button.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6091AD16F40005EDC09 /* mouse_button.h */; };
-		933FD5351AEB231E003AEC6C /* mouse_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B521AD14C4400969DC2 /* mouse_event.h */; };
-		933FD5361AEB231E003AEC6C /* key_modifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6081AD16EED005EDC09 /* key_modifier.h */; };
-		933FD5371AEB231E003AEC6C /* key_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B501AD14C4400969DC2 /* key_event.h */; };
-		933FD5381AEB231E003AEC6C /* touch_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B531AD14C4400969DC2 /* touch_event.h */; };
-		933FD5391AEB231E003AEC6C /* gesture_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B4F1AD14C4400969DC2 /* gesture_event.h */; };
-		933FD53A1AEB231E003AEC6C /* motion_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B511AD14C4400969DC2 /* motion_event.h */; };
-		933FD53B1AEB231E003AEC6C /* runnable.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6171AD1930A005EDC09 /* runnable.h */; };
-		933FD53C1AEB231E003AEC6C /* runner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6161AD19304005EDC09 /* runner.h */; };
-		933FD53D1AEB231E003AEC6C /* runner_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA63C1AD1A518005EDC09 /* runner_options.h */; };
-		933FD53E1AEB231E003AEC6C /* runner_factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E963B1AD250AF00A7E21E /* runner_factory.h */; };
-		933FD53F1AEB231E003AEC6C /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
-		933FD5401AEB231E003AEC6C /* run.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6521AD1ADBB005EDC09 /* run.h */; };
-		933FD5411AEB231E003AEC6C /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
-		933FD5421AEB231E003AEC6C /* view.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE41ADD395500B42B9E /* view.h */; };
-		933FD5431AEB231E003AEC6C /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
-		933FD5441AEB231E003AEC6C /* layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE11ADD395500B42B9E /* layer.h */; };
-		933FD5451AEB231E003AEC6C /* layer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE01ADD395500B42B9E /* layer.cc */; };
-		933FD5461AEB231E003AEC6C /* utilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73E021ADE250C003F9A7A /* utilities.h */; };
-		933FD5471AEB231E003AEC6C /* utilities.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93D73E011ADE250C003F9A7A /* utilities.cc */; };
-		933FD5481AEB231E003AEC6C /* graphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E461AB5FA8B009E3626 /* graphics.h */; };
-		933FD5491AEB232B003AEC6C /* color.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D51E71AD42B76006EEF1B /* color.h */; };
-		933FD54A1AEB232B003AEC6C /* color3.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D51E81AD42B76006EEF1B /* color3.h */; };
-		933FD54B1AEB232B003AEC6C /* color4.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D51E91AD42B76006EEF1B /* color4.h */; };
-		933FD54C1AEB232B003AEC6C /* color_depth.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D52001AD52BBF006EEF1B /* color_depth.h */; };
-		933FD54D1AEB232B003AEC6C /* fill.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707D91AD62C6300E3E8AA /* fill.h */; };
-		933FD54E1AEB232B003AEC6C /* stroke.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707D81AD62C5E00E3E8AA /* stroke.h */; };
-		933FD54F1AEB232B003AEC6C /* path.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F3B1ADA1A7500175565 /* path.h */; };
-		933FD5501AEB232B003AEC6C /* path.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F3A1ADA1A7500175565 /* path.cc */; };
-		933FD5511AEB232B003AEC6C /* segment.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F711ADA32E800175565 /* segment.h */; };
-		933FD5521AEB232B003AEC6C /* segment.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F701ADA32E800175565 /* segment.cc */; };
-		933FD5531AEB232B003AEC6C /* shape.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F401ADA1A8100175565 /* shape.h */; };
-		933FD5541AEB232B003AEC6C /* shape.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F3F1ADA1A8100175565 /* shape.cc */; };
-		933FD5551AEB232B003AEC6C /* font.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803261AD88DC200F41F92 /* font.h */; };
-		933FD5561AEB232B003AEC6C /* font.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803251AD88DC200F41F92 /* font.cc */; };
-		933FD5571AEB232B003AEC6C /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913BB1AB2811500DDF7F9 /* math.h */; };
-		933FD5581AEB232F003AEC6C /* constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 930398291AB2AE9500577048 /* constants.h */; };
-		933FD5591AEB232F003AEC6C /* functions.h in Headers */ = {isa = PBXBuildFile; fileRef = 938987DD1AD5F32100DEC9E9 /* functions.h */; };
-		933FD55A1AEB232F003AEC6C /* promotion.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A9C0011ACC4DBC0081D3A0 /* promotion.h */; };
-		933FD55B1AEB232F003AEC6C /* random.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E5F1ACD2FE6008D27EA /* random.h */; };
-		933FD55C1AEB232F003AEC6C /* axis.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E721ACECD00008D27EA /* axis.h */; };
-		933FD55D1AEB232F003AEC6C /* vector.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913B71AB2811500DDF7F9 /* vector.h */; };
-		933FD55E1AEB232F003AEC6C /* vector2.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913B81AB2811500DDF7F9 /* vector2.h */; };
-		933FD55F1AEB232F003AEC6C /* vector3.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913B91AB2811500DDF7F9 /* vector3.h */; };
-		933FD5601AEB232F003AEC6C /* vector4.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913BA1AB2811500DDF7F9 /* vector4.h */; };
-		933FD5611AEB232F003AEC6C /* matrix.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9351AD92C90009D0646 /* matrix.h */; };
-		933FD5621AEB232F003AEC6C /* matrix2.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9361AD92CA8009D0646 /* matrix2.h */; };
-		933FD5631AEB232F003AEC6C /* matrix3.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9371AD92CAE009D0646 /* matrix3.h */; };
-		933FD5641AEB232F003AEC6C /* size.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913B01AB2811500DDF7F9 /* size.h */; };
-		933FD5651AEB232F003AEC6C /* size2.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913B11AB2811500DDF7F9 /* size2.h */; };
-		933FD5661AEB232F003AEC6C /* size3.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913B21AB2811500DDF7F9 /* size3.h */; };
-		933FD5671AEB232F003AEC6C /* line.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913AA1AB2811500DDF7F9 /* line.h */; };
-		933FD5681AEB232F003AEC6C /* line2.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E391AB56DE8009E3626 /* line2.h */; };
-		933FD5691AEB232F003AEC6C /* line3.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E3A1AB56DE8009E3626 /* line3.h */; };
-		933FD56A1AEB232F003AEC6C /* triangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913B61AB2811500DDF7F9 /* triangle.h */; };
-		933FD56B1AEB232F003AEC6C /* triangle2.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E3F1AB5F859009E3626 /* triangle2.h */; };
-		933FD56C1AEB232F003AEC6C /* triangle3.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E401AB5F859009E3626 /* triangle3.h */; };
-		933FD56D1AEB232F003AEC6C /* rect.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913AF1AB2811500DDF7F9 /* rect.h */; };
-		933FD56E1AEB232F003AEC6C /* polygon.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A9C00A1ACF63060081D3A0 /* polygon.h */; };
-		933FD56F1AEB232F003AEC6C /* plane.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913AC1AB2811500DDF7F9 /* plane.h */; };
-		933FD5701AEB232F003AEC6C /* sphere.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913B41AB2811500DDF7F9 /* sphere.h */; };
-		933FD5711AEB232F003AEC6C /* noise.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F611ADA2B7C00175565 /* noise.h */; };
-		933FD5721AEB2335003AEC6C /* improved.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F6B1ADA2C8E00175565 /* improved.h */; };
-		933FD5731AEB2335003AEC6C /* improved.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F6A1ADA2C8E00175565 /* improved.cc */; };
-		933FD5741AEB2335003AEC6C /* simplex.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F651ADA2C5000175565 /* simplex.h */; };
-		933FD5751AEB2335003AEC6C /* simplex.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F641ADA2C5000175565 /* simplex.cc */; };
-		933FD5761AEB233C003AEC6C /* thread.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E881AB60972009E3626 /* thread.h */; };
-		933FD5771AEB2341003AEC6C /* dispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E861AB60972009E3626 /* dispatch.h */; };
-		933FD5781AEB2341003AEC6C /* dispatch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F38E871AB60972009E3626 /* dispatch.mm */; };
-		933FD5791AEB2341003AEC6C /* null_mutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E701ACEAF05008D27EA /* null_mutex.h */; };
-		933FD57A1AEB2341003AEC6C /* utility.h in Headers */ = {isa = PBXBuildFile; fileRef = 930398341AB2AEE700577048 /* utility.h */; };
-		933FD57B1AEB2341003AEC6C /* enablers.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D52051AD5530F006EEF1B /* enablers.h */; };
-		933FD57C1AEB2341003AEC6C /* enum.h in Headers */ = {isa = PBXBuildFile; fileRef = 930398371AB2AEF400577048 /* enum.h */; };
-		933FD57D1AEB2341003AEC6C /* singleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E6C1ACD6DDA008D27EA /* singleton.h */; };
-		933FD57E1AEB2341003AEC6C /* benchmark.h in Headers */ = {isa = PBXBuildFile; fileRef = 938A07E41AB2D41D00CAE8CA /* benchmark.h */; };
-		933FD57F1AEB2341003AEC6C /* benchmark.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93A9BFFD1AC99A430081D3A0 /* benchmark.cc */; };
-		933FD5801AEB2347003AEC6C /* SLSRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA60A1AD191DC005EDC09 /* SLSRunner.h */; };
-		933FD5811AEB2347003AEC6C /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
-		933FD5821AEB2347003AEC6C /* SLSEventSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E967F1AD384C500A7E21E /* SLSEventSource.h */; };
-		933FD5831AEB2347003AEC6C /* SLSDisplaySource.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CB51ADCA31900B42B9E /* SLSDisplaySource.h */; };
-		933FD5841AEB2347003AEC6C /* SLSAnimationSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DD21ADDE3B4003F9A7A /* SLSAnimationSource.h */; };
-		933FD5851AEB2347003AEC6C /* SLSCGLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 937E13931ADBDEB9008DB7A7 /* SLSCGLayer.h */; };
-		933FD5861AEB2347003AEC6C /* SLSCGLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 937E13941ADBDEB9008DB7A7 /* SLSCGLayer.mm */; };
-		933FD5871AEB2347003AEC6C /* SLSDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9441AD94669009D0646 /* SLSDefines.h */; };
-		933FD5881AEB2347003AEC6C /* SLSEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B5E1AD14DC200969DC2 /* SLSEvents.h */; };
-		933FD5891AEB2347003AEC6C /* SLSEventDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B5F1AD1546300969DC2 /* SLSEventDelegate.h */; };
-		933FD58A1AEB2347003AEC6C /* SLSDisplayDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E96891AD38BB300A7E21E /* SLSDisplayDelegate.h */; };
-		933FD58B1AEB2347003AEC6C /* SLSDisplayLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 938987D61AD21F2000DEC9E9 /* SLSDisplayLink.h */; };
-		933FD58C1AEB2347003AEC6C /* SLSApplicationMain.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA64B1AD1AD4B005EDC09 /* SLSApplicationMain.h */; };
-		933FD58D1AEB2347003AEC6C /* SLSNSBundle+Bundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6451AD1A843005EDC09 /* SLSNSBundle+Bundle.h */; };
-		933FD58E1AEB2347003AEC6C /* SLSNSBundle+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */; };
-		933FD58F1AEB2351003AEC6C /* SLSNSWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6181AD19BE3005EDC09 /* SLSNSWindowController.h */; };
-		933FD5901AEB2351003AEC6C /* SLSNSWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6191AD19BE3005EDC09 /* SLSNSWindowController.m */; };
-		933FD5911AEB2351003AEC6C /* SLSNSViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DCE1ADDE321003F9A7A /* SLSNSViewController.h */; };
-		933FD5921AEB2351003AEC6C /* SLSNSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DCF1ADDE321003F9A7A /* SLSNSViewController.m */; };
-		933FD5931AEB2351003AEC6C /* SLSNSEventSourceView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CD11ADCAA0200B42B9E /* SLSNSEventSourceView.h */; };
-		933FD5941AEB2351003AEC6C /* SLSNSEventSourceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CD21ADCAA0200B42B9E /* SLSNSEventSourceView.mm */; };
-		933FD5951AEB2351003AEC6C /* SLSNSView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DD51ADDE5E7003F9A7A /* SLSNSView.h */; };
-		933FD5961AEB2351003AEC6C /* SLSNSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DD61ADDE5E7003F9A7A /* SLSNSView.m */; };
-		933FD5991AEB2351003AEC6C /* SLSNSGLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CC11ADCA45600B42B9E /* SLSNSGLView.h */; };
-		933FD59A1AEB2351003AEC6C /* SLSNSGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CC21ADCA45600B42B9E /* SLSNSGLView.m */; };
-		933FD59B1AEB2351003AEC6C /* SLSNSGLLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DC01ADD5B78003F9A7A /* SLSNSGLLayer.h */; };
-		933FD59C1AEB2351003AEC6C /* SLSNSGLLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DC11ADD5B78003F9A7A /* SLSNSGLLayer.mm */; };
-		933FD59F1AEB2351003AEC6C /* SLSNSCGView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CC71ADCA4AA00B42B9E /* SLSNSCGView.h */; };
-		933FD5A01AEB2351003AEC6C /* SLSNSCGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CC81ADCA4AA00B42B9E /* SLSNSCGView.m */; };
-		933FD5A11AEB2351003AEC6C /* SLSCVDisplayLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 938987D71AD21F2000DEC9E9 /* SLSCVDisplayLink.mm */; };
-		933FD5A21AEB2351003AEC6C /* SLSNSApplicationMain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA64C1AD1AD4B005EDC09 /* SLSNSApplicationMain.mm */; };
-		933FD5A31AEB2351003AEC6C /* SLSNSApplicationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6341AD1A2A5005EDC09 /* SLSNSApplicationDelegate.h */; };
-		933FD5A41AEB2351003AEC6C /* SLSNSApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6351AD1A2A5005EDC09 /* SLSNSApplicationDelegate.mm */; };
 		933FD5ED1AEB86EB003AEC6C /* tween.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5B41AEB86EB003AEC6C /* tween.h */; };
 		933FD5EE1AEB86EB003AEC6C /* tween.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5B41AEB86EB003AEC6C /* tween.h */; };
-		933FD5EF1AEB86EB003AEC6C /* tween.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5B41AEB86EB003AEC6C /* tween.h */; };
 		933FD5F01AEB86EB003AEC6C /* tween.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5B41AEB86EB003AEC6C /* tween.h */; };
 		933FD6A91AEB8B3B003AEC6C /* group.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6971AEB8B3B003AEC6C /* group.h */; };
 		933FD6AA1AEB8B3B003AEC6C /* group.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6971AEB8B3B003AEC6C /* group.h */; };
-		933FD6AB1AEB8B3B003AEC6C /* group.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6971AEB8B3B003AEC6C /* group.h */; };
 		933FD6AC1AEB8B3B003AEC6C /* group.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6971AEB8B3B003AEC6C /* group.h */; };
 		933FD6AD1AEB8B3B003AEC6C /* inflector.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6981AEB8B3B003AEC6C /* inflector.h */; };
 		933FD6AE1AEB8B3B003AEC6C /* inflector.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6981AEB8B3B003AEC6C /* inflector.h */; };
-		933FD6AF1AEB8B3B003AEC6C /* inflector.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6981AEB8B3B003AEC6C /* inflector.h */; };
 		933FD6B01AEB8B3B003AEC6C /* inflector.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6981AEB8B3B003AEC6C /* inflector.h */; };
 		933FD6B11AEB8B3B003AEC6C /* back.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69A1AEB8B3B003AEC6C /* back.h */; };
 		933FD6B21AEB8B3B003AEC6C /* back.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69A1AEB8B3B003AEC6C /* back.h */; };
-		933FD6B31AEB8B3B003AEC6C /* back.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69A1AEB8B3B003AEC6C /* back.h */; };
 		933FD6B41AEB8B3B003AEC6C /* back.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69A1AEB8B3B003AEC6C /* back.h */; };
 		933FD6B51AEB8B3B003AEC6C /* bounce.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69B1AEB8B3B003AEC6C /* bounce.h */; };
 		933FD6B61AEB8B3B003AEC6C /* bounce.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69B1AEB8B3B003AEC6C /* bounce.h */; };
-		933FD6B71AEB8B3B003AEC6C /* bounce.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69B1AEB8B3B003AEC6C /* bounce.h */; };
 		933FD6B81AEB8B3B003AEC6C /* bounce.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69B1AEB8B3B003AEC6C /* bounce.h */; };
 		933FD6B91AEB8B3B003AEC6C /* circular.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69C1AEB8B3B003AEC6C /* circular.h */; };
 		933FD6BA1AEB8B3B003AEC6C /* circular.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69C1AEB8B3B003AEC6C /* circular.h */; };
-		933FD6BB1AEB8B3B003AEC6C /* circular.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69C1AEB8B3B003AEC6C /* circular.h */; };
 		933FD6BC1AEB8B3B003AEC6C /* circular.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69C1AEB8B3B003AEC6C /* circular.h */; };
 		933FD6BD1AEB8B3B003AEC6C /* cubic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69D1AEB8B3B003AEC6C /* cubic.h */; };
 		933FD6BE1AEB8B3B003AEC6C /* cubic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69D1AEB8B3B003AEC6C /* cubic.h */; };
-		933FD6BF1AEB8B3B003AEC6C /* cubic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69D1AEB8B3B003AEC6C /* cubic.h */; };
 		933FD6C01AEB8B3B003AEC6C /* cubic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69D1AEB8B3B003AEC6C /* cubic.h */; };
 		933FD6C11AEB8B3B003AEC6C /* elastic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69E1AEB8B3B003AEC6C /* elastic.h */; };
 		933FD6C21AEB8B3B003AEC6C /* elastic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69E1AEB8B3B003AEC6C /* elastic.h */; };
-		933FD6C31AEB8B3B003AEC6C /* elastic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69E1AEB8B3B003AEC6C /* elastic.h */; };
 		933FD6C41AEB8B3B003AEC6C /* elastic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69E1AEB8B3B003AEC6C /* elastic.h */; };
 		933FD6C51AEB8B3B003AEC6C /* exponential.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69F1AEB8B3B003AEC6C /* exponential.h */; };
 		933FD6C61AEB8B3B003AEC6C /* exponential.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69F1AEB8B3B003AEC6C /* exponential.h */; };
-		933FD6C71AEB8B3B003AEC6C /* exponential.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69F1AEB8B3B003AEC6C /* exponential.h */; };
 		933FD6C81AEB8B3B003AEC6C /* exponential.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD69F1AEB8B3B003AEC6C /* exponential.h */; };
 		933FD6C91AEB8B3B003AEC6C /* linear.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A01AEB8B3B003AEC6C /* linear.h */; };
 		933FD6CA1AEB8B3B003AEC6C /* linear.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A01AEB8B3B003AEC6C /* linear.h */; };
-		933FD6CB1AEB8B3B003AEC6C /* linear.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A01AEB8B3B003AEC6C /* linear.h */; };
 		933FD6CC1AEB8B3B003AEC6C /* linear.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A01AEB8B3B003AEC6C /* linear.h */; };
 		933FD6CD1AEB8B3B003AEC6C /* quadratic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A11AEB8B3B003AEC6C /* quadratic.h */; };
 		933FD6CE1AEB8B3B003AEC6C /* quadratic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A11AEB8B3B003AEC6C /* quadratic.h */; };
-		933FD6CF1AEB8B3B003AEC6C /* quadratic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A11AEB8B3B003AEC6C /* quadratic.h */; };
 		933FD6D01AEB8B3B003AEC6C /* quadratic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A11AEB8B3B003AEC6C /* quadratic.h */; };
 		933FD6D11AEB8B3B003AEC6C /* quartic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A21AEB8B3B003AEC6C /* quartic.h */; };
 		933FD6D21AEB8B3B003AEC6C /* quartic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A21AEB8B3B003AEC6C /* quartic.h */; };
-		933FD6D31AEB8B3B003AEC6C /* quartic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A21AEB8B3B003AEC6C /* quartic.h */; };
 		933FD6D41AEB8B3B003AEC6C /* quartic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A21AEB8B3B003AEC6C /* quartic.h */; };
 		933FD6D51AEB8B3B003AEC6C /* quintic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A31AEB8B3B003AEC6C /* quintic.h */; };
 		933FD6D61AEB8B3B003AEC6C /* quintic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A31AEB8B3B003AEC6C /* quintic.h */; };
-		933FD6D71AEB8B3B003AEC6C /* quintic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A31AEB8B3B003AEC6C /* quintic.h */; };
 		933FD6D81AEB8B3B003AEC6C /* quintic.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A31AEB8B3B003AEC6C /* quintic.h */; };
 		933FD6D91AEB8B3B003AEC6C /* sinusoidal.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A41AEB8B3B003AEC6C /* sinusoidal.h */; };
 		933FD6DA1AEB8B3B003AEC6C /* sinusoidal.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A41AEB8B3B003AEC6C /* sinusoidal.h */; };
-		933FD6DB1AEB8B3B003AEC6C /* sinusoidal.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A41AEB8B3B003AEC6C /* sinusoidal.h */; };
 		933FD6DC1AEB8B3B003AEC6C /* sinusoidal.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A41AEB8B3B003AEC6C /* sinusoidal.h */; };
 		933FD6DD1AEB8B3B003AEC6C /* reverse_inflector.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A51AEB8B3B003AEC6C /* reverse_inflector.h */; };
 		933FD6DE1AEB8B3B003AEC6C /* reverse_inflector.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A51AEB8B3B003AEC6C /* reverse_inflector.h */; };
-		933FD6DF1AEB8B3B003AEC6C /* reverse_inflector.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A51AEB8B3B003AEC6C /* reverse_inflector.h */; };
 		933FD6E01AEB8B3B003AEC6C /* reverse_inflector.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A51AEB8B3B003AEC6C /* reverse_inflector.h */; };
 		933FD6E11AEB8B3B003AEC6C /* symmetric_inflector.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A61AEB8B3B003AEC6C /* symmetric_inflector.h */; };
 		933FD6E21AEB8B3B003AEC6C /* symmetric_inflector.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A61AEB8B3B003AEC6C /* symmetric_inflector.h */; };
-		933FD6E31AEB8B3B003AEC6C /* symmetric_inflector.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A61AEB8B3B003AEC6C /* symmetric_inflector.h */; };
 		933FD6E41AEB8B3B003AEC6C /* symmetric_inflector.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A61AEB8B3B003AEC6C /* symmetric_inflector.h */; };
 		933FD6E51AEB8B3B003AEC6C /* type.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A71AEB8B3B003AEC6C /* type.h */; };
 		933FD6E61AEB8B3B003AEC6C /* type.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A71AEB8B3B003AEC6C /* type.h */; };
-		933FD6E71AEB8B3B003AEC6C /* type.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A71AEB8B3B003AEC6C /* type.h */; };
 		933FD6E81AEB8B3B003AEC6C /* type.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A71AEB8B3B003AEC6C /* type.h */; };
 		933FD6E91AEB8B3B003AEC6C /* easing.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A81AEB8B3B003AEC6C /* easing.h */; };
 		933FD6EA1AEB8B3B003AEC6C /* easing.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A81AEB8B3B003AEC6C /* easing.h */; };
-		933FD6EB1AEB8B3B003AEC6C /* easing.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A81AEB8B3B003AEC6C /* easing.h */; };
 		933FD6EC1AEB8B3B003AEC6C /* easing.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6A81AEB8B3B003AEC6C /* easing.h */; };
 		933FD6EF1AEB9116003AEC6C /* easing_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD6EE1AEB9116003AEC6C /* easing_test.cc */; };
 		933FD6F21AEB9FC3003AEC6C /* preset.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6F11AEB9FC3003AEC6C /* preset.h */; };
 		933FD6F31AEB9FC3003AEC6C /* preset.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6F11AEB9FC3003AEC6C /* preset.h */; };
-		933FD6F41AEB9FC3003AEC6C /* preset.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6F11AEB9FC3003AEC6C /* preset.h */; };
 		933FD6F51AEB9FC3003AEC6C /* preset.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD6F11AEB9FC3003AEC6C /* preset.h */; };
 		933FD6F61AEBAEA2003AEC6C /* transform.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD5AF1AEB86EB003AEC6C /* transform.cc */; };
 		933FD6F71AEBAEA3003AEC6C /* transform.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD5AF1AEB86EB003AEC6C /* transform.cc */; };
-		933FD6F81AEBAEA4003AEC6C /* transform.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD5AF1AEB86EB003AEC6C /* transform.cc */; };
 		933FD6F91AEBAEA4003AEC6C /* transform.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD5AF1AEB86EB003AEC6C /* transform.cc */; };
 		936E24361ADEA5A80004C396 /* app.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B451AD1438900969DC2 /* app.h */; };
 		936E24371ADEA5A80004C396 /* event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE21ADD395500B42B9E /* event.h */; };
@@ -533,7 +398,6 @@
 		93E33C921AEBB81B001F90DE /* timeline_host_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C841AEBB6BB001F90DE /* timeline_host_test.cc */; };
 		93E33C941AEBBA3A001F90DE /* easing.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E33C931AEBBA3A001F90DE /* easing.h */; };
 		93E33C951AEBBA3A001F90DE /* easing.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E33C931AEBBA3A001F90DE /* easing.h */; };
-		93E33C961AEBBA3A001F90DE /* easing.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E33C931AEBBA3A001F90DE /* easing.h */; };
 		93E33C971AEBBA3A001F90DE /* easing.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E33C931AEBBA3A001F90DE /* easing.h */; };
 		93E33C981AEBBF75001F90DE /* pointer_adaptor_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C831AEBB6BB001F90DE /* pointer_adaptor_test.cc */; };
 		93E33C991AEBC045001F90DE /* accessor_adaptor_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C7F1AEBB6BB001F90DE /* accessor_adaptor_test.cc */; };
@@ -577,6 +441,38 @@
 		93EC6F811ADEAB0F00AF6F5F /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E913A01AB2807E00DDF7F9 /* GLKit.framework */; };
 		93EC6F821ADEAB0F00AF6F5F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AD7CDC1ADD37E500B42B9E /* OpenGL.framework */; };
 		93EC6F831ADEAB0F00AF6F5F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CAA62C1AD19CDE005EDC09 /* QuartzCore.framework */; };
+		93EDFB7D1AEC4706003CDD03 /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
+		93EDFB7E1AEC4706003CDD03 /* SLSCGLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 937E13941ADBDEB9008DB7A7 /* SLSCGLayer.mm */; };
+		93EDFB7F1AEC4706003CDD03 /* SLSNSBundle+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */; };
+		93EDFB801AEC4716003CDD03 /* SLSUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DE41ADDFF0B003F9A7A /* SLSUIViewController.m */; };
+		93EDFB811AEC4716003CDD03 /* SLSUIEventSourceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CD61ADCABA000B42B9E /* SLSUIEventSourceView.mm */; };
+		93EDFB821AEC4716003CDD03 /* SLSUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DEC1ADE0116003F9A7A /* SLSUIView.m */; };
+		93EDFB831AEC4716003CDD03 /* SLSUIGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DFC1ADE0758003F9A7A /* SLSUIGLView.mm */; };
+		93EDFB841AEC4716003CDD03 /* SLSUICGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CCE1ADCA5C700B42B9E /* SLSUICGView.m */; };
+		93EDFB851AEC4716003CDD03 /* SLSCADisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 939E96851AD3864600A7E21E /* SLSCADisplayLink.m */; };
+		93EDFB861AEC4716003CDD03 /* SLSUIRunnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93229ED11AD2428D008D27EA /* SLSUIRunnerViewController.m */; };
+		93EDFB871AEC4716003CDD03 /* SLSUIApplicationMain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229EC61AD2409E008D27EA /* SLSUIApplicationMain.mm */; };
+		93EDFB881AEC4716003CDD03 /* SLSUIApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229E8F1AD23DF3008D27EA /* SLSUIApplicationDelegate.mm */; };
+		93EDFB891AEC4726003CDD03 /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
+		93EDFB8A1AEC4726003CDD03 /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
+		93EDFB8B1AEC4726003CDD03 /* layer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE01ADD395500B42B9E /* layer.cc */; };
+		93EDFB8C1AEC4726003CDD03 /* utilities.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93D73E011ADE250C003F9A7A /* utilities.cc */; };
+		93EDFB8D1AEC4726003CDD03 /* path.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F3A1ADA1A7500175565 /* path.cc */; };
+		93EDFB8E1AEC4726003CDD03 /* segment.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F701ADA32E800175565 /* segment.cc */; };
+		93EDFB8F1AEC4726003CDD03 /* shape.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F3F1ADA1A8100175565 /* shape.cc */; };
+		93EDFB901AEC4726003CDD03 /* font.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803251AD88DC200F41F92 /* font.cc */; };
+		93EDFB911AEC4726003CDD03 /* improved.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F6A1ADA2C8E00175565 /* improved.cc */; };
+		93EDFB921AEC4726003CDD03 /* simplex.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F641ADA2C5000175565 /* simplex.cc */; };
+		93EDFB931AEC4726003CDD03 /* timeline.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD5AC1AEB86EB003AEC6C /* timeline.cc */; };
+		93EDFB941AEC4726003CDD03 /* benchmark.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93A9BFFD1AC99A430081D3A0 /* benchmark.cc */; };
+		93EDFB951AEC473B003CDD03 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
+		93EDFB961AEC478A003CDD03 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B371AD0D25300969DC2 /* boost.framework */; };
+		93EDFB971AEC478F003CDD03 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CAA6281AD19CB0005EDC09 /* CoreGraphics.framework */; };
+		93EDFB981AEC478F003CDD03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CAA6261AD19CA1005EDC09 /* Foundation.framework */; };
+		93EDFB991AEC478F003CDD03 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B3D1AD0D32B00969DC2 /* GLKit.framework */; };
+		93EDFB9A1AEC478F003CDD03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B3F1AD0D33700969DC2 /* UIKit.framework */; };
+		93EDFB9B1AEC478F003CDD03 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AD7CDE1ADD37F200B42B9E /* OpenGLES.framework */; };
+		93EDFB9C1AEC478F003CDD03 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CAA62E1AD19CEC005EDC09 /* QuartzCore.framework */; };
 		93F38E3C1AB56DE8009E3626 /* line2.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E391AB56DE8009E3626 /* line2.h */; };
 		93F38E3D1AB56DE8009E3626 /* line3.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E3A1AB56DE8009E3626 /* line3.h */; };
 		93F38E411AB5F859009E3626 /* triangle2.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E3F1AB5F859009E3626 /* triangle2.h */; };
@@ -612,6 +508,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		93EDFB641AEC46C5003CDD03 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -639,8 +544,6 @@
 		93229ED21AD2428D008D27EA /* SLSUIRunnerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSUIRunnerViewController.xib; sourceTree = "<group>"; };
 		933803251AD88DC200F41F92 /* font.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = font.cc; sourceTree = "<group>"; };
 		933803261AD88DC200F41F92 /* font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = font.h; sourceTree = "<group>"; };
-		933803311AD8B7EC00F41F92 /* core.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = core.mm; sourceTree = "<group>"; };
-		933803321AD8B7EC00F41F92 /* core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
 		933FD5271AEB1E3F003AEC6C /* context_holder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = context_holder.h; sourceTree = "<group>"; };
 		933FD52C1AEB22F7003AEC6C /* backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = backend.h; sourceTree = "<group>"; };
 		933FD5A61AEB86EB003AEC6C /* accessor_adaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = accessor_adaptor.h; sourceTree = "<group>"; };
@@ -677,7 +580,6 @@
 		933FD6EE1AEB9116003AEC6C /* easing_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = easing_test.cc; sourceTree = "<group>"; };
 		933FD6F11AEB9FC3003AEC6C /* preset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = preset.h; sourceTree = "<group>"; };
 		936E241F1ADEA5550004C396 /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		936E253E1ADEA9980004C396 /* libSolas.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libSolas.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		937E13841ADBDD8F008DB7A7 /* fontstash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fontstash.h; sourceTree = "<group>"; };
 		937E13851ADBDD8F008DB7A7 /* nanovg.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = nanovg.c; sourceTree = "<group>"; };
 		937E13861ADBDD8F008DB7A7 /* nanovg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = nanovg.h; sourceTree = "<group>"; };
@@ -815,6 +717,7 @@
 		93E913B91AB2811500DDF7F9 /* vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector3.h; sourceTree = "<group>"; };
 		93E913BA1AB2811500DDF7F9 /* vector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector4.h; sourceTree = "<group>"; };
 		93E913BB1AB2811500DDF7F9 /* math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math.h; sourceTree = "<group>"; };
+		93EDFB661AEC46C5003CDD03 /* libSolasTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolasTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		93EFE0751AB350E900148E7C /* rect_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rect_test.cc; sourceTree = "<group>"; };
 		93F38E371AB56D2D009E3626 /* sphere_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sphere_test.cc; sourceTree = "<group>"; };
 		93F38E391AB56DE8009E3626 /* line2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = line2.h; sourceTree = "<group>"; };
@@ -862,13 +765,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		936E253B1ADEA9980004C396 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		93E913541AB27DE400DDF7F9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -894,6 +790,20 @@
 				93A45B3E1AD0D32B00969DC2 /* GLKit.framework in Frameworks */,
 				93AD7CDF1ADD37F200B42B9E /* OpenGLES.framework in Frameworks */,
 				93CAA62F1AD19CEC005EDC09 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		93EDFB631AEC46C5003CDD03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93EDFB961AEC478A003CDD03 /* boost.framework in Frameworks */,
+				93EDFB971AEC478F003CDD03 /* CoreGraphics.framework in Frameworks */,
+				93EDFB981AEC478F003CDD03 /* Foundation.framework in Frameworks */,
+				93EDFB991AEC478F003CDD03 /* GLKit.framework in Frameworks */,
+				93EDFB9A1AEC478F003CDD03 /* UIKit.framework in Frameworks */,
+				93EDFB9B1AEC478F003CDD03 /* OpenGLES.framework in Frameworks */,
+				93EDFB9C1AEC478F003CDD03 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1306,8 +1216,6 @@
 				93BE2F3F1ADA1A8100175565 /* shape.cc */,
 				933803261AD88DC200F41F92 /* font.h */,
 				933803251AD88DC200F41F92 /* font.cc */,
-				933803321AD8B7EC00F41F92 /* core.h */,
-				933803311AD8B7EC00F41F92 /* core.mm */,
 			);
 			path = graphics;
 			sourceTree = "<group>";
@@ -1391,7 +1299,7 @@
 				93E913761AB27E2600DDF7F9 /* SolasTouch.framework */,
 				930398491AB2B0DF00577048 /* SolasTest */,
 				936E241F1ADEA5550004C396 /* libSolas.a */,
-				936E253E1ADEA9980004C396 /* libSolas.dylib */,
+				93EDFB661AEC46C5003CDD03 /* libSolasTouch.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1521,121 +1429,6 @@
 				933FD5F01AEB86EB003AEC6C /* tween.h in Headers */,
 				936E24731ADEA5A80004C396 /* line.h in Headers */,
 				933FD6D81AEB8B3B003AEC6C /* quintic.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		936E253C1ADEA9980004C396 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				933FD5391AEB231E003AEC6C /* gesture_event.h in Headers */,
-				933FD57C1AEB2341003AEC6C /* enum.h in Headers */,
-				933FD56B1AEB232F003AEC6C /* triangle2.h in Headers */,
-				933FD5311AEB231E003AEC6C /* app.h in Headers */,
-				933FD54A1AEB232B003AEC6C /* color3.h in Headers */,
-				933FD5631AEB232F003AEC6C /* matrix3.h in Headers */,
-				933FD5A31AEB2351003AEC6C /* SLSNSApplicationDelegate.h in Headers */,
-				933FD52A1AEB1E3F003AEC6C /* context_holder.h in Headers */,
-				933FD5341AEB231E003AEC6C /* mouse_button.h in Headers */,
-				933FD58F1AEB2351003AEC6C /* SLSNSWindowController.h in Headers */,
-				933FD53D1AEB231E003AEC6C /* runner_options.h in Headers */,
-				933FD5571AEB232B003AEC6C /* math.h in Headers */,
-				933FD5651AEB232F003AEC6C /* size2.h in Headers */,
-				933FD5991AEB2351003AEC6C /* SLSNSGLView.h in Headers */,
-				933FD56D1AEB232F003AEC6C /* rect.h in Headers */,
-				933FD5361AEB231E003AEC6C /* key_modifier.h in Headers */,
-				933FD6B31AEB8B3B003AEC6C /* back.h in Headers */,
-				933FD5841AEB2347003AEC6C /* SLSAnimationSource.h in Headers */,
-				933FD5871AEB2347003AEC6C /* SLSDefines.h in Headers */,
-				933FD6C31AEB8B3B003AEC6C /* elastic.h in Headers */,
-				933FD5771AEB2341003AEC6C /* dispatch.h in Headers */,
-				933FD6D71AEB8B3B003AEC6C /* quintic.h in Headers */,
-				933FD5661AEB232F003AEC6C /* size3.h in Headers */,
-				933FD58A1AEB2347003AEC6C /* SLSDisplayDelegate.h in Headers */,
-				933FD6DB1AEB8B3B003AEC6C /* sinusoidal.h in Headers */,
-				933FD5741AEB2335003AEC6C /* simplex.h in Headers */,
-				933FD5801AEB2347003AEC6C /* SLSRunner.h in Headers */,
-				933FD5331AEB231E003AEC6C /* app_event.h in Headers */,
-				93E33C961AEBBA3A001F90DE /* easing.h in Headers */,
-				933FD6E71AEB8B3B003AEC6C /* type.h in Headers */,
-				933FD5601AEB232F003AEC6C /* vector4.h in Headers */,
-				933FD5401AEB231E003AEC6C /* run.h in Headers */,
-				933FD5701AEB232F003AEC6C /* sphere.h in Headers */,
-				933FD5911AEB2351003AEC6C /* SLSNSViewController.h in Headers */,
-				933FD5881AEB2347003AEC6C /* SLSEvents.h in Headers */,
-				933FD6C71AEB8B3B003AEC6C /* exponential.h in Headers */,
-				933FD5591AEB232F003AEC6C /* functions.h in Headers */,
-				933FD55B1AEB232F003AEC6C /* random.h in Headers */,
-				933FD53E1AEB231E003AEC6C /* runner_factory.h in Headers */,
-				933FD5641AEB232F003AEC6C /* size.h in Headers */,
-				933FD53C1AEB231E003AEC6C /* runner.h in Headers */,
-				933FD6D31AEB8B3B003AEC6C /* quartic.h in Headers */,
-				933FD5581AEB232F003AEC6C /* constants.h in Headers */,
-				933FD5671AEB232F003AEC6C /* line.h in Headers */,
-				933FD5351AEB231E003AEC6C /* mouse_event.h in Headers */,
-				933FD6BF1AEB8B3B003AEC6C /* cubic.h in Headers */,
-				933FD5681AEB232F003AEC6C /* line2.h in Headers */,
-				933FD56C1AEB232F003AEC6C /* triangle3.h in Headers */,
-				933FD5721AEB2335003AEC6C /* improved.h in Headers */,
-				933FD53A1AEB231E003AEC6C /* motion_event.h in Headers */,
-				933FD5761AEB233C003AEC6C /* thread.h in Headers */,
-				933FD54F1AEB232B003AEC6C /* path.h in Headers */,
-				933FD54D1AEB232B003AEC6C /* fill.h in Headers */,
-				933FD56F1AEB232F003AEC6C /* plane.h in Headers */,
-				933FD5491AEB232B003AEC6C /* color.h in Headers */,
-				933FD59B1AEB2351003AEC6C /* SLSNSGLLayer.h in Headers */,
-				933FD5EF1AEB86EB003AEC6C /* tween.h in Headers */,
-				933FD5851AEB2347003AEC6C /* SLSCGLayer.h in Headers */,
-				933FD52E1AEB2314003AEC6C /* backend.h in Headers */,
-				933FD55D1AEB232F003AEC6C /* vector.h in Headers */,
-				933FD5461AEB231E003AEC6C /* utilities.h in Headers */,
-				933FD56E1AEB232F003AEC6C /* polygon.h in Headers */,
-				933FD5481AEB231E003AEC6C /* graphics.h in Headers */,
-				933FD54B1AEB232B003AEC6C /* color4.h in Headers */,
-				933FD55E1AEB232F003AEC6C /* vector2.h in Headers */,
-				933FD5381AEB231E003AEC6C /* touch_event.h in Headers */,
-				933FD54C1AEB232B003AEC6C /* color_depth.h in Headers */,
-				933FD6E31AEB8B3B003AEC6C /* symmetric_inflector.h in Headers */,
-				933FD5931AEB2351003AEC6C /* SLSNSEventSourceView.h in Headers */,
-				933FD5891AEB2347003AEC6C /* SLSEventDelegate.h in Headers */,
-				933FD6F41AEB9FC3003AEC6C /* preset.h in Headers */,
-				933FD54E1AEB232B003AEC6C /* stroke.h in Headers */,
-				933FD57B1AEB2341003AEC6C /* enablers.h in Headers */,
-				933FD57D1AEB2341003AEC6C /* singleton.h in Headers */,
-				933FD5951AEB2351003AEC6C /* SLSNSView.h in Headers */,
-				933FD6B71AEB8B3B003AEC6C /* bounce.h in Headers */,
-				933FD6AB1AEB8B3B003AEC6C /* group.h in Headers */,
-				933FD6EB1AEB8B3B003AEC6C /* easing.h in Headers */,
-				933FD58B1AEB2347003AEC6C /* SLSDisplayLink.h in Headers */,
-				933FD5621AEB232F003AEC6C /* matrix2.h in Headers */,
-				933FD53B1AEB231E003AEC6C /* runnable.h in Headers */,
-				933FD5531AEB232B003AEC6C /* shape.h in Headers */,
-				933FD58D1AEB2347003AEC6C /* SLSNSBundle+Bundle.h in Headers */,
-				933FD57E1AEB2341003AEC6C /* benchmark.h in Headers */,
-				933FD6DF1AEB8B3B003AEC6C /* reverse_inflector.h in Headers */,
-				933FD5421AEB231E003AEC6C /* view.h in Headers */,
-				933FD5821AEB2347003AEC6C /* SLSEventSource.h in Headers */,
-				933FD59F1AEB2351003AEC6C /* SLSNSCGView.h in Headers */,
-				933FD5691AEB232F003AEC6C /* line3.h in Headers */,
-				933FD57A1AEB2341003AEC6C /* utility.h in Headers */,
-				933FD5711AEB232F003AEC6C /* noise.h in Headers */,
-				933FD58C1AEB2347003AEC6C /* SLSApplicationMain.h in Headers */,
-				933FD5611AEB232F003AEC6C /* matrix.h in Headers */,
-				933FD5321AEB231E003AEC6C /* event.h in Headers */,
-				933FD5551AEB232B003AEC6C /* font.h in Headers */,
-				933FD6BB1AEB8B3B003AEC6C /* circular.h in Headers */,
-				933FD6AF1AEB8B3B003AEC6C /* inflector.h in Headers */,
-				933FD5511AEB232B003AEC6C /* segment.h in Headers */,
-				933FD5831AEB2347003AEC6C /* SLSDisplaySource.h in Headers */,
-				933FD5441AEB231E003AEC6C /* layer.h in Headers */,
-				933FD5791AEB2341003AEC6C /* null_mutex.h in Headers */,
-				933FD6CF1AEB8B3B003AEC6C /* quadratic.h in Headers */,
-				933FD55A1AEB232F003AEC6C /* promotion.h in Headers */,
-				933FD55F1AEB232F003AEC6C /* vector3.h in Headers */,
-				933FD56A1AEB232F003AEC6C /* triangle.h in Headers */,
-				933FD5371AEB231E003AEC6C /* key_event.h in Headers */,
-				933FD55C1AEB232F003AEC6C /* axis.h in Headers */,
-				933FD6CB1AEB8B3B003AEC6C /* linear.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1914,23 +1707,6 @@
 			productReference = 936E241F1ADEA5550004C396 /* libSolas.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		936E253D1ADEA9980004C396 /* SolasDynamic */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 936E254F1ADEA9990004C396 /* Build configuration list for PBXNativeTarget "SolasDynamic" */;
-			buildPhases = (
-				936E253A1ADEA9980004C396 /* Sources */,
-				936E253B1ADEA9980004C396 /* Frameworks */,
-				936E253C1ADEA9980004C396 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SolasDynamic;
-			productName = SolasDynamic;
-			productReference = 936E253E1ADEA9980004C396 /* libSolas.dylib */;
-			productType = "com.apple.product-type.library.dynamic";
-		};
 		93E913571AB27DE400DDF7F9 /* Solas */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93E9136B1AB27DE400DDF7F9 /* Build configuration list for PBXNativeTarget "Solas" */;
@@ -1969,6 +1745,23 @@
 			productReference = 93E913761AB27E2600DDF7F9 /* SolasTouch.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		93EDFB651AEC46C5003CDD03 /* SolasTouchStatic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93EDFB771AEC46C6003CDD03 /* Build configuration list for PBXNativeTarget "SolasTouchStatic" */;
+			buildPhases = (
+				93EDFB621AEC46C5003CDD03 /* Sources */,
+				93EDFB631AEC46C5003CDD03 /* Frameworks */,
+				93EDFB641AEC46C5003CDD03 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SolasTouchStatic;
+			productName = SolasTouchStatic;
+			productReference = 93EDFB661AEC46C5003CDD03 /* libSolasTouch.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1984,15 +1777,15 @@
 					936E241E1ADEA5550004C396 = {
 						CreatedOnToolsVersion = 6.2;
 					};
-					936E253D1ADEA9980004C396 = {
-						CreatedOnToolsVersion = 6.2;
-					};
 					93E913571AB27DE400DDF7F9 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
 					93E913751AB27E2600DDF7F9 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = CMMH8M4457;
+					};
+					93EDFB651AEC46C5003CDD03 = {
+						CreatedOnToolsVersion = 6.2;
 					};
 				};
 			};
@@ -2012,8 +1805,8 @@
 				93E913571AB27DE400DDF7F9 /* Solas */,
 				93E913751AB27E2600DDF7F9 /* SolasTouch */,
 				930398481AB2B0DF00577048 /* SolasTest */,
-				936E253D1ADEA9980004C396 /* SolasDynamic */,
 				936E241E1ADEA5550004C396 /* SolasStatic */,
+				93EDFB651AEC46C5003CDD03 /* SolasTouchStatic */,
 			);
 		};
 /* End PBXProject section */
@@ -2115,41 +1908,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		936E253A1ADEA9980004C396 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				933FD5A11AEB2351003AEC6C /* SLSCVDisplayLink.mm in Sources */,
-				933FD5501AEB232B003AEC6C /* path.cc in Sources */,
-				933FD58E1AEB2347003AEC6C /* SLSNSBundle+Bundle.m in Sources */,
-				933FD5921AEB2351003AEC6C /* SLSNSViewController.m in Sources */,
-				933FD5431AEB231E003AEC6C /* view.cc in Sources */,
-				933FD5A41AEB2351003AEC6C /* SLSNSApplicationDelegate.mm in Sources */,
-				931B167A1AEBC7F5005F6B4C /* timeline.cc in Sources */,
-				933FD5811AEB2347003AEC6C /* SLSRunner.mm in Sources */,
-				933FD5901AEB2351003AEC6C /* SLSNSWindowController.m in Sources */,
-				933FD5451AEB231E003AEC6C /* layer.cc in Sources */,
-				933FD5561AEB232B003AEC6C /* font.cc in Sources */,
-				933FD5471AEB231E003AEC6C /* utilities.cc in Sources */,
-				933FD59C1AEB2351003AEC6C /* SLSNSGLLayer.mm in Sources */,
-				933FD53F1AEB231E003AEC6C /* runner_factory.cc in Sources */,
-				933FD5941AEB2351003AEC6C /* SLSNSEventSourceView.mm in Sources */,
-				933FD5751AEB2335003AEC6C /* simplex.cc in Sources */,
-				933FD5961AEB2351003AEC6C /* SLSNSView.m in Sources */,
-				933FD59A1AEB2351003AEC6C /* SLSNSGLView.m in Sources */,
-				933FD6F81AEBAEA4003AEC6C /* transform.cc in Sources */,
-				933FD5541AEB232B003AEC6C /* shape.cc in Sources */,
-				933FD5A01AEB2351003AEC6C /* SLSNSCGView.m in Sources */,
-				933FD5A21AEB2351003AEC6C /* SLSNSApplicationMain.mm in Sources */,
-				933FD57F1AEB2341003AEC6C /* benchmark.cc in Sources */,
-				933FD5861AEB2347003AEC6C /* SLSCGLayer.mm in Sources */,
-				933FD5731AEB2335003AEC6C /* improved.cc in Sources */,
-				933FD5521AEB232B003AEC6C /* segment.cc in Sources */,
-				933FD5411AEB231E003AEC6C /* run.mm in Sources */,
-				933FD5781AEB2341003AEC6C /* dispatch.mm in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		93E913531AB27DE400DDF7F9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2221,6 +1979,38 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		93EDFB621AEC46C5003CDD03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93EDFB891AEC4726003CDD03 /* runner_factory.cc in Sources */,
+				93EDFB851AEC4716003CDD03 /* SLSCADisplayLink.m in Sources */,
+				93EDFB7E1AEC4706003CDD03 /* SLSCGLayer.mm in Sources */,
+				93EDFB941AEC4726003CDD03 /* benchmark.cc in Sources */,
+				93EDFB811AEC4716003CDD03 /* SLSUIEventSourceView.mm in Sources */,
+				93EDFB8A1AEC4726003CDD03 /* view.cc in Sources */,
+				93EDFB871AEC4716003CDD03 /* SLSUIApplicationMain.mm in Sources */,
+				93EDFB921AEC4726003CDD03 /* simplex.cc in Sources */,
+				93EDFB931AEC4726003CDD03 /* timeline.cc in Sources */,
+				93EDFB901AEC4726003CDD03 /* font.cc in Sources */,
+				93EDFB8F1AEC4726003CDD03 /* shape.cc in Sources */,
+				93EDFB861AEC4716003CDD03 /* SLSUIRunnerViewController.m in Sources */,
+				93EDFB7D1AEC4706003CDD03 /* SLSRunner.mm in Sources */,
+				93EDFB881AEC4716003CDD03 /* SLSUIApplicationDelegate.mm in Sources */,
+				93EDFB8B1AEC4726003CDD03 /* layer.cc in Sources */,
+				93EDFB951AEC473B003CDD03 /* run.mm in Sources */,
+				93EDFB8D1AEC4726003CDD03 /* path.cc in Sources */,
+				93EDFB7F1AEC4706003CDD03 /* SLSNSBundle+Bundle.m in Sources */,
+				93EDFB801AEC4716003CDD03 /* SLSUIViewController.m in Sources */,
+				93EDFB8C1AEC4726003CDD03 /* utilities.cc in Sources */,
+				93EDFB911AEC4726003CDD03 /* improved.cc in Sources */,
+				93EDFB841AEC4716003CDD03 /* SLSUICGView.m in Sources */,
+				93EDFB831AEC4716003CDD03 /* SLSUIGLView.mm in Sources */,
+				93EDFB821AEC4716003CDD03 /* SLSUIView.m in Sources */,
+				93EDFB8E1AEC4726003CDD03 /* segment.cc in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2278,39 +2068,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93F3BBFA1AA2080D00FBF369 /* Framework.xcconfig */;
 			buildSettings = {
-				EXECUTABLE_PREFIX = lib;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/boost/osx/framework",
-				);
-				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		936E25501ADEA9990004C396 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F3BBFA1AA2080D00FBF369 /* Framework.xcconfig */;
-			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				EXECUTABLE_PREFIX = lib;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/build/boost/osx/framework",
-				);
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		936E25511ADEA9990004C396 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F3BBFA1AA2080D00FBF369 /* Framework.xcconfig */;
-			buildSettings = {
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2426,6 +2183,35 @@
 			};
 			name = Release;
 		};
+		93EDFB781AEC46C6003CDD03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93F3BBFA1AA2080D00FBF369 /* Framework.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/boost/ios/framework",
+				);
+				PRODUCT_NAME = SolasTouch;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		93EDFB791AEC46C6003CDD03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93F3BBFA1AA2080D00FBF369 /* Framework.xcconfig */;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/boost/ios/framework",
+				);
+				PRODUCT_NAME = SolasTouch;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		93F8AD7617C8B39800310877 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93F3BBD01AA2056C00FBF369 /* ProjectDebug.xcconfig */;
@@ -2468,15 +2254,6 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		936E254F1ADEA9990004C396 /* Build configuration list for PBXNativeTarget "SolasDynamic" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				936E25501ADEA9990004C396 /* Debug */,
-				936E25511ADEA9990004C396 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		93E9136B1AB27DE400DDF7F9 /* Build configuration list for PBXNativeTarget "Solas" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2494,6 +2271,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		93EDFB771AEC46C6003CDD03 /* Build configuration list for PBXNativeTarget "SolasTouchStatic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93EDFB781AEC46C6003CDD03 /* Debug */,
+				93EDFB791AEC46C6003CDD03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		93F8AD6A17C8B39800310877 /* Build configuration list for PBXProject "Solas" */ = {
 			isa = XCConfigurationList;

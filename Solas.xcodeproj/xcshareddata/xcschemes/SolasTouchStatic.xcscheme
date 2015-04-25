@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "936E253D1ADEA9980004C396"
-               BuildableName = "libSolas.dylib"
-               BlueprintName = "SolasDynamic"
+               BlueprintIdentifier = "93EDFB651AEC46C5003CDD03"
+               BuildableName = "libSolasTouchStatic.a"
+               BlueprintName = "SolasTouchStatic"
                ReferencedContainer = "container:Solas.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "936E25471ADEA9980004C396"
-               BuildableName = "SolasDynamicTests.xctest"
-               BlueprintName = "SolasDynamicTests"
+               BlueprintIdentifier = "93EDFB6F1AEC46C6003CDD03"
+               BuildableName = "SolasTouchStaticTests.xctest"
+               BlueprintName = "SolasTouchStaticTests"
                ReferencedContainer = "container:Solas.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "936E25471ADEA9980004C396"
-               BuildableName = "SolasDynamicTests.xctest"
-               BlueprintName = "SolasDynamicTests"
+               BlueprintIdentifier = "93EDFB6F1AEC46C6003CDD03"
+               BuildableName = "SolasTouchStaticTests.xctest"
+               BlueprintName = "SolasTouchStaticTests"
                ReferencedContainer = "container:Solas.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -56,9 +56,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "936E253D1ADEA9980004C396"
-            BuildableName = "libSolas.dylib"
-            BlueprintName = "SolasDynamic"
+            BlueprintIdentifier = "93EDFB651AEC46C5003CDD03"
+            BuildableName = "libSolasTouchStatic.a"
+            BlueprintName = "SolasTouchStatic"
             ReferencedContainer = "container:Solas.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -75,9 +75,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "936E253D1ADEA9980004C396"
-            BuildableName = "libSolas.dylib"
-            BlueprintName = "SolasDynamic"
+            BlueprintIdentifier = "93EDFB651AEC46C5003CDD03"
+            BuildableName = "libSolasTouchStatic.a"
+            BlueprintName = "SolasTouchStatic"
             ReferencedContainer = "container:Solas.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -93,9 +93,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "936E253D1ADEA9980004C396"
-            BuildableName = "libSolas.dylib"
-            BlueprintName = "SolasDynamic"
+            BlueprintIdentifier = "93EDFB651AEC46C5003CDD03"
+            BuildableName = "libSolasTouchStatic.a"
+            BlueprintName = "SolasTouchStatic"
             ReferencedContainer = "container:Solas.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
