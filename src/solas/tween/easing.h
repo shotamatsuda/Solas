@@ -1,10 +1,9 @@
 //
-//  solas/tween/types.h
+//  solas/tween/easing.h
 //
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -26,32 +25,31 @@
 //
 
 #pragma once
-#ifndef SOLAS_TWEEN_TYPES_H_
-#define SOLAS_TWEEN_TYPES_H_
+#ifndef SOLAS_TWEEN_EASING_H_
+#define SOLAS_TWEEN_EASING_H_
 
-#include <cstdint>
-
-#ifndef SOLAS_TWEEN_UNIT_TYPE
-#define SOLAS_TWEEN_UNIT_TYPE double
-#endif
-
-#ifndef SOLAS_TWEEN_TIME_VALUE_TYPE
-#define SOLAS_TWEEN_TIME_VALUE_TYPE double
-#endif
-
-#ifndef SOLAS_TWEEN_FRAME_VALUE_TYPE
-#define SOLAS_TWEEN_FRAME_VALUE_TYPE std::int64_t
-#endif
+#include "solas/easing/preset.h"
+#include "solas/easing/type.h"
+#include "solas/tween/type.h"
 
 namespace solas {
 namespace tween {
 
-using Unit = SOLAS_TWEEN_UNIT_TYPE;
-using TimeValue = SOLAS_TWEEN_TIME_VALUE_TYPE;
-using FrameValue = SOLAS_TWEEN_FRAME_VALUE_TYPE;
+using Easing = easing::Easing<Unit>;
+using BackEasing = easing::BackEasing<Unit>;
+using BounceEasing = easing::BounceEasing<Unit>;
+using CircularEasing = easing::CircularEasing<Unit>;
+using CubicEasing = easing::CubicEasing<Unit>;
+using ElasticEasing = easing::ElasticEasing<Unit>;
+using ExponentialEasing = easing::ExponentialEasing<Unit>;
+using LinearEasing = easing::LinearEasing<Unit>;
+using QuadraticEasing = easing::QuadraticEasing<Unit>;
+using QuarticEasing = easing::QuarticEasing<Unit>;
+using QuinticEasing = easing::QuinticEasing<Unit>;
+using SinusoidalEasing = easing::SinusoidalEasing<Unit>;
 
 }  // namespace tween
 }  // namespace solas
 
-#endif  // SOLAS_TWEEN_TYPES_H_
+#endif  // SOLAS_TWEEN_EASING_H_
 

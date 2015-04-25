@@ -65,10 +65,6 @@ class Line<T, 3> final {
   Line(const Vector3<T>& a, const Vector3<T>& b);
   Line(std::initializer_list<T> list);
   Line(std::initializer_list<Vector3<T>> list);
-  template <typename Container>
-  explicit Line(const Container& container);
-  template <typename InputIterator>
-  Line(InputIterator begin, InputIterator end);
 
   // Implicit conversion
   template <typename U>
@@ -89,10 +85,6 @@ class Line<T, 3> final {
   void set(const Vector3<T>& a, const Vector3<T>& b);
   void set(std::initializer_list<T> list);
   void set(std::initializer_list<Vector3<T>> list);
-  template <typename Container>
-  void set(const Container& container);
-  template <typename InputIterator>
-  void set(InputIterator begin, InputIterator end);
   void reset();
 
   // Element access
@@ -167,18 +159,6 @@ inline Line3<T>::Line(std::initializer_list<Vector3<T>> list) {
   set(std::move(list));
 }
 
-template <typename T>
-template <typename Container>
-inline Line3<T>::Line(const Container& container) {
-  set(container);
-}
-
-template <typename T>
-template <typename InputIterator>
-inline Line3<T>::Line(InputIterator begin, InputIterator end) {
-  set(begin, end);
-}
-
 #pragma mark Copy and assign
 
 template <typename T>
@@ -209,34 +189,20 @@ inline void Line3<T>::set(const Vector3<T>& a, const Vector3<T>& b) {
 
 template <typename T>
 inline void Line3<T>::set(std::initializer_list<T> list) {
-  reset();
   auto itr = list.begin();
   if (itr == list.end()) return; a.x = *itr++;
   if (itr == list.end()) return; a.y = *itr++;
   if (itr == list.end()) return; a.z = *itr++;
   if (itr == list.end()) return; b.x = *itr++;
   if (itr == list.end()) return; b.y = *itr++;
-  if (itr == list.end()) return; b.z = *itr++;
+  if (itr == list.end()) return; b.z = *itr;
 }
 
 template <typename T>
 inline void Line3<T>::set(std::initializer_list<Vector3<T>> list) {
-  set(list.begin(), list.end());
-}
-
-template <typename T>
-template <typename Container>
-inline void Line3<T>::set(const Container& container) {
-  set(container.begin(), container.end());
-}
-
-template <typename T>
-template <typename InputIterator>
-inline void Line3<T>::set(InputIterator begin, InputIterator end) {
-  reset();
-  auto itr = begin;
-  if (itr == end) return; a = decltype(a)(*itr++);
-  if (itr == end) return; b = decltype(b)(*itr++);
+  auto itr = list.begin();
+  if (itr == list.end()) return; a = decltype(a)(*itr++);
+  if (itr == list.end()) return; b = decltype(b)(*itr);
 }
 
 template <typename T>

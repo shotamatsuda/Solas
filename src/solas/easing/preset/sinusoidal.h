@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -31,6 +30,7 @@
 
 #include <cmath>
 
+#include "solas/easing/group.h"
 #include "solas/math/constants.h"
 
 namespace solas {
@@ -40,11 +40,18 @@ namespace preset {
 template <typename T>
 struct Sinusoidal {
   T operator()(T parameter) {
-    return 1.0 - std::cos(parameter * math::HALF_PI<T>);
+    return 1.0 - std::cos(parameter * math::half_pi<T>);
   }
 };
 
+template <typename T>
+using SinusoidalEasing = Group<T, Sinusoidal>;
+
 }  // namespace preset
+
+template <typename T>
+using SinusoidalEasing = preset::SinusoidalEasing<T>;
+
 }  // namespace easing
 }  // namespace solas
 

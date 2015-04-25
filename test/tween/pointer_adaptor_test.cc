@@ -25,15 +25,13 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
+#include <chrono>
 #include <thread>
 #include <utility>
 
 #include "gtest/gtest.h"
 
-#include "solas/easing.h"
-#include "solas/tween/clock.h"
-#include "solas/tween/interval.h"
-#include "solas/tween/pointer_adaptor.h"
+#include "solas/tween.h"
 
 namespace solas {
 namespace tween {
@@ -104,7 +102,7 @@ TYPED_TEST(PointerAdaptorTest, Control) {
   adaptor.start(clock.now());
   ASSERT_EQ(adaptor.running(), true);
   ASSERT_EQ(adaptor.finished(), false);
-  adaptor.AdaptorBase<TypeParam>::update(clock.advance());
+  adaptor.update(clock.advance());
   ASSERT_EQ(adaptor.running(), false);
   ASSERT_EQ(adaptor.finished(), true);
 }
@@ -120,7 +118,7 @@ TYPED_TEST(PointerAdaptorTest, Callback) {
       &value, value, LinearEasing::In, TypeParam(), TypeParam(), callback);
   adaptor.start(clock.now());
   ASSERT_EQ(callbacked, false);
-  adaptor.AdaptorBase<TypeParam>::update(clock.advance());
+  adaptor.update(clock.advance());
   ASSERT_EQ(callbacked, true);
 }
 
@@ -135,7 +133,7 @@ TYPED_TEST(PointerAdaptorTest, CallbackSuppression) {
       &value, value, LinearEasing::In, TypeParam(), TypeParam(), callback);
   adaptor.start(clock.now());
   ASSERT_EQ(callbacked, false);
-  adaptor.AdaptorBase<TypeParam>::update(clock.advance(), false);
+  adaptor.update(clock.advance(), false);
   ASSERT_EQ(callbacked, false);
 }
 
@@ -148,10 +146,10 @@ TEST(PointerAdaptorTest, TimeDuration) {
       &value, to, LinearEasing::In, Time(0.1), Time(), nullptr);
   adaptor.start(clock.now());
   std::this_thread::sleep_for(std::chrono::milliseconds(50));
-  adaptor.AdaptorBase<Time>::update(clock.advance());
-  ASSERT_NE(value, from);
+  adaptor.update(clock.advance());
+  ASSERT_GT(value, from);
   std::this_thread::sleep_for(std::chrono::milliseconds(50));
-  adaptor.AdaptorBase<Time>::update(clock.advance());
+  adaptor.update(clock.advance());
   ASSERT_EQ(value, to);
   ASSERT_EQ(adaptor.running(), false);
   ASSERT_EQ(adaptor.finished(), true);
@@ -166,10 +164,10 @@ TEST(PointerAdaptorTest, FrameDuration) {
       &value, to, LinearEasing::In, Frame(10), Frame(), nullptr);
   adaptor.start(clock.now());
   clock.advance(); clock.advance(); clock.advance(); clock.advance();
-  adaptor.AdaptorBase<Frame>::update(clock.advance());
+  adaptor.update(clock.advance());
   ASSERT_EQ(value, 0.5);
   clock.advance(); clock.advance(); clock.advance(); clock.advance();
-  adaptor.AdaptorBase<Frame>::update(clock.advance());
+  adaptor.update(clock.advance());
   ASSERT_EQ(value, to);
   ASSERT_EQ(adaptor.running(), false);
   ASSERT_EQ(adaptor.finished(), true);
@@ -183,14 +181,14 @@ TEST(PointerAdaptorTest, TimeDelay) {
   auto adaptor = PointerAdaptor<Time, double>(
       &value, to, LinearEasing::In, Time(0.1), Time(0.1), nullptr);
   std::this_thread::sleep_for(std::chrono::milliseconds(50));
-  adaptor.AdaptorBase<Time>::update(clock.advance());
+  adaptor.update(clock.advance());
   ASSERT_EQ(value, from);
   adaptor.start(clock.now());
   std::this_thread::sleep_for(std::chrono::milliseconds(50));
-  adaptor.AdaptorBase<Time>::update(clock.advance());
+  adaptor.update(clock.advance());
   ASSERT_EQ(value, from);
   std::this_thread::sleep_for(std::chrono::milliseconds(50));
-  adaptor.AdaptorBase<Time>::update(clock.advance());
+  adaptor.update(clock.advance());
   ASSERT_NE(value, from);
 }
 
@@ -202,17 +200,17 @@ TEST(PointerAdaptorTest, FrameDelay) {
   auto adaptor = PointerAdaptor<Frame, double>(
       &value, to, LinearEasing::In, Frame(10), Frame(10), nullptr);
   clock.advance(); clock.advance(); clock.advance(); clock.advance();
-  adaptor.AdaptorBase<Frame>::update(clock.advance());
+  adaptor.update(clock.advance());
   ASSERT_EQ(value, from);
   adaptor.start(clock.now());
   clock.advance(); clock.advance(); clock.advance(); clock.advance();
-  adaptor.AdaptorBase<Frame>::update(clock.advance());
+  adaptor.update(clock.advance());
   ASSERT_EQ(value, from);
   clock.advance(); clock.advance(); clock.advance(); clock.advance();
-  adaptor.AdaptorBase<Frame>::update(clock.advance());
+  adaptor.update(clock.advance());
   ASSERT_EQ(value, from);
-  adaptor.AdaptorBase<Frame>::update(clock.advance());
-  ASSERT_NE(value, from);
+  adaptor.update(clock.advance());
+  ASSERT_GT(value, from);
 }
 
 }  // namespace tween

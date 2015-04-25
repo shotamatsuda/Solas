@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -32,18 +31,13 @@
 #include "solas/tween/accessor_adaptor.h"
 #include "solas/tween/adaptor_base.h"
 #include "solas/tween/clock.h"
+#include "solas/tween/easing.h"
 #include "solas/tween/interval.h"
 #include "solas/tween/pointer_adaptor.h"
 #include "solas/tween/timeline.h"
 #include "solas/tween/timeline_host.h"
 #include "solas/tween/transform.h"
-#include "solas/tween/types.h"
+#include "solas/tween/type.h"
 #include "solas/tween/tween.h"
-
-namespace solas {
-
-using tween::Tween;
-
-}  // namespace solas
 
 #endif  // SOLAS_TWEEN_H_

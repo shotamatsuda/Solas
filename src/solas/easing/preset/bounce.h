@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -28,6 +27,8 @@
 #pragma once
 #ifndef SOLAS_EASING_PRESET_BOUNCE_H_
 #define SOLAS_EASING_PRESET_BOUNCE_H_
+
+#include "solas/easing/group.h"
 
 namespace solas {
 namespace easing {
@@ -56,7 +57,14 @@ struct Bounce {
   }
 };
 
+template <typename T>
+using BounceEasing = Group<T, Bounce>;
+
 }  // namespace preset
+
+template <typename T>
+using BounceEasing = preset::BounceEasing<T>;
+
 }  // namespace easing
 }  // namespace solas
 

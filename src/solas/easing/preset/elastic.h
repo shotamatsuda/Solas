@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -31,6 +30,7 @@
 
 #include <cmath>
 
+#include "solas/easing/group.h"
 #include "solas/math/constants.h"
 
 namespace solas {
@@ -43,11 +43,18 @@ struct Elastic {
     const T v = parameter - 1.0;
     const T p = 0.3;
     return -std::pow(2.0, 10.0 * v) *
-        std::sin((v - p / 4.0) * math::TAU<T> / p);
+        std::sin((v - p / 4.0) * math::tau<T> / p);
   }
 };
 
+template <typename T>
+using ElasticEasing = Group<T, Elastic>;
+
 }  // namespace preset
+
+template <typename T>
+using ElasticEasing = preset::ElasticEasing<T>;
+
 }  // namespace easing
 }  // namespace solas
 

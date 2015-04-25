@@ -37,6 +37,12 @@
 
 #endif  // __cplusplus
 
+typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
+  kSLSRunnerBackendUndefined = 0,
+  kSLSRunnerBackendOpenGL,
+  kSLSRunnerBackendCoreGraphics
+};
+
 @interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
 
 #ifdef __cplusplus
@@ -45,5 +51,7 @@
     NS_DESIGNATED_INITIALIZER;
 
 #endif  // __cplusplus
+
+@property (nonatomic, readonly) SLSRunnerBackend backend;
 
 @end

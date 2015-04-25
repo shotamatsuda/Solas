@@ -75,10 +75,6 @@ class Vector<T, 3> final {
   template <typename... Args>
   Vector(const std::tuple<Args...>& tuple);
   Vector(std::initializer_list<T> list);
-  template <typename Container>
-  explicit Vector(const Container& container);
-  template <typename InputIterator>
-  Vector(InputIterator begin, InputIterator end);
 
   // Implicit conversion
   template <typename U>
@@ -110,10 +106,6 @@ class Vector<T, 3> final {
   template <typename... Args>
   void set(const std::tuple<Args...>& tuple);
   void set(std::initializer_list<T> list);
-  template <typename Container>
-  void set(const Container& container);
-  template <typename InputIterator>
-  void set(InputIterator begin, InputIterator end);
   void reset();
 
   // Element access
@@ -277,18 +269,6 @@ inline Vector3<T>::Vector(std::initializer_list<T> list) {
   set(std::move(list));
 }
 
-template <typename T>
-template <typename Container>
-inline Vector3<T>::Vector(const Container& container) {
-  set(container);
-}
-
-template <typename T>
-template <typename InputIterator>
-inline Vector3<T>::Vector(InputIterator begin, InputIterator end) {
-  set(begin, end);
-}
-
 #pragma mark Implicit conversion
 
 template <typename T>
@@ -385,23 +365,11 @@ inline void Vector3<T>::set(const std::tuple<Args...>& tuple) {
 
 template <typename T>
 inline void Vector3<T>::set(std::initializer_list<T> list) {
-  set(list.begin(), list.end());
-}
-
-template <typename T>
-template <typename Container>
-inline void Vector3<T>::set(const Container& container) {
-  set(container.begin(), container.end());
-}
-
-template <typename T>
-template <typename InputIterator>
-inline void Vector3<T>::set(InputIterator begin, InputIterator end) {
   reset();
-  auto itr = begin;
-  if (itr == end) return; x = *itr++;
-  if (itr == end) return; y = *itr++;
-  if (itr == end) return; z = *itr++;
+  auto itr = list.begin();
+  if (itr == list.end()) return; x = *itr++;
+  if (itr == list.end()) return; y = *itr++;
+  if (itr == list.end()) return; z = *itr;
 }
 
 template <typename T>

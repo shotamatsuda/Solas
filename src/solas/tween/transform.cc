@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -27,18 +26,19 @@
 
 #include "solas/tween/transform.h"
 
-#include "solas/easing.h"
+#include "solas/tween/easing.h"
+#include "solas/tween/type.h"
 
 namespace solas {
 namespace tween {
 
 template <typename T>
-T Transform(const easing::Easing& easing, double unit, const T& from, const T& to) {
+T Transform(const Easing& easing, Unit unit, const T& from, const T& to) {
   return from + (to - from) * easing(unit);
 }
 
 #define SOLAS_TWEEN_TRANSFORM_SPECIALIZE(T) \
-    template T Transform(const easing::Easing&, double, const T&, const T&);
+    template T Transform(const Easing&, Unit, const T&, const T&);
 
 SOLAS_TWEEN_TRANSFORM_SPECIALIZE(bool)
 SOLAS_TWEEN_TRANSFORM_SPECIALIZE(char)

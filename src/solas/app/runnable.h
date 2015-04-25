@@ -29,12 +29,13 @@
 #define SOLAS_APP_RUNNABLE_H_
 
 #include "solas/app/app_event.h"
+#include "solas/app/backend.h"
+#include "solas/app/context_holder.h"
 #include "solas/app/gesture_event.h"
 #include "solas/app/key_event.h"
 #include "solas/app/motion_event.h"
 #include "solas/app/mouse_event.h"
 #include "solas/app/touch_event.h"
-#include "solas/graphics/context_holder.h"
 
 namespace solas {
 namespace app {
@@ -78,11 +79,14 @@ class Runnable {
   virtual void motionCancel(const MotionEvent& event) {}
   virtual void motionEnd(const MotionEvent& event) {}
 
+  // Backend
+  virtual Backend backend() const;
+
   // Context
-  const graphics::ContextHolder& context() const;
+  const ContextHolder& context() const;
 
  private:
-  graphics::ContextHolder context_;
+  ContextHolder context_;
 };
 
 #pragma mark -
@@ -116,9 +120,15 @@ inline void Runnable::exit(const AppEvent& event) {
   exit();
 }
 
+#pragma mark Backend
+
+inline Backend Runnable::backend() const {
+  return Backend::OPENGL;
+}
+
 #pragma mark Context
 
-inline const graphics::ContextHolder& Runnable::context() const {
+inline const ContextHolder& Runnable::context() const {
   return context_;
 }
 

@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -29,11 +28,10 @@
 #ifndef SOLAS_TWEEN_ADAPTOR_BASE_H_
 #define SOLAS_TWEEN_ADAPTOR_BASE_H_
 
-#include <iostream>
 #include <cstddef>
-#include <functional>
 
-#include "solas/easing.h"
+#include "solas/tween/easing.h"
+#include "solas/tween/type.h"
 
 namespace solas {
 namespace tween {
@@ -43,19 +41,17 @@ class AdaptorBase {
  public:
   using Interval = Interval_;
 
-  // Constructors
-  virtual ~AdaptorBase() = 0;
-
+ public:
   // Disallow copy and assign
-  AdaptorBase(const AdaptorBase&) = delete;
-  AdaptorBase& operator=(const AdaptorBase&) = delete;
+  AdaptorBase(const AdaptorBase& other) = delete;
+  AdaptorBase& operator=(const AdaptorBase& other) = delete;
 
   // Controlling the adaptor
   void start(const Interval& now);
   void stop();
   void update(const Interval& now, bool callback = true);
 
-  // Properties
+  // Attributes
   bool running() const { return running_; }
   bool finished() const { return finished_; }
 
@@ -64,56 +60,52 @@ class AdaptorBase {
   virtual std::size_t target_hash() const = 0;
 
   // Parameters
-  const easing::Easing& easing() const { return easing_; }
-  void set_easing(const easing::Easing& value) { easing_ = value; }
-  const Interval& duration() const { return duration_; }
-  void set_duration(const Interval& value) { duration_ = value; }
-  const Interval& delay() const { return delay_; }
-  void set_delay(const Interval& value) { delay_ = value; }
-  const std::function<void()>& callback() const { return callback_; }
-  void set_callback(const std::function<void()>& value) { callback_ = value; }
+  const Easing& easing() const;
+  void set_easing(const Easing& value);
+  const Interval& duration() const;
+  void set_duration(const Interval& value);
+  const Interval& delay() const;
+  void set_delay(const Interval& value);
+  const Callback& callback() const;
+  void set_callback(const Callback& value);
 
  protected:
   // Constructors
-  AdaptorBase(const easing::Easing& easing,
+  AdaptorBase(const Easing& easing,
               const Interval& duration,
               const Interval& delay,
-              const std::function<void()>& callback);
+              const Callback& callback);
+
+  // Move
   AdaptorBase(AdaptorBase&& other) = default;
 
   // Updates against the local unit time
-  virtual void update(double unit) = 0;
-
-  // Data members
-  easing::Easing easing_;
-  Interval duration_;
-  Interval delay_;
+  virtual void update(Unit unit) = 0;
 
  private:
-  // Data members
-  std::function<void()> callback_;
+  Easing easing_;
+  Interval duration_;
+  Interval delay_;
+  Callback callback_;
   bool running_;
   bool finished_;
   Interval started_;
 };
 
-#pragma mark - Inline Implementations
+#pragma mark -
 
 template <typename Interval>
 inline AdaptorBase<Interval>::AdaptorBase(
-    const easing::Easing& easing,
+    const Easing& easing,
     const Interval& duration,
     const Interval& delay,
-    const std::function<void()>& callback)
+    const Callback& callback)
     : easing_(easing),
       duration_(duration),
       delay_(delay),
       callback_(callback),
       running_(false),
-      finished_(false){}
-
-template <typename Interval>
-inline AdaptorBase<Interval>::~AdaptorBase() {}
+      finished_(false) {}
 
 #pragma mark Controlling the adaptor
 
@@ -150,6 +142,48 @@ inline void AdaptorBase<Interval>::update(const Interval& now, bool callback) {
       }
     }
   }
+}
+
+#pragma mark Parameters
+
+template <typename Interval>
+inline const Easing& AdaptorBase<Interval>::easing() const {
+  return easing_;
+}
+
+template <typename Interval>
+inline void AdaptorBase<Interval>::set_easing(const Easing& value) {
+  easing_ = value;
+}
+
+template <typename Interval>
+inline const Interval& AdaptorBase<Interval>::duration() const {
+  return duration_;
+}
+
+template <typename Interval>
+inline void AdaptorBase<Interval>::set_duration(const Interval& value) {
+  duration_ = value;
+}
+
+template <typename Interval>
+inline const Interval& AdaptorBase<Interval>::delay() const {
+  return delay_;
+}
+
+template <typename Interval>
+inline void AdaptorBase<Interval>::set_delay(const Interval& value) {
+  delay_ = value;
+}
+
+template <typename Interval>
+inline const Callback& AdaptorBase<Interval>::callback() const {
+  return callback_;
+}
+
+template <typename Interval>
+inline void AdaptorBase<Interval>::set_callback(const Callback& value) {
+  callback_ = value;
 }
 
 }  // namespace tween

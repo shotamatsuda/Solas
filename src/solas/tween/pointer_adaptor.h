@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -31,65 +30,72 @@
 
 #include <cassert>
 #include <cstddef>
-#include <functional>
 
-#include "solas/easing.h"
 #include "solas/tween/adaptor_base.h"
+#include "solas/tween/easing.h"
 #include "solas/tween/hash.h"
 #include "solas/tween/transform.h"
+#include "solas/tween/type.h"
 
 namespace solas {
 namespace tween {
 
-template <typename Interval_, typename T>
+template <typename Interval_, typename Value_>
 class PointerAdaptor : public AdaptorBase<Interval_> {
  public:
   using Interval = Interval_;
-  using Value = T;
+  using Value = Value_;
 
   // Constructors
-  PointerAdaptor(T *target,
-                 const Value& to,
-                 const easing::Easing& easing,
+  template <typename T>
+  PointerAdaptor(Value *target,
+                 const T& to,
+                 const Easing& easing,
                  const Interval& duration,
                  const Interval& delay,
-                 const std::function<void()>& callback);
-  PointerAdaptor(PointerAdaptor&& other) = default;
+                 const Callback& callback);
 
   // Disallow copy and assign
-  PointerAdaptor(const PointerAdaptor&) = delete;
-  PointerAdaptor& operator=(const PointerAdaptor&) = delete;
+  PointerAdaptor(const PointerAdaptor& other) = delete;
+  PointerAdaptor& operator=(const PointerAdaptor& other) = delete;
+
+  // Move
+  PointerAdaptor(PointerAdaptor&& other) = default;
+
+  // Controlling the adaptor
+  using AdaptorBase<Interval>::update;
 
   // Hash
   std::size_t object_hash() const override;
   std::size_t target_hash() const override;
 
   // Parameters
-  T * target() const { return target_; }
+  Value * target() const { return target_; }
   const Value& from() const { return from_; }
   const Value& to() const { return to_; }
 
  protected:
   // Updates against the local unit time
-  void update(double unit) override;
+  void update(Unit unit) override;
 
  private:
   // Data members
-  T *target_;
+  Value *target_;
   Value from_;
   Value to_;
 };
 
 #pragma mark - Inline Implementations
 
-template <typename Interval, typename T>
-inline PointerAdaptor<Interval, T>::PointerAdaptor(
-    T *target,
-    const Value& to,
-    const easing::Easing& easing,
+template <typename Interval, typename Value>
+template <typename T>
+inline PointerAdaptor<Interval, Value>::PointerAdaptor(
+    Value *target,
+    const T& to,
+    const Easing& easing,
     const Interval& duration,
     const Interval& delay,
-    const std::function<void()>& callback)
+    const Callback& callback)
     : AdaptorBase<Interval>(easing, duration, delay, callback),
       target_(target),
       from_(*target),
@@ -97,27 +103,27 @@ inline PointerAdaptor<Interval, T>::PointerAdaptor(
 
 #pragma mark Updates against the local unit time
 
-template <typename Interval, typename T>
-inline void PointerAdaptor<Interval, T>::update(double unit) {
+template <typename Interval, typename Value>
+inline void PointerAdaptor<Interval, Value>::update(Unit unit) {
   assert(target_);
   if (unit < 0.0) {
     from_ = *target_;
-  } else if (this->duration_.empty() || unit > 1.0) {
-    *target_ = Transform(this->easing_, 1.0, from_, to_);
+  } else if (this->duration().empty() || unit > 1.0) {
+    *target_ = Transform(this->easing(), 1.0, from_, to_);
   } else {
-    *target_ = Transform(this->easing_, unit, from_, to_);
+    *target_ = Transform(this->easing(), unit, from_, to_);
   }
 }
 
 #pragma mark Hash
 
-template <typename Interval, typename T>
-inline std::size_t PointerAdaptor<Interval, T>::object_hash() const {
+template <typename Interval, typename Value>
+inline std::size_t PointerAdaptor<Interval, Value>::object_hash() const {
   return Hash(target_);
 }
 
-template <typename Interval, typename T>
-inline std::size_t PointerAdaptor<Interval, T>::target_hash() const {
+template <typename Interval, typename Value>
+inline std::size_t PointerAdaptor<Interval, Value>::target_hash() const {
   return Hash(target_);
 }
 

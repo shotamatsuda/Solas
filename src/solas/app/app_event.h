@@ -28,7 +28,7 @@
 #ifndef SOLAS_APP_APP_EVENT_H_
 #define SOLAS_APP_APP_EVENT_H_
 
-#include "solas/graphics/context_holder.h"
+#include "solas/app/context_holder.h"
 #include "solas/math/size.h"
 
 namespace solas {
@@ -49,7 +49,7 @@ class AppEvent final {
   AppEvent& operator=(const AppEvent& other) = delete;
 
  public:
-  const graphics::ContextHolder context;
+  const ContextHolder context;
   const math::Size2d size;
 };
 

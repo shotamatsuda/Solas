@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -32,42 +31,51 @@
 #include <cassert>
 #include <cstddef>
 #include <functional>
-#include <memory>
 #include <string>
 
-#include "solas/easing.h"
 #include "solas/tween/adaptor_base.h"
+#include "solas/tween/easing.h"
 #include "solas/tween/hash.h"
 #include "solas/tween/transform.h"
+#include "solas/tween/type.h"
 
 namespace solas {
 namespace tween {
 
-template <typename Interval_, typename T,
-          typename Class_, typename Getter_, typename Setter_>
+template <typename Interval_,
+          typename Value_,
+          typename Class_,
+          typename Getter_,
+          typename Setter_>
 class AccessorAdaptor : public AdaptorBase<Interval_> {
  public:
   using Interval = Interval_;
-  using Value = T;
+  using Value = Value_;
   using Class = Class_;
   using Getter = Getter_;
   using Setter = Setter_;
 
   // Constructors
+  template <typename T>
   AccessorAdaptor(Class *object,
                   Getter getter,
                   Setter setter,
                   const std::string& name,
-                  const Value& to,
-                  const easing::Easing& easing,
+                  const T& to,
+                  const Easing& easing,
                   const Interval& duration,
                   const Interval& delay,
                   const std::function<void()>& callback);
-  AccessorAdaptor(AccessorAdaptor&& other) = default;
 
   // Disallow copy and assign
-  AccessorAdaptor(const AccessorAdaptor&) = delete;
-  AccessorAdaptor& operator=(const AccessorAdaptor&) = delete;
+  AccessorAdaptor(const AccessorAdaptor& other) = delete;
+  AccessorAdaptor& operator=(const AccessorAdaptor& other) = delete;
+
+  // Move
+  AccessorAdaptor(AccessorAdaptor&& other) = default;
+
+  // Controlling the adaptor
+  using AdaptorBase<Interval>::update;
 
   // Hash
   std::size_t object_hash() const override;
@@ -80,10 +88,9 @@ class AccessorAdaptor : public AdaptorBase<Interval_> {
 
  protected:
   // Updates against the local unit time
-  void update(double unit) override;
+  void update(Unit unit) override;
 
  private:
-  // Data members
   Class *object_;
   Getter getter_;
   Setter setter_;
@@ -92,20 +99,24 @@ class AccessorAdaptor : public AdaptorBase<Interval_> {
   Value to_;
 };
 
-#pragma mark - Inline Implementations
+#pragma mark -
 
-template <typename Interval, typename T,
-          typename Class, typename Getter, typename Setter>
-inline AccessorAdaptor<Interval, T, Class, Getter, Setter>
+template <typename Interval,
+          typename Value,
+          typename Class,
+          typename Getter,
+          typename Setter>
+template <typename T>
+inline AccessorAdaptor<Interval, Value, Class, Getter, Setter>
     ::AccessorAdaptor(Class *object,
                       Getter getter,
                       Setter setter,
                       const std::string& name,
-                      const Value& to,
-                      const easing::Easing& easing,
+                      const T& to,
+                      const Easing& easing,
                       const Interval& duration,
                       const Interval& delay,
-                      const std::function<void()>& callback)
+                      const Callback& callback)
     : AdaptorBase<Interval>(easing, duration, delay, callback),
       object_(object),
       getter_(getter),
@@ -116,32 +127,41 @@ inline AccessorAdaptor<Interval, T, Class, Getter, Setter>
 
 #pragma mark Updates against the local unit time
 
-template <typename Interval, typename T,
-          typename Class, typename Getter, typename Setter>
-inline void AccessorAdaptor<Interval, T, Class, Getter, Setter>
-    ::update(double unit) {
+template <typename Interval,
+          typename Value,
+          typename Class,
+          typename Getter,
+          typename Setter>
+inline void AccessorAdaptor<Interval, Value, Class, Getter, Setter>
+    ::update(Unit unit) {
   assert(object_);
   if (unit < 0.0) {
     from_ = (object_->*getter_)();
-  } else if (AdaptorBase<Interval>::duration_.empty() || unit > 1.0) {
-    (object_->*setter_)(Transform(this->easing_, 1.0, from_, to_));
+  } else if (AdaptorBase<Interval>::duration().empty() || unit > 1.0) {
+    (object_->*setter_)(Transform(this->easing(), 1.0, from_, to_));
   } else {
-    (object_->*setter_)(Transform(this->easing_, unit, from_, to_));
+    (object_->*setter_)(Transform(this->easing(), unit, from_, to_));
   }
 }
 
 #pragma mark Hash
 
-template <typename Interval, typename T,
-          typename Class, typename Getter, typename Setter>
-inline std::size_t AccessorAdaptor<Interval, T, Class, Getter, Setter>
+template <typename Interval,
+          typename Value,
+          typename Class,
+          typename Getter,
+          typename Setter>
+inline std::size_t AccessorAdaptor<Interval, Value, Class, Getter, Setter>
     ::object_hash() const {
   return Hash(object_);
 }
 
-template <typename Interval, typename T,
-          typename Class, typename Getter, typename Setter>
-inline std::size_t AccessorAdaptor<Interval, T, Class, Getter, Setter>
+template <typename Interval,
+          typename Value,
+          typename Class,
+          typename Getter,
+          typename Setter>
+inline std::size_t AccessorAdaptor<Interval, Value, Class, Getter, Setter>
     ::target_hash() const {
   return target_hash_;
 }

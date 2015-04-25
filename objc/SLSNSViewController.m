@@ -29,9 +29,18 @@
 #import "SLSEventSource.h"
 #import "SLSDisplayLink.h"
 #import "SLSDisplaySource.h"
+#import "SLSNSCGView.h"
+#import "SLSNSGLView.h"
+#import "SLSNSView.h"
 #import "SLSRunner.h"
 
 @interface SLSNSViewController ()
+
+#pragma mark Initialization
+
+@property (nonatomic, strong) SLSNSView *contentView;
+
+- (void)setUpContentView;
 
 #pragma mark Controlling Animation
 
@@ -44,16 +53,7 @@
 - (instancetype)initWithRunner:(SLSRunner *)runner {
   self = [super initWithNibName:nil bundle:nil];
   if (self) {
-    _runner = runner;
-    [self loadView];
-    // Configure event and display sources
-    NSAssert([self.view conformsToProtocol:@protocol(SLSEventSource)], @"");
-    NSAssert([self.view conformsToProtocol:@protocol(SLSDisplaySource)], @"");
-    _eventSource = (id<SLSEventSource>)self.view;
-    _displaySource = (id<SLSDisplaySource>)self.view;
-    _eventSource.eventDelegate = _runner;
-    _displaySource.displayDelegate = _runner;
-    [self startAnimation];
+    [self setRunner:runner];
   }
   return self;
 }
@@ -67,16 +67,40 @@
 }
 
 - (void)loadView {
-  NSAssert(NO, @"Subclass must implement loadView");
+  self.view = [[NSView alloc] init];
+}
+
+- (void)setUpContentView {
+  switch (_runner.backend) {
+    case kSLSRunnerBackendOpenGL:
+      _contentView = [[SLSNSGLView alloc] initWithFrame:self.view.bounds];
+      break;
+    case kSLSRunnerBackendCoreGraphics:
+      _contentView = [[SLSNSCGView alloc] initWithFrame:self.view.bounds];
+      break;
+    default:
+      break;
+  }
+  _contentView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+  [self.view addSubview:_contentView];
+
+  // Configure event and display sources
+  NSAssert([self.view conformsToProtocol:@protocol(SLSEventSource)], @"");
+  NSAssert([self.view conformsToProtocol:@protocol(SLSDisplaySource)], @"");
+  _eventSource = (id<SLSEventSource>)_contentView;
+  _displaySource = (id<SLSDisplaySource>)_contentView;
+  _eventSource.eventDelegate = _runner;
+  _displaySource.displayDelegate = _runner;
 }
 
 #pragma mark Managing the Runner
 
 - (void)setRunner:(SLSRunner *)runner {
   if (runner != _runner) {
+    [self stopAnimation];
     _runner = runner;
-    _eventSource.eventDelegate = _runner;
-    _displaySource.displayDelegate = _runner;
+    [self setUpContentView];
+    [self startAnimation];
   }
 }
 

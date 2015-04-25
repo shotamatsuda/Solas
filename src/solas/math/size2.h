@@ -68,10 +68,6 @@ class Size<T, 2> final {
   template <typename... Args>
   Size(const std::tuple<Args...>& tuple);
   Size(std::initializer_list<T> list);
-  template <typename Container>
-  explicit Size(const Container& container);
-  template <typename InputIterator>
-  Size(InputIterator begin, InputIterator end);
 
   // Implicit conversion
   template <typename U>
@@ -104,10 +100,6 @@ class Size<T, 2> final {
   template <typename... Args>
   void set(const std::tuple<Args...>& tuple);
   void set(std::initializer_list<T> list);
-  template <typename Container>
-  void set(const Container& container);
-  template <typename InputIterator>
-  void set(InputIterator begin, InputIterator end);
   void reset();
 
   // Element access
@@ -242,16 +234,6 @@ template <typename T>
 inline Size2<T>::Size(std::initializer_list<T> list)
     : vector(list) {}
 
-template <typename T>
-template <typename Container>
-inline Size2<T>::Size(const Container& container)
-    : vector(container) {}
-
-template <typename T>
-template <typename InputIterator>
-inline Size2<T>::Size(InputIterator begin, InputIterator end)
-    : vector(begin, end) {}
-
 #pragma mark Implicit conversion
 
 template <typename T>
@@ -353,18 +335,6 @@ inline void Size2<T>::set(const std::tuple<Args...>& tuple) {
 template <typename T>
 inline void Size2<T>::set(std::initializer_list<T> list) {
   vector.set(list);
-}
-
-template <typename T>
-template <typename Container>
-inline void Size2<T>::set(const Container& container) {
-  vector.set(container);
-}
-
-template <typename T>
-template <typename InputIterator>
-inline void Size2<T>::set(InputIterator begin, InputIterator end) {
-  vector.set(begin, end);
 }
 
 template <typename T>

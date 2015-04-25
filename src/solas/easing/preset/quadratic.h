@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -29,6 +28,8 @@
 #ifndef SOLAS_EASING_PRESET_QUADRATIC_H_
 #define SOLAS_EASING_PRESET_QUADRATIC_H_
 
+#include "solas/easing/group.h"
+
 namespace solas {
 namespace easing {
 namespace preset {
@@ -40,7 +41,14 @@ struct Quadratic {
   }
 };
 
+template <typename T>
+using QuadraticEasing = Group<T, Quadratic>;
+
 }  // namespace preset
+
+template <typename T>
+using QuadraticEasing = preset::QuadraticEasing<T>;
+
 }  // namespace easing
 }  // namespace solas
 

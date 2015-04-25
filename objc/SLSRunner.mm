@@ -59,6 +59,21 @@
   _runner.reset(nullptr);
 }
 
+- (SLSRunnerBackend)backend {
+  switch (_runner->backend()) {
+    case solas::app::Backend::UNDEFINED:
+      return kSLSRunnerBackendUndefined;
+    case solas::app::Backend::OPENGL:
+      return kSLSRunnerBackendOpenGL;
+    case solas::app::Backend::COREGRAPHICS:
+      return kSLSRunnerBackendCoreGraphics;
+    default:
+      assert(false);
+      break;
+  }
+  return kSLSRunnerBackendUndefined;
+}
+
 #pragma mark SLSDisplayDelegate
 
 - (void)sender:(id)sender update:(SLSAppEventConstRef)event {

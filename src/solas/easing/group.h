@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -31,43 +30,19 @@
 
 #include <functional>
 
+#include "solas/easing/inflector.h"
+#include "solas/easing/reverse_inflector.h"
+#include "solas/easing/symmetric_inflector.h"
+
 namespace solas {
 namespace easing {
 
-template <typename T, T (*Function)(T)>
+template <typename T, template <typename = T> class Function>
 struct Group {
-  static constexpr Function In = Function();
-  static constexpr ReverseFunction Out = ReverseFunction();
-  static constexpr SymmetricFunction InOut = SymmetricFunction();
+  static Inflector<T, Function> In;
+  static ReverseInflector<T, Function> Out;
+  static SymmetricInflector<T, Function> InOut;
 };
-
-#pragma mark -
-
-template <double (*Function)(double)>
-inline double Group<Function>::In_::operator()(double t) const {
-  return Function(t);
-}
-
-template <double (*Function)(double)>
-inline double Group<Function>::Out_::operator()(double t) const {
-  return 1.0 - Function(1.0 - t);
-}
-
-template <double (*Function)(double)>
-inline double Group<Function>::InOut_::operator()(double t) const {
-  if (t < 0.5) {
-    return In_()(2.0 * t) / 2.0;
-  } else {
-    return 0.5 + Out_()(2.0 * t - 1.0) / 2.0;
-  }
-}
-
-template <double (*Function)(double)>
-constexpr typename EasingGroup<Function>::In_ EasingGroup<Function>::In;
-template <double (*Function)(double)>
-constexpr typename EasingGroup<Function>::Out_ EasingGroup<Function>::Out;
-template <double (*Function)(double)>
-constexpr typename EasingGroup<Function>::InOut_ EasingGroup<Function>::InOut;
 
 }  // namespace easing
 }  // namespace solas

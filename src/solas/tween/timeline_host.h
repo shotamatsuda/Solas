@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -29,6 +28,8 @@
 #ifndef SOLAS_TWEEN_TIMELINE_HOST_H_
 #define SOLAS_TWEEN_TIMELINE_HOST_H_
 
+#include <utility>
+
 #include "solas/tween/interval.h"
 #include "solas/tween/timeline.h"
 #include "solas/tween/tween.h"
@@ -36,38 +37,56 @@
 namespace solas {
 namespace tween {
 
-template <typename Interval_ = Time>
 class TimelineHost {
  public:
-  using Interval = Interval_;
-  using Timeline = Timeline<Interval>;
-  using Tween = Tween<Interval>;
-
-  // Constructors
-  virtual ~TimelineHost() = 0;
-
   // Creating tweens
-  template <typename... Args>
-  Tween tween(Args&&... args);
+  template <typename Interval, typename... Args>
+  Tween<Interval> tween(Args&&... args);
 
   // Accessing timeline
-  virtual Timeline& timeline() = 0;
-  virtual const Timeline& timeline() const = 0;
+  template <typename Interval>
+  Timeline<Interval>& timeline();
+  template <typename Interval>
+  const Timeline<Interval>& timeline() const;
+
+ private:
+  Timeline<Time> time_timeline_;
+  Timeline<Frame> frame_timeline_;
 };
 
-#pragma mark - Inline Implementations
-
-template <typename Interval>
-inline TimelineHost<Interval>::~TimelineHost() {}
+#pragma mark -
 
 #pragma mark Creating tweens
 
-template <typename Interval>
-template <typename... Args>
-inline Tween<Interval> TimelineHost<Interval>::tween(Args&&... args) {
-  auto tween = Tween(args..., &timeline());
+template <typename Interval, typename... Args>
+inline tween::Tween<Interval> TimelineHost::tween(Args&&... args) {
+  auto tween = tween::Tween<Interval>(
+      std::forward<Args>(args)...,
+      &timeline<Interval>());
   tween.start();
-  return tween;
+  return std::move(tween);
+}
+
+#pragma mark Accessing timeline
+
+template <>
+inline Timeline<Time>& TimelineHost::timeline() {
+  return time_timeline_;
+}
+
+template <>
+inline Timeline<Frame>& TimelineHost::timeline() {
+  return frame_timeline_;
+}
+
+template <>
+inline const Timeline<Time>& TimelineHost::timeline() const {
+  return time_timeline_;
+}
+
+template <>
+inline const Timeline<Frame>& TimelineHost::timeline() const {
+  return frame_timeline_;
 }
 
 }  // namespace tween

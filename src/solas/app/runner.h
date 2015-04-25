@@ -33,6 +33,7 @@
 #include <utility>
 
 #include "solas/app/app_event.h"
+#include "solas/app/backend.h"
 #include "solas/app/gesture_event.h"
 #include "solas/app/key_event.h"
 #include "solas/app/motion_event.h"
@@ -50,8 +51,8 @@ class Runner {
   ~Runner();
 
   // Disallow copy and assign
-  Runner(const Runner&) = delete;
-  Runner& operator=(const Runner&) = delete;
+  Runner(const Runner& other) = delete;
+  Runner& operator=(const Runner& other) = delete;
 
   // Lifecycle
   void setup(const AppEvent& event);
@@ -78,6 +79,9 @@ class Runner {
   void motionCancel(const MotionEvent& event);
   void motionEnd(const MotionEvent& event);
 
+  // Backend
+  Backend backend() const;
+
  private:
   std::unique_ptr<Runnable> runnable_;
   std::atomic_bool setup_;
@@ -86,16 +90,11 @@ class Runner {
 #pragma mark -
 
 inline Runner::Runner(std::unique_ptr<Runnable>&& runnable)
-    : runnable_(std::move(runnable)) {}
+    : runnable_(std::move(runnable)),
+      setup_(false) {}
 
 inline Runner::~Runner() {
-  // Don't call the exit() because it's virtual.
-  if (runnable_) {
-    runnable_->exit();
-    // Delete the instance on the call of the exit in order not to perform
-    // anything to static variables after their destruction.
-    runnable_.reset(nullptr);
-  }
+  exit(AppEvent());
 }
 
 #pragma mark Lifecycle
@@ -132,7 +131,9 @@ inline void Runner::post(const AppEvent& event) {
 inline void Runner::exit(const AppEvent& event) {
   if (runnable_) {
     runnable_->exit(event);
-    runnable_.reset(nullptr);  // The same discussion in the destructor
+    // Delete the instance on the call of the exit in order not to perform
+    // anything to static variables after their destruction.
+    runnable_.reset(nullptr);
   }
 }
 
@@ -232,6 +233,15 @@ inline void Runner::motionEnd(const MotionEvent& event) {
   if (runnable_) {
     runnable_->motionEnd(event);
   }
+}
+
+#pragma mark Backend
+
+inline Backend Runner::backend() const {
+  if (!runnable_) {
+    return Backend::UNDEFINED;
+  }
+  return runnable_->backend();
 }
 
 }  // namespace app

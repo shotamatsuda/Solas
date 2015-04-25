@@ -66,10 +66,6 @@ class Color<T, 4> final {
   template <typename... Args>
   Color(const std::tuple<Args...>& tuple);
   Color(std::initializer_list<T> list);
-  template <typename Container>
-  explicit Color(const Container& container);
-  template <typename InputIterator>
-  Color(InputIterator begin, InputIterator end);
 
   // Implicit conversion
   template <typename U>
@@ -101,10 +97,6 @@ class Color<T, 4> final {
   template <typename... Args>
   void set(const std::tuple<Args...>& tuple);
   void set(std::initializer_list<T> list);
-  template <typename Container>
-  void set(const Container& container);
-  template <typename InputIterator>
-  void set(InputIterator begin, InputIterator end);
   void reset();
 
   // Element access
@@ -181,16 +173,6 @@ inline Color4<T>::Color(const std::tuple<Args...>& tuple)
 template <typename T>
 inline Color4<T>::Color(std::initializer_list<T> list)
     : vector(list) {}
-
-template <typename T>
-template <typename Container>
-inline Color4<T>::Color(const Container& container)
-    : vector(container) {}
-
-template <typename T>
-template <typename InputIterator>
-inline Color4<T>::Color(InputIterator begin, InputIterator end)
-    : vector(begin, end) {}
 
 #pragma mark Implicit conversion
 
@@ -303,18 +285,6 @@ inline void Color4<T>::set(const std::tuple<Args...>& tuple) {
 template <typename T>
 inline void Color4<T>::set(std::initializer_list<T> list) {
   vector.set(list);
-}
-
-template <typename T>
-template <typename Container>
-inline void Color4<T>::set(const Container& container) {
-  vector.set(container);
-}
-
-template <typename T>
-template <typename InputIterator>
-inline void Color4<T>::set(InputIterator begin, InputIterator end) {
-  vector.set(begin, end);
 }
 
 template <typename T>

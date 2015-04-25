@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -31,7 +30,8 @@
 
 #include <cassert>
 
-#include "solas/tween/types.h"
+#include "solas/tween/interval.h"
+#include "solas/tween/type.h"
 
 namespace solas {
 namespace tween {
@@ -41,17 +41,18 @@ class Interval final {
  public:
   using Value = T;
 
+ public:
   // Constructors
   Interval();
   explicit Interval(T value);
-  Interval(const Interval& other);
 
-  // Assignment
-  Interval& operator=(const Interval& other);
+  // Copy and assign
+  Interval(const Interval& other) = default;
+  Interval& operator=(const Interval& other) = default;
 
   // Comparison
   bool operator==(const Interval& other) const;
-  bool operator!=(const Interval& other) const { return !operator==(other); }
+  bool operator!=(const Interval& other) const;
   bool operator<(const Interval& other) const;
   bool operator>(const Interval& other) const;
   bool operator<=(const Interval& other) const;
@@ -60,20 +61,22 @@ class Interval final {
   // Arithmetic
   Interval& operator+=(const Interval& other);
   Interval& operator-=(const Interval& other);
+  Interval operator+(const Interval& other) const;
+  Interval operator-(const Interval& other) const;
+  Unit operator/(const Interval& other) const;
 
-  // Properties
-  Value count() const { return value_; }
+  // Attributes
   bool empty() const { return !value_; }
+  Value count() const { return value_; }
 
  private:
-  // Data members
   T value_;
 };
 
 using Time = Interval<TimeValue>;
 using Frame = Interval<FrameValue>;
 
-#pragma mark - Inline Implementations
+#pragma mark -
 
 template <typename T>
 inline Interval<T>::Interval()
@@ -83,37 +86,7 @@ template <typename T>
 inline Interval<T>::Interval(T value)
     : value_(value) {}
 
-template <typename T>
-inline Interval<T>::Interval(const Interval<T>& other)
-    : value_(other.value_) {}
-
-#pragma mark Assignment
-
-template <typename T>
-inline Interval<T>& Interval<T>::operator=(const Interval<T>& other) {
-  if (&other != this) {
-    value_ = other.value_;
-  }
-  return *this;
-}
-
-#pragma mark Arithmetic operators
-
-template <typename T>
-inline Interval<T> operator+(const Interval<T>& a, const Interval<T>& b) {
-  return Interval<T>(a.count() + b.count());
-}
-
-template <typename T>
-inline Interval<T> operator-(const Interval<T>& a, const Interval<T>& b) {
-  return Interval<T>(a.count() - b.count());
-}
-
-template <typename T>
-inline double operator/(const Interval<T>& a, const Interval<T>& b) {
-  assert(b.count());
-  return static_cast<double>(a.count()) / static_cast<double>(b.count());
-}
+#pragma mark Arithmetic
 
 template <typename T>
 inline Interval<T>& Interval<T>::operator+=(const Interval& other) {
@@ -127,11 +100,31 @@ inline Interval<T>& Interval<T>::operator-=(const Interval& other) {
   return *this;
 }
 
+template <typename T>
+inline Interval<T> Interval<T>::operator+(const Interval& other) const {
+  return Interval<T>(value_ + other.value_);
+}
+
+template <typename T>
+inline Interval<T> Interval<T>::operator-(const Interval& other) const {
+  return Interval<T>(value_ - other.value_);
+}
+
+template <typename T>
+inline Unit Interval<T>::operator/(const Interval& other) const {
+  return static_cast<Unit>(value_) / other.value_;
+}
+
 #pragma mark Comparison
 
 template <typename T>
 inline bool Interval<T>::operator==(const Interval<T>& other) const {
   return value_ == other.value_;
+}
+
+template <typename T>
+inline bool Interval<T>::operator!=(const Interval<T>& other) const {
+  return !operator==(other);
 }
 
 template <typename T>

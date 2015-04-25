@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
-//  Copyright (C) 2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -30,7 +29,13 @@
 #include "solas/easing.h"
 
 namespace solas {
-namespace math {
+namespace easing {
 
-}  // namespace math
+TEST(EasingTest, DefaultConstructible) {
+  Easing<double> easing1 = BackEasing<double>::In;
+  Easing<double> easing2 = BackEasing<double>::Out;
+  Easing<double> easing3 = BackEasing<double>::InOut;
+}
+
+}  // namespace easing
 }  // namespace solas

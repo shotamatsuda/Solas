@@ -41,6 +41,7 @@
 #include "solas/app/runnable.h"
 #include "solas/app/touch_event.h"
 #include "solas/math/vector.h"
+#include "solas/tween.h"
 
 namespace solas {
 namespace app {
@@ -82,6 +83,10 @@ class View : public app::Runnable, public Layer {
   const Layer& parent() const = delete;
 
  protected:
+  // Aggregation
+  tween::TimelineHost * timeline_host() override;
+  const tween::TimelineHost * timeline_host() const override;
+
   // Lifecycle intended to be overriden
   void setup() override {}
   void update() override {}
@@ -188,6 +193,9 @@ class View : public app::Runnable, public Layer {
   math::Vec2d dtouch_;
   math::Vec2d etouch_;
   bool touch_pressed_;
+
+  // Tween
+  tween::TimelineHost timeline_host_;
 };
 
 #pragma mark -
@@ -256,6 +264,16 @@ inline const math::Vec2d& View::ptouch() const {
 
 inline bool View::touch_pressed() const {
   return touch_pressed_;
+}
+
+#pragma mark Aggregation
+
+inline tween::TimelineHost * View::timeline_host() {
+  return &timeline_host_;
+}
+
+inline const tween::TimelineHost * View::timeline_host() const {
+  return &timeline_host_;
 }
 
 #pragma mark Events
@@ -370,6 +388,8 @@ inline void View::setup(const AppEvent& event) {
 }
 
 inline void View::update(const AppEvent& event) {
+  timeline<tween::Time>().advance();
+  timeline<tween::Frame>().advance();
   Runnable::update(event);
 }
 

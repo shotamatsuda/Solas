@@ -43,8 +43,8 @@ class RunnerFactory {
 
  public:
   // Disallow copy and assign
-  RunnerFactory(const RunnerFactory&) = delete;
-  RunnerFactory& operator=(const RunnerFactory&) = delete;
+  RunnerFactory(const RunnerFactory& other) = delete;
+  RunnerFactory& operator=(const RunnerFactory& other) = delete;
 
   // Factory
   static RunnerFactory& Shared();

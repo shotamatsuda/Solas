@@ -1,5 +1,5 @@
 //
-//  solas/graphics.h
+//  solas/easing/preset.h
 //
 //  MIT License
 //
@@ -25,14 +25,19 @@
 //
 
 #pragma once
-#ifndef SOLAS_GRAPHICS_H_
-#define SOLAS_GRAPHICS_H_
+#ifndef SOLAS_EASING_PRESET_H_
+#define SOLAS_EASING_PRESET_H_
 
-#include "solas/graphics/color.h"
-#include "solas/graphics/color_depth.h"
-#include "solas/graphics/core.h"
-#include "solas/graphics/fill.h"
-#include "solas/graphics/font.h"
-#include "solas/graphics/stroke.h"
+#include "solas/easing/preset/back.h"
+#include "solas/easing/preset/bounce.h"
+#include "solas/easing/preset/circular.h"
+#include "solas/easing/preset/cubic.h"
+#include "solas/easing/preset/elastic.h"
+#include "solas/easing/preset/exponential.h"
+#include "solas/easing/preset/linear.h"
+#include "solas/easing/preset/quadratic.h"
+#include "solas/easing/preset/quartic.h"
+#include "solas/easing/preset/quintic.h"
+#include "solas/easing/preset/sinusoidal.h"
 
-#endif  // SOLAS_GRAPHICS_H_
+#endif  // SOLAS_EASING_PRESET_H_

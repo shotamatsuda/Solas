@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -31,24 +30,9 @@
 
 #include "solas/easing/group.h"
 #include "solas/easing/inflector.h"
+#include "solas/easing/preset.h"
 #include "solas/easing/reverse_inflector.h"
 #include "solas/easing/symmetric_inflector.h"
-
-//namespace solas {
-//
-//using easing::Easing;
-//using BackEasing = easing::EasingGroup<easing::EaseBack>;
-//using BounceEasing = easing::EasingGroup<easing::EaseBounce>;
-//using CircularEasing = easing::EasingGroup<easing::EaseCircular>;
-//using CubicEasing = easing::EasingGroup<easing::EaseCubic>;
-//using ElasticEasing = easing::EasingGroup<easing::EaseElastic>;
-//using ExponentialEasing = easing::EasingGroup<easing::EaseExponential>;
-//using LinearEasing = easing::EasingGroup<easing::EaseLinear>;
-//using QuadraticEasing = easing::EasingGroup<easing::EaseQuadratic>;
-//using QuarticEasing = easing::EasingGroup<easing::EaseQuartic>;
-//using QuinticEasing = easing::EasingGroup<easing::EaseQuintic>;
-//using SinusoidalEasing = easing::EasingGroup<easing::EaseSinusoidal>;
-//
-//}  // namespace solas
+#include "solas/easing/type.h"
 
 #endif  // SOLAS_EASING_H_

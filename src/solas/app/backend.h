@@ -1,5 +1,5 @@
 //
-//  solas/graphics.h
+//  solas/app/backend.h
 //
 //  MIT License
 //
@@ -25,14 +25,19 @@
 //
 
 #pragma once
-#ifndef SOLAS_GRAPHICS_H_
-#define SOLAS_GRAPHICS_H_
+#ifndef SOLAS_APP_BACKEND_H_
+#define SOLAS_APP_BACKEND_H_
 
-#include "solas/graphics/color.h"
-#include "solas/graphics/color_depth.h"
-#include "solas/graphics/core.h"
-#include "solas/graphics/fill.h"
-#include "solas/graphics/font.h"
-#include "solas/graphics/stroke.h"
+namespace solas {
+namespace app {
 
-#endif  // SOLAS_GRAPHICS_H_
+enum class Backend {
+  UNDEFINED = 0,
+  OPENGL,
+  COREGRAPHICS
+};
+
+}  // namespace app
+}  // namespace solas
+
+#endif  // SOLAS_APP_BACKEND_H_

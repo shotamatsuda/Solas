@@ -1,5 +1,5 @@
 //
-//  solas/graphics.h
+//  solas/tween/type.h
 //
 //  MIT License
 //
@@ -25,14 +25,34 @@
 //
 
 #pragma once
-#ifndef SOLAS_GRAPHICS_H_
-#define SOLAS_GRAPHICS_H_
+#ifndef SOLAS_TWEEN_TYPE_H_
+#define SOLAS_TWEEN_TYPE_H_
 
-#include "solas/graphics/color.h"
-#include "solas/graphics/color_depth.h"
-#include "solas/graphics/core.h"
-#include "solas/graphics/fill.h"
-#include "solas/graphics/font.h"
-#include "solas/graphics/stroke.h"
+#include <cstdint>
+#include <functional>
 
-#endif  // SOLAS_GRAPHICS_H_
+#ifndef SOLAS_TWEEN_UNIT_TYPE
+#define SOLAS_TWEEN_UNIT_TYPE double
+#endif
+
+#ifndef SOLAS_TWEEN_TIME_VALUE_TYPE
+#define SOLAS_TWEEN_TIME_VALUE_TYPE double
+#endif
+
+#ifndef SOLAS_TWEEN_FRAME_VALUE_TYPE
+#define SOLAS_TWEEN_FRAME_VALUE_TYPE std::int64_t
+#endif
+
+namespace solas {
+namespace tween {
+
+using Unit = SOLAS_TWEEN_UNIT_TYPE;
+using TimeValue = SOLAS_TWEEN_TIME_VALUE_TYPE;
+using FrameValue = SOLAS_TWEEN_FRAME_VALUE_TYPE;
+using Callback = std::function<void()>;
+
+}  // namespace tween
+}  // namespace solas
+
+#endif  // SOLAS_TWEEN_TYPE_H_
+

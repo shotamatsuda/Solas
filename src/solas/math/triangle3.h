@@ -64,10 +64,6 @@ class Triangle<T, 3> final {
   Triangle(const Vector3<T>& a, const Vector3<T>& b, const Vector3<T>& c);
   Triangle(std::initializer_list<T> list);
   Triangle(std::initializer_list<Vector3<T>> list);
-  template <typename Container>
-  explicit Triangle(const Container& container);
-  template <typename InputIterator>
-  Triangle(InputIterator begin, InputIterator end);
 
   // Implicit conversion
   template <typename U>
@@ -88,10 +84,6 @@ class Triangle<T, 3> final {
   void set(const Vector3<T>& a, const Vector3<T>& b, const Vector3<T>& c);
   void set(std::initializer_list<T> list);
   void set(std::initializer_list<Vector3<T>> list);
-  template <typename Container>
-  void set(const Container& container);
-  template <typename InputIterator>
-  void set(InputIterator begin, InputIterator end);
   void reset();
 
   // Element access
@@ -177,18 +169,6 @@ inline Triangle3<T>::Triangle(std::initializer_list<Vector3<T>> list) {
   set(std::move(list));
 }
 
-template <typename T>
-template <typename Container>
-inline Triangle3<T>::Triangle(const Container& container) {
-  set(container);
-}
-
-template <typename T>
-template <typename InputIterator>
-inline Triangle3<T>::Triangle(InputIterator begin, InputIterator end) {
-  set(begin, end);
-}
-
 #pragma mark Copy and assign
 
 template <typename T>
@@ -226,7 +206,6 @@ inline void Triangle3<T>::set(const Vector3<T>& a,
 
 template <typename T>
 inline void Triangle3<T>::set(std::initializer_list<T> list) {
-  reset();
   auto itr = list.begin();
   if (itr == list.end()) return; a.x = *itr++;
   if (itr == list.end()) return; a.y = *itr++;
@@ -236,28 +215,15 @@ inline void Triangle3<T>::set(std::initializer_list<T> list) {
   if (itr == list.end()) return; b.z = *itr++;
   if (itr == list.end()) return; c.x = *itr++;
   if (itr == list.end()) return; c.y = *itr++;
-  if (itr == list.end()) return; c.z = *itr++;
+  if (itr == list.end()) return; c.z = *itr;
 }
 
 template <typename T>
 inline void Triangle3<T>::set(std::initializer_list<Vector3<T>> list) {
-  set(list.begin(), list.end());
-}
-
-template <typename T>
-template <typename Container>
-inline void Triangle3<T>::set(const Container& container) {
-  set(container.begin(), container.end());
-}
-
-template <typename T>
-template <typename InputIterator>
-inline void Triangle3<T>::set(InputIterator begin, InputIterator end) {
-  reset();
-  auto itr = begin;
-  if (itr == end) return; a = decltype(a)(*itr++);
-  if (itr == end) return; b = decltype(b)(*itr++);
-  if (itr == end) return; c = decltype(c)(*itr++);
+  auto itr = list.begin();
+  if (itr == list.end()) return; a = decltype(a)(*itr++);
+  if (itr == list.end()) return; b = decltype(b)(*itr++);
+  if (itr == list.end()) return; c = decltype(c)(*itr);
 }
 
 template <typename T>

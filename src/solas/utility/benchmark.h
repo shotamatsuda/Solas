@@ -43,8 +43,8 @@ class Benchmark final {
   Benchmark(Task task);
 
   // Disallow copy and assign
-  Benchmark(const Benchmark& otherother) = delete;
-  Benchmark& operator=(const Benchmark& otherother) = delete;
+  Benchmark(const Benchmark& other) = delete;
+  Benchmark& operator=(const Benchmark& other) = delete;
 
   // Benchmarking
   void start();

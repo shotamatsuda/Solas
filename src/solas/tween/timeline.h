@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -33,29 +32,33 @@
 #include <memory>
 #include <mutex>
 #include <unordered_map>
-#include <utility>
 
 #include "solas/tween/adaptor_base.h"
 #include "solas/tween/clock.h"
 #include "solas/tween/hash.h"
-#include "solas/tween/interval.h"
 
 namespace solas {
 namespace tween {
 
-template <typename Interval_ = Time>
+template <typename Interval_>
 class Timeline final {
  public:
   using Interval = Interval_;
+
+ private:
   using Adaptor = std::shared_ptr<AdaptorBase<Interval>>;
   using Targets = std::unordered_multimap<std::size_t, Adaptor>;
 
+ public:
   // Constructors
-  Timeline() = default;
+  Timeline();
 
   // Disallow copy and assign
-  Timeline(const Timeline&) = delete;
-  Timeline& operator=(const Timeline&) = delete;
+  Timeline(const Timeline& other) = delete;
+  Timeline& operator=(const Timeline& other) = delete;
+
+  // Move
+  Timeline(Timeline&& other) = default;
 
   // Managing adaptors
   void add(Adaptor adaptor, bool overwrite = true);
@@ -72,27 +75,30 @@ class Timeline final {
   Interval now() const { return clock_.now(); }
 
  private:
-  // Data members
   std::unordered_map<std::size_t, Targets> objects_;
   Clock<Interval> clock_;
-  mutable std::mutex mutex_;
+  std::unique_ptr<std::mutex> mutex_;
 };
 
-#pragma mark - Inline Implementations
+#pragma mark -
+
+template <typename Interval>
+inline Timeline<Interval>::Timeline()
+    : mutex_(std::make_unique<std::mutex>()) {}
 
 #pragma mark Managing adaptors
 
 template <typename Interval>
 template <typename T>
 inline void Timeline<Interval>::remove(const T *object) {
-  std::lock_guard<std::mutex> lock(mutex_);
+  std::lock_guard<std::mutex> lock(*mutex_);
   objects_.erase(Hash(object));
 }
 
 template <typename Interval>
 template <typename T>
 inline bool Timeline<Interval>::contains(const T *object) const {
-  std::lock_guard<std::mutex> lock(mutex_);
+  std::lock_guard<std::mutex> lock(*mutex_);
   return objects_.find(Hash(object)) != objects_.end();
 }
 

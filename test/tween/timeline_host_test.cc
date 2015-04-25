@@ -28,21 +28,12 @@
 #include "gtest/gtest.h"
 
 #include "solas/easing.h"
-#include "solas/tween/timeline_host.h"
+#include "solas/tween.h"
 
 namespace solas {
 namespace tween {
 
 namespace {
-
-class Host : public TimelineHost<> {
- public:
-  Timeline& timeline() override { return timeline_; }
-  const Timeline& timeline() const override { return timeline_; }
-
- private:
-  Timeline timeline_;
-};
 
 class Type {
  public:
@@ -57,63 +48,63 @@ class Type {
 
 }  // namespace
 
-TEST(TimelineHostTest, TweenWithPointer) {
-  double value;
-  Host::Interval::Value interval;
-  const auto easing = LinearEasing::In;
-  const auto callback = []() {};
-  Host host;
-  Host::Tween tween;
-  tween = host.tween(&value, value, easing, interval);
-  ASSERT_EQ(tween.duration(), interval);
-  ASSERT_EQ(tween.delay(), Host::Interval::Value());
-  ASSERT_EQ(tween.timeline(), &host.timeline());
-  tween = host.tween(&value, value, easing, interval, callback);
-  ASSERT_EQ(tween.duration(), interval);
-  ASSERT_EQ(tween.delay(), Host::Interval::Value());
-  ASSERT_EQ(tween.timeline(), &host.timeline());
-  tween = host.tween(&value, value, easing, interval, interval);
-  ASSERT_EQ(tween.duration(), interval);
-  ASSERT_EQ(tween.delay(), interval);
-  ASSERT_EQ(tween.timeline(), &host.timeline());
-  tween = host.tween(&value, value, easing, interval, interval, callback);
-  ASSERT_EQ(tween.duration(), interval);
-  ASSERT_EQ(tween.delay(), interval);
-  ASSERT_EQ(tween.timeline(), &host.timeline());
-}
-
-TEST(TimelineHostTest, TweenWithAccessor) {
-  Type value;
-  Host::Interval::Value interval;
-  const auto easing = LinearEasing::In;
-  const auto callback = []() {};
-  Host host;
-  Host::Tween tween;
-  tween = host.tween(&value, &Type::value, &Type::set_value,
-                     "value", value.value(),
-                     easing, interval);
-  ASSERT_EQ(tween.duration(), interval);
-  ASSERT_EQ(tween.delay(), Host::Interval::Value());
-  ASSERT_EQ(tween.timeline(), &host.timeline());
-  tween = host.tween(&value, &Type::value, &Type::set_value,
-                     "value", value.value(),
-                     easing, interval, callback);
-  ASSERT_EQ(tween.duration(), interval);
-  ASSERT_EQ(tween.delay(), Host::Interval::Value());
-  ASSERT_EQ(tween.timeline(), &host.timeline());
-  tween = host.tween(&value, &Type::value, &Type::set_value,
-                     "value", value.value(),
-                     easing, interval, interval);
-  ASSERT_EQ(tween.duration(), interval);
-  ASSERT_EQ(tween.delay(), interval);
-  ASSERT_EQ(tween.timeline(), &host.timeline());
-  tween = host.tween(&value, &Type::value, &Type::set_value,
-                     "value", value.value(),
-                     easing, interval, interval, callback);
-  ASSERT_EQ(tween.duration(), interval);
-  ASSERT_EQ(tween.delay(), interval);
-  ASSERT_EQ(tween.timeline(), &host.timeline());
-}
+//TEST(TimelineHostTest, TweenWithPointer) {
+//  double value;
+//  Host::Interval::Value interval;
+//  const auto easing = LinearEasing::In;
+//  const auto callback = []() {};
+//  Host host;
+//  Host::Tween tween;
+//  tween = host.tween(&value, value, easing, interval);
+//  ASSERT_EQ(tween.duration(), interval);
+//  ASSERT_EQ(tween.delay(), Host::Interval::Value());
+//  ASSERT_EQ(tween.timeline(), &host.timeline());
+//  tween = host.tween(&value, value, easing, interval, callback);
+//  ASSERT_EQ(tween.duration(), interval);
+//  ASSERT_EQ(tween.delay(), Host::Interval::Value());
+//  ASSERT_EQ(tween.timeline(), &host.timeline());
+//  tween = host.tween(&value, value, easing, interval, interval);
+//  ASSERT_EQ(tween.duration(), interval);
+//  ASSERT_EQ(tween.delay(), interval);
+//  ASSERT_EQ(tween.timeline(), &host.timeline());
+//  tween = host.tween(&value, value, easing, interval, interval, callback);
+//  ASSERT_EQ(tween.duration(), interval);
+//  ASSERT_EQ(tween.delay(), interval);
+//  ASSERT_EQ(tween.timeline(), &host.timeline());
+//}
+//
+//TEST(TimelineHostTest, TweenWithAccessor) {
+//  Type value;
+//  Host::Interval::Value interval;
+//  const auto easing = LinearEasing::In;
+//  const auto callback = []() {};
+//  Host host;
+//  Host::Tween tween;
+//  tween = host.tween(&value, &Type::value, &Type::set_value,
+//                     "value", value.value(),
+//                     easing, interval);
+//  ASSERT_EQ(tween.duration(), interval);
+//  ASSERT_EQ(tween.delay(), Host::Interval::Value());
+//  ASSERT_EQ(tween.timeline(), &host.timeline());
+//  tween = host.tween(&value, &Type::value, &Type::set_value,
+//                     "value", value.value(),
+//                     easing, interval, callback);
+//  ASSERT_EQ(tween.duration(), interval);
+//  ASSERT_EQ(tween.delay(), Host::Interval::Value());
+//  ASSERT_EQ(tween.timeline(), &host.timeline());
+//  tween = host.tween(&value, &Type::value, &Type::set_value,
+//                     "value", value.value(),
+//                     easing, interval, interval);
+//  ASSERT_EQ(tween.duration(), interval);
+//  ASSERT_EQ(tween.delay(), interval);
+//  ASSERT_EQ(tween.timeline(), &host.timeline());
+//  tween = host.tween(&value, &Type::value, &Type::set_value,
+//                     "value", value.value(),
+//                     easing, interval, interval, callback);
+//  ASSERT_EQ(tween.duration(), interval);
+//  ASSERT_EQ(tween.delay(), interval);
+//  ASSERT_EQ(tween.timeline(), &host.timeline());
+//}
 
 }  // namespace tween
 }  // namespace solas

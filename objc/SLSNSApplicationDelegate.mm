@@ -100,7 +100,7 @@
   SLSRunner *runner =
       [[SLSRunner alloc] initWithRunnable:solas::app::RunnerFactory::Shared().create()];
   SLSNSViewController *viewController =
-      [[SLSNSGLViewController alloc] initWithRunner:runner];
+      [[SLSNSViewController alloc] initWithRunner:runner];
   SLSNSWindowController *windowController =
       [[SLSNSWindowController alloc] initWithViewController:viewController];
   [[NSNotificationCenter defaultCenter]

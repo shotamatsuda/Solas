@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -47,7 +46,7 @@ void Timeline<Interval>::add(Adaptor adaptor, bool overwrite) {
   assert(adaptor);
   const auto object = adaptor->object_hash();
   const auto target = adaptor->target_hash();
-  std::lock_guard<std::mutex> lock(mutex_);
+  std::lock_guard<std::mutex> lock(*mutex_);
   if (objects_.find(object) == objects_.end()) {
     auto& targets = objects_.emplace(object, Targets()).first->second;
     targets.emplace(target, adaptor);
@@ -64,7 +63,7 @@ template <typename Interval>
 void Timeline<Interval>::remove(Adaptor adaptor) {
   assert(adaptor);
   const auto object = adaptor->object_hash();
-  std::lock_guard<std::mutex> lock(mutex_);
+  std::lock_guard<std::mutex> lock(*mutex_);
   if (objects_.find(object) != objects_.end()) {
     auto& targets = objects_.at(object);
     const auto itr = std::find_if(
@@ -85,7 +84,7 @@ template <typename Interval>
 bool Timeline<Interval>::contains(Adaptor adaptor) const {
   assert(adaptor);
   const auto object = adaptor->object_hash();
-  std::lock_guard<std::mutex> lock(mutex_);
+  std::lock_guard<std::mutex> lock(*mutex_);
   if (objects_.find(object) != objects_.end()) {
     const auto& targets = objects_.at(object);
     const auto itr = std::find_if(
@@ -100,7 +99,7 @@ bool Timeline<Interval>::contains(Adaptor adaptor) const {
 
 template <typename Interval>
 bool Timeline<Interval>::empty() const {
-  std::lock_guard<std::mutex> lock(mutex_);
+  std::lock_guard<std::mutex> lock(*mutex_);
   return objects_.empty();
 }
 
@@ -109,7 +108,7 @@ bool Timeline<Interval>::empty() const {
 template <typename Interval>
 Interval Timeline<Interval>::advance() {
   std::vector<Adaptor> finished_adaptors;
-  mutex_.lock();
+  std::unique_lock<std::mutex> lock(*mutex_);
   const auto now = clock_.advance();
   for (auto object_itr = objects_.begin(); object_itr != objects_.end();) {
     auto& targets = object_itr->second;
@@ -132,7 +131,7 @@ Interval Timeline<Interval>::advance() {
       ++object_itr;
     }
   }
-  mutex_.unlock();
+  lock.unlock();
   for (auto& adaptor : finished_adaptors) {
     if (adaptor->callback()) {
       adaptor->callback()();

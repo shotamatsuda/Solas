@@ -30,15 +30,33 @@
 
 #include <cassert>
 #include <cstdint>
+#include <utility>
 
 #include "solas/app/mouse_button.h"
 #include "solas/app/utilities.h"
 #include "solas/math/vector.h"
+#include "solas/tween.h"
 
 namespace solas {
 namespace app {
 
 class Layer : public Utilities {
+ public:
+  using Time = tween::Time;
+  using Frame = tween::Frame;
+  using Easing = tween::Easing;
+  using BackEasing = tween::BackEasing;
+  using BounceEasing = tween::BounceEasing;
+  using CircularEasing = tween::CircularEasing;
+  using CubicEasing = tween::CubicEasing;
+  using ElasticEasing = tween::ElasticEasing;
+  using ExponentialEasing = tween::ExponentialEasing;
+  using LinearEasing = tween::LinearEasing;
+  using QuadraticEasing = tween::QuadraticEasing;
+  using QuarticEasing = tween::QuarticEasing;
+  using QuinticEasing = tween::QuinticEasing;
+  using SinusoidalEasing = tween::SinusoidalEasing;
+
  public:
   // Constructors
   explicit Layer(Layer *parent);
@@ -70,6 +88,16 @@ class Layer : public Utilities {
   virtual const math::Vec2d& ptouch() const;
   virtual bool touch_pressed() const;
 
+  // Creating tweens
+  template <typename Interval, typename... Args>
+  tween::Tween<Interval> tween(Args&&... args);
+
+  // Accessing timeline
+  template <typename Interval>
+  tween::Timeline<Interval>& timeline();
+  template <typename Interval>
+  const tween::Timeline<Interval>& timeline() const;
+
   // Aggregation
   Layer& parent();
   const Layer& parent() const;
@@ -77,6 +105,10 @@ class Layer : public Utilities {
  protected:
   // Constructors
   Layer();
+
+  // Aggregation
+  virtual tween::TimelineHost * timeline_host();
+  virtual const tween::TimelineHost * timeline_host() const;
 
  private:
   Layer *parent_;
@@ -165,6 +197,25 @@ inline bool Layer::touch_pressed() const {
   return parent_->touch_pressed();
 }
 
+#pragma mark Creating tweens
+
+template <typename Interval, typename... Args>
+inline tween::Tween<Interval> Layer::tween(Args&&... args) {
+  return timeline_host()->tween<Interval>(std::forward<Args>(args)...);
+}
+
+#pragma mark Accessing timeline
+
+template <typename Interval>
+inline tween::Timeline<Interval>& Layer::timeline() {
+  return timeline_host()->timeline<Interval>();
+}
+
+template <typename Interval>
+inline const tween::Timeline<Interval>& Layer::timeline() const {
+  return timeline_host()->timeline<Interval>();
+}
+
 #pragma mark Aggregation
 
 inline Layer& Layer::parent() {
@@ -175,6 +226,16 @@ inline Layer& Layer::parent() {
 inline const Layer& Layer::parent() const {
   assert(parent_);
   return *parent_;
+}
+
+inline tween::TimelineHost * Layer::timeline_host() {
+  assert(parent_);
+  return parent_->timeline_host();
+}
+
+inline const tween::TimelineHost * Layer::timeline_host() const {
+  assert(parent_);
+  return parent_->timeline_host();
 }
 
 }  // namespace app

@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -31,6 +30,8 @@
 
 #include <cmath>
 
+#include "solas/easing/group.h"
+
 namespace solas {
 namespace easing {
 namespace preset {
@@ -42,7 +43,14 @@ struct Circular {
   }
 };
 
+template <typename T>
+using CircularEasing = Group<T, Circular>;
+
 }  // namespace preset
+
+template <typename T>
+using CircularEasing = preset::CircularEasing<T>;
+
 }  // namespace easing
 }  // namespace solas
 

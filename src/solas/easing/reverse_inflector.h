@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -32,12 +31,17 @@
 namespace solas {
 namespace easing {
 
-template <typename T, typename Function>
+template <typename T, template <typename = T> class Function>
 struct ReverseInflector {
-  T operator()(T t) {
-    return 1.0 - Function(1.0 - t);
-  }
+  T operator()(T parameter);
 };
+
+#pragma mark -
+
+template <typename T, template <typename> class Function>
+inline T ReverseInflector<T, Function>::operator()(T parameter) {
+  return 1.0 - Function<T>()(1.0 - parameter);
+}
 
 }  // namespace easing
 }  // namespace solas

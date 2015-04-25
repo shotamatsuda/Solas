@@ -64,10 +64,6 @@ class Triangle<T, 2> final {
   Triangle(const Vector2<T>& a, const Vector2<T>& b, const Vector2<T>& c);
   Triangle(std::initializer_list<T> list);
   Triangle(std::initializer_list<Vector2<T>> list);
-  template <typename Container>
-  explicit Triangle(const Container& container);
-  template <typename InputIterator>
-  Triangle(InputIterator begin, InputIterator end);
 
   // Implicit conversion
   template <typename U>
@@ -88,10 +84,6 @@ class Triangle<T, 2> final {
   void set(const Vector2<T>& a, const Vector2<T>& b, const Vector2<T>& c);
   void set(std::initializer_list<T> list);
   void set(std::initializer_list<Vector2<T>> list);
-  template <typename Container>
-  void set(const Container& container);
-  template <typename InputIterator>
-  void set(InputIterator begin, InputIterator end);
   void reset();
 
   // Element access
@@ -175,18 +167,6 @@ inline Triangle2<T>::Triangle(std::initializer_list<Vector2<T>> list) {
   set(std::move(list));
 }
 
-template <typename T>
-template <typename Container>
-inline Triangle2<T>::Triangle(const Container& container) {
-  set(container);
-}
-
-template <typename T>
-template <typename InputIterator>
-inline Triangle2<T>::Triangle(InputIterator begin, InputIterator end) {
-  set(begin, end);
-}
-
 #pragma mark Copy and assign
 
 template <typename T>
@@ -222,35 +202,21 @@ inline void Triangle2<T>::set(const Vector2<T>& a,
 
 template <typename T>
 inline void Triangle2<T>::set(std::initializer_list<T> list) {
-  reset();
   auto itr = list.begin();
   if (itr == list.end()) return; a.x = *itr++;
   if (itr == list.end()) return; a.y = *itr++;
   if (itr == list.end()) return; b.x = *itr++;
   if (itr == list.end()) return; b.y = *itr++;
   if (itr == list.end()) return; c.x = *itr++;
-  if (itr == list.end()) return; c.y = *itr++;
+  if (itr == list.end()) return; c.y = *itr;
 }
 
 template <typename T>
 inline void Triangle2<T>::set(std::initializer_list<Vector2<T>> list) {
-  set(list.begin(), list.end());
-}
-
-template <typename T>
-template <typename Container>
-inline void Triangle2<T>::set(const Container& container) {
-  set(container.begin(), container.end());
-}
-
-template <typename T>
-template <typename InputIterator>
-inline void Triangle2<T>::set(InputIterator begin, InputIterator end) {
-  reset();
-  auto itr = begin;
-  if (itr == end) return; a = decltype(a)(*itr++);
-  if (itr == end) return; b = decltype(b)(*itr++);
-  if (itr == end) return; c = decltype(c)(*itr++);
+  auto itr = list.begin();
+  if (itr == list.end()) return; a = decltype(a)(*itr++);
+  if (itr == list.end()) return; b = decltype(b)(*itr++);
+  if (itr == list.end()) return; c = decltype(c)(*itr++);
 }
 
 template <typename T>

@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -41,51 +40,33 @@ class Clock final {
  public:
   using Interval = Interval_;
 
+ public:
   // Constructors
   Clock();
-  Clock(const Clock& other);
 
-  // Assignment
-  Clock& operator=(const Clock& other);
+  // Copy and assign
+  Clock(const Clock& other) = default;
+  Clock& operator=(const Clock& other) = default;
 
   // Comparison
   bool operator==(const Clock& other) const;
-  bool operator!=(const Clock& other) const { return !operator==(other); }
+  bool operator!=(const Clock& other) const;
 
   // Controlling clock
   Interval advance();
   Interval now() const { return Interval(now_); }
 
  private:
-  // Data members
   typename Interval::Value now_;
   typename Interval::Value birth_;
 };
 
-#pragma mark - Inline Implementations
+#pragma mark -
 
 template <typename Interval>
 inline Clock<Interval>::Clock()
     : now_(),
-      birth_() {
-  now_ = birth_ = advance().count();
-}
-
-template <typename Interval>
-inline Clock<Interval>::Clock(const Clock& other)
-    : now_(other.now_),
-      birth_(other.birth_){}
-
-#pragma mark Assignment
-
-template <typename Interval>
-inline Clock<Interval>& Clock<Interval>::operator=(const Clock& other) {
-  if (&other != this) {
-    now_ = other.now_;
-    birth_ = other.birth_;
-  }
-  return *this;
-}
+      birth_(advance().count()) {}
 
 #pragma mark Comparison
 
@@ -94,13 +75,19 @@ inline bool Clock<Interval>::operator==(const Clock& other) const {
   return (now_ == other.now_ && birth_ == other.birth_);
 }
 
+template <typename Interval>
+inline bool Clock<Interval>::operator!=(const Clock& other) const {
+  return !operator==(other);
+}
+
 #pragma mark Controlling clock
 
 template <>
 inline Time Clock<Time>::advance() {
-  now_ = std::chrono::duration_cast<std::chrono::microseconds>(
-      std::chrono::high_resolution_clock::now().time_since_epoch())
-          .count() / 1000000.0;
+  using Clock = std::chrono::high_resolution_clock;
+  using Duration = std::chrono::microseconds;
+  now_ = static_cast<TimeValue>(std::chrono::duration_cast<Duration>(
+      Clock::now().time_since_epoch()).count()) / Duration::period::den;
   return Time(now_);
 }
 

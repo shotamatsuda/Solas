@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -29,19 +28,27 @@
 #ifndef SOLAS_EASING_SYMMETRIC_INFLECTOR_H_
 #define SOLAS_EASING_SYMMETRIC_INFLECTOR_H_
 
+#include "solas/easing/inflector.h"
+#include "solas/easing/reverse_inflector.h"
+
 namespace solas {
 namespace easing {
 
-template <typename T, typename Function>
+template <typename T, template <typename = T> class Function>
 struct SymmetricInflector {
-  T operator()(T t) {
-    if (t < 0.5) {
-      return In_()(2.0 * t) / 2.0;
-    } else {
-      return 0.5 + Out_()(2.0 * t - 1.0) / 2.0;
-    }
-  }
+  T operator()(T parameter);
 };
+
+#pragma mark -
+
+template <typename T, template <typename> class Function>
+inline T SymmetricInflector<T, Function>::operator()(T parameter) {
+  if (parameter < 0.5) {
+    return Inflector<T, Function>()(2.0 * parameter) / 2.0;
+  } else {
+    return 0.5 + ReverseInflector<T, Function>()(2.0 * parameter - 1.0) / 2.0;
+  }
+}
 
 }  // namespace easing
 }  // namespace solas

@@ -4,7 +4,6 @@
 //  MIT License
 //
 //  Copyright (C) 2014-2015 Shota Matsuda
-//  Copyright (C) 2014-2015 takram design engineering
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -29,6 +28,8 @@
 #ifndef SOLAS_EASING_PRESET_BACK_H_
 #define SOLAS_EASING_PRESET_BACK_H_
 
+#include "solas/easing/group.h"
+
 namespace solas {
 namespace easing {
 namespace preset {
@@ -38,10 +39,17 @@ struct Back {
   T operator()(T parameter) {
     return parameter * parameter * ((amount + 1.0) * parameter - amount);
   }
-  static constexpr T amount = 1.701580;
+  static constexpr const T amount = 1.701580;
 };
 
+template <typename T>
+using BackEasing = Group<T, Back>;
+
 }  // namespace preset
+
+template <typename T>
+using BackEasing = preset::BackEasing<T>;
+
 }  // namespace easing
 }  // namespace solas
 

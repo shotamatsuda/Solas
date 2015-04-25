@@ -29,8 +29,8 @@
 #include "Framework.xcconfig"
 
 // Product Linking
-OTHER_LDFLAGS = $(inherited) $(SOLAS_OTHER_LDFLAGS) "$(SRCROOT)/build/gtest/libgtest.a" "$(SRCROOT)/build/gtest/libgtest_main.a"
+OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names "$(SRCROOT)/build/gtest/libgtest.a" "$(SRCROOT)/build/gtest/libgtest_main.a"
 
 // Product Search Paths
-HEADER_SEARCH_PATHS = $(inherited) $(SOLAS_HEADER_SEARCH_PATHS) "$(SRCROOT)/include" "$(SRCROOT)/gtest/include"
-LIBRARY_SEARCH_PATHS = $(inherited) $(SOLAS_LIBRARY_SEARCH_PATHS)
+HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(SRCROOT)/gtest/include"
+LIBRARY_SEARCH_PATHS = $(inherited)
