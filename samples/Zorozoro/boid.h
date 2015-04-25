@@ -43,7 +43,7 @@ class Boid : public solas::app::Layer {
   void flock(const std::list<std::unique_ptr<Boid>>& boids);
   virtual void update();
   virtual void draw() = 0;
-  virtual void wraparound(double insets);
+  virtual void wraparound();
   virtual void kill();
   bool alive() const { return !zombie && !dead; }
   Vec2d separate(const std::list<std::unique_ptr<Boid>>& boids);

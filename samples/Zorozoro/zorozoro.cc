@@ -43,8 +43,8 @@ namespace zorozoro {
 
 Zorozoro::Zorozoro()
     : context(nullptr),
-      foreground(nvgRGB(0, 0, 0)),
-      background(nvgRGB(0xff, 0xff, 0xff)),
+      foreground(nvgRGBf(0, 0, 0)),
+      background(nvgRGBf(1, 1, 1)),
       density(200) {}
 
 void Zorozoro::setup() {
@@ -82,7 +82,7 @@ void Zorozoro::update() {
   for (auto& boid : boids) {
     boid->flock(boids);
     boid->update();
-    boid->wraparound(insets);
+    boid->wraparound();
   }
 }
 

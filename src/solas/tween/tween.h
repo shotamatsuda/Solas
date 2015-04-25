@@ -88,41 +88,41 @@ class Tween final {
         Timeline *timeline = nullptr);
 
   // Construct with accessor
-  template <typename T, typename Class, typename Getter, typename Setter>
+  template <typename Value, typename Class, typename Getter, typename Setter>
   Tween(Class *target,
         Getter getter,
         Setter setter,
         const std::string& name,
-        const T& to,
+        const Value& to,
         const Easing& easing,
         IntervalValue duration,
         Timeline *timeline = nullptr);
-  template <typename T, typename Class, typename Getter, typename Setter>
+  template <typename Value, typename Class, typename Getter, typename Setter>
   Tween(Class *target,
         Getter getter,
         Setter setter,
         const std::string& name,
-        const T& to,
+        const Value& to,
         const Easing& easing,
         IntervalValue duration,
         IntervalValue delay,
         Timeline *timeline = nullptr);
-  template <typename T, typename Class, typename Getter, typename Setter>
+  template <typename Value, typename Class, typename Getter, typename Setter>
   Tween(Class *target,
         Getter getter,
         Setter setter,
         const std::string& name,
-        const T& to,
+        const Value& to,
         const Easing& easing,
         IntervalValue duration,
         const Callback& callback,
         Timeline *timeline = nullptr);
-  template <typename T, typename Class, typename Getter, typename Setter>
+  template <typename Value, typename Class, typename Getter, typename Setter>
   Tween(Class *target,
         Getter getter,
         Setter setter,
         const std::string& name,
-        const T& to,
+        const Value& to,
         const Easing& easing,
         IntervalValue duration,
         IntervalValue delay,
@@ -176,12 +176,12 @@ class Tween final {
             const Interval& duration,
             const Interval& delay,
             const Callback& callback);
-  template <typename T, typename Class, typename Getter, typename Setter>
+  template <typename Value, typename Class, typename Getter, typename Setter>
   void init(Class *target,
             Getter getter,
             Setter setter,
             const std::string& name,
-            const T& to,
+            const Value& to,
             const Easing& easing,
             const Interval& duration,
             const Interval& delay,
@@ -256,12 +256,12 @@ inline Tween<Interval>::Tween(Value *target,
 #pragma mark Construct with accessor
 
 template <typename Interval>
-template <typename T, typename Class, typename Getter, typename Setter>
+template <typename Value, typename Class, typename Getter, typename Setter>
 inline Tween<Interval>::Tween(Class *target,
                               Getter getter,
                               Setter setter,
                               const std::string& name,
-                              const T& to,
+                              const Value& to,
                               const Easing& easing,
                               IntervalValue duration,
                               Timeline *timeline)
@@ -271,12 +271,12 @@ inline Tween<Interval>::Tween(Class *target,
 }
 
 template <typename Interval>
-template <typename T, typename Class, typename Getter, typename Setter>
+template <typename Value, typename Class, typename Getter, typename Setter>
 inline Tween<Interval>::Tween(Class *target,
                               Getter getter,
                               Setter setter,
                               const std::string& name,
-                              const T& to,
+                              const Value& to,
                               const Easing& easing,
                               IntervalValue duration,
                               IntervalValue delay,
@@ -287,12 +287,12 @@ inline Tween<Interval>::Tween(Class *target,
 }
 
 template <typename Interval>
-template <typename T, typename Class, typename Getter, typename Setter>
+template <typename Value, typename Class, typename Getter, typename Setter>
 inline Tween<Interval>::Tween(Class *target,
                               Getter getter,
                               Setter setter,
                               const std::string& name,
-                              const T& to,
+                              const Value& to,
                               const Easing& easing,
                               IntervalValue duration,
                               const Callback& callback,
@@ -303,12 +303,12 @@ inline Tween<Interval>::Tween(Class *target,
 }
 
 template <typename Interval>
-template <typename T, typename Class, typename Getter, typename Setter>
+template <typename Value, typename Class, typename Getter, typename Setter>
 inline Tween<Interval>::Tween(Class *target,
                               Getter getter,
                               Setter setter,
                               const std::string& name,
-                              const T& to,
+                              const Value& to,
                               const Easing& easing,
                               IntervalValue duration,
                               IntervalValue delay,
@@ -342,24 +342,24 @@ inline void Tween<Interval>::init(Value *target,
                                   const Interval& delay,
                                   const Callback& callback) {
   assert(target);
-  using Adaptor = PointerAdaptor<Interval, T>;
+  using Adaptor = PointerAdaptor<Interval, Value>;
   adaptor_ = std::make_shared<Adaptor>(
       target, to, easing, duration, delay, callback);
 }
 
 template <typename Interval>
-template <typename T, typename Class, typename Getter, typename Setter>
+template <typename Value, typename Class, typename Getter, typename Setter>
 inline void Tween<Interval>::init(Class *target,
                                   Getter getter,
                                   Setter setter,
                                   const std::string& name,
-                                  const T& to,
+                                  const Value& to,
                                   const Easing& easing,
                                   const Interval& duration,
                                   const Interval& delay,
                                   const Callback& callback) {
   assert(target);
-  using Adaptor = AccessorAdaptor<Interval, T, Class, Getter, Setter>;
+  using Adaptor = AccessorAdaptor<Interval, Value, Class, Getter, Setter>;
   adaptor_ = std::make_shared<Adaptor>(
       target, getter, setter, name, to, easing, duration, delay, callback);
 }

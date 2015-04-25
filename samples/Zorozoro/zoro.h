@@ -28,14 +28,21 @@ namespace zorozoro {
 
 using solas::math::Vec2d;
 
+class Zorozoro;
+
 class Zoro : public Boid {
  public:
   Zoro(Layer *parent, const Vec2d& location);
   ~Zoro();
   void update() override;
   void draw() override;
-  void wraparound(double insets) override;
+  void wraparound() override;
   void kill() override;
+
+ protected:
+  void drawAll(const Zorozoro& zorozoro);
+  void drawBody(const Zorozoro& zorozoro);
+  void drawEyes(const Zorozoro& zorozoro);
 
  public:
   Spring body;
