@@ -47,7 +47,7 @@ class Random {
 
  public:
   // Constructors
-  Random() = default;
+  Random();
   explicit Random(Type seed);
 
   // Copy and assign
@@ -88,6 +88,10 @@ template <typename Engine, typename Mutex>
 utility::Singleton<Random<Engine, std::mutex>> Random<Engine, Mutex>::shared_;
 
 #pragma mark -
+
+template <typename Engine, typename Mutex>
+inline Random<Engine, Mutex>::Random()
+    : engine_(std::random_device()()) {}
 
 template <typename Engine, typename Mutex>
 inline Random<Engine, Mutex>::Random(Type seed)
