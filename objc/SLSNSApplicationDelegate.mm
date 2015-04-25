@@ -69,8 +69,7 @@
   }
 }
 
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:
-    (NSApplication *)sender {
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
   const auto& options = solas::app::RunnerFactory::Shared().options();
   return !options.multiple_windows();
 }
@@ -98,8 +97,8 @@
 #pragma mark Received Actions
 
 - (IBAction)newWindow:(id)sender {
-  SLSRunner *runner = [[SLSRunner alloc]
-      initWithRunnable:solas::app::RunnerFactory::Shared().create()];
+  SLSRunner *runner =
+      [[SLSRunner alloc] initWithRunnable:solas::app::RunnerFactory::Shared().create()];
   SLSNSViewController *viewController =
       [[SLSNSGLViewController alloc] initWithRunner:runner];
   SLSNSWindowController *windowController =

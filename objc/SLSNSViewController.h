@@ -33,7 +33,7 @@
 
 @interface SLSNSViewController : NSViewController <SLSAnimationSource>
 
-- (instancetype)initWithRunner:(SLSRunner *)runner;
+- (instancetype)initWithRunner:(SLSRunner *)runner NS_DESIGNATED_INITIALIZER;
 
 #pragma mark Accessing Views
 

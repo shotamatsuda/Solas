@@ -58,6 +58,14 @@
   return self;
 }
 
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+  return [self initWithRunner:nil];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)decoder {
+  return [self initWithRunner:nil];
+}
+
 - (void)loadView {
   NSAssert(NO, @"Subclass must implement loadView");
 }

@@ -191,8 +191,7 @@
 
 - (solas::app::MouseEvent)mouseEventWithEvent:(NSEvent *)event
     type:(solas::app::MouseEvent::Type)type {
-  const CGPoint location = [self convertPoint:event.locationInWindow
-                                     fromView:self.window.contentView];
+  CGPoint location = [self convertPoint:event.locationInWindow fromView:self.window.contentView];
   const solas::app::MouseEvent mouseEvent(
       type,
       solas::math::Vec2d(location.x, location.y),
@@ -215,7 +214,7 @@
 }
 
 - (solas::app::KeyModifier)keyModifiersForEvent:(NSEvent *)event {
-  const NSEventModifierFlags flags = event.modifierFlags;
+  NSEventModifierFlags flags = event.modifierFlags;
   solas::app::KeyModifier modifiers = solas::app::KeyModifier::NONE;
   if (flags & NSAlphaShiftKeyMask) {
     modifiers |= solas::app::KeyModifier::CAPS;

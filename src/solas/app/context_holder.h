@@ -1,5 +1,5 @@
 //
-//  solas/graphics/context_holder.h
+//  solas/app/context_holder.h
 //
 //  MIT License
 //
@@ -25,15 +25,15 @@
 //
 
 #pragma once
-#ifndef SOLAS_GRAPHICS_CONTEXT_HOLDER_H_
-#define SOLAS_GRAPHICS_CONTEXT_HOLDER_H_
+#ifndef SOLAS_APP_CONTEXT_HOLDER_H_
+#define SOLAS_APP_CONTEXT_HOLDER_H_
 
 #include <functional>
 
 #include <boost/any.hpp>
 
 namespace solas {
-namespace graphics {
+namespace app {
 
 class ContextHolder {
  public:
@@ -75,7 +75,7 @@ inline const Context& ContextHolder::get() const {
   return boost::any_cast<std::reference_wrapper<const Context>>(value_);
 }
 
-}  // namespace graphics
+}  // namespace app
 }  // namespace solas
 
-#endif  // SOLAS_GRAPHICS_CONTEXT_HOLDER_H_
+#endif  // SOLAS_APP_CONTEXT_HOLDER_H_

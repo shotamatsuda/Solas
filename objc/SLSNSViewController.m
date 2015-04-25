@@ -42,7 +42,7 @@
 @implementation SLSNSViewController
 
 - (instancetype)initWithRunner:(SLSRunner *)runner {
-  self = [super init];
+  self = [super initWithNibName:nil bundle:nil];
   if (self) {
     _runner = runner;
     [self loadView];
@@ -56,6 +56,14 @@
     [self startAnimation];
   }
   return self;
+}
+
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+  return [self initWithRunner:nil];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+  return [self initWithRunner:nil];
 }
 
 - (void)loadView {

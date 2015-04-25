@@ -36,10 +36,10 @@
 		933803281AD88DC200F41F92 /* font.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803251AD88DC200F41F92 /* font.cc */; };
 		933803291AD88DC200F41F92 /* font.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803261AD88DC200F41F92 /* font.h */; };
 		9338032A1AD88DC200F41F92 /* font.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803261AD88DC200F41F92 /* font.h */; };
-		933803331AD8B7EC00F41F92 /* core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 933803311AD8B7EC00F41F92 /* core.mm */; };
-		933803341AD8B7EC00F41F92 /* core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 933803311AD8B7EC00F41F92 /* core.mm */; };
-		933803351AD8B7EC00F41F92 /* core.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803321AD8B7EC00F41F92 /* core.h */; };
-		933803361AD8B7EC00F41F92 /* core.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803321AD8B7EC00F41F92 /* core.h */; };
+		933FD5281AEB1E3F003AEC6C /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5271AEB1E3F003AEC6C /* context_holder.h */; };
+		933FD5291AEB1E3F003AEC6C /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5271AEB1E3F003AEC6C /* context_holder.h */; };
+		933FD52A1AEB1E3F003AEC6C /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5271AEB1E3F003AEC6C /* context_holder.h */; };
+		933FD52B1AEB1E3F003AEC6C /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5271AEB1E3F003AEC6C /* context_holder.h */; };
 		936E24361ADEA5A80004C396 /* app.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B451AD1438900969DC2 /* app.h */; };
 		936E24371ADEA5A80004C396 /* event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE21ADD395500B42B9E /* event.h */; };
 		936E24381ADEA5A80004C396 /* app_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707DA1AD692DF00E3E8AA /* app_event.h */; };
@@ -75,9 +75,6 @@
 		936E245C1ADEA5A80004C396 /* shape.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F401ADA1A8100175565 /* shape.h */; };
 		936E245E1ADEA5A80004C396 /* font.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803261AD88DC200F41F92 /* font.h */; };
 		936E245F1ADEA5A80004C396 /* font.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803251AD88DC200F41F92 /* font.cc */; };
-		936E24601ADEA5A80004C396 /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D51E21AD3CE4E006EEF1B /* context_holder.h */; };
-		936E24611ADEA5A80004C396 /* core.h in Headers */ = {isa = PBXBuildFile; fileRef = 933803321AD8B7EC00F41F92 /* core.h */; };
-		936E24621ADEA5A80004C396 /* core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 933803311AD8B7EC00F41F92 /* core.mm */; };
 		936E24631ADEA5A80004C396 /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913BB1AB2811500DDF7F9 /* math.h */; };
 		936E24641ADEA5A80004C396 /* constants.h in Headers */ = {isa = PBXBuildFile; fileRef = 930398291AB2AE9500577048 /* constants.h */; };
 		936E24651ADEA5A80004C396 /* functions.h in Headers */ = {isa = PBXBuildFile; fileRef = 938987DD1AD5F32100DEC9E9 /* functions.h */; };
@@ -161,7 +158,6 @@
 		936E24D01ADEA6C40004C396 /* fill.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707D91AD62C6300E3E8AA /* fill.h */; };
 		936E24D11ADEA6C40004C396 /* stroke.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707D81AD62C5E00E3E8AA /* stroke.h */; };
 		936E24D21ADEA6C40004C396 /* path.h in Headers */ = {isa = PBXBuildFile; fileRef = 93BE2F3B1ADA1A7500175565 /* path.h */; };
-		936E24D31ADEA6C40004C396 /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D51E21AD3CE4E006EEF1B /* context_holder.h */; };
 		936E24D41ADEA6C40004C396 /* enablers.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D52051AD5530F006EEF1B /* enablers.h */; };
 		936E24D51ADEA6C40004C396 /* app.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B451AD1438900969DC2 /* app.h */; };
 		936E24D61ADEA6C40004C396 /* mouse_button.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6091AD16F40005EDC09 /* mouse_button.h */; };
@@ -172,7 +168,6 @@
 		936E24DB1ADEA6C40004C396 /* run.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6521AD1ADBB005EDC09 /* run.h */; };
 		936E24DF1ADEA6C40004C396 /* fill.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707D91AD62C6300E3E8AA /* fill.h */; };
 		936E24E01ADEA6C40004C396 /* stroke.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707D81AD62C5E00E3E8AA /* stroke.h */; };
-		936E24E11ADEA6C40004C396 /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D51E21AD3CE4E006EEF1B /* context_holder.h */; };
 		936E24E21ADEA6C40004C396 /* enablers.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D52051AD5530F006EEF1B /* enablers.h */; };
 		936E24E31ADEA78B0004C396 /* SLSNSWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6181AD19BE3005EDC09 /* SLSNSWindowController.h */; };
 		936E24E41ADEA78B0004C396 /* SLSNSWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6191AD19BE3005EDC09 /* SLSNSWindowController.m */; };
@@ -436,14 +431,11 @@
 		930398501AB2B1BD00577048 /* plane_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = plane_test.cc; sourceTree = "<group>"; };
 		930398511AB2B1BD00577048 /* size_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = size_test.cc; sourceTree = "<group>"; };
 		930398521AB2B1BD00577048 /* vector_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vector_test.cc; sourceTree = "<group>"; };
-		930D51E21AD3CE4E006EEF1B /* context_holder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = context_holder.h; sourceTree = "<group>"; };
 		930D51E71AD42B76006EEF1B /* color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = color.h; sourceTree = "<group>"; };
 		930D51E81AD42B76006EEF1B /* color3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = color3.h; sourceTree = "<group>"; };
 		930D51E91AD42B76006EEF1B /* color4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = color4.h; sourceTree = "<group>"; };
 		930D52001AD52BBF006EEF1B /* color_depth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = color_depth.h; sourceTree = "<group>"; };
 		930D52051AD5530F006EEF1B /* enablers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = enablers.h; sourceTree = "<group>"; };
-		931CCB881AD88A150047542F /* graphics.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = graphics.cc; sourceTree = "<group>"; };
-		931CCB891AD88A150047542F /* graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphics.h; sourceTree = "<group>"; };
 		93229E5F1ACD2FE6008D27EA /* random.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = random.h; sourceTree = "<group>"; };
 		93229E6C1ACD6DDA008D27EA /* singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = singleton.h; sourceTree = "<group>"; };
 		93229E701ACEAF05008D27EA /* null_mutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = null_mutex.h; sourceTree = "<group>"; };
@@ -454,12 +446,11 @@
 		93229ED01AD2428D008D27EA /* SLSUIRunnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIRunnerViewController.h; sourceTree = "<group>"; };
 		93229ED11AD2428D008D27EA /* SLSUIRunnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIRunnerViewController.m; sourceTree = "<group>"; };
 		93229ED21AD2428D008D27EA /* SLSUIRunnerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSUIRunnerViewController.xib; sourceTree = "<group>"; };
-		933803221AD88BA800F41F92 /* style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = style.h; sourceTree = "<group>"; };
 		933803251AD88DC200F41F92 /* font.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = font.cc; sourceTree = "<group>"; };
 		933803261AD88DC200F41F92 /* font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = font.h; sourceTree = "<group>"; };
 		933803311AD8B7EC00F41F92 /* core.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = core.mm; sourceTree = "<group>"; };
 		933803321AD8B7EC00F41F92 /* core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
-		934FAAA31AD6E21600FACF2E /* processing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = processing.h; sourceTree = "<group>"; };
+		933FD5271AEB1E3F003AEC6C /* context_holder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = context_holder.h; sourceTree = "<group>"; };
 		936E241F1ADEA5550004C396 /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		936E253E1ADEA9980004C396 /* libSolas.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libSolas.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		937E13841ADBDD8F008DB7A7 /* fontstash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fontstash.h; sourceTree = "<group>"; };
@@ -780,16 +771,6 @@
 			name = "UIKit Specific";
 			sourceTree = "<group>";
 		};
-		934FAAA11AD6E21600FACF2E /* processing */ = {
-			isa = PBXGroup;
-			children = (
-				931CCB891AD88A150047542F /* graphics.h */,
-				931CCB881AD88A150047542F /* graphics.cc */,
-				933803221AD88BA800F41F92 /* style.h */,
-			);
-			path = processing;
-			sourceTree = "<group>";
-		};
 		937E135B1ADBDD8F008DB7A7 /* nanovg */ = {
 			isa = PBXGroup;
 			children = (
@@ -877,6 +858,7 @@
 				93A45B531AD14C4400969DC2 /* touch_event.h */,
 				93A45B4F1AD14C4400969DC2 /* gesture_event.h */,
 				93A45B511AD14C4400969DC2 /* motion_event.h */,
+				933FD5271AEB1E3F003AEC6C /* context_holder.h */,
 				93CAA6171AD1930A005EDC09 /* runnable.h */,
 				93CAA6161AD19304005EDC09 /* runner.h */,
 				93CAA63C1AD1A518005EDC09 /* runner_options.h */,
@@ -1029,7 +1011,6 @@
 				93BE2F3F1ADA1A8100175565 /* shape.cc */,
 				933803261AD88DC200F41F92 /* font.h */,
 				933803251AD88DC200F41F92 /* font.cc */,
-				930D51E21AD3CE4E006EEF1B /* context_holder.h */,
 				933803321AD8B7EC00F41F92 /* core.h */,
 				933803311AD8B7EC00F41F92 /* core.mm */,
 			);
@@ -1051,8 +1032,6 @@
 			children = (
 				93A45B451AD1438900969DC2 /* app.h */,
 				93A45B441AD1438900969DC2 /* app */,
-				934FAAA31AD6E21600FACF2E /* processing.h */,
-				934FAAA11AD6E21600FACF2E /* processing */,
 				93F38E461AB5FA8B009E3626 /* graphics.h */,
 				93F38E451AB5FA8B009E3626 /* graphics */,
 				93E913BB1AB2811500DDF7F9 /* math.h */,
@@ -1141,7 +1120,6 @@
 				936E24521ADEA5A80004C396 /* color.h in Headers */,
 				936E247D1ADEA5A80004C396 /* noise.h in Headers */,
 				936E243C1ADEA5A80004C396 /* key_event.h in Headers */,
-				936E24611ADEA5A80004C396 /* core.h in Headers */,
 				936E24391ADEA5A80004C396 /* mouse_button.h in Headers */,
 				936E248D1ADEA5A80004C396 /* SLSDisplaySource.h in Headers */,
 				936E24551ADEA5A80004C396 /* color_depth.h in Headers */,
@@ -1151,6 +1129,7 @@
 				936E24E51ADEA78B0004C396 /* SLSNSViewController.h in Headers */,
 				936E24E91ADEA78B0004C396 /* SLSNSView.h in Headers */,
 				936E24ED1ADEA78B0004C396 /* SLSNSGLView.h in Headers */,
+				933FD52B1AEB1E3F003AEC6C /* context_holder.h in Headers */,
 				936E24F11ADEA78B0004C396 /* SLSNSCGViewController.h in Headers */,
 				936E24871ADEA5A80004C396 /* singleton.h in Headers */,
 				936E24671ADEA5A80004C396 /* random.h in Headers */,
@@ -1165,7 +1144,6 @@
 				936E248A1ADEA5A80004C396 /* SLSRunner.h in Headers */,
 				936E24451ADEA5A80004C396 /* run.h in Headers */,
 				936E24431ADEA5A80004C396 /* runner_factory.h in Headers */,
-				936E24601ADEA5A80004C396 /* context_holder.h in Headers */,
 				936E24E71ADEA78B0004C396 /* SLSNSEventSourceView.h in Headers */,
 				936E245A1ADEA5A80004C396 /* segment.h in Headers */,
 				936E24841ADEA5A80004C396 /* null_mutex.h in Headers */,
@@ -1230,6 +1208,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933FD52A1AEB1E3F003AEC6C /* context_holder.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1257,7 +1236,6 @@
 				93D73DDB1ADDEF94003F9A7A /* SLSNSGLViewController.h in Headers */,
 				93D73DE01ADDF020003F9A7A /* SLSNSCGViewController.h in Headers */,
 				93D73DD01ADDE321003F9A7A /* SLSNSViewController.h in Headers */,
-				933803351AD8B7EC00F41F92 /* core.h in Headers */,
 				93D73E051ADE250C003F9A7A /* utilities.h in Headers */,
 				93BE2F741ADA32E800175565 /* segment.h in Headers */,
 				93BE2F3D1ADA1A7500175565 /* path.h in Headers */,
@@ -1300,13 +1278,13 @@
 				93CAA6141AD191E5005EDC09 /* SLSEvents.h in Headers */,
 				936E24D51ADEA6C40004C396 /* app.h in Headers */,
 				93F38E421AB5F859009E3626 /* triangle3.h in Headers */,
+				933FD5281AEB1E3F003AEC6C /* context_holder.h in Headers */,
 				93AD7CE91ADD395500B42B9E /* event.h in Headers */,
 				93F38E3D1AB56DE8009E3626 /* line3.h in Headers */,
 				939E96401AD250AF00A7E21E /* runner_factory.h in Headers */,
 				936E24D81ADEA6C40004C396 /* runnable.h in Headers */,
 				93CAA6471AD1A843005EDC09 /* SLSNSBundle+Bundle.h in Headers */,
 				93AD7CE71ADD395500B42B9E /* layer.h in Headers */,
-				936E24E11ADEA6C40004C396 /* context_holder.h in Headers */,
 				930398351AB2AEE700577048 /* utility.h in Headers */,
 				93F38E411AB5F859009E3626 /* triangle2.h in Headers */,
 				936E24B31ADEA6A90004C396 /* matrix2.h in Headers */,
@@ -1341,7 +1319,6 @@
 				936E24CB1ADEA6C40004C396 /* run.h in Headers */,
 				936E24B61ADEA6AB0004C396 /* matrix.h in Headers */,
 				930398391AB2AEF400577048 /* enum.h in Headers */,
-				936E24D31ADEA6C40004C396 /* context_holder.h in Headers */,
 				936E24B81ADEA6AB0004C396 /* matrix3.h in Headers */,
 				93EBABB21AD97CEE00BF8959 /* SLSDefines.h in Headers */,
 				93E913CB1AB2811500DDF7F9 /* line.h in Headers */,
@@ -1386,9 +1363,9 @@
 				93A45B291AD0CE2500969DC2 /* random.h in Headers */,
 				93D73E061ADE250C003F9A7A /* utilities.h in Headers */,
 				93A45B331AD0CE2F00969DC2 /* benchmark.h in Headers */,
+				933FD5291AEB1E3F003AEC6C /* context_holder.h in Headers */,
 				93A45B551AD14C4400969DC2 /* gesture_event.h in Headers */,
 				93E913ED1AB2811500DDF7F9 /* math.h in Headers */,
-				933803361AD8B7EC00F41F92 /* core.h in Headers */,
 				93AD7CEA1ADD395500B42B9E /* event.h in Headers */,
 				93BE2F691ADA2C5000175565 /* simplex.h in Headers */,
 				93E913E51AB2811500DDF7F9 /* vector.h in Headers */,
@@ -1653,7 +1630,6 @@
 				936E24F41ADEA78B0004C396 /* SLSNSCGView.m in Sources */,
 				936E24E81ADEA78B0004C396 /* SLSNSEventSourceView.mm in Sources */,
 				936E24481ADEA5A80004C396 /* view.cc in Sources */,
-				936E24621ADEA5A80004C396 /* core.mm in Sources */,
 				936E24C21ADEA6C30004C396 /* shape.cc in Sources */,
 				936E244A1ADEA5A80004C396 /* layer.cc in Sources */,
 				936E244C1ADEA5A80004C396 /* utilities.cc in Sources */,
@@ -1693,7 +1669,6 @@
 				93CAA60E1AD191DC005EDC09 /* SLSRunner.mm in Sources */,
 				93F38E8F1AB60972009E3626 /* dispatch.mm in Sources */,
 				93CAA64F1AD1AD4B005EDC09 /* SLSNSApplicationMain.mm in Sources */,
-				933803331AD8B7EC00F41F92 /* core.mm in Sources */,
 				93BE2F3C1ADA1A7500175565 /* path.cc in Sources */,
 				939E963E1AD250AF00A7E21E /* runner_factory.cc in Sources */,
 				93BE2F721ADA32E800175565 /* segment.cc in Sources */,
@@ -1733,7 +1708,6 @@
 				93CAA60F1AD191DC005EDC09 /* SLSRunner.mm in Sources */,
 				93AD7CD81ADCABA000B42B9E /* SLSUIEventSourceView.mm in Sources */,
 				93AD7CE61ADD395500B42B9E /* layer.cc in Sources */,
-				933803341AD8B7EC00F41F92 /* core.mm in Sources */,
 				93229EC71AD2409E008D27EA /* SLSUIApplicationMain.mm in Sources */,
 				93BE2F3E1ADA1A7800175565 /* path.cc in Sources */,
 				939E96861AD3864600A7E21E /* SLSCADisplayLink.m in Sources */,
