@@ -72,7 +72,8 @@ static CVReturn DisplayLinkCallback(
     _target = [target retain];
     _selector = selector;
     CVDisplayLinkCreateWithActiveCGDisplays(&_link);
-    CVDisplayLinkSetOutputCallback(_link, &DisplayLinkCallback, (__bridge void *)self);
+    CVDisplayLinkSetOutputCallback(
+        _link, &DisplayLinkCallback, (__bridge void *)self);
   }
   return self;
 }

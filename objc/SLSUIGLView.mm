@@ -60,13 +60,14 @@
 
 - (void)setUpSLSUIGLView {
   _view = [[GLKView alloc] initWithFrame:self.bounds];
-  _view.enableSetNeedsDisplay = YES;
   _view.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
   _view.drawableColorFormat = GLKViewDrawableColorFormatRGBA8888;
   _view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
   _view.drawableStencilFormat = GLKViewDrawableStencilFormat8;
   _view.drawableMultisample = GLKViewDrawableMultisample4X;
-  _view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+  _view.enableSetNeedsDisplay = YES;
+  _view.autoresizingMask =
+      UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   _view.delegate = self;
   self.internalContentsScaleFactor = _view.contentScaleFactor;
   [self addSubview:_view];

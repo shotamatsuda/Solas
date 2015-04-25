@@ -99,51 +99,63 @@ inline solas::app::MotionEvent * SLSMotionEventCast(SLSMotionEventRef ref) {
   return reinterpret_cast<solas::app::MotionEvent *>(ref);
 }
 
-inline SLSAppEventConstRef SLSAppEventMake(const solas::app::AppEvent *ptr) {
+inline SLSAppEventConstRef SLSAppEventMake(
+    const solas::app::AppEvent *ptr) {
   return reinterpret_cast<SLSAppEventConstRef>(ptr);
 }
 
-inline SLSMouseEventConstRef SLSMouseEventMake(const solas::app::MouseEvent *ptr) {
+inline SLSMouseEventConstRef SLSMouseEventMake(
+    const solas::app::MouseEvent *ptr) {
   return reinterpret_cast<SLSMouseEventConstRef>(ptr);
 }
 
-inline SLSKeyEventConstRef SLSKeyEventMake(const solas::app::KeyEvent *ptr) {
+inline SLSKeyEventConstRef SLSKeyEventMake(
+    const solas::app::KeyEvent *ptr) {
   return reinterpret_cast<SLSKeyEventConstRef>(ptr);
 }
 
-inline SLSTouchEventConstRef SLSTouchEventMake(const solas::app::TouchEvent *ptr) {
+inline SLSTouchEventConstRef SLSTouchEventMake(
+    const solas::app::TouchEvent *ptr) {
   return reinterpret_cast<SLSTouchEventConstRef>(ptr);
 }
 
-inline SLSGestureEventConstRef SLSGestureEventMake(const solas::app::GestureEvent *ptr) {
+inline SLSGestureEventConstRef SLSGestureEventMake(
+    const solas::app::GestureEvent *ptr) {
   return reinterpret_cast<SLSGestureEventConstRef>(ptr);
 }
 
-inline SLSMotionEventConstRef SLSMotionEventMake(const solas::app::MotionEvent *ptr) {
+inline SLSMotionEventConstRef SLSMotionEventMake(
+    const solas::app::MotionEvent *ptr) {
   return reinterpret_cast<SLSMotionEventConstRef>(ptr);
 }
 
-inline const solas::app::AppEvent * SLSAppEventCast(SLSAppEventConstRef ref) {
+inline const solas::app::AppEvent * SLSAppEventCast(
+    SLSAppEventConstRef ref) {
   return reinterpret_cast<const solas::app::AppEvent *>(ref);
 }
 
-inline const solas::app::MouseEvent * SLSMouseEventCast(SLSMouseEventConstRef ref) {
+inline const solas::app::MouseEvent * SLSMouseEventCast(
+    SLSMouseEventConstRef ref) {
   return reinterpret_cast<const solas::app::MouseEvent *>(ref);
 }
 
-inline const solas::app::KeyEvent * SLSKeyEventCast(SLSKeyEventConstRef ref) {
+inline const solas::app::KeyEvent * SLSKeyEventCast
+    (SLSKeyEventConstRef ref) {
   return reinterpret_cast<const solas::app::KeyEvent *>(ref);
 }
 
-inline const solas::app::TouchEvent * SLSTouchEventCast(SLSTouchEventConstRef ref) {
+inline const solas::app::TouchEvent * SLSTouchEventCast(
+    SLSTouchEventConstRef ref) {
   return reinterpret_cast<const solas::app::TouchEvent *>(ref);
 }
 
-inline const solas::app::GestureEvent * SLSGestureEventCast(SLSGestureEventConstRef ref) {
+inline const solas::app::GestureEvent * SLSGestureEventCast(
+    SLSGestureEventConstRef ref) {
   return reinterpret_cast<const solas::app::GestureEvent *>(ref);
 }
 
-inline const solas::app::MotionEvent * SLSMotionEventCast(SLSMotionEventConstRef ref) {
+inline const solas::app::MotionEvent * SLSMotionEventCast(
+    SLSMotionEventConstRef ref) {
   return reinterpret_cast<const solas::app::MotionEvent *>(ref);
 }
 

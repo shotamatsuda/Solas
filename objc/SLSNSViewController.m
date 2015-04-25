@@ -31,14 +31,13 @@
 #import "SLSDisplaySource.h"
 #import "SLSNSCGView.h"
 #import "SLSNSGLView.h"
-#import "SLSNSView.h"
 #import "SLSRunner.h"
 
 @interface SLSNSViewController ()
 
 #pragma mark Initialization
 
-@property (nonatomic, strong) SLSNSView *contentView;
+@property (nonatomic, strong) NSView *contentView;
 
 - (void)setUpContentView;
 
@@ -58,7 +57,8 @@
   return self;
 }
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil
+                         bundle:(NSBundle *)nibBundleOrNil {
   return [self initWithRunner:nil];
 }
 

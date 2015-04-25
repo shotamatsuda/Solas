@@ -30,8 +30,16 @@
 #import "SLSDisplayLink.h"
 #import "SLSDisplaySource.h"
 #import "SLSRunner.h"
+#import "SLSUICGView.h"
+#import "SLSUIGLView.h"
 
 @interface SLSUIViewController ()
+
+#pragma mark Initialization
+
+@property (nonatomic, strong) UIView *contentView;
+
+- (void)setUpContentView;
 
 #pragma mark Controlling Animation
 
@@ -42,23 +50,15 @@
 @implementation SLSUIViewController
 
 - (instancetype)initWithRunner:(SLSRunner *)runner {
-  self = [super init];
+  self = [super initWithNibName:nil bundle:nil];
   if (self) {
-    _runner = runner;
-    [self loadView];
-    // Configure event and display sources
-    NSAssert([self.view conformsToProtocol:@protocol(SLSEventSource)], @"");
-    NSAssert([self.view conformsToProtocol:@protocol(SLSDisplaySource)], @"");
-    _eventSource = (id<SLSEventSource>)self.view;
-    _displaySource = (id<SLSDisplaySource>)self.view;
-    _eventSource.eventDelegate = _runner;
-    _displaySource.displayDelegate = _runner;
-    [self startAnimation];
+    [self setRunner:runner];
   }
   return self;
 }
 
-- (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+- (instancetype)initWithNibName:(NSString *)nibNameOrNil
+                         bundle:(NSBundle *)nibBundleOrNil {
   return [self initWithRunner:nil];
 }
 
@@ -67,16 +67,41 @@
 }
 
 - (void)loadView {
-  NSAssert(NO, @"Subclass must implement loadView");
+  self.view = [[UIView alloc] init];
+}
+
+- (void)setUpContentView {
+  switch (_runner.backend) {
+    case kSLSRunnerBackendOpenGL:
+      _contentView = [[SLSUIGLView alloc] initWithFrame:self.view.bounds];
+      break;
+    case kSLSRunnerBackendCoreGraphics:
+      _contentView = [[SLSUICGView alloc] initWithFrame:self.view.bounds];
+      break;
+    default:
+      break;
+  }
+  _contentView.autoresizingMask =
+      UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+  [self.view addSubview:_contentView];
+
+  // Configure event and display sources
+  NSAssert([self.view conformsToProtocol:@protocol(SLSEventSource)], @"");
+  NSAssert([self.view conformsToProtocol:@protocol(SLSDisplaySource)], @"");
+  _eventSource = (id<SLSEventSource>)_contentView;
+  _displaySource = (id<SLSDisplaySource>)_contentView;
+  _eventSource.eventDelegate = _runner;
+  _displaySource.displayDelegate = _runner;
 }
 
 #pragma mark Managing the Runner
 
 - (void)setRunner:(SLSRunner *)runner {
   if (runner != _runner) {
+    [self stopAnimation];
     _runner = runner;
-    _eventSource.eventDelegate = _runner;
-    _displaySource.displayDelegate = _runner;
+    [self setUpContentView];
+    [self startAnimation];
   }
 }
 

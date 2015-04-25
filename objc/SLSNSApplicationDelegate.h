@@ -26,7 +26,8 @@
 
 #import <AppKit/AppKit.h>
 
-@interface SLSNSApplicationDelegate : NSObject <NSApplicationDelegate, NSUserInterfaceValidations>
+@interface SLSNSApplicationDelegate : NSObject <
+    NSApplicationDelegate, NSUserInterfaceValidations>
 
 #pragma mark Window Controllers
 

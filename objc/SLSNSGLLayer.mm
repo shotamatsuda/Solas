@@ -60,7 +60,8 @@
   return [[NSOpenGLPixelFormat alloc] initWithAttributes:values];
 }
 
-- (NSOpenGLContext *)openGLContextForPixelFormat:(NSOpenGLPixelFormat *)pixelFormat {
+- (NSOpenGLContext *)openGLContextForPixelFormat:
+    (NSOpenGLPixelFormat *)pixelFormat {
   NSOpenGLContext *context = [super openGLContextForPixelFormat:pixelFormat];
   NSAssert(context, @"Failed to create OpenGL context");
   [context makeCurrentContext];

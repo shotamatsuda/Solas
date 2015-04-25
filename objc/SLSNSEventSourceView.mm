@@ -191,7 +191,8 @@
 
 - (solas::app::MouseEvent)mouseEventWithEvent:(NSEvent *)event
     type:(solas::app::MouseEvent::Type)type {
-  CGPoint location = [self convertPoint:event.locationInWindow fromView:self.window.contentView];
+  CGPoint location = [self convertPoint:event.locationInWindow
+                               fromView:self.window.contentView];
   const solas::app::MouseEvent mouseEvent(
       type,
       solas::math::Vec2d(location.x, location.y),

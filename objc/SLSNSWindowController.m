@@ -32,7 +32,9 @@
 @implementation SLSNSWindowController
 
 - (instancetype)initWithViewController:(SLSNSViewController *)viewController {
-  NSString *path = [[NSBundle solasBundle] pathForResource:@"SLSNSWindowController" ofType:@"nib"];
+  NSString *path = [[NSBundle solasBundle]
+      pathForResource:@"SLSNSWindowController"
+               ofType:@"nib"];
   self = [super initWithWindowNibPath:path owner:self];
   if (self) {
     _viewController = viewController;
