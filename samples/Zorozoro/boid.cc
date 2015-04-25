@@ -36,7 +36,9 @@ using solas::math::Vec2d;
 Boid::Boid(Layer *parent, const Vec2d& location)
     : Layer(parent),
       location(location),
-      velocity(Vec2d::Random(-1, 1).normalize()) {}
+      velocity(Vec2d::Random(-1, 1).normalize()),
+      zombie(false),
+      dead(false) {}
 
 void Boid::flock(const std::list<std::unique_ptr<Boid>>& boids) {
   acceleration.reset();
@@ -55,6 +57,10 @@ void Boid::wraparound(double insets) {
   const Vec2d span(width() + insets * 2, height() + insets * 2);
   location.x += -span.x * std::floor((location.x + insets) / span.x);
   location.y += -span.y * std::floor((location.y + insets) / span.y);
+}
+
+void Boid::kill() {
+  dead = true;
 }
 
 Vec2d Boid::separate(const std::list<std::unique_ptr<Boid>>& boids) {

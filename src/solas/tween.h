@@ -29,7 +29,7 @@
 #define SOLAS_TWEEN_H_
 
 #include "solas/tween/accessor_adaptor.h"
-#include "solas/tween/adaptor_base.h"
+#include "solas/tween/adaptor.h"
 #include "solas/tween/clock.h"
 #include "solas/tween/easing.h"
 #include "solas/tween/interval.h"

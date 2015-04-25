@@ -34,7 +34,7 @@
 #include <string>
 
 #include "solas/tween/accessor_adaptor.h"
-#include "solas/tween/adaptor_base.h"
+#include "solas/tween/adaptor.h"
 #include "solas/tween/pointer_adaptor.h"
 #include "solas/tween/timeline.h"
 #include "solas/tween/type.h"
@@ -50,7 +50,7 @@ class Tween final {
   using IntervalValue = typename Interval::Value;
   
  private:
-  using Adaptor = std::shared_ptr<AdaptorBase<Interval>>;
+  using Adaptor = std::shared_ptr<Adaptor<Interval>>;
 
  public:
   // Constructors

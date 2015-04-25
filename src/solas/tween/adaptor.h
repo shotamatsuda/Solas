@@ -1,5 +1,5 @@
 //
-//  solas/tween/adaptor_base.h
+//  solas/tween/adaptor.h
 //
 //  MIT License
 //
@@ -25,8 +25,8 @@
 //
 
 #pragma once
-#ifndef SOLAS_TWEEN_ADAPTOR_BASE_H_
-#define SOLAS_TWEEN_ADAPTOR_BASE_H_
+#ifndef SOLAS_TWEEN_ADAPTOR_H_
+#define SOLAS_TWEEN_ADAPTOR_H_
 
 #include <cstddef>
 
@@ -37,14 +37,14 @@ namespace solas {
 namespace tween {
 
 template <typename Interval_>
-class AdaptorBase {
+class Adaptor {
  public:
   using Interval = Interval_;
 
  public:
   // Disallow copy and assign
-  AdaptorBase(const AdaptorBase& other) = delete;
-  AdaptorBase& operator=(const AdaptorBase& other) = delete;
+  Adaptor(const Adaptor& other) = delete;
+  Adaptor& operator=(const Adaptor& other) = delete;
 
   // Controlling the adaptor
   void start(const Interval& now);
@@ -71,13 +71,13 @@ class AdaptorBase {
 
  protected:
   // Constructors
-  AdaptorBase(const Easing& easing,
+  Adaptor(const Easing& easing,
               const Interval& duration,
               const Interval& delay,
               const Callback& callback);
 
   // Move
-  AdaptorBase(AdaptorBase&& other) = default;
+  Adaptor(Adaptor&& other) = default;
 
   // Updates against the local unit time
   virtual void update(Unit unit) = 0;
@@ -95,7 +95,7 @@ class AdaptorBase {
 #pragma mark -
 
 template <typename Interval>
-inline AdaptorBase<Interval>::AdaptorBase(
+inline Adaptor<Interval>::Adaptor(
     const Easing& easing,
     const Interval& duration,
     const Interval& delay,
@@ -110,7 +110,7 @@ inline AdaptorBase<Interval>::AdaptorBase(
 #pragma mark Controlling the adaptor
 
 template <typename Interval>
-inline void AdaptorBase<Interval>::start(const Interval& now) {
+inline void Adaptor<Interval>::start(const Interval& now) {
   if (!running_) {
     running_ = true;
     if (!finished_) {
@@ -120,14 +120,14 @@ inline void AdaptorBase<Interval>::start(const Interval& now) {
 }
 
 template <typename Interval>
-inline void AdaptorBase<Interval>::stop() {
+inline void Adaptor<Interval>::stop() {
   if (running_) {
     running_ = false;
   }
 }
 
 template <typename Interval>
-inline void AdaptorBase<Interval>::update(const Interval& now, bool callback) {
+inline void Adaptor<Interval>::update(const Interval& now, bool callback) {
   if (running_) {
     const auto elapsed = now - started_ - delay_;
     if (elapsed < duration_) {
@@ -147,46 +147,46 @@ inline void AdaptorBase<Interval>::update(const Interval& now, bool callback) {
 #pragma mark Parameters
 
 template <typename Interval>
-inline const Easing& AdaptorBase<Interval>::easing() const {
+inline const Easing& Adaptor<Interval>::easing() const {
   return easing_;
 }
 
 template <typename Interval>
-inline void AdaptorBase<Interval>::set_easing(const Easing& value) {
+inline void Adaptor<Interval>::set_easing(const Easing& value) {
   easing_ = value;
 }
 
 template <typename Interval>
-inline const Interval& AdaptorBase<Interval>::duration() const {
+inline const Interval& Adaptor<Interval>::duration() const {
   return duration_;
 }
 
 template <typename Interval>
-inline void AdaptorBase<Interval>::set_duration(const Interval& value) {
+inline void Adaptor<Interval>::set_duration(const Interval& value) {
   duration_ = value;
 }
 
 template <typename Interval>
-inline const Interval& AdaptorBase<Interval>::delay() const {
+inline const Interval& Adaptor<Interval>::delay() const {
   return delay_;
 }
 
 template <typename Interval>
-inline void AdaptorBase<Interval>::set_delay(const Interval& value) {
+inline void Adaptor<Interval>::set_delay(const Interval& value) {
   delay_ = value;
 }
 
 template <typename Interval>
-inline const Callback& AdaptorBase<Interval>::callback() const {
+inline const Callback& Adaptor<Interval>::callback() const {
   return callback_;
 }
 
 template <typename Interval>
-inline void AdaptorBase<Interval>::set_callback(const Callback& value) {
+inline void Adaptor<Interval>::set_callback(const Callback& value) {
   callback_ = value;
 }
 
 }  // namespace tween
 }  // namespace solas
 
-#endif  // SOLAS_TWEEN_ADAPTOR_BASE_H_
+#endif  // SOLAS_TWEEN_ADAPTOR_H_

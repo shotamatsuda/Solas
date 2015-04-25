@@ -26,6 +26,9 @@
 
 #include "zorozoro.h"
 
+#include <iostream>
+#include <algorithm>
+#include <cstddef>
 #include <list>
 #include <memory>
 #include <utility>
@@ -41,17 +44,40 @@ namespace zorozoro {
 Zorozoro::Zorozoro()
     : context(nullptr),
       foreground(nvgRGB(0, 0, 0)),
-      background(nvgRGB(0xff, 0xff, 0xff)) {}
+      background(nvgRGB(0xff, 0xff, 0xff)),
+      density(200) {}
 
 void Zorozoro::setup() {
   context = createContext();
-  boids.resize(width() * height() / 5000);
-  for (auto& boid : boids) {
-    boid = std::make_unique<Zoro>(this, Vec2d(random(width()), random(height())));
-  }
 }
 
 void Zorozoro::update() {
+  const int count = width() * height() / 1000000 * density;
+  const int alive = std::count_if(
+      boids.begin(), boids.end(), std::mem_fn(&Boid::alive));
+  if (count - alive > 0) {
+    auto born = std::size_t();
+    while (born < count - alive) {
+      boids.emplace_back(std::make_unique<Zoro>(
+          this, Vec2d(random(width()), random(height()))));
+      ++born;
+    }
+  } else if (count - alive < 0) {
+    auto killed = std::size_t();
+    while (killed < alive - count) {
+      auto itr = boids.begin();
+      std::advance(itr, random(boids.size()));
+      (*itr)->kill();
+      ++killed;
+    }
+  }
+  for (auto itr = boids.begin(); itr != boids.end();) {
+    if ((*itr)->dead) {
+      boids.erase(itr++);
+    } else {
+      ++itr;
+    }
+  }
   if (!context) return;
   for (auto& boid : boids) {
     boid->flock(boids);

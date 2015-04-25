@@ -33,7 +33,7 @@
 #include <functional>
 #include <string>
 
-#include "solas/tween/adaptor_base.h"
+#include "solas/tween/adaptor.h"
 #include "solas/tween/easing.h"
 #include "solas/tween/hash.h"
 #include "solas/tween/transform.h"
@@ -47,7 +47,7 @@ template <typename Interval_,
           typename Class_,
           typename Getter_,
           typename Setter_>
-class AccessorAdaptor : public AdaptorBase<Interval_> {
+class AccessorAdaptor : public Adaptor<Interval_> {
  public:
   using Interval = Interval_;
   using Value = Value_;
@@ -75,7 +75,7 @@ class AccessorAdaptor : public AdaptorBase<Interval_> {
   AccessorAdaptor(AccessorAdaptor&& other) = default;
 
   // Controlling the adaptor
-  using AdaptorBase<Interval>::update;
+  using Adaptor<Interval>::update;
 
   // Hash
   std::size_t object_hash() const override;
@@ -117,7 +117,7 @@ inline AccessorAdaptor<Interval, Value, Class, Getter, Setter>
                       const Interval& duration,
                       const Interval& delay,
                       const Callback& callback)
-    : AdaptorBase<Interval>(easing, duration, delay, callback),
+    : Adaptor<Interval>(easing, duration, delay, callback),
       object_(object),
       getter_(getter),
       setter_(setter),
@@ -137,7 +137,7 @@ inline void AccessorAdaptor<Interval, Value, Class, Getter, Setter>
   assert(object_);
   if (unit < 0.0) {
     from_ = (object_->*getter_)();
-  } else if (AdaptorBase<Interval>::duration().empty() || unit > 1.0) {
+  } else if (Adaptor<Interval>::duration().empty() || unit > 1.0) {
     (object_->*setter_)(Transform(this->easing(), 1.0, from_, to_));
   } else {
     (object_->*setter_)(Transform(this->easing(), unit, from_, to_));

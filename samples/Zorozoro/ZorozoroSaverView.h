@@ -28,4 +28,6 @@
 
 @interface ZorozoroSaverView : ScreenSaverView
 
+- (IBAction)ok:(id)sender;
+- (IBAction)cancel:(id)sender;
 @end

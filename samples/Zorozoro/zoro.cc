@@ -27,6 +27,7 @@ using solas::math::Vec2d;
 
 Zoro::Zoro(Layer *parent, const Vec2d& location)
     : Boid(parent, location),
+      scale(),
       eye_shutter(),
       winking_counter(),
       winking_limit(random(150)) {
@@ -37,18 +38,12 @@ Zoro::Zoro(Layer *parent, const Vec2d& location)
   tail.location = body.location + velocity * -segment;
   tail.mass = 2;
   tail.length = segment;
+  tween<Time>(&scale, 1.0, BounceEasing::Out, 0.5, random(1.0));
 }
 
 Zoro::~Zoro() {
+  timeline<Time>().remove(&scale);
   timeline<Time>().remove(&eye_shutter);
-}
-
-void Zoro::wraparound(double insets) {
-  const auto before = location;
-  Boid::wraparound(insets);
-  const auto delta = location - before;
-  body.location += delta;
-  tail.location += delta;
 }
 
 void Zoro::update() {
@@ -68,12 +63,14 @@ void Zoro::draw() {
   nvgRotate(context, rotation);
   nvgTranslate(context, -length / 3, thickness / 4);
   nvgRotate(context, -rotation);
+  nvgTranslate(context, location.x, location.y);
+  nvgScale(context, scale, scale);
 
   // Body
   nvgSave(context);
-  const auto p1 = location - (body.location - location).normalize() * thickness / 2;
-  const auto p2 = body.location;
-  const auto p3 = tail.location + (tail.location - body.location).normalize() * thickness / 2;
+  const auto p1 = -(body.location - location).normalize() * thickness / 2;
+  const auto p2 = body.location - location;
+  const auto p3 = tail.location + (tail.location - body.location).normalize() * thickness / 2 - location;
   nvgBeginPath(context);
   nvgMoveTo(context, p1.x, p1.y);
   nvgLineTo(context, p2.x, p2.y);
@@ -96,7 +93,6 @@ void Zoro::draw() {
   const double third = thickness / 3;
   const double quarter = thickness / 4;
   nvgSave(context);
-  nvgTranslate(context, location.x, location.y);
   nvgRotate(context, rotation);
   nvgTranslate(context, -thickness / 2 + half, -thickness / 2 - quarter);
   for (int i = 0; i < 2; ++i) {
@@ -121,6 +117,21 @@ void Zoro::draw() {
   nvgRestore(context);
 
   nvgRestore(context);
+}
+
+void Zoro::wraparound(double insets) {
+  const auto before = location;
+  Boid::wraparound(insets);
+  const auto delta = location - before;
+  body.location += delta;
+  tail.location += delta;
+}
+
+void Zoro::kill() {
+  zombie = true;
+  tween<Time>(&scale, 0.0, QuinticEasing::Out, 0.25, random(1.0), [this]() {
+    dead = true;
+  });
 }
 
 }  // namespace zorozoro

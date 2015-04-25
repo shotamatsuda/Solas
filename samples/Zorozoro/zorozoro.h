@@ -49,6 +49,7 @@ class Zorozoro : public solas::app::View {
   NVGcontext *context;
   NVGcolor foreground;
   NVGcolor background;
+  int density;
   std::list<std::unique_ptr<Boid>> boids;
   static constexpr const double insets = 50;
 };

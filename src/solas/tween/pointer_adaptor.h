@@ -31,7 +31,7 @@
 #include <cassert>
 #include <cstddef>
 
-#include "solas/tween/adaptor_base.h"
+#include "solas/tween/adaptor.h"
 #include "solas/tween/easing.h"
 #include "solas/tween/hash.h"
 #include "solas/tween/transform.h"
@@ -41,7 +41,7 @@ namespace solas {
 namespace tween {
 
 template <typename Interval_, typename Value_>
-class PointerAdaptor : public AdaptorBase<Interval_> {
+class PointerAdaptor : public Adaptor<Interval_> {
  public:
   using Interval = Interval_;
   using Value = Value_;
@@ -63,7 +63,7 @@ class PointerAdaptor : public AdaptorBase<Interval_> {
   PointerAdaptor(PointerAdaptor&& other) = default;
 
   // Controlling the adaptor
-  using AdaptorBase<Interval>::update;
+  using Adaptor<Interval>::update;
 
   // Hash
   std::size_t object_hash() const override;
@@ -96,7 +96,7 @@ inline PointerAdaptor<Interval, Value>::PointerAdaptor(
     const Interval& duration,
     const Interval& delay,
     const Callback& callback)
-    : AdaptorBase<Interval>(easing, duration, delay, callback),
+    : Adaptor<Interval>(easing, duration, delay, callback),
       target_(target),
       from_(*target),
       to_(to) {}

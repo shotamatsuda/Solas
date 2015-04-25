@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		931B167D1AEBE15A005F6B4C /* ZorozoroSaver.xib in Resources */ = {isa = PBXBuildFile; fileRef = 931B167C1AEBE15A005F6B4C /* ZorozoroSaver.xib */; };
 		936E237C1ADE748B0004C396 /* boid.cc in Sources */ = {isa = PBXBuildFile; fileRef = 936E23741ADE748B0004C396 /* boid.cc */; };
 		936E237D1ADE748B0004C396 /* boid.cc in Sources */ = {isa = PBXBuildFile; fileRef = 936E23741ADE748B0004C396 /* boid.cc */; };
 		936E23801ADE748B0004C396 /* spring.cc in Sources */ = {isa = PBXBuildFile; fileRef = 936E23781ADE748B0004C396 /* spring.cc */; };
@@ -143,6 +144,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		931B167C1AEBE15A005F6B4C /* ZorozoroSaver.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZorozoroSaver.xib; sourceTree = "<group>"; };
 		936E23741ADE748B0004C396 /* boid.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = boid.cc; sourceTree = "<group>"; };
 		936E23751ADE748B0004C396 /* boid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = boid.h; sourceTree = "<group>"; };
 		936E23781ADE748B0004C396 /* spring.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = spring.cc; sourceTree = "<group>"; };
@@ -312,6 +314,7 @@
 				936E23781ADE748B0004C396 /* spring.cc */,
 				936E23C51ADE8FD80004C396 /* ZorozoroSaverView.h */,
 				936E23C61ADE8FD80004C396 /* ZorozoroSaverView.mm */,
+				931B167C1AEBE15A005F6B4C /* ZorozoroSaver.xib */,
 			);
 			name = Source;
 			path = Zorozoro;
@@ -509,6 +512,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				931B167D1AEBE15A005F6B4C /* ZorozoroSaver.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

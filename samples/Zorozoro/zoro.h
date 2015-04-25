@@ -32,13 +32,15 @@ class Zoro : public Boid {
  public:
   Zoro(Layer *parent, const Vec2d& location);
   ~Zoro();
-  void wraparound(double insets) override;
   void update() override;
   void draw() override;
+  void wraparound(double insets) override;
+  void kill() override;
 
  public:
   Spring body;
   Spring tail;
+  double scale;
   double rotation;
   double eye_shutter;
   int winking_counter;

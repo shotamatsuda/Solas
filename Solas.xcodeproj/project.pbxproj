@@ -660,7 +660,7 @@
 		933FD5271AEB1E3F003AEC6C /* context_holder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = context_holder.h; sourceTree = "<group>"; };
 		933FD52C1AEB22F7003AEC6C /* backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = backend.h; sourceTree = "<group>"; };
 		933FD5A61AEB86EB003AEC6C /* accessor_adaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = accessor_adaptor.h; sourceTree = "<group>"; };
-		933FD5A71AEB86EB003AEC6C /* adaptor_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adaptor_base.h; sourceTree = "<group>"; };
+		933FD5A71AEB86EB003AEC6C /* adaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = adaptor.h; sourceTree = "<group>"; };
 		933FD5A81AEB86EB003AEC6C /* clock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = clock.h; sourceTree = "<group>"; };
 		933FD5A91AEB86EB003AEC6C /* hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hash.h; sourceTree = "<group>"; };
 		933FD5AA1AEB86EB003AEC6C /* interval.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = interval.h; sourceTree = "<group>"; };
@@ -1031,7 +1031,7 @@
 				933FD5A91AEB86EB003AEC6C /* hash.h */,
 				933FD5B01AEB86EB003AEC6C /* transform.h */,
 				933FD5AF1AEB86EB003AEC6C /* transform.cc */,
-				933FD5A71AEB86EB003AEC6C /* adaptor_base.h */,
+				933FD5A71AEB86EB003AEC6C /* adaptor.h */,
 				933FD5AB1AEB86EB003AEC6C /* pointer_adaptor.h */,
 				933FD5A61AEB86EB003AEC6C /* accessor_adaptor.h */,
 				933FD5AD1AEB86EB003AEC6C /* timeline.h */,

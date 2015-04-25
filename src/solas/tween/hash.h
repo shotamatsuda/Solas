@@ -36,6 +36,11 @@ namespace solas {
 namespace tween {
 
 template <typename T>
+std::size_t Hash(const T *object);
+
+#pragma mark -
+
+template <typename T>
 inline std::size_t Hash(const T *object) {
   return std::hash<std::size_t>()(reinterpret_cast<std::uintptr_t>(object));
 }

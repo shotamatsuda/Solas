@@ -39,10 +39,13 @@ using solas::math::Vec2d;
 class Boid : public solas::app::Layer {
  public:
   explicit Boid(Layer *parent, const Vec2d& location);
+  virtual ~Boid() {}
   void flock(const std::list<std::unique_ptr<Boid>>& boids);
   virtual void update();
   virtual void draw() = 0;
   virtual void wraparound(double insets);
+  virtual void kill();
+  bool alive() const { return !zombie && !dead; }
   Vec2d separate(const std::list<std::unique_ptr<Boid>>& boids);
   Vec2d align(const std::list<std::unique_ptr<Boid>>& boids);
   Vec2d cohere(const std::list<std::unique_ptr<Boid>>& boids);
@@ -53,6 +56,8 @@ class Boid : public solas::app::Layer {
   Vec2d location;
   Vec2d velocity;
   Vec2d acceleration;
+  bool zombie;
+  bool dead;
   static constexpr const double max_force = 0.03;
   static constexpr const double max_velocity = 2;
   static constexpr const double separation_distance = 45;

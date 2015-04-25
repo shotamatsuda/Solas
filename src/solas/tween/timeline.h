@@ -33,7 +33,7 @@
 #include <mutex>
 #include <unordered_map>
 
-#include "solas/tween/adaptor_base.h"
+#include "solas/tween/adaptor.h"
 #include "solas/tween/clock.h"
 #include "solas/tween/hash.h"
 
@@ -46,7 +46,7 @@ class Timeline final {
   using Interval = Interval_;
 
  private:
-  using Adaptor = std::shared_ptr<AdaptorBase<Interval>>;
+  using Adaptor = std::shared_ptr<Adaptor<Interval>>;
   using Targets = std::unordered_multimap<std::size_t, Adaptor>;
 
  public:
