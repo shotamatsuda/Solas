@@ -30,6 +30,22 @@
 
 @implementation SLSNSGLView
 
+- (instancetype)initWithFrame:(NSRect)frame {
+  self = [super initWithFrame:frame];
+  if (self) {
+    self.wantsBestResolutionOpenGLSurface = YES;
+  }
+  return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)coder {
+  self = [super initWithCoder:coder];
+  if (self) {
+    self.wantsBestResolutionOpenGLSurface = YES;
+  }
+  return self;
+}
+
 - (CALayer *)makeBackingLayer {
   return [SLSNSGLLayer layer];
 }

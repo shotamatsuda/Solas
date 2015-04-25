@@ -80,6 +80,7 @@
 - (instancetype)initWithFrame:(NSRect)frame isPreview:(BOOL)isPreview {
   self = [super initWithFrame:frame isPreview:isPreview];
   if (self) {
+    self.wantsBestResolutionOpenGLSurface = YES;
     self.wantsLayer = YES;
     self.animationTimeInterval = 1.0 / 30.0;
     auto zorozoro = std::make_unique<zorozoro::Zorozoro>();

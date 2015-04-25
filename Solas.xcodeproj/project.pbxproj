@@ -147,14 +147,10 @@
 		933FD5941AEB2351003AEC6C /* SLSNSEventSourceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CD21ADCAA0200B42B9E /* SLSNSEventSourceView.mm */; };
 		933FD5951AEB2351003AEC6C /* SLSNSView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DD51ADDE5E7003F9A7A /* SLSNSView.h */; };
 		933FD5961AEB2351003AEC6C /* SLSNSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DD61ADDE5E7003F9A7A /* SLSNSView.m */; };
-		933FD5971AEB2351003AEC6C /* SLSNSGLViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DD91ADDEF94003F9A7A /* SLSNSGLViewController.h */; };
-		933FD5981AEB2351003AEC6C /* SLSNSGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DDA1ADDEF94003F9A7A /* SLSNSGLViewController.m */; };
 		933FD5991AEB2351003AEC6C /* SLSNSGLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CC11ADCA45600B42B9E /* SLSNSGLView.h */; };
 		933FD59A1AEB2351003AEC6C /* SLSNSGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CC21ADCA45600B42B9E /* SLSNSGLView.m */; };
 		933FD59B1AEB2351003AEC6C /* SLSNSGLLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DC01ADD5B78003F9A7A /* SLSNSGLLayer.h */; };
 		933FD59C1AEB2351003AEC6C /* SLSNSGLLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DC11ADD5B78003F9A7A /* SLSNSGLLayer.mm */; };
-		933FD59D1AEB2351003AEC6C /* SLSNSCGViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DDD1ADDF020003F9A7A /* SLSNSCGViewController.h */; };
-		933FD59E1AEB2351003AEC6C /* SLSNSCGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DDE1ADDF020003F9A7A /* SLSNSCGViewController.m */; };
 		933FD59F1AEB2351003AEC6C /* SLSNSCGView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CC71ADCA4AA00B42B9E /* SLSNSCGView.h */; };
 		933FD5A01AEB2351003AEC6C /* SLSNSCGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CC81ADCA4AA00B42B9E /* SLSNSCGView.m */; };
 		933FD5A11AEB2351003AEC6C /* SLSCVDisplayLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 938987D71AD21F2000DEC9E9 /* SLSCVDisplayLink.mm */; };
@@ -379,14 +375,10 @@
 		936E24E81ADEA78B0004C396 /* SLSNSEventSourceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CD21ADCAA0200B42B9E /* SLSNSEventSourceView.mm */; };
 		936E24E91ADEA78B0004C396 /* SLSNSView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DD51ADDE5E7003F9A7A /* SLSNSView.h */; };
 		936E24EA1ADEA78B0004C396 /* SLSNSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DD61ADDE5E7003F9A7A /* SLSNSView.m */; };
-		936E24EB1ADEA78B0004C396 /* SLSNSGLViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DD91ADDEF94003F9A7A /* SLSNSGLViewController.h */; };
-		936E24EC1ADEA78B0004C396 /* SLSNSGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DDA1ADDEF94003F9A7A /* SLSNSGLViewController.m */; };
 		936E24ED1ADEA78B0004C396 /* SLSNSGLView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CC11ADCA45600B42B9E /* SLSNSGLView.h */; };
 		936E24EE1ADEA78B0004C396 /* SLSNSGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CC21ADCA45600B42B9E /* SLSNSGLView.m */; };
 		936E24EF1ADEA78B0004C396 /* SLSNSGLLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DC01ADD5B78003F9A7A /* SLSNSGLLayer.h */; };
 		936E24F01ADEA78B0004C396 /* SLSNSGLLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DC11ADD5B78003F9A7A /* SLSNSGLLayer.mm */; };
-		936E24F11ADEA78B0004C396 /* SLSNSCGViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DDD1ADDF020003F9A7A /* SLSNSCGViewController.h */; };
-		936E24F21ADEA78B0004C396 /* SLSNSCGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DDE1ADDF020003F9A7A /* SLSNSCGViewController.m */; };
 		936E24F31ADEA78B0004C396 /* SLSNSCGView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CC71ADCA4AA00B42B9E /* SLSNSCGView.h */; };
 		936E24F41ADEA78B0004C396 /* SLSNSCGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CC81ADCA4AA00B42B9E /* SLSNSCGView.m */; };
 		936E24F51ADEA78B0004C396 /* SLSCVDisplayLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 938987D71AD21F2000DEC9E9 /* SLSCVDisplayLink.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -527,10 +519,6 @@
 		93D73DD41ADDE3D7003F9A7A /* SLSAnimationSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DD21ADDE3B4003F9A7A /* SLSAnimationSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93D73DD71ADDE5E7003F9A7A /* SLSNSView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DD51ADDE5E7003F9A7A /* SLSNSView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93D73DD81ADDE5E7003F9A7A /* SLSNSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DD61ADDE5E7003F9A7A /* SLSNSView.m */; };
-		93D73DDB1ADDEF94003F9A7A /* SLSNSGLViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DD91ADDEF94003F9A7A /* SLSNSGLViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93D73DDC1ADDEF94003F9A7A /* SLSNSGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DDA1ADDEF94003F9A7A /* SLSNSGLViewController.m */; };
-		93D73DE01ADDF020003F9A7A /* SLSNSCGViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DDD1ADDF020003F9A7A /* SLSNSCGViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93D73DE11ADDF020003F9A7A /* SLSNSCGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DDE1ADDF020003F9A7A /* SLSNSCGViewController.m */; };
 		93D73DE51ADDFF0B003F9A7A /* SLSUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DE31ADDFF0B003F9A7A /* SLSUIViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93D73DE61ADDFF0B003F9A7A /* SLSUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DE41ADDFF0B003F9A7A /* SLSUIViewController.m */; };
 		93D73DE91ADE00D9003F9A7A /* SLSUICGViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DE71ADE00D9003F9A7A /* SLSUICGViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -798,10 +786,6 @@
 		93D73DD21ADDE3B4003F9A7A /* SLSAnimationSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSAnimationSource.h; sourceTree = "<group>"; };
 		93D73DD51ADDE5E7003F9A7A /* SLSNSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSNSView.h; sourceTree = "<group>"; };
 		93D73DD61ADDE5E7003F9A7A /* SLSNSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSNSView.m; sourceTree = "<group>"; };
-		93D73DD91ADDEF94003F9A7A /* SLSNSGLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSNSGLViewController.h; sourceTree = "<group>"; };
-		93D73DDA1ADDEF94003F9A7A /* SLSNSGLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSNSGLViewController.m; sourceTree = "<group>"; };
-		93D73DDD1ADDF020003F9A7A /* SLSNSCGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSNSCGViewController.h; sourceTree = "<group>"; };
-		93D73DDE1ADDF020003F9A7A /* SLSNSCGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSNSCGViewController.m; sourceTree = "<group>"; };
 		93D73DE31ADDFF0B003F9A7A /* SLSUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIViewController.h; sourceTree = "<group>"; };
 		93D73DE41ADDFF0B003F9A7A /* SLSUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIViewController.m; sourceTree = "<group>"; };
 		93D73DE71ADE00D9003F9A7A /* SLSUICGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUICGViewController.h; sourceTree = "<group>"; };
@@ -974,14 +958,10 @@
 				93AD7CD21ADCAA0200B42B9E /* SLSNSEventSourceView.mm */,
 				93D73DD51ADDE5E7003F9A7A /* SLSNSView.h */,
 				93D73DD61ADDE5E7003F9A7A /* SLSNSView.m */,
-				93D73DD91ADDEF94003F9A7A /* SLSNSGLViewController.h */,
-				93D73DDA1ADDEF94003F9A7A /* SLSNSGLViewController.m */,
 				93AD7CC11ADCA45600B42B9E /* SLSNSGLView.h */,
 				93AD7CC21ADCA45600B42B9E /* SLSNSGLView.m */,
 				93D73DC01ADD5B78003F9A7A /* SLSNSGLLayer.h */,
 				93D73DC11ADD5B78003F9A7A /* SLSNSGLLayer.mm */,
-				93D73DDD1ADDF020003F9A7A /* SLSNSCGViewController.h */,
-				93D73DDE1ADDF020003F9A7A /* SLSNSCGViewController.m */,
 				93AD7CC71ADCA4AA00B42B9E /* SLSNSCGView.h */,
 				93AD7CC81ADCA4AA00B42B9E /* SLSNSCGView.m */,
 				938987D71AD21F2000DEC9E9 /* SLSCVDisplayLink.mm */,
@@ -1466,11 +1446,9 @@
 				936E24ED1ADEA78B0004C396 /* SLSNSGLView.h in Headers */,
 				933FD52B1AEB1E3F003AEC6C /* context_holder.h in Headers */,
 				933FD6E01AEB8B3B003AEC6C /* reverse_inflector.h in Headers */,
-				936E24F11ADEA78B0004C396 /* SLSNSCGViewController.h in Headers */,
 				936E24871ADEA5A80004C396 /* singleton.h in Headers */,
 				936E24671ADEA5A80004C396 /* random.h in Headers */,
 				933FD6D41AEB8B3B003AEC6C /* quartic.h in Headers */,
-				936E24EB1ADEA78B0004C396 /* SLSNSGLViewController.h in Headers */,
 				936E24541ADEA5A80004C396 /* color4.h in Headers */,
 				936E24EF1ADEA78B0004C396 /* SLSNSGLLayer.h in Headers */,
 				933FD6B81AEB8B3B003AEC6C /* bounce.h in Headers */,
@@ -1578,7 +1556,6 @@
 				933FD5991AEB2351003AEC6C /* SLSNSGLView.h in Headers */,
 				933FD56D1AEB232F003AEC6C /* rect.h in Headers */,
 				933FD5361AEB231E003AEC6C /* key_modifier.h in Headers */,
-				933FD5971AEB2351003AEC6C /* SLSNSGLViewController.h in Headers */,
 				933FD6B31AEB8B3B003AEC6C /* back.h in Headers */,
 				933FD5841AEB2347003AEC6C /* SLSAnimationSource.h in Headers */,
 				933FD5871AEB2347003AEC6C /* SLSDefines.h in Headers */,
@@ -1622,7 +1599,6 @@
 				933FD5EF1AEB86EB003AEC6C /* tween.h in Headers */,
 				933FD5851AEB2347003AEC6C /* SLSCGLayer.h in Headers */,
 				933FD52E1AEB2314003AEC6C /* backend.h in Headers */,
-				933FD59D1AEB2351003AEC6C /* SLSNSCGViewController.h in Headers */,
 				933FD55D1AEB232F003AEC6C /* vector.h in Headers */,
 				933FD5461AEB231E003AEC6C /* utilities.h in Headers */,
 				933FD56E1AEB232F003AEC6C /* polygon.h in Headers */,
@@ -1698,8 +1674,6 @@
 				93D73DD31ADDE3D7003F9A7A /* SLSAnimationSource.h in Headers */,
 				937E13951ADBDEB9008DB7A7 /* SLSCGLayer.h in Headers */,
 				93AD7CB71ADCA31900B42B9E /* SLSDisplaySource.h in Headers */,
-				93D73DDB1ADDEF94003F9A7A /* SLSNSGLViewController.h in Headers */,
-				93D73DE01ADDF020003F9A7A /* SLSNSCGViewController.h in Headers */,
 				93D73DD01ADDE321003F9A7A /* SLSNSViewController.h in Headers */,
 				93D73E051ADE250C003F9A7A /* utilities.h in Headers */,
 				93BE2F741ADA32E800175565 /* segment.h in Headers */,
@@ -2127,7 +2101,6 @@
 				936E248B1ADEA5A80004C396 /* SLSRunner.mm in Sources */,
 				936E24F91ADEA8BA0004C396 /* nanovg.c in Sources */,
 				936E24F01ADEA78B0004C396 /* SLSNSGLLayer.mm in Sources */,
-				936E24F21ADEA78B0004C396 /* SLSNSCGViewController.m in Sources */,
 				936E24901ADEA5A80004C396 /* SLSCGLayer.mm in Sources */,
 				933FD6F91AEBAEA4003AEC6C /* transform.cc in Sources */,
 				936E24981ADEA5A80004C396 /* SLSNSBundle+Bundle.m in Sources */,
@@ -2149,7 +2122,6 @@
 				936E24811ADEA5A80004C396 /* simplex.cc in Sources */,
 				936E24F81ADEA78B0004C396 /* SLSNSApplicationDelegate.mm in Sources */,
 				936E24441ADEA5A80004C396 /* runner_factory.cc in Sources */,
-				936E24EC1ADEA78B0004C396 /* SLSNSGLViewController.m in Sources */,
 				936E24EE1ADEA78B0004C396 /* SLSNSGLView.m in Sources */,
 				936E24B01ADEA68D0004C396 /* improved.cc in Sources */,
 				936E24461ADEA5A80004C396 /* run.mm in Sources */,
@@ -2178,14 +2150,12 @@
 				933FD5941AEB2351003AEC6C /* SLSNSEventSourceView.mm in Sources */,
 				933FD5751AEB2335003AEC6C /* simplex.cc in Sources */,
 				933FD5961AEB2351003AEC6C /* SLSNSView.m in Sources */,
-				933FD59E1AEB2351003AEC6C /* SLSNSCGViewController.m in Sources */,
 				933FD59A1AEB2351003AEC6C /* SLSNSGLView.m in Sources */,
 				933FD6F81AEBAEA4003AEC6C /* transform.cc in Sources */,
 				933FD5541AEB232B003AEC6C /* shape.cc in Sources */,
 				933FD5A01AEB2351003AEC6C /* SLSNSCGView.m in Sources */,
 				933FD5A21AEB2351003AEC6C /* SLSNSApplicationMain.mm in Sources */,
 				933FD57F1AEB2341003AEC6C /* benchmark.cc in Sources */,
-				933FD5981AEB2351003AEC6C /* SLSNSGLViewController.m in Sources */,
 				933FD5861AEB2347003AEC6C /* SLSCGLayer.mm in Sources */,
 				933FD5731AEB2335003AEC6C /* improved.cc in Sources */,
 				933FD5521AEB232B003AEC6C /* segment.cc in Sources */,
@@ -2211,13 +2181,11 @@
 				93BE2F721ADA32E800175565 /* segment.cc in Sources */,
 				93D73DC31ADD5B78003F9A7A /* SLSNSGLLayer.mm in Sources */,
 				939E968A1AD391F800A7E21E /* SLSCVDisplayLink.mm in Sources */,
-				93D73DE11ADDF020003F9A7A /* SLSNSCGViewController.m in Sources */,
 				93D73E031ADE250C003F9A7A /* utilities.cc in Sources */,
 				93CAA6541AD1AE32005EDC09 /* run.mm in Sources */,
 				93AD7CCB1ADCA4AA00B42B9E /* SLSNSCGView.m in Sources */,
 				93BE2F661ADA2C5000175565 /* simplex.cc in Sources */,
 				93BE2F6C1ADA2C8E00175565 /* improved.cc in Sources */,
-				93D73DDC1ADDEF94003F9A7A /* SLSNSGLViewController.m in Sources */,
 				933803271AD88DC200F41F92 /* font.cc in Sources */,
 				93AD7CC51ADCA45600B42B9E /* SLSNSGLView.m in Sources */,
 				93A9BFFE1AC99A430081D3A0 /* benchmark.cc in Sources */,

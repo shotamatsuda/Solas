@@ -27,8 +27,6 @@
 #import "SLSNSApplicationDelegate.h"
 
 #import "SLSRunner.h"
-#import "SLSNSCGViewController.h"
-#import "SLSNSGLViewController.h"
 #import "SLSNSViewController.h"
 #import "SLSNSWindowController.h"
 
