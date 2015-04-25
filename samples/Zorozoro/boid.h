@@ -53,11 +53,11 @@ class Boid : public solas::app::Layer {
   Vec2d location;
   Vec2d velocity;
   Vec2d acceleration;
-  static constexpr double max_force = 0.03;
-  static constexpr double max_velocity = 2;
-  static constexpr double separation_distance = 45;
-  static constexpr double alignment_distance = 70;
-  static constexpr double cohesion_distance = 80;
+  static constexpr const double max_force = 0.03;
+  static constexpr const double max_velocity = 2;
+  static constexpr const double separation_distance = 45;
+  static constexpr const double alignment_distance = 70;
+  static constexpr const double cohesion_distance = 80;
 };
 
 }  // namespace zorozoro

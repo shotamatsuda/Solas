@@ -27,7 +27,9 @@ using solas::math::Vec2d;
 
 Zoro::Zoro(Layer *parent, const Vec2d& location)
     : Boid(parent, location),
-      eye_shutter() {
+      eye_shutter(),
+      winking_counter(),
+      winking_limit(random(150)) {
   const auto segment = length / 2;
   body.location = location + velocity * -segment;
   body.mass = 2;
@@ -35,6 +37,10 @@ Zoro::Zoro(Layer *parent, const Vec2d& location)
   tail.location = body.location + velocity * -segment;
   tail.mass = 2;
   tail.length = segment;
+}
+
+Zoro::~Zoro() {
+  timeline<Time>().remove(&eye_shutter);
 }
 
 void Zoro::wraparound(double insets) {
@@ -63,6 +69,7 @@ void Zoro::draw() {
   nvgTranslate(context, -length / 3, thickness / 4);
   nvgRotate(context, -rotation);
 
+  // Body
   nvgSave(context);
   const auto p1 = location - (body.location - location).normalize() * thickness / 2;
   const auto p2 = body.location;
@@ -77,6 +84,14 @@ void Zoro::draw() {
   nvgStroke(context);
   nvgRestore(context);
 
+  // Eyes
+  if (winking_counter++ == winking_limit) {
+    tween<Time>(&eye_shutter, 1.0, QuadraticEasing::In, 0.05, [this]() {
+      tween<Time>(&eye_shutter, 0.0, QuadraticEasing::In, 0.33);
+    });
+    winking_counter = 0;
+    winking_limit = random(90, 150);
+  }
   const double half = thickness / 2;
   const double third = thickness / 3;
   const double quarter = thickness / 4;

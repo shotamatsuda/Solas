@@ -31,6 +31,7 @@ using solas::math::Vec2d;
 class Zoro : public Boid {
  public:
   Zoro(Layer *parent, const Vec2d& location);
+  ~Zoro();
   void wraparound(double insets) override;
   void update() override;
   void draw() override;
@@ -40,8 +41,10 @@ class Zoro : public Boid {
   Spring tail;
   double rotation;
   double eye_shutter;
-  static constexpr double length = 28;
-  static constexpr double thickness = 10;
+  int winking_counter;
+  int winking_limit;
+  static constexpr const double length = 28;
+  static constexpr const double thickness = 10;
 };
 
 }  // namespace zorozoro

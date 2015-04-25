@@ -46,8 +46,8 @@ class Spring {
   Vec2d gravity;
   double mass;
   double length;
-  static constexpr double stiffness = 0.2;
-  static constexpr double damping = 0.83;
+  static constexpr const double stiffness = 0.2;
+  static constexpr const double damping = 0.83;
 };
 
 }  // namespace zorozoro

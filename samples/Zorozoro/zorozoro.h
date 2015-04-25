@@ -50,7 +50,7 @@ class Zorozoro : public solas::app::View {
   NVGcolor foreground;
   NVGcolor background;
   std::list<std::unique_ptr<Boid>> boids;
-  static constexpr double insets = 50;
+  static constexpr const double insets = 50;
 };
 
 }  // namespace zorozoro
