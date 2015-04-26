@@ -1,5 +1,5 @@
 //
-//  tween/hash_test.cc
+//  solas/triangle/result.cc
 //
 //  MIT License
 //
@@ -24,20 +24,38 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "gtest/gtest.h"
+#include "solas/triangle/result.h"
 
-#include "solas/tween/hash.h"
+#include <cstdlib>
+#include <cstring>
+#include <memory>
+
+#include "solas/triangle/lib.h"
 
 namespace solas {
-namespace tween {
+namespace triangle {
 
-TEST(HashTest, Test) {
-  int object1;
-  int object2;
-  ASSERT_EQ(Hash(&object1), Hash(&object1));
-  ASSERT_EQ(Hash(&object2), Hash(&object2));
-  ASSERT_NE(Hash(&object1), Hash(&object2));
+Result::Result()
+    : data_(std::make_unique<struct triangulateio>()) {
+  std::memset(data_.get(), 0, sizeof(*data_));
 }
 
-}  // namespace tween
+Result::~Result() {
+  std::free(data_->pointlist);
+  std::free(data_->pointmarkerlist);
+  std::free(data_->pointattributelist);
+  std::free(data_->trianglelist);
+  std::free(data_->triangleattributelist);
+  std::free(data_->trianglearealist);
+  std::free(data_->neighborlist);
+  std::free(data_->segmentlist);
+  std::free(data_->segmentmarkerlist);
+  std::free(data_->holelist);
+  std::free(data_->regionlist);
+  std::free(data_->edgelist);
+  std::free(data_->edgemarkerlist);
+  std::free(data_->normlist);
+}
+
+}  // namespace triangle
 }  // namespace solas

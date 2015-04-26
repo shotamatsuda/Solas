@@ -1,5 +1,5 @@
 //
-//  tween/hash_test.cc
+//  solas/triangle/lib.h
 //
 //  MIT License
 //
@@ -24,20 +24,17 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "gtest/gtest.h"
+#pragma once
+#ifndef SOLAS_TRIANGLE_LIB_H_
+#define SOLAS_TRIANGLE_LIB_H_
 
-#include "solas/tween/hash.h"
+extern "C" {
 
-namespace solas {
-namespace tween {
+#define VOID void
+#define REAL double
+#define ANSI_DECLARATORS
+#include "lib/triangle/triangle.h"
 
-TEST(HashTest, Test) {
-  int object1;
-  int object2;
-  ASSERT_EQ(Hash(&object1), Hash(&object1));
-  ASSERT_EQ(Hash(&object2), Hash(&object2));
-  ASSERT_NE(Hash(&object1), Hash(&object2));
-}
+}  // extern "C"
 
-}  // namespace tween
-}  // namespace solas
+#endif  // SOLAS_TRIANGLE_LIB_H_

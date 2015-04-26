@@ -42,6 +42,9 @@ class Adaptor {
   using Interval = Interval_;
 
  public:
+  // Constructors
+  virtual ~Adaptor() = 0;
+
   // Disallow copy and assign
   Adaptor(const Adaptor& other) = delete;
   Adaptor& operator=(const Adaptor& other) = delete;
@@ -106,6 +109,9 @@ inline Adaptor<Interval>::Adaptor(
       callback_(callback),
       running_(false),
       finished_(false) {}
+
+template <typename Interval>
+inline Adaptor<Interval>::~Adaptor() {}
 
 #pragma mark Controlling the adaptor
 

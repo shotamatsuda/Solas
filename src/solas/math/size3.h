@@ -29,6 +29,7 @@
 #define SOLAS_MATH_SIZE3_H_
 
 #include <cmath>
+#include <cstddef>
 #include <initializer_list>
 #include <ostream>
 #include <tuple>
@@ -65,6 +66,7 @@ class Size<T, 3> final {
   Size();
   explicit Size(T value);
   Size(T width, T height, T depth = T());
+  explicit Size(const T *values, std::size_t size = dimensions);
   template <typename... Args>
   Size(const std::tuple<Args...>& tuple);
   Size(std::initializer_list<T> list);
@@ -97,6 +99,7 @@ class Size<T, 3> final {
   // Mutators
   void set(T value);
   void set(T width, T height, T depth = T());
+  void set(const T *values, std::size_t size = dimensions);
   template <typename... Args>
   void set(const std::tuple<Args...>& tuple);
   void set(std::initializer_list<T> list);
@@ -228,6 +231,10 @@ inline Size3<T>::Size(T width, T height, T depth)
     : vector(width, height, depth) {}
 
 template <typename T>
+inline Size3<T>::Size(const T *values, std::size_t size)
+    : vector(values, size) {}
+
+template <typename T>
 template <typename... Args>
 inline Size3<T>::Size(const std::tuple<Args...>& tuple)
     : vector(tuple) {}
@@ -326,6 +333,11 @@ inline void Size3<T>::set(T value) {
 template <typename T>
 inline void Size3<T>::set(T width, T height, T depth) {
   vector.set(width, height, depth);
+}
+
+template <typename T>
+inline void Size3<T>::set(const T *values, std::size_t size) {
+  vector.set(values, size);
 }
 
 template <typename T>

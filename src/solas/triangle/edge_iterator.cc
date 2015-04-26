@@ -1,5 +1,5 @@
 //
-//  tween/hash_test.cc
+//  solas/triangle/edge_iterator.cc
 //
 //  MIT License
 //
@@ -24,20 +24,49 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "gtest/gtest.h"
+#include "solas/triangle/edge_iterator.h"
 
-#include "solas/tween/hash.h"
+#include <memory>
+
+#include "solas/triangle/edge.h"
+#include "solas/triangle/lib.h"
+#include "solas/triangle/type.h"
 
 namespace solas {
-namespace tween {
+namespace triangle {
 
-TEST(HashTest, Test) {
-  int object1;
-  int object2;
-  ASSERT_EQ(Hash(&object1), Hash(&object1));
-  ASSERT_EQ(Hash(&object2), Hash(&object2));
-  ASSERT_NE(Hash(&object1), Hash(&object2));
+EdgeIterator::EdgeIterator(const std::shared_ptr<Result>& result)
+    : begin_((*result)->edgelist),
+      current_(begin_),
+      derived_(nullptr)  {}
+
+EdgeIterator::EdgeIterator(const std::shared_ptr<Result>& result,
+                           const int *current)
+    : begin_((*result)->edgelist),
+      current_(current),
+      derived_(nullptr)  {}
+
+#pragma mark Iterator
+
+const Edge& EdgeIterator::operator*() const {
+  if (derived_ != current_) {
+    const auto a = *(current_ + 0) * 2;
+    const auto b = *(current_ + 1) * 2;
+    const auto points = (*result_)->pointlist;
+    const auto normals = (*result_)->normlist;
+    if (b < 0) {
+      // Infinite
+      edge_.finite = false;
+      edge_.line.set(Vector(points + a), Vector(normals + (current_ - begin_)));
+    } else {
+      // Finite
+      edge_.finite = true;
+      edge_.line.set(Vector(points + a), Vector(points + b));
+    }
+    derived_ = current_;
+  }
+  return edge_;
 }
 
-}  // namespace tween
+}  // namespace triangle
 }  // namespace solas

@@ -1,5 +1,5 @@
 //
-//  tween/hash_test.cc
+//  solas/triangle/type.h
 //
 //  MIT License
 //
@@ -24,20 +24,23 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "gtest/gtest.h"
+#pragma once
+#ifndef SOLAS_TRIANGLE_TYPE_H_
+#define SOLAS_TRIANGLE_TYPE_H_
 
-#include "solas/tween/hash.h"
+#include "solas/math/line2.h"
+#include "solas/math/triangle2.h"
+#include "solas/math/vector2.h"
 
 namespace solas {
-namespace tween {
+namespace triangle {
 
-TEST(HashTest, Test) {
-  int object1;
-  int object2;
-  ASSERT_EQ(Hash(&object1), Hash(&object1));
-  ASSERT_EQ(Hash(&object2), Hash(&object2));
-  ASSERT_NE(Hash(&object1), Hash(&object2));
-}
+using Real = double;
+using Vector = math::Vector2<Real>;
+using Line = math::Line2<Real>;
+using Triangle = math::Triangle2<Real>;
 
-}  // namespace tween
+}  // namespace triangle
 }  // namespace solas
+
+#endif  // SOLAS_TRIANGLE_TYPE_H_

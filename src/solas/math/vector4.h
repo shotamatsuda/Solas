@@ -30,6 +30,7 @@
 
 #include <cassert>
 #include <cmath>
+#include <cstddef>
 #include <initializer_list>
 #include <iterator>
 #include <limits>
@@ -72,6 +73,7 @@ class Vector<T, 4> final {
   Vector();
   explicit Vector(T value);
   Vector(T x, T y, T z = T(), T w = T());
+  explicit Vector(const T *values, std::size_t size = dimensions);
   template <typename... Args>
   Vector(const std::tuple<Args...>& tuple);
   Vector(std::initializer_list<T> list);
@@ -103,6 +105,7 @@ class Vector<T, 4> final {
   // Mutators
   void set(T value);
   void set(T x, T y, T z = T(), T w = T());
+  void set(const T *values, std::size_t size = dimensions);
   template <typename... Args>
   void set(const std::tuple<Args...>& tuple);
   void set(std::initializer_list<T> list);
@@ -259,6 +262,11 @@ inline Vector4<T>::Vector(T x, T y, T z, T w)
       w(w) {}
 
 template <typename T>
+inline Vector4<T>::Vector(const T *values, std::size_t size) {
+  set(values, size);
+}
+
+template <typename T>
 template <typename... Args>
 inline Vector4<T>::Vector(const std::tuple<Args...>& tuple) {
   set(tuple);
@@ -362,6 +370,16 @@ inline void Vector4<T>::set(T x, T y, T z, T w) {
   this->y = y;
   this->z = z;
   this->w = w;
+}
+
+template <typename T>
+inline void Vector4<T>::set(const T *values, std::size_t size) {
+  reset();
+  const auto end = values + size;
+  if (values == end) return; x = *values++;
+  if (values == end) return; y = *values++;
+  if (values == end) return; z = *values++;
+  if (values == end) return; w = *values;
 }
 
 template <typename T>

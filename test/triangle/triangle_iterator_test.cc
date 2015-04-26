@@ -1,5 +1,5 @@
 //
-//  tween/hash_test.cc
+//  triangle/triangle_iterator_test.cc
 //
 //  MIT License
 //
@@ -26,18 +26,10 @@
 
 #include "gtest/gtest.h"
 
-#include "solas/tween/hash.h"
+#include "solas/triangle/triangle_iterator.h"
 
 namespace solas {
-namespace tween {
+namespace triangle {
 
-TEST(HashTest, Test) {
-  int object1;
-  int object2;
-  ASSERT_EQ(Hash(&object1), Hash(&object1));
-  ASSERT_EQ(Hash(&object2), Hash(&object2));
-  ASSERT_NE(Hash(&object1), Hash(&object2));
-}
-
-}  // namespace tween
 }  // namespace solas
+}  // namespace takram

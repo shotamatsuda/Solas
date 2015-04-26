@@ -30,5 +30,5 @@
 OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names
 
 // Product Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/nanovg/src"
+HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)" "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc"
 LIBRARY_SEARCH_PATHS = $(inherited)

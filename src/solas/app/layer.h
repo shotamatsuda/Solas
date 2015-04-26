@@ -60,6 +60,7 @@ class Layer : public Utilities {
  public:
   // Constructors
   explicit Layer(Layer *parent);
+  virtual ~Layer() = 0;
 
   // Disallow copy and assign
   Layer(const Layer& other) = delete;
@@ -128,6 +129,8 @@ inline Layer::Layer(Layer&& other)
     : parent_(other.parent_) {
   other.parent_ = nullptr;
 }
+
+inline Layer::~Layer() {}
 
 #pragma mark Structure
 

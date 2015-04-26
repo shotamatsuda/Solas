@@ -1,5 +1,5 @@
 //
-//  tween/hash_test.cc
+//  solas/triangle/point.h
 //
 //  MIT License
 //
@@ -24,20 +24,58 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "gtest/gtest.h"
+#pragma once
+#ifndef SOLAS_TRIANGLE_POINT_H_
+#define SOLAS_TRIANGLE_POINT_H_
 
-#include "solas/tween/hash.h"
+#include "solas/triangle/type.h"
 
 namespace solas {
-namespace tween {
+namespace triangle {
 
-TEST(HashTest, Test) {
-  int object1;
-  int object2;
-  ASSERT_EQ(Hash(&object1), Hash(&object1));
-  ASSERT_EQ(Hash(&object2), Hash(&object2));
-  ASSERT_NE(Hash(&object1), Hash(&object2));
+class Point final {
+ public:
+  // Constructors
+  Point();
+
+  // Implicit conversions
+  template <typename T>
+  Point(const T& other);
+  template <typename T>
+  Point& operator=(const T& other);
+
+  // Copy and assign
+  Point(const Point& other) = default;
+  Point& operator=(const Point& other) = default;
+
+  union {
+    Vector vector;
+    struct { Real x; Real y; };
+  };
+  int index;
+};
+
+#pragma mark -
+
+inline Point::Point()
+    : vector(),
+      index() {}
+
+#pragma mark Implicit conversions
+
+template <typename T>
+inline Point::Point(const T& other)
+    : vector(other.x, other.y),
+      index() {}
+
+template <typename T>
+inline Point& Point::operator=(const T& other) {
+  vector.x = other.x;
+  vector.y = other.y;
+  return *this;
 }
 
-}  // namespace tween
+}  // namespace triangle
 }  // namespace solas
+
+#endif  // SOLAS_TRIANGLE_POINT_H_

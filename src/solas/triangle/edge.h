@@ -1,5 +1,5 @@
 //
-//  tween/hash_test.cc
+//  solas/triangle/edge.h
 //
 //  MIT License
 //
@@ -24,20 +24,40 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "gtest/gtest.h"
+#pragma once
+#ifndef SOLAS_TRIANGLE_EDGE_H_
+#define SOLAS_TRIANGLE_EDGE_H_
 
-#include "solas/tween/hash.h"
+#include "solas/triangle/type.h"
 
 namespace solas {
-namespace tween {
+namespace triangle {
 
-TEST(HashTest, Test) {
-  int object1;
-  int object2;
-  ASSERT_EQ(Hash(&object1), Hash(&object1));
-  ASSERT_EQ(Hash(&object2), Hash(&object2));
-  ASSERT_NE(Hash(&object1), Hash(&object2));
-}
+class Edge final {
+ public:
+  // Constructors
+  Edge();
 
-}  // namespace tween
+  // Copy and assign
+  Edge(const Edge& other) = default;
+  Edge& operator=(const Edge& other) = default;
+
+ public:
+  union {
+    Line line;
+    struct { Vector a; Vector b; };
+    struct { Real x1; Real y1; Real x2; Real y2; };
+  };
+  bool finite;
+};
+
+#pragma mark -
+
+inline Edge::Edge()
+    : line(),
+      finite(false) {}
+
+}  // namespace triangle
 }  // namespace solas
+
+#endif  // SOLAS_TRIANGLE_EDGE_H_

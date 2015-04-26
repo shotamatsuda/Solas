@@ -1,5 +1,5 @@
 //
-//  tween/hash_test.cc
+//  solas/triangle/result.h
 //
 //  MIT License
 //
@@ -24,20 +24,40 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "gtest/gtest.h"
+#pragma once
+#ifndef SOLAS_TRIANGLE_RESULT_H_
+#define SOLAS_TRIANGLE_RESULT_H_
 
-#include "solas/tween/hash.h"
+#include <memory>
+
+struct triangulateio;
 
 namespace solas {
-namespace tween {
+namespace triangle {
 
-TEST(HashTest, Test) {
-  int object1;
-  int object2;
-  ASSERT_EQ(Hash(&object1), Hash(&object1));
-  ASSERT_EQ(Hash(&object2), Hash(&object2));
-  ASSERT_NE(Hash(&object1), Hash(&object2));
-}
+class Result final {
+ public:
+  // Constructors
+  Result();
+  ~Result();
 
-}  // namespace tween
+  // Disallow copy and assign
+  Result(const Result& other) = delete;
+  Result& operator=(const Result& other) = delete;
+
+  // Move
+  Result(Result&& other) = default;
+
+  // Operators
+  struct triangulateio& operator*() { return *get(); }
+  struct triangulateio * operator->() { return get(); }
+  struct triangulateio * get() { return data_.get(); }
+
+ private:
+  std::unique_ptr<struct triangulateio> data_;
+};
+
+}  // namespace triangle
 }  // namespace solas
+
+#endif  // SOLAS_TRIANGLE_RESULT_H_

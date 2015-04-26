@@ -4569,7 +4569,7 @@ STBIDEF int stbi_info_from_callbacks(stbi_io_callbacks const *c, void *user, int
              a few more leak fixes, bug in PNG handling (SpartanJ)
       1.30 (2011-06-11)
              added ability to load files via callbacks to accomidate custom input streams (Ben Wenger)
-             removed deprecated format-specific test/load functions
+             removed deprecated format-specific load functions
              removed support for installable file formats (stbi_loader) -- would have been broken for IO callbacks anyway
              error cases in bmp and tga give messages and don't leak (Raymond Barbiero, grisha)
              fix inefficiency in decoding 32-bit BMP (David Woo)

@@ -44,6 +44,15 @@ struct Group {
   static SymmetricInflector<T, Function> InOut;
 };
 
+#pragma mark -
+
+template <typename T, template <typename> class Function>
+Inflector<T, Function> Group<T, Function>::In;
+template <typename T, template <typename> class Function>
+ReverseInflector<T, Function> Group<T, Function>::Out;
+template <typename T, template <typename> class Function>
+SymmetricInflector<T, Function> Group<T, Function>::InOut;
+
 }  // namespace easing
 }  // namespace solas
 

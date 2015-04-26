@@ -50,6 +50,7 @@ class View : public app::Runnable, public Layer {
  public:
   // Constructors
   View();
+  virtual ~View() = 0;
 
   // Disallow copy and assign
   View(const View& other) = delete;
@@ -209,6 +210,8 @@ inline View::View()
       key_code_(),
       key_pressed_(),
       touch_pressed_() {}
+
+inline View::~View() {}
 
 #pragma mark Structure
 

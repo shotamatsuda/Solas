@@ -1,5 +1,5 @@
 //
-//  tween/hash_test.cc
+//  solas/triangle/voronoi_triangulator.h
 //
 //  MIT License
 //
@@ -24,20 +24,44 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "gtest/gtest.h"
+#pragma once
+#ifndef SOLAS_TRIANGLE_VORONOI_TRIANGULATOR_H_
+#define SOLAS_TRIANGLE_VORONOI_TRIANGULATOR_H_
 
-#include "solas/tween/hash.h"
+#include <cstddef>
+#include <vector>
+
+#include "solas/triangle/edge_iterator.h"
+#include "solas/triangle/triangulator.h"
 
 namespace solas {
-namespace tween {
+namespace triangle {
 
-TEST(HashTest, Test) {
-  int object1;
-  int object2;
-  ASSERT_EQ(Hash(&object1), Hash(&object1));
-  ASSERT_EQ(Hash(&object2), Hash(&object2));
-  ASSERT_NE(Hash(&object1), Hash(&object2));
-}
+class VoronoiTriangulator : public Triangulator {
+ public:
+  // Constructors
+  VoronoiTriangulator() = default;
 
-}  // namespace tween
+  // Copy and assign
+  VoronoiTriangulator(const VoronoiTriangulator& other) = default;
+  VoronoiTriangulator& operator=(const VoronoiTriangulator& other) = default;
+
+  // Triangulation
+  using Triangulator::operator();
+  bool operator()(const std::vector<double>& coordinates) override;
+
+  // Attributes
+  std::size_t size() const override;
+
+  // Iterator
+  EdgeIterator begin() const;
+  EdgeIterator end() const;
+};
+
+}  // namespace triangle
+  
+using triangle::VoronoiTriangulator;
+  
 }  // namespace solas
+
+#endif  // SOLAS_TRIANGLE_VORONOI_TRIANGULATOR_H_

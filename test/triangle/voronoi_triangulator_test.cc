@@ -1,5 +1,5 @@
 //
-//  tween/hash_test.cc
+//  triangle/voronoi_triangulator_test.cc
 //
 //  MIT License
 //
@@ -24,20 +24,35 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
+#include <iterator>
+#include <vector>
+
 #include "gtest/gtest.h"
 
-#include "solas/tween/hash.h"
+#include "solas/triangle/voronoi_triangulator.h"
+
+namespace {
+
+struct TestPoint {
+  double x;
+  double y;
+};
+
+}  // namespace
 
 namespace solas {
-namespace tween {
+namespace triangle {
 
-TEST(HashTest, Test) {
-  int object1;
-  int object2;
-  ASSERT_EQ(Hash(&object1), Hash(&object1));
-  ASSERT_EQ(Hash(&object2), Hash(&object2));
-  ASSERT_NE(Hash(&object1), Hash(&object2));
+TEST(VoronoiTriangulatorTest, Size) {
+  VoronoiTriangulator triangulator;
+  std::vector<TestPoint> points;
+  points.emplace_back(TestPoint{1, 1});
+  points.emplace_back(TestPoint{1, 2});
+  points.emplace_back(TestPoint{2, 2});
+  triangulator(points);
+  ASSERT_EQ(triangulator.size(), 3);
+  ASSERT_EQ(std::distance(triangulator.begin(), triangulator.end()), 3);
 }
 
-}  // namespace tween
+}  // namespace triangle
 }  // namespace solas
