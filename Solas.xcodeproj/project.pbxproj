@@ -12,8 +12,6 @@
 		931B167B1AEBC7F5005F6B4C /* timeline.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD5AC1AEB86EB003AEC6C /* timeline.cc */; };
 		93229E911AD23DF3008D27EA /* SLSUIApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229E8F1AD23DF3008D27EA /* SLSUIApplicationDelegate.mm */; };
 		93229EC71AD2409E008D27EA /* SLSUIApplicationMain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229EC61AD2409E008D27EA /* SLSUIApplicationMain.mm */; };
-		93229ED41AD2428E008D27EA /* SLSUIRunnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93229ED11AD2428D008D27EA /* SLSUIRunnerViewController.m */; };
-		93229ED51AD2428E008D27EA /* SLSUIRunnerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93229ED21AD2428D008D27EA /* SLSUIRunnerViewController.xib */; };
 		933803271AD88DC200F41F92 /* font.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803251AD88DC200F41F92 /* font.cc */; };
 		933803281AD88DC200F41F92 /* font.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803251AD88DC200F41F92 /* font.cc */; };
 		933FD6F61AEBAEA2003AEC6C /* transform.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD5AF1AEB86EB003AEC6C /* transform.cc */; };
@@ -184,7 +182,6 @@
 		93EDFB831AEC4716003CDD03 /* SLSUIGLESView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DFC1ADE0758003F9A7A /* SLSUIGLESView.mm */; };
 		93EDFB841AEC4716003CDD03 /* SLSUICGView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CCE1ADCA5C700B42B9E /* SLSUICGView.m */; };
 		93EDFB851AEC4716003CDD03 /* SLSCADisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 939E96851AD3864600A7E21E /* SLSCADisplayLink.m */; };
-		93EDFB861AEC4716003CDD03 /* SLSUIRunnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93229ED11AD2428D008D27EA /* SLSUIRunnerViewController.m */; };
 		93EDFB871AEC4716003CDD03 /* SLSUIApplicationMain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229EC61AD2409E008D27EA /* SLSUIApplicationMain.mm */; };
 		93EDFB881AEC4716003CDD03 /* SLSUIApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229E8F1AD23DF3008D27EA /* SLSUIApplicationDelegate.mm */; };
 		93EDFB891AEC4726003CDD03 /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
@@ -274,7 +271,6 @@
 		93EDFC3D1AEC8E38003CDD03 /* SLSUIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DEB1ADE0116003F9A7A /* SLSUIView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93EDFC3E1AEC8E38003CDD03 /* SLSUIGLESView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DFB1ADE0758003F9A7A /* SLSUIGLESView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93EDFC3F1AEC8E38003CDD03 /* SLSUICGView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CCD1ADCA5C700B42B9E /* SLSUICGView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93EDFC401AEC8E38003CDD03 /* SLSUIRunnerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229ED01AD2428D008D27EA /* SLSUIRunnerViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93EDFC411AEC8E38003CDD03 /* SLSUIApplicationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E8E1AD23DF3008D27EA /* SLSUIApplicationDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93EDFC421AEC8E98003CDD03 /* nanovg.c in Sources */ = {isa = PBXBuildFile; fileRef = 937E13851ADBDD8F008DB7A7 /* nanovg.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		93EDFC431AEC8E99003CDD03 /* nanovg.c in Sources */ = {isa = PBXBuildFile; fileRef = 937E13851ADBDD8F008DB7A7 /* nanovg.c */; settings = {COMPILER_FLAGS = "-w"; }; };
@@ -355,9 +351,6 @@
 		93229E8E1AD23DF3008D27EA /* SLSUIApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIApplicationDelegate.h; sourceTree = "<group>"; };
 		93229E8F1AD23DF3008D27EA /* SLSUIApplicationDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIApplicationDelegate.mm; sourceTree = "<group>"; };
 		93229EC61AD2409E008D27EA /* SLSUIApplicationMain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIApplicationMain.mm; sourceTree = "<group>"; };
-		93229ED01AD2428D008D27EA /* SLSUIRunnerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIRunnerViewController.h; sourceTree = "<group>"; };
-		93229ED11AD2428D008D27EA /* SLSUIRunnerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIRunnerViewController.m; sourceTree = "<group>"; };
-		93229ED21AD2428D008D27EA /* SLSUIRunnerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSUIRunnerViewController.xib; sourceTree = "<group>"; };
 		933803251AD88DC200F41F92 /* font.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = font.cc; sourceTree = "<group>"; };
 		933803261AD88DC200F41F92 /* font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = font.h; sourceTree = "<group>"; };
 		933FD5271AEB1E3F003AEC6C /* context_holder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = context_holder.h; sourceTree = "<group>"; };
@@ -744,9 +737,6 @@
 				93AD7CCD1ADCA5C700B42B9E /* SLSUICGView.h */,
 				93AD7CCE1ADCA5C700B42B9E /* SLSUICGView.m */,
 				939E96851AD3864600A7E21E /* SLSCADisplayLink.m */,
-				93229ED01AD2428D008D27EA /* SLSUIRunnerViewController.h */,
-				93229ED11AD2428D008D27EA /* SLSUIRunnerViewController.m */,
-				93229ED21AD2428D008D27EA /* SLSUIRunnerViewController.xib */,
 				93229EC61AD2409E008D27EA /* SLSUIApplicationMain.mm */,
 				93229E8E1AD23DF3008D27EA /* SLSUIApplicationDelegate.h */,
 				93229E8F1AD23DF3008D27EA /* SLSUIApplicationDelegate.mm */,
@@ -1317,7 +1307,6 @@
 				93EDFC3B1AEC8E38003CDD03 /* SLSUIViewController.h in Headers */,
 				93EDFC0C1AEC8E12003CDD03 /* SLSAnimationSource.h in Headers */,
 				934C76D31AECD4600086371E /* lib.h in Headers */,
-				93EDFC401AEC8E38003CDD03 /* SLSUIRunnerViewController.h in Headers */,
 				93EDFC8F1AEC97DB003CDD03 /* point.h in Headers */,
 				93EDFC091AEC8E12003CDD03 /* SLSRunner.h in Headers */,
 				934C76D61AECD4600086371E /* delaunay_triangulator.h in Headers */,
@@ -1499,7 +1488,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93229ED51AD2428E008D27EA /* SLSUIRunnerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1645,7 +1633,6 @@
 				93BE2F421ADA1A8100175565 /* shape.cc in Sources */,
 				93229E911AD23DF3008D27EA /* SLSUIApplicationDelegate.mm in Sources */,
 				93CAA6551AD1AE32005EDC09 /* run.mm in Sources */,
-				93229ED41AD2428E008D27EA /* SLSUIRunnerViewController.m in Sources */,
 				93D73DFE1ADE0758003F9A7A /* SLSUIGLESView.mm in Sources */,
 				938A48011AED711E00071B50 /* SLSUIGLES2View.m in Sources */,
 				931B16781AEBC7F4005F6B4C /* timeline.cc in Sources */,
@@ -1703,7 +1690,6 @@
 				93EDFB901AEC4726003CDD03 /* font.cc in Sources */,
 				93EDFB8F1AEC4726003CDD03 /* shape.cc in Sources */,
 				934C76C31AECC2E90086371E /* triangle_iterator.cc in Sources */,
-				93EDFB861AEC4716003CDD03 /* SLSUIRunnerViewController.m in Sources */,
 				93EDFB7D1AEC4706003CDD03 /* SLSRunner.mm in Sources */,
 				93EDFB881AEC4716003CDD03 /* SLSUIApplicationDelegate.mm in Sources */,
 				934C771A1AED38C80086371E /* gles3.cc in Sources */,

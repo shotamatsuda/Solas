@@ -45,6 +45,5 @@ FOUNDATION_EXPORT const unsigned char SolasTouchVersionString[];
 #import "SLSUICGView.h"
 #import "SLSUIEventSourceView.h"
 #import "SLSUIGLView.h"
-#import "SLSUIRunnerViewController.h"
 #import "SLSUIView.h"
 #import "SLSUIViewController.h"
