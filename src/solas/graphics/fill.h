@@ -38,7 +38,7 @@ enum class FillType {
   SOLID
 };
 
-class Fill {
+class Fill final {
  public:
   using Real = double;
 

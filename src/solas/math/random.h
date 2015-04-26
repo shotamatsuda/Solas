@@ -41,7 +41,7 @@ namespace solas {
 namespace math {
 
 template <typename Engine = std::mt19937, typename Mutex = utility::NullMutex>
-class Random {
+class Random final {
  public:
   using Type = typename Engine::result_type;
 

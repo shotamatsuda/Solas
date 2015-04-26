@@ -33,7 +33,7 @@ extern "C" {
 #define VOID void
 #define REAL double
 #define ANSI_DECLARATORS
-#include "lib/triangle/triangle.h"
+#include "triangle.h"
 
 }  // extern "C"
 

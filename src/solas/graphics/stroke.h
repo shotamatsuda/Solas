@@ -33,7 +33,7 @@
 namespace solas {
 namespace graphics {
 
-class Stroke {
+class Stroke final {
  public:
   using Real = double;
 

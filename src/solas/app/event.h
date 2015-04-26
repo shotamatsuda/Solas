@@ -40,7 +40,7 @@
 namespace solas {
 namespace app {
 
-class Event {
+class Event final {
  public:
   enum class Type {
     MOUSE,

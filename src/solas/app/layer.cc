@@ -1,5 +1,5 @@
 //
-//  solas/processing/layer.cc
+//  solas/app/layer.cc
 //
 //  MIT License
 //

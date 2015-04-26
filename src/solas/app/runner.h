@@ -44,7 +44,7 @@
 namespace solas {
 namespace app {
 
-class Runner {
+class Runner final {
  public:
   // Constructors
   explicit Runner(std::unique_ptr<Runnable>&& runnable);

@@ -1,5 +1,5 @@
 //
-//  Framework.xcconfig
+//  solas/nanovg.h
 //
 //  MIT License
 //
@@ -24,11 +24,24 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-// Configuration for Xcode 6.1
+#pragma once
+#ifndef SOLAS_NANOVG_H_
+#define SOLAS_NANOVG_H_
 
-// Product Linking
-OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names
+#include <TargetConditionals.h>
 
-// Product Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/triangle" "$(PROJECT_DIR)/lib/nanovg/src"
-LIBRARY_SEARCH_PATHS = $(inherited)
+#if TARGET_OS_IPHONE
+#include "solas/nanovg/gles3.h"
+#elif TARGET_OS_MAC
+#include "solas/nanovg/gl2.h"
+#endif
+
+namespace solas {
+namespace nanovg {
+
+NVGcontext * CreateContext(int flags = int());
+
+}  // namespace nanovg
+}  // namespace solas
+
+#endif  // SOLAS_NANOVG_H_

@@ -1,5 +1,5 @@
 //
-//  Framework.xcconfig
+//  solas/nanovg/gles3.h
 //
 //  MIT License
 //
@@ -24,11 +24,12 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-// Configuration for Xcode 6.1
+#pragma once
+#ifndef SOLAS_NANOVG_GLES3_H_
+#define SOLAS_NANOVG_GLES3_H_
 
-// Product Linking
-OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names
+#include <OpenGLES/ES3/gl.h>
 
-// Product Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/triangle" "$(PROJECT_DIR)/lib/nanovg/src"
-LIBRARY_SEARCH_PATHS = $(inherited)
+#include "nanovg.h"
+
+#endif  // SOLAS_NANOVG_GLES3_H_

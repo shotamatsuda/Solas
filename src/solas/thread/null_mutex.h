@@ -31,7 +31,7 @@
 namespace solas {
 namespace utility {
 
-class NullMutex {
+class NullMutex final {
  public:
   // Constructors
   NullMutex() = default;

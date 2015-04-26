@@ -39,6 +39,9 @@ namespace tween {
 
 class TimelineHost {
  public:
+  // Constructors
+  virtual ~TimelineHost() {}
+
   // Creating tweens
   template <typename Interval, typename... Args>
   Tween<Interval> tween(Args&&... args);

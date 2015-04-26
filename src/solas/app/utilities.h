@@ -38,9 +38,6 @@ namespace app {
 
 class Utilities {
  public:
-  // Constructors
-  virtual ~Utilities() = 0;
-
   // Time and date
   static int year();
   static int month();
@@ -113,8 +110,6 @@ class Utilities {
 };
 
 #pragma mark -
-
-inline Utilities::~Utilities() {}
 
 #pragma mark Time and date
 

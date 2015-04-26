@@ -35,7 +35,7 @@
 namespace solas {
 namespace app {
 
-class ContextHolder {
+class ContextHolder final {
  public:
   // Constructors
   ContextHolder() {}

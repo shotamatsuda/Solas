@@ -60,7 +60,7 @@ class Triangulator {
   bool operator()(const Container& container);
   bool operator()(std::vector<Point>&& points);
   bool operator()(const std::vector<Point>& points);
-  virtual bool operator()(const std::vector<double>& coordinates) = 0;
+  virtual bool operator()(const std::vector<Real>& coordinates) = 0;
   void clear();
 
   // Parameters

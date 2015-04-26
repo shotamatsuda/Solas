@@ -36,13 +36,14 @@
 
 #include "solas/triangle/lib.h"
 #include "solas/triangle/triangle_iterator.h"
+#include "solas/triangle/type.h"
 
 namespace solas {
 namespace triangle {
 
 #pragma mark Triangulation
 
-bool DelaunayTriangulator::operator()(const std::vector<double>& points) {
+bool DelaunayTriangulator::operator()(const std::vector<Real>& points) {
   const auto size = points.size() / 2;
   using Size = decltype(triangulateio::numberofpoints);
   if (size > std::numeric_limits<Size>::max()) {
@@ -56,7 +57,7 @@ bool DelaunayTriangulator::operator()(const std::vector<double>& points) {
   result_ = std::make_shared<Result>();
   struct triangulateio in;
   std::memset(&in, 0, sizeof(in));
-  std::vector<double> mutable_points(points);
+  std::vector<Real> mutable_points(points);
   in.pointlist = mutable_points.data();
   in.numberofpoints = size;
 

@@ -36,7 +36,7 @@ namespace solas {
 namespace utility {
 
 template <typename T, typename Deleter = std::default_delete<T>>
-class Singleton {
+class Singleton final {
  public:
   using Type = T;
 

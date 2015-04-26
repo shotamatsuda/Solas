@@ -33,6 +33,7 @@
 
 #include "solas/triangle/triangle_iterator.h"
 #include "solas/triangle/triangulator.h"
+#include "solas/triangle/type.h"
 
 namespace solas {
 namespace triangle {
@@ -57,7 +58,7 @@ class DelaunayTriangulator : public Triangulator {
 
   // Triangulation
   using Triangulator::operator();
-  bool operator()(const std::vector<double>& coordinates) override;
+  bool operator()(const std::vector<Real>& coordinates) override;
 
   // Attributes
   std::size_t size() const override;

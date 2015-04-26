@@ -31,7 +31,7 @@
 namespace solas {
 namespace app {
 
-class RunnerOptions {
+class RunnerOptions final {
  public:
   // Constructors
   RunnerOptions();

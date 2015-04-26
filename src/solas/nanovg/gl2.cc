@@ -1,5 +1,5 @@
 //
-//  Framework.xcconfig
+//  solas/nanovg/gl2.cc
 //
 //  MIT License
 //
@@ -24,11 +24,22 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-// Configuration for Xcode 6.1
+#include "solas/nanovg/gl2.h"
 
-// Product Linking
-OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names
+#include <OpenGL/gl.h>
 
-// Product Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/triangle" "$(PROJECT_DIR)/lib/nanovg/src"
-LIBRARY_SEARCH_PATHS = $(inherited)
+#define NANOVG_GL2_IMPLEMENTATION
+#include "nanovg.h"
+#include "nanovg_gl.h"
+
+#include "solas/nanovg.h"
+
+namespace solas {
+namespace nanovg {
+
+NVGcontext * CreateContext(int flags) {
+  return nvgCreateGL2(flags);
+}
+
+}  // namespace nanovg
+}  // namespace solas

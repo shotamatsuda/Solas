@@ -36,13 +36,14 @@
 
 #include "solas/triangle/edge_iterator.h"
 #include "solas/triangle/lib.h"
+#include "solas/triangle/type.h"
 
 namespace solas {
 namespace triangle {
 
 #pragma mark Triangulation
 
-bool VoronoiTriangulator::operator()(const std::vector<double>& points) {
+bool VoronoiTriangulator::operator()(const std::vector<Real>& points) {
   const auto size = points.size();
   using Size = decltype(triangulateio::numberofpoints);
   if (size > std::numeric_limits<Size>::max()) {
@@ -57,7 +58,7 @@ bool VoronoiTriangulator::operator()(const std::vector<double>& points) {
   Result out;
   struct triangulateio in;
   std::memset(&in, 0, sizeof(in));
-  std::vector<double> mutable_points(points);
+  std::vector<Real> mutable_points(points);
   in.pointlist = mutable_points.data();
   in.numberofpoints = size / 2;
 

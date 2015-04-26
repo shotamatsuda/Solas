@@ -37,7 +37,7 @@
 namespace solas {
 namespace app {
 
-class RunnerFactory {
+class RunnerFactory final {
  private:
   friend class solas::utility::Singleton<RunnerFactory>;
 

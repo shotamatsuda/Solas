@@ -60,6 +60,13 @@
 		934C76F91AECDAE90086371E /* triangle_iterator_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C76EE1AECDA2F0086371E /* triangle_iterator_test.cc */; };
 		934C76FA1AECDAE90086371E /* delaunay_triangulator_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C76EA1AECDA2F0086371E /* delaunay_triangulator_test.cc */; };
 		934C76FB1AECDAE90086371E /* voronoi_triangulator_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C76F01AECDA2F0086371E /* voronoi_triangulator_test.cc */; };
+		934C77161AED38BB0086371E /* gl2.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C77151AED38BB0086371E /* gl2.cc */; };
+		934C77171AED38BB0086371E /* gl2.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C77151AED38BB0086371E /* gl2.cc */; };
+		934C77191AED38C80086371E /* gles3.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C77181AED38C80086371E /* gles3.cc */; };
+		934C771A1AED38C80086371E /* gles3.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C77181AED38C80086371E /* gles3.cc */; };
+		934C771B1AED39360086371E /* gles3.h in Headers */ = {isa = PBXBuildFile; fileRef = 934C77101AED383E0086371E /* gles3.h */; };
+		934C771C1AED39390086371E /* gl2.h in Headers */ = {isa = PBXBuildFile; fileRef = 934C77111AED383E0086371E /* gl2.h */; };
+		934C771D1AED393B0086371E /* gl2.h in Headers */ = {isa = PBXBuildFile; fileRef = 934C77111AED383E0086371E /* gl2.h */; };
 		936E24441ADEA5A80004C396 /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
 		936E24461ADEA5A80004C396 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		936E24481ADEA5A80004C396 /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
@@ -379,6 +386,11 @@
 		934C76EB1AECDA2F0086371E /* edge_iterator_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = edge_iterator_test.cc; sourceTree = "<group>"; };
 		934C76EE1AECDA2F0086371E /* triangle_iterator_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangle_iterator_test.cc; sourceTree = "<group>"; };
 		934C76F01AECDA2F0086371E /* voronoi_triangulator_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = voronoi_triangulator_test.cc; sourceTree = "<group>"; };
+		934C77101AED383E0086371E /* gles3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gles3.h; sourceTree = "<group>"; };
+		934C77111AED383E0086371E /* gl2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gl2.h; sourceTree = "<group>"; };
+		934C77141AED383E0086371E /* nanovg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = nanovg.h; path = src/solas/nanovg.h; sourceTree = SOURCE_ROOT; };
+		934C77151AED38BB0086371E /* gl2.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gl2.cc; sourceTree = "<group>"; };
+		934C77181AED38C80086371E /* gles3.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gles3.cc; sourceTree = "<group>"; };
 		936E241F1ADEA5550004C396 /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		937E13841ADBDD8F008DB7A7 /* fontstash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fontstash.h; sourceTree = "<group>"; };
 		937E13851ADBDD8F008DB7A7 /* nanovg.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = nanovg.c; sourceTree = "<group>"; };
@@ -784,6 +796,18 @@
 			path = triangle;
 			sourceTree = "<group>";
 		};
+		934C770E1AED383E0086371E /* nanovg */ = {
+			isa = PBXGroup;
+			children = (
+				934C77111AED383E0086371E /* gl2.h */,
+				934C77151AED38BB0086371E /* gl2.cc */,
+				934C77101AED383E0086371E /* gles3.h */,
+				934C77181AED38C80086371E /* gles3.cc */,
+			);
+			name = nanovg;
+			path = src/solas/nanovg;
+			sourceTree = SOURCE_ROOT;
+		};
 		937E135B1ADBDD8F008DB7A7 /* nanovg */ = {
 			isa = PBXGroup;
 			children = (
@@ -1094,6 +1118,8 @@
 				93F38E831AB60972009E3626 /* thread */,
 				930398341AB2AEE700577048 /* utility.h */,
 				930398331AB2AEE700577048 /* utility */,
+				934C77141AED383E0086371E /* nanovg.h */,
+				934C770E1AED383E0086371E /* nanovg */,
 			);
 			name = "C++ Sources";
 			path = src/solas;
@@ -1166,6 +1192,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934C771C1AED39390086371E /* gl2.h in Headers */,
 				93EDFC1A1AEC8E13003CDD03 /* SLSDefines.h in Headers */,
 				93EDFC171AEC8E13003CDD03 /* SLSDisplaySource.h in Headers */,
 				934C76CE1AECD4600086371E /* triangulator.h in Headers */,
@@ -1205,6 +1232,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934C771D1AED393B0086371E /* gl2.h in Headers */,
 				93EDFC021AEC8E12003CDD03 /* SLSDefines.h in Headers */,
 				93EDFBFF1AEC8E12003CDD03 /* SLSDisplaySource.h in Headers */,
 				934C76DC1AECD4610086371E /* triangulator.h in Headers */,
@@ -1271,6 +1299,7 @@
 				93EDFC121AEC8E12003CDD03 /* SLSDisplayLink.h in Headers */,
 				93EDFC3D1AEC8E38003CDD03 /* SLSUIView.h in Headers */,
 				934C76D51AECD4600086371E /* triangulator.h in Headers */,
+				934C771B1AED39360086371E /* gles3.h in Headers */,
 				934C76D41AECD4600086371E /* triangle_iterator.h in Headers */,
 				93EDFC0D1AEC8E12003CDD03 /* SLSCGLayer.h in Headers */,
 				93EDFC101AEC8E12003CDD03 /* SLSEventDelegate.h in Headers */,
@@ -1503,6 +1532,7 @@
 				934C76C21AECC2E80086371E /* triangle_iterator.cc in Sources */,
 				936E244A1ADEA5A80004C396 /* layer.cc in Sources */,
 				936E244C1ADEA5A80004C396 /* utilities.cc in Sources */,
+				934C77171AED38BB0086371E /* gl2.cc in Sources */,
 				936E24E61ADEA78B0004C396 /* SLSNSViewController.m in Sources */,
 				936E245F1ADEA5A80004C396 /* font.cc in Sources */,
 				936E24891ADEA5A80004C396 /* benchmark.cc in Sources */,
@@ -1546,6 +1576,7 @@
 				934C76C01AECC2E70086371E /* triangle_iterator.cc in Sources */,
 				939E968A1AD391F800A7E21E /* SLSCVDisplayLink.mm in Sources */,
 				93D73E031ADE250C003F9A7A /* utilities.cc in Sources */,
+				934C77161AED38BB0086371E /* gl2.cc in Sources */,
 				93CAA6541AD1AE32005EDC09 /* run.mm in Sources */,
 				93AD7CCB1ADCA4AA00B42B9E /* SLSNSCGView.m in Sources */,
 				93BE2F661ADA2C5000175565 /* simplex.cc in Sources */,
@@ -1589,6 +1620,7 @@
 				93F38E901AB60972009E3626 /* dispatch.mm in Sources */,
 				93BE2F731ADA32E800175565 /* segment.cc in Sources */,
 				93D73DEE1ADE0116003F9A7A /* SLSUIView.m in Sources */,
+				934C77191AED38C80086371E /* gles3.cc in Sources */,
 				934C76E41AECD8E70086371E /* voronoi_triangulator.cc in Sources */,
 				93EDFC441AEC8E99003CDD03 /* nanovg.c in Sources */,
 				939E963F1AD250AF00A7E21E /* runner_factory.cc in Sources */,
@@ -1631,6 +1663,7 @@
 				93EDFB861AEC4716003CDD03 /* SLSUIRunnerViewController.m in Sources */,
 				93EDFB7D1AEC4706003CDD03 /* SLSRunner.mm in Sources */,
 				93EDFB881AEC4716003CDD03 /* SLSUIApplicationDelegate.mm in Sources */,
+				934C771A1AED38C80086371E /* gles3.cc in Sources */,
 				934C76E21AECD8E60086371E /* voronoi_triangulator.cc in Sources */,
 				93EDFB8B1AEC4726003CDD03 /* layer.cc in Sources */,
 				93EDFB951AEC473B003CDD03 /* run.mm in Sources */,
