@@ -69,7 +69,6 @@
   _view.autoresizingMask =
       UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   _view.delegate = self;
-  self.internalContentsScaleFactor = _view.contentScaleFactor;
   [self addSubview:_view];
 }
 
@@ -84,9 +83,8 @@
 #pragma mark GLKViewDelegate
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
-  CGFloat scale = self.internalContentsScaleFactor;
   const solas::app::AppEvent event(_view.context, solas::math::Size2d(
-      self.bounds.size.width * scale, self.bounds.size.height * scale));
+      self.bounds.size.width, self.bounds.size.height));
   if ([_displayDelegate respondsToSelector:@selector(sender:update:)]) {
     [_displayDelegate sender:self update:SLSAppEventMake(&event)];
   }

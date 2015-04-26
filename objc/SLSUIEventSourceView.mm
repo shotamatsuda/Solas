@@ -52,22 +52,6 @@
 
 @implementation SLSUIEventSourceView
 
-- (instancetype)initWithFrame:(CGRect)frame {
-  self = [super initWithFrame:frame];
-  if (self) {
-    _internalContentsScaleFactor = 1.0;
-  }
-  return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)decoder {
-  self = [super initWithCoder:decoder];
-  if (self) {
-    _internalContentsScaleFactor = 1.0;
-  }
-  return self;
-}
-
 - (BOOL)isFlipped {
   return YES;
 }
@@ -110,11 +94,10 @@
 
 - (solas::app::TouchEvent)touchEventWithEvent:(UIEvent *)event
     type:(solas::app::TouchEvent::Type)type {
-  CGFloat scale = self.internalContentsScaleFactor;
   std::vector<solas::math::Vec2d> touches;
   for (UITouch *touch in event.allTouches) {
     CGPoint location = [touch locationInView:self];
-    touches.emplace_back(location.x * scale, location.y * scale);
+    touches.emplace_back(location.x, location.y);
   }
   const solas::app::TouchEvent touchEvent(type, touches, _previousTouches);
   _previousTouches = touches;

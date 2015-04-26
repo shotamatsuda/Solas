@@ -31,8 +31,6 @@
 
 @interface SLSUIEventSourceView : UIView <SLSEventSource>
 
-@property (nonatomic, assign) CGFloat internalContentsScaleFactor;
-
 #pragma mark Notifying Events to the Delegate
 
 - (void)notifyTouchesBeginWithEvent:(id)event;
