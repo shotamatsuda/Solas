@@ -26,4 +26,6 @@
 
 #import <Foundation/Foundation.h>
 
-int SLSApplicationMain(int argc, char **argv);
+#import "SLSDefines.h"
+
+SLS_EXTERN int SLSApplicationMain(int argc, char **argv);
