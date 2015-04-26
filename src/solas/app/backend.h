@@ -28,14 +28,23 @@
 #ifndef SOLAS_APP_BACKEND_H_
 #define SOLAS_APP_BACKEND_H_
 
+#include "solas/utility/enum.h"
+
 namespace solas {
 namespace app {
 
-enum class Backend {
+enum class Backend : int {
   UNDEFINED = 0,
-  OPENGL,
-  COREGRAPHICS
+  OPENGL2 = 1 << 0,
+  OPENGL3 = 1 << 1,
+  OPENGL4 = 1 << 2,
+  OPENGLES1 = 1 << 3,
+  OPENGLES2 = 1 << 4,
+  OPENGLES3 = 1 << 5,
+  COREGRAPHICS = 1 << 6
 };
+
+SOLAS_ENUM_BITWISE_OPERATORS(Backend);
 
 }  // namespace app
 }  // namespace solas

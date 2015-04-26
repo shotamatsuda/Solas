@@ -47,7 +47,11 @@
 }
 
 - (CALayer *)makeBackingLayer {
-  return [SLSNSGLLayer layer];
+  return [[SLSNSGLLayer alloc] initWithAPI:self.API];
+}
+
+- (NSOpenGLPixelFormatAttribute)API {
+  return NSOpenGLProfileVersionLegacy;
 }
 
 @end

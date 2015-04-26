@@ -31,7 +31,9 @@
 #import "SLSDisplaySource.h"
 #import "SLSRunner.h"
 #import "SLSUICGView.h"
-#import "SLSUIGLView.h"
+#import "SLSUIGLESView.h"
+#import "SLSUIGLES2View.h"
+#import "SLSUIGLES3View.h"
 
 @interface SLSUIViewController ()
 
@@ -71,16 +73,17 @@
 }
 
 - (void)setUpContentView {
-  switch (_runner.backend) {
-    case kSLSRunnerBackendOpenGL:
-      _contentView = [[SLSUIGLView alloc] initWithFrame:self.view.bounds];
-      break;
-    case kSLSRunnerBackendCoreGraphics:
-      _contentView = [[SLSUICGView alloc] initWithFrame:self.view.bounds];
-      break;
-    default:
-      break;
+  Class viewClass = nil;
+  if (_runner.backend & kSLSRunnerBackendOpenGLES1) {
+    viewClass = [SLSUIGLESView class];
+  } else if (_runner.backend & kSLSRunnerBackendOpenGLES2) {
+    viewClass = [SLSUIGLES2View class];
+  } else if (_runner.backend & kSLSRunnerBackendOpenGLES3) {
+    viewClass = [SLSUIGLES3View class];
+  } else if (_runner.backend & kSLSRunnerBackendCoreGraphics) {
+    viewClass = [SLSUICGView class];
   }
+  _contentView = [[viewClass alloc] initWithFrame:self.view.bounds];
   _contentView.autoresizingMask =
       UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   [self.view addSubview:_contentView];

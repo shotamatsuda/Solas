@@ -45,7 +45,7 @@ enum class KeyModifier : std::uint32_t {
   FUNCTION = 1 << 5
 };
 
-SOLAS_ENUM_BITWISE_OPERATORS(KeyModifier, std::uint32_t)
+SOLAS_ENUM_BITWISE_OPERATORS(KeyModifier)
 
 }  // namespace app
 }  // namespace solas

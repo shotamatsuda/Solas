@@ -1,5 +1,5 @@
 //
-//  SLSNSGLLayer.h
+//  SLSUIGLESView.h
 //
 //  MIT License
 //
@@ -24,15 +24,15 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <AppKit/AppKit.h>
+#import <GLKit/GLKit.h>
+#import <UIKit/UIKit.h>
 
-#import "SLSDisplayDelegate.h"
 #import "SLSDisplaySource.h"
+#import "SLSUIEventSourceView.h"
 
-@interface SLSNSGLLayer : NSOpenGLLayer <SLSDisplaySource>
+@interface SLSUIGLESView : SLSUIEventSourceView <SLSDisplaySource>
 
-- (instancetype)initWithAPI:(NSOpenGLPixelFormatAttribute)API
-    NS_DESIGNATED_INITIALIZER;
+@property (nonatomic, readonly) EAGLRenderingAPI API;
 
 #pragma mark Invalidating the Display Source
 

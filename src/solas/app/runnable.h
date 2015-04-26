@@ -123,7 +123,7 @@ inline void Runnable::exit(const AppEvent& event) {
 #pragma mark Backend
 
 inline Backend Runnable::backend() const {
-  return Backend::OPENGL;
+  return (Backend)(Backend::OPENGL2 | Backend::OPENGLES3);
 }
 
 #pragma mark Context

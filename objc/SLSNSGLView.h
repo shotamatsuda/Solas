@@ -30,4 +30,6 @@
 
 @interface SLSNSGLView : SLSNSView
 
+@property (nonatomic, readonly) NSOpenGLPixelFormatAttribute API;
+
 @end

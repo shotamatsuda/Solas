@@ -1,5 +1,5 @@
 //
-//  SLSNSGLLayer.h
+//  SLSUIGLES2View.h
 //
 //  MIT License
 //
@@ -24,22 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <AppKit/AppKit.h>
+#import <UIKit/UIKit.h>
 
-#import "SLSDisplayDelegate.h"
-#import "SLSDisplaySource.h"
+#import "SLSUIGLESView.h"
 
-@interface SLSNSGLLayer : NSOpenGLLayer <SLSDisplaySource>
-
-- (instancetype)initWithAPI:(NSOpenGLPixelFormatAttribute)API
-    NS_DESIGNATED_INITIALIZER;
-
-#pragma mark Invalidating the Display Source
-
-- (void)setDisplaySourceNeedsDisplay;
-
-#pragma mark Managing the Delegate
-
-@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
+@interface SLSUIGLES2View : SLSUIGLESView
 
 @end

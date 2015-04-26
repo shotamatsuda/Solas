@@ -29,13 +29,24 @@
 #include "solas/app/app_event.h"
 #include "solas/math/size.h"
 
+@interface SLSNSGLLayer ()
+
+@property (nonatomic, assign) NSOpenGLPixelFormatAttribute API;
+
+@end
+
 @implementation SLSNSGLLayer
 
 - (instancetype)init {
+  return [self initWithAPI:NSOpenGLProfileVersionLegacy];
+}
+
+- (instancetype)initWithAPI:(NSOpenGLPixelFormatAttribute)API {
   self = [super init];
   if (self) {
     self.needsDisplayOnBoundsChange = YES;
     self.asynchronous = NO;
+    self.API = API;
   }
   return self;
 }
@@ -55,6 +66,8 @@
     (NSOpenGLPixelFormatAttribute)8,
     NSOpenGLPFAMultisample,
     NSOpenGLPFAAccelerated,
+    NSOpenGLPFAOpenGLProfile,
+    self.API,
     (NSOpenGLPixelFormatAttribute)0
   };
   return [[NSOpenGLPixelFormat alloc] initWithAttributes:values];

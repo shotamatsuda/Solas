@@ -1,5 +1,5 @@
 //
-//  SLSUIGLView.h
+//  SLSNSGL4View.h
 //
 //  MIT License
 //
@@ -24,19 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import <AppKit/AppKit.h>
 
-#import "SLSDisplaySource.h"
-#import "SLSUIEventSourceView.h"
+#import "SLSNSGLView.h"
 
-@interface SLSUIGLView : SLSUIEventSourceView <SLSDisplaySource>
-
-#pragma mark Invalidating the Display Source
-
-- (void)setDisplaySourceNeedsDisplay;
-
-#pragma mark Managing the Delegate
-
-@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
+@interface SLSNSGL4View : SLSNSGLView
 
 @end

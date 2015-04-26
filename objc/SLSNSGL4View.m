@@ -1,5 +1,5 @@
 //
-//  SLSNSGLLayer.h
+//  SLSNSGL4View.m
 //
 //  MIT License
 //
@@ -24,22 +24,12 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <AppKit/AppKit.h>
+#import "SLSNSGL4View.h"
 
-#import "SLSDisplayDelegate.h"
-#import "SLSDisplaySource.h"
+@implementation SLSNSGL4View
 
-@interface SLSNSGLLayer : NSOpenGLLayer <SLSDisplaySource>
-
-- (instancetype)initWithAPI:(NSOpenGLPixelFormatAttribute)API
-    NS_DESIGNATED_INITIALIZER;
-
-#pragma mark Invalidating the Display Source
-
-- (void)setDisplaySourceNeedsDisplay;
-
-#pragma mark Managing the Delegate
-
-@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
+- (NSOpenGLPixelFormatAttribute)API {
+  return NSOpenGLProfileVersion4_1Core;
+}
 
 @end

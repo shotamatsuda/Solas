@@ -1,5 +1,5 @@
 //
-//  SLSUIGLView.mm
+//  SLSUIGLESView.mm
 //
 //  MIT License
 //
@@ -24,26 +24,26 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSUIGLView.h"
+#import "SLSUIGLESView.h"
 
 #import <GLKit/GLKit.h>
 
-@interface SLSUIGLView () <GLKViewDelegate>
+@interface SLSUIGLESView () <GLKViewDelegate>
 
 #pragma mark Initialization
 
 @property (nonatomic, strong) GLKView *view;
 
-- (void)setUpSLSUIGLView;
+- (void)setUpSLSUIGLESView;
 
 @end
 
-@implementation SLSUIGLView
+@implementation SLSUIGLESView
 
 - (instancetype)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
-    [self setUpSLSUIGLView];
+    [self setUpSLSUIGLESView];
   }
   return self;
 }
@@ -51,16 +51,20 @@
 - (instancetype)initWithCoder:(NSCoder *)decoder {
   self = [super initWithCoder:decoder];
   if (self) {
-    [self setUpSLSUIGLView];
+    [self setUpSLSUIGLESView];
   }
   return self;
 }
 
+- (EAGLRenderingAPI)API {
+  return kEAGLRenderingAPIOpenGLES1;
+}
+
 #pragma mark Initialization
 
-- (void)setUpSLSUIGLView {
+- (void)setUpSLSUIGLESView {
   _view = [[GLKView alloc] initWithFrame:self.bounds];
-  _view.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
+  _view.context = [[EAGLContext alloc] initWithAPI:self.API];
   _view.drawableColorFormat = GLKViewDrawableColorFormatRGBA8888;
   _view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
   _view.drawableStencilFormat = GLKViewDrawableStencilFormat8;

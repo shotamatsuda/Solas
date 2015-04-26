@@ -32,6 +32,7 @@
 
 #include <cassert>
 #include <memory>
+#include <type_traits>
 #include <utility>
 
 #include "solas/app/app_event.h"
@@ -60,18 +61,31 @@
 }
 
 - (SLSRunnerBackend)backend {
-  switch (_runner->backend()) {
-    case solas::app::Backend::UNDEFINED:
-      return kSLSRunnerBackendUndefined;
-    case solas::app::Backend::OPENGL:
-      return kSLSRunnerBackendOpenGL;
-    case solas::app::Backend::COREGRAPHICS:
-      return kSLSRunnerBackendCoreGraphics;
-    default:
-      assert(false);
-      break;
+  NSInteger backend = kSLSRunnerBackendUndefined;
+  using solas::app::Backend;
+  using Underlying = std::underlying_type<Backend>::type;
+  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGL2)) {
+    backend |= kSLSRunnerBackendOpenGL2;
   }
-  return kSLSRunnerBackendUndefined;
+  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGL3)) {
+    backend |= kSLSRunnerBackendOpenGL3;
+  }
+  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGL4)) {
+    backend |= kSLSRunnerBackendOpenGL4;
+  }
+  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGLES1)) {
+    backend |= kSLSRunnerBackendOpenGLES1;
+  }
+  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGLES2)) {
+    backend |= kSLSRunnerBackendOpenGLES2;
+  }
+  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGLES3)) {
+    backend |= kSLSRunnerBackendOpenGLES3;
+  }
+  if (static_cast<Underlying>(_runner->backend() & Backend::COREGRAPHICS)) {
+    backend |= kSLSRunnerBackendCoreGraphics;
+  }
+  return (SLSRunnerBackend)backend;
 }
 
 #pragma mark SLSDisplayDelegate

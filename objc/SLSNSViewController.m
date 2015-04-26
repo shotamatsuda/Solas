@@ -31,6 +31,8 @@
 #import "SLSDisplaySource.h"
 #import "SLSNSCGView.h"
 #import "SLSNSGLView.h"
+#import "SLSNSGL3View.h"
+#import "SLSNSGL4View.h"
 #import "SLSRunner.h"
 
 @interface SLSNSViewController ()
@@ -71,16 +73,17 @@
 }
 
 - (void)setUpContentView {
-  switch (_runner.backend) {
-    case kSLSRunnerBackendOpenGL:
-      _contentView = [[SLSNSGLView alloc] initWithFrame:self.view.bounds];
-      break;
-    case kSLSRunnerBackendCoreGraphics:
-      _contentView = [[SLSNSCGView alloc] initWithFrame:self.view.bounds];
-      break;
-    default:
-      break;
+  Class viewClass = nil;
+  if (_runner.backend & kSLSRunnerBackendOpenGL2) {
+    viewClass = [SLSNSGLView class];
+  } else if (_runner.backend & kSLSRunnerBackendOpenGL3) {
+    viewClass = [SLSNSGL3View class];
+  } else if (_runner.backend & kSLSRunnerBackendOpenGL4) {
+    viewClass = [SLSNSGL4View class];
+  } else if (_runner.backend & kSLSRunnerBackendCoreGraphics) {
+    viewClass = [SLSNSCGView class];
   }
+  _contentView = [[viewClass alloc] initWithFrame:self.view.bounds];
   _contentView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
   [self.view addSubview:_contentView];
 

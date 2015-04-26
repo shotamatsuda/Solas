@@ -39,8 +39,13 @@
 
 typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
   kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL,
-  kSLSRunnerBackendCoreGraphics
+  kSLSRunnerBackendOpenGL2 = 1 << 0,
+  kSLSRunnerBackendOpenGL3 = 1 << 1,
+  kSLSRunnerBackendOpenGL4 = 1 << 2,
+  kSLSRunnerBackendOpenGLES1 = 1 << 3,
+  kSLSRunnerBackendOpenGLES2 = 1 << 4,
+  kSLSRunnerBackendOpenGLES3 = 1 << 5,
+  kSLSRunnerBackendCoreGraphics = 1 << 6
 };
 
 @interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
