@@ -80,7 +80,7 @@ using Frame = Interval<FrameValue>;
 
 template <typename T>
 inline Interval<T>::Interval()
-    : value_(T()) {}
+    : value_() {}
 
 template <typename T>
 inline Interval<T>::Interval(T value)
