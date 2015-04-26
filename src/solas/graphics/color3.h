@@ -57,7 +57,7 @@ class Color<T, 3> final {
   using ConstIterator = typename math::Vec3<T>::ConstIterator;
   using ReverseIterator = typename math::Vec3<T>::ReverseIterator;
   using ConstReverseIterator = typename math::Vec3<T>::ConstReverseIterator;
-  static const constexpr auto channels = math::Vec3<T>::dimensions;
+  static constexpr const auto channels = math::Vec3<T>::dimensions;
 
  public:
   // Constructors

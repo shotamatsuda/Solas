@@ -34,58 +34,58 @@ namespace solas {
 namespace math {
 
 template <typename T = double>
-const constexpr T e = boost::math::constants::e<T>();
-template const constexpr float e<float>;
-template const constexpr double e<double>;
-template const constexpr long double e<long double>;
+constexpr const T e = boost::math::constants::e<T>();
+template constexpr const float e<float>;
+template constexpr const double e<double>;
+template constexpr const long double e<long double>;
 
 template <typename T = double>
-const constexpr T pi = boost::math::constants::pi<T>();
-template const constexpr float pi<float>;
-template const constexpr double pi<double>;
-template const constexpr long double pi<long double>;
+constexpr const T pi = boost::math::constants::pi<T>();
+template constexpr const float pi<float>;
+template constexpr const double pi<double>;
+template constexpr const long double pi<long double>;
 
 template <typename T = double>
-const constexpr T half_pi = boost::math::constants::half_pi<T>();
-template const constexpr float half_pi<float>;
-template const constexpr double half_pi<double>;
-template const constexpr long double half_pi<long double>;
+constexpr const T half_pi = boost::math::constants::half_pi<T>();
+template constexpr const float half_pi<float>;
+template constexpr const double half_pi<double>;
+template constexpr const long double half_pi<long double>;
 
 template <typename T = double>
-const constexpr T third_pi = boost::math::constants::third_pi<T>();
-template const constexpr float third_pi<float>;
-template const constexpr double third_pi<double>;
-template const constexpr long double third_pi<long double>;
+constexpr const T third_pi = boost::math::constants::third_pi<T>();
+template constexpr const float third_pi<float>;
+template constexpr const double third_pi<double>;
+template constexpr const long double third_pi<long double>;
 
 template <typename T = double>
-const constexpr T quarter_pi = boost::math::constants::half_pi<T>() / 2;
-template const constexpr float quarter_pi<float>;
-template const constexpr double quarter_pi<double>;
-template const constexpr long double quarter_pi<long double>;
+constexpr const T quarter_pi = boost::math::constants::half_pi<T>() / 2;
+template constexpr const float quarter_pi<float>;
+template constexpr const double quarter_pi<double>;
+template constexpr const long double quarter_pi<long double>;
 
 template <typename T = double>
-const constexpr T two_pi = boost::math::constants::two_pi<T>();
-template const constexpr float two_pi<float>;
-template const constexpr double two_pi<double>;
-template const constexpr long double two_pi<long double>;
+constexpr const T two_pi = boost::math::constants::two_pi<T>();
+template constexpr const float two_pi<float>;
+template constexpr const double two_pi<double>;
+template constexpr const long double two_pi<long double>;
 
 template <typename T = double>
-const constexpr T tau = boost::math::constants::two_pi<T>();
-template const constexpr float tau<float>;
-template const constexpr double tau<double>;
-template const constexpr long double tau<long double>;
+constexpr const T tau = boost::math::constants::two_pi<T>();
+template constexpr const float tau<float>;
+template constexpr const double tau<double>;
+template constexpr const long double tau<long double>;
 
 template <typename T = double>
-const constexpr T degree = boost::math::constants::degree<T>();
-template const constexpr float degree<float>;
-template const constexpr double degree<double>;
-template const constexpr long double degree<long double>;
+constexpr const T degree = boost::math::constants::degree<T>();
+template constexpr const float degree<float>;
+template constexpr const double degree<double>;
+template constexpr const long double degree<long double>;
 
 template <typename T = double>
-const constexpr T radian = boost::math::constants::radian<T>();
-template const constexpr float radian<float>;
-template const constexpr double radian<double>;
-template const constexpr long double radian<long double>;
+constexpr const T radian = boost::math::constants::radian<T>();
+template constexpr const float radian<float>;
+template constexpr const double radian<double>;
+template constexpr const long double radian<long double>;
 
 }  // namespace math
 }  // namespace solas

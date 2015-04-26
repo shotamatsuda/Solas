@@ -100,13 +100,13 @@ class Utilities {
   void randomSeed(double seed);
 
  public:
-  static const constexpr double E = math::e<double>;
-  static const constexpr double PI = math::pi<double>;
-  static const constexpr double HALF_PI = math::half_pi<double>;
-  static const constexpr double THIRD_PI = math::third_pi<double>;
-  static const constexpr double QUARTER_PI = math::quarter_pi<double>;
-  static const constexpr double TWO_PI = math::two_pi<double>;
-  static const constexpr double TAU = math::two_pi<double>;
+  static constexpr const double E = math::e<double>;
+  static constexpr const double PI = math::pi<double>;
+  static constexpr const double HALF_PI = math::half_pi<double>;
+  static constexpr const double THIRD_PI = math::third_pi<double>;
+  static constexpr const double QUARTER_PI = math::quarter_pi<double>;
+  static constexpr const double TWO_PI = math::two_pi<double>;
+  static constexpr const double TAU = math::two_pi<double>;
 };
 
 #pragma mark -

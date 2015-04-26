@@ -59,7 +59,7 @@ class Size<T, 2> final {
   using ConstIterator = typename Vector2<T>::ConstIterator;
   using ReverseIterator = typename Vector2<T>::ReverseIterator;
   using ConstReverseIterator = typename Vector2<T>::ConstReverseIterator;
-  static const constexpr auto dimensions = Vector2<T>::dimensions;
+  static constexpr const auto dimensions = Vector2<T>::dimensions;
 
  public:
   // Constructors

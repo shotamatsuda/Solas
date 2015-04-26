@@ -66,7 +66,7 @@ class Vector<T, 4> final {
   using ConstIterator = const T *;
   using ReverseIterator = std::reverse_iterator<Iterator>;
   using ConstReverseIterator = std::reverse_iterator<ConstIterator>;
-  static const constexpr int dimensions = 4;
+  static constexpr const int dimensions = 4;
 
  public:
   // Constructors

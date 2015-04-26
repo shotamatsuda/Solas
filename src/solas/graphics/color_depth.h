@@ -47,9 +47,9 @@ using FloatingColorDepth = ColorDepth<T, EnableIfFloating<T>>;
 
 template <typename T>
 struct ColorDepth<T, EnableIfIntegral<T>> {
-  static const constexpr int bits = std::numeric_limits<T>::digits;
-  static const constexpr T min = std::numeric_limits<T>::min();
-  static const constexpr T max = std::numeric_limits<T>::max();
+  static constexpr const int bits = std::numeric_limits<T>::digits;
+  static constexpr const T min = std::numeric_limits<T>::min();
+  static constexpr const T max = std::numeric_limits<T>::max();
 
   // Conversions
   static T Clamp(T value);
@@ -61,9 +61,9 @@ struct ColorDepth<T, EnableIfIntegral<T>> {
 
 template <typename T>
 struct ColorDepth<T, EnableIfFloating<T>> {
-  static const constexpr int bits = sizeof(T) * 8;
-  static const constexpr T min = 0.0;
-  static const constexpr T max = 1.0;
+  static constexpr const int bits = sizeof(T) * 8;
+  static constexpr const T min = 0.0;
+  static constexpr const T max = 1.0;
 
   // Conversions
   static T Clamp(T value);
