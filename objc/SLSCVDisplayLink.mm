@@ -40,7 +40,6 @@
 @property (nonatomic, retain) id target;
 @property (nonatomic, assign) SEL selector;
 @property (nonatomic, assign) CVDisplayLinkRef link;
-@property (nonatomic, assign) BOOL counter;
 
 @end
 
@@ -57,9 +56,7 @@ static CVReturn DisplayLinkCallback(
     void *userInfo) {
   @autoreleasepool {
     SLSDisplayLink *self = (__bridge SLSDisplayLink *)userInfo;
-    if ((self.counter = !self.counter)) {
-      [self.target performSelector:self.selector];
-    }
+    [self.target performSelector:self.selector];
   }
   return kCVReturnSuccess;
 }
