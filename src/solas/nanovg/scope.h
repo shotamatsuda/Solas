@@ -43,8 +43,11 @@ class Scope final {
   Scope(const Scope& other) = delete;
   Scope& operator=(const Scope& other) = delete;
 
+  // Controlling the scope
+  void pop();
+
  private:
-  NVGcontext * const context_;
+  NVGcontext *context_;
 };
 
 #pragma mark -
@@ -59,6 +62,15 @@ inline Scope::Scope(NVGcontext *context)
 inline Scope::~Scope() {
   if (context_) {
     nvgRestore(context_);
+  }
+}
+
+#pragma mark Controlling the scope
+
+inline void Scope::pop() {
+  if (context_) {
+    nvgRestore(context_);
+    context_ = nullptr;
   }
 }
 
