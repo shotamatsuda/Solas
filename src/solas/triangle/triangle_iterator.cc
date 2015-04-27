@@ -35,13 +35,15 @@ namespace solas {
 namespace triangle {
 
 TriangleIterator::TriangleIterator(const std::shared_ptr<Result>& result)
-    : begin_((*result)->trianglelist),
+    : result_(result),
+      begin_((*result)->trianglelist),
       current_(begin_),
       derived_(nullptr)  {}
 
 TriangleIterator::TriangleIterator(const std::shared_ptr<Result>& result,
                                    const int *current)
-    : begin_((*result)->trianglelist),
+    : result_(result),
+      begin_((*result)->trianglelist),
       current_(current),
       derived_(nullptr)  {}
 

@@ -36,13 +36,15 @@ namespace solas {
 namespace triangle {
 
 EdgeIterator::EdgeIterator(const std::shared_ptr<Result>& result)
-    : begin_((*result)->edgelist),
+    : result_(result),
+      begin_((*result)->edgelist),
       current_(begin_),
       derived_(nullptr)  {}
 
 EdgeIterator::EdgeIterator(const std::shared_ptr<Result>& result,
                            const int *current)
-    : begin_((*result)->edgelist),
+    : result_(result),
+      begin_((*result)->edgelist),
       current_(current),
       derived_(nullptr)  {}
 

@@ -89,7 +89,7 @@ inline bool TriangleIterator::operator!=(const TriangleIterator& other) const {
 #pragma mark Iterator
 
 inline TriangleIterator& TriangleIterator::operator++() {
-  ++current_;
+  current_ += 3;
   return *this;
 }
 

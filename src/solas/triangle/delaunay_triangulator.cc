@@ -118,7 +118,8 @@ TriangleIterator DelaunayTriangulator::begin() const {
 
 TriangleIterator DelaunayTriangulator::end() const {
   assert(result_);
-  const auto end = (*result_)->trianglelist + (*result_)->numberoftriangles;
+  const auto end = (*result_)->trianglelist +
+      (*result_)->numberoftriangles * (*result_)->numberofcorners;
   return TriangleIterator(result_, end);
 }
 
