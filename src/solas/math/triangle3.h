@@ -105,8 +105,8 @@ class Triangle<T, 3> final {
   // Iterator
   Iterator begin() { return &a; }
   ConstIterator begin() const { return &a; }
-  Iterator end() { return ++&c; }
-  ConstIterator end() const { return ++&c; }
+  Iterator end() { return &c + 1; }
+  ConstIterator end() const { return &c + 1; }
   ReverseIterator rbegin() { return ReverseIterator(begin()); }
   ConstReverseIterator rbegin() const { return ConstReverseIterator(begin()); }
   ReverseIterator rend() { return ReverseIterator(end()); }

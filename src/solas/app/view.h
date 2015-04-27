@@ -91,6 +91,7 @@ class View : public app::Runnable, public Layer {
   // Lifecycle intended to be overriden
   void setup() override {}
   void update() override {}
+  void pre() override {}
   void draw() override {}
   void post() override {}
   void exit() override {}
@@ -146,6 +147,7 @@ class View : public app::Runnable, public Layer {
   // Lifecycle overridden from Runnable
   void setup(const AppEvent& event) override;
   void update(const AppEvent& event) override;
+  void pre(const AppEvent& event) override;
   void draw(const AppEvent& event) override;
   void post(const AppEvent& event) override;
   void exit(const AppEvent& event) override;
@@ -394,6 +396,10 @@ inline void View::update(const AppEvent& event) {
   timeline<tween::Time>().advance();
   timeline<tween::Frame>().advance();
   Runnable::update(event);
+}
+
+inline void View::pre(const AppEvent& event) {
+  Runnable::pre(event);
 }
 
 inline void View::draw(const AppEvent& event) {

@@ -214,8 +214,8 @@ class Vector<T, 3> final {
   // Iterator
   Iterator begin() { return &x; }
   ConstIterator begin() const { return &x; }
-  Iterator end() { return ++&z; }
-  ConstIterator end() const { return ++&z; }
+  Iterator end() { return &z + 1; }
+  ConstIterator end() const { return &z + 1; }
   ReverseIterator rbegin() { return ReverseIterator(begin()); }
   ConstReverseIterator rbegin() const { return ConstReverseIterator(begin()); }
   ReverseIterator rend() { return ReverseIterator(end()); }

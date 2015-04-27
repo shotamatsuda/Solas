@@ -103,11 +103,15 @@ class Line<T, 2> final {
   template <typename U>
   bool operator!=(const Line2<U>& other) const;
 
+  // Length
+  Promote<T> length() const;
+  Promote<T> lengthSquared() const;
+
   // Iterator
   Iterator begin() { return &a; }
   ConstIterator begin() const { return &a; }
-  Iterator end() { return ++&b; }
-  ConstIterator end() const { return ++&b; }
+  Iterator end() { return &b + 1; }
+  ConstIterator end() const { return &b + 1; }
   ReverseIterator rbegin() { return ReverseIterator(begin()); }
   ConstReverseIterator rbegin() const { return ConstReverseIterator(begin()); }
   ReverseIterator rend() { return ReverseIterator(end()); }
@@ -250,6 +254,18 @@ template <typename T>
 template <typename U>
 inline bool Line2<T>::operator!=(const Line2<U>& other) const {
   return !operator==(other);
+}
+
+#pragma mark Length
+
+template <typename T>
+inline Promote<T> Line2<T>::length() const {
+  return a.distance(b);
+}
+
+template <typename T>
+inline Promote<T> Line2<T>::lengthSquared() const {
+  return a.distanceSquared(b);
 }
 
 #pragma mark Stream

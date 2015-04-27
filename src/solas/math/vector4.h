@@ -210,8 +210,8 @@ class Vector<T, 4> final {
   // Iterator
   Iterator begin() { return &x; }
   ConstIterator begin() const { return &x; }
-  Iterator end() { return ++&w; }
-  ConstIterator end() const { return ++&w; }
+  Iterator end() { return &w + 1; }
+  ConstIterator end() const { return &w + 1; }
   ReverseIterator rbegin() { return ReverseIterator(begin()); }
   ConstReverseIterator rbegin() const { return ConstReverseIterator(begin()); }
   ReverseIterator rend() { return ReverseIterator(end()); }

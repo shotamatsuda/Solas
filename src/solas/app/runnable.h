@@ -54,6 +54,8 @@ class Runnable {
   virtual void setup() {}
   virtual void update(const AppEvent& event);
   virtual void update() {}
+  virtual void pre(const AppEvent& event);
+  virtual void pre() {}
   virtual void draw(const AppEvent& event);
   virtual void draw() {}
   virtual void post(const AppEvent& event);
@@ -103,6 +105,11 @@ inline void Runnable::setup(const AppEvent& event) {
 inline void Runnable::update(const AppEvent& event) {
   context_ = event.context;
   update();
+}
+
+inline void Runnable::pre(const AppEvent& event) {
+  context_ = event.context;
+  pre();
 }
 
 inline void Runnable::draw(const AppEvent& event) {
