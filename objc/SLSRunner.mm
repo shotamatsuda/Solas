@@ -98,6 +98,7 @@
 
 - (void)sender:(id)sender draw:(SLSAppEventConstRef)event {
   if (_runner) {
+    _runner->pre(*SLSAppEventCast(event));
     _runner->draw(*SLSAppEventCast(event));
     _runner->post(*SLSAppEventCast(event));
   }
