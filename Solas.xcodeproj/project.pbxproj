@@ -298,6 +298,12 @@
 		93EDFC991AEC9C3F003CDD03 /* result.h in Headers */ = {isa = PBXBuildFile; fileRef = 93EDFC921AEC9C3F003CDD03 /* result.h */; };
 		93F38E8F1AB60972009E3626 /* dispatch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F38E871AB60972009E3626 /* dispatch.mm */; };
 		93F38E901AB60972009E3626 /* dispatch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F38E871AB60972009E3626 /* dispatch.mm */; };
+		93FD7ED61AEE5CA70082F6C8 /* scope.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ECE1AEE5CA70082F6C8 /* scope.h */; };
+		93FD7ED71AEE5CA70082F6C8 /* scope.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ECE1AEE5CA70082F6C8 /* scope.h */; };
+		93FD7ED81AEE5CA70082F6C8 /* scope.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ECE1AEE5CA70082F6C8 /* scope.h */; };
+		93FD7EDA1AEE5D1C0082F6C8 /* core.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ED91AEE5D1C0082F6C8 /* core.h */; };
+		93FD7EDB1AEE5D1C0082F6C8 /* core.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ED91AEE5D1C0082F6C8 /* core.h */; };
+		93FD7EDC1AEE5D1C0082F6C8 /* core.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ED91AEE5D1C0082F6C8 /* core.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -573,6 +579,8 @@
 		93F3BBF91AA2080D00FBF369 /* Test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Test.xcconfig; sourceTree = "<group>"; };
 		93F3BBFA1AA2080D00FBF369 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
 		93F3BCB81AA2215A00FBF369 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		93FD7ECE1AEE5CA70082F6C8 /* scope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scope.h; sourceTree = "<group>"; };
+		93FD7ED91AEE5D1C0082F6C8 /* core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
 		93FEF9351AD92C90009D0646 /* matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
 		93FEF9361AD92CA8009D0646 /* matrix2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix2.h; sourceTree = "<group>"; };
 		93FEF9371AD92CAE009D0646 /* matrix3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix3.h; sourceTree = "<group>"; };
@@ -819,6 +827,8 @@
 		934C770E1AED383E0086371E /* nanovg */ = {
 			isa = PBXGroup;
 			children = (
+				93FD7ED91AEE5D1C0082F6C8 /* core.h */,
+				93FD7ECE1AEE5CA70082F6C8 /* scope.h */,
 				934C77111AED383E0086371E /* gl2.h */,
 				934C77151AED38BB0086371E /* gl2.cc */,
 				934C77101AED383E0086371E /* gles3.h */,
@@ -1236,7 +1246,9 @@
 				93EDFC8D1AEC97DB003CDD03 /* edge.h in Headers */,
 				934C76E61AECD8EB0086371E /* voronoi_triangulator.h in Headers */,
 				93EDFC291AEC8E1E003CDD03 /* SLSNSWindowController.h in Headers */,
+				93FD7ED81AEE5CA70082F6C8 /* scope.h in Headers */,
 				93EDFC2B1AEC8E1E003CDD03 /* SLSNSEventSourceView.h in Headers */,
+				93FD7EDC1AEE5D1C0082F6C8 /* core.h in Headers */,
 				93EDFC191AEC8E13003CDD03 /* SLSCGLayer.h in Headers */,
 				93EDFC2E1AEC8E1E003CDD03 /* SLSNSGLLayer.h in Headers */,
 				93EDFC1C1AEC8E13003CDD03 /* SLSEventDelegate.h in Headers */,
@@ -1278,7 +1290,9 @@
 				93EDFC8B1AEC97DB003CDD03 /* edge.h in Headers */,
 				934C76E81AECD8EC0086371E /* voronoi_triangulator.h in Headers */,
 				93EDFC231AEC8E1D003CDD03 /* SLSNSEventSourceView.h in Headers */,
+				93FD7ED61AEE5CA70082F6C8 /* scope.h in Headers */,
 				93EDFC011AEC8E12003CDD03 /* SLSCGLayer.h in Headers */,
+				93FD7EDA1AEE5D1C0082F6C8 /* core.h in Headers */,
 				93EDFC261AEC8E1D003CDD03 /* SLSNSGLLayer.h in Headers */,
 				93EDFC041AEC8E12003CDD03 /* SLSEventDelegate.h in Headers */,
 				93EDFC051AEC8E12003CDD03 /* SLSDisplayDelegate.h in Headers */,
@@ -1296,6 +1310,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93FD7ED71AEE5CA70082F6C8 /* scope.h in Headers */,
 				934C76E71AECD8EB0086371E /* voronoi_triangulator.h in Headers */,
 				934C76C61AECC7D40086371E /* type.h in Headers */,
 				93EDFC3F1AEC8E38003CDD03 /* SLSUICGView.h in Headers */,
@@ -1315,6 +1330,7 @@
 				938A48051AED712900071B50 /* SLSUIGLES3View.h in Headers */,
 				93EDFC131AEC8E12003CDD03 /* SLSApplicationMain.h in Headers */,
 				93EDFC3E1AEC8E38003CDD03 /* SLSUIGLESView.h in Headers */,
+				93FD7EDB1AEE5D1C0082F6C8 /* core.h in Headers */,
 				93EDFC641AEC8F21003CDD03 /* edge_iterator.h in Headers */,
 				93EDFC821AEC8F21003CDD03 /* triangle.h in Headers */,
 				93EDFC0A1AEC8E12003CDD03 /* SLSEventSource.h in Headers */,

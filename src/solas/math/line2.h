@@ -63,7 +63,6 @@ class Line<T, 2> final {
   Line();
   Line(T x1, T y1, T x2, T y2);
   Line(const Vector2<T>& a, const Vector2<T>& b);
-  Line(std::initializer_list<T> list);
   Line(std::initializer_list<Vector2<T>> list);
 
   // Implicit conversion
@@ -77,13 +76,11 @@ class Line<T, 2> final {
   // Copy and assign
   Line(const Line2<T>& other) = default;
   Line2<T>& operator=(const Line2<T>& other) = default;
-  Line2<T>& operator=(std::initializer_list<T> list);
   Line2<T>& operator=(std::initializer_list<Vector2<T>> list);
 
   // Mutators
   void set(T x1, T y1, T x2, T y2);
   void set(const Vector2<T>& a, const Vector2<T>& b);
-  void set(std::initializer_list<T> list);
   void set(std::initializer_list<Vector2<T>> list);
   void reset();
 
@@ -154,22 +151,11 @@ inline Line2<T>::Line(const Vector2<T>& a, const Vector2<T>& b)
       b(b) {}
 
 template <typename T>
-inline Line2<T>::Line(std::initializer_list<T> list) {
-  set(std::move(list));
-}
-
-template <typename T>
 inline Line2<T>::Line(std::initializer_list<Vector2<T>> list) {
   set(std::move(list));
 }
 
 #pragma mark Copy and assign
-
-template <typename T>
-inline Line2<T>& Line2<T>::operator=(std::initializer_list<T> list) {
-  set(std::move(list));
-  return *this;
-}
 
 template <typename T>
 inline Line2<T>& Line2<T>::operator=(std::initializer_list<Vector2<T>> list) {
@@ -189,15 +175,6 @@ template <typename T>
 inline void Line2<T>::set(const Vector2<T>& a, const Vector2<T>& b) {
   this->a = a;
   this->b = b;
-}
-
-template <typename T>
-inline void Line2<T>::set(std::initializer_list<T> list) {
-  auto itr = list.begin();
-  if (itr == list.end()) return; a.x = *itr++;
-  if (itr == list.end()) return; a.y = *itr++;
-  if (itr == list.end()) return; b.x = *itr++;
-  if (itr == list.end()) return; b.y = *itr;
 }
 
 template <typename T>

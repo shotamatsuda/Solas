@@ -1,5 +1,5 @@
 //
-//  solas/nanovg.h
+//  solas/nanovg/scope.h
 //
 //  MIT License
 //
@@ -25,16 +25,47 @@
 //
 
 #pragma once
-#ifndef SOLAS_NANOVG_H_
-#define SOLAS_NANOVG_H_
+#ifndef SOLAS_NANOVG_SCOPE_H_
+#define SOLAS_NANOVG_SCOPE_H_
 
 #include "solas/nanovg/core.h"
-#include "solas/nanovg/scope.h"
 
-#if TARGET_OS_IPHONE
-#include "solas/nanovg/gles3.h"
-#elif TARGET_OS_MAC
-#include "solas/nanovg/gl2.h"
-#endif
+namespace solas {
+namespace nanovg {
 
-#endif  // SOLAS_NANOVG_H_
+class Scope final {
+ public:
+  // Constructors
+  explicit Scope(NVGcontext *context = nullptr);
+  ~Scope();
+
+  // Disallow copy and assign
+  Scope(const Scope& other) = delete;
+  Scope& operator=(const Scope& other) = delete;
+
+ private:
+  NVGcontext * const context_;
+};
+
+#pragma mark -
+
+inline Scope::Scope(NVGcontext *context)
+    : context_(context) {
+  if (context_) {
+    nvgSave(context_);
+  }
+}
+
+inline Scope::~Scope() {
+  if (context_) {
+    nvgRestore(context_);
+  }
+}
+
+}  // namespace nanovg
+
+namespace nvg = nanovg;
+
+}  // namespace solas
+
+#endif  // SOLAS_NANOVG_SCOPE_H_

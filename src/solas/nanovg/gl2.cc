@@ -3,7 +3,7 @@
 //
 //  MIT License
 //
-//  Copyright (C) 2014-2015 Shota Matsuda
+//  Copyright (C) 2015 Shota Matsuda
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -42,4 +42,7 @@ NVGcontext * CreateContext(int flags) {
 }
 
 }  // namespace nanovg
+  
+namespace nvg = nanovg;
+
 }  // namespace solas
