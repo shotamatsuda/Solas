@@ -89,8 +89,8 @@
   [self.view addSubview:_contentView];
 
   // Configure event and display sources
-  NSAssert([self.view conformsToProtocol:@protocol(SLSEventSource)], @"");
-  NSAssert([self.view conformsToProtocol:@protocol(SLSDisplaySource)], @"");
+  NSAssert([_contentView conformsToProtocol:@protocol(SLSEventSource)], @"");
+  NSAssert([_contentView conformsToProtocol:@protocol(SLSDisplaySource)], @"");
   _eventSource = (id<SLSEventSource>)_contentView;
   _displaySource = (id<SLSDisplaySource>)_contentView;
   _eventSource.eventDelegate = _runner;
