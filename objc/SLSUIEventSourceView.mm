@@ -239,12 +239,12 @@
   tapGesture.delaysTouchesBegan = NO;
   tapGesture.delaysTouchesEnded = NO;
   [self addGestureRecognizer:tapGesture];
-//  tapGesture = [[UITapGestureRecognizer alloc]
-//      initWithTarget:self action:@selector(handleDoubleTapGesture:)];
-//  tapGesture.numberOfTapsRequired = 2;
-//  tapGesture.delaysTouchesBegan = NO;
-//  tapGesture.delaysTouchesEnded = NO;
-//  [self addGestureRecognizer:tapGesture];
+  tapGesture = [[UITapGestureRecognizer alloc]
+      initWithTarget:self action:@selector(handleDoubleTapGesture:)];
+  tapGesture.numberOfTapsRequired = 2;
+  tapGesture.delaysTouchesBegan = NO;
+  tapGesture.delaysTouchesEnded = NO;
+  [self addGestureRecognizer:tapGesture];
 //  tapGesture = [[UITapGestureRecognizer alloc]
 //      initWithTarget:self action:@selector(handleTripleTapGesture:)];
 //  tapGesture.numberOfTapsRequired = 3;
@@ -258,28 +258,28 @@
 //  [self addGestureRecognizer:[[UIRotationGestureRecognizer alloc]
 //    initWithTarget:self action:@selector(handleRotationGesture:)]];
 //
-  // Swipe
-  UISwipeGestureRecognizer *swipeGesture;
-  swipeGesture = [[UISwipeGestureRecognizer alloc]
-      initWithTarget:self action:@selector(handleSwipeRightGesture:)];
-  swipeGesture.numberOfTouchesRequired = 1;
-  swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
-  [self addGestureRecognizer:swipeGesture];
-  swipeGesture = [[UISwipeGestureRecognizer alloc]
-      initWithTarget:self action:@selector(handleSwipeLeftGesture:)];
-  swipeGesture.numberOfTouchesRequired = 1;
-  swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
-  [self addGestureRecognizer:swipeGesture];
-  swipeGesture = [[UISwipeGestureRecognizer alloc]
-      initWithTarget:self action:@selector(handleSwipeUpGesture:)];
-  swipeGesture.numberOfTouchesRequired = 1;
-  swipeGesture.direction = UISwipeGestureRecognizerDirectionUp;
-  [self addGestureRecognizer:swipeGesture];
-  swipeGesture = [[UISwipeGestureRecognizer alloc]
-      initWithTarget:self action:@selector(handleSwipeDownGesture:)];
-  swipeGesture.numberOfTouchesRequired = 1;
-  swipeGesture.direction = UISwipeGestureRecognizerDirectionDown;
-  [self addGestureRecognizer:swipeGesture];
+//  // Swipe
+//  UISwipeGestureRecognizer *swipeGesture;
+//  swipeGesture = [[UISwipeGestureRecognizer alloc]
+//      initWithTarget:self action:@selector(handleSwipeRightGesture:)];
+//  swipeGesture.numberOfTouchesRequired = 1;
+//  swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
+//  [self addGestureRecognizer:swipeGesture];
+//  swipeGesture = [[UISwipeGestureRecognizer alloc]
+//      initWithTarget:self action:@selector(handleSwipeLeftGesture:)];
+//  swipeGesture.numberOfTouchesRequired = 1;
+//  swipeGesture.direction = UISwipeGestureRecognizerDirectionLeft;
+//  [self addGestureRecognizer:swipeGesture];
+//  swipeGesture = [[UISwipeGestureRecognizer alloc]
+//      initWithTarget:self action:@selector(handleSwipeUpGesture:)];
+//  swipeGesture.numberOfTouchesRequired = 1;
+//  swipeGesture.direction = UISwipeGestureRecognizerDirectionUp;
+//  [self addGestureRecognizer:swipeGesture];
+//  swipeGesture = [[UISwipeGestureRecognizer alloc]
+//      initWithTarget:self action:@selector(handleSwipeDownGesture:)];
+//  swipeGesture.numberOfTouchesRequired = 1;
+//  swipeGesture.direction = UISwipeGestureRecognizerDirectionDown;
+//  [self addGestureRecognizer:swipeGesture];
 //  swipeGesture = [[UISwipeGestureRecognizer alloc]
 //      initWithTarget:self action:@selector(handle2FingersSwipeGesture:)];
 //  swipeGesture.numberOfTouchesRequired = 2;
@@ -314,6 +314,31 @@
       [self touchesWithGestureRecognizer:recognizer]);
   const solas::app::GestureEvent event(
       type, solas::app::GestureKind::TAP, touches);
+  if (recognizer.state == UIGestureRecognizerStateBegan) {
+    if ([_eventDelegate respondsToSelector:@selector(sender:gestureBegin:)]) {
+      [_eventDelegate sender:self gestureBegin:SLSGestureEventMake(&event)];
+    }
+  } else if (recognizer.state == UIGestureRecognizerStateChanged) {
+    if ([_eventDelegate respondsToSelector:@selector(sender:gestureChange:)]) {
+      [_eventDelegate sender:self gestureChange:SLSGestureEventMake(&event)];
+    }
+  } else if (recognizer.state == UIGestureRecognizerStateCancelled) {
+    if ([_eventDelegate respondsToSelector:@selector(sender:gestureCancel:)]) {
+      [_eventDelegate sender:self gestureCancel:SLSGestureEventMake(&event)];
+    }
+  } else if (recognizer.state == UIGestureRecognizerStateEnded) {
+    if ([_eventDelegate respondsToSelector:@selector(sender:gestureEnd:)]) {
+      [_eventDelegate sender:self gestureEnd:SLSGestureEventMake(&event)];
+    }
+  }
+}
+
+- (void)handleDoubleTapGesture:(UITapGestureRecognizer *)recognizer {
+  const auto type = [self gestureEventTypeWithState:recognizer.state];
+  const std::vector<solas::math::Vec2d> touches(
+      [self touchesWithGestureRecognizer:recognizer]);
+  const solas::app::GestureEvent event(
+      type, solas::app::GestureKind::DOUBLE_TAP, touches);
   if (recognizer.state == UIGestureRecognizerStateBegan) {
     if ([_eventDelegate respondsToSelector:@selector(sender:gestureBegin:)]) {
       [_eventDelegate sender:self gestureBegin:SLSGestureEventMake(&event)];
