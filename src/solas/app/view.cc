@@ -107,6 +107,7 @@ void View::handleTouchEvent(const TouchEvent& event) {
     case TouchEvent::Type::BEGIN:
       touch_pressed_ = true;
       break;
+    case TouchEvent::Type::CANCEL:
     case TouchEvent::Type::END:
       touch_pressed_ = false;
       break;
@@ -135,7 +136,22 @@ void View::handleTouchEvent(const TouchEvent& event) {
 }
 
 void View::handleGestureEvent(const GestureEvent& event) {
-  // No event is defined yet
+  switch (event.type) {
+    case GestureEvent::Type::BEGIN:
+      gestureBegan(event);
+      break;
+    case GestureEvent::Type::CHANGE:
+      gestureChanged(event);
+      break;
+    case GestureEvent::Type::CANCEL:
+      gestureCancelled(event);
+      break;
+    case GestureEvent::Type::END:
+      gestureEnded(event);
+      break;
+    default:
+      break;  // Ignore unknown types of event
+  }
 }
 
 void View::handleMotionEvent(const MotionEvent& event) {

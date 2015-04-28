@@ -76,6 +76,10 @@ class Runner final {
   void touchesMove(const TouchEvent& event);
   void touchesCancel(const TouchEvent& event);
   void touchesEnd(const TouchEvent& event);
+  void gestureBegin(const GestureEvent& event);
+  void gestureChange(const GestureEvent& event);
+  void gestureCancel(const GestureEvent& event);
+  void gestureEnd(const GestureEvent& event);
   void motionBegin(const MotionEvent& event);
   void motionCancel(const MotionEvent& event);
   void motionEnd(const MotionEvent& event);
@@ -221,6 +225,30 @@ inline void Runner::touchesCancel(const TouchEvent& event) {
 inline void Runner::touchesEnd(const TouchEvent& event) {
   if (runnable_) {
     runnable_->touchesEnd(event);
+  }
+}
+
+inline void Runner::gestureBegin(const GestureEvent& event) {
+  if (runnable_) {
+    runnable_->gestureBegin(event);
+  }
+}
+
+inline void Runner::gestureChange(const GestureEvent& event) {
+  if (runnable_) {
+    runnable_->gestureChange(event);
+  }
+}
+
+inline void Runner::gestureCancel(const GestureEvent& event) {
+  if (runnable_) {
+    runnable_->gestureCancel(event);
+  }
+}
+
+inline void Runner::gestureEnd(const GestureEvent& event) {
+  if (runnable_) {
+    runnable_->gestureEnd(event);
   }
 }
 

@@ -85,7 +85,7 @@ class PointerAdaptor : public Adaptor<Interval_> {
   Value to_;
 };
 
-#pragma mark - Inline Implementations
+#pragma mark -
 
 template <typename Interval, typename Value>
 template <typename T>

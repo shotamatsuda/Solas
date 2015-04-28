@@ -69,7 +69,7 @@ class TriangleIterator final :
   mutable Triangle triangle_;
 };
 
-#pragma mark - Inline Implementations
+#pragma mark -
 
 inline TriangleIterator::TriangleIterator()
     : begin_(nullptr),

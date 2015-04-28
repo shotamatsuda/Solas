@@ -28,11 +28,12 @@
 
 #import <GLKit/GLKit.h>
 
-@interface SLSUIGLESView () <GLKViewDelegate>
+@interface SLSUIGLESView () <GLKViewDelegate, GLKViewControllerDelegate>
 
 #pragma mark Initialization
 
 @property (nonatomic, strong) GLKView *view;
+@property (nonatomic, strong) GLKViewController *viewController;
 
 - (void)setUpSLSUIGLESView;
 
@@ -74,6 +75,10 @@
       UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
   _view.delegate = self;
   [self addSubview:_view];
+  _viewController = [[GLKViewController alloc] init];
+  _viewController.preferredFramesPerSecond = 60;
+  _viewController.view = _view;
+  _viewController.delegate = self;
 }
 
 #pragma mark Invalidating the Display Source
@@ -89,11 +94,18 @@
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
   const solas::app::AppEvent event(_view.context, solas::math::Size2d(
       self.bounds.size.width, self.bounds.size.height));
-  if ([_displayDelegate respondsToSelector:@selector(sender:update:)]) {
-    [_displayDelegate sender:self update:SLSAppEventMake(&event)];
-  }
   if ([_displayDelegate respondsToSelector:@selector(sender:draw:)]) {
     [_displayDelegate sender:self draw:SLSAppEventMake(&event)];
+  }
+}
+
+#pragma mark GLKViewControllerDelegate
+
+- (void)glkViewControllerUpdate:(GLKViewController *)controller {
+  const solas::app::AppEvent event(_view.context, solas::math::Size2d(
+      self.bounds.size.width, self.bounds.size.height));
+  if ([_displayDelegate respondsToSelector:@selector(sender:update:)]) {
+    [_displayDelegate sender:self update:SLSAppEventMake(&event)];
   }
 }
 

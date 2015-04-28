@@ -1,5 +1,5 @@
 //
-//  solas/app.h
+//  solas/app/gesture_kind.h
 //
 //  MIT License
 //
@@ -25,27 +25,34 @@
 //
 
 #pragma once
-#ifndef SOLAS_APP_H_
-#define SOLAS_APP_H_
+#ifndef SOLAS_APP_GESTURE_KIND_H_
+#define SOLAS_APP_GESTURE_KIND_H_
 
-#include "solas/app/app_event.h"
-#include "solas/app/event.h"
-#include "solas/app/context_holder.h"
-#include "solas/app/gesture_event.h"
-#include "solas/app/gesture_direction.h"
-#include "solas/app/gesture_kind.h"
-#include "solas/app/key_event.h"
-#include "solas/app/key_modifier.h"
-#include "solas/app/layer.h"
-#include "solas/app/motion_event.h"
-#include "solas/app/mouse_button.h"
-#include "solas/app/mouse_event.h"
-#include "solas/app/run.h"
-#include "solas/app/runnable.h"
-#include "solas/app/runner.h"
-#include "solas/app/runner_factory.h"
-#include "solas/app/runner_options.h"
-#include "solas/app/touch_event.h"
-#include "solas/app/view.h"
+namespace solas {
+namespace app {
 
-#endif  // SOLAS_APP_H_
+enum class GestureKind {
+  UNDEFINED,
+  TAP,
+  DOUBLE_TAP,
+  TRIPLE_TAP,
+  PINCH,
+  ROTATION,
+  SWIPE,
+  TWO_FINGERS_SWIPE,
+  THREE_FINGERS_SWIPE,
+  FOUR_FINGERS_SWIPE,
+  PAN,
+  TWO_FINGERS_PAN,
+  THREE_FINGERS_PAN,
+  FOUR_FINGERS_PAN,
+  SCREEN_EDGE_TOP,
+  SCREEN_EDGE_LEFT,
+  SCREEN_EDGE_BOTTOM,
+  SCREEN_EDGE_RIGHT
+};
+
+}  // namespace app
+}  // namespace solas
+
+#endif  // SOLAS_APP_GESTURE_KIND_H_

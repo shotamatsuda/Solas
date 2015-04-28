@@ -44,6 +44,10 @@
 - (void)sender:(id)sender touchesMove:(SLSTouchEventConstRef)event;
 - (void)sender:(id)sender touchesCancel:(SLSTouchEventConstRef)event;
 - (void)sender:(id)sender touchesEnd:(SLSTouchEventConstRef)event;
+- (void)sender:(id)sender gestureBegin:(SLSGestureEventConstRef)event;
+- (void)sender:(id)sender gestureChange:(SLSGestureEventConstRef)event;
+- (void)sender:(id)sender gestureCancel:(SLSGestureEventConstRef)event;
+- (void)sender:(id)sender gestureEnd:(SLSGestureEventConstRef)event;
 - (void)sender:(id)sender motionBegin:(SLSMotionEventConstRef)event;
 - (void)sender:(id)sender motionCancel:(SLSMotionEventConstRef)event;
 - (void)sender:(id)sender motionEnd:(SLSMotionEventConstRef)event;

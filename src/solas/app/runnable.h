@@ -77,6 +77,10 @@ class Runnable {
   virtual void touchesMove(const TouchEvent& event) {}
   virtual void touchesCancel(const TouchEvent& event) {}
   virtual void touchesEnd(const TouchEvent& event) {}
+  virtual void gestureBegin(const GestureEvent& event) {}
+  virtual void gestureChange(const GestureEvent& event) {}
+  virtual void gestureCancel(const GestureEvent& event) {}
+  virtual void gestureEnd(const GestureEvent& event) {}
   virtual void motionBegin(const MotionEvent& event) {}
   virtual void motionCancel(const MotionEvent& event) {}
   virtual void motionEnd(const MotionEvent& event) {}

@@ -110,6 +110,10 @@ class View : public app::Runnable, public Layer {
   virtual void touchesMoved(const TouchEvent& event);
   virtual void touchesCancelled(const TouchEvent& event);
   virtual void touchesEnded(const TouchEvent& event);
+  virtual void gestureBegan(const GestureEvent& event);
+  virtual void gestureChanged(const GestureEvent& event);
+  virtual void gestureCancelled(const GestureEvent& event);
+  virtual void gestureEnded(const GestureEvent& event);
   virtual void motionBegan(const MotionEvent& event);
   virtual void motionCancelled(const MotionEvent& event);
   virtual void motionEnded(const MotionEvent& event);
@@ -139,6 +143,10 @@ class View : public app::Runnable, public Layer {
   virtual void touchesMoved() {}
   virtual void touchesCancelled() {}
   virtual void touchesEnded() {}
+  virtual void gestureBegan() {}
+  virtual void gestureChanged() {}
+  virtual void gestureCancelled() {}
+  virtual void gestureEnded() {}
   virtual void motionBegan() {}
   virtual void motionCancelled() {}
   virtual void motionEnded() {}
@@ -166,6 +174,10 @@ class View : public app::Runnable, public Layer {
   void touchesMove(const TouchEvent& event) override;
   void touchesCancel(const TouchEvent& event) override;
   void touchesEnd(const TouchEvent& event) override;
+  void gestureBegin(const GestureEvent& event) override;
+  void gestureChange(const GestureEvent& event) override;
+  void gestureCancel(const GestureEvent& event) override;
+  void gestureEnd(const GestureEvent& event) override;
   void motionBegin(const MotionEvent& event) override;
   void motionCancel(const MotionEvent& event) override;
   void motionEnd(const MotionEvent& event) override;
@@ -335,6 +347,22 @@ inline void View::touchesEnded(const TouchEvent& event) {
   touchesEnded();
 }
 
+inline void View::gestureBegan(const GestureEvent& event) {
+  gestureBegan();
+}
+
+inline void View::gestureChanged(const GestureEvent& event) {
+  gestureChanged();
+}
+
+inline void View::gestureCancelled(const GestureEvent& event) {
+  gestureCancelled();
+}
+
+inline void View::gestureEnded(const GestureEvent& event) {
+  gestureEnded();
+}
+
 inline void View::motionBegan(const MotionEvent& event) {
   motionBegan();
 }
@@ -472,6 +500,22 @@ inline void View::touchesCancel(const TouchEvent& event) {
 }
 
 inline void View::touchesEnd(const TouchEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void View::gestureBegin(const GestureEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void View::gestureChange(const GestureEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void View::gestureCancel(const GestureEvent& event) {
+  enqueueEvent(event);
+}
+
+inline void View::gestureEnd(const GestureEvent& event) {
   enqueueEvent(event);
 }
 

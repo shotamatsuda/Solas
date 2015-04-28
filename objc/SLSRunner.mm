@@ -197,6 +197,34 @@
   }
 }
 
+- (void)sender:(id)sender gestureBegin:(SLSGestureEventConstRef)event {
+  if (_runner) {
+    assert(event);
+    _runner->gestureBegin(*SLSGestureEventCast(event));
+  }
+}
+
+- (void)sender:(id)sender gestureChange:(SLSGestureEventConstRef)event {
+  if (_runner) {
+    assert(event);
+    _runner->gestureChange(*SLSGestureEventCast(event));
+  }
+}
+
+- (void)sender:(id)sender gestureCancel:(SLSGestureEventConstRef)event {
+  if (_runner) {
+    assert(event);
+    _runner->gestureCancel(*SLSGestureEventCast(event));
+  }
+}
+
+- (void)sender:(id)sender gestureEnd:(SLSGestureEventConstRef)event {
+  if (_runner) {
+    assert(event);
+    _runner->gestureEnd(*SLSGestureEventCast(event));
+  }
+}
+
 - (void)sender:(id)sender motionBegin:(SLSMotionEventConstRef)event {
   if (_runner) {
     assert(event);
