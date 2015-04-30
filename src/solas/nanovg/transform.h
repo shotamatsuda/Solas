@@ -36,149 +36,149 @@
 namespace solas {
 namespace nanovg {
 
-void translateX(float dx);
-void translateY(float dy);
-void translate(float value);
-void translate(float dx, float dy);
-void translate(const math::Vec2f& value);
-void rotate(float angle);
-void rotate(float angle, const math::Vec2f& point);
-void scaleX(float sx);
-void scaleY(float sy);
-void scale(float value);
-void scale(float sx, float sy);
-void scale(const math::Vec2f& value);
-void skewX(float angle);
-void skewY(float angle);
+void TranslateX(float dx);
+void TranslateY(float dy);
+void Translate(float value);
+void Translate(float dx, float dy);
+void Translate(const math::Vec2f& value);
+void Rotate(float angle);
+void Rotate(float angle, const math::Vec2f& point);
+void ScaleX(float sx);
+void ScaleY(float sy);
+void Scale(float value);
+void Scale(float sx, float sy);
+void Scale(const math::Vec2f& value);
+void SkewX(float angle);
+void SkewY(float angle);
 
-void translateX(NVGcontext *context, float dx);
-void translateY(NVGcontext *context, float dy);
-void translate(NVGcontext *context, float value);
-void translate(NVGcontext *context, float dx, float dy);
-void translate(NVGcontext *context, const math::Vec2f& value);
-void rotate(NVGcontext *context, float angle);
-void rotate(NVGcontext *context, float angle, const math::Vec2f& point);
-void scaleX(NVGcontext *context, float sx);
-void scaleY(NVGcontext *context, float sy);
-void scale(NVGcontext *context, float value);
-void scale(NVGcontext *context, float sx, float sy);
-void scale(NVGcontext *context, const math::Vec2f& value);
-void skewX(NVGcontext *context, float angle);
-void skewY(NVGcontext *context, float angle);
+void TranslateX(NVGcontext *context, float dx);
+void TranslateY(NVGcontext *context, float dy);
+void Translate(NVGcontext *context, float value);
+void Translate(NVGcontext *context, float dx, float dy);
+void Translate(NVGcontext *context, const math::Vec2f& value);
+void Rotate(NVGcontext *context, float angle);
+void Rotate(NVGcontext *context, float angle, const math::Vec2f& point);
+void ScaleX(NVGcontext *context, float sx);
+void ScaleY(NVGcontext *context, float sy);
+void Scale(NVGcontext *context, float value);
+void Scale(NVGcontext *context, float sx, float sy);
+void Scale(NVGcontext *context, const math::Vec2f& value);
+void SkewX(NVGcontext *context, float angle);
+void SkewY(NVGcontext *context, float angle);
 
 #pragma mark -
 
-inline void translateX(float dx) {
-  translateX(Context::shared(), dx);
+inline void TranslateX(float dx) {
+  TranslateX(Context::shared(), dx);
 }
 
-inline void translateY(float dy) {
-  translateY(Context::shared(), dy);
+inline void TranslateY(float dy) {
+  TranslateY(Context::shared(), dy);
 }
 
-inline void translate(float value) {
-  translate(Context::shared(), value);
+inline void Translate(float value) {
+  Translate(Context::shared(), value);
 }
 
-inline void translate(float dx, float dy) {
-  translate(Context::shared(), dx, dy);
+inline void Translate(float dx, float dy) {
+  Translate(Context::shared(), dx, dy);
 }
 
-inline void translate(const math::Vec2f& value) {
-  translate(Context::shared(), value);
+inline void Translate(const math::Vec2f& value) {
+  Translate(Context::shared(), value);
 }
 
-inline void rotate(float angle) {
-  rotate(Context::shared(), angle);
+inline void Rotate(float angle) {
+  Rotate(Context::shared(), angle);
 }
 
-inline void rotate(float angle, const math::Vec2f& point) {
-  rotate(Context::shared(), angle, point);
+inline void Rotate(float angle, const math::Vec2f& point) {
+  Rotate(Context::shared(), angle, point);
 }
 
-inline void scaleX(float sx) {
-  scaleX(Context::shared(), sx);
+inline void ScaleX(float sx) {
+  ScaleX(Context::shared(), sx);
 }
 
-inline void scaleY(float sy) {
-  scaleY(Context::shared(), sy);
+inline void ScaleY(float sy) {
+  ScaleY(Context::shared(), sy);
 }
 
-inline void scale(float value) {
-  scale(Context::shared(), value);
+inline void Scale(float value) {
+  Scale(Context::shared(), value);
 }
 
-inline void scale(float sx, float sy) {
-  scale(Context::shared(), sx, sy);
+inline void Scale(float sx, float sy) {
+  Scale(Context::shared(), sx, sy);
 }
 
-inline void scale(const math::Vec2f& value) {
-  scale(Context::shared(), value);
+inline void Scale(const math::Vec2f& value) {
+  Scale(Context::shared(), value);
 }
 
-inline void skewX(float angle) {
-  skewX(Context::shared(), angle);
+inline void SkewX(float angle) {
+  SkewX(Context::shared(), angle);
 }
 
-inline void skewY(float angle) {
-  skewY(Context::shared(), angle);
+inline void SkewY(float angle) {
+  SkewY(Context::shared(), angle);
 }
 
-inline void translateX(NVGcontext *context, float dx) {
+inline void TranslateX(NVGcontext *context, float dx) {
   nvgTranslate(context, dx, 0.0);
 }
 
-inline void translateY(NVGcontext *context, float dy) {
+inline void TranslateY(NVGcontext *context, float dy) {
   nvgTranslate(context, 0.0, dy);
 }
 
-inline void translate(NVGcontext *context, float value) {
+inline void Translate(NVGcontext *context, float value) {
   nvgTranslate(context, value, value);
 }
 
-inline void translate(NVGcontext *context, float dx, float dy) {
+inline void Translate(NVGcontext *context, float dx, float dy) {
   nvgTranslate(context, dx, dy);
 }
 
-inline void translate(NVGcontext *context, const math::Vec2f& value) {
+inline void Translate(NVGcontext *context, const math::Vec2f& value) {
   nvgTranslate(context, value.x, value.y);
 }
 
-inline void rotate(NVGcontext *context, float angle) {
+inline void Rotate(NVGcontext *context, float angle) {
   nvgRotate(context, angle);
 }
 
-inline void rotate(NVGcontext *context, float angle, const math::Vec2f& point) {
+inline void Rotate(NVGcontext *context, float angle, const math::Vec2f& point) {
   nvgTranslate(context, point.x, point.y);
   nvgRotate(context, angle);
   nvgTranslate(context, -point.x, -point.y);
 }
 
-inline void scaleX(NVGcontext *context, float sx) {
+inline void ScaleX(NVGcontext *context, float sx) {
   nvgScale(context, sx, 1.0);
 }
 
-inline void scaleY(NVGcontext *context, float sy) {
+inline void ScaleY(NVGcontext *context, float sy) {
   nvgScale(context, 1.0, sy);
 }
 
-inline void scale(NVGcontext *context, float value) {
+inline void Scale(NVGcontext *context, float value) {
   nvgScale(context, value, value);
 }
 
-inline void scale(NVGcontext *context, float sx, float sy) {
+inline void Scale(NVGcontext *context, float sx, float sy) {
   nvgScale(context, sx, sy);
 }
 
-inline void scale(NVGcontext *context, const math::Vec2f& value) {
+inline void Scale(NVGcontext *context, const math::Vec2f& value) {
   nvgScale(context, value.x, value.y);
 }
 
-inline void skewX(NVGcontext *context, float angle) {
+inline void SkewX(NVGcontext *context, float angle) {
   nvgSkewX(context, angle);
 }
 
-inline void skewY(NVGcontext *context, float angle) {
+inline void SkewY(NVGcontext *context, float angle) {
   nvgSkewY(context, angle);
 }
 

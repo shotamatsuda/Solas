@@ -42,7 +42,7 @@ NVGcontext * CreateContext(int flags) {
 }
 
 void DeleteContext(NVGcontext *context) {
-  return nvgDeleteGLES3(context);
+  return nvgDeleteGLES2(context);
 }
 
 }  // namespace nanovg
