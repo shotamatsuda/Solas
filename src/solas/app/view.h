@@ -96,7 +96,7 @@ class View : public app::Runnable, public Layer {
   void post() override {}
   void exit() override {}
 
-// Events intended to be overriden
+  // Events intended to be overriden
   virtual void mousePressed(const MouseEvent& event) {}
   virtual void mouseDragged(const MouseEvent& event) {}
   virtual void mouseReleased(const MouseEvent& event) {}
