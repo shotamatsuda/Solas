@@ -4,6 +4,3 @@
 [submodule "lib/nanovg"]
 	path = lib/nanovg
 	url = git@github.com:memononen/nanovg.git
-[submodule "lib/monkvg"]
-	path = lib/monkvg
-	url = git@github.com:micahpearlman/MonkVG.git
