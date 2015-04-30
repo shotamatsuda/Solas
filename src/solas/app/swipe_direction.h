@@ -35,7 +35,7 @@ namespace solas {
 namespace app {
 
 enum class SwipeDirection {
-  UNDEFINED = -1,
+  UNDEFINED,
   RIGHT,
   LEFT,
   UP,

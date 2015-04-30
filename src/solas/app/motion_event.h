@@ -54,7 +54,7 @@ class MotionEvent final {
   // Attributes
   bool empty() const { return type_ == Type::UNDEFINED; }
 
-  // Parameters
+  // Properties
   Type type() const { return type_; }
 
   // Conversion

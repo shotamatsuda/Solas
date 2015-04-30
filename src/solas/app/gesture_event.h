@@ -106,7 +106,7 @@ class GestureEvent final {
   // Attributes
   bool empty() const { return type_ == Type::UNDEFINED; }
 
-  // Parameters
+  // Properties
   Type type() const { return type_; }
   GestureKind kind() const { return kind_; }
   const std::vector<math::Vec2d>& touches() const { return touches_; }

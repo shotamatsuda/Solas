@@ -28,6 +28,9 @@
 #ifndef SOLAS_MATH_AXIS_H_
 #define SOLAS_MATH_AXIS_H_
 
+#include <cassert>
+#include <ostream>
+
 namespace solas {
 namespace math {
 
@@ -37,6 +40,27 @@ enum class Axis : int {
   Z = 2,
   W = 3
 };
+
+inline std::ostream& operator<<(std::ostream& os, Axis axis) {
+  switch (axis) {
+    case Axis::X:
+      os << "x";
+      break;
+    case Axis::Y:
+      os << "y";
+      break;
+    case Axis::Z:
+      os << "z";
+      break;
+    case Axis::W:
+      os << "w";
+      break;
+    default:
+      assert(false);
+      break;
+  }
+  return os;
+}
 
 }  // namespace math
 }  // namespace solas

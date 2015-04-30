@@ -63,7 +63,7 @@ class Context final {
   operator NVGcontext *() const { return context_; }
 
   // Shared context
-  static NVGcontext * shared() { return shared_context_; }
+  static NVGcontext * Shared() { return shared_context_; }
 
  private:
   NVGcontext *context_;

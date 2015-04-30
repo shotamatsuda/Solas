@@ -67,7 +67,7 @@ class Event final {
   // Disallow assign
   Event& operator=(const Event& other) = delete;
 
-  // Parameters
+  // Properties
   Type type() const { return type_; }
 
   // Accessing the event

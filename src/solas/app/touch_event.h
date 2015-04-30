@@ -60,7 +60,7 @@ class TouchEvent final {
   // Attributes
   bool empty() const { return type_ == Type::UNDEFINED; }
 
-  // Parameters
+  // Properties
   Type type() const { return type_; }
   const std::vector<math::Vec2d>& touches() const { return touches_; }
 

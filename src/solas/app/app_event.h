@@ -48,7 +48,7 @@ class AppEvent final {
   // Disallow assign
   AppEvent& operator=(const AppEvent& other) = delete;
 
-  // Parameters
+  // Properties
   const ContextHolder& context() const { return context_; }
   const math::Size2d& size() const { return size_; }
 

@@ -92,7 +92,7 @@ void View::handleMouseEvent(const MouseEvent& event) {
 }
 
 void View::handleKeyEvent(const KeyEvent& event) {
-  switch (event.type) {
+  switch (event.type()) {
     case KeyEvent::Type::DOWN:
       keyPressed(event);
       keyPressed();

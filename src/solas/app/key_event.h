@@ -51,19 +51,22 @@ class KeyEvent final {
   KeyEvent& operator=(const KeyEvent& other) = delete;
 
   // Attributes
-  bool empty() const { return type == Type::UNDEFINED; }
+  bool empty() const { return type_ == Type::UNDEFINED; }
+
+  // Properties
+  Type type() const { return type_; }
 
   // Conversion
   operator bool() const { return !empty(); }
 
- public:
-  Type type;
+ private:
+  Type type_;
 };
 
 #pragma mark -
 
 inline KeyEvent::KeyEvent()
-    : type(Type::UNDEFINED) {}
+    : type_(Type::UNDEFINED) {}
 
 }  // namespace app
 }  // namespace solas
