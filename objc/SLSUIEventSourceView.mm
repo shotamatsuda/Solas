@@ -232,18 +232,18 @@
 
 - (void)addGestureRecognizers {
   // Tap
-  UITapGestureRecognizer *tapGesture;
-  tapGesture = [[UITapGestureRecognizer alloc]
+  UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc]
+      initWithTarget:self action:@selector(handleDoubleTapGesture:)];
+  doubleTapGesture.numberOfTapsRequired = 2;
+  doubleTapGesture.delaysTouchesBegan = NO;
+  doubleTapGesture.delaysTouchesEnded = NO;
+  [self addGestureRecognizer:doubleTapGesture];
+  UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
       initWithTarget:self action:@selector(handleTapGesture:)];
   tapGesture.numberOfTapsRequired = 1;
   tapGesture.delaysTouchesBegan = NO;
   tapGesture.delaysTouchesEnded = NO;
-  [self addGestureRecognizer:tapGesture];
-  tapGesture = [[UITapGestureRecognizer alloc]
-      initWithTarget:self action:@selector(handleDoubleTapGesture:)];
-  tapGesture.numberOfTapsRequired = 2;
-  tapGesture.delaysTouchesBegan = NO;
-  tapGesture.delaysTouchesEnded = NO;
+  [tapGesture requireGestureRecognizerToFail:doubleTapGesture];
   [self addGestureRecognizer:tapGesture];
 //  tapGesture = [[UITapGestureRecognizer alloc]
 //      initWithTarget:self action:@selector(handleTripleTapGesture:)];
