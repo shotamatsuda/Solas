@@ -60,9 +60,9 @@
 		934C76FB1AECDAE90086371E /* voronoi_triangulator_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C76F01AECDA2F0086371E /* voronoi_triangulator_test.cc */; };
 		934C77161AED38BB0086371E /* gl2.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C77151AED38BB0086371E /* gl2.cc */; };
 		934C77171AED38BB0086371E /* gl2.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C77151AED38BB0086371E /* gl2.cc */; };
-		934C77191AED38C80086371E /* gles3.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C77181AED38C80086371E /* gles3.cc */; };
-		934C771A1AED38C80086371E /* gles3.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C77181AED38C80086371E /* gles3.cc */; };
-		934C771B1AED39360086371E /* gles3.h in Headers */ = {isa = PBXBuildFile; fileRef = 934C77101AED383E0086371E /* gles3.h */; };
+		934C77191AED38C80086371E /* gles2.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C77181AED38C80086371E /* gles2.cc */; };
+		934C771A1AED38C80086371E /* gles2.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C77181AED38C80086371E /* gles2.cc */; };
+		934C771B1AED39360086371E /* gles2.h in Headers */ = {isa = PBXBuildFile; fileRef = 934C77101AED383E0086371E /* gles2.h */; };
 		934C771C1AED39390086371E /* gl2.h in Headers */ = {isa = PBXBuildFile; fileRef = 934C77111AED383E0086371E /* gl2.h */; };
 		934C771D1AED393B0086371E /* gl2.h in Headers */ = {isa = PBXBuildFile; fileRef = 934C77111AED383E0086371E /* gl2.h */; };
 		9350587B1AEF555D0020E755 /* gesture_kind.h in Headers */ = {isa = PBXBuildFile; fileRef = 9350587A1AEF555B0020E755 /* gesture_kind.h */; };
@@ -405,11 +405,11 @@
 		934C76EB1AECDA2F0086371E /* edge_iterator_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = edge_iterator_test.cc; sourceTree = "<group>"; };
 		934C76EE1AECDA2F0086371E /* triangle_iterator_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = triangle_iterator_test.cc; sourceTree = "<group>"; };
 		934C76F01AECDA2F0086371E /* voronoi_triangulator_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = voronoi_triangulator_test.cc; sourceTree = "<group>"; };
-		934C77101AED383E0086371E /* gles3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gles3.h; sourceTree = "<group>"; };
+		934C77101AED383E0086371E /* gles2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gles2.h; sourceTree = "<group>"; };
 		934C77111AED383E0086371E /* gl2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gl2.h; sourceTree = "<group>"; };
 		934C77141AED383E0086371E /* nanovg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = nanovg.h; path = src/solas/nanovg.h; sourceTree = SOURCE_ROOT; };
 		934C77151AED38BB0086371E /* gl2.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gl2.cc; sourceTree = "<group>"; };
-		934C77181AED38C80086371E /* gles3.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gles3.cc; sourceTree = "<group>"; };
+		934C77181AED38C80086371E /* gles2.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gles2.cc; sourceTree = "<group>"; };
 		9350587A1AEF555B0020E755 /* gesture_kind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gesture_kind.h; sourceTree = "<group>"; };
 		935058CE1AEF6E2E0020E755 /* gesture_direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gesture_direction.h; sourceTree = "<group>"; };
 		936E241F1ADEA5550004C396 /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -839,8 +839,8 @@
 				93FD7ECE1AEE5CA70082F6C8 /* scope.h */,
 				934C77111AED383E0086371E /* gl2.h */,
 				934C77151AED38BB0086371E /* gl2.cc */,
-				934C77101AED383E0086371E /* gles3.h */,
-				934C77181AED38C80086371E /* gles3.cc */,
+				934C77101AED383E0086371E /* gles2.h */,
+				934C77181AED38C80086371E /* gles2.cc */,
 			);
 			name = nanovg;
 			path = src/solas/nanovg;
@@ -1355,7 +1355,7 @@
 				93EDFC121AEC8E12003CDD03 /* SLSDisplayLink.h in Headers */,
 				93EDFC3D1AEC8E38003CDD03 /* SLSUIView.h in Headers */,
 				934C76D51AECD4600086371E /* triangulator.h in Headers */,
-				934C771B1AED39360086371E /* gles3.h in Headers */,
+				934C771B1AED39360086371E /* gles2.h in Headers */,
 				934C76D41AECD4600086371E /* triangle_iterator.h in Headers */,
 				93EDFC0D1AEC8E12003CDD03 /* SLSCGLayer.h in Headers */,
 				938A48001AED711E00071B50 /* SLSUIGLES2View.h in Headers */,
@@ -1680,7 +1680,7 @@
 				93F38E901AB60972009E3626 /* dispatch.mm in Sources */,
 				93BE2F731ADA32E800175565 /* segment.cc in Sources */,
 				93D73DEE1ADE0116003F9A7A /* SLSUIView.m in Sources */,
-				934C77191AED38C80086371E /* gles3.cc in Sources */,
+				934C77191AED38C80086371E /* gles2.cc in Sources */,
 				934C76E41AECD8E70086371E /* voronoi_triangulator.cc in Sources */,
 				93EDFC441AEC8E99003CDD03 /* nanovg.c in Sources */,
 				939E963F1AD250AF00A7E21E /* runner_factory.cc in Sources */,
@@ -1724,7 +1724,7 @@
 				934C76C31AECC2E90086371E /* triangle_iterator.cc in Sources */,
 				93EDFB7D1AEC4706003CDD03 /* SLSRunner.mm in Sources */,
 				93EDFB881AEC4716003CDD03 /* SLSUIApplicationDelegate.mm in Sources */,
-				934C771A1AED38C80086371E /* gles3.cc in Sources */,
+				934C771A1AED38C80086371E /* gles2.cc in Sources */,
 				934C76E21AECD8E60086371E /* voronoi_triangulator.cc in Sources */,
 				93EDFB8B1AEC4726003CDD03 /* layer.cc in Sources */,
 				93EDFB951AEC473B003CDD03 /* run.mm in Sources */,

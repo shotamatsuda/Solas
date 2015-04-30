@@ -1,5 +1,5 @@
 //
-//  solas/nanovg/gles3.h
+//  solas/nanovg/gles2.cc
 //
 //  MIT License
 //
@@ -24,12 +24,22 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#pragma once
-#ifndef SOLAS_NANOVG_GLES3_H_
-#define SOLAS_NANOVG_GLES3_H_
+#include "solas/nanovg/gles2.h"
 
-#include <OpenGLES/ES3/gl.h>
+#include <OpenGLES/ES2/gl.h>
 
+#define NANOVG_GLES2_IMPLEMENTATION
 #include "nanovg.h"
+#include "nanovg_gl.h"
 
-#endif  // SOLAS_NANOVG_GLES3_H_
+#include "solas/nanovg.h"
+
+namespace solas {
+namespace nanovg {
+
+NVGcontext * CreateContext(int flags) {
+  return nvgCreateGLES2(flags);
+}
+
+}  // namespace nanovg
+}  // namespace solas

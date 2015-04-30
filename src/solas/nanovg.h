@@ -32,7 +32,7 @@
 #include "solas/nanovg/scope.h"
 
 #if TARGET_OS_IPHONE
-#include "solas/nanovg/gles3.h"
+#include "solas/nanovg/gles2.h"
 #elif TARGET_OS_MAC
 #include "solas/nanovg/gl2.h"
 #endif
