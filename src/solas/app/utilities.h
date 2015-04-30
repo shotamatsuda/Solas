@@ -4,7 +4,6 @@
 //  takram design engineering Confidential
 //
 //  Copyright (C) 2015 Shota Matsuda
-//  Copyright (C) 2015 takram design engineering
 //
 //  All information contained herein is, and remains the property of takram
 //  design engineering and its suppliers, if any. The intellectual and
