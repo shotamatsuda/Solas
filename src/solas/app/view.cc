@@ -60,24 +60,31 @@ void View::handleMouseEvent(const MouseEvent& event) {
   switch (event.type()) {
     case MouseEvent::Type::DOWN:
       mousePressed(event);
+      mousePressed();
       break;
     case MouseEvent::Type::DRAG:
       mouseDragged(event);
+      mouseDragged();
       break;
     case MouseEvent::Type::UP:
       mouseReleased(event);
+      mouseReleased();
       break;
     case MouseEvent::Type::MOVE:
       mouseMoved(event);
+      mouseMoved();
       break;
     case MouseEvent::Type::ENTER:
       mouseEntered(event);
+      mouseEntered();
       break;
     case MouseEvent::Type::EXIT:
       mouseExited(event);
+      mouseExited();
       break;
     case MouseEvent::Type::WHEEL:
       mouseWheel(event);
+      mouseWheel();
       break;
     default:
       break;  // Ignore unknown types of event
@@ -88,9 +95,11 @@ void View::handleKeyEvent(const KeyEvent& event) {
   switch (event.type) {
     case KeyEvent::Type::DOWN:
       keyPressed(event);
+      keyPressed();
       break;
     case KeyEvent::Type::UP:
       keyReleased(event);
+      keyReleased();
       break;
     default:
       break;  // Ignore unknown types of event
@@ -120,15 +129,19 @@ void View::handleTouchEvent(const TouchEvent& event) {
   switch (event.type()) {
     case TouchEvent::Type::BEGIN:
       touchesBegan(event);
+      touchesBegan();
       break;
     case TouchEvent::Type::MOVE:
       touchesMoved(event);
+      touchesMoved();
       break;
     case TouchEvent::Type::CANCEL:
       touchesCancelled(event);
+      touchesCancelled();
       break;
     case TouchEvent::Type::END:
       touchesEnded(event);
+      touchesEnded();
       break;
     default:
       break;  // Ignore unknown types of event
@@ -139,15 +152,19 @@ void View::handleGestureEvent(const GestureEvent& event) {
   switch (event.type()) {
     case GestureEvent::Type::BEGIN:
       gestureBegan(event);
+      gestureBegan();
       break;
     case GestureEvent::Type::CHANGE:
       gestureChanged(event);
+      gestureChanged();
       break;
     case GestureEvent::Type::CANCEL:
       gestureCancelled(event);
+      gestureCancelled();
       break;
     case GestureEvent::Type::END:
       gestureEnded(event);
+      gestureEnded();
       break;
     default:
       break;  // Ignore unknown types of event
@@ -158,12 +175,15 @@ void View::handleMotionEvent(const MotionEvent& event) {
   switch (event.type()) {
     case MotionEvent::Type::BEGIN:
       motionBegan(event);
+      motionBegan();
       break;
     case MotionEvent::Type::CANCEL:
       motionCancelled(event);
+      motionCancelled();
       break;
     case MotionEvent::Type::END:
       motionEnded(event);
+      motionEnded();
       break;
     default:
       break;  // Ignore unknown types of event

@@ -29,3 +29,17 @@
 #else
 #define SLS_EXTERN extern __attribute__((visibility ("default")))
 #endif
+
+#define SLS_DEFINE_REFERENCE_MAKE_CAST(name, T)                                \
+    inline name##Ref name##Make(T *ptr) {                                      \
+      return reinterpret_cast<name##Ref>(ptr);                                 \
+    }                                                                          \
+    inline name##ConstRef name##Make(const T *ptr) {                           \
+      return reinterpret_cast<name##ConstRef>(ptr);                            \
+    }                                                                          \
+    inline T * name##Cast(name##Ref ref) {                                     \
+      return reinterpret_cast<T *>(ref);                                       \
+    }                                                                          \
+    inline const T * name##Cast(name##ConstRef ref) {                          \
+      return reinterpret_cast<const T *>(ref);                                 \
+    }

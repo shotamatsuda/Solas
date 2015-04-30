@@ -96,29 +96,27 @@ class View : public app::Runnable, public Layer {
   void post() override {}
   void exit() override {}
 
-  // Events
-  virtual void mousePressed(const MouseEvent& event);
-  virtual void mouseDragged(const MouseEvent& event);
-  virtual void mouseReleased(const MouseEvent& event);
-  virtual void mouseMoved(const MouseEvent& event);
-  virtual void mouseEntered(const MouseEvent& event);
-  virtual void mouseExited(const MouseEvent& event);
-  virtual void mouseWheel(const MouseEvent& event);
-  virtual void keyPressed(const KeyEvent& event);
-  virtual void keyReleased(const KeyEvent& event);
-  virtual void touchesBegan(const TouchEvent& event);
-  virtual void touchesMoved(const TouchEvent& event);
-  virtual void touchesCancelled(const TouchEvent& event);
-  virtual void touchesEnded(const TouchEvent& event);
-  virtual void gestureBegan(const GestureEvent& event);
-  virtual void gestureChanged(const GestureEvent& event);
-  virtual void gestureCancelled(const GestureEvent& event);
-  virtual void gestureEnded(const GestureEvent& event);
-  virtual void motionBegan(const MotionEvent& event);
-  virtual void motionCancelled(const MotionEvent& event);
-  virtual void motionEnded(const MotionEvent& event);
-
-  // Events intended to be overriden
+// Events intended to be overriden
+  virtual void mousePressed(const MouseEvent& event) {}
+  virtual void mouseDragged(const MouseEvent& event) {}
+  virtual void mouseReleased(const MouseEvent& event) {}
+  virtual void mouseMoved(const MouseEvent& event) {}
+  virtual void mouseEntered(const MouseEvent& event) {}
+  virtual void mouseExited(const MouseEvent& event) {}
+  virtual void mouseWheel(const MouseEvent& event) {}
+  virtual void keyPressed(const KeyEvent& event) {}
+  virtual void keyReleased(const KeyEvent& event) {}
+  virtual void touchesBegan(const TouchEvent& event) {}
+  virtual void touchesMoved(const TouchEvent& event) {}
+  virtual void touchesCancelled(const TouchEvent& event) {}
+  virtual void touchesEnded(const TouchEvent& event) {}
+  virtual void gestureBegan(const GestureEvent& event) {}
+  virtual void gestureChanged(const GestureEvent& event) {}
+  virtual void gestureCancelled(const GestureEvent& event) {}
+  virtual void gestureEnded(const GestureEvent& event) {}
+  virtual void motionBegan(const MotionEvent& event) {}
+  virtual void motionCancelled(const MotionEvent& event) {}
+  virtual void motionEnded(const MotionEvent& event) {}
   virtual void mousePressed() {}
   virtual void mouseDragged() {}
   virtual void mouseReleased() {}
@@ -144,8 +142,8 @@ class View : public app::Runnable, public Layer {
   // Event handlers
   template <typename Event>
   void enqueueEvent(const Event& event);
-  void dequeueEvent(const Event& event);
   void dequeueEvents();
+  void handleEvent(const Event& event);
   void handleMouseEvent(const MouseEvent& event);
   void handleKeyEvent(const KeyEvent& event);
   void handleTouchEvent(const TouchEvent& event);
@@ -293,88 +291,6 @@ inline const tween::TimelineHost * View::timeline_host() const {
   return &timeline_host_;
 }
 
-#pragma mark Events
-
-inline void View::mousePressed(const MouseEvent& event) {
-  mousePressed();
-}
-
-inline void View::mouseDragged(const MouseEvent& event) {
-  mouseDragged();
-}
-
-inline void View::mouseReleased(const MouseEvent& event) {
-  mouseReleased();
-}
-
-inline void View::mouseMoved(const MouseEvent& event) {
-  mouseMoved();
-}
-
-inline void View::mouseEntered(const MouseEvent& event) {
-  mouseEntered();
-}
-
-inline void View::mouseExited(const MouseEvent& event) {
-  mouseExited();
-}
-
-inline void View::mouseWheel(const MouseEvent& event) {
-  mouseWheel();
-}
-
-inline void View::keyPressed(const KeyEvent& event) {
-  keyPressed();
-}
-
-inline void View::keyReleased(const KeyEvent& event) {
-  keyReleased();
-}
-
-inline void View::touchesBegan(const TouchEvent& event) {
-  touchesBegan();
-}
-
-inline void View::touchesMoved(const TouchEvent& event) {
-  touchesMoved();
-}
-
-inline void View::touchesCancelled(const TouchEvent& event) {
-  touchesCancelled();
-}
-
-inline void View::touchesEnded(const TouchEvent& event) {
-  touchesEnded();
-}
-
-inline void View::gestureBegan(const GestureEvent& event) {
-  gestureBegan();
-}
-
-inline void View::gestureChanged(const GestureEvent& event) {
-  gestureChanged();
-}
-
-inline void View::gestureCancelled(const GestureEvent& event) {
-  gestureCancelled();
-}
-
-inline void View::gestureEnded(const GestureEvent& event) {
-  gestureEnded();
-}
-
-inline void View::motionBegan(const MotionEvent& event) {
-  motionBegan();
-}
-
-inline void View::motionCancelled(const MotionEvent& event) {
-  motionCancelled();
-}
-
-inline void View::motionEnded(const MotionEvent& event) {
-  motionEnded();
-}
-
 #pragma mark Event handlers
 
 template <typename Event>
@@ -382,7 +298,14 @@ inline void View::enqueueEvent(const Event& event) {
   event_queue_.emplace_back(event);
 }
 
-inline void View::dequeueEvent(const Event& event) {
+inline void View::dequeueEvents() {
+  for (const auto& event : event_queue_) {
+    handleEvent(event);
+  }
+  event_queue_.clear();
+}
+
+inline void View::handleEvent(const Event& event) {
   switch (event.type()) {
     case Event::Type::MOUSE:
       handleMouseEvent(event.mouse());
@@ -403,13 +326,6 @@ inline void View::dequeueEvent(const Event& event) {
       assert(false);
       break;
   }
-}
-
-inline void View::dequeueEvents() {
-  for (const auto& event : event_queue_) {
-    dequeueEvent(event);
-  }
-  event_queue_.clear();
 }
 
 #pragma mark Lifecycle overridden from Runnable

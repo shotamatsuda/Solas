@@ -1,5 +1,5 @@
 //
-//  SLSDisplayLink.mm
+//  SLSCVDisplayLink.mm
 //
 //  MIT License
 //

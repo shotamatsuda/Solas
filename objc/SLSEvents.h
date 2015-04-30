@@ -35,6 +35,8 @@
 
 #endif  // __cplusplus
 
+#import "SLSDefines.h"
+
 typedef struct SLSAppEvent * SLSAppEventRef;
 typedef struct SLSMouseEvent * SLSMouseEventRef;
 typedef struct SLSKeyEvent * SLSKeyEventRef;
@@ -51,112 +53,11 @@ typedef const struct SLSMotionEvent * SLSMotionEventConstRef;
 
 #ifdef __cplusplus
 
-inline SLSAppEventRef SLSAppEventMake(solas::app::AppEvent *ptr) {
-  return reinterpret_cast<SLSAppEventRef>(ptr);
-}
-
-inline SLSMouseEventRef SLSMouseEventMake(solas::app::MouseEvent *ptr) {
-  return reinterpret_cast<SLSMouseEventRef>(ptr);
-}
-
-inline SLSKeyEventRef SLSKeyEventMake(solas::app::KeyEvent *ptr) {
-  return reinterpret_cast<SLSKeyEventRef>(ptr);
-}
-
-inline SLSTouchEventRef SLSTouchEventMake(solas::app::TouchEvent *ptr) {
-  return reinterpret_cast<SLSTouchEventRef>(ptr);
-}
-
-inline SLSGestureEventRef SLSGestureEventMake(solas::app::GestureEvent *ptr) {
-  return reinterpret_cast<SLSGestureEventRef>(ptr);
-}
-
-inline SLSMotionEventRef SLSMotionEventMake(solas::app::MotionEvent *ptr) {
-  return reinterpret_cast<SLSMotionEventRef>(ptr);
-}
-
-inline solas::app::AppEvent * SLSAppEventCast(SLSAppEventRef ref) {
-  return reinterpret_cast<solas::app::AppEvent *>(ref);
-}
-
-inline solas::app::MouseEvent * SLSMouseEventCast(SLSMouseEventRef ref) {
-  return reinterpret_cast<solas::app::MouseEvent *>(ref);
-}
-
-inline solas::app::KeyEvent * SLSKeyEventCast(SLSKeyEventRef ref) {
-  return reinterpret_cast<solas::app::KeyEvent *>(ref);
-}
-
-inline solas::app::TouchEvent * SLSTouchEventCast(SLSTouchEventRef ref) {
-  return reinterpret_cast<solas::app::TouchEvent *>(ref);
-}
-
-inline solas::app::GestureEvent * SLSGestureEventCast(SLSGestureEventRef ref) {
-  return reinterpret_cast<solas::app::GestureEvent *>(ref);
-}
-
-inline solas::app::MotionEvent * SLSMotionEventCast(SLSMotionEventRef ref) {
-  return reinterpret_cast<solas::app::MotionEvent *>(ref);
-}
-
-inline SLSAppEventConstRef SLSAppEventMake(
-    const solas::app::AppEvent *ptr) {
-  return reinterpret_cast<SLSAppEventConstRef>(ptr);
-}
-
-inline SLSMouseEventConstRef SLSMouseEventMake(
-    const solas::app::MouseEvent *ptr) {
-  return reinterpret_cast<SLSMouseEventConstRef>(ptr);
-}
-
-inline SLSKeyEventConstRef SLSKeyEventMake(
-    const solas::app::KeyEvent *ptr) {
-  return reinterpret_cast<SLSKeyEventConstRef>(ptr);
-}
-
-inline SLSTouchEventConstRef SLSTouchEventMake(
-    const solas::app::TouchEvent *ptr) {
-  return reinterpret_cast<SLSTouchEventConstRef>(ptr);
-}
-
-inline SLSGestureEventConstRef SLSGestureEventMake(
-    const solas::app::GestureEvent *ptr) {
-  return reinterpret_cast<SLSGestureEventConstRef>(ptr);
-}
-
-inline SLSMotionEventConstRef SLSMotionEventMake(
-    const solas::app::MotionEvent *ptr) {
-  return reinterpret_cast<SLSMotionEventConstRef>(ptr);
-}
-
-inline const solas::app::AppEvent * SLSAppEventCast(
-    SLSAppEventConstRef ref) {
-  return reinterpret_cast<const solas::app::AppEvent *>(ref);
-}
-
-inline const solas::app::MouseEvent * SLSMouseEventCast(
-    SLSMouseEventConstRef ref) {
-  return reinterpret_cast<const solas::app::MouseEvent *>(ref);
-}
-
-inline const solas::app::KeyEvent * SLSKeyEventCast
-    (SLSKeyEventConstRef ref) {
-  return reinterpret_cast<const solas::app::KeyEvent *>(ref);
-}
-
-inline const solas::app::TouchEvent * SLSTouchEventCast(
-    SLSTouchEventConstRef ref) {
-  return reinterpret_cast<const solas::app::TouchEvent *>(ref);
-}
-
-inline const solas::app::GestureEvent * SLSGestureEventCast(
-    SLSGestureEventConstRef ref) {
-  return reinterpret_cast<const solas::app::GestureEvent *>(ref);
-}
-
-inline const solas::app::MotionEvent * SLSMotionEventCast(
-    SLSMotionEventConstRef ref) {
-  return reinterpret_cast<const solas::app::MotionEvent *>(ref);
-}
+SLS_DEFINE_REFERENCE_MAKE_CAST(SLSAppEvent, solas::app::AppEvent)
+SLS_DEFINE_REFERENCE_MAKE_CAST(SLSMouseEvent, solas::app::MouseEvent)
+SLS_DEFINE_REFERENCE_MAKE_CAST(SLSKeyEvent, solas::app::KeyEvent)
+SLS_DEFINE_REFERENCE_MAKE_CAST(SLSTouchEvent, solas::app::TouchEvent)
+SLS_DEFINE_REFERENCE_MAKE_CAST(SLSGestureEvent, solas::app::GestureEvent)
+SLS_DEFINE_REFERENCE_MAKE_CAST(SLSMotionEvent, solas::app::MotionEvent)
 
 #endif  // __cplusplus
