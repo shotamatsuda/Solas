@@ -1,5 +1,5 @@
 //
-//  SLSUIGLES2View.h
+//  SLSNSQuartzView.m
 //
 //  MIT License
 //
@@ -24,10 +24,14 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "SLSNSQuartzView.h"
 
-#import "SLSUIGLESView.h"
+#import "SLSQuartzLayer.h"
 
-@interface SLSUIGLES2View : SLSUIGLESView
+@implementation SLSNSQuartzView
+
+- (CALayer *)makeBackingLayer {
+  return [SLSQuartzLayer layer];
+}
 
 @end

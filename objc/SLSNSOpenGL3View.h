@@ -1,5 +1,5 @@
 //
-//  SLSNSCGView.m
+//  SLSNSOpenGL3View.h
 //
 //  MIT License
 //
@@ -24,14 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSNSCGView.h"
+#import <AppKit/AppKit.h>
 
-#import "SLSCGLayer.h"
+#import "SLSNSOpenGLView.h"
 
-@implementation SLSNSCGView
-
-- (CALayer *)makeBackingLayer {
-  return [SLSCGLayer layer];
-}
+@interface SLSNSOpenGL3View : SLSNSOpenGLView
 
 @end

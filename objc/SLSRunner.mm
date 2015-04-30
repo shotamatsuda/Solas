@@ -82,7 +82,7 @@
   if (static_cast<Underlying>(_runner->backend() & Backend::OPENGLES3)) {
     backend |= kSLSRunnerBackendOpenGLES3;
   }
-  if (static_cast<Underlying>(_runner->backend() & Backend::COREGRAPHICS)) {
+  if (static_cast<Underlying>(_runner->backend() & Backend::QUARTZ)) {
     backend |= kSLSRunnerBackendCoreGraphics;
   }
   return (SLSRunnerBackend)backend;

@@ -102,32 +102,32 @@ inline Runnable::~Runnable() {}
 #pragma mark Lifecycle
 
 inline void Runnable::setup(const AppEvent& event) {
-  context_ = event.context;
+  context_ = event.context();
   setup();
 }
 
 inline void Runnable::update(const AppEvent& event) {
-  context_ = event.context;
+  context_ = event.context();
   update();
 }
 
 inline void Runnable::pre(const AppEvent& event) {
-  context_ = event.context;
+  context_ = event.context();
   pre();
 }
 
 inline void Runnable::draw(const AppEvent& event) {
-  context_ = event.context;
+  context_ = event.context();
   draw();
 }
 
 inline void Runnable::post(const AppEvent& event) {
-  context_ = event.context;
+  context_ = event.context();
   post();
 }
 
 inline void Runnable::exit(const AppEvent& event) {
-  context_ = event.context;
+  context_ = event.context();
   exit();
 }
 

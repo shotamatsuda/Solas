@@ -1,5 +1,5 @@
 //
-//  SLSUIGLESView.h
+//  SLSNSOpenGL4View.h
 //
 //  MIT License
 //
@@ -24,22 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <GLKit/GLKit.h>
-#import <UIKit/UIKit.h>
+#import <AppKit/AppKit.h>
 
-#import "SLSDisplaySource.h"
-#import "SLSUIEventSourceView.h"
+#import "SLSNSOpenGLView.h"
 
-@interface SLSUIGLESView : SLSUIEventSourceView <SLSDisplaySource>
-
-@property (nonatomic, readonly) EAGLRenderingAPI API;
-
-#pragma mark Invalidating the Display Source
-
-- (void)setDisplaySourceNeedsDisplay;
-
-#pragma mark Managing the Delegate
-
-@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
+@interface SLSNSOpenGL4View : SLSNSOpenGLView
 
 @end

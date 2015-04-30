@@ -48,17 +48,21 @@ class AppEvent final {
   // Disallow assign
   AppEvent& operator=(const AppEvent& other) = delete;
 
- public:
-  const ContextHolder context;
-  const math::Size2d size;
+  // Parameters
+  const ContextHolder& context() const { return context_; }
+  const math::Size2d& size() const { return size_; }
+
+ private:
+  ContextHolder context_;
+  math::Size2d size_;
 };
 
 #pragma mark -
 
 template <typename Context>
 inline AppEvent::AppEvent(const Context& context, const math::Size2d& size)
-    : context(context),
-      size(size) {}
+    : context_(context),
+      size_(size) {}
 
 }  // namespace app
 }  // namespace solas

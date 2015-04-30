@@ -1,5 +1,5 @@
 //
-//  SLSNSGLLayer.h
+//  SLSQuartzLayer.mm
 //
 //  MIT License
 //
@@ -24,22 +24,40 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <AppKit/AppKit.h>
+#import "SLSQuartzLayer.h"
 
-#import "SLSDisplayDelegate.h"
-#import "SLSDisplaySource.h"
+#include "solas/app/app_event.h"
+#include "solas/math/size.h"
 
-@interface SLSNSGLLayer : NSOpenGLLayer <SLSDisplaySource>
+@implementation SLSQuartzLayer
 
-- (instancetype)initWithAPI:(NSOpenGLPixelFormatAttribute)API
-    NS_DESIGNATED_INITIALIZER;
+- (instancetype)init {
+  self = [super init];
+  if (self) {
+    self.needsDisplayOnBoundsChange = YES;
+    self.drawsAsynchronously = YES;
+    self.actions = @{ @"contents" : [NSNull null] };
+  }
+  return self;
+}
+
+- (void)drawInContext:(CGContextRef)context {
+  const solas::app::AppEvent event(context, solas::math::Size2d(
+      self.bounds.size.width, self.bounds.size.height));
+  if ([_displayDelegate respondsToSelector:@selector(sender:update:)]) {
+    [_displayDelegate sender:self update:SLSAppEventMake(&event)];
+  }
+  if ([_displayDelegate respondsToSelector:@selector(sender:draw:)]) {
+    [_displayDelegate sender:self draw:SLSAppEventMake(&event)];
+  }
+}
 
 #pragma mark Invalidating the Display Source
 
-- (void)setDisplaySourceNeedsDisplay;
-
-#pragma mark Managing the Delegate
-
-@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
+- (void)setDisplaySourceNeedsDisplay {
+  [self performSelectorOnMainThread:@selector(setNeedsDisplay)
+                         withObject:nil
+                      waitUntilDone:YES];
+}
 
 @end

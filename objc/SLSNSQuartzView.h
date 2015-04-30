@@ -1,5 +1,5 @@
 //
-//  SLSUIGLES2View.m
+//  SLSNSQuartzView.h
 //
 //  MIT License
 //
@@ -24,14 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSUIGLES2View.h"
+#import <AppKit/AppKit.h>
 
-#import <GLKit/GLKit.h>
+#import "SLSNSView.h"
 
-@implementation SLSUIGLES2View
-
-- (EAGLRenderingAPI)API {
-  return kEAGLRenderingAPIOpenGLES2;
-}
+@interface SLSNSQuartzView : SLSNSView
 
 @end

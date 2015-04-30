@@ -28,6 +28,8 @@
 #ifndef SOLAS_APP_TOUCH_EVENT_H_
 #define SOLAS_APP_TOUCH_EVENT_H_
 
+#include <vector>
+
 #include "solas/math/vector.h"
 
 namespace solas {

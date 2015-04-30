@@ -1,5 +1,5 @@
 //
-//  SLSUICGView.m
+//  SLSUIOpenGLES2View.m
 //
 //  MIT License
 //
@@ -24,14 +24,14 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSUICGView.h"
+#import "SLSUIOpenGLES2View.h"
 
-#import "SLSCGLayer.h"
+#import <GLKit/GLKit.h>
 
-@implementation SLSUICGView
+@implementation SLSUIOpenGLES2View
 
-+ (Class)layerClass {
-  return [SLSCGLayer class];
+- (EAGLRenderingAPI)API {
+  return kEAGLRenderingAPIOpenGLES2;
 }
 
 @end

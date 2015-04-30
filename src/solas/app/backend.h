@@ -41,7 +41,7 @@ enum class Backend : int {
   OPENGLES1 = 1 << 3,
   OPENGLES2 = 1 << 4,
   OPENGLES3 = 1 << 5,
-  COREGRAPHICS = 1 << 6
+  QUARTZ = 1 << 6
 };
 
 SOLAS_ENUM_BITWISE_OPERATORS(Backend);

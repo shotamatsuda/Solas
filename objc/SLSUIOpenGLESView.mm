@@ -1,5 +1,5 @@
 //
-//  SLSUIGLESView.mm
+//  SLSUIOpenGLESView.mm
 //
 //  MIT License
 //
@@ -24,27 +24,27 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSUIGLESView.h"
+#import "SLSUIOpenGLESView.h"
 
 #import <GLKit/GLKit.h>
 
-@interface SLSUIGLESView () <GLKViewDelegate, GLKViewControllerDelegate>
+@interface SLSUIOpenGLESView () <GLKViewDelegate, GLKViewControllerDelegate>
 
 #pragma mark Initialization
 
 @property (nonatomic, strong) GLKView *view;
 @property (nonatomic, strong) GLKViewController *viewController;
 
-- (void)setUpSLSUIGLESView;
+- (void)setUpSLSUIOpenGLESView;
 
 @end
 
-@implementation SLSUIGLESView
+@implementation SLSUIOpenGLESView
 
 - (instancetype)initWithFrame:(CGRect)frame {
   self = [super initWithFrame:frame];
   if (self) {
-    [self setUpSLSUIGLESView];
+    [self setUpSLSUIOpenGLESView];
   }
   return self;
 }
@@ -52,7 +52,7 @@
 - (instancetype)initWithCoder:(NSCoder *)decoder {
   self = [super initWithCoder:decoder];
   if (self) {
-    [self setUpSLSUIGLESView];
+    [self setUpSLSUIOpenGLESView];
   }
   return self;
 }
@@ -63,7 +63,7 @@
 
 #pragma mark Initialization
 
-- (void)setUpSLSUIGLESView {
+- (void)setUpSLSUIOpenGLESView {
   _view = [[GLKView alloc] initWithFrame:self.bounds];
   _view.context = [[EAGLContext alloc] initWithAPI:self.API];
   _view.drawableColorFormat = GLKViewDrawableColorFormatRGBA8888;

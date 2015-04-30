@@ -1,5 +1,5 @@
 //
-//  SLSNSGL3View.m
+//  SLSUIOpenGLESView.h
 //
 //  MIT License
 //
@@ -24,12 +24,22 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSNSGL3View.h"
+#import <GLKit/GLKit.h>
+#import <UIKit/UIKit.h>
 
-@implementation SLSNSGL3View
+#import "SLSDisplaySource.h"
+#import "SLSUIEventSourceView.h"
 
-- (NSOpenGLPixelFormatAttribute)API {
-  return NSOpenGLProfileVersion3_2Core;
-}
+@interface SLSUIOpenGLESView : SLSUIEventSourceView <SLSDisplaySource>
+
+@property (nonatomic, readonly) EAGLRenderingAPI API;
+
+#pragma mark Invalidating the Display Source
+
+- (void)setDisplaySourceNeedsDisplay;
+
+#pragma mark Managing the Delegate
+
+@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
 
 @end

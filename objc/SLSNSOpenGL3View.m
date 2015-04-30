@@ -1,5 +1,5 @@
 //
-//  SLSUIGLES3View.h
+//  SLSNSOpenGL3View.m
 //
 //  MIT License
 //
@@ -24,10 +24,12 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "SLSNSOpenGL3View.h"
 
-#import "SLSUIGLESView.h"
+@implementation SLSNSOpenGL3View
 
-@interface SLSUIGLES3View : SLSUIGLESView
+- (NSOpenGLPixelFormatAttribute)API {
+  return NSOpenGLProfileVersion3_2Core;
+}
 
 @end

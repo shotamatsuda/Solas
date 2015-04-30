@@ -1,5 +1,5 @@
 //
-//  SLSUIGLES3View.m
+//  SLSUIOpenGLES3View.m
 //
 //  MIT License
 //
@@ -24,11 +24,11 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSUIGLES3View.h"
+#import "SLSUIOpenGLES3View.h"
 
 #import <GLKit/GLKit.h>
 
-@implementation SLSUIGLES3View
+@implementation SLSUIOpenGLES3View
 
 - (EAGLRenderingAPI)API {
   return kEAGLRenderingAPIOpenGLES3;

@@ -383,7 +383,7 @@ inline void View::enqueueEvent(const Event& event) {
 }
 
 inline void View::dequeueEvent(const Event& event) {
-  switch (event.type) {
+  switch (event.type()) {
     case Event::Type::MOUSE:
       handleMouseEvent(event.mouse());
       break;
@@ -415,8 +415,8 @@ inline void View::dequeueEvents() {
 #pragma mark Lifecycle overridden from Runnable
 
 inline void View::setup(const AppEvent& event) {
-  width_ = event.size.width;
-  height_ = event.size.height;
+  width_ = event.size().width;
+  height_ = event.size().height;
   Runnable::setup(event);
 }
 
@@ -431,8 +431,8 @@ inline void View::pre(const AppEvent& event) {
 }
 
 inline void View::draw(const AppEvent& event) {
-  width_ = event.size.width;
-  height_ = event.size.height;
+  width_ = event.size().width;
+  height_ = event.size().height;
   pmouse_ = dmouse_;
   ptouch_ = dtouch_;
   Runnable::draw(event);

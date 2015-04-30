@@ -28,9 +28,9 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-#import "SLSCGLayer.h"
 #import "SLSDisplayDelegate.h"
 #import "SLSDisplaySource.h"
+#import "SLSQuartzLayer.h"
 
 @interface SLSUIView ()
 

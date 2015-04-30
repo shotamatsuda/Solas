@@ -29,10 +29,10 @@
 #import "SLSEventSource.h"
 #import "SLSDisplayLink.h"
 #import "SLSDisplaySource.h"
-#import "SLSNSCGView.h"
-#import "SLSNSGLView.h"
-#import "SLSNSGL3View.h"
-#import "SLSNSGL4View.h"
+#import "SLSNSOpenGLView.h"
+#import "SLSNSOpenGL3View.h"
+#import "SLSNSOpenGL4View.h"
+#import "SLSNSQuartzView.h"
 #import "SLSRunner.h"
 
 @interface SLSNSViewController ()
@@ -75,13 +75,13 @@
 - (void)setUpContentView {
   Class viewClass = nil;
   if (_runner.backend & kSLSRunnerBackendOpenGL2) {
-    viewClass = [SLSNSGLView class];
+    viewClass = [SLSNSOpenGLView class];
   } else if (_runner.backend & kSLSRunnerBackendOpenGL3) {
-    viewClass = [SLSNSGL3View class];
+    viewClass = [SLSNSOpenGL3View class];
   } else if (_runner.backend & kSLSRunnerBackendOpenGL4) {
-    viewClass = [SLSNSGL4View class];
+    viewClass = [SLSNSOpenGL4View class];
   } else if (_runner.backend & kSLSRunnerBackendCoreGraphics) {
-    viewClass = [SLSNSCGView class];
+    viewClass = [SLSNSQuartzView class];
   }
   _contentView = [[viewClass alloc] initWithFrame:self.view.bounds];
   _contentView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;

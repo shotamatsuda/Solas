@@ -1,5 +1,5 @@
 //
-//  SLSUICGView.h
+//  SLSNSOpenGLView.h
 //
 //  MIT License
 //
@@ -24,10 +24,12 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import <AppKit/AppKit.h>
 
-#import "SLSUIView.h"
+#import "SLSNSView.h"
 
-@interface SLSUICGView : SLSUIView
+@interface SLSNSOpenGLView : SLSNSView
+
+@property (nonatomic, readonly) NSOpenGLPixelFormatAttribute API;
 
 @end

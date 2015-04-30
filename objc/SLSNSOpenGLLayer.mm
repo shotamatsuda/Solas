@@ -1,5 +1,5 @@
 //
-//  SLSNSGLLayer.mm
+//  SLSNSOpenGLLayer.mm
 //
 //  MIT License
 //
@@ -24,18 +24,18 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSNSGLLayer.h"
+#import "SLSNSOpenGLLayer.h"
 
 #include "solas/app/app_event.h"
 #include "solas/math/size.h"
 
-@interface SLSNSGLLayer ()
+@interface SLSNSOpenGLLayer ()
 
 @property (nonatomic, assign) NSOpenGLPixelFormatAttribute API;
 
 @end
 
-@implementation SLSNSGLLayer
+@implementation SLSNSOpenGLLayer
 
 - (instancetype)init {
   return [self initWithAPI:NSOpenGLProfileVersionLegacy];

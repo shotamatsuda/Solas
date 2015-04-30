@@ -30,6 +30,8 @@
 
 #include <cassert>
 
+#include <boost/any.hpp>
+
 #include "solas/app/gesture_event.h"
 #include "solas/app/key_event.h"
 #include "solas/app/motion_event.h"
@@ -65,6 +67,9 @@ class Event final {
   // Disallow assign
   Event& operator=(const Event& other) = delete;
 
+  // Parameters
+  Type type() const { return type_; }
+
   // Accessing the event
   const MouseEvent& mouse() const;
   const KeyEvent& key() const;
@@ -72,64 +77,58 @@ class Event final {
   const GestureEvent& gesture() const;
   const MotionEvent& motion() const;
 
- public:
-  const Type type;
-
  private:
-  MouseEvent mouse_;
-  KeyEvent key_;
-  TouchEvent touch_;
-  GestureEvent gesture_;
-  MotionEvent motion_;
+  Type type_;
+  boost::any event_;
 };
 
 #pragma mark -
 
 inline Event::Event(const MouseEvent& event)
-    : type(Type::MOUSE),
-      mouse_(event) {}
+    : type_(Type::MOUSE),
+      event_(event) {}
 
 inline Event::Event(const KeyEvent& event)
-    : type(Type::KEY),
-      key_(event) {}
+    : type_(Type::KEY),
+      event_(event) {}
 
 inline Event::Event(const TouchEvent& event)
-    : type(Type::TOUCH),
-      touch_(event) {}
+    : type_(Type::TOUCH),
+      event_(event) {}
 
 inline Event::Event(const GestureEvent& event)
-    : type(Type::GESTURE),
-      gesture_(event) {}
+    : type_(Type::GESTURE),
+      event_(event) {}
 
 inline Event::Event(const MotionEvent& event)
-    : type(Type::MOTION),
-      motion_(event) {}
+    : type_(Type::MOTION),
+      event_(event) {}
 
 #pragma mark Accessing the event
 
 inline const MouseEvent& Event::mouse() const {
-  assert(type == Type::MOUSE);
-  return mouse_;
+  assert(type_ == Type::MOUSE);
+  return *boost::any_cast<MouseEvent>(&event_);
 }
 
 inline const KeyEvent& Event::key() const {
-  assert(type == Type::KEY);
-  return key_;
+  assert(type_ == Type::KEY);
+  return *boost::any_cast<KeyEvent>(&event_);
 }
 
 inline const TouchEvent& Event::touch() const {
-  assert(type == Type::TOUCH);
-  return touch_;
+  assert(type_ == Type::TOUCH);
+  return *boost::any_cast<TouchEvent>(&event_);
 }
 
 inline const GestureEvent& Event::gesture() const {
-  assert(type == Type::GESTURE);
-  return gesture_;
+  assert(type_ == Type::GESTURE);
+  return *boost::any_cast<GestureEvent>(&event_);
 }
 
 inline const MotionEvent& Event::motion() const {
-  assert(type == Type::MOTION);
-  return motion_;
+  assert(type_ == Type::MOTION);
+  return *boost::any_cast<MotionEvent>(&event_);
 }
 
 }  // namespace app

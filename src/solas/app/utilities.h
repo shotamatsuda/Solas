@@ -59,14 +59,16 @@ class Utilities {
   static double lerp(double start, double stop, double amount);
   static double norm(double amount, double start, double stop);
   static double constrain(double value, double min, double max);
-  static double map(double value, double min1, double max1, double min2, double max2);
+  static double map(double value, double min1, double max1,
+                    double min2, double max2);
   static double mag(double a, double b);
   static double mag(double a, double b, double c);
   static double mag(double a, double b, double c, double d);
   static double mag(const math::Vec2<double>& v);
   static double mag(const math::Vec3<double>& v);
   static double dist(double x1, double y1, double x2, double y2);
-  static double dist(double x1, double y1, double z1, double x2, double y2, double z2);
+  static double dist(double x1, double y1, double z1,
+                     double x2, double y2, double z2);
   static double dist(const math::Vec2<double>& a, const math::Vec2<double>& b);
   static double dist(const math::Vec3<double>& a, const math::Vec3<double>& b);
   static double min(std::initializer_list<double> list);

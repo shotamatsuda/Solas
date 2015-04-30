@@ -1,5 +1,5 @@
 //
-//  SLSCGLayer.h
+//  SLSNSOpenGLView.m
 //
 //  MIT License
 //
@@ -24,20 +24,34 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-#import <QuartzCore/QuartzCore.h>
+#import "SLSNSOpenGLView.h"
 
-#import "SLSDisplayDelegate.h"
-#import "SLSDisplaySource.h"
+#import "SLSNSOpenGLLayer.h"
 
-@interface SLSCGLayer : CALayer <SLSDisplaySource>
+@implementation SLSNSOpenGLView
 
-#pragma mark Invalidating the Display Source
+- (instancetype)initWithFrame:(NSRect)frame {
+  self = [super initWithFrame:frame];
+  if (self) {
+    self.wantsBestResolutionOpenGLSurface = YES;
+  }
+  return self;
+}
 
-- (void)setDisplaySourceNeedsDisplay;
+- (instancetype)initWithCoder:(NSCoder *)coder {
+  self = [super initWithCoder:coder];
+  if (self) {
+    self.wantsBestResolutionOpenGLSurface = YES;
+  }
+  return self;
+}
 
-#pragma mark Managing the Delegate
+- (CALayer *)makeBackingLayer {
+  return [[SLSNSOpenGLLayer alloc] initWithAPI:self.API];
+}
 
-@property (atomic, weak) id<SLSDisplayDelegate> displayDelegate;
+- (NSOpenGLPixelFormatAttribute)API {
+  return NSOpenGLProfileVersionLegacy;
+}
 
 @end

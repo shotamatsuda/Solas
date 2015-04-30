@@ -31,7 +31,7 @@
 namespace solas {
 namespace app {
 
-enum class MouseButton {
+enum class MouseButton : int {
   UNDEFINED = -1,
   ZERO = 0,
   ONE = 1,

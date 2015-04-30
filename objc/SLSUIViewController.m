@@ -30,10 +30,10 @@
 #import "SLSDisplayLink.h"
 #import "SLSDisplaySource.h"
 #import "SLSRunner.h"
-#import "SLSUICGView.h"
-#import "SLSUIGLESView.h"
-#import "SLSUIGLES2View.h"
-#import "SLSUIGLES3View.h"
+#import "SLSUIOpenGLESView.h"
+#import "SLSUIOpenGLES2View.h"
+#import "SLSUIOpenGLES3View.h"
+#import "SLSUIQuartzView.h"
 
 @interface SLSUIViewController ()
 
@@ -75,13 +75,13 @@
 - (void)setUpContentView {
   Class viewClass = nil;
   if (_runner.backend & kSLSRunnerBackendOpenGLES1) {
-    viewClass = [SLSUIGLESView class];
+    viewClass = [SLSUIOpenGLESView class];
   } else if (_runner.backend & kSLSRunnerBackendOpenGLES2) {
-    viewClass = [SLSUIGLES2View class];
+    viewClass = [SLSUIOpenGLES2View class];
   } else if (_runner.backend & kSLSRunnerBackendOpenGLES3) {
-    viewClass = [SLSUIGLES3View class];
+    viewClass = [SLSUIOpenGLES3View class];
   } else if (_runner.backend & kSLSRunnerBackendCoreGraphics) {
-    viewClass = [SLSUICGView class];
+    viewClass = [SLSUIQuartzView class];
   }
   _contentView = [[viewClass alloc] initWithFrame:self.view.bounds];
   _contentView.autoresizingMask =

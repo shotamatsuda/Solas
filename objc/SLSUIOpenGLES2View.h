@@ -1,5 +1,5 @@
 //
-//  SLSNSCGView.h
+//  SLSUIOpenGLES2View.h
 //
 //  MIT License
 //
@@ -24,10 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <AppKit/AppKit.h>
+#import <UIKit/UIKit.h>
 
-#import "SLSNSView.h"
+#import "SLSUIOpenGLESView.h"
 
-@interface SLSNSCGView : SLSNSView
+@interface SLSUIOpenGLES2View : SLSUIOpenGLESView
 
 @end

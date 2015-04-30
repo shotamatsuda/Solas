@@ -34,7 +34,7 @@
 namespace solas {
 namespace app {
 
-enum class ScreenEdge : int {
+enum class ScreenEdge {
   UNDEFINED = -1,
   TOP,
   LEFT,

@@ -1,5 +1,5 @@
 //
-//  SLSNSGL3View.h
+//  SLSUIQuartzView.m
 //
 //  MIT License
 //
@@ -24,10 +24,14 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <AppKit/AppKit.h>
+#import "SLSUIQuartzView.h"
 
-#import "SLSNSGLView.h"
+#import "SLSQuartzLayer.h"
 
-@interface SLSNSGL3View : SLSNSGLView
+@implementation SLSUIQuartzView
+
++ (Class)layerClass {
+  return [SLSQuartzLayer class];
+}
 
 @end

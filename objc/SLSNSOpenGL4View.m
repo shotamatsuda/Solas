@@ -1,5 +1,5 @@
 //
-//  SLSNSGL4View.m
+//  SLSNSOpenGL4View.m
 //
 //  MIT License
 //
@@ -24,9 +24,9 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSNSGL4View.h"
+#import "SLSNSOpenGL4View.h"
 
-@implementation SLSNSGL4View
+@implementation SLSNSOpenGL4View
 
 - (NSOpenGLPixelFormatAttribute)API {
   return NSOpenGLProfileVersion4_1Core;

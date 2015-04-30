@@ -1,5 +1,5 @@
 //
-//  SLSCGLayer.mm
+//  SLSUIQuartzView.h
 //
 //  MIT License
 //
@@ -24,40 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSCGLayer.h"
+#import <UIKit/UIKit.h>
 
-#include "solas/app/app_event.h"
-#include "solas/math/size.h"
+#import "SLSUIView.h"
 
-@implementation SLSCGLayer
-
-- (instancetype)init {
-  self = [super init];
-  if (self) {
-    self.needsDisplayOnBoundsChange = YES;
-    self.drawsAsynchronously = YES;
-    self.actions = @{ @"contents" : [NSNull null] };
-  }
-  return self;
-}
-
-- (void)drawInContext:(CGContextRef)context {
-  const solas::app::AppEvent event(context, solas::math::Size2d(
-      self.bounds.size.width, self.bounds.size.height));
-  if ([_displayDelegate respondsToSelector:@selector(sender:update:)]) {
-    [_displayDelegate sender:self update:SLSAppEventMake(&event)];
-  }
-  if ([_displayDelegate respondsToSelector:@selector(sender:draw:)]) {
-    [_displayDelegate sender:self draw:SLSAppEventMake(&event)];
-  }
-}
-
-#pragma mark Invalidating the Display Source
-
-- (void)setDisplaySourceNeedsDisplay {
-  [self performSelectorOnMainThread:@selector(setNeedsDisplay)
-                         withObject:nil
-                      waitUntilDone:YES];
-}
+@interface SLSUIQuartzView : SLSUIView
 
 @end
