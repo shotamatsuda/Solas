@@ -36,14 +36,14 @@ namespace app {
 #pragma mark Event handlers
 
 void View::handleMouseEvent(const MouseEvent& event) {
-  if (event.type == MouseEvent::Type::DOWN ||
-      event.type == MouseEvent::Type::DRAG ||
-      event.type == MouseEvent::Type::MOVE) {
+  if (event.type() == MouseEvent::Type::DOWN ||
+      event.type() == MouseEvent::Type::DRAG ||
+      event.type() == MouseEvent::Type::MOVE) {
     pmouse_ = emouse_;
-    mouse_ = event.location;
+    mouse_ = event.location();
   }
-  mouse_button_ = event.button;
-  switch (event.type) {
+  mouse_button_ = event.button();
+  switch (event.type()) {
     case MouseEvent::Type::DOWN:
       mouse_pressed_ = true;
       break;
@@ -53,11 +53,11 @@ void View::handleMouseEvent(const MouseEvent& event) {
     default:
       break;
   }
-  if (event.type == MouseEvent::Type::DRAG ||
-      event.type == MouseEvent::Type::MOVE) {
+  if (event.type() == MouseEvent::Type::DRAG ||
+      event.type() == MouseEvent::Type::MOVE) {
     emouse_ = mouse_;
   }
-  switch (event.type) {
+  switch (event.type()) {
     case MouseEvent::Type::DOWN:
       mousePressed(event);
       break;
@@ -98,12 +98,12 @@ void View::handleKeyEvent(const KeyEvent& event) {
 }
 
 void View::handleTouchEvent(const TouchEvent& event) {
-  if (event.type == TouchEvent::Type::BEGIN ||
-      event.type == TouchEvent::Type::MOVE) {
+  if (event.type() == TouchEvent::Type::BEGIN ||
+      event.type() == TouchEvent::Type::MOVE) {
     ptouch_ = etouch_;
-    touch_ = event.touches.front();
+    touch_ = event.touches().front();
   }
-  switch (event.type) {
+  switch (event.type()) {
     case TouchEvent::Type::BEGIN:
       touch_pressed_ = true;
       break;
@@ -114,10 +114,10 @@ void View::handleTouchEvent(const TouchEvent& event) {
     default:
       break;
   }
-  if (event.type == TouchEvent::Type::MOVE) {
+  if (event.type() == TouchEvent::Type::MOVE) {
     etouch_ = touch_;
   }
-  switch (event.type) {
+  switch (event.type()) {
     case TouchEvent::Type::BEGIN:
       touchesBegan(event);
       break;
@@ -136,7 +136,7 @@ void View::handleTouchEvent(const TouchEvent& event) {
 }
 
 void View::handleGestureEvent(const GestureEvent& event) {
-  switch (event.type) {
+  switch (event.type()) {
     case GestureEvent::Type::BEGIN:
       gestureBegan(event);
       break;
@@ -155,7 +155,7 @@ void View::handleGestureEvent(const GestureEvent& event) {
 }
 
 void View::handleMotionEvent(const MotionEvent& event) {
-  switch (event.type) {
+  switch (event.type()) {
     case MotionEvent::Type::BEGIN:
       motionBegan(event);
       break;

@@ -28,29 +28,51 @@
 #ifndef SOLAS_APP_GESTURE_KIND_H_
 #define SOLAS_APP_GESTURE_KIND_H_
 
+#include <cassert>
+#include <ostream>
+
 namespace solas {
 namespace app {
 
 enum class GestureKind {
   UNDEFINED,
   TAP,
-  DOUBLE_TAP,
-  TRIPLE_TAP,
   PINCH,
   ROTATION,
   SWIPE,
-  TWO_FINGERS_SWIPE,
-  THREE_FINGERS_SWIPE,
-  FOUR_FINGERS_SWIPE,
   PAN,
-  TWO_FINGERS_PAN,
-  THREE_FINGERS_PAN,
-  FOUR_FINGERS_PAN,
-  SCREEN_EDGE_TOP,
-  SCREEN_EDGE_LEFT,
-  SCREEN_EDGE_BOTTOM,
-  SCREEN_EDGE_RIGHT
+  SCREEN_EDGE
 };
+
+inline std::ostream& operator<<(std::ostream& os, GestureKind kind) {
+  switch (kind) {
+    case GestureKind::UNDEFINED:
+      os << "undefined";
+      break;
+    case GestureKind::TAP:
+      os << "tap";
+      break;
+    case GestureKind::PINCH:
+      os << "pinch";
+      break;
+    case GestureKind::ROTATION:
+      os << "rotation";
+      break;
+    case GestureKind::SWIPE:
+      os << "swipe";
+      break;
+    case GestureKind::PAN:
+      os << "pan";
+      break;
+    case GestureKind::SCREEN_EDGE:
+      os << "screen edge";
+      break;
+    default:
+      assert(false);
+      break;
+  }
+  return os;
+}
 
 }  // namespace app
 }  // namespace solas

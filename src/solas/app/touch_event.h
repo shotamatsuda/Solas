@@ -46,9 +46,7 @@ class TouchEvent final {
  public:
   // Constructors
   TouchEvent();
-  TouchEvent(Type type,
-             const std::vector<math::Vec2d>& touches,
-             const std::vector<math::Vec2d>& previous_touches);
+  TouchEvent(Type type, const std::vector<math::Vec2d>& touches);
 
   // Copy and move
   TouchEvent(const TouchEvent& other) = default;
@@ -58,29 +56,28 @@ class TouchEvent final {
   TouchEvent& operator=(const TouchEvent& other) = delete;
 
   // Attributes
-  bool empty() const { return type == Type::UNDEFINED; }
+  bool empty() const { return type_ == Type::UNDEFINED; }
+
+  // Parameters
+  Type type() const { return type_; }
+  const std::vector<math::Vec2d>& touches() const { return touches_; }
 
   // Conversion
   operator bool() const { return !empty(); }
 
- public:
-  Type type;
-  std::vector<math::Vec2d> touches;
-  std::vector<math::Vec2d> previous_touches;
+ private:
+  Type type_;
+  std::vector<math::Vec2d> touches_;
 };
 
 #pragma mark -
 
-inline TouchEvent::TouchEvent()
-    : type(Type::UNDEFINED) {}
+inline TouchEvent::TouchEvent() : type_(Type::UNDEFINED) {}
 
-inline TouchEvent::TouchEvent(
-    Type type,
-    const std::vector<math::Vec2d>& touches,
-    const std::vector<math::Vec2d>& previous_touches)
-    : type(type),
-      touches(touches),
-      previous_touches(previous_touches) {}
+inline TouchEvent::TouchEvent(Type type,
+                              const std::vector<math::Vec2d>& touches)
+    : type_(type),
+      touches_(touches) {}
 
 }  // namespace app
 }  // namespace solas

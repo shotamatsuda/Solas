@@ -24,37 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#define NANOVG_GL2_IMPLEMENTATION
-
-#include <OpenGL/gl.h>
-
-#include "nanovg.h"
-#include "nanovg_gl.h"
 #include "solas/app.h"
-#include "solas/math/random.h"
 
 class App : public solas::app::View {
  public:
-  void setup() {
-    context = nvgCreateGL2(NVG_DEBUG);
-  }
-
-  void draw() {
-    glClearColor(1.0, 1.0, 1.0, 1.0);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    nvgBeginFrame(context, width(), height(), width() / height());
-    nvgStrokeColor(context, nvgRGBAf(0,0,0, 0.1));
-    nvgStrokeWidth(context, 1);
-    for (int i = 0; i < 5000; ++i) {
-      nvgBeginPath(context);
-      nvgMoveTo(context, random(width()), random(height()));
-      nvgLineTo(context, random(width()), random(height()));
-      nvgStroke(context);
-    }
-    nvgEndFrame(context);
-  }
-
-  NVGcontext *context;
 };
 
 int main(int argc, char **argv) {

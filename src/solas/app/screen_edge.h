@@ -28,17 +28,43 @@
 #ifndef SOLAS_APP_SCREEN_EDGE_H_
 #define SOLAS_APP_SCREEN_EDGE_H_
 
+#include <cassert>
+#include <ostream>
+
 namespace solas {
 namespace app {
 
 enum class ScreenEdge : int {
-  NONE = 0,
-  TOP = 1 << 0,
-  LEFT = 1 << 1,
-  BOTTOM = 1 << 2,
-  RIGHT = 1 << 3,
-  ALL = TOP | LEFT | BOTTOM | RIGHT
+  UNDEFINED = -1,
+  TOP,
+  LEFT,
+  BOTTOM,
+  RIGHT,
 };
+
+inline std::ostream& operator<<(std::ostream& os, ScreenEdge edge) {
+  switch (edge) {
+    case ScreenEdge::UNDEFINED:
+      os << "undefined";
+      break;
+    case ScreenEdge::TOP:
+      os << "top";
+      break;
+    case ScreenEdge::LEFT:
+      os << "left";
+      break;
+    case ScreenEdge::BOTTOM:
+      os << "bottom";
+      break;
+    case ScreenEdge::RIGHT:
+      os << "right";
+      break;
+    default:
+      assert(false);
+      break;
+  }
+  return os;
+}
 
 }  // namespace app
 }  // namespace solas

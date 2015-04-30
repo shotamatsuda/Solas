@@ -1,5 +1,5 @@
 //
-//  main_touch.cc
+//  main.cc
 //
 //  MIT License
 //
@@ -24,36 +24,70 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#define NANOVG_GLES3_IMPLEMENTATION
+#include <iostream>
 
-#include <OpenGLES/ES3/gl.h>
-
-#include "nanovg.h"
-#include "nanovg_gl.h"
 #include "solas/app.h"
+#include "solas/nanovg.h"
 
 class App : public solas::app::View {
  public:
+  solas::nvg::Context context;
+
+ public:
   void setup() {
-    context = nvgCreateGLES3(NVG_DEBUG);
+    context.init();
   }
 
-  void draw() {
-    glClearColor(1.0, 1.0, 1.0, 1.0);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    nvgBeginFrame(context, width(), height(), width() / height());
-    nvgStrokeColor(context, nvgRGBAf(0,0,0, 0.3));
-    nvgStrokeWidth(context, 1);
-    for (int i = 0; i < 1000; ++i) {
-      nvgBeginPath(context);
-      nvgMoveTo(context, random(width()), random(height()));
-      nvgLineTo(context, random(width()), random(height()));
-      nvgStroke(context);
-    }
+  void pre() {
+    nvgBeginFrame(context, width(), height(), 2);
+  }
+
+  void post() {
     nvgEndFrame(context);
   }
 
-  NVGcontext *context;
+  void draw() {
+    glClearColor(1, 1, 1, 1);
+    glClear(GL_COLOR_BUFFER_BIT);
+  }
+
+  void touchesBegan() {
+    std::cout << "touchesBegan" << std::endl;
+  }
+
+  void touchesMoved(const solas::app::TouchEvent& event) {
+    solas::nvg::Scope save;
+    nvgFillColor(context, nvgRGBf(0, 0, 0));
+    for (const auto& touch : event.touches()) {
+      nvgBeginPath(context);
+      nvgCircle(context, touch.x, touch.y, 20);
+      nvgFill(context);
+    }
+  }
+
+  void touchesCancelled() {
+    std::cout << "touchesCancelled" << std::endl;
+  }
+
+  void touchesEnded() {
+    std::cout << "touchesEnded" << std::endl;
+  }
+
+  void gestureBegan(const solas::app::GestureEvent& event) {
+    std::cout << "gestureBegan: " << event << std::endl;
+  }
+
+  void gestureChanged(const solas::app::GestureEvent& event) {
+    std::cout << "gestureChanged: " << event << std::endl;
+  }
+
+  void gestureCancelled(const solas::app::GestureEvent& event) {
+    std::cout << "gestureCancelled: " << event << std::endl;
+  }
+
+  void gestureEnded(const solas::app::GestureEvent& event) {
+    std::cout << "gestureEnded: " << event << std::endl;
+  }
 };
 
 int main(int argc, char **argv) {

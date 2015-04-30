@@ -33,13 +33,21 @@
 
 #pragma mark Notifying Events to the Delegate
 
-- (void)notifyTouchesBeginWithEvent:(id)event;
-- (void)notifyTouchesMoveWithEvent:(id)event;
-- (void)notifyTouchesCancelWithEvent:(id)event;
-- (void)notifyTouchesEndWithEvent:(id)event;
-- (void)notifyMotionBeginWithEvent:(id)event;
-- (void)notifyMotionCancelWithEvent:(id)event;
-- (void)notifyMotionEndWithEvent:(id)event;
+- (void)notifyTouchesBeginWithEvent:(UIEvent *)event;
+- (void)notifyTouchesMoveWithEvent:(UIEvent *)event;
+- (void)notifyTouchesCancelWithEvent:(UIEvent *)event;
+- (void)notifyTouchesEndWithEvent:(UIEvent *)event;
+- (void)notifyMotionBeginWithEvent:(UIEvent *)event;
+- (void)notifyMotionCancelWithEvent:(UIEvent *)event;
+- (void)notifyMotionEndWithEvent:(UIEvent *)event;
+
+#ifdef __cplusplus
+
+- (void)notifyGestureEventWithRecognizer:(UIGestureRecognizer *)recognizer
+                                    kind:(solas::app::GestureKind)kind
+                                    data:(const boost::any&)data;
+
+#endif  // __cplusplus
 
 #pragma mark Managing the Delegate
 

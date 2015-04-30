@@ -28,6 +28,9 @@
 #ifndef SOLAS_APP_SWIPE_DIRECTION_H_
 #define SOLAS_APP_SWIPE_DIRECTION_H_
 
+#include <cassert>
+#include <ostream>
+
 namespace solas {
 namespace app {
 
@@ -38,6 +41,30 @@ enum class SwipeDirection {
   UP,
   DOWN,
 };
+
+inline std::ostream& operator<<(std::ostream& os, SwipeDirection direction) {
+  switch (direction) {
+    case SwipeDirection::UNDEFINED:
+      os << "undefined";
+      break;
+    case SwipeDirection::RIGHT:
+      os << "right";
+      break;
+    case SwipeDirection::LEFT:
+      os << "left";
+      break;
+    case SwipeDirection::UP:
+      os << "up";
+      break;
+    case SwipeDirection::DOWN:
+      os << "down";
+      break;
+    default:
+      assert(false);
+      break;
+  }
+  return os;
+}
 
 }  // namespace app
 }  // namespace solas
