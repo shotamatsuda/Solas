@@ -28,8 +28,6 @@
 #ifndef SOLAS_NANOVG_GLES3_H_
 #define SOLAS_NANOVG_GLES3_H_
 
-#include <OpenGLES/ES3/gl.h>
-
-#include "nanovg.h"
+#include <OpenGLES/ES3/gl.h>  // For convenience
 
 #endif  // SOLAS_NANOVG_GLES3_H_

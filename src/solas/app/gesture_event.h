@@ -28,8 +28,11 @@
 #ifndef SOLAS_APP_GESTURE_EVENT_H_
 #define SOLAS_APP_GESTURE_EVENT_H_
 
-#include "solas/app/gesture_direction.h"
+#include <boost/any.hpp>
+
 #include "solas/app/gesture_kind.h"
+#include "solas/app/screen_edge.h"
+#include "solas/app/swipe_direction.h"
 #include "solas/math/vector.h"
 
 namespace solas {
@@ -45,6 +48,37 @@ class GestureEvent final {
     END
   };
 
+  struct TapData {
+    std::size_t taps;
+  };
+
+  struct PinchData {
+    double scale;
+    math::Vec2d velocity;
+  };
+
+  struct RotationData {
+    double rotation;
+    math::Vec2d velocity;
+  };
+
+  struct SwipeData {
+    SwipeDirection direction;
+  };
+
+  struct PanData {
+    math::Vec2d translation;
+    math::Vec2d velocity;
+  };
+
+  struct ScreenEdgeData {
+    ScreenEdge edges;
+  };
+
+  struct LongPressData {
+    std::size_t taps;
+  };
+
  public:
   // Constructors
   GestureEvent();
@@ -54,7 +88,7 @@ class GestureEvent final {
   GestureEvent(Type type,
                GestureKind kind,
                const std::vector<math::Vec2d>& touches,
-               GestureDirection direction);
+               SwipeDirection direction);
 
   // Copy and move
   GestureEvent(const GestureEvent& other) = default;
@@ -70,18 +104,17 @@ class GestureEvent final {
   operator bool() const { return !empty(); }
 
  public:
-  const Type type;
-  const GestureKind kind;
-  const std::vector<math::Vec2d> touches;
-  const GestureDirection direction;
+  Type type;
+  GestureKind kind;
+  std::vector<math::Vec2d> touches;
+  boost::any data;
 };
 
 #pragma mark -
 
 inline GestureEvent::GestureEvent()
     : type(Type::UNDEFINED),
-      kind(GestureKind::UNDEFINED),
-      direction(GestureDirection::UNDEFINED) {}
+      kind(GestureKind::UNDEFINED) {}
 
 inline GestureEvent::GestureEvent(
     Type type,
@@ -89,18 +122,7 @@ inline GestureEvent::GestureEvent(
     const std::vector<math::Vec2d>& touches)
     : type(type),
       kind(kind),
-      touches(touches),
-      direction(GestureDirection::UNDEFINED) {}
-
-inline GestureEvent::GestureEvent(
-    Type type,
-    GestureKind kind,
-    const std::vector<math::Vec2d>& touches,
-    GestureDirection direction)
-    : type(type),
-      kind(kind),
-      touches(touches),
-      direction(direction) {}
+      touches(touches) {}
 
 }  // namespace app
 }  // namespace solas

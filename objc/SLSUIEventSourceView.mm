@@ -380,38 +380,38 @@
 
 - (void)handleSwipeGesture:(UISwipeGestureRecognizer *)recognizer
                  direction:(UISwipeGestureRecognizerDirection)direction {
-  const auto type = [self gestureEventTypeWithState:recognizer.state];
-  const std::vector<solas::math::Vec2d> touches(
-      [self touchesWithGestureRecognizer:recognizer]);
-  solas::app::GestureDirection dir;
-  if (direction & UISwipeGestureRecognizerDirectionRight) {
-    dir = solas::app::GestureDirection::RIGHT;
-  } else if (recognizer.direction & UISwipeGestureRecognizerDirectionLeft) {
-    dir = solas::app::GestureDirection::LEFT;
-  } else if (recognizer.direction & UISwipeGestureRecognizerDirectionUp) {
-    dir = solas::app::GestureDirection::UP;
-  } else if (recognizer.direction & UISwipeGestureRecognizerDirectionDown) {
-    dir = solas::app::GestureDirection::DOWN;
-  }
-  const solas::app::GestureEvent event(
-      type, solas::app::GestureKind::SWIPE, touches, dir);
-  if (recognizer.state == UIGestureRecognizerStateBegan) {
-    if ([_eventDelegate respondsToSelector:@selector(sender:gestureBegin:)]) {
-      [_eventDelegate sender:self gestureBegin:SLSGestureEventMake(&event)];
-    }
-  } else if (recognizer.state == UIGestureRecognizerStateChanged) {
-    if ([_eventDelegate respondsToSelector:@selector(sender:gestureChange:)]) {
-      [_eventDelegate sender:self gestureChange:SLSGestureEventMake(&event)];
-    }
-  } else if (recognizer.state == UIGestureRecognizerStateCancelled) {
-    if ([_eventDelegate respondsToSelector:@selector(sender:gestureCancel:)]) {
-      [_eventDelegate sender:self gestureCancel:SLSGestureEventMake(&event)];
-    }
-  } else if (recognizer.state == UIGestureRecognizerStateEnded) {
-    if ([_eventDelegate respondsToSelector:@selector(sender:gestureEnd:)]) {
-      [_eventDelegate sender:self gestureEnd:SLSGestureEventMake(&event)];
-    }
-  }
+//  const auto type = [self gestureEventTypeWithState:recognizer.state];
+//  const std::vector<solas::math::Vec2d> touches(
+//      [self touchesWithGestureRecognizer:recognizer]);
+//  solas::app::GestureDirection dir;
+//  if (direction & UISwipeGestureRecognizerDirectionRight) {
+//    dir = solas::app::GestureDirection::RIGHT;
+//  } else if (recognizer.direction & UISwipeGestureRecognizerDirectionLeft) {
+//    dir = solas::app::GestureDirection::LEFT;
+//  } else if (recognizer.direction & UISwipeGestureRecognizerDirectionUp) {
+//    dir = solas::app::GestureDirection::UP;
+//  } else if (recognizer.direction & UISwipeGestureRecognizerDirectionDown) {
+//    dir = solas::app::GestureDirection::DOWN;
+//  }
+//  const solas::app::GestureEvent event(
+//      type, solas::app::GestureKind::SWIPE, touches, dir);
+//  if (recognizer.state == UIGestureRecognizerStateBegan) {
+//    if ([_eventDelegate respondsToSelector:@selector(sender:gestureBegin:)]) {
+//      [_eventDelegate sender:self gestureBegin:SLSGestureEventMake(&event)];
+//    }
+//  } else if (recognizer.state == UIGestureRecognizerStateChanged) {
+//    if ([_eventDelegate respondsToSelector:@selector(sender:gestureChange:)]) {
+//      [_eventDelegate sender:self gestureChange:SLSGestureEventMake(&event)];
+//    }
+//  } else if (recognizer.state == UIGestureRecognizerStateCancelled) {
+//    if ([_eventDelegate respondsToSelector:@selector(sender:gestureCancel:)]) {
+//      [_eventDelegate sender:self gestureCancel:SLSGestureEventMake(&event)];
+//    }
+//  } else if (recognizer.state == UIGestureRecognizerStateEnded) {
+//    if ([_eventDelegate respondsToSelector:@selector(sender:gestureEnd:)]) {
+//      [_eventDelegate sender:self gestureEnd:SLSGestureEventMake(&event)];
+//    }
+//  }
 }
 
 @end

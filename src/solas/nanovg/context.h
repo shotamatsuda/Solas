@@ -1,5 +1,5 @@
 //
-//  solas/nanovg/scope.h
+//  solas/nanovg/context.h
 //
 //  MIT License
 //
@@ -25,50 +25,86 @@
 //
 
 #pragma once
-#ifndef SOLAS_NANOVG_SCOPE_H_
-#define SOLAS_NANOVG_SCOPE_H_
+#ifndef SOLAS_NANOVG_CONTEXT_H_
+#define SOLAS_NANOVG_CONTEXT_H_
 
 #include "nanovg.h"
+
+#include <utility>
 
 namespace solas {
 namespace nanovg {
 
-class Scope final {
+NVGcontext * CreateContext(int flags = int());
+void DeleteContext(NVGcontext *context);
+
+#pragma mark -
+
+class Context final {
  public:
   // Constructors
-  explicit Scope(NVGcontext *context = nullptr);
-  ~Scope();
+  Context();
+  ~Context();
 
   // Disallow copy and assign
-  Scope(const Scope& other) = delete;
-  Scope& operator=(const Scope& other) = delete;
+  Context(const Context& other) = delete;
+  Context& operator=(const Context& other) = delete;
 
-  // Exiting the scope
-  void exit();
+  // Move
+  Context(Context&& other);
+  Context& operator=(Context&& other);
+
+  // Managing the context
+  void init(int flags = int());
+  void destroy();
+
+  // Implicit conversions
+  operator bool() const { return context_; }
+  operator NVGcontext *() const { return context_; }
+
+  // Shared context
+  static NVGcontext * shared() { return shared_context_; }
 
  private:
   NVGcontext *context_;
+  static NVGcontext *shared_context_;
 };
 
 #pragma mark -
 
-inline Scope::Scope(NVGcontext *context) : context_(context) {
-  if (context_) {
-    nvgSave(context_);
+inline Context::Context() : context_(nullptr) {}
+
+inline Context::~Context() {
+  if (shared_context_ == context_) {
+    shared_context_ = nullptr;
+  }
+  destroy();
+}
+
+#pragma mark Move
+
+inline Context::Context(Context&& other) : context_(other.context_) {
+  other.context_ = nullptr;
+}
+
+inline Context& Context::operator=(Context&& other) {
+  if (&other != this) {
+    std::swap(context_, other.context_);
+  }
+  return *this;
+}
+
+#pragma mark Managing the context
+
+inline void Context::init(int flags) {
+  if (!context_) {
+    context_ = CreateContext(flags);
   }
 }
 
-inline Scope::~Scope() {
+inline void Context::destroy() {
   if (context_) {
-    nvgRestore(context_);
-  }
-}
-
-#pragma mark Exiting the scope
-
-inline void Scope::exit() {
-  if (context_) {
-    nvgRestore(context_);
+    DeleteContext(context_);
     context_ = nullptr;
   }
 }
@@ -79,4 +115,4 @@ namespace nvg = nanovg;
 
 }  // namespace solas
 
-#endif  // SOLAS_NANOVG_SCOPE_H_
+#endif  // SOLAS_NANOVG_CONTEXT_H_

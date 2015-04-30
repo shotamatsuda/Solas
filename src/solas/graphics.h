@@ -30,7 +30,6 @@
 
 #include "solas/graphics/color.h"
 #include "solas/graphics/color_depth.h"
-#include "solas/graphics/core.h"
 #include "solas/graphics/fill.h"
 #include "solas/graphics/font.h"
 #include "solas/graphics/stroke.h"

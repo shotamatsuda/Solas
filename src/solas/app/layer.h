@@ -117,16 +117,13 @@ class Layer : public Utilities {
 
 #pragma mark -
 
-inline Layer::Layer()
-    : parent_(nullptr) {}
+inline Layer::Layer() : parent_(nullptr) {}
 
-inline Layer::Layer(Layer *parent)
-    : parent_(parent) {
+inline Layer::Layer(Layer *parent) : parent_(parent) {
   assert(parent);
 }
 
-inline Layer::Layer(Layer&& other)
-    : parent_(other.parent_) {
+inline Layer::Layer(Layer&& other) : parent_(other.parent_) {
   other.parent_ = nullptr;
 }
 

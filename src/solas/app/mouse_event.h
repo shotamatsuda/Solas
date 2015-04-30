@@ -74,12 +74,12 @@ class MouseEvent final {
   operator bool() const { return !empty(); }
 
  public:
-  const Type type;
-  const math::Vec2d location;
-  const math::Vec2d previous_location;
-  const MouseButton button;
-  const KeyModifier modifiers;
-  const math::Vec3d wheel;
+  Type type;
+  math::Vec2d location;
+  math::Vec2d previous_location;
+  MouseButton button;
+  KeyModifier modifiers;
+  math::Vec3d wheel;
 };
 
 #pragma mark -

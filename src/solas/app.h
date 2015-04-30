@@ -29,10 +29,9 @@
 #define SOLAS_APP_H_
 
 #include "solas/app/app_event.h"
-#include "solas/app/event.h"
 #include "solas/app/context_holder.h"
+#include "solas/app/event.h"
 #include "solas/app/gesture_event.h"
-#include "solas/app/gesture_direction.h"
 #include "solas/app/gesture_kind.h"
 #include "solas/app/key_event.h"
 #include "solas/app/key_modifier.h"
@@ -45,6 +44,8 @@
 #include "solas/app/runner.h"
 #include "solas/app/runner_factory.h"
 #include "solas/app/runner_options.h"
+#include "solas/app/screen_edge.h"
+#include "solas/app/swipe_direction.h"
 #include "solas/app/touch_event.h"
 #include "solas/app/view.h"
 

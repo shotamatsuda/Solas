@@ -28,13 +28,11 @@
 #ifndef SOLAS_NANOVG_H_
 #define SOLAS_NANOVG_H_
 
-#include "solas/nanovg/core.h"
-#include "solas/nanovg/scope.h"
+#include "nanovg.h"  // For convenience
 
-#if TARGET_OS_IPHONE
-#include "solas/nanovg/gles3.h"
-#elif TARGET_OS_MAC
-#include "solas/nanovg/gl2.h"
-#endif
+#include "solas/nanovg/context.h"
+#include "solas/nanovg/gl.h"
+#include "solas/nanovg/scope.h"
+#include "solas/nanovg/transform.h"
 
 #endif  // SOLAS_NANOVG_H_

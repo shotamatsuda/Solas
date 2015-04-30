@@ -64,9 +64,9 @@ class TouchEvent final {
   operator bool() const { return !empty(); }
 
  public:
-  const Type type;
-  const std::vector<math::Vec2d> touches;
-  const std::vector<math::Vec2d> previous_touches;
+  Type type;
+  std::vector<math::Vec2d> touches;
+  std::vector<math::Vec2d> previous_touches;
 };
 
 #pragma mark -

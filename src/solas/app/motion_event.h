@@ -58,7 +58,7 @@ class MotionEvent final {
   operator bool() const { return !empty(); }
 
  public:
-  const Type type;
+  Type type;
 };
 
 #pragma mark -
