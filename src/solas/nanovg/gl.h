@@ -1,5 +1,5 @@
 //
-//  solas/nanovg/core.h
+//  solas/nanovg/gl.h
 //
 //  MIT License
 //
@@ -25,27 +25,15 @@
 //
 
 #pragma once
-#ifndef SOLAS_NANOVG_CORE_H_
-#define SOLAS_NANOVG_CORE_H_
+#ifndef SOLAS_NANOVG_GL_H_
+#define SOLAS_NANOVG_GL_H_
 
 #include <TargetConditionals.h>
 
-#include "nanovg.h"
 #if TARGET_OS_IPHONE
 #include "solas/nanovg/gles3.h"
 #elif TARGET_OS_MAC
 #include "solas/nanovg/gl2.h"
 #endif
 
-namespace solas {
-namespace nanovg {
-
-NVGcontext * CreateContext(int flags = int());
-
-}  // namespace nanovg
-
-namespace nvg = nanovg;
-
-}  // namespace solas
-
-#endif  // SOLAS_NANOVG_CORE_H_
+#endif  // SOLAS_NANOVG_GL_H_

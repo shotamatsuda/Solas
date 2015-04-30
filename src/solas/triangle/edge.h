@@ -53,9 +53,7 @@ class Edge final {
 
 #pragma mark -
 
-inline Edge::Edge()
-    : line(),
-      finite(false) {}
+inline Edge::Edge() : line(), finite(false) {}
 
 }  // namespace triangle
 }  // namespace solas

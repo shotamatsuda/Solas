@@ -55,7 +55,6 @@ class MouseEvent final {
   MouseEvent();
   MouseEvent(Type type,
              const math::Vec2d& location,
-             const math::Vec2d& previous_location,
              MouseButton button,
              KeyModifier modifiers,
              const math::Vec3d& wheel = math::Vec3d());
@@ -68,39 +67,42 @@ class MouseEvent final {
   MouseEvent& operator=(const MouseEvent& other) = delete;
 
   // Attributes
-  bool empty() const { return type == Type::UNDEFINED; }
+  bool empty() const { return type_ == Type::UNDEFINED; }
+
+  Type type() const { return type_; }
+  const math::Vec2d& location() const { return location_; }
+  MouseButton button() const { return button_; }
+  KeyModifier modifiers() const { return modifiers_; }
+  const math::Vec3d& wheel() const { return wheel_; }
 
   // Conversion
   operator bool() const { return !empty(); }
 
- public:
-  const Type type;
-  const math::Vec2d location;
-  const math::Vec2d previous_location;
-  const MouseButton button;
-  const KeyModifier modifiers;
-  const math::Vec3d wheel;
+ private:
+  Type type_;
+  math::Vec2d location_;
+  MouseButton button_;
+  KeyModifier modifiers_;
+  math::Vec3d wheel_;
 };
 
 #pragma mark -
 
 inline MouseEvent::MouseEvent()
-    : type(Type::UNDEFINED),
-      button(MouseButton::UNDEFINED),
-      modifiers(KeyModifier::NONE) {}
+    : type_(Type::UNDEFINED),
+      button_(MouseButton::UNDEFINED),
+      modifiers_(KeyModifier::NONE) {}
 
 inline MouseEvent::MouseEvent(Type type,
                               const math::Vec2d& location,
-                              const math::Vec2d& previous_location,
                               MouseButton button,
                               KeyModifier modifiers,
                               const math::Vec3d& wheel)
-    : type(type),
-      location(location),
-      previous_location(previous_location),
-      button(button),
-      modifiers(modifiers),
-      wheel(wheel) {}
+    : type_(type),
+      location_(location),
+      button_(button),
+      modifiers_(modifiers),
+      wheel_(wheel) {}
 
 }  // namespace app
 }  // namespace solas

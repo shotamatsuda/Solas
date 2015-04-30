@@ -74,11 +74,9 @@ class DelaunayTriangulator : public Triangulator {
 
 #pragma mark -
 
-inline DelaunayTriangulator::DelaunayTriangulator()
-    : type(Type::DEFAULT) {}
+inline DelaunayTriangulator::DelaunayTriangulator() : type(Type::DEFAULT) {}
 
-inline DelaunayTriangulator::DelaunayTriangulator(Type type)
-    : type(type) {}
+inline DelaunayTriangulator::DelaunayTriangulator(Type type) : type(type) {}
 
 }  // namespace triangle
   

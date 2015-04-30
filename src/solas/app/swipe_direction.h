@@ -1,5 +1,5 @@
 //
-//  main_touch.cc
+//  solas/app/swipe_direction.h
 //
 //  MIT License
 //
@@ -24,38 +24,49 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#define NANOVG_GLES3_IMPLEMENTATION
+#pragma once
+#ifndef SOLAS_APP_SWIPE_DIRECTION_H_
+#define SOLAS_APP_SWIPE_DIRECTION_H_
 
-#include <OpenGLES/ES3/gl.h>
+#include <cassert>
+#include <ostream>
 
-#include "nanovg.h"
-#include "nanovg_gl.h"
-#include "solas/app.h"
+namespace solas {
+namespace app {
 
-class App : public solas::app::View {
- public:
-  void setup() {
-    context = nvgCreateGLES3(NVG_DEBUG);
-  }
-
-  void draw() {
-    glClearColor(1.0, 1.0, 1.0, 1.0);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    nvgBeginFrame(context, width(), height(), width() / height());
-    nvgStrokeColor(context, nvgRGBAf(0,0,0, 0.3));
-    nvgStrokeWidth(context, 1);
-    for (int i = 0; i < 1000; ++i) {
-      nvgBeginPath(context);
-      nvgMoveTo(context, random(width()), random(height()));
-      nvgLineTo(context, random(width()), random(height()));
-      nvgStroke(context);
-    }
-    nvgEndFrame(context);
-  }
-
-  NVGcontext *context;
+enum class SwipeDirection {
+  UNDEFINED = -1,
+  RIGHT,
+  LEFT,
+  UP,
+  DOWN,
 };
 
-int main(int argc, char **argv) {
-  return solas::app::Run<App>(argc, argv);
+inline std::ostream& operator<<(std::ostream& os, SwipeDirection direction) {
+  switch (direction) {
+    case SwipeDirection::UNDEFINED:
+      os << "undefined";
+      break;
+    case SwipeDirection::RIGHT:
+      os << "right";
+      break;
+    case SwipeDirection::LEFT:
+      os << "left";
+      break;
+    case SwipeDirection::UP:
+      os << "up";
+      break;
+    case SwipeDirection::DOWN:
+      os << "down";
+      break;
+    default:
+      assert(false);
+      break;
+  }
+  return os;
 }
+
+}  // namespace app
+}  // namespace solas
+
+#endif  // SOLAS_APP_SWIPE_DIRECTION_H_

@@ -118,17 +118,6 @@ class View : public app::Runnable, public Layer {
   virtual void motionCancelled(const MotionEvent& event);
   virtual void motionEnded(const MotionEvent& event);
 
-  // Event handlers
-  template <typename Event>
-  void enqueueEvent(const Event& event);
-  void dequeueEvent(const Event& event);
-  void dequeueEvents();
-  void handleMouseEvent(const MouseEvent& event);
-  void handleKeyEvent(const KeyEvent& event);
-  void handleTouchEvent(const TouchEvent& event);
-  void handleGestureEvent(const GestureEvent& event);
-  void handleMotionEvent(const MotionEvent& event);
-
   // Events intended to be overriden
   virtual void mousePressed() {}
   virtual void mouseDragged() {}
@@ -152,6 +141,17 @@ class View : public app::Runnable, public Layer {
   virtual void motionEnded() {}
 
  private:
+  // Event handlers
+  template <typename Event>
+  void enqueueEvent(const Event& event);
+  void dequeueEvent(const Event& event);
+  void dequeueEvents();
+  void handleMouseEvent(const MouseEvent& event);
+  void handleKeyEvent(const KeyEvent& event);
+  void handleTouchEvent(const TouchEvent& event);
+  void handleGestureEvent(const GestureEvent& event);
+  void handleMotionEvent(const MotionEvent& event);
+
   // Lifecycle overridden from Runnable
   void setup(const AppEvent& event) override;
   void update(const AppEvent& event) override;

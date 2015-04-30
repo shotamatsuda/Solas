@@ -64,7 +64,7 @@ class Color<T, 4> final {
   Color();
   explicit Color(T gray, T alpha = 1);
   Color(T red, T green, T blue, T alpha = 1);
-  explicit Color(const T *values, std::size_t size = dimensions);
+  explicit Color(const T *values, std::size_t size = channels);
   template <typename... Args>
   Color(const std::tuple<Args...>& tuple);
   Color(std::initializer_list<T> list);
@@ -96,7 +96,7 @@ class Color<T, 4> final {
   // Mutators
   void set(T gray, T alpha = 1);
   void set(T red, T green, T blue, T alpha = 1);
-  void set(const T *values, std::size_t size = dimensions);
+  void set(const T *values, std::size_t size = channels);
   template <typename... Args>
   void set(const std::tuple<Args...>& tuple);
   void set(std::initializer_list<T> list);

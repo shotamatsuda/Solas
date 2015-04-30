@@ -32,13 +32,17 @@
 #include "nanovg.h"
 #include "nanovg_gl.h"
 
-#include "solas/nanovg.h"
+#include "solas/nanovg/context.h"
 
 namespace solas {
 namespace nanovg {
 
 NVGcontext * CreateContext(int flags) {
   return nvgCreateGLES2(flags);
+}
+
+void DeleteContext(NVGcontext *context) {
+  return nvgDeleteGLES3(context);
 }
 
 }  // namespace nanovg

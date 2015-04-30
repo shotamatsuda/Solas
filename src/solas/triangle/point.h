@@ -57,16 +57,12 @@ class Point final {
 
 #pragma mark -
 
-inline Point::Point()
-    : vector(),
-      index() {}
+inline Point::Point() : vector(), index() {}
 
 #pragma mark Implicit conversions
 
 template <typename T>
-inline Point::Point(const T& other)
-    : vector(other.x, other.y),
-      index() {}
+inline Point::Point(const T& other) : vector(other.x, other.y), index() {}
 
 template <typename T>
 inline Point& Point::operator=(const T& other) {

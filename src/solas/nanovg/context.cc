@@ -1,9 +1,9 @@
 //
-//  solas/app/gesture_direction.h
+//  solas/nanovg/context.cc
 //
 //  MIT License
 //
-//  Copyright (C) 2014-2015 Shota Matsuda
+//  Copyright (C) 2015 Shota Matsuda
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -24,22 +24,12 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#pragma once
-#ifndef SOLAS_APP_GESTURE_DIRECTION_H_
-#define SOLAS_APP_GESTURE_DIRECTION_H_
+#include "solas/nanovg/context.h"
 
 namespace solas {
-namespace app {
+namespace nanovg {
 
-enum class GestureDirection {
-  UNDEFINED = -1,
-  RIGHT,
-  LEFT,
-  UP,
-  DOWN,
-};
+NVGcontext * Context::shared_context_;
 
-}  // namespace app
+}  // namespace nanovg
 }  // namespace solas
-
-#endif  // SOLAS_APP_GESTURE_DIRECTION_H_

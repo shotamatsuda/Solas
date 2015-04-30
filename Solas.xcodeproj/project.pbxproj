@@ -68,9 +68,19 @@
 		9350587B1AEF555D0020E755 /* gesture_kind.h in Headers */ = {isa = PBXBuildFile; fileRef = 9350587A1AEF555B0020E755 /* gesture_kind.h */; };
 		9350587C1AEF555E0020E755 /* gesture_kind.h in Headers */ = {isa = PBXBuildFile; fileRef = 9350587A1AEF555B0020E755 /* gesture_kind.h */; };
 		9350587D1AEF555E0020E755 /* gesture_kind.h in Headers */ = {isa = PBXBuildFile; fileRef = 9350587A1AEF555B0020E755 /* gesture_kind.h */; };
-		935058CF1AEF6E2E0020E755 /* gesture_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* gesture_direction.h */; };
-		935058D01AEF6E2E0020E755 /* gesture_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* gesture_direction.h */; };
-		935058D11AEF6E2E0020E755 /* gesture_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* gesture_direction.h */; };
+		935058CF1AEF6E2E0020E755 /* swipe_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* swipe_direction.h */; };
+		935058D01AEF6E2E0020E755 /* swipe_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* swipe_direction.h */; };
+		935058D11AEF6E2E0020E755 /* swipe_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* swipe_direction.h */; };
+		93547E621AF0A59B00B4C6BE /* nanovg_gl.h in Headers */ = {isa = PBXBuildFile; fileRef = 937E13871ADBDD8F008DB7A7 /* nanovg_gl.h */; };
+		93547E631AF0A59C00B4C6BE /* nanovg_gl.h in Headers */ = {isa = PBXBuildFile; fileRef = 937E13871ADBDD8F008DB7A7 /* nanovg_gl.h */; };
+		93547E641AF0A59C00B4C6BE /* nanovg_gl.h in Headers */ = {isa = PBXBuildFile; fileRef = 937E13871ADBDD8F008DB7A7 /* nanovg_gl.h */; };
+		93547E6B1AF0C16400B4C6BE /* context.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93547E6A1AF0C16400B4C6BE /* context.cc */; };
+		93547E6C1AF0C16400B4C6BE /* context.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93547E6A1AF0C16400B4C6BE /* context.cc */; };
+		93547E6D1AF0C16400B4C6BE /* context.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93547E6A1AF0C16400B4C6BE /* context.cc */; };
+		93547E6E1AF0C16400B4C6BE /* context.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93547E6A1AF0C16400B4C6BE /* context.cc */; };
+		93547E791AF1267B00B4C6BE /* screen_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547E781AF1267B00B4C6BE /* screen_edge.h */; };
+		93547E7A1AF1267B00B4C6BE /* screen_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547E781AF1267B00B4C6BE /* screen_edge.h */; };
+		93547E7B1AF1267B00B4C6BE /* screen_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547E781AF1267B00B4C6BE /* screen_edge.h */; };
 		936E24441ADEA5A80004C396 /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
 		936E24461ADEA5A80004C396 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		936E24481ADEA5A80004C396 /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
@@ -307,9 +317,9 @@
 		93FD7ED61AEE5CA70082F6C8 /* scope.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ECE1AEE5CA70082F6C8 /* scope.h */; };
 		93FD7ED71AEE5CA70082F6C8 /* scope.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ECE1AEE5CA70082F6C8 /* scope.h */; };
 		93FD7ED81AEE5CA70082F6C8 /* scope.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ECE1AEE5CA70082F6C8 /* scope.h */; };
-		93FD7EDA1AEE5D1C0082F6C8 /* core.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ED91AEE5D1C0082F6C8 /* core.h */; };
-		93FD7EDB1AEE5D1C0082F6C8 /* core.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ED91AEE5D1C0082F6C8 /* core.h */; };
-		93FD7EDC1AEE5D1C0082F6C8 /* core.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ED91AEE5D1C0082F6C8 /* core.h */; };
+		93FD7EDA1AEE5D1C0082F6C8 /* context.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ED91AEE5D1C0082F6C8 /* context.h */; };
+		93FD7EDB1AEE5D1C0082F6C8 /* context.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ED91AEE5D1C0082F6C8 /* context.h */; };
+		93FD7EDC1AEE5D1C0082F6C8 /* context.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ED91AEE5D1C0082F6C8 /* context.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -411,7 +421,11 @@
 		934C77151AED38BB0086371E /* gl2.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gl2.cc; sourceTree = "<group>"; };
 		934C77181AED38C80086371E /* gles2.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gles2.cc; sourceTree = "<group>"; };
 		9350587A1AEF555B0020E755 /* gesture_kind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gesture_kind.h; sourceTree = "<group>"; };
-		935058CE1AEF6E2E0020E755 /* gesture_direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gesture_direction.h; sourceTree = "<group>"; };
+		935058CE1AEF6E2E0020E755 /* swipe_direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swipe_direction.h; sourceTree = "<group>"; };
+		93547E611AF0A59200B4C6BE /* gl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gl.h; sourceTree = "<group>"; };
+		93547E651AF0B96900B4C6BE /* transform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = transform.h; sourceTree = "<group>"; };
+		93547E6A1AF0C16400B4C6BE /* context.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = context.cc; sourceTree = "<group>"; };
+		93547E781AF1267B00B4C6BE /* screen_edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screen_edge.h; sourceTree = "<group>"; };
 		936E241F1ADEA5550004C396 /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		937E13841ADBDD8F008DB7A7 /* fontstash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fontstash.h; sourceTree = "<group>"; };
 		937E13851ADBDD8F008DB7A7 /* nanovg.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = nanovg.c; sourceTree = "<group>"; };
@@ -588,7 +602,7 @@
 		93F3BBFA1AA2080D00FBF369 /* Framework.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Framework.xcconfig; sourceTree = "<group>"; };
 		93F3BCB81AA2215A00FBF369 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		93FD7ECE1AEE5CA70082F6C8 /* scope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scope.h; sourceTree = "<group>"; };
-		93FD7ED91AEE5D1C0082F6C8 /* core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
+		93FD7ED91AEE5D1C0082F6C8 /* context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = context.h; sourceTree = "<group>"; };
 		93FEF9351AD92C90009D0646 /* matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
 		93FEF9361AD92CA8009D0646 /* matrix2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix2.h; sourceTree = "<group>"; };
 		93FEF9371AD92CAE009D0646 /* matrix3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix3.h; sourceTree = "<group>"; };
@@ -835,8 +849,11 @@
 		934C770E1AED383E0086371E /* nanovg */ = {
 			isa = PBXGroup;
 			children = (
-				93FD7ED91AEE5D1C0082F6C8 /* core.h */,
+				93FD7ED91AEE5D1C0082F6C8 /* context.h */,
+				93547E6A1AF0C16400B4C6BE /* context.cc */,
 				93FD7ECE1AEE5CA70082F6C8 /* scope.h */,
+				93547E651AF0B96900B4C6BE /* transform.h */,
+				93547E611AF0A59200B4C6BE /* gl.h */,
 				934C77111AED383E0086371E /* gl2.h */,
 				934C77151AED38BB0086371E /* gl2.cc */,
 				934C77101AED383E0086371E /* gles2.h */,
@@ -932,7 +949,8 @@
 				93A45B501AD14C4400969DC2 /* key_event.h */,
 				93A45B531AD14C4400969DC2 /* touch_event.h */,
 				9350587A1AEF555B0020E755 /* gesture_kind.h */,
-				935058CE1AEF6E2E0020E755 /* gesture_direction.h */,
+				935058CE1AEF6E2E0020E755 /* swipe_direction.h */,
+				93547E781AF1267B00B4C6BE /* screen_edge.h */,
 				93A45B4F1AD14C4400969DC2 /* gesture_event.h */,
 				93A45B511AD14C4400969DC2 /* motion_event.h */,
 				933FD52C1AEB22F7003AEC6C /* backend.h */,
@@ -1243,6 +1261,7 @@
 				93EDFC151AEC8E13003CDD03 /* SLSRunner.h in Headers */,
 				93EDFC201AEC8E13003CDD03 /* SLSNSBundle+Bundle.h in Headers */,
 				93EDFC1F1AEC8E13003CDD03 /* SLSApplicationMain.h in Headers */,
+				93547E7B1AF1267B00B4C6BE /* screen_edge.h in Headers */,
 				93EDFC831AEC8F21003CDD03 /* triangle.h in Headers */,
 				93EDFC301AEC8E1E003CDD03 /* SLSNSApplicationDelegate.h in Headers */,
 				93EDFC391AEC8E2C003CDD03 /* Solas.h in Headers */,
@@ -1252,15 +1271,16 @@
 				93EDFC161AEC8E13003CDD03 /* SLSEventSource.h in Headers */,
 				93EDFC1B1AEC8E13003CDD03 /* SLSEvents.h in Headers */,
 				93EDFC1E1AEC8E13003CDD03 /* SLSDisplayLink.h in Headers */,
+				93547E621AF0A59B00B4C6BE /* nanovg_gl.h in Headers */,
 				93EDFC991AEC9C3F003CDD03 /* result.h in Headers */,
 				93EDFC2A1AEC8E1E003CDD03 /* SLSNSViewController.h in Headers */,
 				93EDFC8D1AEC97DB003CDD03 /* edge.h in Headers */,
 				934C76E61AECD8EB0086371E /* voronoi_triangulator.h in Headers */,
 				93EDFC291AEC8E1E003CDD03 /* SLSNSWindowController.h in Headers */,
-				935058D11AEF6E2E0020E755 /* gesture_direction.h in Headers */,
+				935058D11AEF6E2E0020E755 /* swipe_direction.h in Headers */,
 				93FD7ED81AEE5CA70082F6C8 /* scope.h in Headers */,
 				93EDFC2B1AEC8E1E003CDD03 /* SLSNSEventSourceView.h in Headers */,
-				93FD7EDC1AEE5D1C0082F6C8 /* core.h in Headers */,
+				93FD7EDC1AEE5D1C0082F6C8 /* context.h in Headers */,
 				93EDFC191AEC8E13003CDD03 /* SLSCGLayer.h in Headers */,
 				93EDFC2E1AEC8E1E003CDD03 /* SLSNSGLLayer.h in Headers */,
 				93EDFC1C1AEC8E13003CDD03 /* SLSEventDelegate.h in Headers */,
@@ -1289,6 +1309,7 @@
 				93EDFBFD1AEC8E12003CDD03 /* SLSRunner.h in Headers */,
 				93EDFC081AEC8E12003CDD03 /* SLSNSBundle+Bundle.h in Headers */,
 				93EDFC071AEC8E12003CDD03 /* SLSApplicationMain.h in Headers */,
+				93547E791AF1267B00B4C6BE /* screen_edge.h in Headers */,
 				93EDFC811AEC8F21003CDD03 /* triangle.h in Headers */,
 				93EDFC281AEC8E1D003CDD03 /* SLSNSApplicationDelegate.h in Headers */,
 				93EDFC271AEC8E1D003CDD03 /* SLSNSCGView.h in Headers */,
@@ -1298,15 +1319,16 @@
 				93EDFC031AEC8E12003CDD03 /* SLSEvents.h in Headers */,
 				93EDFC061AEC8E12003CDD03 /* SLSDisplayLink.h in Headers */,
 				93EDFC221AEC8E1D003CDD03 /* SLSNSViewController.h in Headers */,
+				93547E641AF0A59C00B4C6BE /* nanovg_gl.h in Headers */,
 				93EDFC971AEC9C3F003CDD03 /* result.h in Headers */,
 				93EDFC211AEC8E1D003CDD03 /* SLSNSWindowController.h in Headers */,
 				93EDFC8B1AEC97DB003CDD03 /* edge.h in Headers */,
 				934C76E81AECD8EC0086371E /* voronoi_triangulator.h in Headers */,
 				93EDFC231AEC8E1D003CDD03 /* SLSNSEventSourceView.h in Headers */,
-				935058CF1AEF6E2E0020E755 /* gesture_direction.h in Headers */,
+				935058CF1AEF6E2E0020E755 /* swipe_direction.h in Headers */,
 				93FD7ED61AEE5CA70082F6C8 /* scope.h in Headers */,
 				93EDFC011AEC8E12003CDD03 /* SLSCGLayer.h in Headers */,
-				93FD7EDA1AEE5D1C0082F6C8 /* core.h in Headers */,
+				93FD7EDA1AEE5D1C0082F6C8 /* context.h in Headers */,
 				93EDFC261AEC8E1D003CDD03 /* SLSNSGLLayer.h in Headers */,
 				93EDFC041AEC8E12003CDD03 /* SLSEventDelegate.h in Headers */,
 				93EDFC051AEC8E12003CDD03 /* SLSDisplayDelegate.h in Headers */,
@@ -1338,7 +1360,7 @@
 				93EDFC0C1AEC8E12003CDD03 /* SLSAnimationSource.h in Headers */,
 				934C76D31AECD4600086371E /* lib.h in Headers */,
 				93EDFC8F1AEC97DB003CDD03 /* point.h in Headers */,
-				935058D01AEF6E2E0020E755 /* gesture_direction.h in Headers */,
+				935058D01AEF6E2E0020E755 /* swipe_direction.h in Headers */,
 				93EDFC091AEC8E12003CDD03 /* SLSRunner.h in Headers */,
 				934C76D61AECD4600086371E /* delaunay_triangulator.h in Headers */,
 				93EDFC141AEC8E12003CDD03 /* SLSNSBundle+Bundle.h in Headers */,
@@ -1346,7 +1368,7 @@
 				938A48051AED712900071B50 /* SLSUIGLES3View.h in Headers */,
 				93EDFC131AEC8E12003CDD03 /* SLSApplicationMain.h in Headers */,
 				93EDFC3E1AEC8E38003CDD03 /* SLSUIGLESView.h in Headers */,
-				93FD7EDB1AEE5D1C0082F6C8 /* core.h in Headers */,
+				93FD7EDB1AEE5D1C0082F6C8 /* context.h in Headers */,
 				93EDFC641AEC8F21003CDD03 /* edge_iterator.h in Headers */,
 				93EDFC821AEC8F21003CDD03 /* triangle.h in Headers */,
 				93EDFC0A1AEC8E12003CDD03 /* SLSEventSource.h in Headers */,
@@ -1354,6 +1376,7 @@
 				93EDFC0F1AEC8E12003CDD03 /* SLSEvents.h in Headers */,
 				93EDFC121AEC8E12003CDD03 /* SLSDisplayLink.h in Headers */,
 				93EDFC3D1AEC8E38003CDD03 /* SLSUIView.h in Headers */,
+				93547E631AF0A59C00B4C6BE /* nanovg_gl.h in Headers */,
 				934C76D51AECD4600086371E /* triangulator.h in Headers */,
 				934C771B1AED39360086371E /* gles2.h in Headers */,
 				934C76D41AECD4600086371E /* triangle_iterator.h in Headers */,
@@ -1361,6 +1384,7 @@
 				938A48001AED711E00071B50 /* SLSUIGLES2View.h in Headers */,
 				93EDFC101AEC8E12003CDD03 /* SLSEventDelegate.h in Headers */,
 				93EDFC111AEC8E12003CDD03 /* SLSDisplayDelegate.h in Headers */,
+				93547E7A1AF1267B00B4C6BE /* screen_edge.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1589,6 +1613,7 @@
 				936E244A1ADEA5A80004C396 /* layer.cc in Sources */,
 				936E244C1ADEA5A80004C396 /* utilities.cc in Sources */,
 				934C77171AED38BB0086371E /* gl2.cc in Sources */,
+				93547E6D1AF0C16400B4C6BE /* context.cc in Sources */,
 				936E24E61ADEA78B0004C396 /* SLSNSViewController.m in Sources */,
 				936E245F1ADEA5A80004C396 /* font.cc in Sources */,
 				936E24891ADEA5A80004C396 /* benchmark.cc in Sources */,
@@ -1635,6 +1660,7 @@
 				939E968A1AD391F800A7E21E /* SLSCVDisplayLink.mm in Sources */,
 				93D73E031ADE250C003F9A7A /* utilities.cc in Sources */,
 				934C77161AED38BB0086371E /* gl2.cc in Sources */,
+				93547E6B1AF0C16400B4C6BE /* context.cc in Sources */,
 				93CAA6541AD1AE32005EDC09 /* run.mm in Sources */,
 				93AD7CCB1ADCA4AA00B42B9E /* SLSNSCGView.m in Sources */,
 				93BE2F661ADA2C5000175565 /* simplex.cc in Sources */,
@@ -1681,6 +1707,7 @@
 				93BE2F731ADA32E800175565 /* segment.cc in Sources */,
 				93D73DEE1ADE0116003F9A7A /* SLSUIView.m in Sources */,
 				934C77191AED38C80086371E /* gles2.cc in Sources */,
+				93547E6C1AF0C16400B4C6BE /* context.cc in Sources */,
 				934C76E41AECD8E70086371E /* voronoi_triangulator.cc in Sources */,
 				93EDFC441AEC8E99003CDD03 /* nanovg.c in Sources */,
 				939E963F1AD250AF00A7E21E /* runner_factory.cc in Sources */,
@@ -1725,6 +1752,7 @@
 				93EDFB7D1AEC4706003CDD03 /* SLSRunner.mm in Sources */,
 				93EDFB881AEC4716003CDD03 /* SLSUIApplicationDelegate.mm in Sources */,
 				934C771A1AED38C80086371E /* gles2.cc in Sources */,
+				93547E6E1AF0C16400B4C6BE /* context.cc in Sources */,
 				934C76E21AECD8E60086371E /* voronoi_triangulator.cc in Sources */,
 				93EDFB8B1AEC4726003CDD03 /* layer.cc in Sources */,
 				93EDFB951AEC473B003CDD03 /* run.mm in Sources */,

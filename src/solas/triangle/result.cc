@@ -35,8 +35,7 @@
 namespace solas {
 namespace triangle {
 
-Result::Result()
-    : data_(std::make_unique<struct triangulateio>()) {
+Result::Result() : data_(std::make_unique<struct triangulateio>()) {
   std::memset(data_.get(), 0, sizeof(*data_));
 }
 

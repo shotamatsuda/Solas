@@ -52,19 +52,22 @@ class MotionEvent final {
   MotionEvent& operator=(const MotionEvent& other) = delete;
 
   // Attributes
-  bool empty() const { return type == Type::UNDEFINED; }
+  bool empty() const { return type_ == Type::UNDEFINED; }
+
+  // Parameters
+  Type type() const { return type_; }
 
   // Conversion
   operator bool() const { return !empty(); }
 
- public:
-  const Type type;
+ private:
+  Type type_;
 };
 
 #pragma mark -
 
 inline MotionEvent::MotionEvent()
-    : type(Type::UNDEFINED) {}
+    : type_(Type::UNDEFINED) {}
 
 }  // namespace app
 }  // namespace solas

@@ -101,7 +101,7 @@
 /* Begin PBXFileReference section */
 		937E13BC1ADBF34B008DB7A7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		937E13BE1ADBF350008DB7A7 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
-		93CA67E11ADB5BF4009F131B /* Empty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Empty.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93CA67E11ADB5BF4009F131B /* Solas Event.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Solas Event.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93D73E0E1ADE29BE003F9A7A /* ProjectDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProjectDebug.xcconfig; sourceTree = SOURCE_ROOT; };
 		93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProjectRelease.xcconfig; sourceTree = SOURCE_ROOT; };
 		93D73E101ADE2A0A003F9A7A /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -110,7 +110,7 @@
 		93EBABC01AD97E8C00BF8959 /* Info-OSX.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-OSX.plist"; sourceTree = SOURCE_ROOT; };
 		93EBABD01AD98A4C00BF8959 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/osx/framework/boost.framework; sourceTree = "<group>"; };
 		93EBABD21AD98A4C00BF8959 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/ios/framework/boost.framework; sourceTree = "<group>"; };
-		93FEF94E1AD97263009D0646 /* Empty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Empty.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93FEF94E1AD97263009D0646 /* Solas Event.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Solas Event.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93FEF9761AD972E8009D0646 /* Solas.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Solas.xcodeproj; path = ../Solas.xcodeproj; sourceTree = "<group>"; };
 		93FEF9901AD97397009D0646 /* main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -213,8 +213,8 @@
 		93FEF94F1AD97263009D0646 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				93FEF94E1AD97263009D0646 /* Empty.app */,
-				93CA67E11ADB5BF4009F131B /* Empty.app */,
+				93FEF94E1AD97263009D0646 /* Solas Event.app */,
+				93CA67E11ADB5BF4009F131B /* Solas Event.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,7 +225,7 @@
 				93FEF9901AD97397009D0646 /* main.cc */,
 			);
 			name = Source;
-			path = Empty;
+			path = Event;
 			sourceTree = "<group>";
 		};
 		93FEF9751AD972AA009D0646 /* Configurations */ = {
@@ -256,9 +256,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		93CA67E01ADB5BF4009F131B /* EmptyTouch */ = {
+		93CA67E01ADB5BF4009F131B /* EventTouch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "EmptyTouch" */;
+			buildConfigurationList = 93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "EventTouch" */;
 			buildPhases = (
 				93CA67DD1ADB5BF4009F131B /* Sources */,
 				93CA67DE1ADB5BF4009F131B /* Frameworks */,
@@ -270,14 +270,14 @@
 			dependencies = (
 				93CA68141ADB5C5F009F131B /* PBXTargetDependency */,
 			);
-			name = EmptyTouch;
+			name = EventTouch;
 			productName = ZorozoroTouch;
-			productReference = 93CA67E11ADB5BF4009F131B /* Empty.app */;
+			productReference = 93CA67E11ADB5BF4009F131B /* Solas Event.app */;
 			productType = "com.apple.product-type.application";
 		};
-		93FEF94D1AD97263009D0646 /* Empty */ = {
+		93FEF94D1AD97263009D0646 /* Event */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93FEF96B1AD97263009D0646 /* Build configuration list for PBXNativeTarget "Empty" */;
+			buildConfigurationList = 93FEF96B1AD97263009D0646 /* Build configuration list for PBXNativeTarget "Event" */;
 			buildPhases = (
 				93FEF94A1AD97263009D0646 /* Sources */,
 				93FEF94B1AD97263009D0646 /* Frameworks */,
@@ -289,9 +289,9 @@
 			dependencies = (
 				93EBABCA1AD980ED00BF8959 /* PBXTargetDependency */,
 			);
-			name = Empty;
+			name = Event;
 			productName = Zorozoro;
-			productReference = 93FEF94E1AD97263009D0646 /* Empty.app */;
+			productReference = 93FEF94E1AD97263009D0646 /* Solas Event.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -312,7 +312,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 93FEF9491AD97263009D0646 /* Build configuration list for PBXProject "Empty" */;
+			buildConfigurationList = 93FEF9491AD97263009D0646 /* Build configuration list for PBXProject "Event" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -331,8 +331,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				93FEF94D1AD97263009D0646 /* Empty */,
-				93CA67E01ADB5BF4009F131B /* EmptyTouch */,
+				93FEF94D1AD97263009D0646 /* Event */,
+				93CA67E01ADB5BF4009F131B /* EventTouch */,
 			);
 		};
 /* End PBXProject section */
@@ -439,7 +439,7 @@
 				INFOPLIST_FILE = "Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = Empty;
+				PRODUCT_NAME = "Solas Event";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -460,7 +460,7 @@
 				INFOPLIST_FILE = "Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = Empty;
+				PRODUCT_NAME = "Solas Event";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -502,7 +502,7 @@
 				);
 				INFOPLIST_FILE = "Info-OSX.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = Empty;
+				PRODUCT_NAME = "Solas Event";
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src $(PROJECT_DIR)/../lib/nanovg/src";
 			};
 			name = Debug;
@@ -517,7 +517,7 @@
 				);
 				INFOPLIST_FILE = "Info-OSX.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_NAME = Empty;
+				PRODUCT_NAME = "Solas Event";
 				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src $(PROJECT_DIR)/../lib/nanovg/src";
 			};
 			name = Release;
@@ -525,7 +525,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "EmptyTouch" */ = {
+		93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "EventTouch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93CA68011ADB5BF5009F131B /* Debug */,
@@ -534,7 +534,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		93FEF9491AD97263009D0646 /* Build configuration list for PBXProject "Empty" */ = {
+		93FEF9491AD97263009D0646 /* Build configuration list for PBXProject "Event" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93FEF9691AD97263009D0646 /* Debug */,
@@ -543,7 +543,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		93FEF96B1AD97263009D0646 /* Build configuration list for PBXNativeTarget "Empty" */ = {
+		93FEF96B1AD97263009D0646 /* Build configuration list for PBXNativeTarget "Event" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93FEF96C1AD97263009D0646 /* Debug */,
