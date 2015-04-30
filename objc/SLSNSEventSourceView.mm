@@ -42,8 +42,6 @@
 
 #pragma mark Initialization
 
-@property (nonatomic, assign) CGPoint previousMouseLocation;
-@property (nonatomic, strong) NSSet *previousTouches;
 @property (nonatomic, strong) NSTrackingArea *trackingArea;
 
 - (void)setUpTrackingArea;
@@ -193,15 +191,12 @@
     type:(solas::app::MouseEvent::Type)type {
   CGPoint location = [self convertPoint:event.locationInWindow
                                fromView:self.window.contentView];
-  const solas::app::MouseEvent mouseEvent(
+  return solas::app::MouseEvent(
       type,
       solas::math::Vec2d(location.x, location.y),
-      solas::math::Vec2d(_previousMouseLocation.x, _previousMouseLocation.y),
       static_cast<solas::app::MouseButton>(event.buttonNumber),
       [self keyModifiersForEvent:event],
       solas::math::Vec3d(event.deltaX, event.deltaY, event.deltaZ));
-  _previousMouseLocation = location;
-  return std::move(mouseEvent);
 }
 
 - (solas::app::KeyEvent)keyEventWithEvent:(NSEvent *)event
