@@ -109,6 +109,9 @@ inline bool Stroke::operator!=(const Stroke& other) const {
 }
 
 }  // namespace graphics
+
+namespace gfx = graphics;
+
 }  // namespace solas
 
 #endif  // SOLAS_GRAPHICS_STROKE_H_

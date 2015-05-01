@@ -363,6 +363,9 @@ inline std::ostream& operator<<(std::ostream& os, const Color3<T>& other) {
 }
 
 }  // namespace graphics
+
+namespace gfx = graphics;
+
 }  // namespace solas
 
 #endif  // SOLAS_GRAPHICS_COLOR3_H_

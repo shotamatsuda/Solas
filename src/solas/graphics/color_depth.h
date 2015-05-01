@@ -108,6 +108,9 @@ inline EnableIfFloating<U, T> FloatingColorDepth<T>::Convert(U value) {
 }
 
 }  // namespace graphics
+
+namespace gfx = graphics;
+
 }  // namespace solas
 
 #endif  // SOLAS_GRAPHICS_COLOR_DEPTH_H_

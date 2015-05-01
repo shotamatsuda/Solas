@@ -139,6 +139,9 @@ inline bool Segment::operator!=(const Segment& other) const {
 }
 
 }  // namespace graphics
+
+namespace gfx = graphics;
+
 }  // namespace solas
 
 #endif  // SOLAS_GRAPHICS_SEGMENT_H_

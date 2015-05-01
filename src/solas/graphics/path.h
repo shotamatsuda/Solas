@@ -161,6 +161,9 @@ inline void Path::bezierTo(const math::Vec2<Real>& control1,
 }
 
 }  // namespace graphics
+
+namespace gfx = graphics;
+
 }  // namespace solas
 
 #endif  // SOLAS_GRAPHICS_PATH_H_

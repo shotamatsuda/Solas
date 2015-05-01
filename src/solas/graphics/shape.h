@@ -53,6 +53,9 @@ inline bool Shape::operator!=(const Shape& other) const {
 }
 
 }  // namespace graphics
+
+namespace gfx = graphics;
+
 }  // namespace solas
 
 #endif  // SOLAS_GRAPHICS_SHAPE_H_

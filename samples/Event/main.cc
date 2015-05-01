@@ -3,7 +3,7 @@
 //
 //  MIT License
 //
-//  Copyright (C) 2014-2015 Shota Matsuda
+//  Copyright (C) 2015 Shota Matsuda
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -27,6 +27,7 @@
 #include <iostream>
 
 #include "solas/app.h"
+#include "solas/graphics.h"
 #include "solas/nanovg.h"
 
 class App : public solas::app::View {
@@ -57,7 +58,7 @@ class App : public solas::app::View {
 
   void touchesMoved(const solas::app::TouchEvent& event) {
     solas::nvg::Scope save;
-    nvgFillColor(context, nvgRGBf(0, 0, 0));
+    nvgFillColor(context, solas::gfx::Color3f::Black());
     for (const auto& touch : event.touches()) {
       nvgBeginPath(context);
       nvgCircle(context, touch.x, touch.y, 20);

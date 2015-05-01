@@ -76,6 +76,9 @@ inline bool Fill::operator!=(const Fill& other) const {
 }
 
 }  // namespace graphics
+
+namespace gfx = graphics;
+
 }  // namespace solas
 
 #endif  // SOLAS_GRAPHICS_FILL_H_
