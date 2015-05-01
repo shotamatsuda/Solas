@@ -1,32 +1,27 @@
 //
 //  solas/graphics/color4.h
 //
-//  MIT License
+//  takram design engineering Confidential
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a
-//  copy of this software and associated documentation files (the "Software"),
-//  to deal in the Software without restriction, including without limitation
-//  the rights to use, copy, modify, merge, publish, distribute, sublicense,
-//  and/or sell copies of the Software, and to permit persons to whom the
-//  Software is furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-//  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//  DEALINGS IN THE SOFTWARE.
+//  All information contained herein is, and remains the property of takram
+//  design engineering and its suppliers, if any. The intellectual and
+//  technical concepts contained herein are proprietary to takram design
+//  engineering and its suppliers and may be covered by U.S. and Foreign
+//  Patents, patents in process, and are protected by trade secret or copyright
+//  law. Dissemination of this information or reproduction of this material is
+//  strictly forbidden unless prior written permission is obtained from takram
+//  design engineering.
 //
 
 #pragma once
 #ifndef SOLAS_GRAPHICS_COLOR4_H_
 #define SOLAS_GRAPHICS_COLOR4_H_
+
+#ifndef SOLAS_GRAPHICS_COLOR_USE_NANOVG
+#define SOLAS_GRAPHICS_COLOR_USE_NANOVG 1
+#endif
 
 #include <cstdint>
 #include <cstddef>
@@ -37,6 +32,10 @@
 
 #include "solas/graphics/color_depth.h"
 #include "solas/math/vector.h"
+
+#if SOLAS_GRAPHICS_COLOR_USE_NANOVG
+#include "nanovg.h"
+#endif
 
 namespace solas {
 namespace graphics {
@@ -68,6 +67,10 @@ class Color<T, 4> final {
   template <typename... Args>
   Color(const std::tuple<Args...>& tuple);
   Color(std::initializer_list<T> list);
+
+#if SOLAS_GRAPHICS_COLOR_USE_NANOVG
+  explicit Color(const NVGcolor& color);
+#endif
 
   // Implicit conversion
   template <typename U>
@@ -102,6 +105,10 @@ class Color<T, 4> final {
   void set(std::initializer_list<T> list);
   void reset();
 
+#if SOLAS_GRAPHICS_COLOR_USE_NANOVG
+  void set(const NVGcolor& color);
+#endif
+
   // Element access
   T& operator[](int index) { return at(index); }
   const T& operator[](int index) const { return at(index); }
@@ -125,6 +132,10 @@ class Color<T, 4> final {
   explicit operator const math::Vec4<U>&() const { return vector; }
   explicit operator std::uint32_t() const;
   explicit operator std::uint64_t() const;
+
+#if SOLAS_GRAPHICS_COLOR_USE_NANOVG
+  operator NVGcolor() const;
+#endif
 
   // Iterator
   Iterator begin() { return vector.begin(); }
@@ -187,6 +198,16 @@ template <typename T>
 template <typename U>
 inline Color4<T>::Color(const Color4<U>& other)
     : vector(other.vector) {}
+
+#if SOLAS_GRAPHICS_COLOR_USE_NANOVG
+
+template <typename T>
+inline Color4<T>::Color(const NVGcolor& color)
+    : vector() {
+  set(color);
+}
+
+#endif  // SOLAS_GRAPHICS_COLOR_USE_NANOVG
 
 #pragma mark Explicit conversion
 
@@ -304,6 +325,18 @@ inline void Color4<T>::reset() {
   vector.reset();
 }
 
+#if SOLAS_GRAPHICS_COLOR_USE_NANOVG
+
+template <typename T>
+inline void Color4<T>::set(const NVGcolor& color) {
+  r = ColorDepth<T>::Convert(color.r);
+  g = ColorDepth<T>::Convert(color.g);
+  b = ColorDepth<T>::Convert(color.b);
+  a = ColorDepth<T>::Convert(color.a);
+}
+
+#endif  // SOLAS_GRAPHICS_COLOR_USE_NANOVG
+
 #pragma mark Element access
 
 template <typename T>
@@ -329,6 +362,22 @@ template <typename U>
 inline bool Color4<T>::operator!=(const Color4<U>& other) const {
   return vector != other.vector;
 }
+
+#pragma mark Conversion
+
+#if SOLAS_GRAPHICS_COLOR_USE_NANOVG
+
+template <typename T>
+inline Color4<T>::operator NVGcolor() const {
+  return {{{
+    ColorDepth<float>::Convert(red),
+    ColorDepth<float>::Convert(green),
+    ColorDepth<float>::Convert(blue),
+    ColorDepth<float>::Convert(alpha)
+  }}};
+}
+
+#endif  // SOLAS_GRAPHICS_COLOR_USE_NANOVG
 
 #pragma mark Stream
 

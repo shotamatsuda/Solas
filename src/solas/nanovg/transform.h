@@ -1,27 +1,18 @@
 //
 //  solas/nanovg/transform.h
 //
-//  MIT License
+//  takram design engineering Confidential
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a
-//  copy of this software and associated documentation files (the "Software"),
-//  to deal in the Software without restriction, including without limitation
-//  the rights to use, copy, modify, merge, publish, distribute, sublicense,
-//  and/or sell copies of the Software, and to permit persons to whom the
-//  Software is furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in
-//  all copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-//  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-//  DEALINGS IN THE SOFTWARE.
+//  All information contained herein is, and remains the property of takram
+//  design engineering and its suppliers, if any. The intellectual and
+//  technical concepts contained herein are proprietary to takram design
+//  engineering and its suppliers and may be covered by U.S. and Foreign
+//  Patents, patents in process, and are protected by trade secret or copyright
+//  law. Dissemination of this information or reproduction of this material is
+//  strictly forbidden unless prior written permission is obtained from takram
+//  design engineering.
 //
 
 #pragma once
@@ -69,59 +60,59 @@ void SkewY(NVGcontext *context, float angle);
 #pragma mark -
 
 inline void TranslateX(float dx) {
-  TranslateX(Context::shared(), dx);
+  TranslateX(Context::Shared(), dx);
 }
 
 inline void TranslateY(float dy) {
-  TranslateY(Context::shared(), dy);
+  TranslateY(Context::Shared(), dy);
 }
 
 inline void Translate(float value) {
-  Translate(Context::shared(), value);
+  Translate(Context::Shared(), value);
 }
 
 inline void Translate(float dx, float dy) {
-  Translate(Context::shared(), dx, dy);
+  Translate(Context::Shared(), dx, dy);
 }
 
 inline void Translate(const math::Vec2f& value) {
-  Translate(Context::shared(), value);
+  Translate(Context::Shared(), value);
 }
 
 inline void Rotate(float angle) {
-  Rotate(Context::shared(), angle);
+  Rotate(Context::Shared(), angle);
 }
 
 inline void Rotate(float angle, const math::Vec2f& point) {
-  Rotate(Context::shared(), angle, point);
+  Rotate(Context::Shared(), angle, point);
 }
 
 inline void ScaleX(float sx) {
-  ScaleX(Context::shared(), sx);
+  ScaleX(Context::Shared(), sx);
 }
 
 inline void ScaleY(float sy) {
-  ScaleY(Context::shared(), sy);
+  ScaleY(Context::Shared(), sy);
 }
 
 inline void Scale(float value) {
-  Scale(Context::shared(), value);
+  Scale(Context::Shared(), value);
 }
 
 inline void Scale(float sx, float sy) {
-  Scale(Context::shared(), sx, sy);
+  Scale(Context::Shared(), sx, sy);
 }
 
 inline void Scale(const math::Vec2f& value) {
-  Scale(Context::shared(), value);
+  Scale(Context::Shared(), value);
 }
 
 inline void SkewX(float angle) {
-  SkewX(Context::shared(), angle);
+  SkewX(Context::Shared(), angle);
 }
 
 inline void SkewY(float angle) {
-  SkewY(Context::shared(), angle);
+  SkewY(Context::Shared(), angle);
 }
 
 inline void TranslateX(NVGcontext *context, float dx) {
