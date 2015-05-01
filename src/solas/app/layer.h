@@ -24,30 +24,13 @@
 #include <utility>
 
 #include "solas/app/mouse_button.h"
-#include "solas/app/utilities.h"
 #include "solas/math/vector.h"
 #include "solas/tween.h"
 
 namespace solas {
 namespace app {
 
-class Layer : public Utilities {
- public:
-  using Time = tween::Time;
-  using Frame = tween::Frame;
-  using Easing = tween::Easing;
-  using BackEasing = tween::BackEasing;
-  using BounceEasing = tween::BounceEasing;
-  using CircularEasing = tween::CircularEasing;
-  using CubicEasing = tween::CubicEasing;
-  using ElasticEasing = tween::ElasticEasing;
-  using ExponentialEasing = tween::ExponentialEasing;
-  using LinearEasing = tween::LinearEasing;
-  using QuadraticEasing = tween::QuadraticEasing;
-  using QuarticEasing = tween::QuarticEasing;
-  using QuinticEasing = tween::QuinticEasing;
-  using SinusoidalEasing = tween::SinusoidalEasing;
-
+class Layer {
  public:
   // Constructors
   explicit Layer(Layer *parent);
