@@ -1,10 +1,10 @@
 #!/bin/sh
 #
-#  setup.sh
+#  build.sh
 #
 #  MIT License
 #
-#  Copyright (C) 2014-2015 Shota Matsuda
+#  Copyright (C) 2015 Shota Matsuda
 #
 #  Permission is hereby granted, free of charge, to any person obtaining a
 #  copy of this software and associated documentation files (the "Software"),
@@ -25,18 +25,37 @@
 #  DEALINGS IN THE SOFTWARE.
 #
 
-readonly PROJECT_DIR="$(cd "$(dirname "$0")/../"; pwd)"
+download_depot_tools() {
+  git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+  export PATH="$(pwd)/depot_tools":"$PATH"
+}
 
-pushd "${PROJECT_DIR}"
-  git submodule update --init
+download_skia() {
+  gclient config --name . --unmanaged https://skia.googlesource.com/skia.git
+  gclient sync
+  git checkout master
+}
 
-  "scripts/build.sh" cmake "lib/gtest" "build/gtest"
-  mkdir -p "build/boost"
-  pushd "build/boost"
-    "${PROJECT_DIR}/scripts/boost.sh"
-  popd
-  mkdir -p "build/skia"
-  pushd "build/skia"
-    "${PROJECT_DIR}/scripts/skia.sh"
-  popd
+build_skia() {
+  export GYP_GENERATORS="ninja,xcode"
+  SKIA_GYP_OUTPUT_DIR="osx" "./gyp_skia"
+  ninja -C "out/osx/Debug" dm
+  ninja -C "out/osx/Release" dm
+
+  export GYP_DEFINES="skia_os='ios' skia_arch_type='arm64'"
+  SKIA_GYP_OUTPUT_DIR="iphoneos" "./gyp_skia"
+  ninja -C "out/iphoneos/Debug" dm
+  ninja -C "out/iphoneos/Release" dm
+
+  export GYP_DEFINES="skia_os='ios' skia_arch_type='x86'"
+  SKIA_GYP_OUTPUT_DIR="iphonesim" "./gyp_skia"
+  ninja -C "out/iphonesim/Debug" dm
+  ninja -C "out/iphonesim/Release" dm
+}
+
+download_depot_tools
+mkdir -p "skia"
+pushd "skia"
+  download_skia
+  build_skia
 popd
