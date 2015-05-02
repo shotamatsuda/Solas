@@ -19,10 +19,6 @@
 #ifndef SOLAS_GRAPHICS_COLOR4_H_
 #define SOLAS_GRAPHICS_COLOR4_H_
 
-#ifndef SOLAS_GRAPHICS_COLOR_USE_NANOVG
-#define SOLAS_GRAPHICS_COLOR_USE_NANOVG 1
-#endif
-
 #include <cstdint>
 #include <cstddef>
 #include <initializer_list>
@@ -33,9 +29,7 @@
 #include "solas/graphics/color_depth.h"
 #include "solas/math/vector.h"
 
-#if SOLAS_GRAPHICS_COLOR_USE_NANOVG
-#include "nanovg.h"
-#endif
+struct NVGcolor;
 
 namespace solas {
 namespace graphics {
@@ -68,13 +62,10 @@ class Color<T, 4> final {
   Color(const std::tuple<Args...>& tuple);
   Color(std::initializer_list<T> list);
 
-#if SOLAS_GRAPHICS_COLOR_USE_NANOVG
-  explicit Color(const NVGcolor& color);
-#endif
-
   // Implicit conversion
   template <typename U>
   Color(const Color4<U>& other);
+  Color(const NVGcolor& color);
 
   // Explicit conversion
   template <typename U>
@@ -103,11 +94,8 @@ class Color<T, 4> final {
   template <typename... Args>
   void set(const std::tuple<Args...>& tuple);
   void set(std::initializer_list<T> list);
-  void reset();
-
-#if SOLAS_GRAPHICS_COLOR_USE_NANOVG
   void set(const NVGcolor& color);
-#endif
+  void reset();
 
   // Element access
   T& operator[](int index) { return at(index); }
@@ -132,10 +120,7 @@ class Color<T, 4> final {
   explicit operator const math::Vec4<U>&() const { return vector; }
   explicit operator std::uint32_t() const;
   explicit operator std::uint64_t() const;
-
-#if SOLAS_GRAPHICS_COLOR_USE_NANOVG
   operator NVGcolor() const;
-#endif
 
   // Iterator
   Iterator begin() { return vector.begin(); }
@@ -199,15 +184,11 @@ template <typename U>
 inline Color4<T>::Color(const Color4<U>& other)
     : vector(other.vector) {}
 
-#if SOLAS_GRAPHICS_COLOR_USE_NANOVG
-
 template <typename T>
 inline Color4<T>::Color(const NVGcolor& color)
     : vector() {
   set(color);
 }
-
-#endif  // SOLAS_GRAPHICS_COLOR_USE_NANOVG
 
 #pragma mark Explicit conversion
 
@@ -218,7 +199,7 @@ inline Color4<T>::Color(const Color3<U>& other)
 
 template <typename T>
 inline Color4<T>::Color(const math::Vec3<T>& other)
-    : vector(other.vector) {}
+    : vector(other) {}
 
 template <typename T>
 inline Color4<T>::Color(const math::Vec4<T>& other)
@@ -325,18 +306,6 @@ inline void Color4<T>::reset() {
   vector.reset();
 }
 
-#if SOLAS_GRAPHICS_COLOR_USE_NANOVG
-
-template <typename T>
-inline void Color4<T>::set(const NVGcolor& color) {
-  r = ColorDepth<T>::Convert(color.r);
-  g = ColorDepth<T>::Convert(color.g);
-  b = ColorDepth<T>::Convert(color.b);
-  a = ColorDepth<T>::Convert(color.a);
-}
-
-#endif  // SOLAS_GRAPHICS_COLOR_USE_NANOVG
-
 #pragma mark Element access
 
 template <typename T>
@@ -362,22 +331,6 @@ template <typename U>
 inline bool Color4<T>::operator!=(const Color4<U>& other) const {
   return vector != other.vector;
 }
-
-#pragma mark Conversion
-
-#if SOLAS_GRAPHICS_COLOR_USE_NANOVG
-
-template <typename T>
-inline Color4<T>::operator NVGcolor() const {
-  return {{{
-    ColorDepth<float>::Convert(red),
-    ColorDepth<float>::Convert(green),
-    ColorDepth<float>::Convert(blue),
-    ColorDepth<float>::Convert(alpha)
-  }}};
-}
-
-#endif  // SOLAS_GRAPHICS_COLOR_USE_NANOVG
 
 #pragma mark Stream
 

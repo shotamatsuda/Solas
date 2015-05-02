@@ -23,6 +23,7 @@
 
 #include "solas/nanovg/context.h"
 #include "solas/nanovg/gl.h"
+#include "solas/nanovg/path.h"
 #include "solas/nanovg/scope.h"
 #include "solas/nanovg/transform.h"
 

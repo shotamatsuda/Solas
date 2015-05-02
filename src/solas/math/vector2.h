@@ -34,6 +34,8 @@
 #include "solas/math/random.h"
 #include "solas/utility/enablers.h"
 
+class SkPoint;
+
 namespace solas {
 namespace math {
 
@@ -72,6 +74,7 @@ class Vector<T, 2> final {
   // Implicit conversion
   template <typename U>
   Vector(const Vector2<U>& other);
+  Vector(const SkPoint& point);
 
   // Explicit conversion
   template <typename U>
@@ -100,6 +103,7 @@ class Vector<T, 2> final {
   template <typename... Args>
   void set(const std::tuple<Args...>& tuple);
   void set(std::initializer_list<T> list);
+  void set(const SkPoint& point);
   void reset();
 
   // Element access
@@ -200,6 +204,9 @@ class Vector<T, 2> final {
   Vector2<Promote<T>> cartesian() const;
   Vector2<Promote<T>> polar() const;
 
+  // Implicit conversion
+  operator SkPoint() const;
+
   // Iterator
   Iterator begin() { return &x; }
   ConstIterator begin() const { return &x; }
@@ -260,6 +267,11 @@ inline Vector2<T>::Vector(const T *values, std::size_t size) {
 template <typename T>
 inline Vector2<T>::Vector(std::initializer_list<T> list) {
   set(std::move(list));
+}
+
+template <typename T>
+inline Vector2<T>::Vector(const SkPoint& point) {
+  set(point);
 }
 
 #pragma mark Implicit conversion

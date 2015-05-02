@@ -109,11 +109,7 @@ using Matrix3d = Matrix3<double>;
 #pragma mark -
 
 template <typename T>
-inline Matrix3<T>::Matrix()
-    : c1(),
-      c2(),
-      c3(),
-      c4() {}
+inline Matrix3<T>::Matrix() : c1(), c2(), c3(), c4() {}
 
 template <typename T>
 inline Matrix3<T>::Matrix(T v00, T v01, T v02, T v03,

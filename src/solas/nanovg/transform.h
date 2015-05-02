@@ -22,11 +22,11 @@
 #include "nanovg.h"
 
 #include "solas/math/vector.h"
-#include "solas/nanovg/context.h"
 
 namespace solas {
 namespace nanovg {
 
+// For the shared context
 void TranslateX(float dx);
 void TranslateY(float dy);
 void Translate(float value);
@@ -42,6 +42,7 @@ void Scale(const math::Vec2f& value);
 void SkewX(float angle);
 void SkewY(float angle);
 
+// For arbitrary contexts
 void TranslateX(NVGcontext *context, float dx);
 void TranslateY(NVGcontext *context, float dy);
 void Translate(NVGcontext *context, float value);
@@ -58,6 +59,8 @@ void SkewX(NVGcontext *context, float angle);
 void SkewY(NVGcontext *context, float angle);
 
 #pragma mark -
+
+#pragma mark For the shared context
 
 inline void TranslateX(float dx) {
   TranslateX(Context::Shared(), dx);
@@ -114,6 +117,8 @@ inline void SkewX(float angle) {
 inline void SkewY(float angle) {
   SkewY(Context::Shared(), angle);
 }
+
+#pragma mark For arbitrary contexts
 
 inline void TranslateX(NVGcontext *context, float dx) {
   nvgTranslate(context, dx, 0.0);

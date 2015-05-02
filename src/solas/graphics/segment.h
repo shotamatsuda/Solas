@@ -32,9 +32,8 @@ class Segment final {
   enum class Type {
     MOVE,
     LINE,
-    CURVE,
     QUADRATIC,
-    BEZIER,
+    CUBIC,
     CLOSE
   };
 
@@ -49,89 +48,62 @@ class Segment final {
           const math::Vec2<Real>& control1,
           const math::Vec2<Real>& control2,
           const math::Vec2<Real>& point);
-  Segment(Type type,
-          const math::Vec2<Real>& center,
-          const math::Vec2<Real>& radius,
-          Real start_angle,
-          Real stop_angle);
 
-  // Copy and move
+  // Copy and assign
   Segment(const Segment& other) = default;
   Segment(Segment&& other) = default;
-
-  // Disallow assign
-  Segment& operator=(const Segment& other) = delete;
+  Segment& operator=(const Segment& other) = default;
+  Segment& operator=(Segment&& other) = default;
 
   // Comparison
   bool operator==(const Segment& other) const;
   bool operator!=(const Segment& other) const;
 
- public:
-  const Type type;
-  const union {
-    struct {
-      math::Vec2<Real> control1;
-      math::Vec2<Real> control2;
-      math::Vec2<Real> point;
-    };
-    struct {
-      math::Vec2<Real> center;
-      math::Vec2<Real> radius;
-      Real start_angle;
-      Real stop_angle;
-    };
-  };
+  // Properties
+  Type type() const { return type_; }
+  const math::Vec2<Real>& control() const { return control1_; }
+  const math::Vec2<Real>& control1() const { return control1_; }
+  const math::Vec2<Real>& control2() const { return control2_; }
+  const math::Vec2<Real>& point() const { return point_; }
+
+ private:
+  Type type_;
+  math::Vec2<Real> control1_;
+  math::Vec2<Real> control2_;
+  math::Vec2<Real> point_;
 };
 
 #pragma mark -
 
-inline Segment::Segment(Type type)
-    : type(type),
-      control1(),
-      control2(),
-      point() {}
+inline Segment::Segment(Type type) : type_(type) {}
 
 inline Segment::Segment(Type type, const math::Vec2<Real>& point)
-    : type(type),
-      control1(),
-      control2(),
-      point(point) {}
+    : type_(type),
+      point_(point) {}
 
 inline Segment::Segment(Type type,
                         const math::Vec2<Real>& control,
                         const math::Vec2<Real>& point)
-    : type(type),
-      control1(control),
-      control2(control),
-      point(point) {}
+    : type_(type),
+      control1_(control),
+      point_(point) {}
 
 inline Segment::Segment(Type type,
                         const math::Vec2<Real>& control1,
                         const math::Vec2<Real>& control2,
                         const math::Vec2<Real>& point)
-    : type(type),
-      control1(control1),
-      control2(control2),
-      point(point) {}
-
-inline Segment::Segment(Type type,
-                        const math::Vec2<Real>& center,
-                        const math::Vec2<Real>& radius,
-                        Real start_angle,
-                        Real stop_angle)
-    : type(type),
-      center(center),
-      radius(radius),
-      start_angle(start_angle),
-      stop_angle(stop_angle) {}
+    : type_(type),
+      control1_(control1),
+      control2_(control2),
+      point_(point) {}
 
 #pragma mark Comparison
 
 inline bool Segment::operator==(const Segment& other) const {
-  return (type == other.type &&
-          control1 == other.control1 &&
-          control2 == other.control2 &&
-          point == other.point);
+  return (type_ == other.type_ &&
+          control1_ == other.control1_ &&
+          control2_ == other.control2_ &&
+          point_ == other.point_);
 }
 
 inline bool Segment::operator!=(const Segment& other) const {

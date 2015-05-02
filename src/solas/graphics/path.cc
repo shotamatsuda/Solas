@@ -17,8 +17,97 @@
 
 #include "solas/graphics/path.h"
 
+#include <cassert>
+#include <utility>
+#include <vector>
+
+#include "SkGeometry.h"
+#include "SkPath.h"
+#include "SkPoint.h"
+
+#include "solas/graphics/segment.h"
+
 namespace solas {
 namespace graphics {
+
+namespace {
+
+inline void ApplyConicAsQuads(const std::vector<SkPoint>& points,
+                              float weight,
+                              float tolerance,
+                              Path *path) {
+  SkAutoConicToQuads converter;
+  const auto quads = converter.computeQuads(points.data(), weight, tolerance);
+  const auto end = quads + converter.countQuads() * 2;
+  for (auto itr = quads; itr != end; itr += 2) {
+    path->quadraticTo(*itr, *(itr + 1));
+  }
+}
+
+}  // namespace
+
+#pragma mark Mutators
+
+void Path::set(const SkPath& path) {
+  reset();
+  SkPath::RawIter itr(path);
+  SkPath::Verb verb;
+  std::vector<SkPoint> points(4);
+  while ((verb = itr.next(points.data())) != SkPath::kDone_Verb) {
+    switch (verb) {
+      case SkPath::Verb::kMove_Verb:
+        moveTo(points[0]);
+        break;
+      case SkPath::Verb::kLine_Verb:
+        lineTo(points[1]);
+        break;
+      case SkPath::Verb::kQuad_Verb:
+        quadraticTo(points[1], points[2]);
+        break;
+      case SkPath::Verb::kConic_Verb:
+        ApplyConicAsQuads(points, itr.conicWeight(), 0.25, this);
+        break;
+      case SkPath::Verb::kCubic_Verb:
+        cubicTo(points[1], points[2], points[3]);
+        break;
+      case SkPath::Verb::kClose_Verb:
+        close();
+        break;
+      default:
+        assert(false);
+        break;
+    }
+  }
+}
+
+#pragma mark Implicit conversion
+
+Path::operator SkPath() const {
+  SkPath path;
+  for (const auto& segment : *this) {
+    switch (segment.type()) {
+      case Segment::Type::MOVE:
+        path.moveTo(segment.point());
+        break;
+      case Segment::Type::LINE:
+        path.lineTo(segment.point());
+        break;
+      case Segment::Type::QUADRATIC:
+        path.quadTo(segment.control(), segment.point());
+        break;
+      case Segment::Type::CUBIC:
+        path.cubicTo(segment.control1(), segment.control2(), segment.point());
+        break;
+      case Segment::Type::CLOSE:
+        path.close();
+        break;
+      default:
+        assert(false);
+        break;
+    }
+  }
+  return std::move(path);
+}
 
 }  // namespace graphics
 }  // namespace solas

@@ -35,15 +35,15 @@ class Stroke final {
   };
 
   enum class Cap {
-    SQUARE,
-    PROJECT,
-    ROUND
+    BUTT,
+    ROUND,
+    PROJECT
   };
 
   enum class Join {
     MITER,
-    BEVEL,
-    ROUND
+    ROUND,
+    BEVEL
   };
 
  public:
@@ -79,14 +79,14 @@ class Stroke final {
 inline Stroke::Stroke()
     : type(Stroke::Type::NONE),
       weight(),
-      cap(Stroke::Cap::SQUARE),
+      cap(Stroke::Cap::BUTT),
       join(Stroke::Join::MITER) {}
 
 inline Stroke::Stroke(const Color4<Real>& color, Real weight)
     : type(Stroke::Type::SOLID),
       color(color),
       weight(weight),
-      cap(Stroke::Cap::SQUARE),
+      cap(Stroke::Cap::BUTT),
       join(Stroke::Join::MITER) {}
 
 inline Stroke::Stroke(const Color4<Real>& color, Real weight,

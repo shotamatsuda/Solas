@@ -19,12 +19,15 @@
 #ifndef SOLAS_GRAPHICS_PATH_H_
 #define SOLAS_GRAPHICS_PATH_H_
 
+#include <cstddef>
 #include <iterator>
 #include <vector>
 
 #include "solas/graphics/segment.h"
 #include "solas/math/rect.h"
 #include "solas/math/vector.h"
+
+class SkPath;
 
 namespace solas {
 namespace graphics {
@@ -41,6 +44,9 @@ class Path final {
   // Constructors
   Path() = default;
 
+  // Implicit conversion
+  Path(const SkPath& path);
+
   // Copy and assign
   Path(const Path& other) = default;
   Path(Path&& other) = default;
@@ -49,6 +55,7 @@ class Path final {
 
   // Mutators
   void reset();
+  void set(const SkPath& path);
 
   // Comparison
   bool operator==(const Path& other) const;
@@ -56,6 +63,7 @@ class Path final {
 
   // Attributes
   bool empty() const { return segments_.empty(); }
+  std::size_t size() const { return size(); }
 
   // Configuring segments
   void close();
@@ -63,15 +71,16 @@ class Path final {
   void moveTo(const math::Vec2<Real>& point);
   void lineTo(Real x, Real y);
   void lineTo(const math::Vec2<Real>& point);
-  void curveTo(Real x, Real y);
-  void curveTo(const math::Vec2<Real>& point);
   void quadraticTo(Real cx, Real cy, Real x, Real y);
   void quadraticTo(const math::Vec2<Real>& control,
                    const math::Vec2<Real>& point);
-  void bezierTo(Real cx1, Real cy1, Real cx2, Real cy2, Real x, Real y);
-  void bezierTo(const math::Vec2<Real>& control1,
-                const math::Vec2<Real>& control2,
-                const math::Vec2<Real>& point);
+  void cubicTo(Real cx1, Real cy1, Real cx2, Real cy2, Real x, Real y);
+  void cubicTo(const math::Vec2<Real>& control1,
+               const math::Vec2<Real>& control2,
+               const math::Vec2<Real>& point);
+
+  // Implicit conversion
+  operator SkPath() const;
 
   // Iterator
   Iterator begin() { return segments_.begin(); }
@@ -92,6 +101,12 @@ class Path final {
 };
 
 #pragma mark -
+
+#pragma mark Implicit conversion
+
+inline Path::Path(const SkPath& path) {
+  set(path);
+}
 
 #pragma mark Mutators
 
@@ -131,14 +146,6 @@ inline void Path::lineTo(const math::Vec2<Real>& point) {
   segments_.emplace_back(Segment::Type::LINE, point);
 }
 
-inline void Path::curveTo(Real x, Real y) {
-  curveTo({x, y});
-}
-
-inline void Path::curveTo(const math::Vec2<Real>& point) {
-  segments_.emplace_back(Segment::Type::CURVE, point);
-}
-
 inline void Path::quadraticTo(Real cx, Real cy, Real x, Real y) {
   quadraticTo({cx, cy}, {x, y});
 }
@@ -148,16 +155,16 @@ inline void Path::quadraticTo(const math::Vec2<Real>& control,
   segments_.emplace_back(Segment::Type::QUADRATIC, control, point);
 }
 
-inline void Path::bezierTo(Real cx1, Real cy1,
-                           Real cx2, Real cy2,
-                           Real x, Real y) {
-  bezierTo({cx1, cy1}, {cx2, cy2}, {x, y});
+inline void Path::cubicTo(Real cx1, Real cy1,
+                          Real cx2, Real cy2,
+                          Real x, Real y) {
+  cubicTo({cx1, cy1}, {cx2, cy2}, {x, y});
 }
 
-inline void Path::bezierTo(const math::Vec2<Real>& control1,
-                           const math::Vec2<Real>& control2,
-                           const math::Vec2<Real>& point) {
-  segments_.emplace_back(Segment::Type::BEZIER, control1, control2, point);
+inline void Path::cubicTo(const math::Vec2<Real>& control1,
+                          const math::Vec2<Real>& control2,
+                          const math::Vec2<Real>& point) {
+  segments_.emplace_back(Segment::Type::CUBIC, control1, control2, point);
 }
 
 }  // namespace graphics

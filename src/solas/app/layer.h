@@ -46,6 +46,7 @@ class Layer {
   // Structure
   virtual double width() const;
   virtual double height() const;
+  virtual double scale() const;
 
   // Mouse
   virtual const math::Vec2d& mouse() const;
@@ -113,6 +114,11 @@ inline double Layer::width() const {
 inline double Layer::height() const {
   assert(parent_);
   return parent_->height();
+}
+
+inline double Layer::scale() const {
+  assert(parent_);
+  return parent_->scale();
 }
 
 #pragma mark Mouse

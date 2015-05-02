@@ -55,9 +55,7 @@ class Clock final {
 #pragma mark -
 
 template <typename Interval>
-inline Clock<Interval>::Clock()
-    : now_(),
-      birth_(advance().count()) {}
+inline Clock<Interval>::Clock() : now_(), birth_(advance().count()) {}
 
 #pragma mark Comparison
 

@@ -1,5 +1,5 @@
 //
-//  solas/utility/benchmark.cc
+//  solas/nanovg/path.h
 //
 //  takram design engineering Confidential
 //
@@ -15,19 +15,19 @@
 //  design engineering.
 //
 
-#include "solas/utility/benchmark.h"
+#pragma once
+#ifndef SOLAS_NANOVG_PATH_H_
+#define SOLAS_NANOVG_PATH_H_
 
-#include <chrono>
+#include "nanovg.h"
 
 namespace solas {
-namespace utility {
+namespace nanovg {
 
-template <> const char * Benchmark<std::chrono::nanoseconds>::suffix_ = "ns";
-template <> const char * Benchmark<std::chrono::microseconds>::suffix_ = "us";
-template <> const char * Benchmark<std::chrono::milliseconds>::suffix_ = "ms";
-template <> const char * Benchmark<std::chrono::seconds>::suffix_ = "s";
-template <> const char * Benchmark<std::chrono::minutes>::suffix_ = "m";
-template <> const char * Benchmark<std::chrono::hours>::suffix_ = "h";
+}  // namespace nanovg
 
-}  // namespace utility
+namespace nvg = nanovg;
+
 }  // namespace solas
+
+#endif  // SOLAS_NANOVG_PATH_H_

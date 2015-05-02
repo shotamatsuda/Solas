@@ -66,9 +66,9 @@ class Adaptor {
  protected:
   // Constructors
   Adaptor(const Easing& easing,
-              const Interval& duration,
-              const Interval& delay,
-              const Callback& callback);
+          const Interval& duration,
+          const Interval& delay,
+          const Callback& callback);
 
   // Move
   Adaptor(Adaptor&& other) = default;

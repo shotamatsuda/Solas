@@ -23,6 +23,7 @@
 #include "solas/graphics/color_depth.h"
 #include "solas/graphics/fill.h"
 #include "solas/graphics/font.h"
+#include "solas/graphics/quadratic_stroker.h"
 #include "solas/graphics/stroke.h"
 
 #endif  // SOLAS_GRAPHICS_H_

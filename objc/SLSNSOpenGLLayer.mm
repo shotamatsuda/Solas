@@ -78,8 +78,9 @@
                    pixelFormat:(NSOpenGLPixelFormat *)pixelFormat
                   forLayerTime:(CFTimeInterval)layerTime
                    displayTime:(const CVTimeStamp *)displayTime {
-  const solas::app::AppEvent event(context, solas::math::Size2d(
-      self.bounds.size.width, self.bounds.size.height));
+  CGRect bounds = self.bounds;
+  const solas::math::Size2d size(bounds.size.width, bounds.size.height);
+  const solas::app::AppEvent event(context, size, self.contentsScale);
   if ([_displayDelegate respondsToSelector:@selector(sender:update:)]) {
     [_displayDelegate sender:self update:SLSAppEventMake(&event)];
   }
@@ -90,8 +91,9 @@
                 pixelFormat:(NSOpenGLPixelFormat *)pixelFormat
                forLayerTime:(CFTimeInterval)timeInterval
                 displayTime:(const CVTimeStamp *)timeStamp {
-  const solas::app::AppEvent event(context, solas::math::Size2d(
-      self.bounds.size.width, self.bounds.size.height));
+  CGRect bounds = self.bounds;
+  const solas::math::Size2d size(bounds.size.width, bounds.size.height);
+  const solas::app::AppEvent event(context, size, self.contentsScale);
   if ([_displayDelegate respondsToSelector:@selector(sender:draw:)]) {
     [_displayDelegate sender:self draw:SLSAppEventMake(&event)];
   }

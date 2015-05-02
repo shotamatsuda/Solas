@@ -53,6 +53,7 @@ class View : public app::Runnable, public Layer {
   // Structure
   double width() const override;
   double height() const override;
+  double scale() const override;
 
   // Mouse
   const math::Vec2d& mouse() const override;
@@ -177,6 +178,7 @@ class View : public app::Runnable, public Layer {
   // Structure
   double width_;
   double height_;
+  double scale_;
 
   // Mouse
   math::Vec2d mouse_;
@@ -207,6 +209,7 @@ class View : public app::Runnable, public Layer {
 inline View::View()
     : width_(),
       height_(),
+      scale_(),
       mouse_button_(MouseButton::UNDEFINED),
       mouse_pressed_(),
       key_(),
@@ -224,6 +227,10 @@ inline double View::width() const {
 
 inline double View::height() const {
   return height_;
+}
+
+inline double View::scale() const {
+  return scale_;
 }
 
 #pragma mark Mouse
@@ -324,6 +331,7 @@ inline void View::handleEvent(const Event& event) {
 inline void View::setup(const AppEvent& event) {
   width_ = event.size().width;
   height_ = event.size().height;
+  scale_ = event.scale();
   Runnable::setup(event);
 }
 
@@ -340,6 +348,7 @@ inline void View::pre(const AppEvent& event) {
 inline void View::draw(const AppEvent& event) {
   width_ = event.size().width;
   height_ = event.size().height;
+  scale_ = event.scale();
   pmouse_ = dmouse_;
   ptouch_ = dtouch_;
   Runnable::draw(event);
