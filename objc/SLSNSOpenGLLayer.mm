@@ -17,10 +17,16 @@
 
 #import "SLSNSOpenGLLayer.h"
 
+#import <OpenGL/glu.h>
+
 #include "solas/app/app_event.h"
 #include "solas/math/size.h"
+#include "solas/gl/layer_framebuffer.h"
 
-@interface SLSNSOpenGLLayer ()
+@interface SLSNSOpenGLLayer () {
+ @private
+  solas::gl::LayerFramebuffer _framebuffer;
+}
 
 @property (nonatomic, assign) NSOpenGLPixelFormatAttribute API;
 
@@ -45,20 +51,6 @@
 - (NSOpenGLPixelFormat *)openGLPixelFormatForDisplayMask:(uint32_t)mask {
   NSOpenGLPixelFormatAttribute values[] = {
     NSOpenGLPFADoubleBuffer,
-    NSOpenGLPFAColorSize,
-    (NSOpenGLPixelFormatAttribute)24,
-    NSOpenGLPFAAlphaSize,
-    (NSOpenGLPixelFormatAttribute)8,
-    NSOpenGLPFADepthSize,
-    (NSOpenGLPixelFormatAttribute)32,
-    NSOpenGLPFAStencilSize,
-    (NSOpenGLPixelFormatAttribute)8,
-    NSOpenGLPFASampleBuffers,
-    (NSOpenGLPixelFormatAttribute)1,
-    NSOpenGLPFASamples,
-    (NSOpenGLPixelFormatAttribute)8,
-    NSOpenGLPFAMultisample,
-    NSOpenGLPFAAccelerated,
     NSOpenGLPFAOpenGLProfile,
     self.API,
     (NSOpenGLPixelFormatAttribute)0
@@ -94,11 +86,17 @@
                forLayerTime:(CFTimeInterval)timeInterval
                 displayTime:(const CVTimeStamp *)timeStamp {
   CGRect bounds = self.bounds;
+  GLint framebuffer;
+  glGetIntegerv(GL_FRAMEBUFFER_BINDING, &framebuffer);
+  _framebuffer.update(bounds.size.width, bounds.size.height);
+  _framebuffer.bind();
   const solas::math::Size2d size(bounds.size.width, bounds.size.height);
   const solas::app::AppEvent event(context, size, self.contentsScale);
   if ([_displayDelegate respondsToSelector:@selector(sender:draw:)]) {
     [_displayDelegate sender:self draw:SLSAppEventMake(&event)];
   }
+  _framebuffer.transfer(framebuffer);
+  glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
   [super drawInOpenGLContext:context
                  pixelFormat:pixelFormat
                 forLayerTime:timeInterval

@@ -153,8 +153,7 @@ using Color4d = Color4<double>;
 #pragma mark -
 
 template <typename T>
-inline Color4<T>::Color()
-    : vector() {}
+inline Color4<T>::Color() : vector() {}
 
 template <typename T>
 inline Color4<T>::Color(T gray, T alpha)
@@ -181,12 +180,10 @@ inline Color4<T>::Color(std::initializer_list<T> list)
 
 template <typename T>
 template <typename U>
-inline Color4<T>::Color(const Color4<U>& other)
-    : vector(other.vector) {}
+inline Color4<T>::Color(const Color4<U>& other) : vector(other.vector) {}
 
 template <typename T>
-inline Color4<T>::Color(const NVGcolor& color)
-    : vector() {
+inline Color4<T>::Color(const NVGcolor& color) : vector() {
   set(color);
 }
 
@@ -194,22 +191,18 @@ inline Color4<T>::Color(const NVGcolor& color)
 
 template <typename T>
 template <typename U>
-inline Color4<T>::Color(const Color3<U>& other)
-    : vector(other.vector) {}
+inline Color4<T>::Color(const Color3<U>& other) : vector(other.vector) {}
 
 template <typename T>
-inline Color4<T>::Color(const math::Vec3<T>& other)
-    : vector(other) {}
+inline Color4<T>::Color(const math::Vec3<T>& other) : vector(other) {}
 
 template <typename T>
-inline Color4<T>::Color(const math::Vec4<T>& other)
-    : vector(other) {}
+inline Color4<T>::Color(const math::Vec4<T>& other) : vector(other) {}
 
 #pragma mark Copy and assign
 
 template <typename T>
-inline Color4<T>::Color(const Color4<T>& other)
-    : vector(other.vector) {}
+inline Color4<T>::Color(const Color4<T>& other) : vector(other.vector) {}
 
 template <typename T>
 inline Color4<T>& Color4<T>::operator=(const Color4<T>& other) {
