@@ -135,14 +135,12 @@ inline Matrix3<T>::Matrix(const Vector4<T>& vx,
 
 template <typename T>
 template <typename U>
-inline Matrix3<T>::Matrix(const Matrix3<U>& other)
-    : m(other.m) {}
+inline Matrix3<T>::Matrix(const Matrix3<U>& other) : m(other.m) {}
 
 #pragma mark Copy and assign
 
 template <typename T>
-inline Matrix3<T>::Matrix(const Matrix3<T>& other)
-    : m(other.m) {}
+inline Matrix3<T>::Matrix(const Matrix3<T>& other) : m(other.m) {}
 
 template <typename T>
 inline Matrix3<T>& Matrix3<T>::operator=(const Matrix3<T>& other) {

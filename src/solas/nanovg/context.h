@@ -21,6 +21,7 @@
 
 #include "nanovg.h"
 
+#include <cassert>
 #include <utility>
 
 namespace solas {
@@ -48,6 +49,11 @@ class Context final {
   // Managing the context
   void init(int flags = int());
   void destroy();
+
+  // Controlling frame
+  void begin(int width, int height, float scale);
+  void cancel();
+  void end();
 
   // Implicit conversions
   operator bool() const { return context_; }
@@ -98,6 +104,26 @@ inline void Context::destroy() {
     DeleteContext(context_);
     context_ = nullptr;
   }
+}
+
+#pragma mark Controlling frame
+
+inline void Context::begin(int width, int height, float scale) {
+  assert(context_);
+  nvgBeginFrame(context_, width, height, scale);
+  shared_context_ = context_;
+}
+
+inline void Context::cancel() {
+  assert(context_);
+  nvgCancelFrame(context_);
+  shared_context_ = nullptr;
+}
+
+inline void Context::end() {
+  assert(context_);
+  nvgEndFrame(context_);
+  shared_context_ = nullptr;
 }
 
 }  // namespace nanovg

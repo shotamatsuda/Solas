@@ -25,7 +25,9 @@
 
 #include "solas/app/mouse_button.h"
 #include "solas/math/vector.h"
-#include "solas/tween.h"
+#include "solas/tween/timeline.h"
+#include "solas/tween/timeline_host.h"
+#include "solas/tween/tween.h"
 
 namespace solas {
 namespace app {

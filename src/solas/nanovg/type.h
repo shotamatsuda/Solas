@@ -1,5 +1,5 @@
 //
-//  solas/app/utilities.cc
+//  solas/nanovg/type.h
 //
 //  takram design engineering Confidential
 //
@@ -15,10 +15,24 @@
 //  design engineering.
 //
 
-#include "solas/app/utilities.h"
+#pragma once
+#ifndef SOLAS_NANOVG_TYPE_H_
+#define SOLAS_NANOVG_TYPE_H_
+
+#include "solas/math/size.h"
+#include "solas/math/vector.h"
 
 namespace solas {
-namespace app {
+namespace nanovg {
 
-}  // namespace app
+using Real = float;
+using Vec2 = math::Vec2<Real>;
+using Size2 = math::Size2<Real>;
+
+}  // namespace nanovg
+
+namespace nvg = nanovg;
+
 }  // namespace solas
+
+#endif  // SOLAS_NANOVG_TYPE_H_

@@ -25,13 +25,19 @@
 #  DEALINGS IN THE SOFTWARE.
 #
 
+readonly IOS_BUILD_DIR="$(pwd)/ios/build"
+readonly OSX_BUILD_DIR="$(pwd)/osx/build"
+
+readonly DEPOT_TOOLS_REPO="https://chromium.googlesource.com/chromium/tools/depot_tools.git"
+readonly SKIA_REPO="https://skia.googlesource.com/skia.git"
+
 download_depot_tools() {
-  git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-  export PATH="$(pwd)/depot_tools":"$PATH"
+  git clone "${DEPOT_TOOLS_REPO}"
 }
 
 download_skia() {
-  gclient config --name . --unmanaged https://skia.googlesource.com/skia.git
+  export PATH="$(pwd)/depot_tools":"${PATH}"
+  gclient config --name . --unmanaged "${SKIA_REPO}"
   gclient sync
   git checkout master
 }
@@ -42,7 +48,7 @@ build_skia() {
   ninja -C "out/osx/Debug" dm
   ninja -C "out/osx/Release" dm
 
-  export GYP_DEFINES="skia_os='ios' skia_arch_type='arm64'"
+  export GYP_DEFINES="skia_os='ios' skia_arch_type='arm' armv7='1' arm_neon='0'"
   SKIA_GYP_OUTPUT_DIR="iphoneos" "./gyp_skia"
   ninja -C "out/iphoneos/Debug" dm
   ninja -C "out/iphoneos/Release" dm
@@ -53,9 +59,12 @@ build_skia() {
   ninja -C "out/iphonesim/Release" dm
 }
 
-download_depot_tools
+merge_libraries() {
+}
+
+# download_depot_tools
 mkdir -p "skia"
 pushd "skia"
-  download_skia
-  build_skia
+  # download_skia
+  # build_skia
 popd

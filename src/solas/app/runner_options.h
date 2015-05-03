@@ -45,8 +45,7 @@ class RunnerOptions final {
 
 #pragma mark -
 
-inline RunnerOptions::RunnerOptions()
-    : multiple_windows_(true) {}
+inline RunnerOptions::RunnerOptions() : multiple_windows_(true) {}
 
 #pragma mark Comparison
 

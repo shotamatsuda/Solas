@@ -129,10 +129,7 @@ using Triangle3d = Triangle3<double>;
 #pragma mark -
 
 template <typename T>
-inline Triangle3<T>::Triangle()
-    : a(),
-      b(),
-      c() {}
+inline Triangle3<T>::Triangle() : a(), b(), c() {}
 
 template <typename T>
 inline Triangle3<T>::Triangle(T x1, T y1, T z1,

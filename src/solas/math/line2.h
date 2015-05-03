@@ -127,19 +127,13 @@ using Line2d = Line2<double>;
 #pragma mark -
 
 template <typename T>
-inline Line2<T>::Line()
-    : a(),
-      b() {}
+inline Line2<T>::Line() : a(), b() {}
 
 template <typename T>
-inline Line2<T>::Line(T x1, T y1, T x2, T y2)
-    : a(x1, y1),
-      b(x2, y2) {}
+inline Line2<T>::Line(T x1, T y1, T x2, T y2) : a(x1, y1), b(x2, y2) {}
 
 template <typename T>
-inline Line2<T>::Line(const Vector2<T>& a, const Vector2<T>& b)
-    : a(a),
-      b(b) {}
+inline Line2<T>::Line(const Vector2<T>& a, const Vector2<T>& b) : a(a), b(b) {}
 
 template <typename T>
 inline Line2<T>::Line(std::initializer_list<Vector2<T>> list) {

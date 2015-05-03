@@ -18,8 +18,8 @@
 // Configuration for Xcode 6.1
 
 // Product Linking
-OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names $(SKIA_LDFLAGS) -letc1 -lskia_core -lskia_effects -lskia_images -lskia_opts_sse41 -lskia_opts_ssse3 -lskia_opts -lskia_ports -lskia_sfnt -lskia_skgpu -lskia_utils -lSkKTX
+OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names -letc1 -lskia_core -lskia_effects -lskia_images -lskia_opts_sse41 -lskia_opts_ssse3 -lskia_opts -lskia_ports -lskia_sfnt -lskia_skgpu -lskia_utils -lSkKTX
 
 // Product Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/triangle" "$(PROJECT_DIR)/lib/nanovg/src" "$(PROJECT_DIR)/build/skia/skia/include/core" "$(PROJECT_DIR)/build/skia/skia/include/config" "$(PROJECT_DIR)/build/skia/skia/include/pathops" "$(PROJECT_DIR)/build/skia/skia/src/core"
+HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/triangle" "$(PROJECT_DIR)/lib/nanovg/src" "$(PROJECT_DIR)/build/skia/skia/include/core" "$(PROJECT_DIR)/build/skia/skia/include/config" "$(PROJECT_DIR)/build/skia/skia/src/core"
 LIBRARY_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/build/skia/skia/out/osx/Debug"

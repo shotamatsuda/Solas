@@ -73,12 +73,16 @@ inline QuadraticStroker::QuadraticStroker()
       miter_(),
       cap_(Stroke::Cap::BUTT),
       join_(Stroke::Join::MITER),
-      tolerance_() {}
+      tolerance_(1.0) {}
 
 #pragma mark Comparison
 
 inline bool QuadraticStroker::operator==(const QuadraticStroker& other) const {
-  return &other == this;
+  return (width_ == other.width_ &&
+          miter_ == other.miter_ &&
+          cap_ == other.cap_ &&
+          join_ == other.join_ &&
+          tolerance_ == other.tolerance_);
 }
 
 inline bool QuadraticStroker::operator!=(const QuadraticStroker& other) const {

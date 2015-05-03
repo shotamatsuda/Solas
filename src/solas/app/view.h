@@ -32,7 +32,7 @@
 #include "solas/app/runnable.h"
 #include "solas/app/touch_event.h"
 #include "solas/math/vector.h"
-#include "solas/tween.h"
+#include "solas/tween/timeline_host.h"
 
 namespace solas {
 namespace app {

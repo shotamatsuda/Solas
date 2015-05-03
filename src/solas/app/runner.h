@@ -49,8 +49,6 @@ class Runner final {
   void setup(const AppEvent& event);
   void update(const AppEvent& event);
   void draw(const AppEvent& event);
-  void pre(const AppEvent& event);
-  void post(const AppEvent& event);
   void exit(const AppEvent& event);
 
   // Events
@@ -107,12 +105,6 @@ inline void Runner::update(const AppEvent& event) {
   }
 }
 
-inline void Runner::pre(const AppEvent& event) {
-  if (runnable_ && setup_) {
-    runnable_->pre(event);
-  }
-}
-
 inline void Runner::draw(const AppEvent& event) {
   if (runnable_) {
     if (!setup_.exchange(true)) {
@@ -120,12 +112,8 @@ inline void Runner::draw(const AppEvent& event) {
       runnable_->setup(event);
       runnable_->update(event);
     }
+    runnable_->pre(event);
     runnable_->draw(event);
-  }
-}
-
-inline void Runner::post(const AppEvent& event) {
-  if (runnable_ && setup_) {
     runnable_->post(event);
   }
 }

@@ -20,6 +20,8 @@
 #define SOLAS_UTILITY_H_
 
 #include "solas/utility/benchmark.h"
+#include "solas/utility/date_time.h"
+#include "solas/utility/enablers.h"
 #include "solas/utility/enum.h"
 #include "solas/utility/singleton.h"
 

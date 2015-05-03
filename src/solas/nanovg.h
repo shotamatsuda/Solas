@@ -25,6 +25,7 @@
 #include "solas/nanovg/gl.h"
 #include "solas/nanovg/path.h"
 #include "solas/nanovg/scope.h"
+#include "solas/nanovg/style.h"
 #include "solas/nanovg/transform.h"
 
 #endif  // SOLAS_NANOVG_H_

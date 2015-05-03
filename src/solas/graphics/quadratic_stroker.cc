@@ -21,6 +21,7 @@
 
 #include "SkPaint.h"
 #include "SkPath.h"
+#include "SkPathOps.h"
 
 #include "solas/graphics/path.h"
 #include "solas/graphics/stroke.h"
@@ -70,7 +71,7 @@ Path QuadraticStroker::operator()(const Path& path) const {
   paint.setStrokeCap(PaintCap(cap_));
   paint.setStrokeJoin(PaintJoin(join_));
   SkPath stroke;
-  paint.getFillPath(path, &stroke, nullptr);
+  paint.getFillPath(path, &stroke, nullptr, tolerance_);
   return Path(stroke);
 }
 

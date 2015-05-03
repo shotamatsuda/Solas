@@ -21,6 +21,7 @@
 
 #include <cstddef>
 #include <iterator>
+#include <utility>
 #include <vector>
 
 #include "solas/graphics/segment.h"
@@ -35,6 +36,7 @@ namespace graphics {
 class Path final {
  public:
   using Real = double;
+  using Point = math::Vec2<Real>;
   using Iterator = std::vector<Segment>::iterator;
   using ConstIterator = std::vector<Segment>::const_iterator;
   using ReverseIterator = std::reverse_iterator<Iterator>;
@@ -65,19 +67,26 @@ class Path final {
   bool empty() const { return segments_.empty(); }
   std::size_t size() const { return size(); }
 
+  // Properties
+  const std::vector<Segment>& segments() const { return segments_; }
+  std::vector<Segment>& segments() { return segments_; }
+
   // Configuring segments
   void close();
   void moveTo(Real x, Real y);
-  void moveTo(const math::Vec2<Real>& point);
+  void moveTo(const Point& point);
   void lineTo(Real x, Real y);
-  void lineTo(const math::Vec2<Real>& point);
+  void lineTo(const Point& point);
   void quadraticTo(Real cx, Real cy, Real x, Real y);
-  void quadraticTo(const math::Vec2<Real>& control,
-                   const math::Vec2<Real>& point);
+  void quadraticTo(const Point& control, const Point& point);
   void cubicTo(Real cx1, Real cy1, Real cx2, Real cy2, Real x, Real y);
-  void cubicTo(const math::Vec2<Real>& control1,
-               const math::Vec2<Real>& control2,
-               const math::Vec2<Real>& point);
+  void cubicTo(const Point& control1,
+               const Point& control2,
+               const Point& point);
+
+  // Reversing
+  Path& reverse();
+  Path reversed() const;
 
   // Implicit conversion
   operator SkPath() const;
@@ -134,7 +143,7 @@ inline void Path::moveTo(Real x, Real y) {
   moveTo({x, y});
 }
 
-inline void Path::moveTo(const math::Vec2<Real>& point) {
+inline void Path::moveTo(const Point& point) {
   segments_.emplace_back(Segment::Type::MOVE, point);
 }
 
@@ -142,7 +151,7 @@ inline void Path::lineTo(Real x, Real y) {
   lineTo({x, y});
 }
 
-inline void Path::lineTo(const math::Vec2<Real>& point) {
+inline void Path::lineTo(const Point& point) {
   segments_.emplace_back(Segment::Type::LINE, point);
 }
 
@@ -150,8 +159,7 @@ inline void Path::quadraticTo(Real cx, Real cy, Real x, Real y) {
   quadraticTo({cx, cy}, {x, y});
 }
 
-inline void Path::quadraticTo(const math::Vec2<Real>& control,
-                              const math::Vec2<Real>& point) {
+inline void Path::quadraticTo(const Point& control, const Point& point) {
   segments_.emplace_back(Segment::Type::QUADRATIC, control, point);
 }
 
@@ -161,10 +169,16 @@ inline void Path::cubicTo(Real cx1, Real cy1,
   cubicTo({cx1, cy1}, {cx2, cy2}, {x, y});
 }
 
-inline void Path::cubicTo(const math::Vec2<Real>& control1,
-                          const math::Vec2<Real>& control2,
-                          const math::Vec2<Real>& point) {
+inline void Path::cubicTo(const Point& control1,
+                          const Point& control2,
+                          const Point& point) {
   segments_.emplace_back(Segment::Type::CUBIC, control1, control2, point);
+}
+
+#pragma mark Reversing
+
+inline Path Path::reversed() const {
+  return std::move(Path(*this).reverse());
 }
 
 }  // namespace graphics

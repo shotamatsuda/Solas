@@ -18,6 +18,7 @@
 #include "solas/graphics/path.h"
 
 #include <cassert>
+#include <functional>
 #include <utility>
 #include <vector>
 
@@ -32,14 +33,15 @@ namespace graphics {
 
 namespace {
 
-inline void ApplyConicAsQuads(const std::vector<SkPoint>& points,
-                              float weight,
-                              float tolerance,
-                              Path *path) {
+inline void AddConicAsQuads(const std::vector<SkPoint>& points,
+                            float weight,
+                            float tolerance,
+                            Path *path) {
+  assert(path);
   SkAutoConicToQuads converter;
   const auto quads = converter.computeQuads(points.data(), weight, tolerance);
-  const auto end = quads + converter.countQuads() * 2;
-  for (auto itr = quads; itr != end; itr += 2) {
+  const auto end = quads + converter.countQuads() * 2 + 1;
+  for (auto itr = quads + 1; itr != end; itr += 2) {
     path->quadraticTo(*itr, *(itr + 1));
   }
 }
@@ -65,7 +67,7 @@ void Path::set(const SkPath& path) {
         quadraticTo(points[1], points[2]);
         break;
       case SkPath::Verb::kConic_Verb:
-        ApplyConicAsQuads(points, itr.conicWeight(), 0.25, this);
+        AddConicAsQuads(points, itr.conicWeight(), 0.25, this);
         break;
       case SkPath::Verb::kCubic_Verb:
         cubicTo(points[1], points[2], points[3]);
@@ -78,6 +80,12 @@ void Path::set(const SkPath& path) {
         break;
     }
   }
+}
+
+#pragma mark Reversing
+
+Path& Path::reverse() {
+  return *this;
 }
 
 #pragma mark Implicit conversion

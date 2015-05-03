@@ -27,6 +27,7 @@ namespace graphics {
 class Segment final {
  public:
   using Real = double;
+  using Point = math::Vec2<Real>;
 
  public:
   enum class Type {
@@ -41,13 +42,11 @@ class Segment final {
   // Constructors
   explicit Segment(Type type);
   Segment(Type type, const math::Vec2<Real>& point);
+  Segment(Type type, const Point& control, const Point& point);
   Segment(Type type,
-          const math::Vec2<Real>& control,
-          const math::Vec2<Real>& point);
-  Segment(Type type,
-          const math::Vec2<Real>& control1,
-          const math::Vec2<Real>& control2,
-          const math::Vec2<Real>& point);
+          const Point& control1,
+          const Point& control2,
+          const Point& point);
 
   // Copy and assign
   Segment(const Segment& other) = default;
@@ -61,37 +60,39 @@ class Segment final {
 
   // Properties
   Type type() const { return type_; }
-  const math::Vec2<Real>& control() const { return control1_; }
-  const math::Vec2<Real>& control1() const { return control1_; }
-  const math::Vec2<Real>& control2() const { return control2_; }
-  const math::Vec2<Real>& point() const { return point_; }
+  const Point& control() const { return control1_; }
+  Point& control() { return control1_; }
+  const Point& control1() const { return control1_; }
+  Point& control1() { return control1_; }
+  const Point& control2() const { return control2_; }
+  Point& control2() { return control2_; }
+  const Point& point() const { return point_; }
+  Point& point() { return point_; }
 
  private:
   Type type_;
-  math::Vec2<Real> control1_;
-  math::Vec2<Real> control2_;
-  math::Vec2<Real> point_;
+  Point control1_;
+  Point control2_;
+  Point point_;
 };
 
 #pragma mark -
 
 inline Segment::Segment(Type type) : type_(type) {}
 
-inline Segment::Segment(Type type, const math::Vec2<Real>& point)
+inline Segment::Segment(Type type, const Point& point)
     : type_(type),
       point_(point) {}
 
-inline Segment::Segment(Type type,
-                        const math::Vec2<Real>& control,
-                        const math::Vec2<Real>& point)
+inline Segment::Segment(Type type, const Point& control, const Point& point)
     : type_(type),
       control1_(control),
       point_(point) {}
 
 inline Segment::Segment(Type type,
-                        const math::Vec2<Real>& control1,
-                        const math::Vec2<Real>& control2,
-                        const math::Vec2<Real>& point)
+                        const Point& control1,
+                        const Point& control2,
+                        const Point& point)
     : type_(type),
       control1_(control1),
       control2_(control2),

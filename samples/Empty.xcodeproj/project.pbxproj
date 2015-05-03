@@ -187,13 +187,13 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		93EBABD41AD98A4C00BF8959 /* Linked Frameworks */ = {
+		93EBABD41AD98A4C00BF8959 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				93EBABD11AD98A4C00BF8959 /* OS X */,
 				93EBABD31AD98A4C00BF8959 /* iOS */,
 			);
-			name = "Linked Frameworks";
+			name = Frameworks;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -203,7 +203,7 @@
 				93FEF9501AD97263009D0646 /* Source */,
 				93FEF9751AD972AA009D0646 /* Configurations */,
 				93D73E211ADE3021003F9A7A /* Supporting Files */,
-				93EBABD41AD98A4C00BF8959 /* Linked Frameworks */,
+				93EBABD41AD98A4C00BF8959 /* Frameworks */,
 				93D73DB51ADD560F003F9A7A /* System Frameworks */,
 				93FEF94F1AD97263009D0646 /* Products */,
 				93FEF9761AD972E8009D0646 /* Solas.xcodeproj */,

@@ -27,7 +27,8 @@ namespace nanovg {
 class Scope final {
  public:
   // Constructors
-  explicit Scope(NVGcontext *context = nullptr);
+  Scope();
+  explicit Scope(NVGcontext *context);
   ~Scope();
 
   // Disallow copy and assign
@@ -42,6 +43,8 @@ class Scope final {
 };
 
 #pragma mark -
+
+inline Scope::Scope() : context_(nullptr) {}
 
 inline Scope::Scope(NVGcontext *context) : context_(context) {
   if (context_) {

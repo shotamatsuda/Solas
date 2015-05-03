@@ -129,10 +129,7 @@ using Triangle2d = Triangle2<double>;
 #pragma mark -
 
 template <typename T>
-inline Triangle2<T>::Triangle()
-    : a(),
-      b(),
-      c() {}
+inline Triangle2<T>::Triangle() : a(), b(), c() {}
 
 template <typename T>
 inline Triangle2<T>::Triangle(T x1, T y1, T x2, T y2, T x3, T y3)

@@ -23,6 +23,7 @@
 #include "solas/tween/adaptor.h"
 #include "solas/tween/clock.h"
 #include "solas/tween/easing.h"
+#include "solas/tween/hash.h"
 #include "solas/tween/interval.h"
 #include "solas/tween/pointer_adaptor.h"
 #include "solas/tween/timeline.h"

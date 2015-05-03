@@ -71,6 +71,44 @@
 		935058CF1AEF6E2E0020E755 /* swipe_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* swipe_direction.h */; };
 		935058D01AEF6E2E0020E755 /* swipe_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* swipe_direction.h */; };
 		935058D11AEF6E2E0020E755 /* swipe_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* swipe_direction.h */; };
+		935193311AF520670073C001 /* color3.cc in Sources */ = {isa = PBXBuildFile; fileRef = 935193301AF520670073C001 /* color3.cc */; };
+		935193321AF520670073C001 /* color3.cc in Sources */ = {isa = PBXBuildFile; fileRef = 935193301AF520670073C001 /* color3.cc */; };
+		935193331AF520670073C001 /* color3.cc in Sources */ = {isa = PBXBuildFile; fileRef = 935193301AF520670073C001 /* color3.cc */; };
+		935193341AF520670073C001 /* color3.cc in Sources */ = {isa = PBXBuildFile; fileRef = 935193301AF520670073C001 /* color3.cc */; };
+		935193361AF5206F0073C001 /* color4.cc in Sources */ = {isa = PBXBuildFile; fileRef = 935193351AF5206F0073C001 /* color4.cc */; };
+		935193371AF5206F0073C001 /* color4.cc in Sources */ = {isa = PBXBuildFile; fileRef = 935193351AF5206F0073C001 /* color4.cc */; };
+		935193381AF5206F0073C001 /* color4.cc in Sources */ = {isa = PBXBuildFile; fileRef = 935193351AF5206F0073C001 /* color4.cc */; };
+		935193391AF5206F0073C001 /* color4.cc in Sources */ = {isa = PBXBuildFile; fileRef = 935193351AF5206F0073C001 /* color4.cc */; };
+		9351933B1AF530640073C001 /* path.h in Headers */ = {isa = PBXBuildFile; fileRef = 9351933A1AF5305E0073C001 /* path.h */; };
+		9351933C1AF530640073C001 /* path.h in Headers */ = {isa = PBXBuildFile; fileRef = 9351933A1AF5305E0073C001 /* path.h */; };
+		9351933D1AF530640073C001 /* path.h in Headers */ = {isa = PBXBuildFile; fileRef = 9351933A1AF5305E0073C001 /* path.h */; };
+		935193421AF544930073C001 /* date_time.h in Headers */ = {isa = PBXBuildFile; fileRef = 935193411AF544930073C001 /* date_time.h */; };
+		935193431AF544930073C001 /* date_time.h in Headers */ = {isa = PBXBuildFile; fileRef = 935193411AF544930073C001 /* date_time.h */; };
+		935193441AF544930073C001 /* date_time.h in Headers */ = {isa = PBXBuildFile; fileRef = 935193411AF544930073C001 /* date_time.h */; };
+		935193461AF5496D0073C001 /* type.h in Headers */ = {isa = PBXBuildFile; fileRef = 935193451AF5496A0073C001 /* type.h */; };
+		935193471AF5496D0073C001 /* type.h in Headers */ = {isa = PBXBuildFile; fileRef = 935193451AF5496A0073C001 /* type.h */; };
+		935193481AF5496E0073C001 /* type.h in Headers */ = {isa = PBXBuildFile; fileRef = 935193451AF5496A0073C001 /* type.h */; };
+		9351934A1AF54B1A0073C001 /* path.cc in Sources */ = {isa = PBXBuildFile; fileRef = 935193491AF54B1A0073C001 /* path.cc */; };
+		9351934B1AF54B1A0073C001 /* path.cc in Sources */ = {isa = PBXBuildFile; fileRef = 935193491AF54B1A0073C001 /* path.cc */; };
+		9351934C1AF54B1A0073C001 /* path.cc in Sources */ = {isa = PBXBuildFile; fileRef = 935193491AF54B1A0073C001 /* path.cc */; };
+		9351934D1AF54B1A0073C001 /* path.cc in Sources */ = {isa = PBXBuildFile; fileRef = 935193491AF54B1A0073C001 /* path.cc */; };
+		9351934F1AF54BC10073C001 /* style.h in Headers */ = {isa = PBXBuildFile; fileRef = 9351934E1AF54BC10073C001 /* style.h */; };
+		935193501AF54BC10073C001 /* style.h in Headers */ = {isa = PBXBuildFile; fileRef = 9351934E1AF54BC10073C001 /* style.h */; };
+		935193511AF54BC10073C001 /* style.h in Headers */ = {isa = PBXBuildFile; fileRef = 9351934E1AF54BC10073C001 /* style.h */; };
+		935193B11AF558880073C001 /* vector_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 930398521AB2B1BD00577048 /* vector_test.cc */; };
+		935193B21AF558880073C001 /* size_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 930398511AB2B1BD00577048 /* size_test.cc */; };
+		935193B31AF558880073C001 /* rect_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93EFE0751AB350E900148E7C /* rect_test.cc */; };
+		935193B41AF558880073C001 /* plane_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 930398501AB2B1BD00577048 /* plane_test.cc */; };
+		935193B51AF558880073C001 /* sphere_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93F38E371AB56D2D009E3626 /* sphere_test.cc */; };
+		935193B61AF558880073C001 /* easing_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD6EE1AEB9116003AEC6C /* easing_test.cc */; };
+		935193B71AF558880073C001 /* clock_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C801AEBB6BB001F90DE /* clock_test.cc */; };
+		935193B81AF558880073C001 /* hash_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C811AEBB6BB001F90DE /* hash_test.cc */; };
+		935193B91AF558880073C001 /* interval_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C821AEBB6BB001F90DE /* interval_test.cc */; };
+		935193BA1AF558880073C001 /* pointer_adaptor_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C831AEBB6BB001F90DE /* pointer_adaptor_test.cc */; };
+		935193BB1AF558880073C001 /* accessor_adaptor_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C7F1AEBB6BB001F90DE /* accessor_adaptor_test.cc */; };
+		935193BC1AF558880073C001 /* timeline_host_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C841AEBB6BB001F90DE /* timeline_host_test.cc */; };
+		935193BD1AF558880073C001 /* timeline_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C851AEBB6BB001F90DE /* timeline_test.cc */; };
+		935193BE1AF558880073C001 /* tween_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C861AEBB6BB001F90DE /* tween_test.cc */; };
 		93547E621AF0A59B00B4C6BE /* nanovg_gl.h in Headers */ = {isa = PBXBuildFile; fileRef = 937E13871ADBDD8F008DB7A7 /* nanovg_gl.h */; };
 		93547E631AF0A59C00B4C6BE /* nanovg_gl.h in Headers */ = {isa = PBXBuildFile; fileRef = 937E13871ADBDD8F008DB7A7 /* nanovg_gl.h */; };
 		93547E641AF0A59C00B4C6BE /* nanovg_gl.h in Headers */ = {isa = PBXBuildFile; fileRef = 937E13871ADBDD8F008DB7A7 /* nanovg_gl.h */; };
@@ -81,11 +119,20 @@
 		93547E791AF1267B00B4C6BE /* screen_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547E781AF1267B00B4C6BE /* screen_edge.h */; };
 		93547E7A1AF1267B00B4C6BE /* screen_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547E781AF1267B00B4C6BE /* screen_edge.h */; };
 		93547E7B1AF1267B00B4C6BE /* screen_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547E781AF1267B00B4C6BE /* screen_edge.h */; };
+		93547FCE1AF40FDC00B4C6BE /* quadratic_stroker.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93547FCC1AF40FDC00B4C6BE /* quadratic_stroker.cc */; };
+		93547FCF1AF40FDC00B4C6BE /* quadratic_stroker.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547FCD1AF40FDC00B4C6BE /* quadratic_stroker.h */; };
+		93547FD01AF40FE200B4C6BE /* quadratic_stroker.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547FCD1AF40FDC00B4C6BE /* quadratic_stroker.h */; };
+		93547FD11AF40FE200B4C6BE /* quadratic_stroker.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93547FCC1AF40FDC00B4C6BE /* quadratic_stroker.cc */; };
+		93547FD21AF40FE200B4C6BE /* quadratic_stroker.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547FCD1AF40FDC00B4C6BE /* quadratic_stroker.h */; };
+		93547FD31AF40FE200B4C6BE /* quadratic_stroker.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93547FCC1AF40FDC00B4C6BE /* quadratic_stroker.cc */; };
+		93547FD71AF51C4A00B4C6BE /* vector2.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93547FD61AF51C4A00B4C6BE /* vector2.cc */; };
+		93547FD81AF51C4A00B4C6BE /* vector2.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93547FD61AF51C4A00B4C6BE /* vector2.cc */; };
+		93547FD91AF51C4A00B4C6BE /* vector2.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93547FD61AF51C4A00B4C6BE /* vector2.cc */; };
+		93547FDA1AF51C4A00B4C6BE /* vector2.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93547FD61AF51C4A00B4C6BE /* vector2.cc */; };
 		936E24441ADEA5A80004C396 /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
 		936E24461ADEA5A80004C396 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		936E24481ADEA5A80004C396 /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
 		936E244A1ADEA5A80004C396 /* layer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE01ADD395500B42B9E /* layer.cc */; };
-		936E244C1ADEA5A80004C396 /* utilities.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93D73E011ADE250C003F9A7A /* utilities.cc */; };
 		936E245F1ADEA5A80004C396 /* font.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803251AD88DC200F41F92 /* font.cc */; };
 		936E24811ADEA5A80004C396 /* simplex.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F641ADA2C5000175565 /* simplex.cc */; };
 		936E24831ADEA5A80004C396 /* dispatch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F38E871AB60972009E3626 /* dispatch.mm */; };
@@ -179,8 +226,6 @@
 		93D73DE61ADDFF0B003F9A7A /* SLSUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DE41ADDFF0B003F9A7A /* SLSUIViewController.m */; };
 		93D73DEE1ADE0116003F9A7A /* SLSUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DEC1ADE0116003F9A7A /* SLSUIView.m */; };
 		93D73DFE1ADE0758003F9A7A /* SLSUIOpenGLESView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DFC1ADE0758003F9A7A /* SLSUIOpenGLESView.mm */; };
-		93D73E031ADE250C003F9A7A /* utilities.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93D73E011ADE250C003F9A7A /* utilities.cc */; };
-		93D73E041ADE250C003F9A7A /* utilities.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93D73E011ADE250C003F9A7A /* utilities.cc */; };
 		93E33C8F1AEBB6F1001F90DE /* libSolas.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 936E241F1ADEA5550004C396 /* libSolas.a */; };
 		93E913951AB27FE600DDF7F9 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F3BCB81AA2215A00FBF369 /* AppKit.framework */; };
 		93E913A11AB2807E00DDF7F9 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E913A01AB2807E00DDF7F9 /* GLKit.framework */; };
@@ -203,7 +248,6 @@
 		93EDFB891AEC4726003CDD03 /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
 		93EDFB8A1AEC4726003CDD03 /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
 		93EDFB8B1AEC4726003CDD03 /* layer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE01ADD395500B42B9E /* layer.cc */; };
-		93EDFB8C1AEC4726003CDD03 /* utilities.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93D73E011ADE250C003F9A7A /* utilities.cc */; };
 		93EDFB8D1AEC4726003CDD03 /* path.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F3A1ADA1A7500175565 /* path.cc */; };
 		93EDFB8E1AEC4726003CDD03 /* segment.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F701ADA32E800175565 /* segment.cc */; };
 		93EDFB8F1AEC4726003CDD03 /* shape.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F3F1ADA1A8100175565 /* shape.cc */; };
@@ -422,10 +466,20 @@
 		934C77181AED38C80086371E /* gles2.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gles2.cc; sourceTree = "<group>"; };
 		9350587A1AEF555B0020E755 /* gesture_kind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gesture_kind.h; sourceTree = "<group>"; };
 		935058CE1AEF6E2E0020E755 /* swipe_direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swipe_direction.h; sourceTree = "<group>"; };
+		935193301AF520670073C001 /* color3.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = color3.cc; sourceTree = "<group>"; };
+		935193351AF5206F0073C001 /* color4.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = color4.cc; sourceTree = "<group>"; };
+		9351933A1AF5305E0073C001 /* path.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = path.h; sourceTree = "<group>"; };
+		935193411AF544930073C001 /* date_time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = date_time.h; sourceTree = "<group>"; };
+		935193451AF5496A0073C001 /* type.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = type.h; sourceTree = "<group>"; };
+		935193491AF54B1A0073C001 /* path.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = path.cc; sourceTree = "<group>"; };
+		9351934E1AF54BC10073C001 /* style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = style.h; sourceTree = "<group>"; };
 		93547E611AF0A59200B4C6BE /* gl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gl.h; sourceTree = "<group>"; };
 		93547E651AF0B96900B4C6BE /* transform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = transform.h; sourceTree = "<group>"; };
 		93547E6A1AF0C16400B4C6BE /* context.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = context.cc; sourceTree = "<group>"; };
 		93547E781AF1267B00B4C6BE /* screen_edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screen_edge.h; sourceTree = "<group>"; };
+		93547FCC1AF40FDC00B4C6BE /* quadratic_stroker.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = quadratic_stroker.cc; sourceTree = "<group>"; };
+		93547FCD1AF40FDC00B4C6BE /* quadratic_stroker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quadratic_stroker.h; sourceTree = "<group>"; };
+		93547FD61AF51C4A00B4C6BE /* vector2.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vector2.cc; sourceTree = "<group>"; };
 		936E241F1ADEA5550004C396 /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		937E13841ADBDD8F008DB7A7 /* fontstash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fontstash.h; sourceTree = "<group>"; };
 		937E13851ADBDD8F008DB7A7 /* nanovg.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = nanovg.c; sourceTree = "<group>"; };
@@ -539,8 +593,6 @@
 		93D73DEC1ADE0116003F9A7A /* SLSUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIView.m; sourceTree = "<group>"; };
 		93D73DFB1ADE0758003F9A7A /* SLSUIOpenGLESView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIOpenGLESView.h; sourceTree = "<group>"; };
 		93D73DFC1ADE0758003F9A7A /* SLSUIOpenGLESView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIOpenGLESView.mm; sourceTree = "<group>"; };
-		93D73E011ADE250C003F9A7A /* utilities.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = utilities.cc; sourceTree = "<group>"; };
-		93D73E021ADE250C003F9A7A /* utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utilities.h; sourceTree = "<group>"; };
 		93E33C7F1AEBB6BB001F90DE /* accessor_adaptor_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = accessor_adaptor_test.cc; sourceTree = "<group>"; };
 		93E33C801AEBB6BB001F90DE /* clock_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clock_test.cc; sourceTree = "<group>"; };
 		93E33C811AEBB6BB001F90DE /* hash_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hash_test.cc; sourceTree = "<group>"; };
@@ -686,6 +738,7 @@
 				930D52051AD5530F006EEF1B /* enablers.h */,
 				930398371AB2AEF400577048 /* enum.h */,
 				93229E6C1ACD6DDA008D27EA /* singleton.h */,
+				935193411AF544930073C001 /* date_time.h */,
 				938A07E41AB2D41D00CAE8CA /* benchmark.h */,
 				93A9BFFD1AC99A430081D3A0 /* benchmark.cc */,
 			);
@@ -849,10 +902,14 @@
 		934C770E1AED383E0086371E /* nanovg */ = {
 			isa = PBXGroup;
 			children = (
+				935193451AF5496A0073C001 /* type.h */,
 				93FD7ED91AEE5D1C0082F6C8 /* context.h */,
 				93547E6A1AF0C16400B4C6BE /* context.cc */,
 				93FD7ECE1AEE5CA70082F6C8 /* scope.h */,
 				93547E651AF0B96900B4C6BE /* transform.h */,
+				9351933A1AF5305E0073C001 /* path.h */,
+				935193491AF54B1A0073C001 /* path.cc */,
+				9351934E1AF54BC10073C001 /* style.h */,
 				93547E611AF0A59200B4C6BE /* gl.h */,
 				934C77111AED383E0086371E /* gl2.h */,
 				934C77151AED38BB0086371E /* gl2.cc */,
@@ -966,8 +1023,6 @@
 				93AD7CE31ADD395500B42B9E /* view.cc */,
 				93AD7CE11ADD395500B42B9E /* layer.h */,
 				93AD7CE01ADD395500B42B9E /* layer.cc */,
-				93D73E021ADE250C003F9A7A /* utilities.h */,
-				93D73E011ADE250C003F9A7A /* utilities.cc */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -1044,6 +1099,7 @@
 				93229E721ACECD00008D27EA /* axis.h */,
 				93E913B71AB2811500DDF7F9 /* vector.h */,
 				93E913B81AB2811500DDF7F9 /* vector2.h */,
+				93547FD61AF51C4A00B4C6BE /* vector2.cc */,
 				93E913B91AB2811500DDF7F9 /* vector3.h */,
 				93E913BA1AB2811500DDF7F9 /* vector4.h */,
 				93FEF9351AD92C90009D0646 /* matrix.h */,
@@ -1129,7 +1185,9 @@
 			children = (
 				930D51E71AD42B76006EEF1B /* color.h */,
 				930D51E81AD42B76006EEF1B /* color3.h */,
+				935193301AF520670073C001 /* color3.cc */,
 				930D51E91AD42B76006EEF1B /* color4.h */,
+				935193351AF5206F0073C001 /* color4.cc */,
 				930D52001AD52BBF006EEF1B /* color_depth.h */,
 				93B707D91AD62C6300E3E8AA /* fill.h */,
 				93B707D81AD62C5E00E3E8AA /* stroke.h */,
@@ -1141,6 +1199,8 @@
 				93BE2F3F1ADA1A8100175565 /* shape.cc */,
 				933803261AD88DC200F41F92 /* font.h */,
 				933803251AD88DC200F41F92 /* font.cc */,
+				93547FCD1AF40FDC00B4C6BE /* quadratic_stroker.h */,
+				93547FCC1AF40FDC00B4C6BE /* quadratic_stroker.cc */,
 			);
 			path = graphics;
 			sourceTree = "<group>";
@@ -1199,13 +1259,13 @@
 			path = test;
 			sourceTree = "<group>";
 		};
-		93F3BCB71AA2214B00FBF369 /* Linked Frameworks */ = {
+		93F3BCB71AA2214B00FBF369 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				93A45B3B1AD0D2E500969DC2 /* OS X */,
 				93A45B3C1AD0D2E800969DC2 /* iOS */,
 			);
-			name = "Linked Frameworks";
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		93F8AD6617C8B39800310877 = {
@@ -1216,7 +1276,7 @@
 				93F3BBD61AA205C200FBF369 /* Tests */,
 				930955021A4FB1E200D09023 /* Configurations */,
 				93BE2F4C1ADA29A400175565 /* Contributed Sources */,
-				93F3BCB71AA2214B00FBF369 /* Linked Frameworks */,
+				93F3BCB71AA2214B00FBF369 /* Frameworks */,
 				93A45B3A1AD0D2BC00969DC2 /* System Frameworks */,
 				93F8AD7017C8B39800310877 /* Products */,
 			);
@@ -1255,14 +1315,18 @@
 				9350587B1AEF555D0020E755 /* gesture_kind.h in Headers */,
 				938A48111AED75B000071B50 /* SLSNSOpenGL4View.h in Headers */,
 				938A480B1AED75A700071B50 /* SLSNSOpenGL3View.h in Headers */,
+				935193481AF5496E0073C001 /* type.h in Headers */,
+				935193511AF54BC10073C001 /* style.h in Headers */,
 				93EDFC171AEC8E13003CDD03 /* SLSDisplaySource.h in Headers */,
 				934C76CE1AECD4600086371E /* triangulator.h in Headers */,
 				93EDFC181AEC8E13003CDD03 /* SLSAnimationSource.h in Headers */,
 				93EDFC151AEC8E13003CDD03 /* SLSRunner.h in Headers */,
+				935193441AF544930073C001 /* date_time.h in Headers */,
 				93EDFC201AEC8E13003CDD03 /* SLSNSBundle+Bundle.h in Headers */,
 				93EDFC1F1AEC8E13003CDD03 /* SLSApplicationMain.h in Headers */,
 				93547E7B1AF1267B00B4C6BE /* screen_edge.h in Headers */,
 				93EDFC831AEC8F21003CDD03 /* triangle.h in Headers */,
+				93547FD21AF40FE200B4C6BE /* quadratic_stroker.h in Headers */,
 				93EDFC301AEC8E1E003CDD03 /* SLSNSApplicationDelegate.h in Headers */,
 				93EDFC391AEC8E2C003CDD03 /* Solas.h in Headers */,
 				93EDFC2F1AEC8E1E003CDD03 /* SLSNSQuartzView.h in Headers */,
@@ -1284,6 +1348,7 @@
 				93EDFC191AEC8E13003CDD03 /* SLSQuartzLayer.h in Headers */,
 				93EDFC2E1AEC8E1E003CDD03 /* SLSNSOpenGLLayer.h in Headers */,
 				93EDFC1C1AEC8E13003CDD03 /* SLSEventDelegate.h in Headers */,
+				9351933B1AF530640073C001 /* path.h in Headers */,
 				93EDFC1D1AEC8E13003CDD03 /* SLSDisplayDelegate.h in Headers */,
 				934C76CC1AECD4600086371E /* lib.h in Headers */,
 				93EDFC2D1AEC8E1E003CDD03 /* SLSNSOpenGLView.h in Headers */,
@@ -1303,14 +1368,18 @@
 				9350587D1AEF555E0020E755 /* gesture_kind.h in Headers */,
 				938A48101AED75B000071B50 /* SLSNSOpenGL4View.h in Headers */,
 				938A480A1AED75A700071B50 /* SLSNSOpenGL3View.h in Headers */,
+				935193461AF5496D0073C001 /* type.h in Headers */,
+				9351934F1AF54BC10073C001 /* style.h in Headers */,
 				93EDFBFF1AEC8E12003CDD03 /* SLSDisplaySource.h in Headers */,
 				934C76DC1AECD4610086371E /* triangulator.h in Headers */,
 				93EDFC001AEC8E12003CDD03 /* SLSAnimationSource.h in Headers */,
 				93EDFBFD1AEC8E12003CDD03 /* SLSRunner.h in Headers */,
+				935193421AF544930073C001 /* date_time.h in Headers */,
 				93EDFC081AEC8E12003CDD03 /* SLSNSBundle+Bundle.h in Headers */,
 				93EDFC071AEC8E12003CDD03 /* SLSApplicationMain.h in Headers */,
 				93547E791AF1267B00B4C6BE /* screen_edge.h in Headers */,
 				93EDFC811AEC8F21003CDD03 /* triangle.h in Headers */,
+				93547FCF1AF40FDC00B4C6BE /* quadratic_stroker.h in Headers */,
 				93EDFC281AEC8E1D003CDD03 /* SLSNSApplicationDelegate.h in Headers */,
 				93EDFC271AEC8E1D003CDD03 /* SLSNSQuartzView.h in Headers */,
 				93EDFBFE1AEC8E12003CDD03 /* SLSEventSource.h in Headers */,
@@ -1332,6 +1401,7 @@
 				93EDFC261AEC8E1D003CDD03 /* SLSNSOpenGLLayer.h in Headers */,
 				93EDFC041AEC8E12003CDD03 /* SLSEventDelegate.h in Headers */,
 				93EDFC051AEC8E12003CDD03 /* SLSDisplayDelegate.h in Headers */,
+				9351933D1AF530640073C001 /* path.h in Headers */,
 				93EDFC381AEC8E2B003CDD03 /* Solas.h in Headers */,
 				934C76DA1AECD4610086371E /* lib.h in Headers */,
 				93EDFC251AEC8E1D003CDD03 /* SLSNSOpenGLView.h in Headers */,
@@ -1349,6 +1419,7 @@
 				93FD7ED71AEE5CA70082F6C8 /* scope.h in Headers */,
 				934C76E71AECD8EB0086371E /* voronoi_triangulator.h in Headers */,
 				934C76C61AECC7D40086371E /* type.h in Headers */,
+				9351933C1AF530640073C001 /* path.h in Headers */,
 				93EDFC3F1AEC8E38003CDD03 /* SLSUIQuartzView.h in Headers */,
 				9350587C1AEF555E0020E755 /* gesture_kind.h in Headers */,
 				93EDFC981AEC9C3F003CDD03 /* result.h in Headers */,
@@ -1369,16 +1440,20 @@
 				93EDFC131AEC8E12003CDD03 /* SLSApplicationMain.h in Headers */,
 				93EDFC3E1AEC8E38003CDD03 /* SLSUIOpenGLESView.h in Headers */,
 				93FD7EDB1AEE5D1C0082F6C8 /* context.h in Headers */,
+				935193471AF5496D0073C001 /* type.h in Headers */,
 				93EDFC641AEC8F21003CDD03 /* edge_iterator.h in Headers */,
 				93EDFC821AEC8F21003CDD03 /* triangle.h in Headers */,
 				93EDFC0A1AEC8E12003CDD03 /* SLSEventSource.h in Headers */,
 				93EDFC8C1AEC97DB003CDD03 /* edge.h in Headers */,
 				93EDFC0F1AEC8E12003CDD03 /* SLSEvents.h in Headers */,
+				935193501AF54BC10073C001 /* style.h in Headers */,
+				935193431AF544930073C001 /* date_time.h in Headers */,
 				93EDFC121AEC8E12003CDD03 /* SLSDisplayLink.h in Headers */,
 				93EDFC3D1AEC8E38003CDD03 /* SLSUIView.h in Headers */,
 				93547E631AF0A59C00B4C6BE /* nanovg_gl.h in Headers */,
 				934C76D51AECD4600086371E /* triangulator.h in Headers */,
 				934C771B1AED39360086371E /* gles2.h in Headers */,
+				93547FD01AF40FE200B4C6BE /* quadratic_stroker.h in Headers */,
 				934C76D41AECD4600086371E /* triangle_iterator.h in Headers */,
 				93EDFC0D1AEC8E12003CDD03 /* SLSQuartzLayer.h in Headers */,
 				938A48001AED711E00071B50 /* SLSUIOpenGLES2View.h in Headers */,
@@ -1583,9 +1658,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				935193B41AF558880073C001 /* plane_test.cc in Sources */,
+				935193BA1AF558880073C001 /* pointer_adaptor_test.cc in Sources */,
+				935193B21AF558880073C001 /* size_test.cc in Sources */,
+				935193B91AF558880073C001 /* interval_test.cc in Sources */,
+				935193B31AF558880073C001 /* rect_test.cc in Sources */,
 				934C76FA1AECDAE90086371E /* delaunay_triangulator_test.cc in Sources */,
 				934C76F91AECDAE90086371E /* triangle_iterator_test.cc in Sources */,
+				935193BD1AF558880073C001 /* timeline_test.cc in Sources */,
 				934C76FB1AECDAE90086371E /* voronoi_triangulator_test.cc in Sources */,
+				935193BE1AF558880073C001 /* tween_test.cc in Sources */,
+				935193B51AF558880073C001 /* sphere_test.cc in Sources */,
+				935193B81AF558880073C001 /* hash_test.cc in Sources */,
+				935193B71AF558880073C001 /* clock_test.cc in Sources */,
+				935193B11AF558880073C001 /* vector_test.cc in Sources */,
+				935193BC1AF558880073C001 /* timeline_host_test.cc in Sources */,
+				935193B61AF558880073C001 /* easing_test.cc in Sources */,
+				935193BB1AF558880073C001 /* accessor_adaptor_test.cc in Sources */,
 				934C76F81AECDA900086371E /* edge_iterator_test.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1611,8 +1700,9 @@
 				936E24C21ADEA6C30004C396 /* shape.cc in Sources */,
 				934C76C21AECC2E80086371E /* triangle_iterator.cc in Sources */,
 				936E244A1ADEA5A80004C396 /* layer.cc in Sources */,
-				936E244C1ADEA5A80004C396 /* utilities.cc in Sources */,
+				93547FD31AF40FE200B4C6BE /* quadratic_stroker.cc in Sources */,
 				934C77171AED38BB0086371E /* gl2.cc in Sources */,
+				935193331AF520670073C001 /* color3.cc in Sources */,
 				93547E6D1AF0C16400B4C6BE /* context.cc in Sources */,
 				936E24E61ADEA78B0004C396 /* SLSNSViewController.m in Sources */,
 				936E245F1ADEA5A80004C396 /* font.cc in Sources */,
@@ -1632,8 +1722,11 @@
 				938A480D1AED75A700071B50 /* SLSNSOpenGL3View.m in Sources */,
 				936E24B01ADEA68D0004C396 /* improved.cc in Sources */,
 				934C76D01AECD4600086371E /* delaunay_triangulator.cc in Sources */,
+				935193381AF5206F0073C001 /* color4.cc in Sources */,
+				9351934C1AF54B1A0073C001 /* path.cc in Sources */,
 				936E24461ADEA5A80004C396 /* run.mm in Sources */,
 				931B167B1AEBC7F5005F6B4C /* timeline.cc in Sources */,
+				93547FD91AF51C4A00B4C6BE /* vector2.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1658,8 +1751,9 @@
 				93D73DC31ADD5B78003F9A7A /* SLSNSOpenGLLayer.mm in Sources */,
 				934C76C01AECC2E70086371E /* triangle_iterator.cc in Sources */,
 				939E968A1AD391F800A7E21E /* SLSCVDisplayLink.mm in Sources */,
-				93D73E031ADE250C003F9A7A /* utilities.cc in Sources */,
+				93547FCE1AF40FDC00B4C6BE /* quadratic_stroker.cc in Sources */,
 				934C77161AED38BB0086371E /* gl2.cc in Sources */,
+				935193311AF520670073C001 /* color3.cc in Sources */,
 				93547E6B1AF0C16400B4C6BE /* context.cc in Sources */,
 				93CAA6541AD1AE32005EDC09 /* run.mm in Sources */,
 				93AD7CCB1ADCA4AA00B42B9E /* SLSNSQuartzView.m in Sources */,
@@ -1679,8 +1773,11 @@
 				938A480C1AED75A700071B50 /* SLSNSOpenGL3View.m in Sources */,
 				93AD7CD41ADCAA0200B42B9E /* SLSNSEventSourceView.mm in Sources */,
 				934C76DE1AECD4610086371E /* delaunay_triangulator.cc in Sources */,
+				935193361AF5206F0073C001 /* color4.cc in Sources */,
+				9351934A1AF54B1A0073C001 /* path.cc in Sources */,
 				93AD7CEB1ADD395500B42B9E /* view.cc in Sources */,
 				931B16791AEBC7F4005F6B4C /* timeline.cc in Sources */,
+				93547FD71AF51C4A00B4C6BE /* vector2.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1688,6 +1785,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9351934B1AF54B1A0073C001 /* path.cc in Sources */,
+				935193371AF5206F0073C001 /* color4.cc in Sources */,
 				93BE2F421ADA1A8100175565 /* shape.cc in Sources */,
 				93229E911AD23DF3008D27EA /* SLSUIApplicationDelegate.mm in Sources */,
 				93CAA6551AD1AE32005EDC09 /* run.mm in Sources */,
@@ -1706,6 +1805,8 @@
 				93F38E901AB60972009E3626 /* dispatch.mm in Sources */,
 				93BE2F731ADA32E800175565 /* segment.cc in Sources */,
 				93D73DEE1ADE0116003F9A7A /* SLSUIView.m in Sources */,
+				93547FD11AF40FE200B4C6BE /* quadratic_stroker.cc in Sources */,
+				93547FD81AF51C4A00B4C6BE /* vector2.cc in Sources */,
 				934C77191AED38C80086371E /* gles2.cc in Sources */,
 				93547E6C1AF0C16400B4C6BE /* context.cc in Sources */,
 				934C76E41AECD8E70086371E /* voronoi_triangulator.cc in Sources */,
@@ -1722,9 +1823,9 @@
 				933803281AD88DC200F41F92 /* font.cc in Sources */,
 				93A9BFFF1AC99A430081D3A0 /* benchmark.cc in Sources */,
 				93CAA64A1AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */,
-				93D73E041ADE250C003F9A7A /* utilities.cc in Sources */,
 				934C76CA1AECCB0A0086371E /* triangulator.cc in Sources */,
 				93AD7CEC1ADD395500B42B9E /* view.cc in Sources */,
+				935193321AF520670073C001 /* color3.cc in Sources */,
 				937E13981ADBDEB9008DB7A7 /* SLSQuartzLayer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1740,7 +1841,9 @@
 				93EDFC581AEC8F21003CDD03 /* delaunay_triangulator.cc in Sources */,
 				938A48021AED711E00071B50 /* SLSUIOpenGLES2View.m in Sources */,
 				93EDFB7E1AEC4706003CDD03 /* SLSQuartzLayer.mm in Sources */,
+				935193341AF520670073C001 /* color3.cc in Sources */,
 				93EDFB941AEC4726003CDD03 /* benchmark.cc in Sources */,
+				93547FDA1AF51C4A00B4C6BE /* vector2.cc in Sources */,
 				93EDFB811AEC4716003CDD03 /* SLSUIEventSourceView.mm in Sources */,
 				93EDFB8A1AEC4726003CDD03 /* view.cc in Sources */,
 				93EDFB871AEC4716003CDD03 /* SLSUIApplicationMain.mm in Sources */,
@@ -1757,14 +1860,15 @@
 				93EDFB8B1AEC4726003CDD03 /* layer.cc in Sources */,
 				93EDFB951AEC473B003CDD03 /* run.mm in Sources */,
 				93EDFC421AEC8E98003CDD03 /* nanovg.c in Sources */,
+				9351934D1AF54B1A0073C001 /* path.cc in Sources */,
 				934C76C81AECCB090086371E /* triangulator.cc in Sources */,
 				93EDFB8D1AEC4726003CDD03 /* path.cc in Sources */,
+				935193391AF5206F0073C001 /* color4.cc in Sources */,
 				93EDFBC21AEC8CE7003CDD03 /* transform.cc in Sources */,
 				93EDFB7F1AEC4706003CDD03 /* SLSNSBundle+Bundle.m in Sources */,
 				93EDFB801AEC4716003CDD03 /* SLSUIViewController.m in Sources */,
 				93EDFBA91AEC8C29003CDD03 /* triangle.c in Sources */,
 				938A48071AED712900071B50 /* SLSUIOpenGLES3View.m in Sources */,
-				93EDFB8C1AEC4726003CDD03 /* utilities.cc in Sources */,
 				93EDFB911AEC4726003CDD03 /* improved.cc in Sources */,
 				93EDFBC11AEC8CE2003CDD03 /* dispatch.mm in Sources */,
 				93EDFB841AEC4716003CDD03 /* SLSUIQuartzView.m in Sources */,
