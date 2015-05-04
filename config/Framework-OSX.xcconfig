@@ -19,9 +19,9 @@
 
 #include "Framework.xcconfig"
 
-// Product Linking
+// Linking
 OTHER_LDFLAGS = $(SOLAS_OTHER_LDFLAGS)  "$(PROJECT_DIR)/build/skia/osx/libskia.a"
 
-// Product Search Paths
+// Search Paths
 HEADER_SEARCH_PATHS = $(SOLAS_HEADER_SEARCH_PATHS)
 LIBRARY_SEARCH_PATHS = $(SOLAS_LIBRARY_SEARCH_PATHS)

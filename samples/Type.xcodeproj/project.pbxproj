@@ -102,6 +102,8 @@
 		937E13BC1ADBF34B008DB7A7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		937E13BE1ADBF350008DB7A7 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		93CA67E11ADB5BF4009F131B /* Type.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Type.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93D479721AF83BDC000F89B2 /* App-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-iOS.xcconfig"; sourceTree = SOURCE_ROOT; };
+		93D479731AF83BDC000F89B2 /* App-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-OSX.xcconfig"; sourceTree = SOURCE_ROOT; };
 		93D73E0E1ADE29BE003F9A7A /* ProjectDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProjectDebug.xcconfig; sourceTree = SOURCE_ROOT; };
 		93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProjectRelease.xcconfig; sourceTree = SOURCE_ROOT; };
 		93D73E101ADE2A0A003F9A7A /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -233,6 +235,8 @@
 			children = (
 				93EBABC01AD97E8C00BF8959 /* Info-OSX.plist */,
 				93EBABBF1AD97E8C00BF8959 /* Info-iOS.plist */,
+				93D479731AF83BDC000F89B2 /* App-OSX.xcconfig */,
+				93D479721AF83BDC000F89B2 /* App-iOS.xcconfig */,
 				93D73E101ADE2A0A003F9A7A /* Project.xcconfig */,
 				93D73E0E1ADE29BE003F9A7A /* ProjectDebug.xcconfig */,
 				93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */,
@@ -428,14 +432,11 @@
 /* Begin XCBuildConfiguration section */
 		93CA68011ADB5BF5009F131B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93D479721AF83BDC000F89B2 /* App-iOS.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/../build/boost/ios/framework",
-				);
 				INFOPLIST_FILE = "Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -443,20 +444,16 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src $(PROJECT_DIR)/../lib/nanovg/src";
 			};
 			name = Debug;
 		};
 		93CA68021ADB5BF5009F131B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93D479721AF83BDC000F89B2 /* App-iOS.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/../build/boost/ios/framework",
-				);
 				INFOPLIST_FILE = "Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -464,14 +461,13 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src $(PROJECT_DIR)/../lib/nanovg/src";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		93FEF9691AD97263009D0646 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */;
+			baseConfigurationReference = 93D73E0E1ADE29BE003F9A7A /* ProjectDebug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -494,31 +490,23 @@
 		};
 		93FEF96C1AD97263009D0646 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93D479731AF83BDC000F89B2 /* App-OSX.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/../build/boost/osx/framework",
-				);
 				INFOPLIST_FILE = "Info-OSX.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = Type;
-				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src $(PROJECT_DIR)/../lib/nanovg/src";
 			};
 			name = Debug;
 		};
 		93FEF96D1AD97263009D0646 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93D479731AF83BDC000F89B2 /* App-OSX.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/../build/boost/osx/framework",
-				);
 				INFOPLIST_FILE = "Info-OSX.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = Type;
-				USER_HEADER_SEARCH_PATHS = "$(inherited) $(PROJECT_DIR)/../src $(PROJECT_DIR)/../lib/nanovg/src";
 			};
 			name = Release;
 		};
