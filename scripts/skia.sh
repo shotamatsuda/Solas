@@ -25,8 +25,8 @@
 #  DEALINGS IN THE SOFTWARE.
 #
 
-readonly DEPOT_TOOLS_GIT="https://chromium.googlesource.com/chromium/tools/depot_tools.git"
-readonly SKIA_GIT="https://skia.googlesource.com/skia.git"
+readonly DEPOT_TOOLS_GIT='https://chromium.googlesource.com/chromium/tools/depot_tools.git'
+readonly SKIA_GIT='https://skia.googlesource.com/skia.git'
 
 readonly PROJECT_DIR="$(cd "$(dirname "$0")/../"; pwd)"
 readonly BUILD_DIR="${PROJECT_DIR}/build"
@@ -34,10 +34,12 @@ readonly DEPOT_TOOLS_DIR="${BUILD_DIR}/depot_tools"
 readonly SKIA_DIR="${BUILD_DIR}/skia"
 
 download_depot_tools() {
+  echo 'Downloading depot tools...'
   git clone "${DEPOT_TOOLS_GIT}" "${DEPOT_TOOLS_DIR}"
 }
 
 download_skia() {
+  echo 'Downloading skia...'
   export PATH="${DEPOT_TOOLS_DIR}":"${PATH}"
   mkdir -p "${SKIA_DIR}/skia"
   pushd "${SKIA_DIR}/skia"
@@ -49,74 +51,85 @@ download_skia() {
 
 build_skia() {
   pushd "${SKIA_DIR}/skia"
-    export GYP_GENERATORS="ninja,xcode"
+    export GYP_GENERATORS='ninja,xcode'
 
-    echo "Building for OS X"
-    "./gyp_skia"
-    ninja -C "out/Release" skia_lib tools
+    echo 'Building for OS X...'
+    GYP_DEFINES="skia_os='mac' skia_arch_width='32'" './gyp_skia'
+    ninja -C 'out/Release' skia_lib tools
+    copy_libraries_in_place "${SKIA_DIR}/skia/out/Release" 'osx' 'i386'
+    GYP_DEFINES="skia_os='mac' skia_arch_width='64'" './gyp_skia'
+    ninja -C 'out/Release' skia_lib tools
+    copy_libraries_in_place "${SKIA_DIR}/skia/out/Release" 'osx' 'x86_64'
 
-    echo "Building for iOS"
-    GYP_DEFINES="skia_os='ios' skia_arch_type='arm' armv7='1' arm_neon='0'" "./gyp_skia"
+    echo 'Building for iOS...'
+    GYP_DEFINES="skia_os='ios' skia_arch_type='arm' armv7='1' arm_neon='0'" './gyp_skia'
     ninja -C "out/Release-iphoneos" skia_lib tools
+    copy_libraries_in_place "${SKIA_DIR}/skia/out/Release-iphoneos" 'ios' 'armv7'
 
-    echo "Building for iOS Simulator"
-    GYP_DEFINES="skia_os='ios' skia_arch_type='x86_64'" "./gyp_skia"
-    # Because gyp_skia doesn't generate ninja files for iPhone Simulator, we
-    # need to replace the occurrences of the target architecture and the SDK
-    # directory by hand.
-    find "out/Release-iphonesimulator" -type f -name "*.ninja" -exec \
-        sed -i -e 's/armv7/x86_64/g' {} \;
-    find "out/Release-iphonesimulator" -type f -name "*.ninja" -exec \
-        sed -i -e 's|iPhoneOS.platform/Developer/SDKs/iPhoneOS|iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator|g' {} \;
-    ninja -C "out/Release-iphonesimulator" skia_lib tools
+    echo 'Building for iOS Simulator...'
+    build_skia_for_ios_simulator 'i386' 'x86'
+    copy_libraries_in_place "${SKIA_DIR}/skia/out/Release-iphonesimulator" 'ios' 'i386'
+    build_skia_for_ios_simulator 'x86_64' 'x86_64'
+    copy_libraries_in_place "${SKIA_DIR}/skia/out/Release-iphonesimulator" 'ios' 'x86_64'
   popd
+}
+
+build_skia_for_ios_simulator() {
+  local arch=$1
+  local arch_type=$2
+  GYP_DEFINES="skia_os='ios' skia_arch_type='${arch_type}'" './gyp_skia'
+  # Because gyp_skia doesn't generate ninja files for iPhone Simulator, we need
+  # to replace the occurrences of the target architecture and the SDK directory
+  # by hand.
+  find 'out/Release-iphonesimulator' -type f -name '*.ninja' -exec \
+      sed -i -e "s/armv7/${arch}/g" {} \;
+  find 'out/Release-iphonesimulator' -type f -name '*.ninja' -exec \
+      sed -i -e 's|iPhoneOS.platform|iPhoneSimulator.platform|g' {} \;
+  find 'out/Release-iphonesimulator' -type f -name '*.ninja' -exec \
+      sed -i -e 's|SDKs/iPhoneOS|SDKs/iPhoneSimulator|g' {} \;
+  ninja -C 'out/Release-iphonesimulator' skia_lib tools
 }
 
 copy_libraries_in_place() {
-  echo "Copying libraries in place"
-  mkdir -p "${SKIA_DIR}/osx/x86_64"
-  mkdir -p "${SKIA_DIR}/ios/armv7"
-  mkdir -p "${SKIA_DIR}/ios/x86_64"
-  for file in $(find "${SKIA_DIR}/skia/out/Release" -name "*.a"); do
-    cp -n "${file}" "${SKIA_DIR}/osx/x86_64"
-  done
-  for file in $(find "${SKIA_DIR}/skia/out/Release-iphoneos" -name "*.a"); do
-    cp -n "${file}" "${SKIA_DIR}/ios/armv7"
-  done
-  for file in $(find "${SKIA_DIR}/skia/out/Release-iphonesimulator" -name "*.a"); do
-    cp -n "${file}" "${SKIA_DIR}/ios/x86_64"
+  local dir=$1
+  local platform=$2
+  local arch=$3
+  echo 'Copying libraries in place...'
+  mkdir -p "${SKIA_DIR}/${platform}/${arch}"
+  for file in $(find "${dir}" -name '*.a'); do
+    cp -n "${file}" "${SKIA_DIR}/${platform}/${arch}"
   done
 }
 
-create_universal_files() {
-  echo "Decomposing libraries to object files"
-  mkdir -p "${SKIA_DIR}/osx/x86_64/obj"
-  mkdir -p "${SKIA_DIR}/ios/armv7/obj"
-  mkdir -p "${SKIA_DIR}/ios/x86_64/obj"
-  for file in $(find "${SKIA_DIR}/osx/x86_64" -name "*.a"); do
-    cd "${SKIA_DIR}/osx/x86_64/obj"; ar -x "${file}"
-  done
-  for file in $(find "${SKIA_DIR}/ios/armv7" -name "*.a"); do
-    cd "${SKIA_DIR}/ios/armv7/obj"; ar -x "${file}"
-  done
-  for file in $(find "${SKIA_DIR}/ios/x86_64" -name "*.a"); do
-    cd "${SKIA_DIR}/ios/x86_64/obj"; ar -x "${file}"
-  done
+decompose_libraries() {
+  echo 'Decomposing libraries to object files...'
+  decompose_library 'osx' 'i386'
+  decompose_library 'osx' 'x86_64'
+  decompose_library 'ios' 'armv7'
+  decompose_library 'ios' 'i386'
+  decompose_library 'ios' 'x86_64'
+}
 
-  echo "Linking everything within architectures"
+decompose_library() {
+  local platform=$1
+  local arch=$2
+  mkdir -p "${SKIA_DIR}/${platform}/${arch}/obj"
+  for file in $(find "${SKIA_DIR}/${platform}/${arch}" -name '*.a'); do
+    cd "${SKIA_DIR}/${platform}/${arch}/obj"; ar -x "${file}"
+  done
+}
+
+create_universal_libraries() {
+  echo 'Linking everything within architectures...'
   rm "${SKIA_DIR}"/osx/*/libskia.a
   rm "${SKIA_DIR}"/ios/*/libskia.a
-  pushd "${SKIA_DIR}/osx/x86_64"
-    xcrun ar crus "libskia.a" obj/*.o
-  popd
-  pushd "${SKIA_DIR}/ios/armv7"
-    xcrun ar crus "libskia.a" obj/*.o
-  popd
-  pushd "${SKIA_DIR}/ios/x86_64"
-    xcrun ar crus "libskia.a" obj/*.o
-  popd
+  pushd "${SKIA_DIR}/osx/i386"; xcrun ar crus "libskia.a" obj/*.o; popd
+  pushd "${SKIA_DIR}/osx/x86_64"; xcrun ar crus "libskia.a" obj/*.o; popd
+  pushd "${SKIA_DIR}/ios/armv7"; xcrun ar crus "libskia.a" obj/*.o; popd
+  pushd "${SKIA_DIR}/ios/i386"; xcrun ar crus "libskia.a" obj/*.o; popd
+  pushd "${SKIA_DIR}/ios/x86_64"; xcrun ar crus "libskia.a" obj/*.o; popd
 
-  echo "Creating universal files"
+  echo 'Creating universal files...'
   rm "${SKIA_DIR}"/osx/libskia.a
   rm "${SKIA_DIR}"/ios/libskia.a
   xcrun lipo -create "${SKIA_DIR}"/osx/*/libskia.a -o "${SKIA_DIR}/osx/libskia.a"
@@ -126,5 +139,5 @@ create_universal_files() {
 download_depot_tools
 download_skia
 build_skia
-copy_libraries_in_place
-create_universal_files
+decompose_libraries
+create_universal_libraries
