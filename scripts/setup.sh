@@ -31,12 +31,9 @@ pushd "${PROJECT_DIR}"
   git submodule update --init
 
   "scripts/build.sh" cmake "lib/gtest" "build/gtest"
+  "scripts/skia.sh"
   mkdir -p "build/boost"
   pushd "build/boost"
     "${PROJECT_DIR}/scripts/boost.sh"
-  popd
-  mkdir -p "build/skia"
-  pushd "build/skia"
-    "${PROJECT_DIR}/scripts/skia.sh"
   popd
 popd
