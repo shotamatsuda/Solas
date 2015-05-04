@@ -396,7 +396,7 @@ class App : public solas::app::View {
 
   void mouseWheel(const app::MouseEvent& event) override {
     if (event.modifiers() % app::KeyModifier::ALTERNATE) {
-      width_ = std::max(0.0, width_ + event.wheel().y);
+      width_ = std::max(0.0, width_ + event.wheel().y / 2.0);
       needs_stroking_ = true;
     } else {
       const auto scale = scale_;
