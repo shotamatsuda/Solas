@@ -51,6 +51,17 @@
 - (NSOpenGLPixelFormat *)openGLPixelFormatForDisplayMask:(uint32_t)mask {
   NSOpenGLPixelFormatAttribute values[] = {
     NSOpenGLPFADoubleBuffer,
+    NSOpenGLPFAColorSize,
+    (NSOpenGLPixelFormatAttribute)24,
+    NSOpenGLPFAAlphaSize,
+    (NSOpenGLPixelFormatAttribute)8,
+    NSOpenGLPFADepthSize,
+    (NSOpenGLPixelFormatAttribute)24,
+    NSOpenGLPFASampleBuffers,
+    (NSOpenGLPixelFormatAttribute)1,
+    NSOpenGLPFASamples,
+    (NSOpenGLPixelFormatAttribute)8,
+    NSOpenGLPFAMultisample,
     NSOpenGLPFAOpenGLProfile,
     self.API,
     (NSOpenGLPixelFormatAttribute)0

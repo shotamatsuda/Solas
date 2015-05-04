@@ -24,7 +24,7 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-// Configuration for Xcode 6.1
+// Configuration for Xcode 6
 
 #include "Project.xcconfig"
 

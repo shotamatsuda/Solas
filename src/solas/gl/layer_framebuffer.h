@@ -44,7 +44,6 @@ class LayerFramebuffer {
   GLuint framebuffer_;
   GLuint color_renderbuffer_;
   GLuint depth_stencil_renderbuffer_;
-  GLint another_framebuffer_;
 };
 
 #pragma mark -
@@ -54,8 +53,7 @@ inline LayerFramebuffer::LayerFramebuffer()
       height_(),
       framebuffer_(),
       color_renderbuffer_(),
-      depth_stencil_renderbuffer_(),
-      another_framebuffer_() {}
+      depth_stencil_renderbuffer_() {}
 
 }  // namespace gl
 }  // namespace solas
