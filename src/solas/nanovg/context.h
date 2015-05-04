@@ -60,11 +60,11 @@ class Context final {
   operator NVGcontext *() const { return context_; }
 
   // Shared context
-  static NVGcontext * Shared() { return shared_context_; }
+  static NVGcontext * Current() { return current_context_; }
 
  private:
   NVGcontext *context_;
-  static NVGcontext *shared_context_;
+  static NVGcontext *current_context_;
 };
 
 #pragma mark -
@@ -72,8 +72,8 @@ class Context final {
 inline Context::Context() : context_(nullptr) {}
 
 inline Context::~Context() {
-  if (shared_context_ == context_) {
-    shared_context_ = nullptr;
+  if (current_context_ == context_) {
+    current_context_ = nullptr;
   }
   destroy();
 }
@@ -111,19 +111,19 @@ inline void Context::destroy() {
 inline void Context::begin(int width, int height, float scale) {
   assert(context_);
   nvgBeginFrame(context_, width, height, scale);
-  shared_context_ = context_;
+  current_context_ = context_;
 }
 
 inline void Context::cancel() {
   assert(context_);
   nvgCancelFrame(context_);
-  shared_context_ = nullptr;
+  current_context_ = nullptr;
 }
 
 inline void Context::end() {
   assert(context_);
   nvgEndFrame(context_);
-  shared_context_ = nullptr;
+  current_context_ = nullptr;
 }
 
 }  // namespace nanovg

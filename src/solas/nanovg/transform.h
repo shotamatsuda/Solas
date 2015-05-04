@@ -45,61 +45,61 @@ void SkewY(Real angle);
 #pragma mark -
 
 inline void TranslateX(Real dx) {
-  nvgTranslate(Context::Shared(), dx, 0.0);
+  nvgTranslate(Context::Current(), dx, 0.0);
 }
 
 inline void TranslateY(Real dy) {
-  nvgTranslate(Context::Shared(), 0.0, dy);
+  nvgTranslate(Context::Current(), 0.0, dy);
 }
 
 inline void Translate(Real value) {
-  nvgTranslate(Context::Shared(), value, value);
+  nvgTranslate(Context::Current(), value, value);
 }
 
 inline void Translate(Real dx, Real dy) {
-  nvgTranslate(Context::Shared(), dx, dy);
+  nvgTranslate(Context::Current(), dx, dy);
 }
 
 inline void Translate(const Vec2& value) {
-  nvgTranslate(Context::Shared(), value.x, value.y);
+  nvgTranslate(Context::Current(), value.x, value.y);
 }
 
 inline void Rotate(Real angle) {
-  nvgRotate(Context::Shared(), angle);
+  nvgRotate(Context::Current(), angle);
 }
 
 inline void Rotate(Real angle, const Vec2& point) {
-  nvgTranslate(Context::Shared(), point.x, point.y);
-  nvgRotate(Context::Shared(), angle);
-  nvgTranslate(Context::Shared(), -point.x, -point.y);
+  nvgTranslate(Context::Current(), point.x, point.y);
+  nvgRotate(Context::Current(), angle);
+  nvgTranslate(Context::Current(), -point.x, -point.y);
 }
 
 inline void ScaleX(Real sx) {
-  nvgScale(Context::Shared(), sx, 1.0);
+  nvgScale(Context::Current(), sx, 1.0);
 }
 
 inline void ScaleY(Real sy) {
-  nvgScale(Context::Shared(), 1.0, sy);
+  nvgScale(Context::Current(), 1.0, sy);
 }
 
 inline void Scale(Real value) {
-  nvgScale(Context::Shared(), value, value);
+  nvgScale(Context::Current(), value, value);
 }
 
 inline void Scale(Real sx, Real sy) {
-  nvgScale(Context::Shared(), sx, sy);
+  nvgScale(Context::Current(), sx, sy);
 }
 
 inline void Scale(const Vec2& value) {
-  nvgScale(Context::Shared(), value.x, value.y);
+  nvgScale(Context::Current(), value.x, value.y);
 }
 
 inline void SkewX(Real angle) {
-  nvgSkewX(Context::Shared(), angle);
+  nvgSkewX(Context::Current(), angle);
 }
 
 inline void SkewY(Real angle) {
-  nvgSkewY(Context::Shared(), angle);
+  nvgSkewY(Context::Current(), angle);
 }
 
 }  // namespace nanovg

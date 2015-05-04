@@ -35,29 +35,26 @@ namespace {
 
 static void AddConicAsQuads(const std::vector<SkPoint>& points,
                             float weight,
-                            Path *path) {
-  assert(path);
-  const int pow2 = 1;
-  const int quad_count = 1 << pow2;
-  const int point_count = 1 + 2 * quad_count;
-  std::vector<SkPoint> quads(point_count);
-  const SkConic conic(points.data(), weight);
-  conic.chopIntoQuadsPOW2(quads.data(), pow2);
-  for (auto itr = quads.begin() + 1; itr != quads.end(); itr += 2) {
-    path->quadraticTo(*itr, *(itr + 1));
-  }
-}
-
-static void AddConicAsQuads(const std::vector<SkPoint>& points,
-                            float weight,
                             float tolerance,
                             Path *path) {
   assert(path);
-  SkAutoConicToQuads converter;
-  const auto quads = converter.computeQuads(points.data(), weight, tolerance);
-  const auto end = quads + converter.countQuads() * 2 + 1;
-  for (auto itr = quads + 1; itr != end; itr += 2) {
-    path->quadraticTo(*itr, *(itr + 1));
+  if (!tolerance) {
+    const int pow2 = 1;
+    const int quad_count = 1 << pow2;
+    const int point_count = 1 + 2 * quad_count;
+    std::vector<SkPoint> quads(point_count);
+    const SkConic conic(points.data(), weight);
+    conic.chopIntoQuadsPOW2(quads.data(), pow2);
+    for (auto itr = quads.begin() + 1; itr != quads.end(); itr += 2) {
+      path->quadraticTo(*itr, *(itr + 1));
+    }
+  } else {
+    SkAutoConicToQuads converter;
+    const auto quads = converter.computeQuads(points.data(), weight, tolerance);
+    const auto end = quads + converter.countQuads() * 2 + 1;
+    for (auto itr = quads + 1; itr != end; itr += 2) {
+      path->quadraticTo(*itr, *(itr + 1));
+    }
   }
 }
 
@@ -82,7 +79,7 @@ void Path::set(const SkPath& path) {
         quadraticTo(points[1], points[2]);
         break;
       case SkPath::Verb::kConic_Verb:
-        AddConicAsQuads(points, itr.conicWeight(), this);
+        AddConicAsQuads(points, itr.conicWeight(), 0.0, this);
         break;
       case SkPath::Verb::kCubic_Verb:
         cubicTo(points[1], points[2], points[3]);

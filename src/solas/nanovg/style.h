@@ -39,39 +39,39 @@ void GlobalAlpha(Real alpha);
 #pragma mark -
 
 inline void StrokeColor(NVGcolor color) {
-  nvgStrokeColor(Context::Shared(), color);
+  nvgStrokeColor(Context::Current(), color);
 }
 
 inline void StrokePaint(NVGpaint paint) {
-  nvgStrokePaint(Context::Shared(), paint);
+  nvgStrokePaint(Context::Current(), paint);
 }
 
 inline void FillColor(NVGcolor color) {
-  nvgFillColor(Context::Shared(), color);
+  nvgFillColor(Context::Current(), color);
 }
 
 inline void FillPaint(NVGpaint paint) {
-  nvgFillPaint(Context::Shared(), paint);
+  nvgFillPaint(Context::Current(), paint);
 }
 
 inline void MiterLimit(Real limit) {
-  nvgMiterLimit(Context::Shared(), limit);
+  nvgMiterLimit(Context::Current(), limit);
 }
 
 inline void StrokeWidth(Real size) {
-  nvgStrokeWidth(Context::Shared(), size);
+  nvgStrokeWidth(Context::Current(), size);
 }
 
 inline void LineCap(int cap) {
-  nvgLineCap(Context::Shared(), cap);
+  nvgLineCap(Context::Current(), cap);
 }
 
 inline void LineJoin(int join) {
-  nvgLineJoin(Context::Shared(), join);
+  nvgLineJoin(Context::Current(), join);
 }
 
 inline void GlobalAlpha(Real alpha) {
-  nvgGlobalAlpha(Context::Shared(), alpha);
+  nvgGlobalAlpha(Context::Current(), alpha);
 }
 
 }  // namespace nanovg

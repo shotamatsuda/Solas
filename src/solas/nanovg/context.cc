@@ -20,7 +20,7 @@
 namespace solas {
 namespace nanovg {
 
-NVGcontext * Context::shared_context_;
+NVGcontext * Context::current_context_;
 
 }  // namespace nanovg
 }  // namespace solas

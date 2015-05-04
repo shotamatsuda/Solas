@@ -51,76 +51,76 @@ void Stroke();
 #pragma mark -
 
 inline void BeginPath() {
-  nvgBeginPath(Context::Shared());
+  nvgBeginPath(Context::Current());
 }
 
 inline void MoveTo(Real x, Real y) {
-  nvgMoveTo(Context::Shared(), x, y);
+  nvgMoveTo(Context::Current(), x, y);
 }
 
 inline void MoveTo(const Vec2& point) {
-  nvgMoveTo(Context::Shared(), point.x, point.y);
+  nvgMoveTo(Context::Current(), point.x, point.y);
 }
 
 inline void LineTo(Real x, Real y) {
-  nvgLineTo(Context::Shared(), x, y);
+  nvgLineTo(Context::Current(), x, y);
 }
 
 inline void LineTo(const Vec2& point) {
-  nvgLineTo(Context::Shared(), point.x, point.y);
+  nvgLineTo(Context::Current(), point.x, point.y);
 }
 
 inline void QuadTo(Real cx, Real cy, Real x, Real y) {
-  nvgQuadTo(Context::Shared(), cx, cy, x, y);
+  nvgQuadTo(Context::Current(), cx, cy, x, y);
 }
 
 inline void QuadTo(const Vec2& control, const Vec2& point) {
-  nvgQuadTo(Context::Shared(), control.x, control.y, point.x, point.y);
+  nvgQuadTo(Context::Current(), control.x, control.y, point.x, point.y);
 }
 
 inline void CubicTo(Real cx1, Real cy1, Real cx2, Real cy2, Real x, Real y) {
-  nvgBezierTo(Context::Shared(), cx1, cy1, cx2, cy2, x, y);
+  nvgBezierTo(Context::Current(), cx1, cy1, cx2, cy2, x, y);
 }
 
 inline void CubicTo(const Vec2& control1,
                     const Vec2& control2,
                     const Vec2& point) {
-  nvgBezierTo(Context::Shared(),
+  nvgBezierTo(Context::Current(),
               control1.x, control1.y,
               control2.x, control2.y,
               point.x, point.y);
 }
 
 inline void ClosePath() {
-  nvgClosePath(Context::Shared());
+  nvgClosePath(Context::Current());
 }
 
 inline void PathWinding(int direction) {
-  nvgPathWinding(Context::Shared(), direction);
+  nvgPathWinding(Context::Current(), direction);
 }
 
 inline void Rect(const Vec2& point, const Size2& size) {
-  nvgRect(Context::Shared(), point.x, point.y, size.w, size.h);
+  nvgRect(Context::Current(), point.x, point.y, size.w, size.h);
 }
 
 inline void RoundedRect(const Vec2& point, const Size2& size, Real radius) {
-  nvgRoundedRect(Context::Shared(), point.x, point.y, size.w, size.h, radius);
+  nvgRoundedRect(Context::Current(), point.x, point.y, size.w, size.h, radius);
 }
 
 inline void Ellipse(const Vec2& point, const Size2& size) {
-  nvgEllipse(Context::Shared(), point.x, point.y, size.w, size.h);
+  nvgEllipse(Context::Current(), point.x, point.y, size.w, size.h);
 }
 
 inline void Circle(const Vec2& point, Real radius) {
-  nvgCircle(Context::Shared(), point.x, point.y, radius);
+  nvgCircle(Context::Current(), point.x, point.y, radius);
 }
 
 inline void Fill() {
-  nvgFill(Context::Shared());
+  nvgFill(Context::Current());
 }
 
 inline void Stroke() {
-  nvgStroke(Context::Shared());
+  nvgStroke(Context::Current());
 }
 
 }  // namespace nanovg
