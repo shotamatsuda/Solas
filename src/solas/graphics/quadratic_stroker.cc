@@ -72,6 +72,9 @@ Path QuadraticStroker::operator()(const Path& path) const {
   paint.setStrokeJoin(PaintJoin(join_));
   SkPath stroke;
   paint.getFillPath(path, &stroke, nullptr, tolerance_);
+  if (simplifies_) {
+    Simplify(stroke, &stroke);
+  }
   return Path(stroke);
 }
 

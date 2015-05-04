@@ -33,7 +33,22 @@ namespace graphics {
 
 namespace {
 
-inline void AddConicAsQuads(const std::vector<SkPoint>& points,
+static void AddConicAsQuads(const std::vector<SkPoint>& points,
+                            float weight,
+                            Path *path) {
+  assert(path);
+  const int pow2 = 1;
+  const int quad_count = 1 << pow2;
+  const int point_count = 1 + 2 * quad_count;
+  std::vector<SkPoint> quads(point_count);
+  const SkConic conic(points.data(), weight);
+  conic.chopIntoQuadsPOW2(quads.data(), pow2);
+  for (auto itr = quads.begin() + 1; itr != quads.end(); itr += 2) {
+    path->quadraticTo(*itr, *(itr + 1));
+  }
+}
+
+static void AddConicAsQuads(const std::vector<SkPoint>& points,
                             float weight,
                             float tolerance,
                             Path *path) {
@@ -67,7 +82,7 @@ void Path::set(const SkPath& path) {
         quadraticTo(points[1], points[2]);
         break;
       case SkPath::Verb::kConic_Verb:
-        AddConicAsQuads(points, itr.conicWeight(), 0.25, this);
+        AddConicAsQuads(points, itr.conicWeight(), this);
         break;
       case SkPath::Verb::kCubic_Verb:
         cubicTo(points[1], points[2], points[3]);
