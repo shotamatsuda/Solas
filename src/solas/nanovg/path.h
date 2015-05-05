@@ -41,9 +41,13 @@ void AppendPath(const graphics::Path& path);
 void AppendSegment(const graphics::Segment& segment);
 void ClosePath();
 void PathWinding(int direction);
+void Rect(Real x, Real y, Real width, Real height);
 void Rect(const Vec2& point, const Size2& size);
+void RoundedRect(Real x, Real y, Real width, Real height, Real radius);
 void RoundedRect(const Vec2& point, const Size2& size, Real radius);
+void Ellipse(Real x, Real y, Real width, Real height);
 void Ellipse(const Vec2& point, const Size2& size);
+void Circle(Real x, Real y, Real radius);
 void Circle(const Vec2& point, Real radius);
 void Fill();
 void Stroke();
@@ -99,16 +103,32 @@ inline void PathWinding(int direction) {
   nvgPathWinding(Context::Current(), direction);
 }
 
+inline void Rect(float x, float y, float width, float height) {
+  nvgRect(Context::Current(), x, y, width, height);
+}
+
 inline void Rect(const Vec2& point, const Size2& size) {
   nvgRect(Context::Current(), point.x, point.y, size.w, size.h);
+}
+
+inline void RoundedRect(Real x, Real y, Real width, Real height, Real radius) {
+  nvgRoundedRect(Context::Current(), x, y, width, height, radius);
 }
 
 inline void RoundedRect(const Vec2& point, const Size2& size, Real radius) {
   nvgRoundedRect(Context::Current(), point.x, point.y, size.w, size.h, radius);
 }
 
+inline void Ellipse(Real x, Real y, Real width, Real height) {
+  nvgEllipse(Context::Current(), x, y, width, height);
+}
+
 inline void Ellipse(const Vec2& point, const Size2& size) {
   nvgEllipse(Context::Current(), point.x, point.y, size.w, size.h);
+}
+
+inline void Circle(Real x, Real y, Real radius) {
+  nvgCircle(Context::Current(), x, y, radius);
 }
 
 inline void Circle(const Vec2& point, Real radius) {
