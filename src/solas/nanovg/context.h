@@ -22,7 +22,10 @@
 #include "nanovg.h"
 
 #include <cassert>
+#include <stack>
 #include <utility>
+
+#include "solas/utility/singleton.h"
 
 namespace solas {
 namespace nanovg {
@@ -59,12 +62,12 @@ class Context final {
   operator bool() const { return context_; }
   operator NVGcontext *() const { return context_; }
 
-  // Shared context
-  static NVGcontext * Current() { return current_context_; }
+  // Current context
+  static NVGcontext * Current();
 
  private:
   NVGcontext *context_;
-  static NVGcontext *current_context_;
+  static utility::Singleton<std::stack<NVGcontext *>> contexts_;
 };
 
 #pragma mark -
@@ -72,8 +75,8 @@ class Context final {
 inline Context::Context() : context_(nullptr) {}
 
 inline Context::~Context() {
-  if (current_context_ == context_) {
-    current_context_ = nullptr;
+  if (!contexts_->empty() && contexts_->top() == context_) {
+    contexts_->pop();
   }
   destroy();
 }
@@ -111,19 +114,28 @@ inline void Context::destroy() {
 inline void Context::begin(int width, int height, float scale) {
   assert(context_);
   nvgBeginFrame(context_, width, height, scale);
-  current_context_ = context_;
+  contexts_->push(context_);
 }
 
 inline void Context::cancel() {
   assert(context_);
   nvgCancelFrame(context_);
-  current_context_ = nullptr;
+  contexts_->pop();
 }
 
 inline void Context::end() {
   assert(context_);
   nvgEndFrame(context_);
-  current_context_ = nullptr;
+  contexts_->pop();
+}
+
+#pragma mark Current context
+
+inline NVGcontext * Context::Current() {
+  if (contexts_->empty()) {
+    return nullptr;
+  }
+  return contexts_->top();
 }
 
 }  // namespace nanovg
