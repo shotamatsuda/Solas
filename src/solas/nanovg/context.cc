@@ -19,6 +19,8 @@
 
 #include <stack>
 
+#include "nanovg.h"
+
 #include "solas/utility/singleton.h"
 
 namespace solas {
