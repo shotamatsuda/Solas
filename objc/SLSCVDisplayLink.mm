@@ -15,10 +15,6 @@
 //  design engineering.
 //
 
-#if __has_feature(objc_arc)
-#error This file must be compiled without ARC. Use -fno-objc-arc flag.
-#endif
-
 #import "SLSDisplayLink.h"
 
 #import <QuartzCore/QuartzCore.h>
@@ -47,7 +43,10 @@ static CVReturn DisplayLinkCallback(
     void *userInfo) {
   @autoreleasepool {
     SLSDisplayLink *self = (__bridge SLSDisplayLink *)userInfo;
-    [self.target performSelector:self.selector];
+    [self.target performSelector:self.selector
+                        onThread:[NSThread currentThread]
+                      withObject:nil
+                   waitUntilDone:YES];
   }
   return kCVReturnSuccess;
 }
@@ -57,7 +56,7 @@ static CVReturn DisplayLinkCallback(
 - (instancetype)initWithTarget:(id)target selector:(SEL)selector {
   self = [super init];
   if (self) {
-    _target = [target retain];
+    _target = target;
     _selector = selector;
     CVDisplayLinkCreateWithActiveCGDisplays(&_link);
     CVDisplayLinkSetOutputCallback(
@@ -78,8 +77,6 @@ static CVReturn DisplayLinkCallback(
     CVDisplayLinkRelease(_link);
     _link = NULL;
   }
-  [_target release];
-  [super dealloc];
 }
 
 - (void)start {

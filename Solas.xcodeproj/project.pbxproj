@@ -151,7 +151,7 @@
 		936E24EE1ADEA78B0004C396 /* SLSNSOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CC21ADCA45600B42B9E /* SLSNSOpenGLView.m */; };
 		936E24F01ADEA78B0004C396 /* SLSNSOpenGLLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DC11ADD5B78003F9A7A /* SLSNSOpenGLLayer.mm */; };
 		936E24F41ADEA78B0004C396 /* SLSNSQuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CC81ADCA4AA00B42B9E /* SLSNSQuartzView.m */; };
-		936E24F51ADEA78B0004C396 /* SLSCVDisplayLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 938987D71AD21F2000DEC9E9 /* SLSCVDisplayLink.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		936E24F51ADEA78B0004C396 /* SLSCVDisplayLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 938987D71AD21F2000DEC9E9 /* SLSCVDisplayLink.mm */; };
 		936E24F61ADEA78B0004C396 /* SLSNSApplicationMain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA64C1AD1AD4B005EDC09 /* SLSNSApplicationMain.mm */; };
 		936E24F81ADEA78B0004C396 /* SLSNSApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6351AD1A2A5005EDC09 /* SLSNSApplicationDelegate.mm */; };
 		936E25551ADEAAED0004C396 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F3BCB81AA2215A00FBF369 /* AppKit.framework */; };
@@ -187,7 +187,7 @@
 		939E963E1AD250AF00A7E21E /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
 		939E963F1AD250AF00A7E21E /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
 		939E96861AD3864600A7E21E /* SLSCADisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 939E96851AD3864600A7E21E /* SLSCADisplayLink.m */; };
-		939E968A1AD391F800A7E21E /* SLSCVDisplayLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 938987D71AD21F2000DEC9E9 /* SLSCVDisplayLink.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		939E968A1AD391F800A7E21E /* SLSCVDisplayLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 938987D71AD21F2000DEC9E9 /* SLSCVDisplayLink.mm */; };
 		93A45B361AD0D23700969DC2 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B351AD0D23700969DC2 /* boost.framework */; };
 		93A45B381AD0D25300969DC2 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B371AD0D25300969DC2 /* boost.framework */; };
 		93A45B3E1AD0D32B00969DC2 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B3D1AD0D32B00969DC2 /* GLKit.framework */; };
@@ -580,10 +580,10 @@
 		93EDFB9A1AEC478F003CDD03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B3F1AD0D33700969DC2 /* UIKit.framework */; };
 		93EDFB9B1AEC478F003CDD03 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AD7CDE1ADD37F200B42B9E /* OpenGLES.framework */; };
 		93EDFB9C1AEC478F003CDD03 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CAA62E1AD19CEC005EDC09 /* QuartzCore.framework */; };
-		93EDFBA61AEC8C29003CDD03 /* triangle.c in Sources */ = {isa = PBXBuildFile; fileRef = 93EDFBA21AEC8C29003CDD03 /* triangle.c */; settings = {COMPILER_FLAGS = "-Wno-missing-prototypes -Wno-uninitialized -Wno-conditional-uninitialized -D TRILIBRARY -D ANSI_DECLARATORS"; }; };
-		93EDFBA71AEC8C29003CDD03 /* triangle.c in Sources */ = {isa = PBXBuildFile; fileRef = 93EDFBA21AEC8C29003CDD03 /* triangle.c */; settings = {COMPILER_FLAGS = "-Wno-missing-prototypes -Wno-uninitialized -Wno-conditional-uninitialized -D TRILIBRARY -D ANSI_DECLARATORS"; }; };
-		93EDFBA81AEC8C29003CDD03 /* triangle.c in Sources */ = {isa = PBXBuildFile; fileRef = 93EDFBA21AEC8C29003CDD03 /* triangle.c */; settings = {COMPILER_FLAGS = "-Wno-missing-prototypes -Wno-uninitialized -Wno-conditional-uninitialized -D TRILIBRARY -D ANSI_DECLARATORS"; }; };
-		93EDFBA91AEC8C29003CDD03 /* triangle.c in Sources */ = {isa = PBXBuildFile; fileRef = 93EDFBA21AEC8C29003CDD03 /* triangle.c */; settings = {COMPILER_FLAGS = "-Wno-missing-prototypes -Wno-uninitialized -Wno-conditional-uninitialized -D TRILIBRARY -D ANSI_DECLARATORS"; }; };
+		93EDFBA61AEC8C29003CDD03 /* triangle.c in Sources */ = {isa = PBXBuildFile; fileRef = 93EDFBA21AEC8C29003CDD03 /* triangle.c */; settings = {COMPILER_FLAGS = "-w -D TRILIBRARY -D ANSI_DECLARATORS"; }; };
+		93EDFBA71AEC8C29003CDD03 /* triangle.c in Sources */ = {isa = PBXBuildFile; fileRef = 93EDFBA21AEC8C29003CDD03 /* triangle.c */; settings = {COMPILER_FLAGS = "-w -D TRILIBRARY -D ANSI_DECLARATORS"; }; };
+		93EDFBA81AEC8C29003CDD03 /* triangle.c in Sources */ = {isa = PBXBuildFile; fileRef = 93EDFBA21AEC8C29003CDD03 /* triangle.c */; settings = {COMPILER_FLAGS = "-w -D TRILIBRARY -D ANSI_DECLARATORS"; }; };
+		93EDFBA91AEC8C29003CDD03 /* triangle.c in Sources */ = {isa = PBXBuildFile; fileRef = 93EDFBA21AEC8C29003CDD03 /* triangle.c */; settings = {COMPILER_FLAGS = "-w -D TRILIBRARY -D ANSI_DECLARATORS"; }; };
 		93EDFBC11AEC8CE2003CDD03 /* dispatch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F38E871AB60972009E3626 /* dispatch.mm */; };
 		93EDFBC21AEC8CE7003CDD03 /* transform.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD5AF1AEB86EB003AEC6C /* transform.cc */; };
 		93EDFBC31AEC8D18003CDD03 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B351AD0D23700969DC2 /* boost.framework */; };
