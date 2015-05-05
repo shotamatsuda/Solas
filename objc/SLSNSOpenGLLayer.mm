@@ -18,6 +18,7 @@
 #import "SLSNSOpenGLLayer.h"
 
 #import <OpenGL/glu.h>
+#import <QuartzCore/QuartzCore.h>
 
 #include "solas/app/app_event.h"
 #include "solas/math/size.h"
@@ -41,7 +42,7 @@
 - (instancetype)initWithAPI:(NSOpenGLPixelFormatAttribute)API {
   self = [super init];
   if (self) {
-    self.needsDisplayOnBoundsChange = YES;
+    self.needsDisplayOnBoundsChange = NO;
     self.asynchronous = NO;
     self.API = API;
   }
@@ -101,6 +102,15 @@
                  pixelFormat:pixelFormat
                 forLayerTime:timeInterval
                  displayTime:timeStamp];
+}
+
+- (void)setBounds:(CGRect)bounds {
+  BOOL changed = !CGSizeEqualToSize(bounds.size, self.bounds.size);
+  [super setBounds:bounds];
+  if (changed) {
+    [self display];
+    [CATransaction flush];
+  }
 }
 
 #pragma mark Invalidating the Display Source

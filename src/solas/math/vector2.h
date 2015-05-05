@@ -269,11 +269,6 @@ inline Vector2<T>::Vector(std::initializer_list<T> list) {
   set(std::move(list));
 }
 
-template <typename T>
-inline Vector2<T>::Vector(const SkPoint& point) {
-  set(point);
-}
-
 #pragma mark Implicit conversion
 
 template <typename T>
@@ -281,6 +276,11 @@ template <typename U>
 inline Vector2<T>::Vector(const Vector2<U>& other)
     : x(other.x),
       y(other.y) {}
+
+template <typename T>
+inline Vector2<T>::Vector(const SkPoint& point) {
+  set(point);
+}
 
 #pragma mark Explicit conversion
 
