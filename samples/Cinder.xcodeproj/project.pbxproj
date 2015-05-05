@@ -12,6 +12,22 @@
 		938D33011AF1F5B300E865AF /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF9901AD97397009D0646 /* main.cc */; };
 		93CA68111ADB5C5F009F131B /* SolasTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF9811AD972EA009D0646 /* SolasTouch.framework */; };
 		93CA68121ADB5C5F009F131B /* SolasTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF9811AD972EA009D0646 /* SolasTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93D479951AF8B1AE000F89B2 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D479941AF8B1AD000F89B2 /* AudioToolbox.framework */; };
+		93D479971AF8B1B4000F89B2 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D479961AF8B1B4000F89B2 /* AudioUnit.framework */; };
+		93D479991AF8B1C1000F89B2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D479981AF8B1C0000F89B2 /* AppKit.framework */; };
+		93D4799B1AF8B1F8000F89B2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D4799A1AF8B1F8000F89B2 /* CoreVideo.framework */; };
+		93D4799D1AF8B203000F89B2 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D4799C1AF8B203000F89B2 /* CoreAudio.framework */; };
+		93D4799F1AF8B210000F89B2 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D4799E1AF8B210000F89B2 /* Accelerate.framework */; };
+		93D479A11AF8B219000F89B2 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D479A01AF8B219000F89B2 /* QTKit.framework */; };
+		93D479B61AF8B875000F89B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D479B51AF8B874000F89B2 /* UIKit.framework */; };
+		93D479B81AF8B887000F89B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D479B71AF8B887000F89B2 /* CoreGraphics.framework */; };
+		93D479BA1AF8B88F000F89B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D479B91AF8B88F000F89B2 /* Foundation.framework */; };
+		93D479BC1AF8B89F000F89B2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D479BB1AF8B89E000F89B2 /* ImageIO.framework */; };
+		93D479BE1AF8B8A7000F89B2 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D479BD1AF8B8A7000F89B2 /* CoreVideo.framework */; };
+		93D479C01AF8B8BD000F89B2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D479BF1AF8B8BD000F89B2 /* AVFoundation.framework */; };
+		93D479C21AF8B8E6000F89B2 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D479C11AF8B8E5000F89B2 /* CoreMedia.framework */; };
+		93D479C41AF8B8EE000F89B2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D479C31AF8B8EE000F89B2 /* QuartzCore.framework */; };
+		93D479C61AF8B901000F89B2 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93D479C51AF8B900000F89B2 /* MobileCoreServices.framework */; };
 		93D73E201ADE301E003F9A7A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D73E1F1ADE301E003F9A7A /* Default-568h@2x.png */; };
 		93EBABC71AD980ED00BF8959 /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF97F1AD972EA009D0646 /* Solas.framework */; };
 		93EBABC81AD980ED00BF8959 /* Solas.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF97F1AD972EA009D0646 /* Solas.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -104,6 +120,22 @@
 		93CA67E11ADB5BF4009F131B /* Cinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93D479591AF83991000F89B2 /* App-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-iOS.xcconfig"; sourceTree = SOURCE_ROOT; };
 		93D4795A1AF83991000F89B2 /* App-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-OSX.xcconfig"; sourceTree = SOURCE_ROOT; };
+		93D479941AF8B1AD000F89B2 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		93D479961AF8B1B4000F89B2 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		93D479981AF8B1C0000F89B2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		93D4799A1AF8B1F8000F89B2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		93D4799C1AF8B203000F89B2 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		93D4799E1AF8B210000F89B2 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		93D479A01AF8B219000F89B2 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = System/Library/Frameworks/QTKit.framework; sourceTree = SDKROOT; };
+		93D479B51AF8B874000F89B2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		93D479B71AF8B887000F89B2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		93D479B91AF8B88F000F89B2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		93D479BB1AF8B89E000F89B2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/ImageIO.framework; sourceTree = DEVELOPER_DIR; };
+		93D479BD1AF8B8A7000F89B2 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
+		93D479BF1AF8B8BD000F89B2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		93D479C11AF8B8E5000F89B2 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
+		93D479C31AF8B8EE000F89B2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		93D479C51AF8B900000F89B2 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
 		93D73E0E1ADE29BE003F9A7A /* ProjectDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProjectDebug.xcconfig; sourceTree = SOURCE_ROOT; };
 		93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProjectRelease.xcconfig; sourceTree = SOURCE_ROOT; };
 		93D73E101ADE2A0A003F9A7A /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -122,8 +154,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93D479C01AF8B8BD000F89B2 /* AVFoundation.framework in Frameworks */,
+				93D479B81AF8B887000F89B2 /* CoreGraphics.framework in Frameworks */,
+				93D479C21AF8B8E6000F89B2 /* CoreMedia.framework in Frameworks */,
+				93D479BE1AF8B8A7000F89B2 /* CoreVideo.framework in Frameworks */,
+				93D479BA1AF8B88F000F89B2 /* Foundation.framework in Frameworks */,
+				93D479BC1AF8B89F000F89B2 /* ImageIO.framework in Frameworks */,
+				93D479C61AF8B901000F89B2 /* MobileCoreServices.framework in Frameworks */,
 				937E13BD1ADBF34B008DB7A7 /* OpenGLES.framework in Frameworks */,
+				93D479C41AF8B8EE000F89B2 /* QuartzCore.framework in Frameworks */,
 				93CA68111ADB5C5F009F131B /* SolasTouch.framework in Frameworks */,
+				93D479B61AF8B875000F89B2 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,8 +172,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				937E13BF1ADBF351008DB7A7 /* OpenGL.framework in Frameworks */,
+				93D4799F1AF8B210000F89B2 /* Accelerate.framework in Frameworks */,
+				93D479991AF8B1C1000F89B2 /* AppKit.framework in Frameworks */,
+				93D479951AF8B1AE000F89B2 /* AudioToolbox.framework in Frameworks */,
+				93D479971AF8B1B4000F89B2 /* AudioUnit.framework in Frameworks */,
 				93EBABD71AD98A6200BF8959 /* boost.framework in Frameworks */,
+				93D4799D1AF8B203000F89B2 /* CoreAudio.framework in Frameworks */,
+				93D4799B1AF8B1F8000F89B2 /* CoreVideo.framework in Frameworks */,
+				937E13BF1ADBF351008DB7A7 /* OpenGL.framework in Frameworks */,
+				93D479A11AF8B219000F89B2 /* QTKit.framework in Frameworks */,
 				93EBABC71AD980ED00BF8959 /* Solas.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,7 +200,14 @@
 		93D73DB71ADD5618003F9A7A /* OS X */ = {
 			isa = PBXGroup;
 			children = (
+				93D4799E1AF8B210000F89B2 /* Accelerate.framework */,
+				93D479981AF8B1C0000F89B2 /* AppKit.framework */,
+				93D479941AF8B1AD000F89B2 /* AudioToolbox.framework */,
+				93D479961AF8B1B4000F89B2 /* AudioUnit.framework */,
+				93D4799C1AF8B203000F89B2 /* CoreAudio.framework */,
+				93D4799A1AF8B1F8000F89B2 /* CoreVideo.framework */,
 				937E13BE1ADBF350008DB7A7 /* OpenGL.framework */,
+				93D479A01AF8B219000F89B2 /* QTKit.framework */,
 			);
 			name = "OS X";
 			sourceTree = "<group>";
@@ -160,7 +215,16 @@
 		93D73DB81ADD561E003F9A7A /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				93D479BF1AF8B8BD000F89B2 /* AVFoundation.framework */,
+				93D479B71AF8B887000F89B2 /* CoreGraphics.framework */,
+				93D479C11AF8B8E5000F89B2 /* CoreMedia.framework */,
+				93D479BD1AF8B8A7000F89B2 /* CoreVideo.framework */,
+				93D479B91AF8B88F000F89B2 /* Foundation.framework */,
+				93D479BB1AF8B89E000F89B2 /* ImageIO.framework */,
+				93D479C51AF8B900000F89B2 /* MobileCoreServices.framework */,
 				937E13BC1ADBF34B008DB7A7 /* OpenGLES.framework */,
+				93D479C31AF8B8EE000F89B2 /* QuartzCore.framework */,
+				93D479B51AF8B874000F89B2 /* UIKit.framework */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -434,6 +498,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93D479591AF83991000F89B2 /* App-iOS.xcconfig */;
 			buildSettings = {
+				ARCHS = armv7;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -451,6 +516,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93D479591AF83991000F89B2 /* App-iOS.xcconfig */;
 			buildSettings = {
+				ARCHS = armv7;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -493,6 +559,10 @@
 			baseConfigurationReference = 93D4795A1AF83991000F89B2 /* App-OSX.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/sgss/Github/solas/build/boost/osx/framework,
+				);
 				INFOPLIST_FILE = "Info-OSX.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = Cinder;
@@ -504,6 +574,10 @@
 			baseConfigurationReference = 93D4795A1AF83991000F89B2 /* App-OSX.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/sgss/Github/solas/build/boost/osx/framework,
+				);
 				INFOPLIST_FILE = "Info-OSX.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = Cinder;
