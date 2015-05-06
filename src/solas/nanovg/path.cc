@@ -22,7 +22,7 @@
 namespace solas {
 namespace nanovg {
 
-void AppendPath(const graphics::Path& path) {
+void Path(const graphics::Path& path) {
   for (const auto& segment : path) {
     switch (segment.type()) {
       case solas::gfx::Segment::Type::MOVE:

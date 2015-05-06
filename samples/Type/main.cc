@@ -266,24 +266,24 @@ class App : public solas::app::View {
       segment.control2() *= scale_;
     }
 
-    nvg::Scope save;
+    nvg::StateGuard save;
     nvg::Translate(translation_);
 
     if (!stroke.empty()) {
       if (draws_outline_) {
         nvg::BeginPath();
-        nvg::AppendPath(fill);
+        nvg::Path(fill);
         nvg::FillColor(gfx::Color4f(0.0, 0.1));
         nvg::Fill();
         nvg::BeginPath();
-        nvg::AppendPath(stroke);
+        nvg::Path(stroke);
         nvg::StrokeWidth(1.0);
         nvg::StrokeColor(gfx::Color4f(0.5));
         nvg::Stroke();
         drawControl(stroke);
       } else {
         nvg::BeginPath();
-        nvg::AppendPath(fill);
+        nvg::Path(fill);
         nvg::FillColor(gfx::Color4f(0.0));
         nvg::Fill();
       }
@@ -291,7 +291,7 @@ class App : public solas::app::View {
 
     if (draws_control_) {
       nvg::BeginPath();
-      nvg::AppendPath(path);
+      nvg::Path(path);
       nvg::StrokeWidth(1.0);
       nvg::StrokeColor(gfx::Color4f(0.5));
       nvg::Stroke();
@@ -300,7 +300,7 @@ class App : public solas::app::View {
   }
 
   void drawControl(const gfx::Path& path) {
-    nvg::Scope save;
+    nvg::StateGuard save;
 
     // Control lines
     nvg::BeginPath();
@@ -334,6 +334,7 @@ class App : public solas::app::View {
 
     // Control points
     nvg::FillColor(gfx::Color4f(0.5));
+    nvg::StrokeColor(gfx::Color4f(0.5));
     for (const auto& segment : path) {
       switch (segment.type()) {
         case gfx::Segment::Type::MOVE:
@@ -349,7 +350,7 @@ class App : public solas::app::View {
         case gfx::Segment::Type::QUADRATIC:
           nvg::BeginPath();
           nvg::Circle(segment.control(), 3.0);
-          nvg::Fill();
+          nvg::Stroke();
           nvg::BeginPath();
           nvg::Circle(segment.point(), 3.0);
           nvg::Fill();
@@ -357,10 +358,10 @@ class App : public solas::app::View {
         case gfx::Segment::Type::CUBIC:
           nvg::BeginPath();
           nvg::Circle(segment.control1(), 3.0);
-          nvg::Fill();
+          nvg::Stroke();
           nvg::BeginPath();
           nvg::Circle(segment.control2(), 3.0);
-          nvg::Fill();
+          nvg::Stroke();
           nvg::BeginPath();
           nvg::Circle(segment.point(), 3.0);
           nvg::Fill();

@@ -1,9 +1,10 @@
 //
-//  solas/nanovg.h
+//  solas/graphics/contour.cc
 //
 //  takram design engineering Confidential
 //
 //  Copyright (C) 2015 Shota Matsuda
+//  Copyright (C) 2015 takram design engineering
 //
 //  All information contained herein is, and remains the property of takram
 //  design engineering and its suppliers, if any. The intellectual and
@@ -15,18 +16,10 @@
 //  design engineering.
 //
 
-#pragma once
-#ifndef SOLAS_NANOVG_H_
-#define SOLAS_NANOVG_H_
+#include "solas/graphics/contour.h"
 
-#include "nanovg.h"  // For convenience
+namespace solas {
+namespace graphics {
 
-#include "solas/nanovg/context.h"
-#include "solas/nanovg/gl.h"
-#include "solas/nanovg/path.h"
-#include "solas/nanovg/state.h"
-#include "solas/nanovg/state_guard.h"
-#include "solas/nanovg/style.h"
-#include "solas/nanovg/transform.h"
-
-#endif  // SOLAS_NANOVG_H_
+}  // namespace graphics
+}  // namespace solas

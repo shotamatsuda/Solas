@@ -1,5 +1,5 @@
 //
-//  solas/graphics/segment.cc
+//  solas/nanovg/state.h
 //
 //  takram design engineering Confidential
 //
@@ -15,10 +15,39 @@
 //  design engineering.
 //
 
-#include "solas/graphics/segment.h"
+#pragma once
+#ifndef SOLAS_NANOVG_STATE_H_
+#define SOLAS_NANOVG_STATE_H_
+
+#include "nanovg.h"
+
+#include "solas/nanovg/context.h"
 
 namespace solas {
-namespace graphics {
+namespace nanovg {
 
-}  // namespace graphics
+void Save();
+void Reset();
+void Restore();
+
+#pragma mark -
+
+inline void Save() {
+  nvgSave(Context::Current());
+}
+
+inline void Reset() {
+  nvgReset(Context::Current());
+}
+
+inline void Restore() {
+  nvgRestore(Context::Current());
+}
+
+}  // namespace nanovg
+
+namespace nvg = nanovg;
+
 }  // namespace solas
+
+#endif  // SOLAS_NANOVG_STATE_H_

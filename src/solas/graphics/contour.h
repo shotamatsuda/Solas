@@ -1,9 +1,10 @@
 //
-//  solas/graphics/path.h
+//  solas/graphics/contour.h
 //
 //  takram design engineering Confidential
 //
 //  Copyright (C) 2015 Shota Matsuda
+//  Copyright (C) 2015 takram design engineering
 //
 //  All information contained herein is, and remains the property of takram
 //  design engineering and its suppliers, if any. The intellectual and
@@ -16,8 +17,8 @@
 //
 
 #pragma once
-#ifndef SOLAS_GRAPHICS_PATH_H_
-#define SOLAS_GRAPHICS_PATH_H_
+#ifndef SOLAS_GRAPHICS_CONTOUR_H_
+#define SOLAS_GRAPHICS_CONTOUR_H_
 
 #include <cstddef>
 #include <iterator>
@@ -27,12 +28,10 @@
 #include "solas/graphics/segment.h"
 #include "solas/math/vector.h"
 
-class SkPath;
-
 namespace solas {
 namespace graphics {
 
-class Path final {
+class Contour final {
  public:
   using Real = double;
   using Point = math::Vec2<Real>;
@@ -42,23 +41,27 @@ class Path final {
   using ConstReverseIterator = std::reverse_iterator<ConstIterator>;
 
  public:
-  // Constructors
-  Path() = default;
+  enum class Direction {
+    CLOCKWISE,
+    COUNTER_CLOCKWISE
+  };
 
-  // Implicit conversion
-  Path(const SkPath& path);
+ public:
+  // Constructors
+  Contour() = default;
+  explicit Contour(const std::vector<Segment>& segments);
 
   // Copy and assign
-  Path(const Path& other) = default;
-  Path& operator=(const Path& other) = default;
+  Contour(const Contour& other) = default;
+  Contour& operator=(const Contour& other) = default;
 
   // Mutators
+  void set(const std::vector<Segment>& segments);
   void reset();
-  void set(const SkPath& path);
 
   // Comparison
-  bool operator==(const Path& other) const;
-  bool operator!=(const Path& other) const;
+  bool operator==(const Contour& other) const;
+  bool operator!=(const Contour& other) const;
 
   // Attributes
   bool empty() const { return segments_.empty(); }
@@ -68,7 +71,7 @@ class Path final {
   const std::vector<Segment>& segments() const { return segments_; }
   std::vector<Segment>& segments() { return segments_; }
 
-  // Configuring segments
+  // Adding segments
   void close();
   void moveTo(Real x, Real y);
   void moveTo(const Point& point);
@@ -82,11 +85,9 @@ class Path final {
                const Point& point);
 
   // Direction
-  Path& reverse();
-  Path reversed() const;
-
-  // Implicit conversion
-  operator SkPath() const;
+  Direction direction() const;
+  Contour& reverse();
+  Contour reversed() const;
 
   // Iterator
   Iterator begin() { return segments_.begin(); }
@@ -108,74 +109,82 @@ class Path final {
 
 #pragma mark -
 
-#pragma mark Implicit conversion
-
-inline Path::Path(const SkPath& path) {
-  set(path);
-}
+inline Contour::Contour(const std::vector<Segment>& segments)
+    : segments_(segments) {}
 
 #pragma mark Mutators
 
-inline void Path::reset() {
+inline void Contour::set(const std::vector<Segment>& segments) {
+  segments_ = segments;
+}
+
+inline void Contour::reset() {
   segments_.clear();
 }
 
 #pragma mark Comparison
 
-inline bool Path::operator==(const Path& other) const {
+inline bool Contour::operator==(const Contour& other) const {
   return segments_ == other.segments_;
 }
 
-inline bool Path::operator!=(const Path& other) const {
+inline bool Contour::operator!=(const Contour& other) const {
   return !operator==(other);
 }
 
-#pragma mark Configuring segments
+#pragma mark Adding segments
 
-inline void Path::close() {
+inline void Contour::close() {
   segments_.emplace_back(Segment::Type::CLOSE);
 }
 
-inline void Path::moveTo(Real x, Real y) {
-  moveTo({x, y});
+inline void Contour::moveTo(Real x, Real y) {
+  moveTo(Point(x, y));
 }
 
-inline void Path::moveTo(const Point& point) {
+inline void Contour::moveTo(const Point& point) {
+  segments_.clear();
   segments_.emplace_back(Segment::Type::MOVE, point);
 }
 
-inline void Path::lineTo(Real x, Real y) {
-  lineTo({x, y});
+inline void Contour::lineTo(Real x, Real y) {
+  lineTo(Point(x, y));
 }
 
-inline void Path::lineTo(const Point& point) {
-  segments_.emplace_back(Segment::Type::LINE, point);
+inline void Contour::lineTo(const Point& point) {
+  if (segments_.empty()) {
+    moveTo(point);
+  } else {
+    segments_.emplace_back(Segment::Type::LINE, point);
+  }
 }
 
-inline void Path::quadraticTo(Real cx, Real cy, Real x, Real y) {
-  quadraticTo({cx, cy}, {x, y});
+inline void Contour::quadraticTo(Real cx, Real cy, Real x, Real y) {
+  quadraticTo(Point(cx, cy), Point(x, y));
 }
 
-inline void Path::quadraticTo(const Point& control, const Point& point) {
-  segments_.emplace_back(Segment::Type::QUADRATIC, control, point);
+inline void Contour::quadraticTo(const Point& control, const Point& point) {
+  if (segments_.empty()) {
+    moveTo(point);
+  } else {
+    segments_.emplace_back(Segment::Type::QUADRATIC, control, point);
+  }
 }
 
-inline void Path::cubicTo(Real cx1, Real cy1,
-                          Real cx2, Real cy2,
-                          Real x, Real y) {
-  cubicTo({cx1, cy1}, {cx2, cy2}, {x, y});
+inline void Contour::cubicTo(Real cx1, Real cy1,
+                             Real cx2, Real cy2,
+                             Real x, Real y) {
+  cubicTo(Point(cx1, cy1), Point(cx2, cy2), Point(x, y));
 }
 
-inline void Path::cubicTo(const Point& control1,
-                          const Point& control2,
-                          const Point& point) {
-  segments_.emplace_back(Segment::Type::CUBIC, control1, control2, point);
-}
-
-#pragma mark Reversing
-
-inline Path Path::reversed() const {
-  return std::move(Path(*this).reverse());
+inline void Contour::cubicTo(const Point& control1,
+                             const Point& control2,
+                             const Point& point) {
+  if (segments_.empty()) {
+    moveTo(point);
+  } else {
+    segments_.emplace_back(Segment::Type::CUBIC, control1, control2, point);
+  }
 }
 
 }  // namespace graphics
@@ -184,4 +193,4 @@ namespace gfx = graphics;
 
 }  // namespace solas
 
-#endif  // SOLAS_GRAPHICS_PATH_H_
+#endif  // SOLAS_GRAPHICS_CONTOUR_H_

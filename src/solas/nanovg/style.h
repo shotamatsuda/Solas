@@ -21,6 +21,7 @@
 
 #include "nanovg.h"
 
+#include "solas/nanovg/context.h"
 #include "solas/nanovg/type.h"
 
 namespace solas {

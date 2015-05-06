@@ -54,7 +54,7 @@ class App : public solas::app::View {
   }
 
   void touchesMoved(const solas::app::TouchEvent& event) {
-    solas::nvg::Scope save;
+    solas::nvg::StateGuard save;
     solas::nvg::FillColor(solas::gfx::Color3f::Black());
     for (const auto& touch : event.touches()) {
       solas::nvg::BeginPath();

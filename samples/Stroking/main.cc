@@ -74,11 +74,11 @@ class App : public solas::app::View {
   }
 
   void draw() override {
-    nvg::Scope save;
+    nvg::StateGuard save;
     nvg::Translate(translation_);
 
     nvg::BeginPath();
-    nvg::AppendPath(path_);
+    nvg::Path(path_);
     nvg::StrokeWidth(1.0);
     nvg::StrokeColor(gfx::Color4f(0.0));
     nvg::Stroke();
@@ -123,7 +123,7 @@ class App : public solas::app::View {
 
     if (!stroke_.empty()) {
       nvg::BeginPath();
-      nvg::AppendPath(stroke_);
+      nvg::Path(stroke_);
       nvg::FillColor(gfx::Color4f(0.0, 0.1));
       nvg::Fill();
       nvg::StrokeWidth(1.0);
@@ -133,7 +133,7 @@ class App : public solas::app::View {
   }
 
   void drawControl(const gfx::Path& path) {
-    nvg::Scope save;
+    nvg::StateGuard save;
 
     // Control lines
     nvg::BeginPath();
