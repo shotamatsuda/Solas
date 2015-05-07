@@ -98,8 +98,10 @@ void View::handleKeyEvent(const KeyEvent& event) {
 }
 
 void View::handleTouchEvent(const TouchEvent& event) {
-  if (event.type() == TouchEvent::Type::BEGIN ||
-      event.type() == TouchEvent::Type::MOVE) {
+  if (event.type() == TouchEvent::Type::BEGIN) {
+    ptouch_ = etouch_;
+    touch_ = event.touches().front();
+  } else if (event.type() == TouchEvent::Type::MOVE) {
     ptouch_ = etouch_;
     touch_ = event.touches().front();
   }
@@ -114,7 +116,8 @@ void View::handleTouchEvent(const TouchEvent& event) {
     default:
       break;
   }
-  if (event.type() == TouchEvent::Type::MOVE) {
+  if (event.type() == TouchEvent::Type::BEGIN ||
+      event.type() == TouchEvent::Type::MOVE) {
     etouch_ = touch_;
   }
   switch (event.type()) {

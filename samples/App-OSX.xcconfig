@@ -26,11 +26,6 @@
 
 // Configuration for Xcode 6
 
-CINDER_PATH = $(PROJECT_DIR)/../../cinder
-
-// Linking
-OTHER_LDFLAGS = $(SOLAS_OTHER_LDFLAGS) "$(CINDER_PATH)/lib/libcinder.a"
-
 // Search Paths
 FRAMEWORK_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/../build/boost/osx/framework"
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/../src" "$(PROJECT_DIR)/../lib/nanovg/src" "$(CINDER_PATH)/include" "$(CINDER_PATH)/boost"
+HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/../src" "$(PROJECT_DIR)/../lib/nanovg/src"

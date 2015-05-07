@@ -391,10 +391,6 @@ class App : public solas::app::View {
     }
   }
 
-  void touchesMoved() override {
-    translation_ += touch() - ptouch();
-  }
-
   void mouseWheel(const app::MouseEvent& event) override {
     if (event.modifiers() % app::KeyModifier::ALTERNATE) {
       width_ = std::max(0.0, width_ + event.wheel().y / 2.0);

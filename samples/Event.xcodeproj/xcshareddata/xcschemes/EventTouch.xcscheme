@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "93CA67E01ADB5BF4009F131B"
-               BuildableName = "Solas Event.app"
+               BuildableName = "Event.app"
                BlueprintName = "EventTouch"
                ReferencedContainer = "container:Event.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "93CA67E01ADB5BF4009F131B"
-            BuildableName = "Solas Event.app"
+            BuildableName = "Event.app"
             BlueprintName = "EventTouch"
             ReferencedContainer = "container:Event.xcodeproj">
          </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "93CA67E01ADB5BF4009F131B"
-            BuildableName = "Solas Event.app"
+            BuildableName = "Event.app"
             BlueprintName = "EventTouch"
             ReferencedContainer = "container:Event.xcodeproj">
          </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "93CA67E01ADB5BF4009F131B"
-            BuildableName = "Solas Event.app"
+            BuildableName = "Event.app"
             BlueprintName = "EventTouch"
             ReferencedContainer = "container:Event.xcodeproj">
          </BuildableReference>

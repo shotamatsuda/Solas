@@ -434,6 +434,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93D479661AF83B5B000F89B2 /* App-iOS.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -451,6 +452,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93D479661AF83B5B000F89B2 /* App-iOS.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;

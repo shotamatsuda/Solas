@@ -37,6 +37,9 @@ class App : public solas::app::View {
   void draw() override;
   void mouseMoved() override;
   void mouseDragged() override;
+  void touchesBegan() override;
+  void touchesMoved() override;
+  solas::app::Backend backend() const override;
 
  private:
   ci::CameraPersp camera_;
@@ -78,7 +81,7 @@ void App::setup() {
 }
 
 void App::update() {
-  if (mouse_pressed()) {
+  if (mouse_pressed() || touch_pressed()) {
     directional_ -= (directional_ - 0.00001) * 0.1;
   } else {
     directional_ -= (directional_ - 1.0) * 0.1;
@@ -116,21 +119,21 @@ void App::draw() {
 
       if (diffuse_) {
         ci::ColorA color(ci::CM_HSV, relative_x, relative_y, 1.0, 1.0);
-        glMaterialfv(GL_FRONT, GL_DIFFUSE, color);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, color);
       } else {
-        glMaterialfv(GL_FRONT, GL_DIFFUSE, no_material_);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, no_material_);
       }
       if (ambient_) {
-        glMaterialfv(GL_FRONT, GL_AMBIENT, material_ambient_);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, material_ambient_);
       } else {
-        glMaterialfv(GL_FRONT, GL_AMBIENT, no_material_);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, no_material_);
       }
       if (specular_) {
-        glMaterialfv( GL_FRONT, GL_SPECULAR, material_specular_ );
-        glMaterialfv( GL_FRONT, GL_SHININESS, material_shininess_ );
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, material_specular_);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, material_shininess_);
       } else {
-        glMaterialfv( GL_FRONT, GL_SPECULAR, no_material_ );
-        glMaterialfv( GL_FRONT, GL_SHININESS, no_shininess_ );
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, no_material_);
+        glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, no_shininess_);
       }
       if (emissive_) {
         glMaterialfv(GL_FRONT, GL_EMISSION, material_emission_);
@@ -151,6 +154,19 @@ void App::mouseMoved() {
 
 void App::mouseDragged() {
   mouseMoved();
+}
+
+void App::touchesBegan() {
+  touchesMoved();
+}
+
+void App::touchesMoved() {
+  mouse_.x = touch().x - width() / 2.0;
+  mouse_.y = height() / 2.0 - touch().y;
+}
+
+solas::app::Backend App::backend() const {
+  return solas::app::Backend::OPENGL2 | solas::app::Backend::OPENGLES1;
 }
 
 int main(int argc, char **argv) {
