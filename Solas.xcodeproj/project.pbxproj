@@ -2592,6 +2592,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93D479381AF780ED000F89B2 /* Framework-OSX.xcconfig */;
 			buildSettings = {
+				ARCHS = armv7;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2607,6 +2608,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93D479381AF780ED000F89B2 /* Framework-OSX.xcconfig */;
 			buildSettings = {
+				ARCHS = armv7;
 				EXECUTABLE_PREFIX = lib;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2672,6 +2674,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93D479371AF780ED000F89B2 /* Framework-iOS.xcconfig */;
 			buildSettings = {
+				ARCHS = armv7;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = NO;
@@ -2699,6 +2702,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93D479371AF780ED000F89B2 /* Framework-iOS.xcconfig */;
 			buildSettings = {
+				ARCHS = armv7;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = NO;
