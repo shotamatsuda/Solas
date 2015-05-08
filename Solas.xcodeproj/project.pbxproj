@@ -239,6 +239,9 @@
 		93D479E51AF94DD7000F89B2 /* contour.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D479E01AF94DD7000F89B2 /* contour.h */; };
 		93D479E61AF94DD7000F89B2 /* contour.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D479E01AF94DD7000F89B2 /* contour.h */; };
 		93D479E71AF94DD7000F89B2 /* contour.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D479E01AF94DD7000F89B2 /* contour.h */; };
+		93D47A151AFCA5D0000F89B2 /* iterator_iterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D47A141AFCA5D0000F89B2 /* iterator_iterator.h */; };
+		93D47A161AFCA5D0000F89B2 /* iterator_iterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D47A141AFCA5D0000F89B2 /* iterator_iterator.h */; };
+		93D47A171AFCA5D0000F89B2 /* iterator_iterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D47A141AFCA5D0000F89B2 /* iterator_iterator.h */; };
 		93D73DC31ADD5B78003F9A7A /* SLSNSOpenGLLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DC11ADD5B78003F9A7A /* SLSNSOpenGLLayer.mm */; };
 		93D73DD11ADDE321003F9A7A /* SLSNSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DCF1ADDE321003F9A7A /* SLSNSViewController.m */; };
 		93D73DD81ADDE5E7003F9A7A /* SLSNSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DD61ADDE5E7003F9A7A /* SLSNSView.m */; };
@@ -912,6 +915,7 @@
 		93D479DA1AF949BA000F89B2 /* state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = state.h; sourceTree = "<group>"; };
 		93D479DF1AF94DD7000F89B2 /* contour.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = contour.cc; sourceTree = "<group>"; };
 		93D479E01AF94DD7000F89B2 /* contour.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = contour.h; sourceTree = "<group>"; };
+		93D47A141AFCA5D0000F89B2 /* iterator_iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iterator_iterator.h; sourceTree = "<group>"; };
 		93D73DC01ADD5B78003F9A7A /* SLSNSOpenGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSNSOpenGLLayer.h; sourceTree = "<group>"; };
 		93D73DC11ADD5B78003F9A7A /* SLSNSOpenGLLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSNSOpenGLLayer.mm; sourceTree = "<group>"; };
 		93D73DCE1ADDE321003F9A7A /* SLSNSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSNSViewController.h; sourceTree = "<group>"; };
@@ -1077,6 +1081,7 @@
 				930398371AB2AEF400577048 /* enum.h */,
 				93229E6C1ACD6DDA008D27EA /* singleton.h */,
 				935193411AF544930073C001 /* date_time.h */,
+				93D47A141AFCA5D0000F89B2 /* iterator_iterator.h */,
 				938A07E41AB2D41D00CAE8CA /* benchmark.h */,
 				93A9BFFD1AC99A430081D3A0 /* benchmark.cc */,
 			);
@@ -1811,6 +1816,7 @@
 				93D8440B1AF61A2900ED6BDD /* exponential.h in Headers */,
 				93D843A01AF619E200ED6BDD /* path.h in Headers */,
 				93D8444F1AF61A3100ED6BDD /* triangle2.h in Headers */,
+				93D47A171AFCA5D0000F89B2 /* iterator_iterator.h in Headers */,
 				93EDFC651AEC8F21003CDD03 /* edge_iterator.h in Headers */,
 				93D8440F1AF61A2900ED6BDD /* quintic.h in Headers */,
 				93D844011AF61A2900ED6BDD /* group.h in Headers */,
@@ -1969,6 +1975,7 @@
 				93D8442D1AF61A2A00ED6BDD /* exponential.h in Headers */,
 				93D843B41AF619E300ED6BDD /* path.h in Headers */,
 				93D844831AF61A3100ED6BDD /* triangle2.h in Headers */,
+				93D47A151AFCA5D0000F89B2 /* iterator_iterator.h in Headers */,
 				93EDFC631AEC8F21003CDD03 /* edge_iterator.h in Headers */,
 				93D844311AF61A2A00ED6BDD /* quintic.h in Headers */,
 				93D844231AF61A2A00ED6BDD /* group.h in Headers */,
@@ -1999,6 +2006,7 @@
 				93D8446B1AF61A3100ED6BDD /* rect.h in Headers */,
 				93D843EF1AF61A1D00ED6BDD /* timeline_host.h in Headers */,
 				93D844631AF61A3100ED6BDD /* size2.h in Headers */,
+				93D47A161AFCA5D0000F89B2 /* iterator_iterator.h in Headers */,
 				93D844B21AF61A3A00ED6BDD /* graphics.h in Headers */,
 				93D844A81AF61A3A00ED6BDD /* motion_event.h in Headers */,
 				93D844141AF61A2900ED6BDD /* reverse_inflector.h in Headers */,

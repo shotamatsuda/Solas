@@ -54,7 +54,7 @@ class Context final {
   void destroy();
 
   // Controlling frame
-  void begin(int width, int height, float scale);
+  void begin(int width, int height, float scale = 1.0);
   void cancel();
   void end();
 

@@ -94,12 +94,6 @@ void Path::set(const SkPath& path) {
   }
 }
 
-#pragma mark Reversing
-
-Path& Path::reverse() {
-  return *this;
-}
-
 #pragma mark Implicit conversion
 
 Path::operator SkPath() const {
