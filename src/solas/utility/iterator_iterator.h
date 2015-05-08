@@ -24,9 +24,11 @@
 namespace solas {
 namespace utility {
 
+// Primary template
 template <typename T, typename... Iterators>
 class IteratorIterator;
 
+// Terminating partial specialization
 template <typename T, typename Iterator>
 class IteratorIterator<T, Iterator> final
     : public std::iterator<std::forward_iterator_tag, T> {
@@ -53,6 +55,7 @@ class IteratorIterator<T, Iterator> final
   Iterator current_;
 };
 
+// Recursive partial specialization
 template <typename T, typename Iterator, typename... RestIterators>
 class IteratorIterator<T, Iterator, RestIterators...> final
     : public std::iterator<std::forward_iterator_tag, T> {
@@ -74,6 +77,9 @@ class IteratorIterator<T, Iterator, RestIterators...> final
   T * operator->() const { return &operator*(); }
   IteratorIterator& operator++();
   IteratorIterator operator++(int);
+
+ private:
+  void validate();
 
  private:
   Iterator current_;
@@ -103,10 +109,7 @@ inline IteratorIterator<T, Iterator, RestIterators...>
     ::IteratorIterator(Iterator begin, Iterator end)
   : current_(begin),
     end_(end) {
-  using RestIterator = IteratorIterator<T, RestIterators...>;
-  if (current_ != end_) {
-    rest_ = RestIterator(current_->begin(), current_->end());
-  }
+  validate();
 }
 
 #pragma mark Comparison
@@ -158,16 +161,32 @@ template <typename T, typename Iterator, typename... RestIterators>
 inline IteratorIterator<T, Iterator, RestIterators...>&
     IteratorIterator<T, Iterator, RestIterators...>::operator++() {
   using RestIterator = IteratorIterator<T, RestIterators...>;
-  ++rest_;
-  if (rest_ == RestIterator(current_->end(), current_->end())) {
+  if (++rest_ == RestIterator(current_->end(), current_->end())) {
+    ++current_;
+    validate();
+  }
+  return *this;
+}
+
+template <typename T, typename Iterator, typename... RestIterators>
+inline void IteratorIterator<T, Iterator, RestIterators...>::validate() {
+  using RestIterator = IteratorIterator<T, RestIterators...>;
+  if (current_ == end_) {
+    // Set the rest iterator to the default-constructed value so that
+    // it can be comparred with end iterators.
+    rest_ = RestIterator();
+    return;
+  }
+  rest_ = RestIterator(current_->begin(), current_->end());
+  while (!&*rest_ && current_ != end_) {
     ++current_;
     if (current_ != end_) {
       rest_ = RestIterator(current_->begin(), current_->end());
     } else {
+      // Same discussion above
       rest_ = RestIterator();
     }
   }
-  return *this;
 }
 
 template <typename T, typename Iterator>
