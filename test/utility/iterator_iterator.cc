@@ -1,5 +1,5 @@
 //
-//  utility/iterator_iterator.cc
+//  utility/tree_iterator.cc
 //
 //  takram design engineering Confidential
 //
@@ -20,7 +20,7 @@
 
 #include "gtest/gtest.h"
 
-#include "solas/utility/iterator_iterator.h"
+#include "solas/utility/tree_iterator.h"
 
 namespace solas {
 namespace utility {
@@ -30,11 +30,11 @@ namespace {
 using C = std::vector<int>;
 using B = std::vector<C>;
 using A = std::vector<B>;
-using Iterator = IteratorIterator<int, A::iterator, B::iterator, C::iterator>;
+using Iterator = TreeIterator<int, A::iterator, B::iterator, C::iterator>;
 
 }  // namespace
 
-TEST(IteratorIteratorTest, Traversing) {
+TEST(TreeIteratorTest, Traversing) {
   {
     A a;
     auto begin = Iterator(a.begin(), a.end());
@@ -65,7 +65,7 @@ TEST(IteratorIteratorTest, Traversing) {
   }
 }
 
-TEST(IteratorIteratorTest, Distance) {
+TEST(TreeIteratorTest, Distance) {
   {
     A a;
     auto begin = Iterator(a.begin(), a.end());

@@ -1,5 +1,5 @@
 //
-//  solas/graphics/shape.cc
+//  solas/graphics/pathfinder.cc
 //
 //  takram design engineering Confidential
 //
@@ -15,10 +15,33 @@
 //  design engineering.
 //
 
-#include "solas/graphics/shape.h"
+#define SK_RELEASE
+
+#include "solas/graphics/pathfinder.h"
+
+#include "SkPath.h"
+#include "SkPathOps.h"
 
 namespace solas {
 namespace graphics {
+
+Path Simplify(const Path& path) {
+  SkPath result;
+  Simplify(path, &result);
+  SkPath difference = result;
+  difference.setFillType(SkPath::FillType::kWinding_FillType);
+  Op(difference, result, SkPathOp::kDifference_SkPathOp, &difference);
+  Path result_path = result;
+  Path difference_path = difference;
+  for (auto& result_contour : result_path.contours()) {
+    for (auto& difference_contour : difference_path.contours()) {
+      if (result_contour.bounds() == difference_contour.bounds()) {
+        difference_contour.reverse();
+      }
+    }
+  }
+  return result_path;
+}
 
 }  // namespace graphics
 }  // namespace solas

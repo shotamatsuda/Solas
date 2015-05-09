@@ -26,7 +26,10 @@
 #include <vector>
 
 #include "solas/graphics/segment.h"
+#include "solas/math/rect.h"
 #include "solas/math/vector.h"
+
+class SkPath;
 
 namespace solas {
 namespace graphics {
@@ -42,14 +45,18 @@ class Contour final {
 
  public:
   enum class Direction {
+    UNDEFINED,
     CLOCKWISE,
     COUNTER_CLOCKWISE
   };
 
  public:
   // Constructors
-  Contour() = default;
+  Contour();
   explicit Contour(const std::vector<Segment>& segments);
+
+  // Implicit conversion
+  Contour(const SkPath& path);
 
   // Copy and assign
   Contour(const Contour& other) = default;
@@ -57,6 +64,7 @@ class Contour final {
 
   // Mutators
   void set(const std::vector<Segment>& segments);
+  void set(const SkPath& path);
   void reset();
 
   // Comparison
@@ -65,7 +73,8 @@ class Contour final {
 
   // Attributes
   bool empty() const { return segments_.empty(); }
-  std::size_t size() const { return size(); }
+  std::size_t size() const { return segments_.size(); }
+  math::Rect<Real> bounds() const;
 
   // Properties
   const std::vector<Segment>& segments() const { return segments_; }
@@ -84,10 +93,23 @@ class Contour final {
                const Point& control2,
                const Point& point);
 
+  // Implicit conversion
+  operator SkPath() const;
+
   // Direction
   Direction direction() const;
   Contour& reverse();
   Contour reversed() const;
+
+  // Element access
+  Segment& operator[](int index) { return segments_.at(index); }
+  const Segment& operator[](int index) const { return segments_.at(index); }
+  Segment& at(int index) { return segments_.at(index); }
+  const Segment& at(int index) const { return segments_.at(index); }
+  Segment& front() { return segments_.front(); }
+  const Segment& front() const { return segments_.front(); }
+  Segment& back() { return segments_.back(); }
+  const Segment& back() const { return segments_.back(); }
 
   // Iterator
   Iterator begin() { return segments_.begin(); }
@@ -99,18 +121,25 @@ class Contour final {
   ReverseIterator rend() { return ReverseIterator(end()); }
   ConstReverseIterator rend() const { return ConstReverseIterator(end()); }
 
-  // Pointer
-  Segment * ptr() { return segments_.data(); }
-  const Segment * ptr() const { return segments_.data(); }
-
  private:
   std::vector<Segment> segments_;
+  mutable Direction direction_;
 };
 
 #pragma mark -
 
+inline Contour::Contour()
+    : direction_(Direction::UNDEFINED) {}
+
 inline Contour::Contour(const std::vector<Segment>& segments)
-    : segments_(segments) {}
+    : segments_(segments),
+      direction_(Direction::UNDEFINED) {}
+
+#pragma mark Implicit conversion
+
+inline Contour::Contour(const SkPath& path) {
+  set(path);
+}
 
 #pragma mark Mutators
 
@@ -135,7 +164,9 @@ inline bool Contour::operator!=(const Contour& other) const {
 #pragma mark Adding segments
 
 inline void Contour::close() {
-  segments_.emplace_back(Segment::Type::CLOSE);
+  if (segments_.back().type() != Segment::Type::CLOSE) {
+    segments_.emplace_back(Segment::Type::CLOSE);
+  }
 }
 
 inline void Contour::moveTo(Real x, Real y) {
@@ -156,6 +187,9 @@ inline void Contour::lineTo(const Point& point) {
     moveTo(point);
   } else {
     segments_.emplace_back(Segment::Type::LINE, point);
+    if (point == segments_.front().point()) {
+      close();
+    }
   }
 }
 
@@ -168,6 +202,9 @@ inline void Contour::quadraticTo(const Point& control, const Point& point) {
     moveTo(point);
   } else {
     segments_.emplace_back(Segment::Type::QUADRATIC, control, point);
+    if (point == segments_.front().point()) {
+      close();
+    }
   }
 }
 
@@ -184,7 +221,16 @@ inline void Contour::cubicTo(const Point& control1,
     moveTo(point);
   } else {
     segments_.emplace_back(Segment::Type::CUBIC, control1, control2, point);
+    if (point == segments_.front().point()) {
+      close();
+    }
   }
+}
+
+#pragma mark Direction
+
+inline Contour Contour::reversed() const {
+  return std::move(Contour(*this).reverse());
 }
 
 }  // namespace graphics

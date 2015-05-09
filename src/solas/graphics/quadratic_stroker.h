@@ -57,8 +57,6 @@ class QuadraticStroker final {
   void set_join(Stroke::Join value) { join_ = value; }
   Real tolerance() const { return tolerance_; }
   void set_tolerance(Real value) { tolerance_ = value; }
-  bool simplifies() const { return simplifies_; }
-  void set_simplifies(bool value) { simplifies_ = value; }
 
  private:
   Real width_;
@@ -66,7 +64,6 @@ class QuadraticStroker final {
   Stroke::Cap cap_;
   Stroke::Join join_;
   Real tolerance_;
-  bool simplifies_;
 };
 
 #pragma mark -
@@ -76,8 +73,7 @@ inline QuadraticStroker::QuadraticStroker()
       miter_(),
       cap_(Stroke::Cap::BUTT),
       join_(Stroke::Join::MITER),
-      tolerance_(1.0),
-      simplifies_(false) {}
+      tolerance_(1.0) {}
 
 #pragma mark Comparison
 
@@ -86,8 +82,7 @@ inline bool QuadraticStroker::operator==(const QuadraticStroker& other) const {
           miter_ == other.miter_ &&
           cap_ == other.cap_ &&
           join_ == other.join_ &&
-          tolerance_ == other.tolerance_ &&
-          simplifies_ == other.simplifies_);
+          tolerance_ == other.tolerance_);
 }
 
 inline bool QuadraticStroker::operator!=(const QuadraticStroker& other) const {

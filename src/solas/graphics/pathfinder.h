@@ -1,5 +1,5 @@
 //
-//  solas/graphics/shape.h
+//  solas/graphics/pathfinder.h
 //
 //  takram design engineering Confidential
 //
@@ -16,41 +16,15 @@
 //
 
 #pragma once
-#ifndef SOLAS_GRAPHICS_SHAPE_H_
-#define SOLAS_GRAPHICS_SHAPE_H_
+#ifndef SOLAS_GRAPHICS_PATHFINDER_H_
+#define SOLAS_GRAPHICS_PATHFINDER_H_
+
+#include "solas/graphics/path.h"
 
 namespace solas {
 namespace graphics {
 
-class Shape final {
- public:
-  // Constructors
-  Shape() = default;
-
-  // Copy and assign
-  Shape(const Shape& other) = default;
-  Shape(Shape&& other) = default;
-  Shape& operator=(const Shape& other) = default;
-  Shape& operator=(Shape&& other) = default;
-
-  // Comparison
-  bool operator==(const Shape& other) const;
-  bool operator!=(const Shape& other) const;
-
- private:
-  // Properties
-};
-
-#pragma mark -
-#pragma mark Comparison
-
-inline bool Shape::operator==(const Shape& other) const {
-  return &other == this;
-}
-
-inline bool Shape::operator!=(const Shape& other) const {
-  return !operator==(other);
-}
+Path Simplify(const Path& path);
 
 }  // namespace graphics
 
@@ -58,4 +32,4 @@ namespace gfx = graphics;
 
 }  // namespace solas
 
-#endif  // SOLAS_GRAPHICS_SHAPE_H_
+#endif  // SOLAS_GRAPHICS_PATHFINDER_H_

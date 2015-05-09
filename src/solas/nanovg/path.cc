@@ -17,27 +17,57 @@
 
 #include "solas/nanovg/path.h"
 
+#include "solas/graphics/contour.h"
 #include "solas/graphics/path.h"
 
 namespace solas {
 namespace nanovg {
 
 void Path(const graphics::Path& path) {
-  for (const auto& segment : path) {
+  for (const auto& contour : path.contours()) {
+    for (const auto& segment : contour) {
+      switch (segment.type()) {
+        case graphics::Segment::Type::MOVE:
+          MoveTo(segment.point());
+          break;
+        case graphics::Segment::Type::LINE:
+          LineTo(segment.point());
+          break;
+        case graphics::Segment::Type::QUADRATIC:
+          QuadTo(segment.control(), segment.point());
+          break;
+        case graphics::Segment::Type::CUBIC:
+          CubicTo(segment.control1(), segment.control2(), segment.point());
+          break;
+        case graphics::Segment::Type::CLOSE:
+          ClosePath();
+          break;
+      }
+    }
+    if (contour.direction() == graphics::Contour::Direction::CLOCKWISE) {
+      PathWinding(NVG_SOLID);
+    } else {
+      PathWinding(NVG_HOLE);
+    }
+  }
+}
+
+void Contour(const graphics::Contour& contour) {
+  for (const auto& segment : contour) {
     switch (segment.type()) {
-      case solas::gfx::Segment::Type::MOVE:
+      case graphics::Segment::Type::MOVE:
         MoveTo(segment.point());
         break;
-      case solas::gfx::Segment::Type::LINE:
+      case graphics::Segment::Type::LINE:
         LineTo(segment.point());
         break;
-      case solas::gfx::Segment::Type::QUADRATIC:
+      case graphics::Segment::Type::QUADRATIC:
         QuadTo(segment.control(), segment.point());
         break;
-      case solas::gfx::Segment::Type::CUBIC:
+      case graphics::Segment::Type::CUBIC:
         CubicTo(segment.control1(), segment.control2(), segment.point());
         break;
-      case solas::gfx::Segment::Type::CLOSE:
+      case graphics::Segment::Type::CLOSE:
         ClosePath();
         break;
     }

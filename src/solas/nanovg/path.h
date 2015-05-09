@@ -22,6 +22,7 @@
 #include "nanovg.h"
 
 #include "solas/graphics/path.h"
+#include "solas/math/rect.h"
 #include "solas/nanovg/context.h"
 #include "solas/nanovg/type.h"
 
@@ -38,14 +39,18 @@ void QuadTo(const Vec2& control, const Vec2& point);
 void CubicTo(Real cx1, Real cy1, Real cx2, Real cy2, Real x, Real y);
 void CubicTo(const Vec2& control1, const Vec2& control2, const Vec2& point);
 void Path(const graphics::Path& path);
+void Contour(const graphics::Contour& contour);
 void ClosePath();
 void PathWinding(int direction);
 void Rect(Real x, Real y, Real width, Real height);
 void Rect(const Vec2& point, const Size2& size);
+void Rect(const math::Rect<Real>& rect);
 void RoundedRect(Real x, Real y, Real width, Real height, Real radius);
 void RoundedRect(const Vec2& point, const Size2& size, Real radius);
+void RoundedRect(const math::Rect<Real>& rect, Real radius);
 void Ellipse(Real x, Real y, Real width, Real height);
 void Ellipse(const Vec2& point, const Size2& size);
+void Ellipse(const math::Rect<Real>& rect);
 void Circle(Real x, Real y, Real radius);
 void Circle(const Vec2& point, Real radius);
 void Fill();
@@ -110,6 +115,10 @@ inline void Rect(const Vec2& point, const Size2& size) {
   nvgRect(Context::Current(), point.x, point.y, size.w, size.h);
 }
 
+inline void Rect(const math::Rect<Real>& rect) {
+  nvgRect(Context::Current(), rect.x, rect.y, rect.w, rect.h);
+}
+
 inline void RoundedRect(Real x, Real y, Real width, Real height, Real radius) {
   nvgRoundedRect(Context::Current(), x, y, width, height, radius);
 }
@@ -118,12 +127,20 @@ inline void RoundedRect(const Vec2& point, const Size2& size, Real radius) {
   nvgRoundedRect(Context::Current(), point.x, point.y, size.w, size.h, radius);
 }
 
+inline void RoundedRect(const math::Rect<Real>& rect, Real radius) {
+  nvgRoundedRect(Context::Current(), rect.x, rect.y, rect.w, rect.h, radius);
+}
+
 inline void Ellipse(Real x, Real y, Real width, Real height) {
   nvgEllipse(Context::Current(), x, y, width, height);
 }
 
 inline void Ellipse(const Vec2& point, const Size2& size) {
   nvgEllipse(Context::Current(), point.x, point.y, size.w, size.h);
+}
+
+inline void Ellipse(const math::Rect<Real>& rect) {
+  nvgEllipse(Context::Current(), rect.x, rect.y, rect.w, rect.h);
 }
 
 inline void Circle(Real x, Real y, Real radius) {

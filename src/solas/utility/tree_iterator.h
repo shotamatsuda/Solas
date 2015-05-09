@@ -1,5 +1,5 @@
 //
-//  solas/utility/iterator_iterator.h
+//  solas/utility/tree_iterator.h
 //
 //  takram design engineering Confidential
 //
@@ -16,8 +16,8 @@
 //
 
 #pragma once
-#ifndef SOLAS_UTILITY_ITERATOR_ITERATOR_H_
-#define SOLAS_UTILITY_ITERATOR_ITERATOR_H_
+#ifndef SOLAS_UTILITY_TREE_ITERATOR_H_
+#define SOLAS_UTILITY_TREE_ITERATOR_H_
 
 #include <iterator>
 
@@ -26,57 +26,61 @@ namespace utility {
 
 // Primary template
 template <typename T, typename... Iterators>
-class IteratorIterator;
+class TreeIterator;
+
+#pragma mark -
 
 // Terminating partial specialization
 template <typename T, typename Iterator>
-class IteratorIterator<T, Iterator> final
+class TreeIterator<T, Iterator> final
     : public std::iterator<std::forward_iterator_tag, T> {
  public:
   // Constructors
-  IteratorIterator();
-  IteratorIterator(Iterator begin, Iterator end);
+  TreeIterator();
+  TreeIterator(Iterator begin, Iterator end);
 
   // Copy and assign
-  IteratorIterator(const IteratorIterator& other) = default;
-  IteratorIterator& operator=(const IteratorIterator& other) = default;
+  TreeIterator(const TreeIterator& other) = default;
+  TreeIterator& operator=(const TreeIterator& other) = default;
 
   // Comparison
-  bool operator==(const IteratorIterator& other) const;
-  bool operator!=(const IteratorIterator& other) const;
+  bool operator==(const TreeIterator& other) const;
+  bool operator!=(const TreeIterator& other) const;
 
   // Iterator
   T& operator*() const;
   T * operator->() const { return &operator*(); }
-  IteratorIterator& operator++();
-  IteratorIterator operator++(int);
+  TreeIterator& operator++();
+  TreeIterator operator++(int);
 
  private:
   Iterator current_;
 };
 
+#pragma mark -
+
 // Recursive partial specialization
 template <typename T, typename Iterator, typename... RestIterators>
-class IteratorIterator<T, Iterator, RestIterators...> final
+class TreeIterator<T, Iterator, RestIterators...> final
     : public std::iterator<std::forward_iterator_tag, T> {
  public:
   // Constructors
-  IteratorIterator();
-  IteratorIterator(Iterator begin, Iterator end);
+  TreeIterator();
+  TreeIterator(Iterator begin, Iterator end);
 
   // Copy and assign
-  IteratorIterator(const IteratorIterator& other) = default;
-  IteratorIterator& operator=(const IteratorIterator& other) = default;
+  TreeIterator(const TreeIterator& other) = default;
+  TreeIterator& operator=(const TreeIterator& other) = default;
 
   // Comparison
-  bool operator==(const IteratorIterator& other) const;
-  bool operator!=(const IteratorIterator& other) const;
+  bool operator==(const TreeIterator& other) const;
+  bool operator!=(const TreeIterator& other) const;
 
   // Iterator
   T& operator*() const;
   T * operator->() const { return &operator*(); }
-  IteratorIterator& operator++();
-  IteratorIterator operator++(int);
+  TreeIterator& operator++();
+  TreeIterator operator++(int);
 
  private:
   void validate();
@@ -84,83 +88,82 @@ class IteratorIterator<T, Iterator, RestIterators...> final
  private:
   Iterator current_;
   Iterator end_;
-  IteratorIterator<T, RestIterators...> rest_;
+  TreeIterator<T, RestIterators...> rest_;
 };
 
 #pragma mark -
 
 template <typename T, typename Iterator>
-inline IteratorIterator<T, Iterator>::IteratorIterator()
-  : current_() {}
+inline TreeIterator<T, Iterator>::TreeIterator() : current_() {}
 
 template <typename T, typename Iterator>
-inline IteratorIterator<T, Iterator>
-    ::IteratorIterator(Iterator begin, Iterator end)
-  : current_(begin) {}
+inline TreeIterator<T, Iterator>
+    ::TreeIterator(Iterator begin, Iterator end)
+    : current_(begin) {}
 
 template <typename T, typename Iterator, typename... RestIterators>
-inline IteratorIterator<T, Iterator, RestIterators...>
-    ::IteratorIterator()
-  : current_(),
-    end_() {}
+inline TreeIterator<T, Iterator, RestIterators...>
+    ::TreeIterator()
+    : current_(),
+      end_() {}
 
 template <typename T, typename Iterator, typename... RestIterators>
-inline IteratorIterator<T, Iterator, RestIterators...>
-    ::IteratorIterator(Iterator begin, Iterator end)
-  : current_(begin),
-    end_(end) {
+inline TreeIterator<T, Iterator, RestIterators...>
+    ::TreeIterator(Iterator begin, Iterator end)
+    : current_(begin),
+      end_(end) {
   validate();
 }
 
 #pragma mark Comparison
 
 template <typename T, typename Iterator>
-inline bool IteratorIterator<T, Iterator>
-    ::operator==(const IteratorIterator& other) const {
+inline bool TreeIterator<T, Iterator>
+    ::operator==(const TreeIterator& other) const {
   return current_ == other.current_;
 }
 
 template <typename T, typename Iterator>
-inline bool IteratorIterator<T, Iterator>
-    ::operator!=(const IteratorIterator& other) const {
+inline bool TreeIterator<T, Iterator>
+    ::operator!=(const TreeIterator& other) const {
   return !operator==(other);
 }
 
 template <typename T, typename Iterator, typename... RestIterators>
-inline bool IteratorIterator<T, Iterator, RestIterators...>
-    ::operator==(const IteratorIterator& other) const {
+inline bool TreeIterator<T, Iterator, RestIterators...>
+    ::operator==(const TreeIterator& other) const {
   return current_ == other.current_ && rest_ == other.rest_;
 }
 
 template <typename T, typename Iterator, typename... RestIterators>
-inline bool IteratorIterator<T, Iterator, RestIterators...>
-    ::operator!=(const IteratorIterator& other) const {
+inline bool TreeIterator<T, Iterator, RestIterators...>
+    ::operator!=(const TreeIterator& other) const {
   return !operator==(other);
 }
 
 #pragma mark Iterator
 
 template <typename T, typename Iterator>
-inline T& IteratorIterator<T, Iterator>::operator*() const {
+inline T& TreeIterator<T, Iterator>::operator*() const {
   return *current_;
 }
 
 template <typename T, typename Iterator, typename... RestIterators>
-inline T& IteratorIterator<T, Iterator, RestIterators...>::operator*() const {
+inline T& TreeIterator<T, Iterator, RestIterators...>::operator*() const {
   return *rest_;
 }
 
 template <typename T, typename Iterator>
-inline IteratorIterator<T, Iterator>&
-    IteratorIterator<T, Iterator>::operator++() {
+inline TreeIterator<T, Iterator>&
+    TreeIterator<T, Iterator>::operator++() {
   ++current_;
   return *this;
 }
 
 template <typename T, typename Iterator, typename... RestIterators>
-inline IteratorIterator<T, Iterator, RestIterators...>&
-    IteratorIterator<T, Iterator, RestIterators...>::operator++() {
-  using RestIterator = IteratorIterator<T, RestIterators...>;
+inline TreeIterator<T, Iterator, RestIterators...>&
+    TreeIterator<T, Iterator, RestIterators...>::operator++() {
+  using RestIterator = TreeIterator<T, RestIterators...>;
   if (++rest_ == RestIterator(current_->end(), current_->end())) {
     ++current_;
     validate();
@@ -169,8 +172,8 @@ inline IteratorIterator<T, Iterator, RestIterators...>&
 }
 
 template <typename T, typename Iterator, typename... RestIterators>
-inline void IteratorIterator<T, Iterator, RestIterators...>::validate() {
-  using RestIterator = IteratorIterator<T, RestIterators...>;
+inline void TreeIterator<T, Iterator, RestIterators...>::validate() {
+  using RestIterator = TreeIterator<T, RestIterators...>;
   if (current_ == end_) {
     // Set the rest iterator to the default-constructed value so that
     // it can be comparred with end iterators.
@@ -190,17 +193,17 @@ inline void IteratorIterator<T, Iterator, RestIterators...>::validate() {
 }
 
 template <typename T, typename Iterator>
-inline IteratorIterator<T, Iterator>
-    IteratorIterator<T, Iterator>::operator++(int) {
-  IteratorIterator result(*this);
+inline TreeIterator<T, Iterator>
+    TreeIterator<T, Iterator>::operator++(int) {
+  TreeIterator result(*this);
   operator++();
   return result;
 }
 
 template <typename T, typename Iterator, typename... RestIterators>
-inline IteratorIterator<T, Iterator, RestIterators...>
-    IteratorIterator<T, Iterator, RestIterators...>::operator++(int) {
-  IteratorIterator result(*this);
+inline TreeIterator<T, Iterator, RestIterators...>
+    TreeIterator<T, Iterator, RestIterators...>::operator++(int) {
+  TreeIterator result(*this);
   operator++();
   return result;
 }
@@ -208,4 +211,4 @@ inline IteratorIterator<T, Iterator, RestIterators...>
 }  // namespace utility
 }  // namespace solas
 
-#endif  // SOLAS_UTILITY_ITERATOR_ITERATOR_H_
+#endif  // SOLAS_UTILITY_TREE_ITERATOR_H_

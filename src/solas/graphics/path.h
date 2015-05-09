@@ -27,7 +27,7 @@
 #include "solas/graphics/contour.h"
 #include "solas/graphics/segment.h"
 #include "solas/math/vector.h"
-#include "solas/utility/iterator_iterator.h"
+#include "solas/utility/tree_iterator.h"
 
 class SkPath;
 
@@ -38,11 +38,11 @@ class Path final {
  public:
   using Real = double;
   using Point = math::Vec2<Real>;
-  using Iterator = utility::IteratorIterator<
+  using Iterator = utility::TreeIterator<
       Segment,
       std::vector<Contour>::iterator,
       Contour::Iterator>;
-  using ConstIterator = utility::IteratorIterator<
+  using ConstIterator = utility::TreeIterator<
       const Segment,
       std::vector<Contour>::const_iterator,
       Contour::ConstIterator>;
@@ -52,6 +52,7 @@ class Path final {
  public:
   // Constructors
   Path() = default;
+  explicit Path(const std::vector<Contour>& contours);
 
   // Implicit conversion
   Path(const SkPath& path);
@@ -61,8 +62,9 @@ class Path final {
   Path& operator=(const Path& other) = default;
 
   // Mutators
-  void reset();
+  void set(const std::vector<Contour>& contours);
   void set(const SkPath& path);
+  void reset();
 
   // Comparison
   bool operator==(const Path& other) const;
@@ -70,7 +72,7 @@ class Path final {
 
   // Attributes
   bool empty() const { return contours_.empty(); }
-  std::size_t size() const { return size(); }
+  std::size_t size() const { return contours_.size(); }
 
   // Properties
   const std::vector<Contour>& contours() const { return contours_; }
@@ -92,6 +94,16 @@ class Path final {
   // Implicit conversion
   operator SkPath() const;
 
+  // Element access
+  Contour& operator[](int index) { return contours_.at(index); }
+  const Contour& operator[](int index) const { return contours_.at(index); }
+  Contour& at(int index) { return contours_.at(index); }
+  const Contour& at(int index) const { return contours_.at(index); }
+  Contour& front() { return contours_.front(); }
+  const Contour& front() const { return contours_.front(); }
+  Contour& back() { return contours_.back(); }
+  const Contour& back() const { return contours_.back(); }
+
   // Iterator
   Iterator begin();
   ConstIterator begin() const;
@@ -108,6 +120,9 @@ class Path final {
 
 #pragma mark -
 
+inline Path::Path(const std::vector<Contour>& contours)
+    : contours_(contours) {}
+
 #pragma mark Implicit conversion
 
 inline Path::Path(const SkPath& path) {
@@ -115,6 +130,10 @@ inline Path::Path(const SkPath& path) {
 }
 
 #pragma mark Mutators
+
+inline void Path::set(const std::vector<Contour>& contours) {
+  contours_ = contours;
+}
 
 inline void Path::reset() {
   contours_.clear();

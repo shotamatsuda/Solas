@@ -21,9 +21,13 @@
 
 #include "solas/graphics/color.h"
 #include "solas/graphics/color_depth.h"
+#include "solas/graphics/contour.h"
 #include "solas/graphics/fill.h"
 #include "solas/graphics/font.h"
+#include "solas/graphics/path.h"
+#include "solas/graphics/pathfinder.h"
 #include "solas/graphics/quadratic_stroker.h"
+#include "solas/graphics/segment.h"
 #include "solas/graphics/stroke.h"
 
 #endif  // SOLAS_GRAPHICS_H_

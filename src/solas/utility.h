@@ -24,5 +24,6 @@
 #include "solas/utility/enablers.h"
 #include "solas/utility/enum.h"
 #include "solas/utility/singleton.h"
+#include "solas/utility/tree_iterator.h"
 
 #endif  // SOLAS_UTILITY_H_

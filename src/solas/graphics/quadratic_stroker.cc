@@ -61,6 +61,32 @@ inline SkPaint::Join PaintJoin(Stroke::Join join) {
   return SkPaint::Join::kDefault_Join;
 }
 
+static void FixDirection(SkPath *stroke) {
+  using Direction = Contour::Direction;
+  assert(stroke);
+  Path path(*stroke);
+  if (path.size() == 1) {
+    return;  // Nothing to fix
+  }
+  stroke->rewind();
+  math::Rect<Path::Real> max_bounds;
+  auto& contours = path.contours();
+  auto max_itr = contours.begin();
+  for (auto itr = contours.begin(); itr != contours.end(); ++itr) {
+    const auto& bounds = itr->bounds();
+    if (bounds.area() > max_bounds.area()) {
+      max_bounds = bounds;
+      max_itr = itr;
+    }
+  }
+  for (auto itr = contours.begin(); itr != contours.end(); ++itr) {
+    if (itr != max_itr && itr->direction() != Direction::COUNTER_CLOCKWISE) {
+      itr->reverse();
+    }
+  }
+  *stroke = path;
+}
+
 }  // namespace
 
 Path QuadraticStroker::operator()(const Path& path) const {
@@ -70,12 +96,16 @@ Path QuadraticStroker::operator()(const Path& path) const {
   paint.setStrokeMiter(miter_);
   paint.setStrokeCap(PaintCap(cap_));
   paint.setStrokeJoin(PaintJoin(join_));
+  SkPath result;
   SkPath stroke;
-  paint.getFillPath(path, &stroke, nullptr, tolerance_);
-  if (simplifies_) {
+  for (const auto& contour : path.contours()) {
+    stroke.rewind();
+    paint.getFillPath(contour, &stroke, nullptr, tolerance_);
     Simplify(stroke, &stroke);
+    FixDirection(&stroke);
+    result.addPath(stroke);
   }
-  return Path(stroke);
+  return result;
 }
 
 }  // namespace graphics
