@@ -34,7 +34,7 @@ class LayerFramebuffer {
   LayerFramebuffer& operator=(const LayerFramebuffer& other) = delete;
 
   // Using the framebuffer
-  void update(GLsizei width, GLsizei height);
+  void update(GLsizei width, GLsizei height, double scale = 1.0);
   void transfer(GLuint framebuffer);
   void bind();
 

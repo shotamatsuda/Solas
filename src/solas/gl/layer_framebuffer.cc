@@ -25,7 +25,9 @@ namespace gl {
 
 #pragma mark Using the framebuffer
 
-void LayerFramebuffer::update(GLsizei width, GLsizei height) {
+void LayerFramebuffer::update(GLsizei width, GLsizei height, double scale) {
+  width *= scale;
+  height *= scale;
   if (width == width_ && height == height_) {
     return;
   }

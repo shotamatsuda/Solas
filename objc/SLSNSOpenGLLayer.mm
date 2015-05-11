@@ -87,12 +87,13 @@
                forLayerTime:(CFTimeInterval)timeInterval
                 displayTime:(const CVTimeStamp *)timeStamp {
   CGRect bounds = self.bounds;
+  double scale = self.contentsScale;
   GLint framebuffer;
   glGetIntegerv(GL_FRAMEBUFFER_BINDING, &framebuffer);
-  _framebuffer.update(bounds.size.width, bounds.size.height);
+  _framebuffer.update(bounds.size.width, bounds.size.height, scale);
   _framebuffer.bind();
   const solas::math::Size2d size(bounds.size.width, bounds.size.height);
-  const solas::app::AppEvent event(context, size, self.contentsScale);
+  const solas::app::AppEvent event(context, size, scale);
   if ([_displayDelegate respondsToSelector:@selector(sender:draw:)]) {
     [_displayDelegate sender:self draw:SLSAppEventMake(&event)];
   }
