@@ -215,6 +215,24 @@
 		93CAA6541AD1AE32005EDC09 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		93CAA6551AD1AE32005EDC09 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		93CAA6571AD1AF01005EDC09 /* SLSNSApplication.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93CAA6561AD1AF01005EDC09 /* SLSNSApplication.xib */; };
+		93CE7D011B006687009DA569 /* vector_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 930398521AB2B1BD00577048 /* vector_test.cc */; };
+		93CE7D021B006687009DA569 /* size_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 930398511AB2B1BD00577048 /* size_test.cc */; };
+		93CE7D031B006687009DA569 /* rect_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93EFE0751AB350E900148E7C /* rect_test.cc */; };
+		93CE7D041B006687009DA569 /* plane_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 930398501AB2B1BD00577048 /* plane_test.cc */; };
+		93CE7D051B006687009DA569 /* sphere_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93F38E371AB56D2D009E3626 /* sphere_test.cc */; };
+		93CE7D061B006687009DA569 /* easing_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD6EE1AEB9116003AEC6C /* easing_test.cc */; };
+		93CE7D071B006687009DA569 /* clock_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C801AEBB6BB001F90DE /* clock_test.cc */; };
+		93CE7D081B006687009DA569 /* hash_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C811AEBB6BB001F90DE /* hash_test.cc */; };
+		93CE7D091B006687009DA569 /* interval_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C821AEBB6BB001F90DE /* interval_test.cc */; };
+		93CE7D0A1B006687009DA569 /* pointer_adaptor_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C831AEBB6BB001F90DE /* pointer_adaptor_test.cc */; };
+		93CE7D0B1B006687009DA569 /* accessor_adaptor_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C7F1AEBB6BB001F90DE /* accessor_adaptor_test.cc */; };
+		93CE7D0C1B006687009DA569 /* timeline_host_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C841AEBB6BB001F90DE /* timeline_host_test.cc */; };
+		93CE7D0D1B006687009DA569 /* timeline_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C851AEBB6BB001F90DE /* timeline_test.cc */; };
+		93CE7D0E1B006687009DA569 /* tween_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93E33C861AEBB6BB001F90DE /* tween_test.cc */; };
+		93CE7D0F1B006687009DA569 /* edge_iterator_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C76EB1AECDA2F0086371E /* edge_iterator_test.cc */; };
+		93CE7D101B006687009DA569 /* triangle_iterator_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C76EE1AECDA2F0086371E /* triangle_iterator_test.cc */; };
+		93CE7D111B006687009DA569 /* delaunay_triangulator_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C76EA1AECDA2F0086371E /* delaunay_triangulator_test.cc */; };
+		93CE7D121B006687009DA569 /* voronoi_triangulator_test.cc in Sources */ = {isa = PBXBuildFile; fileRef = 934C76F01AECDA2F0086371E /* voronoi_triangulator_test.cc */; };
 		93D479DB1AF949BA000F89B2 /* state.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D479DA1AF949BA000F89B2 /* state.h */; };
 		93D479DC1AF949BA000F89B2 /* state.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D479DA1AF949BA000F89B2 /* state.h */; };
 		93D479DD1AF949BA000F89B2 /* state.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D479DA1AF949BA000F89B2 /* state.h */; };
@@ -2320,7 +2338,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93CE7D111B006687009DA569 /* delaunay_triangulator_test.cc in Sources */,
+				93CE7D051B006687009DA569 /* sphere_test.cc in Sources */,
+				93CE7D021B006687009DA569 /* size_test.cc in Sources */,
+				93CE7D031B006687009DA569 /* rect_test.cc in Sources */,
+				93CE7D0E1B006687009DA569 /* tween_test.cc in Sources */,
+				93CE7D011B006687009DA569 /* vector_test.cc in Sources */,
+				93CE7D121B006687009DA569 /* voronoi_triangulator_test.cc in Sources */,
+				93CE7D0B1B006687009DA569 /* accessor_adaptor_test.cc in Sources */,
+				93CE7D0F1B006687009DA569 /* edge_iterator_test.cc in Sources */,
+				93CE7D0A1B006687009DA569 /* pointer_adaptor_test.cc in Sources */,
+				93CE7D071B006687009DA569 /* clock_test.cc in Sources */,
 				93D47A191AFCB8F1000F89B2 /* iterator_iterator.cc in Sources */,
+				93CE7D0D1B006687009DA569 /* timeline_test.cc in Sources */,
+				93CE7D061B006687009DA569 /* easing_test.cc in Sources */,
+				93CE7D101B006687009DA569 /* triangle_iterator_test.cc in Sources */,
+				93CE7D081B006687009DA569 /* hash_test.cc in Sources */,
+				93CE7D0C1B006687009DA569 /* timeline_host_test.cc in Sources */,
+				93CE7D091B006687009DA569 /* interval_test.cc in Sources */,
+				93CE7D041B006687009DA569 /* plane_test.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
