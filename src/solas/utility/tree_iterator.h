@@ -181,7 +181,7 @@ inline void TreeIterator<T, Iterator, RestIterators...>::validate() {
     return;
   }
   rest_ = RestIterator(current_->begin(), current_->end());
-  while (!&*rest_ && current_ != end_) {
+  while (rest_ == RestIterator() && current_ != end_) {
     ++current_;
     if (current_ != end_) {
       rest_ = RestIterator(current_->begin(), current_->end());
