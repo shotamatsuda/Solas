@@ -42,6 +42,8 @@ void Path(const graphics::Path& path);
 void Contour(const graphics::Contour& contour);
 void ClosePath();
 void PathWinding(int direction);
+void Rect(Real width, Real height);
+void Rect(const Size2& size);
 void Rect(Real x, Real y, Real width, Real height);
 void Rect(const Vec2& point, const Size2& size);
 void Rect(const math::Rect<Real>& rect);
@@ -105,6 +107,14 @@ inline void ClosePath() {
 
 inline void PathWinding(int direction) {
   nvgPathWinding(Context::Current(), direction);
+}
+
+inline void Rect(Real width, Real height) {
+  nvgRect(Context::Current(), Real(), Real(), width, height);
+}
+
+inline void Rect(const Size2& size) {
+  nvgRect(Context::Current(), Real(), Real(), size.w, size.h);
 }
 
 inline void Rect(float x, float y, float width, float height) {

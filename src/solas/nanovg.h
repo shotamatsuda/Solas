@@ -24,6 +24,7 @@
 #include "solas/nanovg/context.h"
 #include "solas/nanovg/gl.h"
 #include "solas/nanovg/path.h"
+#include "solas/nanovg/scissor.h"
 #include "solas/nanovg/state.h"
 #include "solas/nanovg/state_guard.h"
 #include "solas/nanovg/style.h"

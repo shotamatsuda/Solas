@@ -12,6 +12,9 @@
 		931B167B1AEBC7F5005F6B4C /* timeline.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD5AC1AEB86EB003AEC6C /* timeline.cc */; };
 		93229E911AD23DF3008D27EA /* SLSUIApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229E8F1AD23DF3008D27EA /* SLSUIApplicationDelegate.mm */; };
 		93229EC71AD2409E008D27EA /* SLSUIApplicationMain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229EC61AD2409E008D27EA /* SLSUIApplicationMain.mm */; };
+		932E43C91B01B03D00B7F5D5 /* scissor.h in Headers */ = {isa = PBXBuildFile; fileRef = 932E43C81B01B03D00B7F5D5 /* scissor.h */; };
+		932E43CA1B01B03D00B7F5D5 /* scissor.h in Headers */ = {isa = PBXBuildFile; fileRef = 932E43C81B01B03D00B7F5D5 /* scissor.h */; };
+		932E43CB1B01B03D00B7F5D5 /* scissor.h in Headers */ = {isa = PBXBuildFile; fileRef = 932E43C81B01B03D00B7F5D5 /* scissor.h */; };
 		933803271AD88DC200F41F92 /* font.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803251AD88DC200F41F92 /* font.cc */; };
 		933803281AD88DC200F41F92 /* font.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803251AD88DC200F41F92 /* font.cc */; };
 		933FD6F61AEBAEA2003AEC6C /* transform.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933FD5AF1AEB86EB003AEC6C /* transform.cc */; };
@@ -724,6 +727,7 @@
 		93229E8E1AD23DF3008D27EA /* SLSUIApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIApplicationDelegate.h; sourceTree = "<group>"; };
 		93229E8F1AD23DF3008D27EA /* SLSUIApplicationDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIApplicationDelegate.mm; sourceTree = "<group>"; };
 		93229EC61AD2409E008D27EA /* SLSUIApplicationMain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIApplicationMain.mm; sourceTree = "<group>"; };
+		932E43C81B01B03D00B7F5D5 /* scissor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = scissor.h; sourceTree = "<group>"; };
 		933803251AD88DC200F41F92 /* font.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = font.cc; sourceTree = "<group>"; };
 		933803261AD88DC200F41F92 /* font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = font.h; sourceTree = "<group>"; };
 		933FD5271AEB1E3F003AEC6C /* context_holder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = context_holder.h; sourceTree = "<group>"; };
@@ -1238,6 +1242,7 @@
 				93547E651AF0B96900B4C6BE /* transform.h */,
 				9351933A1AF5305E0073C001 /* path.h */,
 				935193491AF54B1A0073C001 /* path.cc */,
+				932E43C81B01B03D00B7F5D5 /* scissor.h */,
 				9351934E1AF54BC10073C001 /* style.h */,
 				93547E611AF0A59200B4C6BE /* gl.h */,
 				934C77111AED383E0086371E /* gl2.h */,
@@ -1791,6 +1796,7 @@
 				93D843E11AF61A1D00ED6BDD /* accessor_adaptor.h in Headers */,
 				93D844551AF61A3100ED6BDD /* noise.h in Headers */,
 				93EDFC2D1AEC8E1E003CDD03 /* SLSNSOpenGLView.h in Headers */,
+				932E43CB1B01B03D00B7F5D5 /* scissor.h in Headers */,
 				934C76C71AECC7D50086371E /* type.h in Headers */,
 				937D92041AF6C0C8000D8302 /* layer_framebuffer.h in Headers */,
 				93EDFC2C1AEC8E1E003CDD03 /* SLSNSView.h in Headers */,
@@ -1950,6 +1956,7 @@
 				93D843F91AF61A1D00ED6BDD /* accessor_adaptor.h in Headers */,
 				93D844891AF61A3100ED6BDD /* noise.h in Headers */,
 				93EDFC251AEC8E1D003CDD03 /* SLSNSOpenGLView.h in Headers */,
+				932E43C91B01B03D00B7F5D5 /* scissor.h in Headers */,
 				934C76C51AECC7D40086371E /* type.h in Headers */,
 				937D92031AF6C0C8000D8302 /* layer_framebuffer.h in Headers */,
 				93EDFC241AEC8E1D003CDD03 /* SLSNSView.h in Headers */,
@@ -2113,6 +2120,7 @@
 				93D844B11AF61A3A00ED6BDD /* layer.h in Headers */,
 				93D843D11AF61A1500ED6BDD /* null_mutex.h in Headers */,
 				93EDFC0D1AEC8E12003CDD03 /* SLSQuartzLayer.h in Headers */,
+				932E43CA1B01B03D00B7F5D5 /* scissor.h in Headers */,
 				93D844121AF61A2900ED6BDD /* group.h in Headers */,
 				938A48001AED711E00071B50 /* SLSUIOpenGLES2View.h in Headers */,
 				93EDFC101AEC8E12003CDD03 /* SLSEventDelegate.h in Headers */,
