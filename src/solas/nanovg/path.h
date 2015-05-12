@@ -31,30 +31,30 @@ namespace nanovg {
 
 void BeginPath();
 void MoveTo(Real x, Real y);
-void MoveTo(const Vec2& point);
+void MoveTo(const Vec& point);
 void LineTo(Real x, Real y);
-void LineTo(const Vec2& point);
+void LineTo(const Vec& point);
 void QuadTo(Real cx, Real cy, Real x, Real y);
-void QuadTo(const Vec2& control, const Vec2& point);
+void QuadTo(const Vec& control, const Vec& point);
 void CubicTo(Real cx1, Real cy1, Real cx2, Real cy2, Real x, Real y);
-void CubicTo(const Vec2& control1, const Vec2& control2, const Vec2& point);
+void CubicTo(const Vec& control1, const Vec& control2, const Vec& point);
 void Path(const graphics::Path& path);
 void Contour(const graphics::Contour& contour);
 void ClosePath();
 void PathWinding(int direction);
 void Rect(Real width, Real height);
-void Rect(const Size2& size);
+void Rect(const Size& size);
 void Rect(Real x, Real y, Real width, Real height);
-void Rect(const Vec2& point, const Size2& size);
+void Rect(const Vec& point, const Size& size);
 void Rect(const math::Rect<Real>& rect);
 void RoundedRect(Real x, Real y, Real width, Real height, Real radius);
-void RoundedRect(const Vec2& point, const Size2& size, Real radius);
+void RoundedRect(const Vec& point, const Size& size, Real radius);
 void RoundedRect(const math::Rect<Real>& rect, Real radius);
 void Ellipse(Real x, Real y, Real width, Real height);
-void Ellipse(const Vec2& point, const Size2& size);
+void Ellipse(const Vec& point, const Size& size);
 void Ellipse(const math::Rect<Real>& rect);
 void Circle(Real x, Real y, Real radius);
-void Circle(const Vec2& point, Real radius);
+void Circle(const Vec& point, Real radius);
 void Fill();
 void Stroke();
 
@@ -68,7 +68,7 @@ inline void MoveTo(Real x, Real y) {
   nvgMoveTo(Context::Current(), x, y);
 }
 
-inline void MoveTo(const Vec2& point) {
+inline void MoveTo(const Vec& point) {
   nvgMoveTo(Context::Current(), point.x, point.y);
 }
 
@@ -76,7 +76,7 @@ inline void LineTo(Real x, Real y) {
   nvgLineTo(Context::Current(), x, y);
 }
 
-inline void LineTo(const Vec2& point) {
+inline void LineTo(const Vec& point) {
   nvgLineTo(Context::Current(), point.x, point.y);
 }
 
@@ -84,7 +84,7 @@ inline void QuadTo(Real cx, Real cy, Real x, Real y) {
   nvgQuadTo(Context::Current(), cx, cy, x, y);
 }
 
-inline void QuadTo(const Vec2& control, const Vec2& point) {
+inline void QuadTo(const Vec& control, const Vec& point) {
   nvgQuadTo(Context::Current(), control.x, control.y, point.x, point.y);
 }
 
@@ -92,9 +92,9 @@ inline void CubicTo(Real cx1, Real cy1, Real cx2, Real cy2, Real x, Real y) {
   nvgBezierTo(Context::Current(), cx1, cy1, cx2, cy2, x, y);
 }
 
-inline void CubicTo(const Vec2& control1,
-                    const Vec2& control2,
-                    const Vec2& point) {
+inline void CubicTo(const Vec& control1,
+                    const Vec& control2,
+                    const Vec& point) {
   nvgBezierTo(Context::Current(),
               control1.x, control1.y,
               control2.x, control2.y,
@@ -113,7 +113,7 @@ inline void Rect(Real width, Real height) {
   nvgRect(Context::Current(), Real(), Real(), width, height);
 }
 
-inline void Rect(const Size2& size) {
+inline void Rect(const Size& size) {
   nvgRect(Context::Current(), Real(), Real(), size.w, size.h);
 }
 
@@ -121,7 +121,7 @@ inline void Rect(float x, float y, float width, float height) {
   nvgRect(Context::Current(), x, y, width, height);
 }
 
-inline void Rect(const Vec2& point, const Size2& size) {
+inline void Rect(const Vec& point, const Size& size) {
   nvgRect(Context::Current(), point.x, point.y, size.w, size.h);
 }
 
@@ -133,7 +133,7 @@ inline void RoundedRect(Real x, Real y, Real width, Real height, Real radius) {
   nvgRoundedRect(Context::Current(), x, y, width, height, radius);
 }
 
-inline void RoundedRect(const Vec2& point, const Size2& size, Real radius) {
+inline void RoundedRect(const Vec& point, const Size& size, Real radius) {
   nvgRoundedRect(Context::Current(), point.x, point.y, size.w, size.h, radius);
 }
 
@@ -145,7 +145,7 @@ inline void Ellipse(Real x, Real y, Real width, Real height) {
   nvgEllipse(Context::Current(), x, y, width, height);
 }
 
-inline void Ellipse(const Vec2& point, const Size2& size) {
+inline void Ellipse(const Vec& point, const Size& size) {
   nvgEllipse(Context::Current(), point.x, point.y, size.w, size.h);
 }
 
@@ -157,7 +157,7 @@ inline void Circle(Real x, Real y, Real radius) {
   nvgCircle(Context::Current(), x, y, radius);
 }
 
-inline void Circle(const Vec2& point, Real radius) {
+inline void Circle(const Vec& point, Real radius) {
   nvgCircle(Context::Current(), point.x, point.y, radius);
 }
 

@@ -26,8 +26,8 @@ namespace solas {
 namespace nanovg {
 
 using Real = float;
-using Vec2 = math::Vec2<Real>;
-using Size2 = math::Size2<Real>;
+using Vec = math::Vec2<Real>;
+using Size = math::Size2<Real>;
 
 }  // namespace nanovg
 

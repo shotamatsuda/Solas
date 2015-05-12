@@ -31,14 +31,14 @@ void TranslateX(Real dx);
 void TranslateY(Real dy);
 void Translate(Real value);
 void Translate(Real dx, Real dy);
-void Translate(const Vec2& value);
+void Translate(const Vec& value);
 void Rotate(Real angle);
-void Rotate(Real angle, const Vec2& point);
+void Rotate(Real angle, const Vec& point);
 void ScaleX(Real sx);
 void ScaleY(Real sy);
 void Scale(Real value);
 void Scale(Real sx, Real sy);
-void Scale(const Vec2& value);
+void Scale(const Vec& value);
 void SkewX(Real angle);
 void SkewY(Real angle);
 
@@ -60,7 +60,7 @@ inline void Translate(Real dx, Real dy) {
   nvgTranslate(Context::Current(), dx, dy);
 }
 
-inline void Translate(const Vec2& value) {
+inline void Translate(const Vec& value) {
   nvgTranslate(Context::Current(), value.x, value.y);
 }
 
@@ -68,7 +68,7 @@ inline void Rotate(Real angle) {
   nvgRotate(Context::Current(), angle);
 }
 
-inline void Rotate(Real angle, const Vec2& point) {
+inline void Rotate(Real angle, const Vec& point) {
   nvgTranslate(Context::Current(), point.x, point.y);
   nvgRotate(Context::Current(), angle);
   nvgTranslate(Context::Current(), -point.x, -point.y);
@@ -90,7 +90,7 @@ inline void Scale(Real sx, Real sy) {
   nvgScale(Context::Current(), sx, sy);
 }
 
-inline void Scale(const Vec2& value) {
+inline void Scale(const Vec& value) {
   nvgScale(Context::Current(), value.x, value.y);
 }
 

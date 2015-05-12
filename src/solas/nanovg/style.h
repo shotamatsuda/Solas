@@ -33,8 +33,8 @@ void FillColor(NVGcolor color);
 void FillPaint(NVGpaint paint);
 void MiterLimit(Real limit);
 void StrokeWidth(Real size);
-void LineCap(int cap);
-void LineJoin(int join);
+void LineCap(NVGlineCap cap);
+void LineJoin(NVGlineCap join);
 void GlobalAlpha(Real alpha);
 
 #pragma mark -
@@ -63,11 +63,11 @@ inline void StrokeWidth(Real size) {
   nvgStrokeWidth(Context::Current(), size);
 }
 
-inline void LineCap(int cap) {
+inline void LineCap(NVGlineCap cap) {
   nvgLineCap(Context::Current(), cap);
 }
 
-inline void LineJoin(int join) {
+inline void LineJoin(NVGlineCap join) {
   nvgLineJoin(Context::Current(), join);
 }
 
