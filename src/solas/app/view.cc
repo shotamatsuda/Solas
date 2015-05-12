@@ -52,30 +52,37 @@ void View::handleMouseEvent(const MouseEvent& event) {
     case MouseEvent::Type::DOWN:
       mousePressed(event);
       mousePressed();
+      mouse_event_signals_[event.type()](event);
       break;
     case MouseEvent::Type::DRAG:
       mouseDragged(event);
       mouseDragged();
+      mouse_event_signals_[event.type()](event);
       break;
     case MouseEvent::Type::UP:
       mouseReleased(event);
       mouseReleased();
+      mouse_event_signals_[event.type()](event);
       break;
     case MouseEvent::Type::MOVE:
       mouseMoved(event);
       mouseMoved();
+      mouse_event_signals_[event.type()](event);
       break;
     case MouseEvent::Type::ENTER:
       mouseEntered(event);
       mouseEntered();
+      mouse_event_signals_[event.type()](event);
       break;
     case MouseEvent::Type::EXIT:
       mouseExited(event);
       mouseExited();
+      mouse_event_signals_[event.type()](event);
       break;
     case MouseEvent::Type::WHEEL:
       mouseWheel(event);
       mouseWheel();
+      mouse_event_signals_[event.type()](event);
       break;
     default:
       break;  // Ignore unknown types of event
@@ -87,10 +94,12 @@ void View::handleKeyEvent(const KeyEvent& event) {
     case KeyEvent::Type::DOWN:
       keyPressed(event);
       keyPressed();
+      key_event_signals_[event.type()](event);
       break;
     case KeyEvent::Type::UP:
       keyReleased(event);
       keyReleased();
+      key_event_signals_[event.type()](event);
       break;
     default:
       break;  // Ignore unknown types of event
@@ -124,18 +133,22 @@ void View::handleTouchEvent(const TouchEvent& event) {
     case TouchEvent::Type::BEGIN:
       touchesBegan(event);
       touchesBegan();
+      touch_event_signals_[event.type()](event);
       break;
     case TouchEvent::Type::MOVE:
       touchesMoved(event);
       touchesMoved();
+      touch_event_signals_[event.type()](event);
       break;
     case TouchEvent::Type::CANCEL:
       touchesCancelled(event);
       touchesCancelled();
+      touch_event_signals_[event.type()](event);
       break;
     case TouchEvent::Type::END:
       touchesEnded(event);
       touchesEnded();
+      touch_event_signals_[event.type()](event);
       break;
     default:
       break;  // Ignore unknown types of event
@@ -147,18 +160,22 @@ void View::handleGestureEvent(const GestureEvent& event) {
     case GestureEvent::Type::BEGIN:
       gestureBegan(event);
       gestureBegan();
+      gesture_event_signals_[event.type()](event);
       break;
     case GestureEvent::Type::CHANGE:
       gestureChanged(event);
       gestureChanged();
+      gesture_event_signals_[event.type()](event);
       break;
     case GestureEvent::Type::CANCEL:
       gestureCancelled(event);
       gestureCancelled();
+      gesture_event_signals_[event.type()](event);
       break;
     case GestureEvent::Type::END:
       gestureEnded(event);
       gestureEnded();
+      gesture_event_signals_[event.type()](event);
       break;
     default:
       break;  // Ignore unknown types of event
@@ -170,14 +187,17 @@ void View::handleMotionEvent(const MotionEvent& event) {
     case MotionEvent::Type::BEGIN:
       motionBegan(event);
       motionBegan();
+      motion_event_signals_[event.type()](event);
       break;
     case MotionEvent::Type::CANCEL:
       motionCancelled(event);
       motionCancelled();
+      motion_event_signals_[event.type()](event);
       break;
     case MotionEvent::Type::END:
       motionEnded(event);
       motionEnded();
+      motion_event_signals_[event.type()](event);
       break;
     default:
       break;  // Ignore unknown types of event
