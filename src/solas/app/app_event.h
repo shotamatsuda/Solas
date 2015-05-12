@@ -27,6 +27,17 @@ namespace app {
 
 class AppEvent final {
  public:
+  enum class Type {
+    UNDEFINED,
+    SETUP,
+    UPDATE,
+    PRE,
+    DRAW,
+    POST,
+    EXIT
+  };
+
+ public:
   // Constructors
   AppEvent() {}
   template <typename Context>

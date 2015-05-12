@@ -1,5 +1,5 @@
 //
-//  solas/app/event.h
+//  solas/app/event_holder.h
 //
 //  takram design engineering Confidential
 //
@@ -16,8 +16,8 @@
 //
 
 #pragma once
-#ifndef SOLAS_APP_EVENT_H_
-#define SOLAS_APP_EVENT_H_
+#ifndef SOLAS_APP_EVENT_HOLDER_H_
+#define SOLAS_APP_EVENT_HOLDER_H_
 
 #include <cassert>
 
@@ -33,7 +33,7 @@
 namespace solas {
 namespace app {
 
-class Event final {
+class EventHolder final {
  public:
   enum class Type {
     MOUSE,
@@ -45,18 +45,18 @@ class Event final {
 
  public:
   // Constructors
-  explicit Event(const MouseEvent& event);
-  explicit Event(const KeyEvent& event);
-  explicit Event(const TouchEvent& event);
-  explicit Event(const GestureEvent& event);
-  explicit Event(const MotionEvent& event);
+  explicit EventHolder(const MouseEvent& event);
+  explicit EventHolder(const KeyEvent& event);
+  explicit EventHolder(const TouchEvent& event);
+  explicit EventHolder(const GestureEvent& event);
+  explicit EventHolder(const MotionEvent& event);
 
   // Copy and move
-  Event(const Event& other) = default;
-  Event(Event&& other) = default;
+  EventHolder(const EventHolder& other) = default;
+  EventHolder(EventHolder&& other) = default;
 
   // Disallow assign
-  Event& operator=(const Event& other) = delete;
+  EventHolder& operator=(const EventHolder& other) = delete;
 
   // Properties
   Type type() const { return type_; }
@@ -75,49 +75,49 @@ class Event final {
 
 #pragma mark -
 
-inline Event::Event(const MouseEvent& event)
+inline EventHolder::EventHolder(const MouseEvent& event)
     : type_(Type::MOUSE),
       event_(event) {}
 
-inline Event::Event(const KeyEvent& event)
+inline EventHolder::EventHolder(const KeyEvent& event)
     : type_(Type::KEY),
       event_(event) {}
 
-inline Event::Event(const TouchEvent& event)
+inline EventHolder::EventHolder(const TouchEvent& event)
     : type_(Type::TOUCH),
       event_(event) {}
 
-inline Event::Event(const GestureEvent& event)
+inline EventHolder::EventHolder(const GestureEvent& event)
     : type_(Type::GESTURE),
       event_(event) {}
 
-inline Event::Event(const MotionEvent& event)
+inline EventHolder::EventHolder(const MotionEvent& event)
     : type_(Type::MOTION),
       event_(event) {}
 
 #pragma mark Accessing the event
 
-inline const MouseEvent& Event::mouse() const {
+inline const MouseEvent& EventHolder::mouse() const {
   assert(type_ == Type::MOUSE);
   return *boost::any_cast<MouseEvent>(&event_);
 }
 
-inline const KeyEvent& Event::key() const {
+inline const KeyEvent& EventHolder::key() const {
   assert(type_ == Type::KEY);
   return *boost::any_cast<KeyEvent>(&event_);
 }
 
-inline const TouchEvent& Event::touch() const {
+inline const TouchEvent& EventHolder::touch() const {
   assert(type_ == Type::TOUCH);
   return *boost::any_cast<TouchEvent>(&event_);
 }
 
-inline const GestureEvent& Event::gesture() const {
+inline const GestureEvent& EventHolder::gesture() const {
   assert(type_ == Type::GESTURE);
   return *boost::any_cast<GestureEvent>(&event_);
 }
 
-inline const MotionEvent& Event::motion() const {
+inline const MotionEvent& EventHolder::motion() const {
   assert(type_ == Type::MOTION);
   return *boost::any_cast<MotionEvent>(&event_);
 }
@@ -125,4 +125,4 @@ inline const MotionEvent& Event::motion() const {
 }  // namespace app
 }  // namespace solas
 
-#endif  // SOLAS_APP_EVENT_H_
+#endif  // SOLAS_APP_EVENT_HOLDER_H_
