@@ -509,7 +509,7 @@ inline void View::motionEnd(const MotionEvent& event) {
 #pragma mark -
 
 template <>
-struct View::EventConnector<AppEvent> final {
+struct View::EventConnector<AppEvent> {
   using Type = AppEvent::Type;
 
   template <typename Slot>
@@ -524,7 +524,7 @@ struct View::EventConnector<AppEvent> final {
 };
 
 template <>
-struct View::EventConnector<MouseEvent> final {
+struct View::EventConnector<MouseEvent> {
   using Type = MouseEvent::Type;
 
   template <typename Slot>
@@ -539,7 +539,7 @@ struct View::EventConnector<MouseEvent> final {
 };
 
 template <>
-struct View::EventConnector<KeyEvent> final {
+struct View::EventConnector<KeyEvent> {
   using Type = KeyEvent::Type;
 
   template <typename Slot>
@@ -554,7 +554,7 @@ struct View::EventConnector<KeyEvent> final {
 };
 
 template <>
-struct View::EventConnector<TouchEvent> final {
+struct View::EventConnector<TouchEvent> {
   using Type = TouchEvent::Type;
 
   template <typename Slot>
@@ -569,7 +569,7 @@ struct View::EventConnector<TouchEvent> final {
 };
 
 template <>
-struct View::EventConnector<GestureEvent> final {
+struct View::EventConnector<GestureEvent> {
   using Type = GestureEvent::Type;
 
   template <typename Slot>
@@ -584,7 +584,7 @@ struct View::EventConnector<GestureEvent> final {
 };
 
 template <>
-struct View::EventConnector<MotionEvent> final {
+struct View::EventConnector<MotionEvent> {
   using Type = MotionEvent::Type;
 
   template <typename Slot>
