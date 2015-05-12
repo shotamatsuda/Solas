@@ -20,12 +20,13 @@
 #define SOLAS_APP_VIEW_H_
 
 #include <cstdint>
+#include <list>
 #include <queue>
 #include <unordered_map>
 
 #include <boost/signals2.hpp>
 
-#include "solas/app/event.h"
+#include "solas/app/event_holder.h"
 #include "solas/app/gesture_event.h"
 #include "solas/app/key_event.h"
 #include "solas/app/layer.h"
@@ -41,6 +42,10 @@ namespace solas {
 namespace app {
 
 class View : public app::Runnable, public Layer {
+ public:
+  using EventConnection = boost::signals2::connection;
+  using EventConnectionList = std::list<boost::signals2::scoped_connection>;
+
  private:
   template <typename Event>
   using EventSignals = std::unordered_map<
@@ -160,7 +165,7 @@ class View : public app::Runnable, public Layer {
   template <typename Event>
   void enqueueEvent(const Event& event);
   void dequeueEvents();
-  void handleEvent(const Event& event);
+  void handleEvent(const EventHolder& event);
   void handleMouseEvent(const MouseEvent& event);
   void handleKeyEvent(const KeyEvent& event);
   void handleTouchEvent(const TouchEvent& event);
@@ -198,7 +203,7 @@ class View : public app::Runnable, public Layer {
   void motionEnd(const MotionEvent& event) override;
 
  private:
-  std::queue<Event> event_queue_;
+  std::queue<EventHolder> event_queue_;
 
   // Structure
   double width_;
@@ -348,21 +353,21 @@ inline void View::dequeueEvents() {
   }
 }
 
-inline void View::handleEvent(const Event& event) {
+inline void View::handleEvent(const EventHolder& event) {
   switch (event.type()) {
-    case Event::Type::MOUSE:
+    case EventHolder::Type::MOUSE:
       handleMouseEvent(event.mouse());
       break;
-    case Event::Type::KEY:
+    case EventHolder::Type::KEY:
       handleKeyEvent(event.key());
       break;
-    case Event::Type::TOUCH:
+    case EventHolder::Type::TOUCH:
       handleTouchEvent(event.touch());
       break;
-    case Event::Type::GESTURE:
+    case EventHolder::Type::GESTURE:
       handleGestureEvent(event.gesture());
       break;
-    case Event::Type::MOTION:
+    case EventHolder::Type::MOTION:
       handleMotionEvent(event.motion());
       break;
     default:

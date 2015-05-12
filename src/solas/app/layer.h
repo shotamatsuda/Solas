@@ -21,10 +21,7 @@
 
 #include <cassert>
 #include <cstdint>
-#include <list>
 #include <utility>
-
-#include <boost/signals2.hpp>
 
 #include "solas/app/mouse_button.h"
 #include "solas/math/vector.h"
@@ -36,10 +33,6 @@ namespace solas {
 namespace app {
 
 class Layer {
- public:
-  using EventConnection = boost::signals2::connection;
-  using EventConnectionList = std::list<boost::signals2::scoped_connection>;
-
  public:
   // Constructors
   explicit Layer(Layer *parent);

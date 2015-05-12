@@ -475,7 +475,7 @@
 		93D8448A1AF61A3400ED6BDD /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913BB1AB2811500DDF7F9 /* math.h */; };
 		93D8448B1AF61A3500ED6BDD /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913BB1AB2811500DDF7F9 /* math.h */; };
 		93D8448C1AF61A3500ED6BDD /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E913BB1AB2811500DDF7F9 /* math.h */; };
-		93D8448D1AF61A3900ED6BDD /* event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE21ADD395500B42B9E /* event.h */; };
+		93D8448D1AF61A3900ED6BDD /* event_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE21ADD395500B42B9E /* event_holder.h */; };
 		93D8448E1AF61A3900ED6BDD /* app_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707DA1AD692DF00E3E8AA /* app_event.h */; };
 		93D8448F1AF61A3900ED6BDD /* mouse_button.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6091AD16F40005EDC09 /* mouse_button.h */; };
 		93D844901AF61A3900ED6BDD /* mouse_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B521AD14C4400969DC2 /* mouse_event.h */; };
@@ -494,7 +494,7 @@
 		93D8449D1AF61A3900ED6BDD /* view.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE41ADD395500B42B9E /* view.h */; };
 		93D8449E1AF61A3900ED6BDD /* layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE11ADD395500B42B9E /* layer.h */; };
 		93D8449F1AF61A3900ED6BDD /* graphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E461AB5FA8B009E3626 /* graphics.h */; };
-		93D844A01AF61A3A00ED6BDD /* event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE21ADD395500B42B9E /* event.h */; };
+		93D844A01AF61A3A00ED6BDD /* event_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE21ADD395500B42B9E /* event_holder.h */; };
 		93D844A11AF61A3A00ED6BDD /* app_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707DA1AD692DF00E3E8AA /* app_event.h */; };
 		93D844A21AF61A3A00ED6BDD /* mouse_button.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6091AD16F40005EDC09 /* mouse_button.h */; };
 		93D844A31AF61A3A00ED6BDD /* mouse_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B521AD14C4400969DC2 /* mouse_event.h */; };
@@ -513,7 +513,7 @@
 		93D844B01AF61A3A00ED6BDD /* view.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE41ADD395500B42B9E /* view.h */; };
 		93D844B11AF61A3A00ED6BDD /* layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE11ADD395500B42B9E /* layer.h */; };
 		93D844B21AF61A3A00ED6BDD /* graphics.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E461AB5FA8B009E3626 /* graphics.h */; };
-		93D844B31AF61A3A00ED6BDD /* event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE21ADD395500B42B9E /* event.h */; };
+		93D844B31AF61A3A00ED6BDD /* event_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE21ADD395500B42B9E /* event_holder.h */; };
 		93D844B41AF61A3A00ED6BDD /* app_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707DA1AD692DF00E3E8AA /* app_event.h */; };
 		93D844B51AF61A3A00ED6BDD /* mouse_button.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6091AD16F40005EDC09 /* mouse_button.h */; };
 		93D844B61AF61A3A00ED6BDD /* mouse_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B521AD14C4400969DC2 /* mouse_event.h */; };
@@ -853,7 +853,7 @@
 		93AD7CDE1ADD37F200B42B9E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		93AD7CE01ADD395500B42B9E /* layer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = layer.cc; sourceTree = "<group>"; };
 		93AD7CE11ADD395500B42B9E /* layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = layer.h; sourceTree = "<group>"; };
-		93AD7CE21ADD395500B42B9E /* event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event.h; sourceTree = "<group>"; };
+		93AD7CE21ADD395500B42B9E /* event_holder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event_holder.h; sourceTree = "<group>"; };
 		93AD7CE31ADD395500B42B9E /* view.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = view.cc; sourceTree = "<group>"; };
 		93AD7CE41ADD395500B42B9E /* view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view.h; sourceTree = "<group>"; };
 		93B707D81AD62C5E00E3E8AA /* stroke.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stroke.h; sourceTree = "<group>"; };
@@ -1337,7 +1337,6 @@
 		93A45B441AD1438900969DC2 /* app */ = {
 			isa = PBXGroup;
 			children = (
-				93AD7CE21ADD395500B42B9E /* event.h */,
 				93B707DA1AD692DF00E3E8AA /* app_event.h */,
 				93CAA6091AD16F40005EDC09 /* mouse_button.h */,
 				93A45B521AD14C4400969DC2 /* mouse_event.h */,
@@ -1349,6 +1348,7 @@
 				93547E781AF1267B00B4C6BE /* screen_edge.h */,
 				93A45B4F1AD14C4400969DC2 /* gesture_event.h */,
 				93A45B511AD14C4400969DC2 /* motion_event.h */,
+				93AD7CE21ADD395500B42B9E /* event_holder.h */,
 				933FD52C1AEB22F7003AEC6C /* backend.h */,
 				933FD5271AEB1E3F003AEC6C /* context_holder.h */,
 				93CAA6171AD1930A005EDC09 /* runnable.h */,
@@ -1728,7 +1728,7 @@
 				93D844351AF61A2D00ED6BDD /* easing.h in Headers */,
 				93D844091AF61A2900ED6BDD /* cubic.h in Headers */,
 				93D843BE1AF61A0F00ED6BDD /* enablers.h in Headers */,
-				93D8448D1AF61A3900ED6BDD /* event.h in Headers */,
+				93D8448D1AF61A3900ED6BDD /* event_holder.h in Headers */,
 				93EDFC1E1AEC8E13003CDD03 /* SLSDisplayLink.h in Headers */,
 				93547E621AF0A59B00B4C6BE /* nanovg_gl.h in Headers */,
 				93D844501AF61A3100ED6BDD /* triangle3.h in Headers */,
@@ -1887,7 +1887,7 @@
 				93D8443B1AF61A2D00ED6BDD /* easing.h in Headers */,
 				93D8442B1AF61A2A00ED6BDD /* cubic.h in Headers */,
 				93D843C81AF61A1000ED6BDD /* enablers.h in Headers */,
-				93D844B31AF61A3A00ED6BDD /* event.h in Headers */,
+				93D844B31AF61A3A00ED6BDD /* event_holder.h in Headers */,
 				93EDFC221AEC8E1D003CDD03 /* SLSNSViewController.h in Headers */,
 				93547E641AF0A59C00B4C6BE /* nanovg_gl.h in Headers */,
 				93D844841AF61A3100ED6BDD /* triangle3.h in Headers */,
@@ -1977,7 +1977,7 @@
 				93D843E61AF61A1D00ED6BDD /* easing.h in Headers */,
 				93D843EB1AF61A1D00ED6BDD /* adaptor.h in Headers */,
 				93D844AE1AF61A3A00ED6BDD /* runner_factory.h in Headers */,
-				93D844A01AF61A3A00ED6BDD /* event.h in Headers */,
+				93D844A01AF61A3A00ED6BDD /* event_holder.h in Headers */,
 				93D8446F1AF61A3100ED6BDD /* noise.h in Headers */,
 				93D8445F1AF61A3100ED6BDD /* matrix.h in Headers */,
 				93D843EC1AF61A1D00ED6BDD /* pointer_adaptor.h in Headers */,

@@ -21,7 +21,7 @@
 
 #include "solas/app/app_event.h"
 #include "solas/app/context_holder.h"
-#include "solas/app/event.h"
+#include "solas/app/event_holder.h"
 #include "solas/app/gesture_event.h"
 #include "solas/app/gesture_kind.h"
 #include "solas/app/key_event.h"
