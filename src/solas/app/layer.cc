@@ -17,8 +17,32 @@
 
 #include "solas/app/layer.h"
 
+#include <cassert>
+
+#include "solas/app/view.h"
+
 namespace solas {
 namespace app {
+
+#pragma mark Aggregation
+
+View& Layer::view() {
+  assert(parent_);
+  Layer *parent = parent_;
+  while (parent->parent()) {
+    parent = parent->parent();
+  }
+  return static_cast<View&>(*parent);
+}
+
+const View& Layer::view() const {
+  assert(parent_);
+  const Layer *parent = parent_;
+  while (parent->parent()) {
+    parent = parent->parent();
+  }
+  return static_cast<const View&>(*parent);
+}
 
 }  // namespace app
 }  // namespace solas

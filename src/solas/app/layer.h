@@ -32,6 +32,8 @@
 namespace solas {
 namespace app {
 
+class View;
+
 class Layer {
  public:
   // Constructors
@@ -77,8 +79,10 @@ class Layer {
   const tween::Timeline<Interval>& timeline() const;
 
   // Aggregation
-  Layer& parent();
-  const Layer& parent() const;
+  virtual Layer * parent();
+  virtual const Layer * parent() const;
+  virtual View& view();
+  virtual const View& view() const;
 
  protected:
   // Constructors
@@ -200,14 +204,14 @@ inline const tween::Timeline<Interval>& Layer::timeline() const {
 
 #pragma mark Aggregation
 
-inline Layer& Layer::parent() {
+inline Layer * Layer::parent() {
   assert(parent_);
-  return *parent_;
+  return parent_;
 }
 
-inline const Layer& Layer::parent() const {
+inline const Layer * Layer::parent() const {
   assert(parent_);
-  return *parent_;
+  return parent_;
 }
 
 inline tween::TimelineHost * Layer::timeline_host() {

@@ -96,8 +96,10 @@ class View : public app::Runnable, public Layer {
   bool touch_pressed() const override;
 
   // Aggregation
-  Layer& parent() = delete;
-  const Layer& parent() const = delete;
+  Layer * parent() override;
+  const Layer * parent() const override;
+  View& view() override;
+  const View& view() const override;
 
   // Event connection
   template <typename Event, typename Slot, typename Type = typename Event::Type>
@@ -318,6 +320,22 @@ inline bool View::touch_pressed() const {
 }
 
 #pragma mark Aggregation
+
+inline Layer * View::parent() {
+  return nullptr;
+}
+
+inline const Layer * View::parent() const {
+  return nullptr;
+}
+
+inline View& View::view() {
+  return *this;
+}
+
+inline const View& View::view() const {
+  return *this;
+}
 
 inline tween::TimelineHost * View::timeline_host() {
   return &timeline_host_;
