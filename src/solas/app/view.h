@@ -26,10 +26,10 @@
 
 #include <boost/signals2.hpp>
 
+#include "solas/app/composite.h"
 #include "solas/app/event_holder.h"
 #include "solas/app/gesture_event.h"
 #include "solas/app/key_event.h"
-#include "solas/app/layer.h"
 #include "solas/app/motion_event.h"
 #include "solas/app/mouse_button.h"
 #include "solas/app/mouse_event.h"
@@ -41,7 +41,7 @@
 namespace solas {
 namespace app {
 
-class View : public app::Runnable, public Layer {
+class View : public app::Runnable, public Composite {
  public:
   using EventConnection = boost::signals2::connection;
   using EventConnectionList = std::list<boost::signals2::scoped_connection>;
@@ -96,10 +96,7 @@ class View : public app::Runnable, public Layer {
   bool touch_pressed() const override;
 
   // Aggregation
-  Layer * parent() override;
-  const Layer * parent() const override;
-  View& view() override;
-  const View& view() const override;
+  Composite * parent() const override;
 
   // Event connection
   template <typename Event, typename Slot, typename Type = typename Event::Type>
@@ -321,20 +318,8 @@ inline bool View::touch_pressed() const {
 
 #pragma mark Aggregation
 
-inline Layer * View::parent() {
+inline Composite * View::parent() const {
   return nullptr;
-}
-
-inline const Layer * View::parent() const {
-  return nullptr;
-}
-
-inline View& View::view() {
-  return *this;
-}
-
-inline const View& View::view() const {
-  return *this;
 }
 
 inline tween::TimelineHost * View::timeline_host() {
