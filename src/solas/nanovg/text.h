@@ -81,23 +81,23 @@ inline void FontSize(Real size) {
 }
 
 inline void FontBlur(Real blur) {
-  nvgFontSize(Context::Current(), blur);
+  nvgFontBlur(Context::Current(), blur);
 }
 
 inline void TextLetterSpacing(Real spacing) {
-  nvgFontSize(Context::Current(), spacing);
+  nvgTextLetterSpacing(Context::Current(), spacing);
 }
 
 inline void TextLineHeight(Real height) {
-  nvgFontSize(Context::Current(), height);
+  nvgTextLineHeight(Context::Current(), height);
 }
 
 inline void TextAlign(NVGalign align) {
-  nvgFontSize(Context::Current(), align);
+  nvgTextAlign(Context::Current(), align);
 }
 
 inline void FontFace(int font) {
-  nvgFontSize(Context::Current(), font);
+  nvgFontFaceId(Context::Current(), font);
 }
 
 inline void FontFace(const std::string& font) {
