@@ -19,6 +19,7 @@
 #ifndef SOLAS_NANOVG_TYPE_H_
 #define SOLAS_NANOVG_TYPE_H_
 
+#include "solas/math/rect.h"
 #include "solas/math/size.h"
 #include "solas/math/vector.h"
 
@@ -28,6 +29,7 @@ namespace nanovg {
 using Real = float;
 using Vec = math::Vec2<Real>;
 using Size = math::Size2<Real>;
+using Rec = math::Rect<Real>;
 
 }  // namespace nanovg
 

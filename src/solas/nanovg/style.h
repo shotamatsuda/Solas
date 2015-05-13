@@ -27,14 +27,21 @@
 namespace solas {
 namespace nanovg {
 
+// Stroke
 void StrokeColor(NVGcolor color);
 void StrokePaint(NVGpaint paint);
+
+// Fill
 void FillColor(NVGcolor color);
 void FillPaint(NVGpaint paint);
+
+// Stroke settings
 void MiterLimit(Real limit);
 void StrokeWidth(Real size);
 void LineCap(NVGlineCap cap);
 void LineJoin(NVGlineCap join);
+
+// Global settings
 void GlobalAlpha(Real alpha);
 
 #pragma mark -

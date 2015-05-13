@@ -20,50 +20,51 @@
 #define SOLAS_NANOVG_TEXT_H_
 
 #include <string>
-#include <tuple>
-#include <utility>
 
 #include "nanovg.h"
 
-#include "solas/math/rect.h"
 #include "solas/nanovg/context.h"
 #include "solas/nanovg/type.h"
 
 namespace solas {
 namespace nanovg {
 
-namespace text {
-
-struct Metrics {
-  math::Rect<Real> bounds;
-  Real advance;
-};
-
-}  // namespace text
-
+// Font creation
 int CreateFont(const std::string& name, const std::string& filename);
 int FindFont(const std::string& name);
+
+// Font settings
 void FontSize(Real size);
 void FontBlur(Real blur);
+  
+// Text settings
 void TextLetterSpacing(Real spacing);
 void TextLineHeight(Real height);
 void TextAlign(NVGalign align);
+
+// Font face
 void FontFace(int font);
 void FontFace(const std::string& font);
+
+// Text
 Real Text(const std::string& text);
 Real Text(Real x, Real y, const std::string& text);
-Real Text(const Vec& point, const std::string& text);
+Real Text(const Vec& vec, const std::string& text);
+  
+// Text box
 void TextBox(Real width, const std::string& text);
 void TextBox(Real x, Real y, Real width, const std::string& text);
-void TextBox(const Vec& point, Real width, const std::string& text);
-text::Metrics TextBounds(const std::string& text);
-text::Metrics TextBounds(Real x, Real y, const std::string& text);
-text::Metrics TextBounds(const Vec& point, const std::string& text);
-math::Rect<Real> TextBoxBounds(Real width, const std::string& text);
-math::Rect<Real> TextBoxBounds(Real x, Real y, Real width,
-                               const std::string& text);
-math::Rect<Real> TextBoxBounds(const Vec& point, Real width,
-                               const std::string& text);
+void TextBox(const Vec& vec, Real width, const std::string& text);
+
+// Bounds
+Real TextBounds(const std::string& text, Rec *bounds = nullptr);
+Real TextBounds(Real x, Real y, const std::string& text, Rec *bounds = nullptr);
+Real TextBounds(const Vec& vec, const std::string& text, Rec *bounds = nullptr);
+
+// Box bounds
+Rec TextBoxBounds(Real width, const std::string& text);
+Rec TextBoxBounds(Real x, Real y, Real width, const std::string& text);
+Rec TextBoxBounds(const Vec& vec, Real width, const std::string& text);
 
 #pragma mark -
 
@@ -111,8 +112,8 @@ inline Real Text(Real x, Real y, const std::string& text) {
   return nvgText(Context::Current(), x, y, text.c_str(), nullptr);
 }
 
-inline Real Text(const Vec& point, const std::string& text) {
-  return Text(point.x, point.y, text);
+inline Real Text(const Vec& vec, const std::string& text) {
+  return Text(vec.x, vec.y, text);
 }
 
 inline void TextBox(Real width, const std::string& text) {
@@ -123,46 +124,43 @@ inline void TextBox(Real x, Real y, Real width, const std::string& text) {
   nvgTextBox(Context::Current(), x, y, width, text.c_str(), nullptr);
 }
 
-inline void TextBox(const Vec& point, Real width, const std::string& text) {
-  TextBox(point.x, point.y, width, text);
+inline void TextBox(const Vec& vec, Real width, const std::string& text) {
+  TextBox(vec.x, vec.y, width, text);
 }
 
-inline text::Metrics TextBounds(const std::string& string) {
-  return TextBounds(Real(), Real(), string);
+inline Real TextBounds(const std::string& text, Rec *bounds) {
+  return TextBounds(Real(), Real(), text, bounds);
 }
 
-inline text::Metrics TextBounds(Real x, Real y, const std::string& text) {
-  text::Metrics metrics;
-  struct { Real xmin; Real ymin; Real xmax; Real ymax; } bounds;
-  metrics.advance = nvgTextBounds(
+inline Real TextBounds(Real x, Real y, const std::string& text, Rec *bounds) {
+  struct { Real xmin; Real ymin; Real xmax; Real ymax; } values;
+  const auto result = nvgTextBounds(
       Context::Current(), x, y,
-      text.c_str(), nullptr, &bounds.xmin);
-  metrics.bounds.set(Vec(bounds.xmin, bounds.ymin),
-                     Vec(bounds.xmax, bounds.ymax));
-  return std::move(metrics);
+      text.c_str(), nullptr, &values.xmin);
+  if (bounds) {
+    bounds->set(Vec(values.xmin, values.ymin), Vec(values.xmax, values.ymax));
+  }
+  return result;
 }
 
-inline text::Metrics TextBounds(const Vec& point, const std::string& string) {
-  return TextBounds(point.x, point.y, string);
+inline Real TextBounds(const Vec& vec, const std::string& text, Rec *bounds) {
+  return TextBounds(vec.x, vec.y, text, bounds);
 }
 
-inline math::Rect<Real> TextBoxBounds(Real width, const std::string& text) {
+inline Rec TextBoxBounds(Real width, const std::string& text) {
   return TextBoxBounds(Real(), Real(), width, text);
 }
 
-inline math::Rect<Real> TextBoxBounds(Real x, Real y, Real width,
-                                      const std::string& text) {
-  struct { Real xmin; Real ymin; Real xmax; Real ymax; } bounds;
+inline Rec TextBoxBounds(Real x, Real y, Real width, const std::string& text) {
+  struct { Real xmin; Real ymin; Real xmax; Real ymax; } values;
   nvgTextBoxBounds(
       Context::Current(), x, y, width,
-      text.c_str(), nullptr, &bounds.xmin);
-  return math::Rect<Real>(Vec(bounds.xmin, bounds.ymin),
-                          Vec(bounds.xmax, bounds.ymax));
+      text.c_str(), nullptr, &values.xmin);
+  return Rec(Vec(values.xmin, values.ymin), Vec(values.xmax, values.ymax));
 }
 
-inline math::Rect<Real> TextBoxBounds(const Vec& point, Real width,
-                                      const std::string& text) {
-  return TextBoxBounds(point.x, point.y, width, text);
+inline Rec TextBoxBounds(const Vec& vec, Real width, const std::string& text) {
+  return TextBoxBounds(vec.x, vec.y, width, text);
 }
 
 }  // namespace nanovg
