@@ -30,13 +30,20 @@ template <typename View>
 class Layer : public Composite {
  public:
   // Constructors
-  using Composite::Composite;
+  explicit Layer(View *parent);
+  explicit Layer(Layer *parent);
 
   // Aggregation
   View& view() const;
 };
 
 #pragma mark -
+
+template <typename View>
+inline Layer<View>::Layer(View *parent) : Composite(parent) {}
+
+template <typename View>
+inline Layer<View>::Layer(Layer *parent) : Composite(parent) {}
 
 #pragma mark Aggregation
 
