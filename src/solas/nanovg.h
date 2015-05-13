@@ -23,6 +23,7 @@
 
 #include "solas/nanovg/context.h"
 #include "solas/nanovg/gl.h"
+#include "solas/nanovg/paint.h"
 #include "solas/nanovg/path.h"
 #include "solas/nanovg/scissor.h"
 #include "solas/nanovg/state.h"

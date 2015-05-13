@@ -535,6 +535,9 @@
 		93D844C61AF61A3C00ED6BDD /* app.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B451AD1438900969DC2 /* app.h */; };
 		93D844C71AF61A3D00ED6BDD /* app.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B451AD1438900969DC2 /* app.h */; };
 		93D844C81AF61A3D00ED6BDD /* app.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B451AD1438900969DC2 /* app.h */; };
+		93E2A2FE1B0339FB0043A2F0 /* paint.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E2A2FD1B0339FB0043A2F0 /* paint.h */; };
+		93E2A2FF1B0339FB0043A2F0 /* paint.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E2A2FD1B0339FB0043A2F0 /* paint.h */; };
+		93E2A3001B0339FB0043A2F0 /* paint.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E2A2FD1B0339FB0043A2F0 /* paint.h */; };
 		93E33C8F1AEBB6F1001F90DE /* libSolas.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 936E241F1ADEA5550004C396 /* libSolas.a */; };
 		93E913951AB27FE600DDF7F9 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F3BCB81AA2215A00FBF369 /* AppKit.framework */; };
 		93E913A11AB2807E00DDF7F9 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E913A01AB2807E00DDF7F9 /* GLKit.framework */; };
@@ -917,6 +920,7 @@
 		93D73DEC1ADE0116003F9A7A /* SLSUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIView.m; sourceTree = "<group>"; };
 		93D73DFB1ADE0758003F9A7A /* SLSUIOpenGLESView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIOpenGLESView.h; sourceTree = "<group>"; };
 		93D73DFC1ADE0758003F9A7A /* SLSUIOpenGLESView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIOpenGLESView.mm; sourceTree = "<group>"; };
+		93E2A2FD1B0339FB0043A2F0 /* paint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = paint.h; sourceTree = "<group>"; };
 		93E33C7F1AEBB6BB001F90DE /* accessor_adaptor_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = accessor_adaptor_test.cc; sourceTree = "<group>"; };
 		93E33C801AEBB6BB001F90DE /* clock_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clock_test.cc; sourceTree = "<group>"; };
 		93E33C811AEBB6BB001F90DE /* hash_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hash_test.cc; sourceTree = "<group>"; };
@@ -1248,6 +1252,7 @@
 				932E43C81B01B03D00B7F5D5 /* scissor.h */,
 				9351934E1AF54BC10073C001 /* style.h */,
 				93FEEE201B01E35700ED5FA6 /* text.h */,
+				93E2A2FD1B0339FB0043A2F0 /* paint.h */,
 				93547E611AF0A59200B4C6BE /* gl.h */,
 				934C77111AED383E0086371E /* gl2.h */,
 				934C77151AED38BB0086371E /* gl2.cc */,
@@ -1805,6 +1810,7 @@
 				934C76C71AECC7D50086371E /* type.h in Headers */,
 				93ED10111B01D69E003F5915 /* composite.h in Headers */,
 				937D92041AF6C0C8000D8302 /* layer_framebuffer.h in Headers */,
+				93E2A3001B0339FB0043A2F0 /* paint.h in Headers */,
 				93EDFC2C1AEC8E1E003CDD03 /* SLSNSView.h in Headers */,
 				93D844001AF61A2900ED6BDD /* type.h in Headers */,
 				93D844961AF61A3900ED6BDD /* backend.h in Headers */,
@@ -1967,6 +1973,7 @@
 				934C76C51AECC7D40086371E /* type.h in Headers */,
 				93ED100F1B01D69E003F5915 /* composite.h in Headers */,
 				937D92031AF6C0C8000D8302 /* layer_framebuffer.h in Headers */,
+				93E2A2FE1B0339FB0043A2F0 /* paint.h in Headers */,
 				93EDFC241AEC8E1D003CDD03 /* SLSNSView.h in Headers */,
 				93D844221AF61A2A00ED6BDD /* type.h in Headers */,
 				93D844BC1AF61A3A00ED6BDD /* backend.h in Headers */,
@@ -2045,6 +2052,7 @@
 				93D843E81AF61A1D00ED6BDD /* clock.h in Headers */,
 				93EDFC3B1AEC8E38003CDD03 /* SLSUIViewController.h in Headers */,
 				93EDFC0C1AEC8E12003CDD03 /* SLSAnimationSource.h in Headers */,
+				93E2A2FF1B0339FB0043A2F0 /* paint.h in Headers */,
 				93D844661AF61A3100ED6BDD /* line2.h in Headers */,
 				934C76D31AECD4600086371E /* lib.h in Headers */,
 				93D843EE1AF61A1D00ED6BDD /* timeline.h in Headers */,
