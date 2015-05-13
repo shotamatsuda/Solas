@@ -28,6 +28,7 @@
 #include "solas/nanovg/state.h"
 #include "solas/nanovg/state_guard.h"
 #include "solas/nanovg/style.h"
+#include "solas/nanovg/text.h"
 #include "solas/nanovg/transform.h"
 
 #endif  // SOLAS_NANOVG_H_
