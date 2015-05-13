@@ -61,6 +61,10 @@ class Color<T, 4> final {
   template <typename... Args>
   Color(const std::tuple<Args...>& tuple);
   Color(std::initializer_list<T> list);
+  template <typename U>
+  Color(const Color3<U>& color, T alpha = 1);
+  template <typename U>
+  Color(const Color4<U>& color, T alpha = 1);
 
   // Implicit conversion
   template <typename U>
@@ -94,6 +98,10 @@ class Color<T, 4> final {
   template <typename... Args>
   void set(const std::tuple<Args...>& tuple);
   void set(std::initializer_list<T> list);
+  template <typename U>
+  void set(const Color3<U>& color, T alpha = 1);
+  template <typename U>
+  void set(const Color4<U>& color, T alpha = 1);
   void set(const NVGcolor& color);
   void reset();
 
@@ -175,6 +183,18 @@ inline Color4<T>::Color(const std::tuple<Args...>& tuple)
 template <typename T>
 inline Color4<T>::Color(std::initializer_list<T> list)
     : vector(list) {}
+
+template <typename T>
+template <typename U>
+inline Color4<T>::Color(const Color3<U>& color, T alpha) : vector() {
+  set(color, alpha);
+}
+
+template <typename T>
+template <typename U>
+inline Color4<T>::Color(const Color4<U>& color, T alpha) : vector() {
+  set(color, alpha);
+}
 
 #pragma mark Implicit conversion
 
@@ -292,6 +312,24 @@ inline void Color4<T>::set(const std::tuple<Args...>& tuple) {
 template <typename T>
 inline void Color4<T>::set(std::initializer_list<T> list) {
   vector.set(list);
+}
+
+template <typename T>
+template <typename U>
+inline void Color4<T>::set(const Color3<U>& color, T alpha) {
+  r = ColorDepth<T>::Convert(color.r);
+  g = ColorDepth<T>::Convert(color.g);
+  b = ColorDepth<T>::Convert(color.b);
+  a = ColorDepth<T>::Convert(alpha);
+}
+
+template <typename T>
+template <typename U>
+inline void Color4<T>::set(const Color4<U>& color, T alpha) {
+  r = ColorDepth<T>::Convert(color.r);
+  g = ColorDepth<T>::Convert(color.g);
+  b = ColorDepth<T>::Convert(color.b);
+  a = ColorDepth<T>::Convert(alpha);
 }
 
 template <typename T>
