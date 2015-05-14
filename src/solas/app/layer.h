@@ -48,7 +48,7 @@ inline Layer<View>::Layer(Layer *parent) : Composite(parent) {}
 #pragma mark Aggregation
 
 template <typename View>
-View& Layer<View>::view() const {
+inline View& Layer<View>::view() const {
   Composite *current = parent();
   assert(current);
   while (current->parent()) {
