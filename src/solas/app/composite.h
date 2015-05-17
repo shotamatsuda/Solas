@@ -28,6 +28,7 @@
 #include "solas/math/vector.h"
 #include "solas/tween/timeline.h"
 #include "solas/tween/timeline_host.h"
+#include "solas/tween/timer.h"
 #include "solas/tween/tween.h"
 
 namespace solas {
@@ -68,13 +69,15 @@ class Composite {
   virtual bool touch_pressed() const;
 
   // Creating tweens
-  template <typename Interval, typename... Args>
+  template <typename Interval = tween::Time, typename... Args>
   tween::Tween<Interval> tween(Args&&... args);
+  template <typename Interval = tween::Time, typename... Args>
+  tween::Timer<Interval> timer(Args&&... args);
 
   // Accessing timeline
-  template <typename Interval>
+  template <typename Interval = tween::Time>
   tween::Timeline<Interval>& timeline();
-  template <typename Interval>
+  template <typename Interval = tween::Time>
   const tween::Timeline<Interval>& timeline() const;
 
   // Aggregation
@@ -184,6 +187,11 @@ inline bool Composite::touch_pressed() const {
 template <typename Interval, typename... Args>
 inline tween::Tween<Interval> Composite::tween(Args&&... args) {
   return timeline_host()->tween<Interval>(std::forward<Args>(args)...);
+}
+
+template <typename Interval, typename... Args>
+inline tween::Timer<Interval> Composite::timer(Args&&... args) {
+  return timeline_host()->timer<Interval>(std::forward<Args>(args)...);
 }
 
 #pragma mark Accessing timeline

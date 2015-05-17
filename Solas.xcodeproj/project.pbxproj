@@ -121,6 +121,12 @@
 		9365A0461AFD79110099D7DC /* pathfinder.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9365A0441AFD79110099D7DC /* pathfinder.cc */; };
 		9365A0471AFD79110099D7DC /* pathfinder.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9365A0441AFD79110099D7DC /* pathfinder.cc */; };
 		9365A0481AFD79110099D7DC /* pathfinder.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9365A0441AFD79110099D7DC /* pathfinder.cc */; };
+		936886D11B09451E004E99EE /* timer_adaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 936886D01B09451E004E99EE /* timer_adaptor.h */; };
+		936886D21B09451E004E99EE /* timer_adaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 936886D01B09451E004E99EE /* timer_adaptor.h */; };
+		936886D31B09451E004E99EE /* timer_adaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 936886D01B09451E004E99EE /* timer_adaptor.h */; };
+		936886D51B094750004E99EE /* timer.h in Headers */ = {isa = PBXBuildFile; fileRef = 936886D41B094750004E99EE /* timer.h */; };
+		936886D61B094750004E99EE /* timer.h in Headers */ = {isa = PBXBuildFile; fileRef = 936886D41B094750004E99EE /* timer.h */; };
+		936886D71B094750004E99EE /* timer.h in Headers */ = {isa = PBXBuildFile; fileRef = 936886D41B094750004E99EE /* timer.h */; };
 		936E24441ADEA5A80004C396 /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
 		936E24461ADEA5A80004C396 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		936E24481ADEA5A80004C396 /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
@@ -798,6 +804,8 @@
 		93547FD61AF51C4A00B4C6BE /* vector2.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vector2.cc; sourceTree = "<group>"; };
 		9365A0401AFD79020099D7DC /* pathfinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pathfinder.h; sourceTree = "<group>"; };
 		9365A0441AFD79110099D7DC /* pathfinder.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pathfinder.cc; sourceTree = "<group>"; };
+		936886D01B09451E004E99EE /* timer_adaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer_adaptor.h; sourceTree = "<group>"; };
+		936886D41B094750004E99EE /* timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
 		936E241F1ADEA5550004C396 /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		937D91FC1AF6C094000D8302 /* gl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gl.h; sourceTree = "<group>"; };
 		937D91FF1AF6C0BC000D8302 /* layer_framebuffer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = layer_framebuffer.cc; sourceTree = "<group>"; };
@@ -1179,10 +1187,12 @@
 				933FD5A71AEB86EB003AEC6C /* adaptor.h */,
 				933FD5AB1AEB86EB003AEC6C /* pointer_adaptor.h */,
 				933FD5A61AEB86EB003AEC6C /* accessor_adaptor.h */,
+				936886D01B09451E004E99EE /* timer_adaptor.h */,
 				933FD5AD1AEB86EB003AEC6C /* timeline.h */,
 				933FD5AC1AEB86EB003AEC6C /* timeline.cc */,
 				933FD5AE1AEB86EB003AEC6C /* timeline_host.h */,
 				933FD5B21AEB86EB003AEC6C /* tween.h */,
+				936886D41B094750004E99EE /* timer.h */,
 			);
 			path = tween;
 			sourceTree = "<group>";
@@ -1747,11 +1757,13 @@
 				93547E621AF0A59B00B4C6BE /* nanovg_gl.h in Headers */,
 				93D844501AF61A3100ED6BDD /* triangle3.h in Headers */,
 				93D843C11AF61A0F00ED6BDD /* benchmark.h in Headers */,
+				936886D31B09451E004E99EE /* timer_adaptor.h in Headers */,
 				93D8439E1AF619E200ED6BDD /* fill.h in Headers */,
 				93D8444E1AF61A3100ED6BDD /* triangle.h in Headers */,
 				93D8439F1AF619E200ED6BDD /* stroke.h in Headers */,
 				93D8440D1AF61A2900ED6BDD /* quadratic.h in Headers */,
 				93D844331AF61A2D00ED6BDD /* improved.h in Headers */,
+				936886D71B094750004E99EE /* timer.h in Headers */,
 				93EDFC991AEC9C3F003CDD03 /* result.h in Headers */,
 				93EDFC2A1AEC8E1E003CDD03 /* SLSNSViewController.h in Headers */,
 				93D8449E1AF61A3900ED6BDD /* layer.h in Headers */,
@@ -1910,11 +1922,13 @@
 				93547E641AF0A59C00B4C6BE /* nanovg_gl.h in Headers */,
 				93D844841AF61A3100ED6BDD /* triangle3.h in Headers */,
 				93D843CB1AF61A1000ED6BDD /* benchmark.h in Headers */,
+				936886D11B09451E004E99EE /* timer_adaptor.h in Headers */,
 				93D843B21AF619E300ED6BDD /* fill.h in Headers */,
 				93D844821AF61A3100ED6BDD /* triangle.h in Headers */,
 				93D843B31AF619E300ED6BDD /* stroke.h in Headers */,
 				93D8442F1AF61A2A00ED6BDD /* quadratic.h in Headers */,
 				93D844391AF61A2D00ED6BDD /* improved.h in Headers */,
+				936886D51B094750004E99EE /* timer.h in Headers */,
 				93EDFC971AEC9C3F003CDD03 /* result.h in Headers */,
 				93EDFC211AEC8E1D003CDD03 /* SLSNSWindowController.h in Headers */,
 				93D844C41AF61A3A00ED6BDD /* layer.h in Headers */,
@@ -2005,6 +2019,7 @@
 				93D843EC1AF61A1D00ED6BDD /* pointer_adaptor.h in Headers */,
 				934C76E71AECD8EB0086371E /* voronoi_triangulator.h in Headers */,
 				93D844621AF61A3100ED6BDD /* size.h in Headers */,
+				936886D61B094750004E99EE /* timer.h in Headers */,
 				93D844591AF61A3100ED6BDD /* random.h in Headers */,
 				93D844171AF61A2900ED6BDD /* back.h in Headers */,
 				93D844681AF61A3100ED6BDD /* triangle.h in Headers */,
@@ -2093,6 +2108,7 @@
 				93EDFC3E1AEC8E38003CDD03 /* SLSUIOpenGLESView.h in Headers */,
 				93D844651AF61A3100ED6BDD /* line.h in Headers */,
 				93D844A41AF61A3A00ED6BDD /* key_modifier.h in Headers */,
+				936886D21B09451E004E99EE /* timer_adaptor.h in Headers */,
 				93FD7EDB1AEE5D1C0082F6C8 /* context.h in Headers */,
 				93D844111AF61A2900ED6BDD /* type.h in Headers */,
 				935193471AF5496D0073C001 /* type.h in Headers */,

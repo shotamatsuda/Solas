@@ -155,6 +155,9 @@ class Tween final {
   Timeline * timeline() const;
   void set_timeline(Timeline *value);
 
+  // Adaptor
+  Adaptor adaptor() const { return adaptor_; }
+
   // Conversion
   operator bool() const { return adaptor_ && timeline_; }
 
