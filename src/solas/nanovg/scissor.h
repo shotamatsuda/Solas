@@ -21,23 +21,27 @@
 
 #include "nanovg.h"
 
-#include "solas/math/rect.h"
 #include "solas/nanovg/context.h"
 #include "solas/nanovg/type.h"
 
 namespace solas {
 namespace nanovg {
 
+// Scissoring
 void Scissor(Real width, Real height);
-void Scissor(const Size2& size);
+void Scissor(const Size& size);
 void Scissor(Real x, Real y, Real width, Real height);
-void Scissor(const Vec2& point, const Size2& size);
-void Scissor(const math::Rect<Real>& rect);
+void Scissor(const Vec& vec, const Size& size);
+void Scissor(const Rec& rect);
+
+// Intersecting
 void IntersectScissor(Real width, Real height);
-void IntersectScissor(const Size2& size);
+void IntersectScissor(const Size& size);
 void IntersectScissor(Real x, Real y, Real width, Real height);
-void IntersectScissor(const Vec2& point, const Size2& size);
-void IntersectScissor(const math::Rect<Real>& rect);
+void IntersectScissor(const Vec& vec, const Size& size);
+void IntersectScissor(const Rec& rect);
+
+// Resetting
 void ResetScissor();
 
 #pragma mark -
@@ -46,7 +50,7 @@ inline void Scissor(Real width, Real height) {
   nvgScissor(Context::Current(), Real(), Real(), width, height);
 }
 
-inline void Scissor(const Size2& size) {
+inline void Scissor(const Size& size) {
   nvgScissor(Context::Current(), Real(), Real(), size.w, size.h);
 }
 
@@ -54,11 +58,11 @@ inline void Scissor(Real x, Real y, Real width, Real height) {
   nvgScissor(Context::Current(), x, y, width, height);
 }
 
-inline void Scissor(const Vec2& point, const Size2& size) {
-  nvgScissor(Context::Current(), point.x, point.y, size.w, size.h);
+inline void Scissor(const Vec& vec, const Size& size) {
+  nvgScissor(Context::Current(), vec.x, vec.y, size.w, size.h);
 }
 
-inline void Scissor(const math::Rect<Real>& rect) {
+inline void Scissor(const Rec& rect) {
   nvgScissor(Context::Current(), rect.x, rect.y, rect.w, rect.h);
 }
 
@@ -66,7 +70,7 @@ inline void IntersectScissor(Real width, Real height) {
   nvgIntersectScissor(Context::Current(), Real(), Real(), width, height);
 }
 
-inline void IntersectScissor(const Size2& size) {
+inline void IntersectScissor(const Size& size) {
   nvgIntersectScissor(Context::Current(), Real(), Real(), size.w, size.h);
 }
 
@@ -74,11 +78,11 @@ inline void IntersectScissor(Real x, Real y, Real width, Real height) {
   nvgIntersectScissor(Context::Current(), x, y, width, height);
 }
 
-inline void IntersectScissor(const Vec2& point, const Size2& size) {
-  nvgIntersectScissor(Context::Current(), point.x, point.y, size.w, size.h);
+inline void IntersectScissor(const Vec& vec, const Size& size) {
+  nvgIntersectScissor(Context::Current(), vec.x, vec.y, size.w, size.h);
 }
 
-inline void IntersectScissor(const math::Rect<Real>& rect) {
+inline void IntersectScissor(const Rec& rect) {
   nvgIntersectScissor(Context::Current(), rect.x, rect.y, rect.w, rect.h);
 }
 

@@ -43,7 +43,11 @@ class StateGuard final {
 
 #pragma mark -
 
-inline StateGuard::StateGuard() : context_(Context::Current()) {}
+inline StateGuard::StateGuard() : context_(Context::Current()) {
+  if (context_) {
+    nvgSave(context_);
+  }
+}
 
 inline StateGuard::StateGuard(NVGcontext *context) : context_(context) {
   if (context_) {

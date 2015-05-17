@@ -26,10 +26,10 @@
 
 #include <boost/signals2.hpp>
 
+#include "solas/app/composite.h"
 #include "solas/app/event_holder.h"
 #include "solas/app/gesture_event.h"
 #include "solas/app/key_event.h"
-#include "solas/app/layer.h"
 #include "solas/app/motion_event.h"
 #include "solas/app/mouse_button.h"
 #include "solas/app/mouse_event.h"
@@ -41,7 +41,7 @@
 namespace solas {
 namespace app {
 
-class View : public app::Runnable, public Layer {
+class View : public app::Runnable, public Composite {
  public:
   using EventConnection = boost::signals2::connection;
   using EventConnectionList = std::list<boost::signals2::scoped_connection>;
@@ -96,8 +96,7 @@ class View : public app::Runnable, public Layer {
   bool touch_pressed() const override;
 
   // Aggregation
-  Layer& parent() = delete;
-  const Layer& parent() const = delete;
+  Composite * parent() const override;
 
   // Event connection
   template <typename Event, typename Slot, typename Type = typename Event::Type>
@@ -319,6 +318,10 @@ inline bool View::touch_pressed() const {
 
 #pragma mark Aggregation
 
+inline Composite * View::parent() const {
+  return nullptr;
+}
+
 inline tween::TimelineHost * View::timeline_host() {
   return &timeline_host_;
 }
@@ -506,7 +509,7 @@ inline void View::motionEnd(const MotionEvent& event) {
 #pragma mark -
 
 template <>
-struct View::EventConnector<AppEvent> final {
+struct View::EventConnector<AppEvent> {
   using Type = AppEvent::Type;
 
   template <typename Slot>
@@ -521,7 +524,7 @@ struct View::EventConnector<AppEvent> final {
 };
 
 template <>
-struct View::EventConnector<MouseEvent> final {
+struct View::EventConnector<MouseEvent> {
   using Type = MouseEvent::Type;
 
   template <typename Slot>
@@ -536,7 +539,7 @@ struct View::EventConnector<MouseEvent> final {
 };
 
 template <>
-struct View::EventConnector<KeyEvent> final {
+struct View::EventConnector<KeyEvent> {
   using Type = KeyEvent::Type;
 
   template <typename Slot>
@@ -551,7 +554,7 @@ struct View::EventConnector<KeyEvent> final {
 };
 
 template <>
-struct View::EventConnector<TouchEvent> final {
+struct View::EventConnector<TouchEvent> {
   using Type = TouchEvent::Type;
 
   template <typename Slot>
@@ -566,7 +569,7 @@ struct View::EventConnector<TouchEvent> final {
 };
 
 template <>
-struct View::EventConnector<GestureEvent> final {
+struct View::EventConnector<GestureEvent> {
   using Type = GestureEvent::Type;
 
   template <typename Slot>
@@ -581,7 +584,7 @@ struct View::EventConnector<GestureEvent> final {
 };
 
 template <>
-struct View::EventConnector<MotionEvent> final {
+struct View::EventConnector<MotionEvent> {
   using Type = MotionEvent::Type;
 
   template <typename Slot>

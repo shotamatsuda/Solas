@@ -21,6 +21,8 @@
 
 #include "SkPoint.h"
 
+#include "solas/tween/transform.h"
+
 namespace solas {
 namespace math {
 
@@ -50,4 +52,32 @@ template class Vector<double, 2>;
 template class Vector<long double, 2>;
 
 }  // namespace math
+
+#pragma mark Tween support
+
+namespace tween {
+
+template <typename T>
+T Transform(const Easing& easing, Unit unit, const T& from, const T& to) {
+  return from + (to - from) * easing(unit);
+}
+
+#define SOLAS_MATH_VECTOR2_TWEEN_TRANSFORM_SPECIALIZE(T) \
+    template math::Vector2<T> Transform( \
+        const Easing& easing, Unit unit, \
+        const math::Vector2<T>& from, \
+        const math::Vector2<T>& to);
+
+SOLAS_MATH_VECTOR2_TWEEN_TRANSFORM_SPECIALIZE(std::int8_t)
+SOLAS_MATH_VECTOR2_TWEEN_TRANSFORM_SPECIALIZE(std::uint8_t)
+SOLAS_MATH_VECTOR2_TWEEN_TRANSFORM_SPECIALIZE(std::int16_t)
+SOLAS_MATH_VECTOR2_TWEEN_TRANSFORM_SPECIALIZE(std::uint16_t)
+SOLAS_MATH_VECTOR2_TWEEN_TRANSFORM_SPECIALIZE(std::int32_t)
+SOLAS_MATH_VECTOR2_TWEEN_TRANSFORM_SPECIALIZE(std::uint32_t)
+SOLAS_MATH_VECTOR2_TWEEN_TRANSFORM_SPECIALIZE(float)
+SOLAS_MATH_VECTOR2_TWEEN_TRANSFORM_SPECIALIZE(double)
+SOLAS_MATH_VECTOR2_TWEEN_TRANSFORM_SPECIALIZE(long double)
+
+}  // namespace tween
+
 }  // namespace solas

@@ -23,6 +23,7 @@
 
 #include "solas/tween/interval.h"
 #include "solas/tween/timeline.h"
+#include "solas/tween/timer.h"
 #include "solas/tween/tween.h"
 
 namespace solas {
@@ -36,6 +37,8 @@ class TimelineHost {
   // Creating tweens
   template <typename Interval, typename... Args>
   Tween<Interval> tween(Args&&... args);
+  template <typename Interval, typename... Args>
+  Timer<Interval> timer(Args&&... args);
 
   // Accessing timeline
   template <typename Interval>
@@ -59,6 +62,15 @@ inline tween::Tween<Interval> TimelineHost::tween(Args&&... args) {
       &timeline<Interval>());
   tween.start();
   return std::move(tween);
+}
+
+template <typename Interval, typename... Args>
+inline tween::Timer<Interval> TimelineHost::timer(Args&&... args) {
+  auto timer = tween::Timer<Interval>(
+      std::forward<Args>(args)...,
+      &timeline<Interval>());
+  timer.start();
+  return std::move(timer);
 }
 
 #pragma mark Accessing timeline

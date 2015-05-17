@@ -95,6 +95,10 @@ class Line<T, 2> final {
   Promote<T> length() const;
   Promote<T> lengthSquared() const;
 
+  // Projection
+  template <typename U>
+  Vector2<T> project(const Vector2<U>& point) const;
+
   // Iterator
   Iterator begin() { return &a; }
   ConstIterator begin() const { return &a; }
@@ -228,6 +232,26 @@ inline Promote<T> Line2<T>::length() const {
 template <typename T>
 inline Promote<T> Line2<T>::lengthSquared() const {
   return a.distanceSquared(b);
+}
+
+#pragma mark Projection
+
+template <typename T>
+template <typename U>
+inline Vector2<T> Line2<T>::project(const Vector2<U>& point) const {
+  const auto ap = point - a;
+  const auto ab = b - a;
+  const auto magnitude = ab.magnitudeSquared();
+  if (!magnitude) {
+    return a;
+  }
+  const auto scale = ap.dot(ab) / magnitude;
+  if (scale <= 0.0) {
+    return a;
+  } else if (scale >= 1.0) {
+    return b;
+  }
+  return a + ab * scale;
 }
 
 #pragma mark Stream

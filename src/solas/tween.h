@@ -28,6 +28,7 @@
 #include "solas/tween/pointer_adaptor.h"
 #include "solas/tween/timeline.h"
 #include "solas/tween/timeline_host.h"
+#include "solas/tween/timer_adaptor.h"
 #include "solas/tween/transform.h"
 #include "solas/tween/type.h"
 #include "solas/tween/tween.h"

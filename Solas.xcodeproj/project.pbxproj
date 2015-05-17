@@ -121,10 +121,15 @@
 		9365A0461AFD79110099D7DC /* pathfinder.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9365A0441AFD79110099D7DC /* pathfinder.cc */; };
 		9365A0471AFD79110099D7DC /* pathfinder.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9365A0441AFD79110099D7DC /* pathfinder.cc */; };
 		9365A0481AFD79110099D7DC /* pathfinder.cc in Sources */ = {isa = PBXBuildFile; fileRef = 9365A0441AFD79110099D7DC /* pathfinder.cc */; };
+		936886D11B09451E004E99EE /* timer_adaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 936886D01B09451E004E99EE /* timer_adaptor.h */; };
+		936886D21B09451E004E99EE /* timer_adaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 936886D01B09451E004E99EE /* timer_adaptor.h */; };
+		936886D31B09451E004E99EE /* timer_adaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = 936886D01B09451E004E99EE /* timer_adaptor.h */; };
+		936886D51B094750004E99EE /* timer.h in Headers */ = {isa = PBXBuildFile; fileRef = 936886D41B094750004E99EE /* timer.h */; };
+		936886D61B094750004E99EE /* timer.h in Headers */ = {isa = PBXBuildFile; fileRef = 936886D41B094750004E99EE /* timer.h */; };
+		936886D71B094750004E99EE /* timer.h in Headers */ = {isa = PBXBuildFile; fileRef = 936886D41B094750004E99EE /* timer.h */; };
 		936E24441ADEA5A80004C396 /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
 		936E24461ADEA5A80004C396 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		936E24481ADEA5A80004C396 /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
-		936E244A1ADEA5A80004C396 /* layer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE01ADD395500B42B9E /* layer.cc */; };
 		936E245F1ADEA5A80004C396 /* font.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803251AD88DC200F41F92 /* font.cc */; };
 		936E24811ADEA5A80004C396 /* simplex.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F641ADA2C5000175565 /* simplex.cc */; };
 		936E24831ADEA5A80004C396 /* dispatch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F38E871AB60972009E3626 /* dispatch.mm */; };
@@ -191,8 +196,6 @@
 		93AD7CD81ADCABA000B42B9E /* SLSUIEventSourceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CD61ADCABA000B42B9E /* SLSUIEventSourceView.mm */; };
 		93AD7CDD1ADD37E600B42B9E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AD7CDC1ADD37E500B42B9E /* OpenGL.framework */; };
 		93AD7CDF1ADD37F200B42B9E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AD7CDE1ADD37F200B42B9E /* OpenGLES.framework */; };
-		93AD7CE51ADD395500B42B9E /* layer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE01ADD395500B42B9E /* layer.cc */; };
-		93AD7CE61ADD395500B42B9E /* layer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE01ADD395500B42B9E /* layer.cc */; };
 		93AD7CEB1ADD395500B42B9E /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
 		93AD7CEC1ADD395500B42B9E /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
 		93BE2F3C1ADA1A7500175565 /* path.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F3A1ADA1A7500175565 /* path.cc */; };
@@ -538,6 +541,9 @@
 		93D844C61AF61A3C00ED6BDD /* app.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B451AD1438900969DC2 /* app.h */; };
 		93D844C71AF61A3D00ED6BDD /* app.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B451AD1438900969DC2 /* app.h */; };
 		93D844C81AF61A3D00ED6BDD /* app.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B451AD1438900969DC2 /* app.h */; };
+		93E2A2FE1B0339FB0043A2F0 /* paint.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E2A2FD1B0339FB0043A2F0 /* paint.h */; };
+		93E2A2FF1B0339FB0043A2F0 /* paint.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E2A2FD1B0339FB0043A2F0 /* paint.h */; };
+		93E2A3001B0339FB0043A2F0 /* paint.h in Headers */ = {isa = PBXBuildFile; fileRef = 93E2A2FD1B0339FB0043A2F0 /* paint.h */; };
 		93E33C8F1AEBB6F1001F90DE /* libSolas.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 936E241F1ADEA5550004C396 /* libSolas.a */; };
 		93E913951AB27FE600DDF7F9 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F3BCB81AA2215A00FBF369 /* AppKit.framework */; };
 		93E913A11AB2807E00DDF7F9 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E913A01AB2807E00DDF7F9 /* GLKit.framework */; };
@@ -546,6 +552,9 @@
 		93EC6F811ADEAB0F00AF6F5F /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E913A01AB2807E00DDF7F9 /* GLKit.framework */; };
 		93EC6F821ADEAB0F00AF6F5F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93AD7CDC1ADD37E500B42B9E /* OpenGL.framework */; };
 		93EC6F831ADEAB0F00AF6F5F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93CAA62C1AD19CDE005EDC09 /* QuartzCore.framework */; };
+		93ED100F1B01D69E003F5915 /* composite.h in Headers */ = {isa = PBXBuildFile; fileRef = 93ED100E1B01D69E003F5915 /* composite.h */; };
+		93ED10101B01D69E003F5915 /* composite.h in Headers */ = {isa = PBXBuildFile; fileRef = 93ED100E1B01D69E003F5915 /* composite.h */; };
+		93ED10111B01D69E003F5915 /* composite.h in Headers */ = {isa = PBXBuildFile; fileRef = 93ED100E1B01D69E003F5915 /* composite.h */; };
 		93EDFB7D1AEC4706003CDD03 /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
 		93EDFB7E1AEC4706003CDD03 /* SLSQuartzLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 937E13941ADBDEB9008DB7A7 /* SLSQuartzLayer.mm */; };
 		93EDFB7F1AEC4706003CDD03 /* SLSNSBundle+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */; };
@@ -559,7 +568,6 @@
 		93EDFB881AEC4716003CDD03 /* SLSUIApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229E8F1AD23DF3008D27EA /* SLSUIApplicationDelegate.mm */; };
 		93EDFB891AEC4726003CDD03 /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
 		93EDFB8A1AEC4726003CDD03 /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
-		93EDFB8B1AEC4726003CDD03 /* layer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE01ADD395500B42B9E /* layer.cc */; };
 		93EDFB8D1AEC4726003CDD03 /* path.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F3A1ADA1A7500175565 /* path.cc */; };
 		93EDFB901AEC4726003CDD03 /* font.cc in Sources */ = {isa = PBXBuildFile; fileRef = 933803251AD88DC200F41F92 /* font.cc */; };
 		93EDFB911AEC4726003CDD03 /* improved.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93BE2F6A1ADA2C8E00175565 /* improved.cc */; };
@@ -674,6 +682,9 @@
 		93FD7EDA1AEE5D1C0082F6C8 /* context.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ED91AEE5D1C0082F6C8 /* context.h */; };
 		93FD7EDB1AEE5D1C0082F6C8 /* context.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ED91AEE5D1C0082F6C8 /* context.h */; };
 		93FD7EDC1AEE5D1C0082F6C8 /* context.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FD7ED91AEE5D1C0082F6C8 /* context.h */; };
+		93FEEE211B01E35700ED5FA6 /* text.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEEE201B01E35700ED5FA6 /* text.h */; };
+		93FEEE221B01E35700ED5FA6 /* text.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEEE201B01E35700ED5FA6 /* text.h */; };
+		93FEEE231B01E35700ED5FA6 /* text.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEEE201B01E35700ED5FA6 /* text.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -793,6 +804,8 @@
 		93547FD61AF51C4A00B4C6BE /* vector2.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vector2.cc; sourceTree = "<group>"; };
 		9365A0401AFD79020099D7DC /* pathfinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pathfinder.h; sourceTree = "<group>"; };
 		9365A0441AFD79110099D7DC /* pathfinder.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pathfinder.cc; sourceTree = "<group>"; };
+		936886D01B09451E004E99EE /* timer_adaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer_adaptor.h; sourceTree = "<group>"; };
+		936886D41B094750004E99EE /* timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
 		936E241F1ADEA5550004C396 /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		937D91FC1AF6C094000D8302 /* gl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gl.h; sourceTree = "<group>"; };
 		937D91FF1AF6C0BC000D8302 /* layer_framebuffer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = layer_framebuffer.cc; sourceTree = "<group>"; };
@@ -855,7 +868,6 @@
 		93AD7CD61ADCABA000B42B9E /* SLSUIEventSourceView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIEventSourceView.mm; sourceTree = "<group>"; };
 		93AD7CDC1ADD37E500B42B9E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		93AD7CDE1ADD37F200B42B9E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
-		93AD7CE01ADD395500B42B9E /* layer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = layer.cc; sourceTree = "<group>"; };
 		93AD7CE11ADD395500B42B9E /* layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = layer.h; sourceTree = "<group>"; };
 		93AD7CE21ADD395500B42B9E /* event_holder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event_holder.h; sourceTree = "<group>"; };
 		93AD7CE31ADD395500B42B9E /* view.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = view.cc; sourceTree = "<group>"; };
@@ -916,6 +928,7 @@
 		93D73DEC1ADE0116003F9A7A /* SLSUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIView.m; sourceTree = "<group>"; };
 		93D73DFB1ADE0758003F9A7A /* SLSUIOpenGLESView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIOpenGLESView.h; sourceTree = "<group>"; };
 		93D73DFC1ADE0758003F9A7A /* SLSUIOpenGLESView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIOpenGLESView.mm; sourceTree = "<group>"; };
+		93E2A2FD1B0339FB0043A2F0 /* paint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = paint.h; sourceTree = "<group>"; };
 		93E33C7F1AEBB6BB001F90DE /* accessor_adaptor_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = accessor_adaptor_test.cc; sourceTree = "<group>"; };
 		93E33C801AEBB6BB001F90DE /* clock_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = clock_test.cc; sourceTree = "<group>"; };
 		93E33C811AEBB6BB001F90DE /* hash_test.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hash_test.cc; sourceTree = "<group>"; };
@@ -941,6 +954,7 @@
 		93E913B91AB2811500DDF7F9 /* vector3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector3.h; sourceTree = "<group>"; };
 		93E913BA1AB2811500DDF7F9 /* vector4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vector4.h; sourceTree = "<group>"; };
 		93E913BB1AB2811500DDF7F9 /* math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math.h; sourceTree = "<group>"; };
+		93ED100E1B01D69E003F5915 /* composite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = composite.h; sourceTree = "<group>"; };
 		93EDFB661AEC46C5003CDD03 /* libSolasTouch.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolasTouch.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		93EDFBA21AEC8C29003CDD03 /* triangle.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = triangle.c; sourceTree = "<group>"; };
 		93EDFBA31AEC8C29003CDD03 /* triangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = triangle.h; sourceTree = "<group>"; };
@@ -978,6 +992,7 @@
 		93F3BCB81AA2215A00FBF369 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		93FD7ECE1AEE5CA70082F6C8 /* state_guard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = state_guard.h; sourceTree = "<group>"; };
 		93FD7ED91AEE5D1C0082F6C8 /* context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = context.h; sourceTree = "<group>"; };
+		93FEEE201B01E35700ED5FA6 /* text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = text.h; sourceTree = "<group>"; };
 		93FEF9351AD92C90009D0646 /* matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix.h; sourceTree = "<group>"; };
 		93FEF9361AD92CA8009D0646 /* matrix2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix2.h; sourceTree = "<group>"; };
 		93FEF9371AD92CAE009D0646 /* matrix3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = matrix3.h; sourceTree = "<group>"; };
@@ -1172,10 +1187,12 @@
 				933FD5A71AEB86EB003AEC6C /* adaptor.h */,
 				933FD5AB1AEB86EB003AEC6C /* pointer_adaptor.h */,
 				933FD5A61AEB86EB003AEC6C /* accessor_adaptor.h */,
+				936886D01B09451E004E99EE /* timer_adaptor.h */,
 				933FD5AD1AEB86EB003AEC6C /* timeline.h */,
 				933FD5AC1AEB86EB003AEC6C /* timeline.cc */,
 				933FD5AE1AEB86EB003AEC6C /* timeline_host.h */,
 				933FD5B21AEB86EB003AEC6C /* tween.h */,
+				936886D41B094750004E99EE /* timer.h */,
 			);
 			path = tween;
 			sourceTree = "<group>";
@@ -1244,6 +1261,8 @@
 				935193491AF54B1A0073C001 /* path.cc */,
 				932E43C81B01B03D00B7F5D5 /* scissor.h */,
 				9351934E1AF54BC10073C001 /* style.h */,
+				93FEEE201B01E35700ED5FA6 /* text.h */,
+				93E2A2FD1B0339FB0043A2F0 /* paint.h */,
 				93547E611AF0A59200B4C6BE /* gl.h */,
 				934C77111AED383E0086371E /* gl2.h */,
 				934C77151AED38BB0086371E /* gl2.cc */,
@@ -1363,10 +1382,10 @@
 				939E963A1AD250AF00A7E21E /* runner_factory.cc */,
 				93CAA6521AD1ADBB005EDC09 /* run.h */,
 				93CAA6531AD1AE32005EDC09 /* run.mm */,
+				93ED100E1B01D69E003F5915 /* composite.h */,
+				93AD7CE11ADD395500B42B9E /* layer.h */,
 				93AD7CE41ADD395500B42B9E /* view.h */,
 				93AD7CE31ADD395500B42B9E /* view.cc */,
-				93AD7CE11ADD395500B42B9E /* layer.h */,
-				93AD7CE01ADD395500B42B9E /* layer.cc */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -1738,11 +1757,13 @@
 				93547E621AF0A59B00B4C6BE /* nanovg_gl.h in Headers */,
 				93D844501AF61A3100ED6BDD /* triangle3.h in Headers */,
 				93D843C11AF61A0F00ED6BDD /* benchmark.h in Headers */,
+				936886D31B09451E004E99EE /* timer_adaptor.h in Headers */,
 				93D8439E1AF619E200ED6BDD /* fill.h in Headers */,
 				93D8444E1AF61A3100ED6BDD /* triangle.h in Headers */,
 				93D8439F1AF619E200ED6BDD /* stroke.h in Headers */,
 				93D8440D1AF61A2900ED6BDD /* quadratic.h in Headers */,
 				93D844331AF61A2D00ED6BDD /* improved.h in Headers */,
+				936886D71B094750004E99EE /* timer.h in Headers */,
 				93EDFC991AEC9C3F003CDD03 /* result.h in Headers */,
 				93EDFC2A1AEC8E1E003CDD03 /* SLSNSViewController.h in Headers */,
 				93D8449E1AF61A3900ED6BDD /* layer.h in Headers */,
@@ -1780,6 +1801,7 @@
 				93D8448F1AF61A3900ED6BDD /* mouse_button.h in Headers */,
 				93EDFC191AEC8E13003CDD03 /* SLSQuartzLayer.h in Headers */,
 				93D844491AF61A3100ED6BDD /* size2.h in Headers */,
+				93FEEE231B01E35700ED5FA6 /* text.h in Headers */,
 				93EDFC2E1AEC8E1E003CDD03 /* SLSNSOpenGLLayer.h in Headers */,
 				93D843BD1AF61A0B00ED6BDD /* gl.h in Headers */,
 				93EDFC1C1AEC8E13003CDD03 /* SLSEventDelegate.h in Headers */,
@@ -1798,7 +1820,9 @@
 				93EDFC2D1AEC8E1E003CDD03 /* SLSNSOpenGLView.h in Headers */,
 				932E43CB1B01B03D00B7F5D5 /* scissor.h in Headers */,
 				934C76C71AECC7D50086371E /* type.h in Headers */,
+				93ED10111B01D69E003F5915 /* composite.h in Headers */,
 				937D92041AF6C0C8000D8302 /* layer_framebuffer.h in Headers */,
+				93E2A3001B0339FB0043A2F0 /* paint.h in Headers */,
 				93EDFC2C1AEC8E1E003CDD03 /* SLSNSView.h in Headers */,
 				93D844001AF61A2900ED6BDD /* type.h in Headers */,
 				93D844961AF61A3900ED6BDD /* backend.h in Headers */,
@@ -1898,11 +1922,13 @@
 				93547E641AF0A59C00B4C6BE /* nanovg_gl.h in Headers */,
 				93D844841AF61A3100ED6BDD /* triangle3.h in Headers */,
 				93D843CB1AF61A1000ED6BDD /* benchmark.h in Headers */,
+				936886D11B09451E004E99EE /* timer_adaptor.h in Headers */,
 				93D843B21AF619E300ED6BDD /* fill.h in Headers */,
 				93D844821AF61A3100ED6BDD /* triangle.h in Headers */,
 				93D843B31AF619E300ED6BDD /* stroke.h in Headers */,
 				93D8442F1AF61A2A00ED6BDD /* quadratic.h in Headers */,
 				93D844391AF61A2D00ED6BDD /* improved.h in Headers */,
+				936886D51B094750004E99EE /* timer.h in Headers */,
 				93EDFC971AEC9C3F003CDD03 /* result.h in Headers */,
 				93EDFC211AEC8E1D003CDD03 /* SLSNSWindowController.h in Headers */,
 				93D844C41AF61A3A00ED6BDD /* layer.h in Headers */,
@@ -1940,6 +1966,7 @@
 				93D844B51AF61A3A00ED6BDD /* mouse_button.h in Headers */,
 				93EDFC261AEC8E1D003CDD03 /* SLSNSOpenGLLayer.h in Headers */,
 				93D8447D1AF61A3100ED6BDD /* size2.h in Headers */,
+				93FEEE211B01E35700ED5FA6 /* text.h in Headers */,
 				93EDFC041AEC8E12003CDD03 /* SLSEventDelegate.h in Headers */,
 				93D843B91AF61A0A00ED6BDD /* gl.h in Headers */,
 				93EDFC051AEC8E12003CDD03 /* SLSDisplayDelegate.h in Headers */,
@@ -1958,7 +1985,9 @@
 				93EDFC251AEC8E1D003CDD03 /* SLSNSOpenGLView.h in Headers */,
 				932E43C91B01B03D00B7F5D5 /* scissor.h in Headers */,
 				934C76C51AECC7D40086371E /* type.h in Headers */,
+				93ED100F1B01D69E003F5915 /* composite.h in Headers */,
 				937D92031AF6C0C8000D8302 /* layer_framebuffer.h in Headers */,
+				93E2A2FE1B0339FB0043A2F0 /* paint.h in Headers */,
 				93EDFC241AEC8E1D003CDD03 /* SLSNSView.h in Headers */,
 				93D844221AF61A2A00ED6BDD /* type.h in Headers */,
 				93D844BC1AF61A3A00ED6BDD /* backend.h in Headers */,
@@ -1990,6 +2019,7 @@
 				93D843EC1AF61A1D00ED6BDD /* pointer_adaptor.h in Headers */,
 				934C76E71AECD8EB0086371E /* voronoi_triangulator.h in Headers */,
 				93D844621AF61A3100ED6BDD /* size.h in Headers */,
+				936886D61B094750004E99EE /* timer.h in Headers */,
 				93D844591AF61A3100ED6BDD /* random.h in Headers */,
 				93D844171AF61A2900ED6BDD /* back.h in Headers */,
 				93D844681AF61A3100ED6BDD /* triangle.h in Headers */,
@@ -2037,6 +2067,7 @@
 				93D843E81AF61A1D00ED6BDD /* clock.h in Headers */,
 				93EDFC3B1AEC8E38003CDD03 /* SLSUIViewController.h in Headers */,
 				93EDFC0C1AEC8E12003CDD03 /* SLSAnimationSource.h in Headers */,
+				93E2A2FF1B0339FB0043A2F0 /* paint.h in Headers */,
 				93D844661AF61A3100ED6BDD /* line2.h in Headers */,
 				934C76D31AECD4600086371E /* lib.h in Headers */,
 				93D843EE1AF61A1D00ED6BDD /* timeline.h in Headers */,
@@ -2058,8 +2089,10 @@
 				93D844181AF61A2900ED6BDD /* bounce.h in Headers */,
 				93D844601AF61A3100ED6BDD /* matrix2.h in Headers */,
 				93D844AA1AF61A3A00ED6BDD /* context_holder.h in Headers */,
+				93ED10101B01D69E003F5915 /* composite.h in Headers */,
 				93D844A11AF61A3A00ED6BDD /* app_event.h in Headers */,
 				9365A0421AFD79020099D7DC /* pathfinder.h in Headers */,
+				93FEEE221B01E35700ED5FA6 /* text.h in Headers */,
 				934C76D61AECD4600086371E /* delaunay_triangulator.h in Headers */,
 				93D844641AF61A3100ED6BDD /* size3.h in Headers */,
 				93EDFC141AEC8E12003CDD03 /* SLSNSBundle+Bundle.h in Headers */,
@@ -2075,6 +2108,7 @@
 				93EDFC3E1AEC8E38003CDD03 /* SLSUIOpenGLESView.h in Headers */,
 				93D844651AF61A3100ED6BDD /* line.h in Headers */,
 				93D844A41AF61A3A00ED6BDD /* key_modifier.h in Headers */,
+				936886D21B09451E004E99EE /* timer_adaptor.h in Headers */,
 				93FD7EDB1AEE5D1C0082F6C8 /* context.h in Headers */,
 				93D844111AF61A2900ED6BDD /* type.h in Headers */,
 				935193471AF5496D0073C001 /* type.h in Headers */,
@@ -2350,7 +2384,6 @@
 				937D92011AF6C0BC000D8302 /* layer_framebuffer.cc in Sources */,
 				93EDFBA81AEC8C29003CDD03 /* triangle.c in Sources */,
 				934C76C21AECC2E80086371E /* triangle_iterator.cc in Sources */,
-				936E244A1ADEA5A80004C396 /* layer.cc in Sources */,
 				93547FD31AF40FE200B4C6BE /* quadratic_stroker.cc in Sources */,
 				934C77171AED38BB0086371E /* gl2.cc in Sources */,
 				935193331AF520670073C001 /* color3.cc in Sources */,
@@ -2420,7 +2453,6 @@
 				93CAA6381AD1A2A5005EDC09 /* SLSNSApplicationDelegate.mm in Sources */,
 				93D479E11AF94DD7000F89B2 /* contour.cc in Sources */,
 				93D73DD81ADDE5E7003F9A7A /* SLSNSView.m in Sources */,
-				93AD7CE51ADD395500B42B9E /* layer.cc in Sources */,
 				937E13971ADBDEB9008DB7A7 /* SLSQuartzLayer.mm in Sources */,
 				938A480C1AED75A700071B50 /* SLSNSOpenGL3View.m in Sources */,
 				93AD7CD41ADCAA0200B42B9E /* SLSNSEventSourceView.mm in Sources */,
@@ -2451,7 +2483,6 @@
 				934C76D71AECD4600086371E /* delaunay_triangulator.cc in Sources */,
 				93CAA60F1AD191DC005EDC09 /* SLSRunner.mm in Sources */,
 				93AD7CD81ADCABA000B42B9E /* SLSUIEventSourceView.mm in Sources */,
-				93AD7CE61ADD395500B42B9E /* layer.cc in Sources */,
 				93229EC71AD2409E008D27EA /* SLSUIApplicationMain.mm in Sources */,
 				93BE2F3E1ADA1A7800175565 /* path.cc in Sources */,
 				939E96861AD3864600A7E21E /* SLSCADisplayLink.m in Sources */,
@@ -2510,7 +2541,6 @@
 				934C771A1AED38C80086371E /* gles2.cc in Sources */,
 				93547E6E1AF0C16400B4C6BE /* context.cc in Sources */,
 				934C76E21AECD8E60086371E /* voronoi_triangulator.cc in Sources */,
-				93EDFB8B1AEC4726003CDD03 /* layer.cc in Sources */,
 				93D479E41AF94DD7000F89B2 /* contour.cc in Sources */,
 				93EDFB951AEC473B003CDD03 /* run.mm in Sources */,
 				93EDFC421AEC8E98003CDD03 /* nanovg.c in Sources */,
