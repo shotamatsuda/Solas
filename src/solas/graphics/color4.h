@@ -86,6 +86,7 @@ class Color<T, 4> final {
 
   // Factory
   static Color4<T> White();
+  static Color4<T> Gray();
   static Color4<T> Black();
   static Color4<T> Hex(std::uint32_t hex);
   static Color4<T> Hex(std::uint32_t hex, math::Promote<T> alpha);
@@ -250,6 +251,11 @@ inline Color4<T>& Color4<T>::operator=(std::initializer_list<T> list) {
 template <typename T>
 inline Color4<T> Color4<T>::White() {
   return Color4<T>(ColorDepth<T>::max);
+}
+
+template <typename T>
+inline Color4<T> Color4<T>::Gray() {
+  return Color4<T>((ColorDepth<T>::min + ColorDepth<T>::max) / 2);
 }
 
 template <typename T>
