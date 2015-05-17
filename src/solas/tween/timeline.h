@@ -68,28 +68,28 @@ class Timeline final {
  private:
   std::unordered_map<std::size_t, Targets> objects_;
   Clock<Interval> clock_;
-  std::unique_ptr<std::mutex> mutex_;
+  std::unique_ptr<std::recursive_mutex> mutex_;
 };
 
 #pragma mark -
 
 template <typename Interval>
 inline Timeline<Interval>::Timeline()
-    : mutex_(std::make_unique<std::mutex>()) {}
+    : mutex_(std::make_unique<std::recursive_mutex>()) {}
 
 #pragma mark Managing adaptors
 
 template <typename Interval>
 template <typename T>
 inline void Timeline<Interval>::remove(const T *object) {
-  std::lock_guard<std::mutex> lock(*mutex_);
+  std::lock_guard<std::recursive_mutex> lock(*mutex_);
   objects_.erase(Hash(object));
 }
 
 template <typename Interval>
 template <typename T>
 inline bool Timeline<Interval>::contains(const T *object) const {
-  std::lock_guard<std::mutex> lock(*mutex_);
+  std::lock_guard<std::recursive_mutex> lock(*mutex_);
   return objects_.find(Hash(object)) != objects_.end();
 }
 
