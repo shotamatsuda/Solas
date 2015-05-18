@@ -59,6 +59,7 @@ class Timeline final {
   void remove(const T *object);
   template <typename T>
   bool contains(const T *object) const;
+  void clear();
   bool empty() const;
 
   // Advances the timeline

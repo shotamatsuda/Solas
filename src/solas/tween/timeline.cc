@@ -89,6 +89,12 @@ bool Timeline<Interval>::contains(Adaptor adaptor) const {
 }
 
 template <typename Interval>
+void Timeline<Interval>::clear() {
+  std::lock_guard<std::recursive_mutex> lock(*mutex_);
+  return objects_.clear();
+}
+
+template <typename Interval>
 bool Timeline<Interval>::empty() const {
   std::lock_guard<std::recursive_mutex> lock(*mutex_);
   return objects_.empty();
