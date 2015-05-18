@@ -70,12 +70,10 @@ using Frame = Interval<FrameValue>;
 #pragma mark -
 
 template <typename T>
-inline Interval<T>::Interval()
-    : value_() {}
+inline Interval<T>::Interval() : value_() {}
 
 template <typename T>
-inline Interval<T>::Interval(T value)
-    : value_(value) {}
+inline Interval<T>::Interval(T value) : value_(value) {}
 
 #pragma mark Arithmetic
 

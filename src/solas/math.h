@@ -21,6 +21,7 @@
 
 #include "solas/math/axis.h"
 #include "solas/math/constants.h"
+#include "solas/math/functions.h"
 #include "solas/math/line.h"
 #include "solas/math/matrix.h"
 #include "solas/math/plane.h"

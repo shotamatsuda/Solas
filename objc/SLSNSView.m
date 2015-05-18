@@ -54,7 +54,7 @@
 }
 
 - (BOOL)isOpaque {
-  return NO;
+  return YES;
 }
 
 - (CALayer *)makeBackingLayer {

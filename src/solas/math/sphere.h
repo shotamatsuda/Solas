@@ -72,8 +72,7 @@ class Sphere final {
 #pragma mark -
 
 template <typename T>
-inline Sphere<T>::Sphere()
-    : radius_() {}
+inline Sphere<T>::Sphere() : radius_() {}
 
 template <typename T>
 inline Sphere<T>::Sphere(const Vector3<T>& center, T radius)

@@ -45,14 +45,13 @@ class Benchmark final {
   Duration duration() const;
   typename Duration::rep count() const;
 
- public:
-  // Suffix for duration
-  static const char *suffix;
-
  private:
   // Time points
   std::chrono::high_resolution_clock::time_point started_time_;
   std::chrono::high_resolution_clock::time_point stopped_time_;
+
+  // Suffix for duration
+  static const char *suffix_;
 };
 
 #pragma mark -
@@ -94,7 +93,7 @@ typename Duration::rep Benchmark<Duration>::count() const {
 template <typename Duration>
 inline std::ostream& operator<<(
     std::ostream& os, const Benchmark<Duration>& benchmark) {
-  return os << benchmark.count() << " " << benchmark.suffix;
+  return os << benchmark.count() << " " << benchmark.suffix_;
 }
 
 }  // namespace utility

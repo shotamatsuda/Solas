@@ -81,12 +81,10 @@ utility::Singleton<Random<Engine, std::mutex>> Random<Engine, Mutex>::shared_;
 #pragma mark -
 
 template <typename Engine, typename Mutex>
-inline Random<Engine, Mutex>::Random()
-    : engine_(std::random_device()()) {}
+inline Random<Engine, Mutex>::Random() : engine_(std::random_device()()) {}
 
 template <typename Engine, typename Mutex>
-inline Random<Engine, Mutex>::Random(Type seed)
-    : engine_(seed) {}
+inline Random<Engine, Mutex>::Random(Type seed) : engine_(seed) {}
 
 #pragma Shared instance
 

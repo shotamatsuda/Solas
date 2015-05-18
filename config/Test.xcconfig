@@ -15,13 +15,13 @@
 //  design engineering.
 //
 
-// Configuration for Xcode 6.1
+// Configuration for Xcode 6
 
 #include "Framework.xcconfig"
 
-// Product Linking
+// Linking
 OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names "$(SRCROOT)/build/gtest/libgtest.a" "$(SRCROOT)/build/gtest/libgtest_main.a"
 
-// Product Search Paths
+// Search Paths
 HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(SRCROOT)/lib/gtest/include"
 LIBRARY_SEARCH_PATHS = $(inherited)

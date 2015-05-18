@@ -22,12 +22,12 @@
 namespace solas {
 namespace utility {
 
-template <> const char * Benchmark<std::chrono::nanoseconds>::suffix = "ns";
-template <> const char * Benchmark<std::chrono::microseconds>::suffix = "us";
-template <> const char * Benchmark<std::chrono::milliseconds>::suffix = "ms";
-template <> const char * Benchmark<std::chrono::seconds>::suffix = "s";
-template <> const char * Benchmark<std::chrono::minutes>::suffix = "m";
-template <> const char * Benchmark<std::chrono::hours>::suffix = "h";
+template <> const char * Benchmark<std::chrono::nanoseconds>::suffix_ = "ns";
+template <> const char * Benchmark<std::chrono::microseconds>::suffix_ = "us";
+template <> const char * Benchmark<std::chrono::milliseconds>::suffix_ = "ms";
+template <> const char * Benchmark<std::chrono::seconds>::suffix_ = "s";
+template <> const char * Benchmark<std::chrono::minutes>::suffix_ = "m";
+template <> const char * Benchmark<std::chrono::hours>::suffix_ = "h";
 
 }  // namespace utility
 }  // namespace solas

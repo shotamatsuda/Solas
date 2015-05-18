@@ -235,12 +235,12 @@ inline Rect<T>& Rect<T>::operator=(const Rect<T>& other) {
 
 template <typename T>
 inline void Rect<T>::set(const Vector2<T>& origin) {
-  this->origin.set(origin);
+  this->origin = origin;
 }
 
 template <typename T>
 inline void Rect<T>::set(const Size2<T>& size) {
-  this->size.set(size);
+  this->size = size;
 }
 
 template <typename T>
@@ -251,19 +251,19 @@ inline void Rect<T>::set(T x, T y, T width, T height) {
 
 template <typename T>
 inline void Rect<T>::set(const Vector2<T>& origin, const Size2<T>& size) {
-  this->origin.set(origin);
-  this->size.set(size);
+  this->origin = origin;
+  this->size = size;
 }
 
 template <typename T>
 inline void Rect<T>::set(T x, T y, const Size2<T>& size) {
   origin.set(x, y);
-  this->size.set(size);
+  this->size = size;
 }
 
 template <typename T>
 inline void Rect<T>::set(const Vector2<T>& origin, T width, T height) {
-  this->origin.set(origin);
+  this->origin = origin;
   size.set(width, height);
 }
 

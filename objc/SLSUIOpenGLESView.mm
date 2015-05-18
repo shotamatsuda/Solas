@@ -62,12 +62,12 @@
   _view.drawableStencilFormat = GLKViewDrawableStencilFormat8;
   _view.drawableMultisample = GLKViewDrawableMultisample4X;
   _view.enableSetNeedsDisplay = YES;
-  _view.autoresizingMask =
-      UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+  _view.autoresizingMask = (UIViewAutoresizingFlexibleWidth |
+                            UIViewAutoresizingFlexibleHeight);
   _view.delegate = self;
   [self addSubview:_view];
   _viewController = [[GLKViewController alloc] init];
-  _viewController.preferredFramesPerSecond = 60;
+  _viewController.preferredFramesPerSecond = 60.0;
   _viewController.view = _view;
   _viewController.delegate = self;
 }
@@ -83,8 +83,10 @@
 #pragma mark GLKViewDelegate
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
-  const solas::app::AppEvent event(_view.context, solas::math::Size2d(
-      self.bounds.size.width, self.bounds.size.height));
+  CGRect bounds = self.bounds;
+  const solas::math::Size2d size(bounds.size.width, bounds.size.height);
+  const solas::app::AppEvent event(_view.context, size,
+                                   [UIScreen mainScreen].scale);
   if ([_displayDelegate respondsToSelector:@selector(sender:draw:)]) {
     [_displayDelegate sender:self draw:SLSAppEventMake(&event)];
   }
@@ -93,8 +95,10 @@
 #pragma mark GLKViewControllerDelegate
 
 - (void)glkViewControllerUpdate:(GLKViewController *)controller {
-  const solas::app::AppEvent event(_view.context, solas::math::Size2d(
-      self.bounds.size.width, self.bounds.size.height));
+  CGRect bounds = self.bounds;
+  const solas::math::Size2d size(bounds.size.width, bounds.size.height);
+  const solas::app::AppEvent event(_view.context, size,
+                                   [UIScreen mainScreen].scale);
   if ([_displayDelegate respondsToSelector:@selector(sender:update:)]) {
     [_displayDelegate sender:self update:SLSAppEventMake(&event)];
   }

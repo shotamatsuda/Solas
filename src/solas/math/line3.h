@@ -130,9 +130,7 @@ using Line3d = Line3<double>;
 #pragma mark -
 
 template <typename T>
-inline Line3<T>::Line()
-    : a(),
-      b() {}
+inline Line3<T>::Line() : a(), b() {}
 
 template <typename T>
 inline Line3<T>::Line(T x1, T y1, T z1, T x2, T y2, T z2)
@@ -140,9 +138,7 @@ inline Line3<T>::Line(T x1, T y1, T z1, T x2, T y2, T z2)
       b(x2, y2, z2) {}
 
 template <typename T>
-inline Line3<T>::Line(const Vector3<T>& a, const Vector3<T>& b)
-    : a(a),
-      b(b) {}
+inline Line3<T>::Line(const Vector3<T>& a, const Vector3<T>& b) : a(a), b(b) {}
 
 template <typename T>
 inline Line3<T>::Line(std::initializer_list<T> list) {

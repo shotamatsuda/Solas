@@ -27,10 +27,21 @@ namespace app {
 
 class AppEvent final {
  public:
+  enum class Type {
+    UNDEFINED,
+    SETUP,
+    UPDATE,
+    PRE,
+    DRAW,
+    POST,
+    EXIT
+  };
+
+ public:
   // Constructors
   AppEvent() {}
   template <typename Context>
-  AppEvent(const Context& context, const math::Size2d& size);
+  AppEvent(const Context& context, const math::Size2d& size, double scale);
 
   // Copy and move
   AppEvent(const AppEvent& other) = default;
@@ -42,18 +53,23 @@ class AppEvent final {
   // Properties
   const ContextHolder& context() const { return context_; }
   const math::Size2d& size() const { return size_; }
+  double scale() const { return scale_; }
 
  private:
   ContextHolder context_;
   math::Size2d size_;
+  double scale_;
 };
 
 #pragma mark -
 
 template <typename Context>
-inline AppEvent::AppEvent(const Context& context, const math::Size2d& size)
+inline AppEvent::AppEvent(const Context& context,
+                          const math::Size2d& size,
+                          double scale)
     : context_(context),
-      size_(size) {}
+      size_(size),
+      scale_(scale) {}
 
 }  // namespace app
 }  // namespace solas

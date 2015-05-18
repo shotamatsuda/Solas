@@ -210,8 +210,7 @@ using Size3d = Size3<double>;
 #pragma mark -
 
 template <typename T>
-inline Size3<T>::Size()
-    : vector() {}
+inline Size3<T>::Size() : vector() {}
 
 template <typename T>
 inline Size3<T>::Size(T value)
@@ -238,33 +237,27 @@ inline Size3<T>::Size(std::initializer_list<T> list)
 
 template <typename T>
 template <typename U>
-inline Size3<T>::Size(const Size3<U>& other)
-    : vector(other.vector) {}
+inline Size3<T>::Size(const Size3<U>& other) : vector(other.vector) {}
 
 #pragma mark Explicit conversion
 
 template <typename T>
 template <typename U>
-inline Size3<T>::Size(const Size2<U>& other)
-    : vector(other.vector) {}
+inline Size3<T>::Size(const Size2<U>& other) : vector(other.vector) {}
 
 template <typename T>
-inline Size3<T>::Size(const Vector2<T>& other)
-    : vector(other) {}
+inline Size3<T>::Size(const Vector2<T>& other) : vector(other) {}
 
 template <typename T>
-inline Size3<T>::Size(const Vector3<T>& other)
-    : vector(other) {}
+inline Size3<T>::Size(const Vector3<T>& other) : vector(other) {}
 
 template <typename T>
-inline Size3<T>::Size(const Vector4<T>& other)
-    : vector(other) {}
+inline Size3<T>::Size(const Vector4<T>& other) : vector(other) {}
 
 #pragma mark Copy and assign
 
 template <typename T>
-inline Size3<T>::Size(const Size3<T>& other)
-    : vector(other.vector) {}
+inline Size3<T>::Size(const Size3<T>& other) : vector(other.vector) {}
 
 template <typename T>
 inline Size3<T>& Size3<T>::operator=(const Size3<T>& other) {

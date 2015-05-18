@@ -1,5 +1,5 @@
 //
-//  solas/nanovg/scope.h
+//  solas/nanovg/state.h
 //
 //  takram design engineering Confidential
 //
@@ -16,52 +16,32 @@
 //
 
 #pragma once
-#ifndef SOLAS_NANOVG_SCOPE_H_
-#define SOLAS_NANOVG_SCOPE_H_
+#ifndef SOLAS_NANOVG_STATE_H_
+#define SOLAS_NANOVG_STATE_H_
 
 #include "nanovg.h"
+
+#include "solas/nanovg/context.h"
 
 namespace solas {
 namespace nanovg {
 
-class Scope final {
- public:
-  // Constructors
-  explicit Scope(NVGcontext *context = nullptr);
-  ~Scope();
-
-  // Disallow copy and assign
-  Scope(const Scope& other) = delete;
-  Scope& operator=(const Scope& other) = delete;
-
-  // Exiting the scope
-  void exit();
-
- private:
-  NVGcontext *context_;
-};
+void Save();
+void Reset();
+void Restore();
 
 #pragma mark -
 
-inline Scope::Scope(NVGcontext *context) : context_(context) {
-  if (context_) {
-    nvgSave(context_);
-  }
+inline void Save() {
+  nvgSave(Context::Current());
 }
 
-inline Scope::~Scope() {
-  if (context_) {
-    nvgRestore(context_);
-  }
+inline void Reset() {
+  nvgReset(Context::Current());
 }
 
-#pragma mark Exiting the scope
-
-inline void Scope::exit() {
-  if (context_) {
-    nvgRestore(context_);
-    context_ = nullptr;
-  }
+inline void Restore() {
+  nvgRestore(Context::Current());
 }
 
 }  // namespace nanovg
@@ -70,4 +50,4 @@ namespace nvg = nanovg;
 
 }  // namespace solas
 
-#endif  // SOLAS_NANOVG_SCOPE_H_
+#endif  // SOLAS_NANOVG_STATE_H_

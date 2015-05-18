@@ -17,10 +17,16 @@
 
 #include "solas/nanovg/context.h"
 
+#include <stack>
+
+#include "nanovg.h"
+
+#include "solas/utility/singleton.h"
+
 namespace solas {
 namespace nanovg {
 
-NVGcontext * Context::shared_context_;
+utility::Singleton<std::stack<NVGcontext *>> Context::contexts_;
 
 }  // namespace nanovg
 }  // namespace solas

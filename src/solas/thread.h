@@ -20,5 +20,6 @@
 #define SOLAS_THREAD_H_
 
 #include "solas/thread/dispatch.h"
+#include "solas/thread/null_mutex.h"
 
 #endif  // SOLAS_THREAD_H_

@@ -32,19 +32,16 @@
 
 class App : public solas::app::View {
  public:
-  solas::nvg::Context context;
-
- public:
   void setup() {
-    context.init();
+    context_.init();
   }
 
   void pre() {
-    nvgBeginFrame(context, width(), height(), 2);
+    context_.begin(width(), height(), scale());
   }
 
   void post() {
-    nvgEndFrame(context);
+    context_.end();
   }
 
   void draw() {
@@ -57,12 +54,12 @@ class App : public solas::app::View {
   }
 
   void touchesMoved(const solas::app::TouchEvent& event) {
-    solas::nvg::Scope save;
-    nvgFillColor(context, solas::gfx::Color3f::Black());
+    solas::nvg::StateGuard save;
+    solas::nvg::FillColor(solas::gfx::Color3f::Black());
     for (const auto& touch : event.touches()) {
-      nvgBeginPath(context);
-      nvgCircle(context, touch.x, touch.y, 20);
-      nvgFill(context);
+      solas::nvg::BeginPath();
+      solas::nvg::Circle(touch, 20);
+      solas::nvg::Fill();
     }
   }
 
@@ -89,6 +86,9 @@ class App : public solas::app::View {
   void gestureEnded(const solas::app::GestureEvent& event) {
     std::cout << "gestureEnded: " << event << std::endl;
   }
+
+ private:
+  solas::nvg::Context context_;
 };
 
 int main(int argc, char **argv) {

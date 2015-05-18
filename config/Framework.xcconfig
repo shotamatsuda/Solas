@@ -15,11 +15,11 @@
 //  design engineering.
 //
 
-// Configuration for Xcode 6.1
+// Configuration for Xcode 6
 
-// Product Linking
-OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names
+// Linking
+SOLAS_OTHER_LDFLAGS = $(inherited) -headerpad_max_install_names
 
-// Product Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/triangle" "$(PROJECT_DIR)/lib/nanovg/src"
-LIBRARY_SEARCH_PATHS = $(inherited)
+// Search Paths
+SOLAS_HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib/triangle" "$(PROJECT_DIR)/lib/nanovg/src" "$(PROJECT_DIR)/build/skia/skia/include/**" "$(PROJECT_DIR)/build/skia/skia/src/**"
+SOLAS_LIBRARY_SEARCH_PATHS = $(inherited)

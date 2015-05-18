@@ -1,5 +1,5 @@
 //
-//  solas/app/utilities.cc
+//  solas/gl.h
 //
 //  takram design engineering Confidential
 //
@@ -15,10 +15,8 @@
 //  design engineering.
 //
 
-#include "solas/app/utilities.h"
+#pragma once
+#ifndef SOLAS_GL_H_
+#define SOLAS_GL_H_
 
-namespace solas {
-namespace app {
-
-}  // namespace app
-}  // namespace solas
+#endif  // SOLAS_GL_H_

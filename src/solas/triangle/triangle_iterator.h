@@ -28,8 +28,8 @@
 namespace solas {
 namespace triangle {
 
-class TriangleIterator final :
-    public std::iterator<std::forward_iterator_tag, const Triangle> {
+class TriangleIterator final
+    : public std::iterator<std::forward_iterator_tag, const Triangle> {
  public:
   // Constructors
   TriangleIterator();
@@ -50,7 +50,7 @@ class TriangleIterator final :
   TriangleIterator& operator++();
   TriangleIterator operator++(int);
 
- public:
+ private:
   std::shared_ptr<Result> result_;
   const int * const begin_;
   const int *current_;

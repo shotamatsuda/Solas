@@ -17,10 +17,17 @@
 
 #import "SLSNSOpenGLLayer.h"
 
+#import <OpenGL/glu.h>
+#import <QuartzCore/QuartzCore.h>
+
 #include "solas/app/app_event.h"
 #include "solas/math/size.h"
+#include "solas/gl/layer_framebuffer.h"
 
-@interface SLSNSOpenGLLayer ()
+@interface SLSNSOpenGLLayer () {
+ @private
+  solas::gl::LayerFramebuffer _framebuffer;
+}
 
 @property (nonatomic, assign) NSOpenGLPixelFormatAttribute API;
 
@@ -35,7 +42,7 @@
 - (instancetype)initWithAPI:(NSOpenGLPixelFormatAttribute)API {
   self = [super init];
   if (self) {
-    self.needsDisplayOnBoundsChange = YES;
+    self.needsDisplayOnBoundsChange = NO;
     self.asynchronous = NO;
     self.API = API;
   }
@@ -45,18 +52,6 @@
 - (NSOpenGLPixelFormat *)openGLPixelFormatForDisplayMask:(uint32_t)mask {
   NSOpenGLPixelFormatAttribute values[] = {
     NSOpenGLPFADoubleBuffer,
-    NSOpenGLPFAColorSize,
-    (NSOpenGLPixelFormatAttribute)24,
-    NSOpenGLPFAAlphaSize,
-    (NSOpenGLPixelFormatAttribute)8,
-    NSOpenGLPFADepthSize,
-    (NSOpenGLPixelFormatAttribute)24,
-    NSOpenGLPFASampleBuffers,
-    (NSOpenGLPixelFormatAttribute)1,
-    NSOpenGLPFASamples,
-    (NSOpenGLPixelFormatAttribute)8,
-    NSOpenGLPFAMultisample,
-    NSOpenGLPFAAccelerated,
     NSOpenGLPFAOpenGLProfile,
     self.API,
     (NSOpenGLPixelFormatAttribute)0
@@ -78,8 +73,9 @@
                    pixelFormat:(NSOpenGLPixelFormat *)pixelFormat
                   forLayerTime:(CFTimeInterval)layerTime
                    displayTime:(const CVTimeStamp *)displayTime {
-  const solas::app::AppEvent event(context, solas::math::Size2d(
-      self.bounds.size.width, self.bounds.size.height));
+  CGRect bounds = self.bounds;
+  const solas::math::Size2d size(bounds.size.width, bounds.size.height);
+  const solas::app::AppEvent event(context, size, self.contentsScale);
   if ([_displayDelegate respondsToSelector:@selector(sender:update:)]) {
     [_displayDelegate sender:self update:SLSAppEventMake(&event)];
   }
@@ -90,15 +86,32 @@
                 pixelFormat:(NSOpenGLPixelFormat *)pixelFormat
                forLayerTime:(CFTimeInterval)timeInterval
                 displayTime:(const CVTimeStamp *)timeStamp {
-  const solas::app::AppEvent event(context, solas::math::Size2d(
-      self.bounds.size.width, self.bounds.size.height));
+  CGRect bounds = self.bounds;
+  double scale = self.contentsScale;
+  GLint framebuffer;
+  glGetIntegerv(GL_FRAMEBUFFER_BINDING, &framebuffer);
+  _framebuffer.update(bounds.size.width, bounds.size.height, scale);
+  _framebuffer.bind();
+  const solas::math::Size2d size(bounds.size.width, bounds.size.height);
+  const solas::app::AppEvent event(context, size, scale);
   if ([_displayDelegate respondsToSelector:@selector(sender:draw:)]) {
     [_displayDelegate sender:self draw:SLSAppEventMake(&event)];
   }
+  _framebuffer.transfer(framebuffer);
+  glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
   [super drawInOpenGLContext:context
                  pixelFormat:pixelFormat
                 forLayerTime:timeInterval
                  displayTime:timeStamp];
+}
+
+- (void)setBounds:(CGRect)bounds {
+  BOOL changed = !CGSizeEqualToSize(bounds.size, self.bounds.size);
+  [super setBounds:bounds];
+  if (changed) {
+    [self display];
+    [CATransaction flush];
+  }
 }
 
 #pragma mark Invalidating the Display Source

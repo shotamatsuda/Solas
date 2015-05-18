@@ -1,5 +1,5 @@
 //
-//  solas/app/layer.cc
+//  Framework-iOS.xcconfig
 //
 //  takram design engineering Confidential
 //
@@ -15,10 +15,13 @@
 //  design engineering.
 //
 
-#include "solas/app/layer.h"
+// Configuration for Xcode 6
 
-namespace solas {
-namespace app {
+#include "Framework.xcconfig"
 
-}  // namespace app
-}  // namespace solas
+// Linking
+OTHER_LDFLAGS = $(SOLAS_OTHER_LDFLAGS)  "$(PROJECT_DIR)/build/skia/ios/libskia.a"
+
+// Search Paths
+HEADER_SEARCH_PATHS = $(SOLAS_HEADER_SEARCH_PATHS)
+LIBRARY_SEARCH_PATHS = $(SOLAS_LIBRARY_SEARCH_PATHS)

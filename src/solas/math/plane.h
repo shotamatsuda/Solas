@@ -82,18 +82,15 @@ class Plane final {
 #pragma mark -
 
 template <typename T>
-inline Plane<T>::Plane()
-    : distance_() {}
+inline Plane<T>::Plane() : distance_() {}
 
 template <typename T>
-inline Plane<T>::Plane(T a, T b, T c, T d)
-    : distance_() {
+inline Plane<T>::Plane(T a, T b, T c, T d) : distance_() {
   set(a, b, c, d);
 }
 
 template <typename T>
-inline Plane<T>::Plane(const Vector3<T>& normal, T distance)
-    : distance_() {
+inline Plane<T>::Plane(const Vector3<T>& normal, T distance) : distance_() {
   set(normal, distance);
 }
 

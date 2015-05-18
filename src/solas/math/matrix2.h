@@ -106,10 +106,7 @@ using Matrix2d = Matrix2<double>;
 #pragma mark -
 
 template <typename T>
-inline Matrix2<T>::Matrix()
-    : c1(),
-      c2(),
-      c3() {}
+inline Matrix2<T>::Matrix() : c1(), c2(), c3() {}
 
 template <typename T>
 inline Matrix2<T>::Matrix(T v00, T v01, T v02,
@@ -131,14 +128,12 @@ inline Matrix2<T>::Matrix(const Vector3<T>& vx,
 
 template <typename T>
 template <typename U>
-inline Matrix2<T>::Matrix(const Matrix2<U>& other)
-    : m(other.m) {}
+inline Matrix2<T>::Matrix(const Matrix2<U>& other) : m(other.m) {}
 
 #pragma mark Copy and assign
 
 template <typename T>
-inline Matrix2<T>::Matrix(const Matrix2<T>& other)
-    : m(other.m) {}
+inline Matrix2<T>::Matrix(const Matrix2<T>& other) : m(other.m) {}
 
 template <typename T>
 inline Matrix2<T>& Matrix2<T>::operator=(const Matrix2<T>& other) {

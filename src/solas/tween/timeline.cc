@@ -37,13 +37,13 @@ void Timeline<Interval>::add(Adaptor adaptor, bool overwrite) {
   assert(adaptor);
   const auto object = adaptor->object_hash();
   const auto target = adaptor->target_hash();
-  std::lock_guard<std::mutex> lock(*mutex_);
+  std::lock_guard<std::recursive_mutex> lock(*mutex_);
   if (objects_.find(object) == objects_.end()) {
     auto& targets = objects_.emplace(object, Targets()).first->second;
     targets.emplace(target, adaptor);
   } else {
     auto& targets = objects_.at(object);
-    if (overwrite && objects_.find(object) != objects_.end()) {
+    if (overwrite) {
       targets.erase(target);
     }
     targets.emplace(target, adaptor);
@@ -54,7 +54,7 @@ template <typename Interval>
 void Timeline<Interval>::remove(Adaptor adaptor) {
   assert(adaptor);
   const auto object = adaptor->object_hash();
-  std::lock_guard<std::mutex> lock(*mutex_);
+  std::lock_guard<std::recursive_mutex> lock(*mutex_);
   if (objects_.find(object) != objects_.end()) {
     auto& targets = objects_.at(object);
     const auto itr = std::find_if(
@@ -75,7 +75,7 @@ template <typename Interval>
 bool Timeline<Interval>::contains(Adaptor adaptor) const {
   assert(adaptor);
   const auto object = adaptor->object_hash();
-  std::lock_guard<std::mutex> lock(*mutex_);
+  std::lock_guard<std::recursive_mutex> lock(*mutex_);
   if (objects_.find(object) != objects_.end()) {
     const auto& targets = objects_.at(object);
     const auto itr = std::find_if(
@@ -89,8 +89,14 @@ bool Timeline<Interval>::contains(Adaptor adaptor) const {
 }
 
 template <typename Interval>
+void Timeline<Interval>::clear() {
+  std::lock_guard<std::recursive_mutex> lock(*mutex_);
+  return objects_.clear();
+}
+
+template <typename Interval>
 bool Timeline<Interval>::empty() const {
-  std::lock_guard<std::mutex> lock(*mutex_);
+  std::lock_guard<std::recursive_mutex> lock(*mutex_);
   return objects_.empty();
 }
 
@@ -99,7 +105,7 @@ bool Timeline<Interval>::empty() const {
 template <typename Interval>
 Interval Timeline<Interval>::advance() {
   std::vector<Adaptor> finished_adaptors;
-  std::unique_lock<std::mutex> lock(*mutex_);
+  std::unique_lock<std::recursive_mutex> lock(*mutex_);
   const auto now = clock_.advance();
   for (auto object_itr = objects_.begin(); object_itr != objects_.end();) {
     auto& targets = object_itr->second;

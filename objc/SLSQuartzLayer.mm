@@ -33,8 +33,9 @@
 }
 
 - (void)drawInContext:(CGContextRef)context {
-  const solas::app::AppEvent event(context, solas::math::Size2d(
-      self.bounds.size.width, self.bounds.size.height));
+  CGRect bounds = self.bounds;
+  const solas::math::Size2d size(bounds.size.width, bounds.size.height);
+  const solas::app::AppEvent event(context, size, self.contentsScale);
   if ([_displayDelegate respondsToSelector:@selector(sender:update:)]) {
     [_displayDelegate sender:self update:SLSAppEventMake(&event)];
   }

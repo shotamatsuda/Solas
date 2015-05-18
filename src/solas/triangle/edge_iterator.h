@@ -30,8 +30,8 @@ struct triangulateio;
 namespace solas {
 namespace triangle {
 
-class EdgeIterator final :
-    public std::iterator<std::forward_iterator_tag, const Edge> {
+class EdgeIterator final
+    : public std::iterator<std::forward_iterator_tag, const Edge> {
  public:
   // Constructors
   EdgeIterator();
@@ -52,7 +52,7 @@ class EdgeIterator final :
   EdgeIterator& operator++();
   EdgeIterator operator++(int);
 
- public:
+ private:
   std::shared_ptr<Result> result_;
   const int * const begin_;
   const int *current_;

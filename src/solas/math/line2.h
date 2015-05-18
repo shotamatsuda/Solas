@@ -95,6 +95,10 @@ class Line<T, 2> final {
   Promote<T> length() const;
   Promote<T> lengthSquared() const;
 
+  // Projection
+  template <typename U>
+  Vector2<T> project(const Vector2<U>& point) const;
+
   // Iterator
   Iterator begin() { return &a; }
   ConstIterator begin() const { return &a; }
@@ -127,19 +131,13 @@ using Line2d = Line2<double>;
 #pragma mark -
 
 template <typename T>
-inline Line2<T>::Line()
-    : a(),
-      b() {}
+inline Line2<T>::Line() : a(), b() {}
 
 template <typename T>
-inline Line2<T>::Line(T x1, T y1, T x2, T y2)
-    : a(x1, y1),
-      b(x2, y2) {}
+inline Line2<T>::Line(T x1, T y1, T x2, T y2) : a(x1, y1), b(x2, y2) {}
 
 template <typename T>
-inline Line2<T>::Line(const Vector2<T>& a, const Vector2<T>& b)
-    : a(a),
-      b(b) {}
+inline Line2<T>::Line(const Vector2<T>& a, const Vector2<T>& b) : a(a), b(b) {}
 
 template <typename T>
 inline Line2<T>::Line(std::initializer_list<Vector2<T>> list) {
@@ -234,6 +232,26 @@ inline Promote<T> Line2<T>::length() const {
 template <typename T>
 inline Promote<T> Line2<T>::lengthSquared() const {
   return a.distanceSquared(b);
+}
+
+#pragma mark Projection
+
+template <typename T>
+template <typename U>
+inline Vector2<T> Line2<T>::project(const Vector2<U>& point) const {
+  const auto ap = point - a;
+  const auto ab = b - a;
+  const auto magnitude = ab.magnitudeSquared();
+  if (!magnitude) {
+    return a;
+  }
+  const auto scale = ap.dot(ab) / magnitude;
+  if (scale <= 0.0) {
+    return a;
+  } else if (scale >= 1.0) {
+    return b;
+  }
+  return a + ab * scale;
 }
 
 #pragma mark Stream

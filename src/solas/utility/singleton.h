@@ -33,7 +33,7 @@ class Singleton final {
 
  public:
   // Constructors
-  Singleton() = default;
+  Singleton();
   ~Singleton();
 
   // Disallow copy and assign
@@ -58,6 +58,9 @@ class Singleton final {
 };
 
 #pragma mark -
+
+template <typename T, typename Deleter>
+inline Singleton<T, Deleter>::Singleton() : instance_(nullptr) {}
 
 template <typename T, typename Deleter>
 inline Singleton<T, Deleter>::~Singleton() {

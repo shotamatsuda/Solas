@@ -21,23 +21,47 @@
 
 #include <cstdint>
 #include <list>
+#include <queue>
+#include <unordered_map>
 
-#include "solas/app/event.h"
+#include <boost/signals2.hpp>
+
+#include "solas/app/composite.h"
+#include "solas/app/event_holder.h"
 #include "solas/app/gesture_event.h"
 #include "solas/app/key_event.h"
-#include "solas/app/layer.h"
 #include "solas/app/motion_event.h"
 #include "solas/app/mouse_button.h"
 #include "solas/app/mouse_event.h"
 #include "solas/app/runnable.h"
 #include "solas/app/touch_event.h"
 #include "solas/math/vector.h"
-#include "solas/tween.h"
+#include "solas/tween/timeline_host.h"
 
 namespace solas {
 namespace app {
 
-class View : public app::Runnable, public Layer {
+class View : public app::Runnable, public Composite {
+ public:
+  using EventConnection = boost::signals2::connection;
+  using EventConnectionList = std::list<boost::signals2::scoped_connection>;
+
+ private:
+  template <typename Event>
+  using EventSignals = std::unordered_map<
+      typename Event::Type,
+      boost::signals2::signal<void(const Event&)>>;
+
+ private:
+  template <typename Event, typename Type = typename Event::Type>
+  struct EventConnector {
+    template <typename Slot>
+    static EventConnection Connect(Type type, const Slot& slot, View *view);
+
+    template <typename Slot>
+    static void Disconnect(Type type, const Slot& slot, View *view);
+  };
+
  public:
   // Constructors
   View();
@@ -53,6 +77,7 @@ class View : public app::Runnable, public Layer {
   // Structure
   double width() const override;
   double height() const override;
+  double scale() const override;
 
   // Mouse
   const math::Vec2d& mouse() const override;
@@ -71,8 +96,13 @@ class View : public app::Runnable, public Layer {
   bool touch_pressed() const override;
 
   // Aggregation
-  Layer& parent() = delete;
-  const Layer& parent() const = delete;
+  Composite * parent() const override;
+
+  // Event connection
+  template <typename Event, typename Slot, typename Type = typename Event::Type>
+  EventConnection connectEvent(Type type, const Slot& slot);
+  template <typename Event, typename Slot, typename Type = typename Event::Type>
+  void disconnectEvent(Type type, const Slot& slot);
 
  protected:
   // Aggregation
@@ -134,7 +164,7 @@ class View : public app::Runnable, public Layer {
   template <typename Event>
   void enqueueEvent(const Event& event);
   void dequeueEvents();
-  void handleEvent(const Event& event);
+  void handleEvent(const EventHolder& event);
   void handleMouseEvent(const MouseEvent& event);
   void handleKeyEvent(const KeyEvent& event);
   void handleTouchEvent(const TouchEvent& event);
@@ -172,11 +202,12 @@ class View : public app::Runnable, public Layer {
   void motionEnd(const MotionEvent& event) override;
 
  private:
-  std::list<Event> event_queue_;
+  std::queue<EventHolder> event_queue_;
 
   // Structure
   double width_;
   double height_;
+  double scale_;
 
   // Mouse
   math::Vec2d mouse_;
@@ -200,6 +231,14 @@ class View : public app::Runnable, public Layer {
 
   // Tween
   tween::TimelineHost timeline_host_;
+
+  // Event signals
+  EventSignals<AppEvent> app_event_signals_;
+  EventSignals<MouseEvent> mouse_event_signals_;
+  EventSignals<KeyEvent> key_event_signals_;
+  EventSignals<TouchEvent> touch_event_signals_;
+  EventSignals<GestureEvent> gesture_event_signals_;
+  EventSignals<MotionEvent> motion_event_signals_;
 };
 
 #pragma mark -
@@ -207,6 +246,7 @@ class View : public app::Runnable, public Layer {
 inline View::View()
     : width_(),
       height_(),
+      scale_(),
       mouse_button_(MouseButton::UNDEFINED),
       mouse_pressed_(),
       key_(),
@@ -224,6 +264,10 @@ inline double View::width() const {
 
 inline double View::height() const {
   return height_;
+}
+
+inline double View::scale() const {
+  return scale_;
 }
 
 #pragma mark Mouse
@@ -274,6 +318,10 @@ inline bool View::touch_pressed() const {
 
 #pragma mark Aggregation
 
+inline Composite * View::parent() const {
+  return nullptr;
+}
+
 inline tween::TimelineHost * View::timeline_host() {
   return &timeline_host_;
 }
@@ -282,35 +330,47 @@ inline const tween::TimelineHost * View::timeline_host() const {
   return &timeline_host_;
 }
 
+#pragma mark Event connection
+
+template <typename Event, typename Slot, typename Type>
+inline View::EventConnection View::connectEvent(Type type, const Slot& slot) {
+  return EventConnector<Event>::Connect(type, slot, this);
+}
+
+template <typename Event, typename Slot, typename Type>
+inline void View::disconnectEvent(Type type, const Slot& slot) {
+  EventConnector<Event>::Disconnect(type, slot, this);
+}
+
 #pragma mark Event handlers
 
 template <typename Event>
 inline void View::enqueueEvent(const Event& event) {
-  event_queue_.emplace_back(event);
+  event_queue_.emplace(event);
 }
 
 inline void View::dequeueEvents() {
-  for (const auto& event : event_queue_) {
-    handleEvent(event);
+  while (!event_queue_.empty()) {
+    handleEvent(event_queue_.front());
+    event_queue_.pop();
   }
-  event_queue_.clear();
 }
 
-inline void View::handleEvent(const Event& event) {
+inline void View::handleEvent(const EventHolder& event) {
   switch (event.type()) {
-    case Event::Type::MOUSE:
+    case EventHolder::Type::MOUSE:
       handleMouseEvent(event.mouse());
       break;
-    case Event::Type::KEY:
+    case EventHolder::Type::KEY:
       handleKeyEvent(event.key());
       break;
-    case Event::Type::TOUCH:
+    case EventHolder::Type::TOUCH:
       handleTouchEvent(event.touch());
       break;
-    case Event::Type::GESTURE:
+    case EventHolder::Type::GESTURE:
       handleGestureEvent(event.gesture());
       break;
-    case Event::Type::MOTION:
+    case EventHolder::Type::MOTION:
       handleMotionEvent(event.motion());
       break;
     default:
@@ -324,35 +384,43 @@ inline void View::handleEvent(const Event& event) {
 inline void View::setup(const AppEvent& event) {
   width_ = event.size().width;
   height_ = event.size().height;
+  scale_ = event.scale();
   Runnable::setup(event);
+  app_event_signals_[AppEvent::Type::SETUP](event);
 }
 
 inline void View::update(const AppEvent& event) {
   timeline<tween::Time>().advance();
   timeline<tween::Frame>().advance();
   Runnable::update(event);
+  app_event_signals_[AppEvent::Type::UPDATE](event);
 }
 
 inline void View::pre(const AppEvent& event) {
   Runnable::pre(event);
+  app_event_signals_[AppEvent::Type::PRE](event);
 }
 
 inline void View::draw(const AppEvent& event) {
   width_ = event.size().width;
   height_ = event.size().height;
+  scale_ = event.scale();
   pmouse_ = dmouse_;
   ptouch_ = dtouch_;
   Runnable::draw(event);
+  app_event_signals_[AppEvent::Type::DRAW](event);
   dmouse_ = mouse_;
   dtouch_ = touch_;
   dequeueEvents();
 }
 
 inline void View::post(const AppEvent& event) {
+  app_event_signals_[AppEvent::Type::POST](event);
   Runnable::post(event);
 }
 
 inline void View::exit(const AppEvent& event) {
+  app_event_signals_[AppEvent::Type::EXIT](event);
   Runnable::exit(event);
 }
 
@@ -437,6 +505,98 @@ inline void View::motionCancel(const MotionEvent& event) {
 inline void View::motionEnd(const MotionEvent& event) {
   enqueueEvent(event);
 }
+
+#pragma mark -
+
+template <>
+struct View::EventConnector<AppEvent> {
+  using Type = AppEvent::Type;
+
+  template <typename Slot>
+  static EventConnection Connect(Type type, const Slot& slot, View *view) {
+    return view->app_event_signals_[type].connect(slot);
+  }
+
+  template <typename Slot>
+  static void Disconnect(Type type, const Slot& slot, View *view) {
+    view->app_event_signals_[type].disconnect(slot);
+  }
+};
+
+template <>
+struct View::EventConnector<MouseEvent> {
+  using Type = MouseEvent::Type;
+
+  template <typename Slot>
+  static EventConnection Connect(Type type, const Slot& slot, View *view) {
+    return view->mouse_event_signals_[type].connect(slot);
+  }
+
+  template <typename Slot>
+  static void Disconnect(Type type, const Slot& slot, View *view) {
+    view->mouse_event_signals_[type].disconnect(slot);
+  }
+};
+
+template <>
+struct View::EventConnector<KeyEvent> {
+  using Type = KeyEvent::Type;
+
+  template <typename Slot>
+  static EventConnection Connect(Type type, const Slot& slot, View *view) {
+    return view->key_event_signals_[type].connect(slot);
+  }
+
+  template <typename Slot>
+  static void Disconnect(Type type, const Slot& slot, View *view) {
+    view->key_event_signals_[type].disconnect(slot);
+  }
+};
+
+template <>
+struct View::EventConnector<TouchEvent> {
+  using Type = TouchEvent::Type;
+
+  template <typename Slot>
+  static EventConnection Connect(Type type, const Slot& slot, View *view) {
+    return view->touch_event_signals_[type].connect(slot);
+  }
+
+  template <typename Slot>
+  static void Disconnect(Type type, const Slot& slot, View *view) {
+    view->touch_event_signals_[type].disconnect(slot);
+  }
+};
+
+template <>
+struct View::EventConnector<GestureEvent> {
+  using Type = GestureEvent::Type;
+
+  template <typename Slot>
+  static EventConnection Connect(Type type, const Slot& slot, View *view) {
+    return view->gesture_event_signals_[type].connect(slot);
+  }
+
+  template <typename Slot>
+  static void Disconnect(Type type, const Slot& slot, View *view) {
+    view->gesture_event_signals_[type].disconnect(slot);
+  }
+};
+
+template <>
+struct View::EventConnector<MotionEvent> {
+  using Type = MotionEvent::Type;
+
+  template <typename Slot>
+  static EventConnection Connect(Type type, const Slot& slot, View *view) {
+    return view->motion_event_signals_[type].connect(slot);
+  }
+
+  template <typename Slot>
+  static void Disconnect(Type type, const Slot& slot, View *view) {
+    view->motion_event_signals_[type].disconnect(slot);
+  }
+};
 
 }  // namespace app
 }  // namespace solas
