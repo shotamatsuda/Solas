@@ -127,6 +127,10 @@
 		936886D51B094750004E99EE /* timer.h in Headers */ = {isa = PBXBuildFile; fileRef = 936886D41B094750004E99EE /* timer.h */; };
 		936886D61B094750004E99EE /* timer.h in Headers */ = {isa = PBXBuildFile; fileRef = 936886D41B094750004E99EE /* timer.h */; };
 		936886D71B094750004E99EE /* timer.h in Headers */ = {isa = PBXBuildFile; fileRef = 936886D41B094750004E99EE /* timer.h */; };
+		936886D91B0967FD004E99EE /* rect.cc in Sources */ = {isa = PBXBuildFile; fileRef = 936886D81B0967FD004E99EE /* rect.cc */; };
+		936886DA1B0967FD004E99EE /* rect.cc in Sources */ = {isa = PBXBuildFile; fileRef = 936886D81B0967FD004E99EE /* rect.cc */; };
+		936886DB1B0967FD004E99EE /* rect.cc in Sources */ = {isa = PBXBuildFile; fileRef = 936886D81B0967FD004E99EE /* rect.cc */; };
+		936886DC1B0967FD004E99EE /* rect.cc in Sources */ = {isa = PBXBuildFile; fileRef = 936886D81B0967FD004E99EE /* rect.cc */; };
 		936E24441ADEA5A80004C396 /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
 		936E24461ADEA5A80004C396 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		936E24481ADEA5A80004C396 /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
@@ -806,6 +810,7 @@
 		9365A0441AFD79110099D7DC /* pathfinder.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pathfinder.cc; sourceTree = "<group>"; };
 		936886D01B09451E004E99EE /* timer_adaptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer_adaptor.h; sourceTree = "<group>"; };
 		936886D41B094750004E99EE /* timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer.h; sourceTree = "<group>"; };
+		936886D81B0967FD004E99EE /* rect.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rect.cc; sourceTree = "<group>"; };
 		936E241F1ADEA5550004C396 /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		937D91FC1AF6C094000D8302 /* gl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gl.h; sourceTree = "<group>"; };
 		937D91FF1AF6C0BC000D8302 /* layer_framebuffer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = layer_framebuffer.cc; sourceTree = "<group>"; };
@@ -1481,6 +1486,7 @@
 				93F38E3F1AB5F859009E3626 /* triangle2.h */,
 				93F38E401AB5F859009E3626 /* triangle3.h */,
 				93E913AF1AB2811500DDF7F9 /* rect.h */,
+				936886D81B0967FD004E99EE /* rect.cc */,
 				93A9C00A1ACF63060081D3A0 /* polygon.h */,
 				93E913AC1AB2811500DDF7F9 /* plane.h */,
 				93E913B41AB2811500DDF7F9 /* sphere.h */,
@@ -2377,6 +2383,7 @@
 				934C76E31AECD8E60086371E /* voronoi_triangulator.cc in Sources */,
 				933FD6F91AEBAEA4003AEC6C /* transform.cc in Sources */,
 				936E24981ADEA5A80004C396 /* SLSNSBundle+Bundle.m in Sources */,
+				936886DB1B0967FD004E99EE /* rect.cc in Sources */,
 				936E24F51ADEA78B0004C396 /* SLSCVDisplayLink.mm in Sources */,
 				936E24F41ADEA78B0004C396 /* SLSNSQuartzView.m in Sources */,
 				936E24E81ADEA78B0004C396 /* SLSNSEventSourceView.mm in Sources */,
@@ -2428,6 +2435,7 @@
 				93F38E8F1AB60972009E3626 /* dispatch.mm in Sources */,
 				933FD6F71AEBAEA3003AEC6C /* transform.cc in Sources */,
 				93CAA64F1AD1AD4B005EDC09 /* SLSNSApplicationMain.mm in Sources */,
+				936886D91B0967FD004E99EE /* rect.cc in Sources */,
 				93BE2F3C1ADA1A7500175565 /* path.cc in Sources */,
 				939E963E1AD250AF00A7E21E /* runner_factory.cc in Sources */,
 				937D92001AF6C0BC000D8302 /* layer_framebuffer.cc in Sources */,
@@ -2479,6 +2487,7 @@
 				938A48011AED711E00071B50 /* SLSUIOpenGLES2View.m in Sources */,
 				931B16781AEBC7F4005F6B4C /* timeline.cc in Sources */,
 				93AD7CD01ADCA5C700B42B9E /* SLSUIQuartzView.m in Sources */,
+				936886DA1B0967FD004E99EE /* rect.cc in Sources */,
 				934C76C11AECC2E80086371E /* triangle_iterator.cc in Sources */,
 				934C76D71AECD4600086371E /* delaunay_triangulator.cc in Sources */,
 				93CAA60F1AD191DC005EDC09 /* SLSRunner.mm in Sources */,
@@ -2527,6 +2536,7 @@
 				938A48021AED711E00071B50 /* SLSUIOpenGLES2View.m in Sources */,
 				93EDFB7E1AEC4706003CDD03 /* SLSQuartzLayer.mm in Sources */,
 				935193341AF520670073C001 /* color3.cc in Sources */,
+				936886DC1B0967FD004E99EE /* rect.cc in Sources */,
 				93EDFB941AEC4726003CDD03 /* benchmark.cc in Sources */,
 				93547FDA1AF51C4A00B4C6BE /* vector2.cc in Sources */,
 				93EDFB811AEC4716003CDD03 /* SLSUIEventSourceView.mm in Sources */,

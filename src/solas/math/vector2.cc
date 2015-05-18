@@ -21,7 +21,9 @@
 
 #include "SkPoint.h"
 
+#include "solas/tween/easing.h"
 #include "solas/tween/transform.h"
+#include "solas/tween/type.h"
 
 namespace solas {
 namespace math {

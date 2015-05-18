@@ -175,9 +175,9 @@ class Size<T, 2> final {
 
   // Conversion
   template <typename U>
-  explicit operator Vector2<U>&() { return vector; }
+  explicit operator Vector2<U>() { return vector; }
   template <typename U>
-  explicit operator const Vector2<U>&() const { return vector; }
+  explicit operator const Vector2<U>() const { return vector; }
 
   // Iterator
   Iterator begin() { return vector.begin(); }
@@ -513,21 +513,25 @@ inline Size2<Promote<T, U>> operator*(U scalar, const Size2<T>& size) {
 template <typename T>
 inline Size2<T>& Size2<T>::operator+=(const Vector2<T>& other) {
   vector += other;
+  return *this;
 }
 
 template <typename T>
 inline Size2<T>& Size2<T>::operator-=(const Vector2<T>& other) {
   vector -= other;
+  return *this;
 }
 
 template <typename T>
 inline Size2<T>& Size2<T>::operator*=(const Vector2<T>& other) {
   vector *= other;
+  return *this;
 }
 
 template <typename T>
 inline Size2<T>& Size2<T>::operator/=(const Vector2<T>& other) {
   vector /= other;
+  return *this;
 }
 
 template <typename T>
@@ -574,7 +578,7 @@ inline Promote<T> Size2<T>::area() const {
 
 template <typename T>
 inline Promote<T> Size2<T>::diagonal() const {
-  return vector.length();
+  return vector.magnitude();
 }
 
 #pragma mark Stream
