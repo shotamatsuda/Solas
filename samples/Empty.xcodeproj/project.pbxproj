@@ -10,8 +10,6 @@
 		937E13BD1ADBF34B008DB7A7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937E13BC1ADBF34B008DB7A7 /* OpenGLES.framework */; };
 		937E13BF1ADBF351008DB7A7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937E13BE1ADBF350008DB7A7 /* OpenGL.framework */; };
 		938D33011AF1F5B300E865AF /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF9901AD97397009D0646 /* main.cc */; };
-		93CA68111ADB5C5F009F131B /* SolasTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF9811AD972EA009D0646 /* SolasTouch.framework */; };
-		93CA68121ADB5C5F009F131B /* SolasTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF9811AD972EA009D0646 /* SolasTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93D73E201ADE301E003F9A7A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D73E1F1ADE301E003F9A7A /* Default-568h@2x.png */; };
 		93EBABC71AD980ED00BF8959 /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF97F1AD972EA009D0646 /* Solas.framework */; };
 		93EBABC81AD980ED00BF8959 /* Solas.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF97F1AD972EA009D0646 /* Solas.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -28,20 +26,6 @@
 			remoteGlobalIDString = 936E241F1ADEA5550004C396;
 			remoteInfo = SolasStatic;
 		};
-		938D32FF1AF1F5B000E865AF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 93EDFB661AEC46C5003CDD03;
-			remoteInfo = SolasTouchStatic;
-		};
-		93CA68131ADB5C5F009F131B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 93E913751AB27E2600DDF7F9;
-			remoteInfo = SolasTouch;
-		};
 		93EBABC91AD980ED00BF8959 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
@@ -55,13 +39,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 93E913581AB27DE400DDF7F9;
 			remoteInfo = Solas;
-		};
-		93FEF9801AD972EA009D0646 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 93E913761AB27E2600DDF7F9;
-			remoteInfo = SolasTouch;
 		};
 		93FEF9821AD972EA009D0646 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -79,7 +56,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				93CA68121ADB5C5F009F131B /* SolasTouch.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,7 +99,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				937E13BD1ADBF34B008DB7A7 /* OpenGLES.framework in Frameworks */,
-				93CA68111ADB5C5F009F131B /* SolasTouch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,10 +224,8 @@
 			isa = PBXGroup;
 			children = (
 				93FEF97F1AD972EA009D0646 /* Solas.framework */,
-				93FEF9811AD972EA009D0646 /* SolasTouch.framework */,
 				93FEF9831AD972EA009D0646 /* SolasTest */,
 				938D32FE1AF1F5B000E865AF /* libSolas.a */,
-				938D33001AF1F5B000E865AF /* libSolasTouch.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -272,7 +245,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				93CA68141ADB5C5F009F131B /* PBXTargetDependency */,
 			);
 			name = EmptyTouch;
 			productName = ZorozoroTouch;
@@ -304,7 +276,7 @@
 		93FEF9461AD97263009D0646 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "takram design engineering";
 				TargetAttributes = {
 					93CA67E01ADB5BF4009F131B = {
@@ -349,25 +321,11 @@
 			remoteRef = 938D32FD1AF1F5B000E865AF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		938D33001AF1F5B000E865AF /* libSolasTouch.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSolasTouch.a;
-			remoteRef = 938D32FF1AF1F5B000E865AF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		93FEF97F1AD972EA009D0646 /* Solas.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Solas.framework;
 			remoteRef = 93FEF97E1AD972EA009D0646 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		93FEF9811AD972EA009D0646 /* SolasTouch.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SolasTouch.framework;
-			remoteRef = 93FEF9801AD972EA009D0646 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		93FEF9831AD972EA009D0646 /* SolasTest */ = {
@@ -417,11 +375,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		93CA68141ADB5C5F009F131B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SolasTouch;
-			targetProxy = 93CA68131ADB5C5F009F131B /* PBXContainerItemProxy */;
-		};
 		93EBABCA1AD980ED00BF8959 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Solas;
@@ -434,13 +387,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93D479601AF83B12000F89B2 /* App-iOS.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = "Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.takram.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Empty;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -452,13 +405,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93D479601AF83B12000F89B2 /* App-iOS.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = "Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.takram.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Empty;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -473,6 +426,7 @@
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "-";
+				ENABLE_TESTABILITY = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -497,6 +451,7 @@
 				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = "Info-OSX.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.takram.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Empty;
 			};
 			name = Debug;
@@ -508,6 +463,7 @@
 				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = "Info-OSX.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.takram.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Empty;
 			};
 			name = Release;

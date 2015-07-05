@@ -1,18 +1,27 @@
 //
 //  solas/app/app_event.h
 //
-//  takram design engineering Confidential
+//  MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
-//  All information contained herein is, and remains the property of takram
-//  design engineering and its suppliers, if any. The intellectual and
-//  technical concepts contained herein are proprietary to takram design
-//  engineering and its suppliers and may be covered by U.S. and Foreign
-//  Patents, patents in process, and are protected by trade secret or copyright
-//  law. Dissemination of this information or reproduction of this material is
-//  strictly forbidden unless prior written permission is obtained from takram
-//  design engineering.
+//  Permission is hereby granted, free of charge, to any person obtaining a
+//  copy of this software and associated documentation files (the "Software"),
+//  to deal in the Software without restriction, including without limitation
+//  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+//  and/or sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+//  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//  DEALINGS IN THE SOFTWARE.
 //
 
 #pragma once
@@ -20,7 +29,7 @@
 #define SOLAS_APP_APP_EVENT_H_
 
 #include "solas/app/context_holder.h"
-#include "solas/math/size.h"
+#include "takram/math/size.h"
 
 namespace solas {
 namespace app {
@@ -40,8 +49,10 @@ class AppEvent final {
  public:
   // Constructors
   AppEvent() {}
-  template <typename Context>
-  AppEvent(const Context& context, const math::Size2d& size, double scale);
+  template <class Context>
+  AppEvent(const Context& context,
+           const takram::math::Size2d& size,
+           double scale);
 
   // Copy and move
   AppEvent(const AppEvent& other) = default;
@@ -52,20 +63,20 @@ class AppEvent final {
 
   // Properties
   const ContextHolder& context() const { return context_; }
-  const math::Size2d& size() const { return size_; }
+  const takram::math::Size2d& size() const { return size_; }
   double scale() const { return scale_; }
 
  private:
   ContextHolder context_;
-  math::Size2d size_;
+  takram::math::Size2d size_;
   double scale_;
 };
 
 #pragma mark -
 
-template <typename Context>
+template <class Context>
 inline AppEvent::AppEvent(const Context& context,
-                          const math::Size2d& size,
+                          const takram::math::Size2d& size,
                           double scale)
     : context_(context),
       size_(size),

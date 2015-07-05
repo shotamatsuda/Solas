@@ -1,18 +1,27 @@
 //
 //  solas/app/touch_event.h
 //
-//  takram design engineering Confidential
+//  MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
-//  All information contained herein is, and remains the property of takram
-//  design engineering and its suppliers, if any. The intellectual and
-//  technical concepts contained herein are proprietary to takram design
-//  engineering and its suppliers and may be covered by U.S. and Foreign
-//  Patents, patents in process, and are protected by trade secret or copyright
-//  law. Dissemination of this information or reproduction of this material is
-//  strictly forbidden unless prior written permission is obtained from takram
-//  design engineering.
+//  Permission is hereby granted, free of charge, to any person obtaining a
+//  copy of this software and associated documentation files (the "Software"),
+//  to deal in the Software without restriction, including without limitation
+//  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+//  and/or sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+//  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//  DEALINGS IN THE SOFTWARE.
 //
 
 #pragma once
@@ -21,7 +30,7 @@
 
 #include <vector>
 
-#include "solas/math/vector.h"
+#include "takram/math/vector.h"
 
 namespace solas {
 namespace app {
@@ -39,7 +48,7 @@ class TouchEvent final {
  public:
   // Constructors
   TouchEvent();
-  TouchEvent(Type type, const std::vector<math::Vec2d>& touches);
+  TouchEvent(Type type, const std::vector<takram::math::Vec2d>& touches);
 
   // Copy and move
   TouchEvent(const TouchEvent& other) = default;
@@ -53,14 +62,14 @@ class TouchEvent final {
 
   // Properties
   Type type() const { return type_; }
-  const std::vector<math::Vec2d>& touches() const { return touches_; }
+  const std::vector<takram::math::Vec2d>& touches() const { return touches_; }
 
   // Conversion
   operator bool() const { return !empty(); }
 
  private:
   Type type_;
-  std::vector<math::Vec2d> touches_;
+  std::vector<takram::math::Vec2d> touches_;
 };
 
 #pragma mark -
@@ -68,7 +77,7 @@ class TouchEvent final {
 inline TouchEvent::TouchEvent() : type_(Type::UNDEFINED) {}
 
 inline TouchEvent::TouchEvent(Type type,
-                              const std::vector<math::Vec2d>& touches)
+                              const std::vector<takram::math::Vec2d>& touches)
     : type_(type),
       touches_(touches) {}
 

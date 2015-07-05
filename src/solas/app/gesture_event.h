@@ -1,18 +1,27 @@
 //
 //  solas/app/gesture_event.h
 //
-//  takram design engineering Confidential
+//  MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
-//  All information contained herein is, and remains the property of takram
-//  design engineering and its suppliers, if any. The intellectual and
-//  technical concepts contained herein are proprietary to takram design
-//  engineering and its suppliers and may be covered by U.S. and Foreign
-//  Patents, patents in process, and are protected by trade secret or copyright
-//  law. Dissemination of this information or reproduction of this material is
-//  strictly forbidden unless prior written permission is obtained from takram
-//  design engineering.
+//  Permission is hereby granted, free of charge, to any person obtaining a
+//  copy of this software and associated documentation files (the "Software"),
+//  to deal in the Software without restriction, including without limitation
+//  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+//  and/or sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+//  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//  DEALINGS IN THE SOFTWARE.
 //
 
 #pragma once
@@ -29,7 +38,7 @@
 #include "solas/app/gesture_kind.h"
 #include "solas/app/screen_edge.h"
 #include "solas/app/swipe_direction.h"
-#include "solas/math/vector.h"
+#include "takram/math/vector.h"
 
 namespace solas {
 namespace app {
@@ -65,8 +74,8 @@ class GestureEvent final {
   };
 
   struct PanData {
-    math::Vec2d translation;
-    math::Vec2d velocity;
+    takram::math::Vec2d translation;
+    takram::math::Vec2d velocity;
     std::size_t touches;
   };
 
@@ -77,14 +86,14 @@ class GestureEvent final {
  public:
   // Constructors
   GestureEvent();
-  template <typename Data>
+  template <class Data>
   GestureEvent(Type type,
                GestureKind kind,
-               const std::vector<math::Vec2d>& touches,
+               const std::vector<takram::math::Vec2d>& touches,
                const Data& data);
   GestureEvent(Type type,
                GestureKind kind,
-               const std::vector<math::Vec2d>& touches,
+               const std::vector<takram::math::Vec2d>& touches,
                const boost::any& data);
 
   // Copy and move
@@ -100,7 +109,7 @@ class GestureEvent final {
   // Properties
   Type type() const { return type_; }
   GestureKind kind() const { return kind_; }
-  const std::vector<math::Vec2d>& touches() const { return touches_; }
+  const std::vector<takram::math::Vec2d>& touches() const { return touches_; }
 
   // Gesture data
   const TapData& tap() const;
@@ -116,7 +125,7 @@ class GestureEvent final {
  private:
   Type type_;
   GestureKind kind_;
-  std::vector<math::Vec2d> touches_;
+  std::vector<takram::math::Vec2d> touches_;
   boost::any data_;
 };
 
@@ -126,11 +135,11 @@ inline GestureEvent::GestureEvent()
     : type_(Type::UNDEFINED),
       kind_(GestureKind::UNDEFINED) {}
 
-template <typename Data>
+template <class Data>
 inline GestureEvent::GestureEvent(
     Type type,
     GestureKind kind,
-    const std::vector<math::Vec2d>& touches,
+    const std::vector<takram::math::Vec2d>& touches,
     const Data& data)
     : type_(type),
       kind_(kind),
@@ -140,7 +149,7 @@ inline GestureEvent::GestureEvent(
 inline GestureEvent::GestureEvent(
     Type type,
     GestureKind kind,
-    const std::vector<math::Vec2d>& touches,
+    const std::vector<takram::math::Vec2d>& touches,
     const boost::any& data)
     : type_(type),
       kind_(kind),

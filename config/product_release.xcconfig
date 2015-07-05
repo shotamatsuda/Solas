@@ -1,5 +1,5 @@
 //
-//  Solas.h
+//  product_release.xcconfig
 //
 //  MIT License
 //
@@ -24,30 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <AppKit/AppKit.h>
+#include "product.xcconfig"
 
-FOUNDATION_EXPORT double SolasVersionNumber;
-FOUNDATION_EXPORT const unsigned char SolasVersionString[];
+// Linking
+OTHER_LDFLAGS = $(inherited)
 
-#import "SLSAnimationSource.h"
-#import "SLSApplicationMain.h"
-#import "SLSDefines.h"
-#import "SLSDisplayDelegate.h"
-#import "SLSDisplayLink.h"
-#import "SLSDisplaySource.h"
-#import "SLSEventDelegate.h"
-#import "SLSEvents.h"
-#import "SLSEventSource.h"
-#import "SLSNSApplicationDelegate.h"
-#import "SLSNSBundle+Bundle.h"
-#import "SLSNSEventSourceView.h"
-#import "SLSNSOpenGL3View.h"
-#import "SLSNSOpenGL4View.h"
-#import "SLSNSOpenGLLayer.h"
-#import "SLSNSOpenGLView.h"
-#import "SLSNSQuartzView.h"
-#import "SLSNSView.h"
-#import "SLSNSViewController.h"
-#import "SLSNSWindowController.h"
-#import "SLSQuartzLayer.h"
-#import "SLSRunner.h"
+// Search Paths
+HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib" $(TAKRAM_HEADER_SEARCH_PATHS)

@@ -1,5 +1,5 @@
 //
-//  Solas.h
+//  product.xcconfig
 //
 //  MIT License
 //
@@ -24,30 +24,12 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <AppKit/AppKit.h>
+#include "dependencies.xcconfig"
 
-FOUNDATION_EXPORT double SolasVersionNumber;
-FOUNDATION_EXPORT const unsigned char SolasVersionString[];
+// Header Search Paths
+TAKRAM_MATH_HEADER_SEARCH_PATHS = $(TAKRAM_MATH_PATH)"/src" $(TAKRAM_MATH_PATH)"/lib"
+TAKRAM_TWEEN_HEADER_SEARCH_PATHS = $(TAKRAM_TWEEN_PATH)"/src" $(TAKRAM_TWEEN_PATH)"/lib"
+TAKRAM_HEADER_SEARCH_PATHS = $(TAKRAM_MATH_HEADER_SEARCH_PATHS) $(TAKRAM_TWEEN_HEADER_SEARCH_PATHS)
 
-#import "SLSAnimationSource.h"
-#import "SLSApplicationMain.h"
-#import "SLSDefines.h"
-#import "SLSDisplayDelegate.h"
-#import "SLSDisplayLink.h"
-#import "SLSDisplaySource.h"
-#import "SLSEventDelegate.h"
-#import "SLSEvents.h"
-#import "SLSEventSource.h"
-#import "SLSNSApplicationDelegate.h"
-#import "SLSNSBundle+Bundle.h"
-#import "SLSNSEventSourceView.h"
-#import "SLSNSOpenGL3View.h"
-#import "SLSNSOpenGL4View.h"
-#import "SLSNSOpenGLLayer.h"
-#import "SLSNSOpenGLView.h"
-#import "SLSNSQuartzView.h"
-#import "SLSNSView.h"
-#import "SLSNSViewController.h"
-#import "SLSNSWindowController.h"
-#import "SLSQuartzLayer.h"
-#import "SLSRunner.h"
+// Search Paths
+ALWAYS_SEARCH_USER_PATHS = NO

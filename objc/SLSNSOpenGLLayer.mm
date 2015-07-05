@@ -1,27 +1,37 @@
 //
 //  SLSNSOpenGLLayer.mm
 //
-//  takram design engineering Confidential
+//  MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
-//  All information contained herein is, and remains the property of takram
-//  design engineering and its suppliers, if any. The intellectual and
-//  technical concepts contained herein are proprietary to takram design
-//  engineering and its suppliers and may be covered by U.S. and Foreign
-//  Patents, patents in process, and are protected by trade secret or copyright
-//  law. Dissemination of this information or reproduction of this material is
-//  strictly forbidden unless prior written permission is obtained from takram
-//  design engineering.
+//  Permission is hereby granted, free of charge, to any person obtaining a
+//  copy of this software and associated documentation files (the "Software"),
+//  to deal in the Software without restriction, including without limitation
+//  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+//  and/or sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+//  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//  DEALINGS IN THE SOFTWARE.
 //
 
 #import "SLSNSOpenGLLayer.h"
 
-#import <OpenGL/glu.h>
+#import <OpenGL/gl.h>
+#import <OpenGL/glext.h>
 #import <QuartzCore/QuartzCore.h>
 
 #include "solas/app/app_event.h"
-#include "solas/math/size.h"
+#include "takram/math/size.h"
 #include "solas/gl/layer_framebuffer.h"
 
 @interface SLSNSOpenGLLayer () {
@@ -74,11 +84,21 @@
                   forLayerTime:(CFTimeInterval)layerTime
                    displayTime:(const CVTimeStamp *)displayTime {
   CGRect bounds = self.bounds;
-  const solas::math::Size2d size(bounds.size.width, bounds.size.height);
+  const takram::math::Size2d size(bounds.size.width, bounds.size.height);
   const solas::app::AppEvent event(context, size, self.contentsScale);
-  if ([_displayDelegate respondsToSelector:@selector(sender:update:)]) {
-    [_displayDelegate sender:self update:SLSAppEventMake(&event)];
+  if ([_displayDelegate respondsToSelector:
+          @selector(displayDelegate:update:)]) {
+    [_displayDelegate displayDelegate:self update:SLSAppEventMake(&event)];
   }
+  double scale = self.contentsScale;
+  GLint framebuffer;
+  glGetIntegerv(GL_FRAMEBUFFER_BINDING, &framebuffer);
+  _framebuffer.update(bounds.size.width, bounds.size.height, scale);
+  _framebuffer.bind();
+  glClearColor(1.0, 1.0, 1.0, 1.0);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+  _framebuffer.transfer(framebuffer);
+  glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
   return YES;
 }
 
@@ -92,10 +112,11 @@
   glGetIntegerv(GL_FRAMEBUFFER_BINDING, &framebuffer);
   _framebuffer.update(bounds.size.width, bounds.size.height, scale);
   _framebuffer.bind();
-  const solas::math::Size2d size(bounds.size.width, bounds.size.height);
+  const takram::math::Size2d size(bounds.size.width, bounds.size.height);
   const solas::app::AppEvent event(context, size, scale);
-  if ([_displayDelegate respondsToSelector:@selector(sender:draw:)]) {
-    [_displayDelegate sender:self draw:SLSAppEventMake(&event)];
+  if ([_displayDelegate respondsToSelector:
+          @selector(displayDelegate:draw:)]) {
+    [_displayDelegate displayDelegate:self draw:SLSAppEventMake(&event)];
   }
   _framebuffer.transfer(framebuffer);
   glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);

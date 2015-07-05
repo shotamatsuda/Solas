@@ -26,10 +26,9 @@ namespace gl {
 
 class LayerFramebuffer {
  public:
-  // Constructors
   LayerFramebuffer();
 
-  // Disallow copy and assign
+  // Disallow copy semantics
   LayerFramebuffer(const LayerFramebuffer& other) = delete;
   LayerFramebuffer& operator=(const LayerFramebuffer& other) = delete;
 

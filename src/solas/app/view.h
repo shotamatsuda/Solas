@@ -1,18 +1,27 @@
 //
 //  solas/app/view.h
 //
-//  takram design engineering Confidential
+//  MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
-//  All information contained herein is, and remains the property of takram
-//  design engineering and its suppliers, if any. The intellectual and
-//  technical concepts contained herein are proprietary to takram design
-//  engineering and its suppliers and may be covered by U.S. and Foreign
-//  Patents, patents in process, and are protected by trade secret or copyright
-//  law. Dissemination of this information or reproduction of this material is
-//  strictly forbidden unless prior written permission is obtained from takram
-//  design engineering.
+//  Permission is hereby granted, free of charge, to any person obtaining a
+//  copy of this software and associated documentation files (the "Software"),
+//  to deal in the Software without restriction, including without limitation
+//  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+//  and/or sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+//  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//  DEALINGS IN THE SOFTWARE.
 //
 
 #pragma once
@@ -35,8 +44,8 @@
 #include "solas/app/mouse_event.h"
 #include "solas/app/runnable.h"
 #include "solas/app/touch_event.h"
-#include "solas/math/vector.h"
-#include "solas/tween/timeline_host.h"
+#include "takram/math/vector.h"
+#include "takram/tween/timeline_host.h"
 
 namespace solas {
 namespace app {
@@ -47,18 +56,18 @@ class View : public app::Runnable, public Composite {
   using EventConnectionList = std::list<boost::signals2::scoped_connection>;
 
  private:
-  template <typename Event>
+  template <class Event>
   using EventSignals = std::unordered_map<
       typename Event::Type,
       boost::signals2::signal<void(const Event&)>>;
 
  private:
-  template <typename Event, typename Type = typename Event::Type>
+  template <class Event, class Type = typename Event::Type>
   struct EventConnector {
-    template <typename Slot>
+    template <class Slot>
     static EventConnection Connect(Type type, const Slot& slot, View *view);
 
-    template <typename Slot>
+    template <class Slot>
     static void Disconnect(Type type, const Slot& slot, View *view);
   };
 
@@ -67,11 +76,11 @@ class View : public app::Runnable, public Composite {
   View();
   virtual ~View() = 0;
 
-  // Disallow copy and assign
+  // Disallow copy semantics
   View(const View& other) = delete;
   View& operator=(const View& other) = delete;
 
-  // Move
+  // Move semantics
   View(View&& other) = default;
 
   // Structure
@@ -80,8 +89,8 @@ class View : public app::Runnable, public Composite {
   double scale() const override;
 
   // Mouse
-  const math::Vec2d& mouse() const override;
-  const math::Vec2d& pmouse() const override;
+  const takram::math::Vec2d& mouse() const override;
+  const takram::math::Vec2d& pmouse() const override;
   MouseButton mouse_button() const override;
   bool mouse_pressed() const override;
 
@@ -91,23 +100,23 @@ class View : public app::Runnable, public Composite {
   bool key_pressed() const override;
 
   // Touches
-  const math::Vec2d& touch() const override;
-  const math::Vec2d& ptouch() const override;
+  const takram::math::Vec2d& touch() const override;
+  const takram::math::Vec2d& ptouch() const override;
   bool touch_pressed() const override;
 
   // Aggregation
   Composite * parent() const override;
 
   // Event connection
-  template <typename Event, typename Slot, typename Type = typename Event::Type>
+  template <class Event, class Slot, class Type = typename Event::Type>
   EventConnection connectEvent(Type type, const Slot& slot);
-  template <typename Event, typename Slot, typename Type = typename Event::Type>
+  template <class Event, class Slot, class Type = typename Event::Type>
   void disconnectEvent(Type type, const Slot& slot);
 
  protected:
   // Aggregation
-  tween::TimelineHost * timeline_host() override;
-  const tween::TimelineHost * timeline_host() const override;
+  takram::tween::TimelineHost * timeline_host() override;
+  const takram::tween::TimelineHost * timeline_host() const override;
 
   // Lifecycle intended to be overriden
   void setup() override {}
@@ -161,7 +170,7 @@ class View : public app::Runnable, public Composite {
 
  private:
   // Event handlers
-  template <typename Event>
+  template <class Event>
   void enqueueEvent(const Event& event);
   void dequeueEvents();
   void handleEvent(const EventHolder& event);
@@ -210,10 +219,10 @@ class View : public app::Runnable, public Composite {
   double scale_;
 
   // Mouse
-  math::Vec2d mouse_;
-  math::Vec2d pmouse_;
-  math::Vec2d dmouse_;
-  math::Vec2d emouse_;
+  takram::math::Vec2d mouse_;
+  takram::math::Vec2d pmouse_;
+  takram::math::Vec2d dmouse_;
+  takram::math::Vec2d emouse_;
   MouseButton mouse_button_;
   bool mouse_pressed_;
 
@@ -223,14 +232,14 @@ class View : public app::Runnable, public Composite {
   bool key_pressed_;
 
   // Mouse
-  math::Vec2d touch_;
-  math::Vec2d ptouch_;
-  math::Vec2d dtouch_;
-  math::Vec2d etouch_;
+  takram::math::Vec2d touch_;
+  takram::math::Vec2d ptouch_;
+  takram::math::Vec2d dtouch_;
+  takram::math::Vec2d etouch_;
   bool touch_pressed_;
 
   // Tween
-  tween::TimelineHost timeline_host_;
+  takram::tween::TimelineHost timeline_host_;
 
   // Event signals
   EventSignals<AppEvent> app_event_signals_;
@@ -272,11 +281,11 @@ inline double View::scale() const {
 
 #pragma mark Mouse
 
-inline const math::Vec2d& View::mouse() const {
+inline const takram::math::Vec2d& View::mouse() const {
   return mouse_;
 }
 
-inline const math::Vec2d& View::pmouse() const {
+inline const takram::math::Vec2d& View::pmouse() const {
   return pmouse_;
 }
 
@@ -304,11 +313,11 @@ inline bool View::key_pressed() const {
 
 #pragma mark Touches
 
-inline const math::Vec2d& View::touch() const {
+inline const takram::math::Vec2d& View::touch() const {
   return touch_;
 }
 
-inline const math::Vec2d& View::ptouch() const {
+inline const takram::math::Vec2d& View::ptouch() const {
   return ptouch_;
 }
 
@@ -322,29 +331,29 @@ inline Composite * View::parent() const {
   return nullptr;
 }
 
-inline tween::TimelineHost * View::timeline_host() {
+inline takram::tween::TimelineHost * View::timeline_host() {
   return &timeline_host_;
 }
 
-inline const tween::TimelineHost * View::timeline_host() const {
+inline const takram::tween::TimelineHost * View::timeline_host() const {
   return &timeline_host_;
 }
 
 #pragma mark Event connection
 
-template <typename Event, typename Slot, typename Type>
+template <class Event, class Slot, class Type>
 inline View::EventConnection View::connectEvent(Type type, const Slot& slot) {
   return EventConnector<Event>::Connect(type, slot, this);
 }
 
-template <typename Event, typename Slot, typename Type>
+template <class Event, class Slot, class Type>
 inline void View::disconnectEvent(Type type, const Slot& slot) {
   EventConnector<Event>::Disconnect(type, slot, this);
 }
 
 #pragma mark Event handlers
 
-template <typename Event>
+template <class Event>
 inline void View::enqueueEvent(const Event& event) {
   event_queue_.emplace(event);
 }
@@ -390,8 +399,8 @@ inline void View::setup(const AppEvent& event) {
 }
 
 inline void View::update(const AppEvent& event) {
-  timeline<tween::Time>().advance();
-  timeline<tween::Frame>().advance();
+  timeline<takram::tween::Time>().advance();
+  timeline<takram::tween::Frame>().advance();
   Runnable::update(event);
   app_event_signals_[AppEvent::Type::UPDATE](event);
 }
@@ -512,12 +521,12 @@ template <>
 struct View::EventConnector<AppEvent> {
   using Type = AppEvent::Type;
 
-  template <typename Slot>
+  template <class Slot>
   static EventConnection Connect(Type type, const Slot& slot, View *view) {
     return view->app_event_signals_[type].connect(slot);
   }
 
-  template <typename Slot>
+  template <class Slot>
   static void Disconnect(Type type, const Slot& slot, View *view) {
     view->app_event_signals_[type].disconnect(slot);
   }
@@ -527,12 +536,12 @@ template <>
 struct View::EventConnector<MouseEvent> {
   using Type = MouseEvent::Type;
 
-  template <typename Slot>
+  template <class Slot>
   static EventConnection Connect(Type type, const Slot& slot, View *view) {
     return view->mouse_event_signals_[type].connect(slot);
   }
 
-  template <typename Slot>
+  template <class Slot>
   static void Disconnect(Type type, const Slot& slot, View *view) {
     view->mouse_event_signals_[type].disconnect(slot);
   }
@@ -542,12 +551,12 @@ template <>
 struct View::EventConnector<KeyEvent> {
   using Type = KeyEvent::Type;
 
-  template <typename Slot>
+  template <class Slot>
   static EventConnection Connect(Type type, const Slot& slot, View *view) {
     return view->key_event_signals_[type].connect(slot);
   }
 
-  template <typename Slot>
+  template <class Slot>
   static void Disconnect(Type type, const Slot& slot, View *view) {
     view->key_event_signals_[type].disconnect(slot);
   }
@@ -557,12 +566,12 @@ template <>
 struct View::EventConnector<TouchEvent> {
   using Type = TouchEvent::Type;
 
-  template <typename Slot>
+  template <class Slot>
   static EventConnection Connect(Type type, const Slot& slot, View *view) {
     return view->touch_event_signals_[type].connect(slot);
   }
 
-  template <typename Slot>
+  template <class Slot>
   static void Disconnect(Type type, const Slot& slot, View *view) {
     view->touch_event_signals_[type].disconnect(slot);
   }
@@ -572,12 +581,12 @@ template <>
 struct View::EventConnector<GestureEvent> {
   using Type = GestureEvent::Type;
 
-  template <typename Slot>
+  template <class Slot>
   static EventConnection Connect(Type type, const Slot& slot, View *view) {
     return view->gesture_event_signals_[type].connect(slot);
   }
 
-  template <typename Slot>
+  template <class Slot>
   static void Disconnect(Type type, const Slot& slot, View *view) {
     view->gesture_event_signals_[type].disconnect(slot);
   }
@@ -587,12 +596,12 @@ template <>
 struct View::EventConnector<MotionEvent> {
   using Type = MotionEvent::Type;
 
-  template <typename Slot>
+  template <class Slot>
   static EventConnection Connect(Type type, const Slot& slot, View *view) {
     return view->motion_event_signals_[type].connect(slot);
   }
 
-  template <typename Slot>
+  template <class Slot>
   static void Disconnect(Type type, const Slot& slot, View *view) {
     view->motion_event_signals_[type].disconnect(slot);
   }

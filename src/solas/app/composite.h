@@ -1,18 +1,27 @@
 //
 //  solas/app/composite.h
 //
-//  takram design engineering Confidential
+//  MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
-//  All information contained herein is, and remains the property of takram
-//  design engineering and its suppliers, if any. The intellectual and
-//  technical concepts contained herein are proprietary to takram design
-//  engineering and its suppliers and may be covered by U.S. and Foreign
-//  Patents, patents in process, and are protected by trade secret or copyright
-//  law. Dissemination of this information or reproduction of this material is
-//  strictly forbidden unless prior written permission is obtained from takram
-//  design engineering.
+//  Permission is hereby granted, free of charge, to any person obtaining a
+//  copy of this software and associated documentation files (the "Software"),
+//  to deal in the Software without restriction, including without limitation
+//  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+//  and/or sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+//  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//  DEALINGS IN THE SOFTWARE.
 //
 
 #pragma once
@@ -25,11 +34,11 @@
 #include <utility>
 
 #include "solas/app/mouse_button.h"
-#include "solas/math/vector.h"
-#include "solas/tween/timeline.h"
-#include "solas/tween/timeline_host.h"
-#include "solas/tween/timer.h"
-#include "solas/tween/tween.h"
+#include "takram/math/vector.h"
+#include "takram/tween/timeline.h"
+#include "takram/tween/timeline_host.h"
+#include "takram/tween/timer.h"
+#include "takram/tween/tween.h"
 
 namespace solas {
 namespace app {
@@ -40,11 +49,11 @@ class Composite {
   explicit Composite(Composite *parent);
   virtual ~Composite() = 0;
 
-  // Disallow copy and assign
+  // Disallow copy semantics
   Composite(const Composite& other) = delete;
   Composite& operator=(const Composite& other) = delete;
 
-  // Move
+  // Move semantics
   Composite(Composite&& other);
 
   // Structure
@@ -53,8 +62,8 @@ class Composite {
   virtual double scale() const;
 
   // Mouse
-  virtual const math::Vec2d& mouse() const;
-  virtual const math::Vec2d& pmouse() const;
+  virtual const takram::math::Vec2d& mouse() const;
+  virtual const takram::math::Vec2d& pmouse() const;
   virtual MouseButton mouse_button() const;
   virtual bool mouse_pressed() const;
 
@@ -64,21 +73,21 @@ class Composite {
   virtual bool key_pressed() const;
 
   // Touches
-  virtual const math::Vec2d& touch() const;
-  virtual const math::Vec2d& ptouch() const;
+  virtual const takram::math::Vec2d& touch() const;
+  virtual const takram::math::Vec2d& ptouch() const;
   virtual bool touch_pressed() const;
 
   // Creating tweens
-  template <typename Interval = tween::Time, typename... Args>
-  tween::Tween<Interval> tween(Args&&... args);
-  template <typename Interval = tween::Time, typename... Args>
-  tween::Timer<Interval> timer(Args&&... args);
+  template <class Interval = takram::tween::Time, class... Args>
+  takram::tween::Tween<Interval> tween(Args&&... args);
+  template <class Interval = takram::tween::Time, class... Args>
+  takram::tween::Timer<Interval> timer(Args&&... args);
 
   // Accessing timeline
-  template <typename Interval = tween::Time>
-  tween::Timeline<Interval>& timeline();
-  template <typename Interval = tween::Time>
-  const tween::Timeline<Interval>& timeline() const;
+  template <class Interval = takram::tween::Time>
+  takram::tween::Timeline<Interval>& timeline();
+  template <class Interval = takram::tween::Time>
+  const takram::tween::Timeline<Interval>& timeline() const;
 
   // Aggregation
   virtual Composite * parent() const;
@@ -88,8 +97,8 @@ class Composite {
   Composite();
 
   // Aggregation
-  virtual tween::TimelineHost * timeline_host();
-  virtual const tween::TimelineHost * timeline_host() const;
+  virtual takram::tween::TimelineHost * timeline_host();
+  virtual const takram::tween::TimelineHost * timeline_host() const;
 
  private:
   Composite *parent_;
@@ -128,12 +137,12 @@ inline double Composite::scale() const {
 
 #pragma mark Mouse
 
-inline const math::Vec2d& Composite::mouse() const {
+inline const takram::math::Vec2d& Composite::mouse() const {
   assert(parent_);
   return parent_->mouse();
 }
 
-inline const math::Vec2d& Composite::pmouse() const {
+inline const takram::math::Vec2d& Composite::pmouse() const {
   assert(parent_);
   return parent_->pmouse();
 }
@@ -167,12 +176,12 @@ inline bool Composite::key_pressed() const {
 
 #pragma mark Touches
 
-inline const math::Vec2d& Composite::touch() const {
+inline const takram::math::Vec2d& Composite::touch() const {
   assert(parent_);
   return parent_->touch();
 }
 
-inline const math::Vec2d& Composite::ptouch() const {
+inline const takram::math::Vec2d& Composite::ptouch() const {
   assert(parent_);
   return parent_->ptouch();
 }
@@ -184,25 +193,25 @@ inline bool Composite::touch_pressed() const {
 
 #pragma mark Creating tweens
 
-template <typename Interval, typename... Args>
-inline tween::Tween<Interval> Composite::tween(Args&&... args) {
+template <class Interval, class... Args>
+inline takram::tween::Tween<Interval> Composite::tween(Args&&... args) {
   return timeline_host()->tween<Interval>(std::forward<Args>(args)...);
 }
 
-template <typename Interval, typename... Args>
-inline tween::Timer<Interval> Composite::timer(Args&&... args) {
+template <class Interval, class... Args>
+inline takram::tween::Timer<Interval> Composite::timer(Args&&... args) {
   return timeline_host()->timer<Interval>(std::forward<Args>(args)...);
 }
 
 #pragma mark Accessing timeline
 
-template <typename Interval>
-inline tween::Timeline<Interval>& Composite::timeline() {
+template <class Interval>
+inline takram::tween::Timeline<Interval>& Composite::timeline() {
   return timeline_host()->timeline<Interval>();
 }
 
-template <typename Interval>
-inline const tween::Timeline<Interval>& Composite::timeline() const {
+template <class Interval>
+inline const takram::tween::Timeline<Interval>& Composite::timeline() const {
   return timeline_host()->timeline<Interval>();
 }
 
@@ -213,12 +222,12 @@ inline Composite * Composite::parent() const {
   return parent_;
 }
 
-inline tween::TimelineHost * Composite::timeline_host() {
+inline takram::tween::TimelineHost * Composite::timeline_host() {
   assert(parent_);
   return parent_->timeline_host();
 }
 
-inline const tween::TimelineHost * Composite::timeline_host() const {
+inline const takram::tween::TimelineHost * Composite::timeline_host() const {
   assert(parent_);
   return parent_->timeline_host();
 }

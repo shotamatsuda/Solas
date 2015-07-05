@@ -1,18 +1,27 @@
 //
 //  solas/utility/tree_iterator.h
 //
-//  takram design engineering Confidential
+//  MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
-//  All information contained herein is, and remains the property of takram
-//  design engineering and its suppliers, if any. The intellectual and
-//  technical concepts contained herein are proprietary to takram design
-//  engineering and its suppliers and may be covered by U.S. and Foreign
-//  Patents, patents in process, and are protected by trade secret or copyright
-//  law. Dissemination of this information or reproduction of this material is
-//  strictly forbidden unless prior written permission is obtained from takram
-//  design engineering.
+//  Permission is hereby granted, free of charge, to any person obtaining a
+//  copy of this software and associated documentation files (the "Software"),
+//  to deal in the Software without restriction, including without limitation
+//  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+//  and/or sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+//  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//  DEALINGS IN THE SOFTWARE.
 //
 
 #pragma once
@@ -25,13 +34,13 @@ namespace solas {
 namespace utility {
 
 // Primary template
-template <typename T, typename... Iterators>
+template <class T, class... Iterators>
 class TreeIterator;
 
 #pragma mark -
 
 // Terminating partial specialization
-template <typename T, typename Iterator>
+template <class T, class Iterator>
 class TreeIterator<T, Iterator> final
     : public std::iterator<std::forward_iterator_tag, T> {
  public:
@@ -60,7 +69,7 @@ class TreeIterator<T, Iterator> final
 #pragma mark -
 
 // Recursive partial specialization
-template <typename T, typename Iterator, typename... RestIterators>
+template <class T, class Iterator, class... RestIterators>
 class TreeIterator<T, Iterator, RestIterators...> final
     : public std::iterator<std::forward_iterator_tag, T> {
  public:
@@ -93,21 +102,21 @@ class TreeIterator<T, Iterator, RestIterators...> final
 
 #pragma mark -
 
-template <typename T, typename Iterator>
+template <class T, class Iterator>
 inline TreeIterator<T, Iterator>::TreeIterator() : current_() {}
 
-template <typename T, typename Iterator>
+template <class T, class Iterator>
 inline TreeIterator<T, Iterator>
     ::TreeIterator(Iterator begin, Iterator end)
     : current_(begin) {}
 
-template <typename T, typename Iterator, typename... RestIterators>
+template <class T, class Iterator, class... RestIterators>
 inline TreeIterator<T, Iterator, RestIterators...>
     ::TreeIterator()
     : current_(),
       end_() {}
 
-template <typename T, typename Iterator, typename... RestIterators>
+template <class T, class Iterator, class... RestIterators>
 inline TreeIterator<T, Iterator, RestIterators...>
     ::TreeIterator(Iterator begin, Iterator end)
     : current_(begin),
@@ -117,25 +126,25 @@ inline TreeIterator<T, Iterator, RestIterators...>
 
 #pragma mark Comparison
 
-template <typename T, typename Iterator>
+template <class T, class Iterator>
 inline bool TreeIterator<T, Iterator>
     ::operator==(const TreeIterator& other) const {
   return current_ == other.current_;
 }
 
-template <typename T, typename Iterator>
+template <class T, class Iterator>
 inline bool TreeIterator<T, Iterator>
     ::operator!=(const TreeIterator& other) const {
   return !operator==(other);
 }
 
-template <typename T, typename Iterator, typename... RestIterators>
+template <class T, class Iterator, class... RestIterators>
 inline bool TreeIterator<T, Iterator, RestIterators...>
     ::operator==(const TreeIterator& other) const {
   return current_ == other.current_ && rest_ == other.rest_;
 }
 
-template <typename T, typename Iterator, typename... RestIterators>
+template <class T, class Iterator, class... RestIterators>
 inline bool TreeIterator<T, Iterator, RestIterators...>
     ::operator!=(const TreeIterator& other) const {
   return !operator==(other);
@@ -143,24 +152,24 @@ inline bool TreeIterator<T, Iterator, RestIterators...>
 
 #pragma mark Iterator
 
-template <typename T, typename Iterator>
+template <class T, class Iterator>
 inline T& TreeIterator<T, Iterator>::operator*() const {
   return *current_;
 }
 
-template <typename T, typename Iterator, typename... RestIterators>
+template <class T, class Iterator, class... RestIterators>
 inline T& TreeIterator<T, Iterator, RestIterators...>::operator*() const {
   return *rest_;
 }
 
-template <typename T, typename Iterator>
+template <class T, class Iterator>
 inline TreeIterator<T, Iterator>&
     TreeIterator<T, Iterator>::operator++() {
   ++current_;
   return *this;
 }
 
-template <typename T, typename Iterator, typename... RestIterators>
+template <class T, class Iterator, class... RestIterators>
 inline TreeIterator<T, Iterator, RestIterators...>&
     TreeIterator<T, Iterator, RestIterators...>::operator++() {
   using RestIterator = TreeIterator<T, RestIterators...>;
@@ -171,7 +180,7 @@ inline TreeIterator<T, Iterator, RestIterators...>&
   return *this;
 }
 
-template <typename T, typename Iterator, typename... RestIterators>
+template <class T, class Iterator, class... RestIterators>
 inline void TreeIterator<T, Iterator, RestIterators...>::validate() {
   using RestIterator = TreeIterator<T, RestIterators...>;
   if (current_ == end_) {
@@ -192,7 +201,7 @@ inline void TreeIterator<T, Iterator, RestIterators...>::validate() {
   }
 }
 
-template <typename T, typename Iterator>
+template <class T, class Iterator>
 inline TreeIterator<T, Iterator>
     TreeIterator<T, Iterator>::operator++(int) {
   TreeIterator result(*this);
@@ -200,7 +209,7 @@ inline TreeIterator<T, Iterator>
   return result;
 }
 
-template <typename T, typename Iterator, typename... RestIterators>
+template <class T, class Iterator, class... RestIterators>
 inline TreeIterator<T, Iterator, RestIterators...>
     TreeIterator<T, Iterator, RestIterators...>::operator++(int) {
   TreeIterator result(*this);
