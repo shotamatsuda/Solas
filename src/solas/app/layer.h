@@ -38,7 +38,6 @@ namespace app {
 template <class View>
 class Layer : public Composite {
  public:
-  // Constructors
   explicit Layer(View *parent);
   explicit Layer(Layer *parent);
 

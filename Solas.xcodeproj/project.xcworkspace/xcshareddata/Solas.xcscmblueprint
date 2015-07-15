@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "58B6EBA1F8262F3B015D2616B601962F3369BF97",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "58B6EBA1F8262F3B015D2616B601962F3369BF97" : 0,
+    "5CC3662DE7B154BFBD52EC7DD2FAEF03F2CD148F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8A78AB2F-2B0C-4026-9E47-A700A3067948",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "58B6EBA1F8262F3B015D2616B601962F3369BF97" : "solas",
+    "5CC3662DE7B154BFBD52EC7DD2FAEF03F2CD148F" : "solas\/lib\/nanovg"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Solas",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Solas.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:takram-design-engineering\/solas.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "58B6EBA1F8262F3B015D2616B601962F3369BF97"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:memononen\/nanovg.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5CC3662DE7B154BFBD52EC7DD2FAEF03F2CD148F"
+    }
+  ]
+}

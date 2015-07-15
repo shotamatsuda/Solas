@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "58B6EBA1F8262F3B015D2616B601962F3369BF97",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "58B6EBA1F8262F3B015D2616B601962F3369BF97" : 0,
+    "5C8CF0A138265198B677E8F60B5F554B06CAF05A" : 0,
+    "54A35B5F7E6CF0D37C23A7F208F4533C7D784BFD" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "A77E9E5A-8DB9-448F-819B-94913269F4CA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "58B6EBA1F8262F3B015D2616B601962F3369BF97" : "solas\/",
+    "5C8CF0A138265198B677E8F60B5F554B06CAF05A" : "takram-tween\/",
+    "54A35B5F7E6CF0D37C23A7F208F4533C7D784BFD" : "takram-math\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Solas OSX",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Solas OSX.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:takram-design-engineering\/takram-math.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "54A35B5F7E6CF0D37C23A7F208F4533C7D784BFD"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:takram-design-engineering\/solas.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "58B6EBA1F8262F3B015D2616B601962F3369BF97"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:takram-design-engineering\/takram-tween.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5C8CF0A138265198B677E8F60B5F554B06CAF05A"
+    }
+  ]
+}

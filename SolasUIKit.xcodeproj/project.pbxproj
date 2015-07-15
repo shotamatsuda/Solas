@@ -1,0 +1,340 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93F857721B56231A00C32E8D /* SLSUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DE41ADDFF0B003F9A7A /* SLSUIViewController.m */; };
+		93F857731B56231A00C32E8D /* SLSUIEventSourceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CD61ADCABA000B42B9E /* SLSUIEventSourceView.mm */; };
+		93F857741B56231A00C32E8D /* SLSUIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DEC1ADE0116003F9A7A /* SLSUIView.m */; };
+		93F857751B56231A00C32E8D /* SLSUIOpenGLESView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93D73DFC1ADE0758003F9A7A /* SLSUIOpenGLESView.mm */; };
+		93F857761B56231A00C32E8D /* SLSUIOpenGLES2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 938A47FF1AED711E00071B50 /* SLSUIOpenGLES2View.m */; };
+		93F857771B56231A00C32E8D /* SLSUIOpenGLES3View.m in Sources */ = {isa = PBXBuildFile; fileRef = 938A48041AED712900071B50 /* SLSUIOpenGLES3View.m */; };
+		93F857781B56231A00C32E8D /* SLSUIQuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CCE1ADCA5C700B42B9E /* SLSUIQuartzView.m */; };
+		93F857791B56231A00C32E8D /* SLSCADisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 939E96851AD3864600A7E21E /* SLSCADisplayLink.m */; };
+		93F8577A1B56231A00C32E8D /* SLSUIApplicationMain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229EC61AD2409E008D27EA /* SLSUIApplicationMain.mm */; };
+		93F8577B1B56231A00C32E8D /* SLSUIApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93229E8F1AD23DF3008D27EA /* SLSUIApplicationDelegate.mm */; };
+		93F857851B56251400C32E8D /* SolasTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9A31AD97B2A009D0646 /* SolasTouch.h */; };
+		93F857861B56251400C32E8D /* SLSUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DE31ADDFF0B003F9A7A /* SLSUIViewController.h */; };
+		93F857871B56251400C32E8D /* SLSUIEventSourceView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CD51ADCABA000B42B9E /* SLSUIEventSourceView.h */; };
+		93F857881B56251400C32E8D /* SLSUIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DEB1ADE0116003F9A7A /* SLSUIView.h */; };
+		93F857891B56251400C32E8D /* SLSUIOpenGLESView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DFB1ADE0758003F9A7A /* SLSUIOpenGLESView.h */; };
+		93F8578A1B56251400C32E8D /* SLSUIOpenGLES2View.h in Headers */ = {isa = PBXBuildFile; fileRef = 938A47FE1AED711E00071B50 /* SLSUIOpenGLES2View.h */; };
+		93F8578B1B56251400C32E8D /* SLSUIOpenGLES3View.h in Headers */ = {isa = PBXBuildFile; fileRef = 938A48031AED712900071B50 /* SLSUIOpenGLES3View.h */; };
+		93F8578C1B56251400C32E8D /* SLSUIQuartzView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CCD1ADCA5C700B42B9E /* SLSUIQuartzView.h */; };
+		93F8578D1B56251400C32E8D /* SLSUIApplicationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E8E1AD23DF3008D27EA /* SLSUIApplicationDelegate.h */; };
+		93F857A01B5625CD00C32E8D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F857901B56259500C32E8D /* CoreGraphics.framework */; };
+		93F857A11B5625CD00C32E8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F857921B56259900C32E8D /* Foundation.framework */; };
+		93F857A21B5625CD00C32E8D /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F857941B56259D00C32E8D /* GLKit.framework */; };
+		93F857A31B5625CD00C32E8D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F857961B5625A100C32E8D /* ImageIO.framework */; };
+		93F857A41B5625CD00C32E8D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F857981B5625A600C32E8D /* MobileCoreServices.framework */; };
+		93F857A51B5625CD00C32E8D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F8579A1B5625AB00C32E8D /* OpenGLES.framework */; };
+		93F857A61B5625CD00C32E8D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F8579C1B5625AF00C32E8D /* QuartzCore.framework */; };
+		93F857A71B5625CD00C32E8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F8579E1B5625B300C32E8D /* UIKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		93229E8E1AD23DF3008D27EA /* SLSUIApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIApplicationDelegate.h; sourceTree = "<group>"; };
+		93229E8F1AD23DF3008D27EA /* SLSUIApplicationDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIApplicationDelegate.mm; sourceTree = "<group>"; };
+		93229EC61AD2409E008D27EA /* SLSUIApplicationMain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIApplicationMain.mm; sourceTree = "<group>"; };
+		938A47FE1AED711E00071B50 /* SLSUIOpenGLES2View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIOpenGLES2View.h; sourceTree = "<group>"; };
+		938A47FF1AED711E00071B50 /* SLSUIOpenGLES2View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIOpenGLES2View.m; sourceTree = "<group>"; };
+		938A48031AED712900071B50 /* SLSUIOpenGLES3View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIOpenGLES3View.h; sourceTree = "<group>"; };
+		938A48041AED712900071B50 /* SLSUIOpenGLES3View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIOpenGLES3View.m; sourceTree = "<group>"; };
+		939E96851AD3864600A7E21E /* SLSCADisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSCADisplayLink.m; sourceTree = "<group>"; };
+		93AD7CCD1ADCA5C700B42B9E /* SLSUIQuartzView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIQuartzView.h; sourceTree = "<group>"; };
+		93AD7CCE1ADCA5C700B42B9E /* SLSUIQuartzView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIQuartzView.m; sourceTree = "<group>"; };
+		93AD7CD51ADCABA000B42B9E /* SLSUIEventSourceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIEventSourceView.h; sourceTree = "<group>"; };
+		93AD7CD61ADCABA000B42B9E /* SLSUIEventSourceView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIEventSourceView.mm; sourceTree = "<group>"; };
+		93D73DE31ADDFF0B003F9A7A /* SLSUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIViewController.h; sourceTree = "<group>"; };
+		93D73DE41ADDFF0B003F9A7A /* SLSUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIViewController.m; sourceTree = "<group>"; };
+		93D73DEB1ADE0116003F9A7A /* SLSUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIView.h; sourceTree = "<group>"; };
+		93D73DEC1ADE0116003F9A7A /* SLSUIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIView.m; sourceTree = "<group>"; };
+		93D73DFB1ADE0758003F9A7A /* SLSUIOpenGLESView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIOpenGLESView.h; sourceTree = "<group>"; };
+		93D73DFC1ADE0758003F9A7A /* SLSUIOpenGLESView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIOpenGLESView.mm; sourceTree = "<group>"; };
+		93F857401B56217B00C32E8D /* Bundle.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Bundle.plist; sourceTree = "<group>"; };
+		93F857411B56217B00C32E8D /* dependencies.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = dependencies.xcconfig; sourceTree = "<group>"; };
+		93F857431B56217B00C32E8D /* product_debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = product_debug.xcconfig; sourceTree = "<group>"; };
+		93F857441B56217B00C32E8D /* product_release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = product_release.xcconfig; sourceTree = "<group>"; };
+		93F857451B56217B00C32E8D /* product_test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = product_test.xcconfig; sourceTree = "<group>"; };
+		93F857461B56217B00C32E8D /* product.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = product.xcconfig; sourceTree = "<group>"; };
+		93F857471B56217B00C32E8D /* project_debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_debug.xcconfig; sourceTree = "<group>"; };
+		93F857481B56217B00C32E8D /* project_release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_release.xcconfig; sourceTree = "<group>"; };
+		93F857491B56217B00C32E8D /* project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
+		93F8574E1B5621C900C32E8D /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		93F857901B56259500C32E8D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		93F857921B56259900C32E8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		93F857941B56259D00C32E8D /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		93F857961B5625A100C32E8D /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		93F857981B5625A600C32E8D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		93F8579A1B5625AB00C32E8D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		93F8579C1B5625AF00C32E8D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		93F8579E1B5625B300C32E8D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		93FEF9A31AD97B2A009D0646 /* SolasTouch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SolasTouch.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93F8574B1B5621C900C32E8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93F857A01B5625CD00C32E8D /* CoreGraphics.framework in Frameworks */,
+				93F857A11B5625CD00C32E8D /* Foundation.framework in Frameworks */,
+				93F857A21B5625CD00C32E8D /* GLKit.framework in Frameworks */,
+				93F857A31B5625CD00C32E8D /* ImageIO.framework in Frameworks */,
+				93F857A41B5625CD00C32E8D /* MobileCoreServices.framework in Frameworks */,
+				93F857A51B5625CD00C32E8D /* OpenGLES.framework in Frameworks */,
+				93F857A61B5625CD00C32E8D /* QuartzCore.framework in Frameworks */,
+				93F857A71B5625CD00C32E8D /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		930955021A4FB1E200D09023 /* config */ = {
+			isa = PBXGroup;
+			children = (
+				93F857401B56217B00C32E8D /* Bundle.plist */,
+				93F857411B56217B00C32E8D /* dependencies.xcconfig */,
+				93F857491B56217B00C32E8D /* project.xcconfig */,
+				93F857471B56217B00C32E8D /* project_debug.xcconfig */,
+				93F857481B56217B00C32E8D /* project_release.xcconfig */,
+				93F857461B56217B00C32E8D /* product.xcconfig */,
+				93F857431B56217B00C32E8D /* product_debug.xcconfig */,
+				93F857441B56217B00C32E8D /* product_release.xcconfig */,
+				93F857451B56217B00C32E8D /* product_test.xcconfig */,
+			);
+			path = config;
+			sourceTree = "<group>";
+		};
+		93A45B3A1AD0D2BC00969DC2 /* linked frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93F857901B56259500C32E8D /* CoreGraphics.framework */,
+				93F857921B56259900C32E8D /* Foundation.framework */,
+				93F857941B56259D00C32E8D /* GLKit.framework */,
+				93F857961B5625A100C32E8D /* ImageIO.framework */,
+				93F857981B5625A600C32E8D /* MobileCoreServices.framework */,
+				93F8579A1B5625AB00C32E8D /* OpenGLES.framework */,
+				93F8579C1B5625AF00C32E8D /* QuartzCore.framework */,
+				93F8579E1B5625B300C32E8D /* UIKit.framework */,
+			);
+			name = "linked frameworks";
+			sourceTree = "<group>";
+		};
+		93F38E441AB5FA26009E3626 /* objc */ = {
+			isa = PBXGroup;
+			children = (
+				93FEF9A31AD97B2A009D0646 /* SolasTouch.h */,
+				93D73DE31ADDFF0B003F9A7A /* SLSUIViewController.h */,
+				93D73DE41ADDFF0B003F9A7A /* SLSUIViewController.m */,
+				93AD7CD51ADCABA000B42B9E /* SLSUIEventSourceView.h */,
+				93AD7CD61ADCABA000B42B9E /* SLSUIEventSourceView.mm */,
+				93D73DEB1ADE0116003F9A7A /* SLSUIView.h */,
+				93D73DEC1ADE0116003F9A7A /* SLSUIView.m */,
+				93D73DFB1ADE0758003F9A7A /* SLSUIOpenGLESView.h */,
+				93D73DFC1ADE0758003F9A7A /* SLSUIOpenGLESView.mm */,
+				938A47FE1AED711E00071B50 /* SLSUIOpenGLES2View.h */,
+				938A47FF1AED711E00071B50 /* SLSUIOpenGLES2View.m */,
+				938A48031AED712900071B50 /* SLSUIOpenGLES3View.h */,
+				938A48041AED712900071B50 /* SLSUIOpenGLES3View.m */,
+				93AD7CCD1ADCA5C700B42B9E /* SLSUIQuartzView.h */,
+				93AD7CCE1ADCA5C700B42B9E /* SLSUIQuartzView.m */,
+				939E96851AD3864600A7E21E /* SLSCADisplayLink.m */,
+				93229EC61AD2409E008D27EA /* SLSUIApplicationMain.mm */,
+				93229E8E1AD23DF3008D27EA /* SLSUIApplicationDelegate.h */,
+				93229E8F1AD23DF3008D27EA /* SLSUIApplicationDelegate.mm */,
+			);
+			path = objc;
+			sourceTree = "<group>";
+		};
+		93F8AD6617C8B39800310877 = {
+			isa = PBXGroup;
+			children = (
+				93F38E441AB5FA26009E3626 /* objc */,
+				930955021A4FB1E200D09023 /* config */,
+				93A45B3A1AD0D2BC00969DC2 /* linked frameworks */,
+				93F8AD7017C8B39800310877 /* products */,
+			);
+			sourceTree = "<group>";
+		};
+		93F8AD7017C8B39800310877 /* products */ = {
+			isa = PBXGroup;
+			children = (
+				93F8574E1B5621C900C32E8D /* libSolas.a */,
+			);
+			name = products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		93F857841B5624F800C32E8D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93F8578D1B56251400C32E8D /* SLSUIApplicationDelegate.h in Headers */,
+				93F857881B56251400C32E8D /* SLSUIView.h in Headers */,
+				93F8578C1B56251400C32E8D /* SLSUIQuartzView.h in Headers */,
+				93F8578B1B56251400C32E8D /* SLSUIOpenGLES3View.h in Headers */,
+				93F857861B56251400C32E8D /* SLSUIViewController.h in Headers */,
+				93F8578A1B56251400C32E8D /* SLSUIOpenGLES2View.h in Headers */,
+				93F857891B56251400C32E8D /* SLSUIOpenGLESView.h in Headers */,
+				93F857871B56251400C32E8D /* SLSUIEventSourceView.h in Headers */,
+				93F857851B56251400C32E8D /* SolasTouch.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		93F8574D1B5621C900C32E8D /* SolasUIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93F8575F1B5621CA00C32E8D /* Build configuration list for PBXNativeTarget "SolasUIKit" */;
+			buildPhases = (
+				93F8574A1B5621C900C32E8D /* Sources */,
+				93F8574B1B5621C900C32E8D /* Frameworks */,
+				93F857841B5624F800C32E8D /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SolasUIKit;
+			productName = SolasUIKit;
+			productReference = 93F8574E1B5621C900C32E8D /* libSolas.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93F8AD6717C8B39800310877 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = sgss;
+				TargetAttributes = {
+					93F8574D1B5621C900C32E8D = {
+						CreatedOnToolsVersion = 6.4;
+					};
+				};
+			};
+			buildConfigurationList = 93F8AD6A17C8B39800310877 /* Build configuration list for PBXProject "SolasUIKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 93F8AD6617C8B39800310877;
+			productRefGroup = 93F8AD7017C8B39800310877 /* products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93F8574D1B5621C900C32E8D /* SolasUIKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93F8574A1B5621C900C32E8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93F857771B56231A00C32E8D /* SLSUIOpenGLES3View.m in Sources */,
+				93F857761B56231A00C32E8D /* SLSUIOpenGLES2View.m in Sources */,
+				93F857751B56231A00C32E8D /* SLSUIOpenGLESView.mm in Sources */,
+				93F857721B56231A00C32E8D /* SLSUIViewController.m in Sources */,
+				93F8577A1B56231A00C32E8D /* SLSUIApplicationMain.mm in Sources */,
+				93F857731B56231A00C32E8D /* SLSUIEventSourceView.mm in Sources */,
+				93F857781B56231A00C32E8D /* SLSUIQuartzView.m in Sources */,
+				93F857741B56231A00C32E8D /* SLSUIView.m in Sources */,
+				93F8577B1B56231A00C32E8D /* SLSUIApplicationDelegate.mm in Sources */,
+				93F857791B56231A00C32E8D /* SLSCADisplayLink.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		93F857601B5621CA00C32E8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93F857431B56217B00C32E8D /* product_debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/boost/osx/framework",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = Solas;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		93F857611B5621CA00C32E8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93F857441B56217B00C32E8D /* product_release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EXECUTABLE_PREFIX = lib;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/boost/osx/framework",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = Solas;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		93F8AD7617C8B39800310877 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93F857471B56217B00C32E8D /* project_debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		93F8AD7717C8B39800310877 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93F857481B56217B00C32E8D /* project_release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93F8575F1B5621CA00C32E8D /* Build configuration list for PBXNativeTarget "SolasUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93F857601B5621CA00C32E8D /* Debug */,
+				93F857611B5621CA00C32E8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93F8AD6A17C8B39800310877 /* Build configuration list for PBXProject "SolasUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93F8AD7617C8B39800310877 /* Debug */,
+				93F8AD7717C8B39800310877 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93F8AD6717C8B39800310877 /* Project object */;
+}

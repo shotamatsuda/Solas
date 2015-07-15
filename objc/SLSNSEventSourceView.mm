@@ -36,7 +36,7 @@
 #include "solas/app/mouse_button.h"
 #include "solas/app/mouse_event.h"
 #include "solas/app/touch_event.h"
-#include "takram/math/vector.h"
+#include "solas/math.h"
 
 @interface SLSNSEventSourceView ()
 
@@ -193,10 +193,10 @@
                                fromView:self.window.contentView];
   return solas::app::MouseEvent(
       type,
-      takram::math::Vec2d(location.x, location.y),
+      solas::Vec2d(location.x, location.y),
       static_cast<solas::app::MouseButton>(event.buttonNumber),
       [self keyModifiersForEvent:event],
-      takram::math::Vec3d(event.deltaX, event.deltaY, event.deltaZ));
+      solas::Vec3d(event.deltaX, event.deltaY, event.deltaZ));
 }
 
 - (solas::app::KeyEvent)keyEventWithEvent:(NSEvent *)event

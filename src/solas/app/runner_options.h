@@ -28,15 +28,16 @@
 #ifndef SOLAS_APP_RUNNER_OPTIONS_H_
 #define SOLAS_APP_RUNNER_OPTIONS_H_
 
+#include "solas/app/backend.h"
+
 namespace solas {
 namespace app {
 
 class RunnerOptions final {
  public:
-  // Constructors
   RunnerOptions();
 
-  // Copy and assign
+  // Copy semantics
   RunnerOptions(const RunnerOptions& other) = default;
   RunnerOptions& operator=(const RunnerOptions& other) = default;
 
@@ -45,12 +46,15 @@ class RunnerOptions final {
   bool operator!=(const RunnerOptions& other) const;
 
   // Properties
+  Backend backend() const { return backend_; }
+  void set_backend(Backend value) { backend_ = value; }
   bool multiple_windows() const { return multiple_windows_; }
   void set_multiple_windows(bool value) { multiple_windows_ = value; }
   bool dark_content() const { return dark_content_; }
   void set_dark_content(bool value) { dark_content_ = value; }
 
  private:
+  Backend backend_;
   bool multiple_windows_;
   bool dark_content_;
 };
@@ -58,13 +62,15 @@ class RunnerOptions final {
 #pragma mark -
 
 inline RunnerOptions::RunnerOptions()
-    : multiple_windows_(true),
+    : backend_(Backend::OPENGL2 | Backend::OPENGLES2),
+      multiple_windows_(true),
       dark_content_(true) {}
 
 #pragma mark Comparison
 
 inline bool RunnerOptions::operator==(const RunnerOptions& other) const {
-  return (multiple_windows_ == other.multiple_windows_ &&
+  return (backend_ == other.backend_ &&
+          multiple_windows_ == other.multiple_windows_ &&
           dark_content_ == other.dark_content_);
 }
 

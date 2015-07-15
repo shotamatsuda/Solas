@@ -17,8 +17,8 @@
 
 #include "solas/gl/layer_framebuffer.h"
 
+#include <OpenGL/gl.h>
 #include <OpenGL/glext.h>
-#include <OpenGL/glu.h>
 
 namespace solas {
 namespace gl {
@@ -39,8 +39,6 @@ void LayerFramebuffer::update(GLsizei width, GLsizei height, double scale) {
   GLint framebuffer;
   glGetIntegerv(GL_FRAMEBUFFER_BINDING, &framebuffer);
   glBindFramebuffer(GL_FRAMEBUFFER, framebuffer_);
-
-  // Multisample
   GLint multisample;
   glGetIntegerv(GL_MAX_SAMPLES, &multisample);
 

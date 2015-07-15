@@ -85,9 +85,6 @@ class Runnable {
   virtual void motionCancel(const MotionEvent& event) {}
   virtual void motionEnd(const MotionEvent& event) {}
 
-  // Backend
-  virtual Backend backend() const;
-
   // Context
   const ContextHolder& context() const;
 
@@ -129,12 +126,6 @@ inline void Runnable::post(const AppEvent& event) {
 inline void Runnable::exit(const AppEvent& event) {
   context_ = event.context();
   exit();
-}
-
-#pragma mark Backend
-
-inline Backend Runnable::backend() const {
-  return Backend::OPENGL2 | Backend::OPENGLES2;
 }
 
 #pragma mark Context

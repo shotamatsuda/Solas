@@ -29,7 +29,7 @@
 #define SOLAS_APP_APP_EVENT_H_
 
 #include "solas/app/context_holder.h"
-#include "takram/math/size.h"
+#include "solas/math.h"
 
 namespace solas {
 namespace app {
@@ -47,28 +47,22 @@ class AppEvent final {
   };
 
  public:
-  // Constructors
   AppEvent() {}
   template <class Context>
-  AppEvent(const Context& context,
-           const takram::math::Size2d& size,
-           double scale);
+  AppEvent(const Context& context, const Size2d& size, double scale);
 
-  // Copy and move
+  // Copy semantics excluding assignment
   AppEvent(const AppEvent& other) = default;
-  AppEvent(AppEvent&& other) = default;
-
-  // Disallow assign
   AppEvent& operator=(const AppEvent& other) = delete;
 
   // Properties
   const ContextHolder& context() const { return context_; }
-  const takram::math::Size2d& size() const { return size_; }
+  const Size2d& size() const { return size_; }
   double scale() const { return scale_; }
 
  private:
   ContextHolder context_;
-  takram::math::Size2d size_;
+  Size2d size_;
   double scale_;
 };
 
@@ -76,7 +70,7 @@ class AppEvent final {
 
 template <class Context>
 inline AppEvent::AppEvent(const Context& context,
-                          const takram::math::Size2d& size,
+                          const Size2d& size,
                           double scale)
     : context_(context),
       size_(size),

@@ -30,7 +30,7 @@
 
 #include <vector>
 
-#include "takram/math/vector.h"
+#include "solas/math.h"
 
 namespace solas {
 namespace app {
@@ -46,15 +46,11 @@ class TouchEvent final {
   };
 
  public:
-  // Constructors
   TouchEvent();
-  TouchEvent(Type type, const std::vector<takram::math::Vec2d>& touches);
+  TouchEvent(Type type, const std::vector<Vec2d>& touches);
 
-  // Copy and move
+  // Copy semantics excluding assignment
   TouchEvent(const TouchEvent& other) = default;
-  TouchEvent(TouchEvent&& other) = default;
-
-  // Disallow assign
   TouchEvent& operator=(const TouchEvent& other) = delete;
 
   // Attributes
@@ -62,22 +58,21 @@ class TouchEvent final {
 
   // Properties
   Type type() const { return type_; }
-  const std::vector<takram::math::Vec2d>& touches() const { return touches_; }
+  const std::vector<Vec2d>& touches() const { return touches_; }
 
   // Conversion
   operator bool() const { return !empty(); }
 
  private:
   Type type_;
-  std::vector<takram::math::Vec2d> touches_;
+  std::vector<Vec2d> touches_;
 };
 
 #pragma mark -
 
 inline TouchEvent::TouchEvent() : type_(Type::UNDEFINED) {}
 
-inline TouchEvent::TouchEvent(Type type,
-                              const std::vector<takram::math::Vec2d>& touches)
+inline TouchEvent::TouchEvent(Type type, const std::vector<Vec2d>& touches)
     : type_(type),
       touches_(touches) {}
 

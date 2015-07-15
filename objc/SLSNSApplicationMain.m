@@ -1,9 +1,9 @@
 //
-//  ProjectRelease.xcconfig
+//  SLSNSApplicationMain.m
 //
 //  MIT License
 //
-//  Copyright (C) 2014-2015 Shota Matsuda
+//  Copyright (C) 2015 Shota Matsuda
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -24,23 +24,19 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-// Configuration for Xcode 6
+#import "SLSApplicationMain.h"
 
-#include "Project.xcconfig"
+#import <AppKit/AppKit.h>
 
-// Build Options
-DEBUG_INFORMATION_FORMAT = dwarf-with-dsym
+#import "SLSNSApplicationDelegate.h"
+#import "SLSNSBundle+Bundle.h"
 
-// Deployment
-COPY_PHASE_STRIP = YES
-
-// Apple LLVM 6.0 - Code Generation
-GCC_OPTIMIZATION_LEVEL = s
-GCC_FAST_MATH = NO
-
-// Apple LLVM 6.0 - Preprocessing
-ENABLE_NS_ASSERTIONS = NO
-GCC_PREPROCESSOR_DEFINITIONS = $(inherited) NDEBUG=1 __ASSERT_MACROS_DEFINE_VERSIONS_WITHOUT_UNDERSCORES=0
-
-// User-Defined
-MTL_ENABLE_DEBUG_INFO = NO
+int SLSApplicationMain(int argc, char **argv) {
+  @autoreleasepool {
+    NSApplication *app = [NSApplication sharedApplication];
+    NSBundle *bundle = [NSBundle solasBundle];
+    [bundle loadNibNamed:@"SLSNSApplication" owner:app topLevelObjects:NULL];
+    [app run];
+  }
+  return EXIT_SUCCESS;
+}

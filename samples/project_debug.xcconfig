@@ -1,9 +1,9 @@
 //
-//  SLSNSApplicationMain.mm
+//  project_debug.xcconfig
 //
 //  MIT License
 //
-//  Copyright (C) 2015 Shota Matsuda
+//  Copyright (C) 2014-2015 Shota Matsuda
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -24,19 +24,21 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSApplicationMain.h"
+#include "project.xcconfig"
 
-#import <AppKit/AppKit.h>
+// Build Options
+DEBUG_INFORMATION_FORMAT = dwarf
+ENABLE_TESTABILITY = YES
 
-#import "SLSNSApplicationDelegate.h"
-#import "SLSNSBundle+Bundle.h"
+// Deployment
+COPY_PHASE_STRIP = NO
 
-int SLSApplicationMain(int argc, char **argv) {
-  @autoreleasepool {
-    NSApplication *app = [NSApplication sharedApplication];
-    NSBundle *bundle = [NSBundle solasBundle];
-    [bundle loadNibNamed:@"SLSNSApplication" owner:app topLevelObjects:NULL];
-    [app run];
-  }
-  return EXIT_SUCCESS;
-}
+// Apple LLVM - Code Generation
+GCC_OPTIMIZATION_LEVEL = 0
+GCC_FAST_MATH = NO
+
+// Apple LLVM - Preprocessing
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) DEBUG=1
+
+// User-Defined
+MTL_ENABLE_DEBUG_INFO = YES

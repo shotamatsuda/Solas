@@ -46,10 +46,6 @@ class ContextHolder final {
   ContextHolder(const ContextHolder& other) = default;
   ContextHolder& operator=(const ContextHolder& other) = default;
 
-  // Move semantics
-  ContextHolder(ContextHolder&& other) = default;
-  ContextHolder& operator=(ContextHolder&& other) = default;
-
   // Reference
   template <class T>
   const T& get() const;

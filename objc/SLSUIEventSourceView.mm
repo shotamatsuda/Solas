@@ -1,18 +1,27 @@
 //
 //  SLSUIEventSourceView.mm
 //
-//  takram design engineering Confidential
+//  MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
-//  All information contained herein is, and remains the property of takram
-//  design engineering and its suppliers, if any. The intellectual and
-//  technical concepts contained herein are proprietary to takram design
-//  engineering and its suppliers and may be covered by U.S. and Foreign
-//  Patents, patents in process, and are protected by trade secret or copyright
-//  law. Dissemination of this information or reproduction of this material is
-//  strictly forbidden unless prior written permission is obtained from takram
-//  design engineering.
+//  Permission is hereby granted, free of charge, to any person obtaining a
+//  copy of this software and associated documentation files (the "Software"),
+//  to deal in the Software without restriction, including without limitation
+//  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+//  and/or sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+//  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//  DEALINGS IN THE SOFTWARE.
 //
 
 #import "SLSUIEventSourceView.h"
@@ -26,7 +35,7 @@
 #include "solas/app/gesture_kind.h"
 #include "solas/app/motion_event.h"
 #include "solas/app/touch_event.h"
-#include "solas/math/vector.h"
+#include "solas/math.h"
 
 @interface SLSUIEventSourceView () <UIGestureRecognizerDelegate>
 
@@ -139,91 +148,113 @@
 #pragma mark Notifying Events to the Delegate
 
 - (void)notifyTouchesBeginWithEvent:(UIEvent *)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:touchesBegin:)]) {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:touchesBegin:)]) {
     const auto touchEvent([self touchEventWithEvent:event
         type:solas::app::TouchEvent::Type::BEGIN]);
-    [_eventDelegate sender:self touchesBegin:SLSTouchEventMake(&touchEvent)];
+    [_eventDelegate eventDelegate:self
+                     touchesBegin:SLSTouchEventMake(&touchEvent)];
   }
 }
 
 - (void)notifyTouchesMoveWithEvent:(UIEvent *)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:touchesMove:)]) {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:touchesMove:)]) {
     const auto touchEvent([self touchEventWithEvent:event
         type:solas::app::TouchEvent::Type::MOVE]);
-    [_eventDelegate sender:self touchesMove:SLSTouchEventMake(&touchEvent)];
+    [_eventDelegate eventDelegate:self
+                      touchesMove:SLSTouchEventMake(&touchEvent)];
   }
 }
 
 - (void)notifyTouchesCancelWithEvent:(UIEvent *)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:touchesCancel:)]) {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:touchesCancel:)]) {
     const auto touchEvent([self touchEventWithEvent:event
         type:solas::app::TouchEvent::Type::CANCEL]);
-    [_eventDelegate sender:self touchesCancel:SLSTouchEventMake(&touchEvent)];
+    [_eventDelegate eventDelegate:self
+                    touchesCancel:SLSTouchEventMake(&touchEvent)];
   }
 }
 
 - (void)notifyTouchesEndWithEvent:(UIEvent *)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:touchesEnd:)]) {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:touchesEnd:)]) {
     const auto touchEvent([self touchEventWithEvent:event
         type:solas::app::TouchEvent::Type::END]);
-    [_eventDelegate sender:self touchesEnd:SLSTouchEventMake(&touchEvent)];
+    [_eventDelegate eventDelegate:self
+                       touchesEnd:SLSTouchEventMake(&touchEvent)];
   }
 }
 
 - (void)notifyMotionBeginWithEvent:(UIEvent *)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:motionBegin:)]) {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:motionBegin:)]) {
     const auto motionEvent([self motionEventWithEvent:event
         type:solas::app::MotionEvent::Type::BEGIN]);
-    [_eventDelegate sender:self motionBegin:SLSMotionEventMake(&motionEvent)];
+    [_eventDelegate eventDelegate:self
+                      motionBegin:SLSMotionEventMake(&motionEvent)];
   }
 }
 
 - (void)notifyMotionCancelWithEvent:(UIEvent *)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:motionCancel:)]) {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:motionCancel:)]) {
     const auto motionEvent([self motionEventWithEvent:event
         type:solas::app::MotionEvent::Type::CANCEL]);
-    [_eventDelegate sender:self motionCancel:SLSMotionEventMake(&motionEvent)];
+    [_eventDelegate eventDelegate:self
+                     motionCancel:SLSMotionEventMake(&motionEvent)];
   }
 }
 
 - (void)notifyMotionEndWithEvent:(UIEvent *)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:motionEnd:)]) {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:motionEnd:)]) {
     const auto motionEvent([self motionEventWithEvent:event
         type:solas::app::MotionEvent::Type::END]);
-    [_eventDelegate sender:self motionEnd:SLSMotionEventMake(&motionEvent)];
+    [_eventDelegate eventDelegate:self
+                        motionEnd:SLSMotionEventMake(&motionEvent)];
   }
 }
 
-- (void)notifyGestureEventWithRecognizer:(UIGestureRecognizer *)recognizer
-                                    kind:(solas::app::GestureKind)kind
-                                    data:(const boost::any&)data {
+- (void)notifyGestureWithRecognizer:(UIGestureRecognizer *)recognizer
+                               kind:(solas::app::GestureKind)kind
+                               data:(const boost::any&)data {
   if (recognizer.state == UIGestureRecognizerStateBegan) {
-    if ([_eventDelegate respondsToSelector:@selector(sender:gestureBegin:)]) {
+    if ([_eventDelegate respondsToSelector:
+            @selector(eventDelegate:gestureBegin:)]) {
       const auto event([self gestureEventWithRecognizer:recognizer
           type:solas::app::GestureEvent::Type::BEGIN
           kind:kind data:data]);
-      [_eventDelegate sender:self gestureBegin:SLSGestureEventMake(&event)];
+      [_eventDelegate eventDelegate:self
+                       gestureBegin:SLSGestureEventMake(&event)];
     }
   } else if (recognizer.state == UIGestureRecognizerStateChanged) {
-    if ([_eventDelegate respondsToSelector:@selector(sender:gestureChange:)]) {
+    if ([_eventDelegate respondsToSelector:
+            @selector(eventDelegate:gestureChange:)]) {
       const auto event([self gestureEventWithRecognizer:recognizer
           type:solas::app::GestureEvent::Type::CHANGE
           kind:kind data:data]);
-      [_eventDelegate sender:self gestureChange:SLSGestureEventMake(&event)];
+      [_eventDelegate eventDelegate:self
+                      gestureChange:SLSGestureEventMake(&event)];
     }
   } else if (recognizer.state == UIGestureRecognizerStateCancelled) {
-    if ([_eventDelegate respondsToSelector:@selector(sender:gestureCancel:)]) {
+    if ([_eventDelegate respondsToSelector:
+            @selector(eventDelegate:gestureCancel:)]) {
       const auto event([self gestureEventWithRecognizer:recognizer
           type:solas::app::GestureEvent::Type::CANCEL
           kind:kind data:data]);
-      [_eventDelegate sender:self gestureCancel:SLSGestureEventMake(&event)];
+      [_eventDelegate eventDelegate:self
+                      gestureCancel:SLSGestureEventMake(&event)];
     }
   } else if (recognizer.state == UIGestureRecognizerStateEnded) {
-    if ([_eventDelegate respondsToSelector:@selector(sender:gestureEnd:)]) {
+    if ([_eventDelegate respondsToSelector:
+            @selector(eventDelegate:gestureEnd:)]) {
       const auto event([self gestureEventWithRecognizer:recognizer
           type:solas::app::GestureEvent::Type::END
           kind:kind data:data]);
-      [_eventDelegate sender:self gestureEnd:SLSGestureEventMake(&event)];
+      [_eventDelegate eventDelegate:self
+                         gestureEnd:SLSGestureEventMake(&event)];
     }
   }
 }
@@ -349,7 +380,7 @@
   solas::app::GestureEvent::TapData data;
   data.taps = recognizer.numberOfTapsRequired;
   data.touches = recognizer.numberOfTouchesRequired;
-  [self notifyGestureEventWithRecognizer:recognizer
+  [self notifyGestureWithRecognizer:recognizer
       kind:solas::app::GestureKind::TAP data:data];
 }
 
@@ -357,7 +388,7 @@
   solas::app::GestureEvent::PinchData data;
   data.scale = recognizer.scale;
   data.velocity = recognizer.velocity;
-  [self notifyGestureEventWithRecognizer:recognizer
+  [self notifyGestureWithRecognizer:recognizer
       kind:solas::app::GestureKind::PINCH data:data];
 }
 
@@ -365,7 +396,7 @@
   solas::app::GestureEvent::RotationData data;
   data.rotation = recognizer.rotation;
   data.velocity = recognizer.velocity;
-  [self notifyGestureEventWithRecognizer:recognizer
+  [self notifyGestureWithRecognizer:recognizer
       kind:solas::app::GestureKind::ROTATION data:data];
 }
 
@@ -381,7 +412,7 @@
     data.direction = solas::app::SwipeDirection::DOWN;
   }
   data.touches = recognizer.numberOfTouchesRequired;
-  [self notifyGestureEventWithRecognizer:recognizer
+  [self notifyGestureWithRecognizer:recognizer
       kind:solas::app::GestureKind::SWIPE data:data];
 }
 
@@ -392,7 +423,7 @@
   CGPoint velocity = [recognizer velocityInView:self];
   data.velocity.set(velocity.x, velocity.y);
   data.touches = recognizer.minimumNumberOfTouches;
-  [self notifyGestureEventWithRecognizer:recognizer
+  [self notifyGestureWithRecognizer:recognizer
       kind:solas::app::GestureKind::PAN data:data];
 }
 
@@ -429,7 +460,7 @@
   } else if (edge == UIRectEdgeRight) {
     data.edge = solas::app::ScreenEdge::RIGHT;
   }
-  [self notifyGestureEventWithRecognizer:recognizer
+  [self notifyGestureWithRecognizer:recognizer
       kind:solas::app::GestureKind::SCREEN_EDGE data:data];
 }
 

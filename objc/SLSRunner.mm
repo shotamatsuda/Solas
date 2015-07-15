@@ -30,7 +30,6 @@
 
 #import "SLSEvents.h"
 
-#include <cassert>
 #include <memory>
 #include <type_traits>
 #include <utility>
@@ -68,25 +67,26 @@
   NSInteger backend = kSLSRunnerBackendUndefined;
   using solas::app::Backend;
   using Underlying = std::underlying_type<Backend>::type;
-  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGL2)) {
+  auto& options = _runner->options();
+  if (static_cast<Underlying>(options.backend() & Backend::OPENGL2)) {
     backend |= kSLSRunnerBackendOpenGL2;
   }
-  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGL3)) {
+  if (static_cast<Underlying>(options.backend() & Backend::OPENGL3)) {
     backend |= kSLSRunnerBackendOpenGL3;
   }
-  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGL4)) {
+  if (static_cast<Underlying>(options.backend() & Backend::OPENGL4)) {
     backend |= kSLSRunnerBackendOpenGL4;
   }
-  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGLES1)) {
+  if (static_cast<Underlying>(options.backend() & Backend::OPENGLES1)) {
     backend |= kSLSRunnerBackendOpenGLES1;
   }
-  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGLES2)) {
+  if (static_cast<Underlying>(options.backend() & Backend::OPENGLES2)) {
     backend |= kSLSRunnerBackendOpenGLES2;
   }
-  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGLES3)) {
+  if (static_cast<Underlying>(options.backend() & Backend::OPENGLES3)) {
     backend |= kSLSRunnerBackendOpenGLES3;
   }
-  if (static_cast<Underlying>(_runner->backend() & Backend::QUARTZ)) {
+  if (static_cast<Underlying>(options.backend() & Backend::QUARTZ)) {
     backend |= kSLSRunnerBackendCoreGraphics;
   }
   return (SLSRunnerBackend)backend;

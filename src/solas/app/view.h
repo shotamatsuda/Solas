@@ -44,7 +44,7 @@
 #include "solas/app/mouse_event.h"
 #include "solas/app/runnable.h"
 #include "solas/app/touch_event.h"
-#include "takram/math/vector.h"
+#include "solas/math.h"
 #include "takram/tween/timeline_host.h"
 
 namespace solas {
@@ -72,7 +72,6 @@ class View : public app::Runnable, public Composite {
   };
 
  public:
-  // Constructors
   View();
   virtual ~View() = 0;
 
@@ -82,6 +81,7 @@ class View : public app::Runnable, public Composite {
 
   // Move semantics
   View(View&& other) = default;
+  View& operator=(View&& other) = default;
 
   // Structure
   double width() const override;
@@ -89,8 +89,8 @@ class View : public app::Runnable, public Composite {
   double scale() const override;
 
   // Mouse
-  const takram::math::Vec2d& mouse() const override;
-  const takram::math::Vec2d& pmouse() const override;
+  const Vec2d& mouse() const override;
+  const Vec2d& pmouse() const override;
   MouseButton mouse_button() const override;
   bool mouse_pressed() const override;
 
@@ -100,8 +100,8 @@ class View : public app::Runnable, public Composite {
   bool key_pressed() const override;
 
   // Touches
-  const takram::math::Vec2d& touch() const override;
-  const takram::math::Vec2d& ptouch() const override;
+  const Vec2d& touch() const override;
+  const Vec2d& ptouch() const override;
   bool touch_pressed() const override;
 
   // Aggregation
@@ -219,10 +219,10 @@ class View : public app::Runnable, public Composite {
   double scale_;
 
   // Mouse
-  takram::math::Vec2d mouse_;
-  takram::math::Vec2d pmouse_;
-  takram::math::Vec2d dmouse_;
-  takram::math::Vec2d emouse_;
+  Vec2d mouse_;
+  Vec2d pmouse_;
+  Vec2d dmouse_;
+  Vec2d emouse_;
   MouseButton mouse_button_;
   bool mouse_pressed_;
 
@@ -232,10 +232,10 @@ class View : public app::Runnable, public Composite {
   bool key_pressed_;
 
   // Mouse
-  takram::math::Vec2d touch_;
-  takram::math::Vec2d ptouch_;
-  takram::math::Vec2d dtouch_;
-  takram::math::Vec2d etouch_;
+  Vec2d touch_;
+  Vec2d ptouch_;
+  Vec2d dtouch_;
+  Vec2d etouch_;
   bool touch_pressed_;
 
   // Tween
@@ -281,11 +281,11 @@ inline double View::scale() const {
 
 #pragma mark Mouse
 
-inline const takram::math::Vec2d& View::mouse() const {
+inline const Vec2d& View::mouse() const {
   return mouse_;
 }
 
-inline const takram::math::Vec2d& View::pmouse() const {
+inline const Vec2d& View::pmouse() const {
   return pmouse_;
 }
 
@@ -313,11 +313,11 @@ inline bool View::key_pressed() const {
 
 #pragma mark Touches
 
-inline const takram::math::Vec2d& View::touch() const {
+inline const Vec2d& View::touch() const {
   return touch_;
 }
 
-inline const takram::math::Vec2d& View::ptouch() const {
+inline const Vec2d& View::ptouch() const {
   return ptouch_;
 }
 

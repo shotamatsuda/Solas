@@ -41,14 +41,10 @@ class MotionEvent final {
   };
 
  public:
-  // Constructors
   MotionEvent();
 
-  // Copy and move
+  // Copy semantics excluding assignment
   MotionEvent(const MotionEvent& other) = default;
-  MotionEvent(MotionEvent&& other) = default;
-
-  // Disallow assign
   MotionEvent& operator=(const MotionEvent& other) = delete;
 
   // Attributes

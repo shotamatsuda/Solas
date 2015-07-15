@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		937E13BD1ADBF34B008DB7A7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937E13BC1ADBF34B008DB7A7 /* OpenGLES.framework */; };
-		937E13BF1ADBF351008DB7A7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937E13BE1ADBF350008DB7A7 /* OpenGL.framework */; };
 		938D33011AF1F5B300E865AF /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF9901AD97397009D0646 /* main.cc */; };
 		93D73E201ADE301E003F9A7A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D73E1F1ADE301E003F9A7A /* Default-568h@2x.png */; };
 		93EBABC71AD980ED00BF8959 /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF97F1AD972EA009D0646 /* Solas.framework */; };
@@ -32,6 +31,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 93E913571AB27DE400DDF7F9;
 			remoteInfo = Solas;
+		};
+		93F858DA1B56565A00C32E8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 93F8580F1B564B0500C32E8D;
+			remoteInfo = "Solas iOS";
 		};
 		93FEF97E1AD972EA009D0646 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -75,14 +81,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		932E7E021B498B85004D8B89 /* project_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = project_debug.xcconfig; sourceTree = SOURCE_ROOT; };
+		932E7E031B498B85004D8B89 /* project_release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = project_release.xcconfig; sourceTree = SOURCE_ROOT; };
+		932E7E041B498B85004D8B89 /* project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = SOURCE_ROOT; };
 		937E13BC1ADBF34B008DB7A7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
 		937E13BE1ADBF350008DB7A7 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		93CA67E11ADB5BF4009F131B /* Empty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Empty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93D479601AF83B12000F89B2 /* App-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-iOS.xcconfig"; sourceTree = SOURCE_ROOT; };
 		93D479611AF83B12000F89B2 /* App-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-OSX.xcconfig"; sourceTree = SOURCE_ROOT; };
-		93D73E0E1ADE29BE003F9A7A /* ProjectDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProjectDebug.xcconfig; sourceTree = SOURCE_ROOT; };
-		93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProjectRelease.xcconfig; sourceTree = SOURCE_ROOT; };
-		93D73E101ADE2A0A003F9A7A /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = SOURCE_ROOT; };
 		93D73E1F1ADE301E003F9A7A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		93EBABBF1AD97E8C00BF8959 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = SOURCE_ROOT; };
 		93EBABC01AD97E8C00BF8959 /* Info-OSX.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-OSX.plist"; sourceTree = SOURCE_ROOT; };
@@ -106,7 +112,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				937E13BF1ADBF351008DB7A7 /* OpenGL.framework in Frameworks */,
 				93EBABD71AD98A6200BF8959 /* boost.framework in Frameworks */,
 				93EBABC71AD980ED00BF8959 /* Solas.framework in Frameworks */,
 			);
@@ -212,9 +217,9 @@
 				93EBABBF1AD97E8C00BF8959 /* Info-iOS.plist */,
 				93D479611AF83B12000F89B2 /* App-OSX.xcconfig */,
 				93D479601AF83B12000F89B2 /* App-iOS.xcconfig */,
-				93D73E101ADE2A0A003F9A7A /* Project.xcconfig */,
-				93D73E0E1ADE29BE003F9A7A /* ProjectDebug.xcconfig */,
-				93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */,
+				932E7E041B498B85004D8B89 /* project.xcconfig */,
+				932E7E021B498B85004D8B89 /* project_debug.xcconfig */,
+				932E7E031B498B85004D8B89 /* project_release.xcconfig */,
 			);
 			name = Configurations;
 			path = Zorozoro;
@@ -224,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				93FEF97F1AD972EA009D0646 /* Solas.framework */,
+				93F858DB1B56565A00C32E8D /* Solas.framework */,
 				93FEF9831AD972EA009D0646 /* SolasTest */,
 				938D32FE1AF1F5B000E865AF /* libSolas.a */,
 			);
@@ -233,9 +239,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		93CA67E01ADB5BF4009F131B /* EmptyTouch */ = {
+		93CA67E01ADB5BF4009F131B /* Empty iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "EmptyTouch" */;
+			buildConfigurationList = 93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "Empty iOS" */;
 			buildPhases = (
 				93CA67DD1ADB5BF4009F131B /* Sources */,
 				93CA67DE1ADB5BF4009F131B /* Frameworks */,
@@ -246,7 +252,7 @@
 			);
 			dependencies = (
 			);
-			name = EmptyTouch;
+			name = "Empt\U0010y iOS";
 			productName = ZorozoroTouch;
 			productReference = 93CA67E11ADB5BF4009F131B /* Empty.app */;
 			productType = "com.apple.product-type.application";
@@ -308,7 +314,7 @@
 			projectRoot = "";
 			targets = (
 				93FEF94D1AD97263009D0646 /* Empty */,
-				93CA67E01ADB5BF4009F131B /* EmptyTouch */,
+				93CA67E01ADB5BF4009F131B /* Empty iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -319,6 +325,13 @@
 			fileType = archive.ar;
 			path = libSolas.a;
 			remoteRef = 938D32FD1AF1F5B000E865AF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		93F858DB1B56565A00C32E8D /* Solas.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Solas.framework;
+			remoteRef = 93F858DA1B56565A00C32E8D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		93FEF97F1AD972EA009D0646 /* Solas.framework */ = {
@@ -388,7 +401,6 @@
 			baseConfigurationReference = 93D479601AF83B12000F89B2 /* App-iOS.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = "Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -406,7 +418,6 @@
 			baseConfigurationReference = 93D479601AF83B12000F89B2 /* App-iOS.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = "Info-iOS.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -422,12 +433,12 @@
 		};
 		93FEF9691AD97263009D0646 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93D73E0E1ADE29BE003F9A7A /* ProjectDebug.xcconfig */;
+			baseConfigurationReference = 932E7E021B498B85004D8B89 /* project_debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "-";
 				ENABLE_TESTABILITY = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = "";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -435,11 +446,11 @@
 		};
 		93FEF96A1AD97263009D0646 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */;
+			baseConfigurationReference = 932E7E031B498B85004D8B89 /* project_release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "-";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = "";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -471,7 +482,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "EmptyTouch" */ = {
+		93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "Empty iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93CA68011ADB5BF5009F131B /* Debug */,

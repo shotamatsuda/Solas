@@ -53,18 +53,14 @@ class EventHolder final {
   };
 
  public:
-  // Constructors
   explicit EventHolder(const MouseEvent& event);
   explicit EventHolder(const KeyEvent& event);
   explicit EventHolder(const TouchEvent& event);
   explicit EventHolder(const GestureEvent& event);
   explicit EventHolder(const MotionEvent& event);
 
-  // Copy and move
+  // Copy semantics excluding assignment
   EventHolder(const EventHolder& other) = default;
-  EventHolder(EventHolder&& other) = default;
-
-  // Disallow assign
   EventHolder& operator=(const EventHolder& other) = delete;
 
   // Properties

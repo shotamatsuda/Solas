@@ -40,14 +40,10 @@ class KeyEvent final {
   };
 
  public:
-  // Constructors
   KeyEvent();
 
-  // Copy and move
+  // Copy semantics excluding assignment
   KeyEvent(const KeyEvent& other) = default;
-  KeyEvent(KeyEvent&& other) = default;
-
-  // Disallow assign
   KeyEvent& operator=(const KeyEvent& other) = delete;
 
   // Attributes
@@ -65,8 +61,7 @@ class KeyEvent final {
 
 #pragma mark -
 
-inline KeyEvent::KeyEvent()
-    : type_(Type::UNDEFINED) {}
+inline KeyEvent::KeyEvent() : type_(Type::UNDEFINED) {}
 
 }  // namespace app
 }  // namespace solas

@@ -44,12 +44,10 @@
 
 - (void)windowDidLoad {
   [super windowDidLoad];
-  self.window.backgroundColor = [NSColor whiteColor];
   NSView *view = _viewController.view;
-  view.frame = self.window.contentView.frame;
+  view.frame = ((NSView *)self.window.contentView).frame;
   view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
   [self.window.contentView addSubview:view];
-  self.window.appearance = view.appearance;
 }
 
 @end

@@ -102,11 +102,11 @@
       [[SLSNSViewController alloc] initWithRunner:runner];
   SLSNSWindowController *windowController =
       [[SLSNSWindowController alloc] initWithViewController:viewController];
-  windowController.window.appearance =
-      [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
-  windowController.window.titleVisibility = NSWindowTitleHidden;
-  windowController.window.titlebarAppearsTransparent = YES;
-  windowController.window.styleMask |= NSFullSizeContentViewWindowMask;
+//  windowController.window.appearance =
+//      [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
+//  windowController.window.titleVisibility = NSWindowTitleHidden;
+//  windowController.window.titlebarAppearsTransparent = YES;
+//  windowController.window.styleMask |= NSFullSizeContentViewWindowMask;
   [[NSNotificationCenter defaultCenter]
       addObserver:self
          selector:@selector(windowWillClose:)

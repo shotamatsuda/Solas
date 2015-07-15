@@ -31,8 +31,8 @@
 #import <QuartzCore/QuartzCore.h>
 
 #include "solas/app/app_event.h"
-#include "takram/math/size.h"
 #include "solas/gl/layer_framebuffer.h"
+#include "solas/math.h"
 
 @interface SLSNSOpenGLLayer () {
  @private
@@ -83,14 +83,14 @@
                    pixelFormat:(NSOpenGLPixelFormat *)pixelFormat
                   forLayerTime:(CFTimeInterval)layerTime
                    displayTime:(const CVTimeStamp *)displayTime {
-  CGRect bounds = self.bounds;
-  const takram::math::Size2d size(bounds.size.width, bounds.size.height);
+  const CGRect bounds = self.bounds;
+  const solas::Size2d size(bounds.size.width, bounds.size.height);
   const solas::app::AppEvent event(context, size, self.contentsScale);
   if ([_displayDelegate respondsToSelector:
           @selector(displayDelegate:update:)]) {
     [_displayDelegate displayDelegate:self update:SLSAppEventMake(&event)];
   }
-  double scale = self.contentsScale;
+  const double scale = self.contentsScale;
   GLint framebuffer;
   glGetIntegerv(GL_FRAMEBUFFER_BINDING, &framebuffer);
   _framebuffer.update(bounds.size.width, bounds.size.height, scale);
@@ -106,16 +106,15 @@
                 pixelFormat:(NSOpenGLPixelFormat *)pixelFormat
                forLayerTime:(CFTimeInterval)timeInterval
                 displayTime:(const CVTimeStamp *)timeStamp {
-  CGRect bounds = self.bounds;
-  double scale = self.contentsScale;
+  const CGRect bounds = self.bounds;
+  const double scale = self.contentsScale;
   GLint framebuffer;
   glGetIntegerv(GL_FRAMEBUFFER_BINDING, &framebuffer);
   _framebuffer.update(bounds.size.width, bounds.size.height, scale);
   _framebuffer.bind();
-  const takram::math::Size2d size(bounds.size.width, bounds.size.height);
+  const solas::Size2d size(bounds.size.width, bounds.size.height);
   const solas::app::AppEvent event(context, size, scale);
-  if ([_displayDelegate respondsToSelector:
-          @selector(displayDelegate:draw:)]) {
+  if ([_displayDelegate respondsToSelector:@selector(displayDelegate:draw:)]) {
     [_displayDelegate displayDelegate:self draw:SLSAppEventMake(&event)];
   }
   _framebuffer.transfer(framebuffer);

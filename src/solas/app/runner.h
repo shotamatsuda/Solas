@@ -33,12 +33,12 @@
 #include <utility>
 
 #include "solas/app/app_event.h"
-#include "solas/app/backend.h"
 #include "solas/app/gesture_event.h"
 #include "solas/app/key_event.h"
 #include "solas/app/motion_event.h"
 #include "solas/app/mouse_event.h"
 #include "solas/app/runnable.h"
+#include "solas/app/runner_options.h"
 #include "solas/app/touch_event.h"
 
 namespace solas {
@@ -46,13 +46,17 @@ namespace app {
 
 class Runner final {
  public:
-  // Constructors
   explicit Runner(std::unique_ptr<Runnable>&& runnable);
+  Runner(std::unique_ptr<Runnable>&& runnable, const RunnerOptions& options);
   ~Runner();
 
-  // Disallow copy and assign
+  // Disallow copy semantics
   Runner(const Runner& other) = delete;
   Runner& operator=(const Runner& other) = delete;
+
+  // Move semantics
+  Runner(Runner&& other) = default;
+  Runner& operator=(Runner&& other) = default;
 
   // Lifecycle
   void setup(const AppEvent& event);
@@ -82,18 +86,25 @@ class Runner final {
   void motionCancel(const MotionEvent& event);
   void motionEnd(const MotionEvent& event);
 
-  // Backend
-  Backend backend() const;
+  // Options
+  const RunnerOptions& options() const { return options_; }
 
  private:
   std::unique_ptr<Runnable> runnable_;
   std::atomic_bool setup_;
+  RunnerOptions options_;
 };
 
 #pragma mark -
 
 inline Runner::Runner(std::unique_ptr<Runnable>&& runnable)
     : runnable_(std::move(runnable)),
+      setup_(false) {}
+
+inline Runner::Runner(std::unique_ptr<Runnable>&& runnable,
+                      const RunnerOptions& options)
+    : runnable_(std::move(runnable)),
+      options_(options),
       setup_(false) {}
 
 inline Runner::~Runner() {
@@ -256,15 +267,6 @@ inline void Runner::motionEnd(const MotionEvent& event) {
   if (runnable_) {
     runnable_->motionEnd(event);
   }
-}
-
-#pragma mark Backend
-
-inline Backend Runner::backend() const {
-  if (!runnable_) {
-    return Backend::UNDEFINED;
-  }
-  return runnable_->backend();
 }
 
 }  // namespace app

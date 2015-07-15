@@ -32,7 +32,7 @@
 
 #include "solas/app/key_modifier.h"
 #include "solas/app/mouse_button.h"
-#include "takram/math/vector.h"
+#include "solas/math.h"
 
 namespace solas {
 namespace app {
@@ -51,19 +51,15 @@ class MouseEvent final {
   };
 
  public:
-  // Constructors
   MouseEvent();
   MouseEvent(Type type,
-             const takram::math::Vec2d& location,
+             const Vec2d& location,
              MouseButton button,
              KeyModifier modifiers,
-             const takram::math::Vec3d& wheel = takram::math::Vec3d());
+             const Vec3d& wheel = Vec3d());
 
-  // Copy and move
+  // Copy semantics excluding assignment
   MouseEvent(const MouseEvent& other) = default;
-  MouseEvent(MouseEvent&& other) = default;
-
-  // Disallow assign
   MouseEvent& operator=(const MouseEvent& other) = delete;
 
   // Attributes
@@ -71,20 +67,20 @@ class MouseEvent final {
 
   // Properties
   Type type() const { return type_; }
-  const takram::math::Vec2d& location() const { return location_; }
+  const Vec2d& location() const { return location_; }
   MouseButton button() const { return button_; }
   KeyModifier modifiers() const { return modifiers_; }
-  const takram::math::Vec3d& wheel() const { return wheel_; }
+  const Vec3d& wheel() const { return wheel_; }
 
   // Conversion
   operator bool() const { return !empty(); }
 
  private:
   Type type_;
-  takram::math::Vec2d location_;
+  Vec2d location_;
   MouseButton button_;
   KeyModifier modifiers_;
-  takram::math::Vec3d wheel_;
+  Vec3d wheel_;
 };
 
 #pragma mark -
@@ -95,10 +91,10 @@ inline MouseEvent::MouseEvent()
       modifiers_(KeyModifier::NONE) {}
 
 inline MouseEvent::MouseEvent(Type type,
-                              const takram::math::Vec2d& location,
+                              const Vec2d& location,
                               MouseButton button,
                               KeyModifier modifiers,
-                              const takram::math::Vec3d& wheel)
+                              const Vec3d& wheel)
     : type_(type),
       location_(location),
       button_(button),
