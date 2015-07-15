@@ -30,7 +30,7 @@
 #import "SLSNSViewController.h"
 #import "SLSNSWindowController.h"
 
-#include "solas/app/runner_factory.h"
+#include "solas/runner_factory.h"
 
 @interface SLSNSApplicationDelegate () {
  @private
@@ -69,7 +69,7 @@
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:
     (NSApplication *)sender {
-  const auto& options = solas::app::RunnerFactory::Shared().options();
+  const auto& options = solas::RunnerFactory::Shared().options();
   return !options.multiple_windows();
 }
 
@@ -82,7 +82,7 @@
 #pragma mark Window Notifications
 
 - (void)windowWillClose:(NSNotification *)notification {
-  const auto& options = solas::app::RunnerFactory::Shared().options();
+  const auto& options = solas::RunnerFactory::Shared().options();
   if (options.multiple_windows()) {
     NSWindow *window = notification.object;
     [[NSNotificationCenter defaultCenter]
@@ -97,7 +97,7 @@
 
 - (IBAction)newWindow:(id)sender {
   SLSRunner *runner = [[SLSRunner alloc]
-      initWithRunnable:solas::app::RunnerFactory::Shared().create()];
+      initWithRunnable:solas::RunnerFactory::Shared().create()];
   SLSNSViewController *viewController =
       [[SLSNSViewController alloc] initWithRunner:runner];
   SLSNSWindowController *windowController =
@@ -121,7 +121,7 @@
 - (BOOL)validateUserInterfaceItem:(id<NSValidatedUserInterfaceItem>)item {
   SEL action = item.action;
   if (action == @selector(newWindow:)) {
-    const auto& options = solas::app::RunnerFactory::Shared().options();
+    const auto& options = solas::RunnerFactory::Shared().options();
     return options.multiple_windows();
   }
   return NO;

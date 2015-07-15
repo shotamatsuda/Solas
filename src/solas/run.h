@@ -1,5 +1,5 @@
 //
-//  SLSRunner.h
+//  solas/run.h
 //
 //  MIT License
 //
@@ -24,40 +24,24 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
+#ifndef SOLAS_RUN_H_
+#define SOLAS_RUN_H_
 
-#import "SLSDisplayDelegate.h"
-#import "SLSEventDelegate.h"
+#include "solas/runner_factory.h"
+#include "solas/runner_options.h"
 
-#ifdef __cplusplus
+namespace solas {
 
-#include <memory>
+int Run(int argc, char **argv);
 
-#include "solas/runner.h"
+template <class Runnable>
+inline int Run(int argc, char **argv,
+               const RunnerOptions& options = RunnerOptions()) {
+  RunnerFactory::Shared().set<Runnable>(options);
+  return Run(argc, argv);
+}
 
-#endif  // __cplusplus
+}  // namespace solas
 
-typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
-  kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL2 = 1 << 0,
-  kSLSRunnerBackendOpenGL3 = 1 << 1,
-  kSLSRunnerBackendOpenGL4 = 1 << 2,
-  kSLSRunnerBackendOpenGLES1 = 1 << 3,
-  kSLSRunnerBackendOpenGLES2 = 1 << 4,
-  kSLSRunnerBackendOpenGLES3 = 1 << 5,
-  kSLSRunnerBackendCoreGraphics = 1 << 6
-};
-
-@interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
-
-#ifdef __cplusplus
-
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
-    NS_DESIGNATED_INITIALIZER;
-
-#endif  // __cplusplus
-
-@property (nonatomic, readonly) SLSRunnerBackend backend;
-
-@end
+#endif  // SOLAS_RUN_H_

@@ -1,5 +1,5 @@
 //
-//  SLSRunner.h
+//  solas/null_mutex.h
 //
 //  MIT License
 //
@@ -24,40 +24,27 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
+#ifndef SOLAS_NULL_MUTEX_H_
+#define SOLAS_NULL_MUTEX_H_
 
-#import "SLSDisplayDelegate.h"
-#import "SLSEventDelegate.h"
+namespace solas {
 
-#ifdef __cplusplus
+class NullMutex final {
+ public:
+  // Constructors
+  NullMutex() = default;
 
-#include <memory>
+  // Disallow copy and assign
+  NullMutex& operator=(const NullMutex& other) = delete;
+  NullMutex(const NullMutex& other) = delete;
 
-#include "solas/runner.h"
-
-#endif  // __cplusplus
-
-typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
-  kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL2 = 1 << 0,
-  kSLSRunnerBackendOpenGL3 = 1 << 1,
-  kSLSRunnerBackendOpenGL4 = 1 << 2,
-  kSLSRunnerBackendOpenGLES1 = 1 << 3,
-  kSLSRunnerBackendOpenGLES2 = 1 << 4,
-  kSLSRunnerBackendOpenGLES3 = 1 << 5,
-  kSLSRunnerBackendCoreGraphics = 1 << 6
+  // Lockable concept
+  void lock() {}
+  void unlock() {}
+  bool try_lock() { return true; }
 };
 
-@interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
+}  // namespace solas
 
-#ifdef __cplusplus
-
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
-    NS_DESIGNATED_INITIALIZER;
-
-#endif  // __cplusplus
-
-@property (nonatomic, readonly) SLSRunnerBackend backend;
-
-@end
+#endif  // SOLAS_NULL_MUTEX_H_

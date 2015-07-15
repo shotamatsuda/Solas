@@ -1,5 +1,5 @@
 //
-//  SLSRunner.h
+//  solas/key_modifier.h
 //
 //  MIT License
 //
@@ -24,40 +24,28 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
+#ifndef SOLAS_KEY_MODIFIER_H_
+#define SOLAS_KEY_MODIFIER_H_
 
-#import "SLSDisplayDelegate.h"
-#import "SLSEventDelegate.h"
+#include <cstdint>
 
-#ifdef __cplusplus
+#include "solas/enum.h"
 
-#include <memory>
+namespace solas {
 
-#include "solas/runner.h"
-
-#endif  // __cplusplus
-
-typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
-  kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL2 = 1 << 0,
-  kSLSRunnerBackendOpenGL3 = 1 << 1,
-  kSLSRunnerBackendOpenGL4 = 1 << 2,
-  kSLSRunnerBackendOpenGLES1 = 1 << 3,
-  kSLSRunnerBackendOpenGLES2 = 1 << 4,
-  kSLSRunnerBackendOpenGLES3 = 1 << 5,
-  kSLSRunnerBackendCoreGraphics = 1 << 6
+enum class KeyModifier : std::uint32_t {
+  NONE = 0,
+  CAPS = 1 << 0,
+  SHIFT = 1 << 1,
+  CONTROL = 1 << 2,
+  ALTERNATE = 1 << 3,
+  COMMAND = 1 << 4,
+  FUNCTION = 1 << 5
 };
 
-@interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
+SOLAS_ENUM_BITWISE_OPERATORS(KeyModifier)
 
-#ifdef __cplusplus
+}  // namespace solas
 
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
-    NS_DESIGNATED_INITIALIZER;
-
-#endif  // __cplusplus
-
-@property (nonatomic, readonly) SLSRunnerBackend backend;
-
-@end
+#endif  // SOLAS_KEY_MODIFIER_H_

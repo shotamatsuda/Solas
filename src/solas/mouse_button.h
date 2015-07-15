@@ -1,5 +1,5 @@
 //
-//  SLSRunner.h
+//  solas/mouse_button.h
 //
 //  MIT License
 //
@@ -24,40 +24,29 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
+#ifndef SOLAS_MOUSE_BUTTON_H_
+#define SOLAS_MOUSE_BUTTON_H_
 
-#import "SLSDisplayDelegate.h"
-#import "SLSEventDelegate.h"
+namespace solas {
 
-#ifdef __cplusplus
-
-#include <memory>
-
-#include "solas/runner.h"
-
-#endif  // __cplusplus
-
-typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
-  kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL2 = 1 << 0,
-  kSLSRunnerBackendOpenGL3 = 1 << 1,
-  kSLSRunnerBackendOpenGL4 = 1 << 2,
-  kSLSRunnerBackendOpenGLES1 = 1 << 3,
-  kSLSRunnerBackendOpenGLES2 = 1 << 4,
-  kSLSRunnerBackendOpenGLES3 = 1 << 5,
-  kSLSRunnerBackendCoreGraphics = 1 << 6
+enum class MouseButton : int {
+  UNDEFINED = -1,
+  ZERO = 0,
+  ONE = 1,
+  TWO = 2,
+  THREE = 3,
+  FOUR = 4,
+  FIVE = 5,
+  SIX = 6,
+  SEVEN = 7,
+  EIGHT = 8,
+  NINE = 9,
+  LEFT = ZERO,
+  RIGHT = ONE,
+  MIDDLE = TWO
 };
 
-@interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
+}  // namespace solas
 
-#ifdef __cplusplus
-
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
-    NS_DESIGNATED_INITIALIZER;
-
-#endif  // __cplusplus
-
-@property (nonatomic, readonly) SLSRunnerBackend backend;
-
-@end
+#endif  // SOLAS_MOUSE_BUTTON_H_

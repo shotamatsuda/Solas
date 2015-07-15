@@ -44,7 +44,7 @@
 #ifdef __cplusplus
 
 - (void)notifyGestureWithRecognizer:(nonnull UIGestureRecognizer *)recognizer
-                               kind:(solas::app::GestureKind)kind
+                               kind:(solas::GestureKind)kind
                                data:(const boost::any&)data;
 
 #endif  // __cplusplus

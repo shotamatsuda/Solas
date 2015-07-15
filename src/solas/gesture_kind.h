@@ -1,5 +1,5 @@
 //
-//  SLSRunner.h
+//  solas/gesture_kind.h
 //
 //  MIT License
 //
@@ -24,40 +24,55 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
+#ifndef SOLAS_GESTURE_KIND_H_
+#define SOLAS_GESTURE_KIND_H_
 
-#import "SLSDisplayDelegate.h"
-#import "SLSEventDelegate.h"
+#include <cassert>
+#include <ostream>
 
-#ifdef __cplusplus
+namespace solas {
 
-#include <memory>
-
-#include "solas/runner.h"
-
-#endif  // __cplusplus
-
-typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
-  kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL2 = 1 << 0,
-  kSLSRunnerBackendOpenGL3 = 1 << 1,
-  kSLSRunnerBackendOpenGL4 = 1 << 2,
-  kSLSRunnerBackendOpenGLES1 = 1 << 3,
-  kSLSRunnerBackendOpenGLES2 = 1 << 4,
-  kSLSRunnerBackendOpenGLES3 = 1 << 5,
-  kSLSRunnerBackendCoreGraphics = 1 << 6
+enum class GestureKind {
+  UNDEFINED,
+  TAP,
+  PINCH,
+  ROTATION,
+  SWIPE,
+  PAN,
+  SCREEN_EDGE
 };
 
-@interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
+inline std::ostream& operator<<(std::ostream& os, GestureKind kind) {
+  switch (kind) {
+    case GestureKind::UNDEFINED:
+      os << "undefined";
+      break;
+    case GestureKind::TAP:
+      os << "tap";
+      break;
+    case GestureKind::PINCH:
+      os << "pinch";
+      break;
+    case GestureKind::ROTATION:
+      os << "rotation";
+      break;
+    case GestureKind::SWIPE:
+      os << "swipe";
+      break;
+    case GestureKind::PAN:
+      os << "pan";
+      break;
+    case GestureKind::SCREEN_EDGE:
+      os << "screen edge";
+      break;
+    default:
+      assert(false);
+      break;
+  }
+  return os;
+}
 
-#ifdef __cplusplus
+}  // namespace solas
 
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
-    NS_DESIGNATED_INITIALIZER;
-
-#endif  // __cplusplus
-
-@property (nonatomic, readonly) SLSRunnerBackend backend;
-
-@end
+#endif  // SOLAS_GESTURE_KIND_H_

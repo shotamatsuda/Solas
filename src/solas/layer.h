@@ -1,5 +1,5 @@
 //
-//  SLSRunner.h
+//  solas/layer.h
 //
 //  MIT License
 //
@@ -24,40 +24,46 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
+#ifndef SOLAS_LAYER_H_
+#define SOLAS_LAYER_H_
 
-#import "SLSDisplayDelegate.h"
-#import "SLSEventDelegate.h"
+#include <cassert>
 
-#ifdef __cplusplus
+#include "solas/composite.h"
 
-#include <memory>
+namespace solas {
 
-#include "solas/runner.h"
+template <class View>
+class Layer : public Composite {
+ public:
+  explicit Layer(View *parent);
+  explicit Layer(Layer *parent);
 
-#endif  // __cplusplus
-
-typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
-  kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL2 = 1 << 0,
-  kSLSRunnerBackendOpenGL3 = 1 << 1,
-  kSLSRunnerBackendOpenGL4 = 1 << 2,
-  kSLSRunnerBackendOpenGLES1 = 1 << 3,
-  kSLSRunnerBackendOpenGLES2 = 1 << 4,
-  kSLSRunnerBackendOpenGLES3 = 1 << 5,
-  kSLSRunnerBackendCoreGraphics = 1 << 6
+  // Aggregation
+  View& view() const;
 };
 
-@interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
+#pragma mark -
 
-#ifdef __cplusplus
+template <class View>
+inline Layer<View>::Layer(View *parent) : Composite(parent) {}
 
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
-    NS_DESIGNATED_INITIALIZER;
+template <class View>
+inline Layer<View>::Layer(Layer *parent) : Composite(parent) {}
 
-#endif  // __cplusplus
+#pragma mark Aggregation
 
-@property (nonatomic, readonly) SLSRunnerBackend backend;
+template <class View>
+inline View& Layer<View>::view() const {
+  Composite *current = parent();
+  assert(current);
+  while (current->parent()) {
+    current = current->parent();
+  }
+  return static_cast<View&>(*current);
+}
 
-@end
+}  // namespace solas
+
+#endif  // SOLAS_LAYER_H_

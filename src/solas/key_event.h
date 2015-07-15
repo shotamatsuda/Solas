@@ -1,5 +1,5 @@
 //
-//  SLSRunner.h
+//  solas/key_event.h
 //
 //  MIT License
 //
@@ -24,40 +24,44 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
+#ifndef SOLAS_KEY_EVENT_H_
+#define SOLAS_KEY_EVENT_H_
 
-#import "SLSDisplayDelegate.h"
-#import "SLSEventDelegate.h"
+namespace solas {
 
-#ifdef __cplusplus
+class KeyEvent final {
+ public:
+  enum class Type {
+    UNDEFINED,
+    DOWN,
+    UP
+  };
 
-#include <memory>
+ public:
+  KeyEvent();
 
-#include "solas/runner.h"
+  // Copy semantics excluding assignment
+  KeyEvent(const KeyEvent& other) = default;
+  KeyEvent& operator=(const KeyEvent& other) = delete;
 
-#endif  // __cplusplus
+  // Attributes
+  bool empty() const { return type_ == Type::UNDEFINED; }
 
-typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
-  kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL2 = 1 << 0,
-  kSLSRunnerBackendOpenGL3 = 1 << 1,
-  kSLSRunnerBackendOpenGL4 = 1 << 2,
-  kSLSRunnerBackendOpenGLES1 = 1 << 3,
-  kSLSRunnerBackendOpenGLES2 = 1 << 4,
-  kSLSRunnerBackendOpenGLES3 = 1 << 5,
-  kSLSRunnerBackendCoreGraphics = 1 << 6
+  // Properties
+  Type type() const { return type_; }
+
+  // Conversion
+  operator bool() const { return !empty(); }
+
+ private:
+  Type type_;
 };
 
-@interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
+#pragma mark -
 
-#ifdef __cplusplus
+inline KeyEvent::KeyEvent() : type_(Type::UNDEFINED) {}
 
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
-    NS_DESIGNATED_INITIALIZER;
+}  // namespace solas
 
-#endif  // __cplusplus
-
-@property (nonatomic, readonly) SLSRunnerBackend backend;
-
-@end
+#endif  // SOLAS_KEY_EVENT_H_

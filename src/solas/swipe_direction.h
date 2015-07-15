@@ -1,5 +1,5 @@
 //
-//  SLSRunner.h
+//  solas/swipe_direction.h
 //
 //  MIT License
 //
@@ -24,40 +24,47 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
+#ifndef SOLAS_SWIPE_DIRECTION_H_
+#define SOLAS_SWIPE_DIRECTION_H_
 
-#import "SLSDisplayDelegate.h"
-#import "SLSEventDelegate.h"
+#include <cassert>
+#include <ostream>
 
-#ifdef __cplusplus
+namespace solas {
 
-#include <memory>
-
-#include "solas/runner.h"
-
-#endif  // __cplusplus
-
-typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
-  kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL2 = 1 << 0,
-  kSLSRunnerBackendOpenGL3 = 1 << 1,
-  kSLSRunnerBackendOpenGL4 = 1 << 2,
-  kSLSRunnerBackendOpenGLES1 = 1 << 3,
-  kSLSRunnerBackendOpenGLES2 = 1 << 4,
-  kSLSRunnerBackendOpenGLES3 = 1 << 5,
-  kSLSRunnerBackendCoreGraphics = 1 << 6
+enum class SwipeDirection {
+  UNDEFINED,
+  RIGHT,
+  LEFT,
+  UP,
+  DOWN,
 };
 
-@interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
+inline std::ostream& operator<<(std::ostream& os, SwipeDirection direction) {
+  switch (direction) {
+    case SwipeDirection::UNDEFINED:
+      os << "undefined";
+      break;
+    case SwipeDirection::RIGHT:
+      os << "right";
+      break;
+    case SwipeDirection::LEFT:
+      os << "left";
+      break;
+    case SwipeDirection::UP:
+      os << "up";
+      break;
+    case SwipeDirection::DOWN:
+      os << "down";
+      break;
+    default:
+      assert(false);
+      break;
+  }
+  return os;
+}
 
-#ifdef __cplusplus
+}  // namespace solas
 
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
-    NS_DESIGNATED_INITIALIZER;
-
-#endif  // __cplusplus
-
-@property (nonatomic, readonly) SLSRunnerBackend backend;
-
-@end
+#endif  // SOLAS_SWIPE_DIRECTION_H_

@@ -1,5 +1,5 @@
 //
-//  SLSRunner.h
+//  solas/touch_event.h
 //
 //  MIT License
 //
@@ -24,40 +24,57 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
+#ifndef SOLAS_TOUCH_EVENT_H_
+#define SOLAS_TOUCH_EVENT_H_
 
-#import "SLSDisplayDelegate.h"
-#import "SLSEventDelegate.h"
+#include <vector>
 
-#ifdef __cplusplus
+#include "solas/math.h"
 
-#include <memory>
+namespace solas {
 
-#include "solas/runner.h"
+class TouchEvent final {
+ public:
+  enum class Type {
+    UNDEFINED,
+    BEGIN,
+    MOVE,
+    CANCEL,
+    END
+  };
 
-#endif  // __cplusplus
+ public:
+  TouchEvent();
+  TouchEvent(Type type, const std::vector<Vec2d>& touches);
 
-typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
-  kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL2 = 1 << 0,
-  kSLSRunnerBackendOpenGL3 = 1 << 1,
-  kSLSRunnerBackendOpenGL4 = 1 << 2,
-  kSLSRunnerBackendOpenGLES1 = 1 << 3,
-  kSLSRunnerBackendOpenGLES2 = 1 << 4,
-  kSLSRunnerBackendOpenGLES3 = 1 << 5,
-  kSLSRunnerBackendCoreGraphics = 1 << 6
+  // Copy semantics excluding assignment
+  TouchEvent(const TouchEvent& other) = default;
+  TouchEvent& operator=(const TouchEvent& other) = delete;
+
+  // Attributes
+  bool empty() const { return type_ == Type::UNDEFINED; }
+
+  // Properties
+  Type type() const { return type_; }
+  const std::vector<Vec2d>& touches() const { return touches_; }
+
+  // Conversion
+  operator bool() const { return !empty(); }
+
+ private:
+  Type type_;
+  std::vector<Vec2d> touches_;
 };
 
-@interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
+#pragma mark -
 
-#ifdef __cplusplus
+inline TouchEvent::TouchEvent() : type_(Type::UNDEFINED) {}
 
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
-    NS_DESIGNATED_INITIALIZER;
+inline TouchEvent::TouchEvent(Type type, const std::vector<Vec2d>& touches)
+    : type_(type),
+      touches_(touches) {}
 
-#endif  // __cplusplus
+}  // namespace solas
 
-@property (nonatomic, readonly) SLSRunnerBackend backend;
-
-@end
+#endif  // SOLAS_TOUCH_EVENT_H_

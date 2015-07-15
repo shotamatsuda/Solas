@@ -30,13 +30,13 @@
 #import <OpenGL/glext.h>
 #import <QuartzCore/QuartzCore.h>
 
-#include "solas/app/app_event.h"
-#include "solas/gl/layer_framebuffer.h"
+#include "solas/app_event.h"
+#include "solas/layer_framebuffer.h"
 #include "solas/math.h"
 
 @interface SLSNSOpenGLLayer () {
  @private
-  solas::gl::LayerFramebuffer _framebuffer;
+  solas::LayerFramebuffer _framebuffer;
 }
 
 @property (nonatomic, assign) NSOpenGLPixelFormatAttribute API;
@@ -85,7 +85,7 @@
                    displayTime:(const CVTimeStamp *)displayTime {
   const CGRect bounds = self.bounds;
   const solas::Size2d size(bounds.size.width, bounds.size.height);
-  const solas::app::AppEvent event(context, size, self.contentsScale);
+  const solas::AppEvent event(context, size, self.contentsScale);
   if ([_displayDelegate respondsToSelector:
           @selector(displayDelegate:update:)]) {
     [_displayDelegate displayDelegate:self update:SLSAppEventMake(&event)];
@@ -113,7 +113,7 @@
   _framebuffer.update(bounds.size.width, bounds.size.height, scale);
   _framebuffer.bind();
   const solas::Size2d size(bounds.size.width, bounds.size.height);
-  const solas::app::AppEvent event(context, size, scale);
+  const solas::AppEvent event(context, size, scale);
   if ([_displayDelegate respondsToSelector:@selector(displayDelegate:draw:)]) {
     [_displayDelegate displayDelegate:self draw:SLSAppEventMake(&event)];
   }

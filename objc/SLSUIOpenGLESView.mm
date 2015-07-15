@@ -93,9 +93,8 @@
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
   CGRect bounds = self.bounds;
-  const solas::math::Size2d size(bounds.size.width, bounds.size.height);
-  const solas::app::AppEvent event(_view.context, size,
-                                   [UIScreen mainScreen].scale);
+  const solas::Size2d size(bounds.size.width, bounds.size.height);
+  const solas::AppEvent event(_view.context, size, [UIScreen mainScreen].scale);
   if ([_displayDelegate respondsToSelector:@selector(displayDelegate:draw:)]) {
     [_displayDelegate displayDelegate:self draw:SLSAppEventMake(&event)];
   }
@@ -105,9 +104,8 @@
 
 - (void)glkViewControllerUpdate:(GLKViewController *)controller {
   CGRect bounds = self.bounds;
-  const solas::math::Size2d size(bounds.size.width, bounds.size.height);
-  const solas::app::AppEvent event(_view.context, size,
-                                   [UIScreen mainScreen].scale);
+  const solas::Size2d size(bounds.size.width, bounds.size.height);
+  const solas::AppEvent event(_view.context, size, [UIScreen mainScreen].scale);
   if ([_displayDelegate respondsToSelector:
           @selector(displayDelegate:update:)]) {
     [_displayDelegate displayDelegate:self update:SLSAppEventMake(&event)];

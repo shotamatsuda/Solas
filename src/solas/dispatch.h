@@ -1,5 +1,5 @@
 //
-//  SLSRunner.h
+//  solas/dispatch.h
 //
 //  MIT License
 //
@@ -24,40 +24,27 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
+#ifndef SOLAS_DISPATCH_H_
+#define SOLAS_DISPATCH_H_
 
-#import "SLSDisplayDelegate.h"
-#import "SLSEventDelegate.h"
+#include <functional>
 
-#ifdef __cplusplus
+namespace solas {
+namespace thread {
 
-#include <memory>
-
-#include "solas/runner.h"
-
-#endif  // __cplusplus
-
-typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
-  kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL2 = 1 << 0,
-  kSLSRunnerBackendOpenGL3 = 1 << 1,
-  kSLSRunnerBackendOpenGL4 = 1 << 2,
-  kSLSRunnerBackendOpenGLES1 = 1 << 3,
-  kSLSRunnerBackendOpenGLES2 = 1 << 4,
-  kSLSRunnerBackendOpenGLES3 = 1 << 5,
-  kSLSRunnerBackendCoreGraphics = 1 << 6
+enum class Queue {
+  MAIN,
+  HIGH,
+  DEFAULT,
+  LOW,
+  BACKGROUND
 };
 
-@interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
+void async(Queue queue, const std::function<void()>& task);
+void sync(Queue queue, const std::function<void()>& task);
 
-#ifdef __cplusplus
+}  // namespace thread
+}  // namespace solas
 
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
-    NS_DESIGNATED_INITIALIZER;
-
-#endif  // __cplusplus
-
-@property (nonatomic, readonly) SLSRunnerBackend backend;
-
-@end
+#endif  // SOLAS_DISPATCH_H_

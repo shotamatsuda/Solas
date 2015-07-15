@@ -1,5 +1,5 @@
 //
-//  SLSRunner.h
+//  solas/backend.h
 //
 //  MIT License
 //
@@ -24,40 +24,27 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
+#ifndef SOLAS_BACKEND_H_
+#define SOLAS_BACKEND_H_
 
-#import "SLSDisplayDelegate.h"
-#import "SLSEventDelegate.h"
+#include "solas/enum.h"
 
-#ifdef __cplusplus
+namespace solas {
 
-#include <memory>
-
-#include "solas/runner.h"
-
-#endif  // __cplusplus
-
-typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
-  kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL2 = 1 << 0,
-  kSLSRunnerBackendOpenGL3 = 1 << 1,
-  kSLSRunnerBackendOpenGL4 = 1 << 2,
-  kSLSRunnerBackendOpenGLES1 = 1 << 3,
-  kSLSRunnerBackendOpenGLES2 = 1 << 4,
-  kSLSRunnerBackendOpenGLES3 = 1 << 5,
-  kSLSRunnerBackendCoreGraphics = 1 << 6
+enum class Backend : int {
+  UNDEFINED = 0,
+  QUARTZ = 1 << 0,
+  OPENGL2 = 1 << 1,
+  OPENGL3 = 1 << 2,
+  OPENGL4 = 1 << 3,
+  OPENGLES1 = 1 << 4,
+  OPENGLES2 = 1 << 5,
+  OPENGLES3 = 1 << 6
 };
 
-@interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
+SOLAS_ENUM_BITWISE_OPERATORS(Backend);
 
-#ifdef __cplusplus
+}  // namespace solas
 
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
-    NS_DESIGNATED_INITIALIZER;
-
-#endif  // __cplusplus
-
-@property (nonatomic, readonly) SLSRunnerBackend backend;
-
-@end
+#endif  // SOLAS_BACKEND_H_

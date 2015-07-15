@@ -34,13 +34,13 @@
 #include <type_traits>
 #include <utility>
 
-#include "solas/app/app_event.h"
-#include "solas/app/runner.h"
-#include "solas/app/runnable.h"
+#include "solas/app_event.h"
+#include "solas/runner.h"
+#include "solas/runnable.h"
 
 @interface SLSRunner () {
  @private
-  std::unique_ptr<solas::app::Runner> _runner;
+  std::unique_ptr<solas::Runner> _runner;
 }
 
 @end
@@ -51,7 +51,7 @@
   return [self initWithRunnable:nullptr];
 }
 
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::app::Runner>&&)runner {
+- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner {
   self = [super init];
   if (self) {
     _runner = std::move(runner);
@@ -65,7 +65,7 @@
 
 - (SLSRunnerBackend)backend {
   NSInteger backend = kSLSRunnerBackendUndefined;
-  using solas::app::Backend;
+  using solas::Backend;
   using Underlying = std::underlying_type<Backend>::type;
   auto& options = _runner->options();
   if (static_cast<Underlying>(options.backend() & Backend::OPENGL2)) {

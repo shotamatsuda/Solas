@@ -1,5 +1,5 @@
 //
-//  SLSRunner.h
+//  solas/context_holder.h
 //
 //  MIT License
 //
@@ -24,40 +24,54 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
+#ifndef SOLAS_CONTEXT_HOLDER_H_
+#define SOLAS_CONTEXT_HOLDER_H_
 
-#import "SLSDisplayDelegate.h"
-#import "SLSEventDelegate.h"
+#include <functional>
 
-#ifdef __cplusplus
+#include <boost/any.hpp>
 
-#include <memory>
+namespace solas {
 
-#include "solas/runner.h"
+class ContextHolder final {
+ public:
+  // Constructors
+  ContextHolder() {}
+  template <class T>
+  explicit ContextHolder(const T& value);
 
-#endif  // __cplusplus
+  // Copy semantics
+  ContextHolder(const ContextHolder& other) = default;
+  ContextHolder& operator=(const ContextHolder& other) = default;
 
-typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
-  kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL2 = 1 << 0,
-  kSLSRunnerBackendOpenGL3 = 1 << 1,
-  kSLSRunnerBackendOpenGL4 = 1 << 2,
-  kSLSRunnerBackendOpenGLES1 = 1 << 3,
-  kSLSRunnerBackendOpenGLES2 = 1 << 4,
-  kSLSRunnerBackendOpenGLES3 = 1 << 5,
-  kSLSRunnerBackendCoreGraphics = 1 << 6
+  // Reference
+  template <class T>
+  const T& get() const;
+
+  // Attributes
+  bool empty() const { return value_.empty(); }
+
+  // Conversion
+  operator bool() const { return !empty(); }
+
+ private:
+  boost::any value_;
 };
 
-@interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
+#pragma mark -
 
-#ifdef __cplusplus
+template <class T>
+inline ContextHolder::ContextHolder(const T& value)
+    : value_(std::reference_wrapper<const T>(value)) {}
 
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
-    NS_DESIGNATED_INITIALIZER;
+#pragma mark Reference
 
-#endif  // __cplusplus
+template <class Context>
+inline const Context& ContextHolder::get() const {
+  return boost::any_cast<std::reference_wrapper<const Context>>(value_);
+}
 
-@property (nonatomic, readonly) SLSRunnerBackend backend;
+}  // namespace solas
 
-@end
+#endif  // SOLAS_CONTEXT_HOLDER_H_

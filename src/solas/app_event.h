@@ -1,5 +1,5 @@
 //
-//  SLSRunner.h
+//  solas/app_event.h
 //
 //  MIT License
 //
@@ -24,40 +24,57 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
+#ifndef SOLAS_APP_EVENT_H_
+#define SOLAS_APP_EVENT_H_
 
-#import "SLSDisplayDelegate.h"
-#import "SLSEventDelegate.h"
+#include "solas/context_holder.h"
+#include "solas/math.h"
 
-#ifdef __cplusplus
+namespace solas {
 
-#include <memory>
+class AppEvent final {
+ public:
+  enum class Type {
+    UNDEFINED,
+    SETUP,
+    UPDATE,
+    PRE,
+    DRAW,
+    POST,
+    EXIT
+  };
 
-#include "solas/runner.h"
+ public:
+  AppEvent() {}
+  template <class Context>
+  AppEvent(const Context& context, const Size2d& size, double scale);
 
-#endif  // __cplusplus
+  // Copy semantics excluding assignment
+  AppEvent(const AppEvent& other) = default;
+  AppEvent& operator=(const AppEvent& other) = delete;
 
-typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
-  kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL2 = 1 << 0,
-  kSLSRunnerBackendOpenGL3 = 1 << 1,
-  kSLSRunnerBackendOpenGL4 = 1 << 2,
-  kSLSRunnerBackendOpenGLES1 = 1 << 3,
-  kSLSRunnerBackendOpenGLES2 = 1 << 4,
-  kSLSRunnerBackendOpenGLES3 = 1 << 5,
-  kSLSRunnerBackendCoreGraphics = 1 << 6
+  // Properties
+  const ContextHolder& context() const { return context_; }
+  const Size2d& size() const { return size_; }
+  double scale() const { return scale_; }
+
+ private:
+  ContextHolder context_;
+  Size2d size_;
+  double scale_;
 };
 
-@interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
+#pragma mark -
 
-#ifdef __cplusplus
+template <class Context>
+inline AppEvent::AppEvent(const Context& context,
+                          const Size2d& size,
+                          double scale)
+    : context_(context),
+      size_(size),
+      scale_(scale) {}
 
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
-    NS_DESIGNATED_INITIALIZER;
+}  // namespace solas
 
-#endif  // __cplusplus
-
-@property (nonatomic, readonly) SLSRunnerBackend backend;
-
-@end
+#endif  // SOLAS_APP_EVENT_H_

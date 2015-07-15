@@ -1,5 +1,5 @@
 //
-//  SLSRunner.h
+//  solas/benchmark.cc
 //
 //  MIT License
 //
@@ -24,40 +24,17 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#include "solas/benchmark.h"
 
-#import "SLSDisplayDelegate.h"
-#import "SLSEventDelegate.h"
+#include <chrono>
 
-#ifdef __cplusplus
+namespace solas {
 
-#include <memory>
+template <> const char * Benchmark<std::chrono::nanoseconds>::suffix_ = "ns";
+template <> const char * Benchmark<std::chrono::microseconds>::suffix_ = "us";
+template <> const char * Benchmark<std::chrono::milliseconds>::suffix_ = "ms";
+template <> const char * Benchmark<std::chrono::seconds>::suffix_ = "s";
+template <> const char * Benchmark<std::chrono::minutes>::suffix_ = "m";
+template <> const char * Benchmark<std::chrono::hours>::suffix_ = "h";
 
-#include "solas/runner.h"
-
-#endif  // __cplusplus
-
-typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
-  kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL2 = 1 << 0,
-  kSLSRunnerBackendOpenGL3 = 1 << 1,
-  kSLSRunnerBackendOpenGL4 = 1 << 2,
-  kSLSRunnerBackendOpenGLES1 = 1 << 3,
-  kSLSRunnerBackendOpenGLES2 = 1 << 4,
-  kSLSRunnerBackendOpenGLES3 = 1 << 5,
-  kSLSRunnerBackendCoreGraphics = 1 << 6
-};
-
-@interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
-
-#ifdef __cplusplus
-
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
-    NS_DESIGNATED_INITIALIZER;
-
-#endif  // __cplusplus
-
-@property (nonatomic, readonly) SLSRunnerBackend backend;
-
-@end
+}  // namespace solas

@@ -1,5 +1,5 @@
 //
-//  SLSRunner.h
+//  solas/screen_edge.h
 //
 //  MIT License
 //
@@ -24,40 +24,47 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#pragma once
+#ifndef SOLAS_SCREEN_EDGE_H_
+#define SOLAS_SCREEN_EDGE_H_
 
-#import "SLSDisplayDelegate.h"
-#import "SLSEventDelegate.h"
+#include <cassert>
+#include <ostream>
 
-#ifdef __cplusplus
+namespace solas {
 
-#include <memory>
-
-#include "solas/runner.h"
-
-#endif  // __cplusplus
-
-typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
-  kSLSRunnerBackendUndefined = 0,
-  kSLSRunnerBackendOpenGL2 = 1 << 0,
-  kSLSRunnerBackendOpenGL3 = 1 << 1,
-  kSLSRunnerBackendOpenGL4 = 1 << 2,
-  kSLSRunnerBackendOpenGLES1 = 1 << 3,
-  kSLSRunnerBackendOpenGLES2 = 1 << 4,
-  kSLSRunnerBackendOpenGLES3 = 1 << 5,
-  kSLSRunnerBackendCoreGraphics = 1 << 6
+enum class ScreenEdge {
+  UNDEFINED,
+  TOP,
+  LEFT,
+  BOTTOM,
+  RIGHT,
 };
 
-@interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
+inline std::ostream& operator<<(std::ostream& os, ScreenEdge edge) {
+  switch (edge) {
+    case ScreenEdge::UNDEFINED:
+      os << "undefined";
+      break;
+    case ScreenEdge::TOP:
+      os << "top";
+      break;
+    case ScreenEdge::LEFT:
+      os << "left";
+      break;
+    case ScreenEdge::BOTTOM:
+      os << "bottom";
+      break;
+    case ScreenEdge::RIGHT:
+      os << "right";
+      break;
+    default:
+      assert(false);
+      break;
+  }
+  return os;
+}
 
-#ifdef __cplusplus
+}  // namespace solas
 
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
-    NS_DESIGNATED_INITIALIZER;
-
-#endif  // __cplusplus
-
-@property (nonatomic, readonly) SLSRunnerBackend backend;
-
-@end
+#endif  // SOLAS_SCREEN_EDGE_H_
