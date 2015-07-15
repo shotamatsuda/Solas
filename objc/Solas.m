@@ -1,5 +1,5 @@
 //
-//  SolasTouch.h
+//  Solas.m
 //
 //  MIT License
 //
@@ -24,28 +24,4 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
-
-FOUNDATION_EXPORT double SolasTouchVersionNumber;
-FOUNDATION_EXPORT const unsigned char SolasTouchVersionString[];
-
-#import "SLSAnimationSource.h"
-#import "SLSApplicationMain.h"
-#import "SLSDefines.h"
-#import "SLSDisplayDelegate.h"
-#import "SLSDisplayLink.h"
-#import "SLSDisplaySource.h"
-#import "SLSEventDelegate.h"
-#import "SLSEvents.h"
-#import "SLSEventSource.h"
-#import "SLSNSBundle+Bundle.h"
-#import "SLSQuartzLayer.h"
-#import "SLSRunner.h"
-#import "SLSUIApplicationDelegate.h"
-#import "SLSUIEventSourceView.h"
-#import "SLSUIOpenGLES2View.h"
-#import "SLSUIOpenGLES3View.h"
-#import "SLSUIOpenGLESView.h"
-#import "SLSUIQuartzView.h"
-#import "SLSUIView.h"
-#import "SLSUIViewController.h"
+#import "Solas.h"

@@ -24,10 +24,8 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <AppKit/AppKit.h>
-
-FOUNDATION_EXPORT double SolasVersionNumber;
-FOUNDATION_EXPORT const unsigned char SolasVersionString[];
+#import <Foundation/Foundation.h>
+#import <TargetConditionals.h>
 
 #import "SLSAnimationSource.h"
 #import "SLSApplicationMain.h"
@@ -40,6 +38,16 @@ FOUNDATION_EXPORT const unsigned char SolasVersionString[];
 #import "SLSEventSource.h"
 #import "SLSNSBundle+Bundle.h"
 
+#if TARGET_OS_IPHONE
+#import "SLSUIApplicationDelegate.h"
+#import "SLSUIEventSourceView.h"
+#import "SLSUIOpenGLES2View.h"
+#import "SLSUIOpenGLES3View.h"
+#import "SLSUIOpenGLESView.h"
+#import "SLSUIQuartzView.h"
+#import "SLSUIView.h"
+#import "SLSUIViewController.h"
+#elif TARGET_OS_MAC
 #import "SLSNSApplicationDelegate.h"
 #import "SLSNSEventSourceView.h"
 #import "SLSNSOpenGL3View.h"
@@ -50,12 +58,4 @@ FOUNDATION_EXPORT const unsigned char SolasVersionString[];
 #import "SLSNSView.h"
 #import "SLSNSViewController.h"
 #import "SLSNSWindowController.h"
-
-#import "SLSUIApplicationDelegate.h"
-#import "SLSUIEventSourceView.h"
-#import "SLSUIOpenGLES2View.h"
-#import "SLSUIOpenGLES3View.h"
-#import "SLSUIOpenGLESView.h"
-#import "SLSUIQuartzView.h"
-#import "SLSUIView.h"
-#import "SLSUIViewController.h"
+#endif
