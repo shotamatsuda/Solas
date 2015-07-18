@@ -1,5 +1,5 @@
 //
-//  solas/view.cc
+//  solas/canvas.cc
 //
 //  MIT License
 //
@@ -24,7 +24,7 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "solas/view.h"
+#include "solas/canvas.h"
 
 #include <cassert>
 
@@ -34,7 +34,7 @@ namespace solas {
 
 #pragma mark Event handlers
 
-void View::handleMouseEvent(const MouseEvent& event) {
+void Canvas::handleMouseEvent(const MouseEvent& event) {
   if (event.type() == MouseEvent::Type::PRESSED ||
       event.type() == MouseEvent::Type::DRAGGED ||
       event.type() == MouseEvent::Type::MOVED) {
@@ -97,7 +97,7 @@ void View::handleMouseEvent(const MouseEvent& event) {
   }
 }
 
-void View::handleKeyEvent(const KeyEvent& event) {
+void Canvas::handleKeyEvent(const KeyEvent& event) {
   switch (event.type()) {
     case KeyEvent::Type::PRESSED:
       keyPressed(event);
@@ -114,7 +114,7 @@ void View::handleKeyEvent(const KeyEvent& event) {
   }
 }
 
-void View::handleTouchEvent(const TouchEvent& event) {
+void Canvas::handleTouchEvent(const TouchEvent& event) {
   if (event.type() == TouchEvent::Type::BEGAN) {
     ptouch_ = etouch_;
     touch_ = event.touches().front();
@@ -163,7 +163,7 @@ void View::handleTouchEvent(const TouchEvent& event) {
   }
 }
 
-void View::handleGestureEvent(const GestureEvent& event) {
+void Canvas::handleGestureEvent(const GestureEvent& event) {
   switch (event.type()) {
     case GestureEvent::Type::BEGAN:
       gestureBegan(event);
@@ -190,7 +190,7 @@ void View::handleGestureEvent(const GestureEvent& event) {
   }
 }
 
-void View::handleMotionEvent(const MotionEvent& event) {
+void Canvas::handleMotionEvent(const MotionEvent& event) {
   switch (event.type()) {
     case MotionEvent::Type::BEGAN:
       motionBegan(event);

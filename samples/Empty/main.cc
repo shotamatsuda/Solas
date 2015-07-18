@@ -28,7 +28,7 @@
 
 #include "solas.h"
 
-class App : public solas::View {
+class App : public solas::Canvas {
  public:
   void mousePressed() override {
     std::cout << "mousePressed" << std::endl;

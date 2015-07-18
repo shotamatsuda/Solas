@@ -1,5 +1,5 @@
 //
-//  solas/layer.h
+//  solas/group.h
 //
 //  MIT License
 //
@@ -25,8 +25,8 @@
 //
 
 #pragma once
-#ifndef SOLAS_LAYER_H_
-#define SOLAS_LAYER_H_
+#ifndef SOLAS_GROUP_H_
+#define SOLAS_GROUP_H_
 
 #include <cassert>
 
@@ -34,36 +34,36 @@
 
 namespace solas {
 
-template <class View>
-class Layer : public Composite {
+template <class Canvas>
+class Group : public Composite {
  public:
-  explicit Layer(View *parent);
-  explicit Layer(Layer *parent);
+  explicit Group(Canvas *parent);
+  explicit Group(Group *parent);
 
   // Aggregation
-  View& view() const;
+  Canvas& canvas() const;
 };
 
 #pragma mark -
 
-template <class View>
-inline Layer<View>::Layer(View *parent) : Composite(parent) {}
+template <class Canvas>
+inline Group<Canvas>::Group(Canvas *parent) : Composite(parent) {}
 
-template <class View>
-inline Layer<View>::Layer(Layer *parent) : Composite(parent) {}
+template <class Canvas>
+inline Group<Canvas>::Group(Group *parent) : Composite(parent) {}
 
 #pragma mark Aggregation
 
-template <class View>
-inline View& Layer<View>::view() const {
+template <class Canvas>
+inline Canvas& Group<Canvas>::canvas() const {
   Composite *current = parent();
   assert(current);
   while (current->parent()) {
     current = current->parent();
   }
-  return static_cast<View&>(*current);
+  return static_cast<Canvas&>(*current);
 }
 
 }  // namespace solas
 
-#endif  // SOLAS_LAYER_H_
+#endif  // SOLAS_GROUP_H_
