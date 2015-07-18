@@ -205,24 +205,52 @@ inline void Runner::keyReleased(const KeyEvent& event) {
 inline void Runner::touchesBegan(const TouchEvent& event) {
   if (runnable_) {
     runnable_->touchesBegan(event, *this);
+    if (options_.translates_touches()) {
+      const MouseEvent mouse_event(MouseEvent::Type::PRESSED,
+                                   event.touches().front(),
+                                   MouseButton::LEFT,
+                                   KeyModifier::NONE);
+      runnable_->mousePressed(mouse_event, *this);
+    }
   }
 }
 
 inline void Runner::touchesMoved(const TouchEvent& event) {
   if (runnable_) {
     runnable_->touchesMoved(event, *this);
+    if (options_.translates_touches()) {
+      const MouseEvent mouse_event(MouseEvent::Type::DRAGGED,
+                                   event.touches().front(),
+                                   MouseButton::LEFT,
+                                   KeyModifier::NONE);
+      runnable_->mouseDragged(mouse_event, *this);
+    }
   }
 }
 
 inline void Runner::touchesCancelled(const TouchEvent& event) {
   if (runnable_) {
     runnable_->touchesCancelled(event, *this);
+    if (options_.translates_touches()) {
+      const MouseEvent mouse_event(MouseEvent::Type::RELEASED,
+                                   event.touches().front(),
+                                   MouseButton::LEFT,
+                                   KeyModifier::NONE);
+      runnable_->mouseReleased(mouse_event, *this);
+    }
   }
 }
 
 inline void Runner::touchesEnded(const TouchEvent& event) {
   if (runnable_) {
     runnable_->touchesEnded(event, *this);
+    if (options_.translates_touches()) {
+      const MouseEvent mouse_event(MouseEvent::Type::RELEASED,
+                                   event.touches().front(),
+                                   MouseButton::LEFT,
+                                   KeyModifier::NONE);
+      runnable_->mouseReleased(mouse_event, *this);
+    }
   }
 }
 
