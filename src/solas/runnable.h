@@ -44,45 +44,38 @@ class Runnable {
   friend class Runner;
 
  public:
-  // Constructors
   virtual ~Runnable() = 0;
 
  protected:
   // Lifecycle
   virtual void setup(const AppEvent& event);
-  virtual void setup() {}
   virtual void update(const AppEvent& event);
-  virtual void update() {}
   virtual void pre(const AppEvent& event);
-  virtual void pre() {}
   virtual void draw(const AppEvent& event);
-  virtual void draw() {}
   virtual void post(const AppEvent& event);
-  virtual void post() {}
   virtual void exit(const AppEvent& event);
-  virtual void exit() {}
 
   // Events
-  virtual void mouseDown(const MouseEvent& event) {}
-  virtual void mouseDrag(const MouseEvent& event) {}
-  virtual void mouseUp(const MouseEvent& event) {}
-  virtual void mouseMove(const MouseEvent& event) {}
-  virtual void mouseEnter(const MouseEvent& event) {}
-  virtual void mouseExit(const MouseEvent& event) {}
-  virtual void scrollWheel(const MouseEvent& event) {}
-  virtual void keyDown(const KeyEvent& event) {}
-  virtual void keyUp(const KeyEvent& event) {}
-  virtual void touchesBegin(const TouchEvent& event) {}
-  virtual void touchesMove(const TouchEvent& event) {}
-  virtual void touchesCancel(const TouchEvent& event) {}
-  virtual void touchesEnd(const TouchEvent& event) {}
-  virtual void gestureBegin(const GestureEvent& event) {}
-  virtual void gestureChange(const GestureEvent& event) {}
-  virtual void gestureCancel(const GestureEvent& event) {}
-  virtual void gestureEnd(const GestureEvent& event) {}
-  virtual void motionBegin(const MotionEvent& event) {}
-  virtual void motionCancel(const MotionEvent& event) {}
-  virtual void motionEnd(const MotionEvent& event) {}
+  virtual void mousePressed(const MouseEvent& event) {}
+  virtual void mouseDragged(const MouseEvent& event) {}
+  virtual void mouseReleased(const MouseEvent& event) {}
+  virtual void mouseMoved(const MouseEvent& event) {}
+  virtual void mouseEntered(const MouseEvent& event) {}
+  virtual void mouseExited(const MouseEvent& event) {}
+  virtual void mouseWheel(const MouseEvent& event) {}
+  virtual void keyPressed(const KeyEvent& event) {}
+  virtual void keyReleased(const KeyEvent& event) {}
+  virtual void touchesBegan(const TouchEvent& event) {}
+  virtual void touchesMoved(const TouchEvent& event) {}
+  virtual void touchesCancelled(const TouchEvent& event) {}
+  virtual void touchesEnded(const TouchEvent& event) {}
+  virtual void gestureBegan(const GestureEvent& event) {}
+  virtual void gestureChanged(const GestureEvent& event) {}
+  virtual void gestureCancelled(const GestureEvent& event) {}
+  virtual void gestureEnded(const GestureEvent& event) {}
+  virtual void motionBegan(const MotionEvent& event) {}
+  virtual void motionCancelled(const MotionEvent& event) {}
+  virtual void motionEnded(const MotionEvent& event) {}
 
   // Context
   const ContextHolder& context() const;

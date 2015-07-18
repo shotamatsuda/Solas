@@ -30,7 +30,7 @@
 #import "SLSNSViewController.h"
 #import "SLSNSWindowController.h"
 
-#include "solas/runner_factory.h"
+#include "solas/run.h"
 
 @interface SLSNSApplicationDelegate () {
  @private
@@ -69,7 +69,7 @@
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:
     (NSApplication *)sender {
-  const auto& options = solas::RunnerFactory::Shared().options();
+  const auto& options = solas::Run::instance().options();
   return !options.multiple_windows();
 }
 
@@ -82,7 +82,7 @@
 #pragma mark Window Notifications
 
 - (void)windowWillClose:(NSNotification *)notification {
-  const auto& options = solas::RunnerFactory::Shared().options();
+  const auto& options = solas::Run::instance().options();
   if (options.multiple_windows()) {
     NSWindow *window = notification.object;
     [[NSNotificationCenter defaultCenter]
@@ -97,16 +97,14 @@
 
 - (IBAction)newWindow:(id)sender {
   SLSRunner *runner = [[SLSRunner alloc]
-      initWithRunnable:solas::RunnerFactory::Shared().create()];
+      initWithRunnable:solas::Run::instance().create()];
   SLSNSViewController *viewController =
       [[SLSNSViewController alloc] initWithRunner:runner];
   SLSNSWindowController *windowController =
       [[SLSNSWindowController alloc] initWithViewController:viewController];
-//  windowController.window.appearance =
-//      [NSAppearance appearanceNamed:NSAppearanceNameVibrantDark];
-//  windowController.window.titleVisibility = NSWindowTitleHidden;
-//  windowController.window.titlebarAppearsTransparent = YES;
-//  windowController.window.styleMask |= NSFullSizeContentViewWindowMask;
+  const auto& options = solas::Run::instance().options();
+  windowController.darkContent = options.dark_content();
+  windowController.fullSizeContent = options.full_size_content();
   [[NSNotificationCenter defaultCenter]
       addObserver:self
          selector:@selector(windowWillClose:)
@@ -121,7 +119,7 @@
 - (BOOL)validateUserInterfaceItem:(id<NSValidatedUserInterfaceItem>)item {
   SEL action = item.action;
   if (action == @selector(newWindow:)) {
-    const auto& options = solas::RunnerFactory::Shared().options();
+    const auto& options = solas::Run::instance().options();
     return options.multiple_windows();
   }
   return NO;

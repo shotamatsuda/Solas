@@ -46,10 +46,8 @@ class MotionEvent final {
   MotionEvent(const MotionEvent& other) = default;
   MotionEvent& operator=(const MotionEvent& other) = delete;
 
-  // Attributes
-  bool empty() const { return type_ == Type::UNDEFINED; }
-
   // Properties
+  bool empty() const { return type_ == Type::UNDEFINED; }
   Type type() const { return type_; }
 
   // Conversion

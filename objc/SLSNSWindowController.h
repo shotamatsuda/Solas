@@ -36,4 +36,9 @@
 @property (nonatomic, strong, readonly, nonnull)
     SLSNSViewController *viewController;
 
+#pragma mark Configuring the Window Appearance
+
+@property (nonatomic, assign) BOOL darkContent;
+@property (nonatomic, assign) BOOL fullSizeContent;
+
 @end

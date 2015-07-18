@@ -29,13 +29,13 @@
 #import "SLSRunner.h"
 #import "SLSUIViewController.h"
 
-#include "solas/runner_factory.h"
+#include "solas/run.h"
 
 @implementation SLSUIApplicationDelegate
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
   SLSRunner *runner = [[SLSRunner alloc]
-      initWithRunnable:solas::RunnerFactory::Shared().create()];
+      initWithRunnable:solas::Run::instance().create()];
   SLSUIViewController *viewController =
       [[SLSUIViewController alloc] initWithRunner:runner];
   _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

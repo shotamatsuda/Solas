@@ -28,18 +28,68 @@
 #ifndef SOLAS_RUN_H_
 #define SOLAS_RUN_H_
 
-#include "solas/runner_factory.h"
-#include "solas/runner_options.h"
+#include <functional>
+#include <memory>
+
+#include "solas/runner.h"
+#include "solas/run_options.h"
 
 namespace solas {
 
-int Run(int argc, char **argv);
+template <class Runnable>
+int run(int argc, char **argv, const RunOptions& options = RunOptions());
+int run(int argc, char **argv);
+
+class Run {
+ public:
+  // Disallow copy and assign
+  Run(const Run& other) = delete;
+  Run& operator=(const Run& other) = delete;
+
+  // Singleton
+  static Run& instance();
+
+  // Configuring runners
+  template <class Runnable>
+  void set(const RunOptions& options = RunOptions());
+
+  // Creating runners
+  std::unique_ptr<Runner> create() const;
+  const RunOptions& options() const { return options_; }
+
+ private:
+  Run() = default;
+
+ private:
+  std::function<std::unique_ptr<Runner>()> invocation_;
+  RunOptions options_;
+};
+
+#pragma mark -
 
 template <class Runnable>
-inline int Run(int argc, char **argv,
-               const RunnerOptions& options = RunnerOptions()) {
-  RunnerFactory::Shared().set<Runnable>(options);
-  return Run(argc, argv);
+inline int run(int argc, char **argv, const RunOptions& options) {
+  Run::instance().set<Runnable>(options);
+  return run(argc, argv);
+}
+
+#pragma mark Configuring runners
+
+template <class Runnable>
+inline void Run::set(const RunOptions& options) {
+  options_ = options;
+  invocation_ = []() -> std::unique_ptr<Runner> {
+    return std::make_unique<Runner>(std::make_unique<Runnable>());
+  };
+}
+
+#pragma mark Creating runners
+
+inline std::unique_ptr<Runner> Run::create() const {
+  if (invocation_) {
+    return invocation_();
+  }
+  return std::unique_ptr<Runner>();
 }
 
 }  // namespace solas

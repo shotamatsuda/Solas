@@ -52,10 +52,8 @@ class TouchEvent final {
   TouchEvent(const TouchEvent& other) = default;
   TouchEvent& operator=(const TouchEvent& other) = delete;
 
-  // Attributes
-  bool empty() const { return type_ == Type::UNDEFINED; }
-
   // Properties
+  bool empty() const { return type_ == Type::UNDEFINED; }
   Type type() const { return type_; }
   const std::vector<Vec2d>& touches() const { return touches_; }
 

@@ -61,10 +61,8 @@ class MouseEvent final {
   MouseEvent(const MouseEvent& other) = default;
   MouseEvent& operator=(const MouseEvent& other) = delete;
 
-  // Attributes
-  bool empty() const { return type_ == Type::UNDEFINED; }
-
   // Properties
+  bool empty() const { return type_ == Type::UNDEFINED; }
   Type type() const { return type_; }
   const Vec2d& location() const { return location_; }
   MouseButton button() const { return button_; }

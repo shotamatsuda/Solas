@@ -1,5 +1,5 @@
 //
-//  solas/benchmark.cc
+//  osx.xcconfig
 //
 //  MIT License
 //
@@ -24,17 +24,6 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "solas/benchmark.h"
-
-#include <chrono>
-
-namespace solas {
-
-template <> const char * Benchmark<std::chrono::nanoseconds>::suffix_ = "ns";
-template <> const char * Benchmark<std::chrono::microseconds>::suffix_ = "us";
-template <> const char * Benchmark<std::chrono::milliseconds>::suffix_ = "ms";
-template <> const char * Benchmark<std::chrono::seconds>::suffix_ = "s";
-template <> const char * Benchmark<std::chrono::minutes>::suffix_ = "m";
-template <> const char * Benchmark<std::chrono::hours>::suffix_ = "h";
-
-}  // namespace solas
+// Search Paths
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/../build/boost/osx/framework"
+HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/../src" "$(PROJECT_DIR)/../../takram-math/src" "$(PROJECT_DIR)/../../takram-tween/src"

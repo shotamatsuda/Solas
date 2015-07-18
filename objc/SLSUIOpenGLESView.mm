@@ -92,6 +92,8 @@
 #pragma mark GLKViewDelegate
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
+  glClearColor(1.0, 1.0, 1.0, 1.0);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
   CGRect bounds = self.bounds;
   const solas::Size2d size(bounds.size.width, bounds.size.height);
   const solas::AppEvent event(_view.context, size, [UIScreen mainScreen].scale);

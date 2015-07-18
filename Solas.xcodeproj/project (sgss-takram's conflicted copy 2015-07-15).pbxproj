@@ -7,24 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		93011E971B56B6AF004DD68F /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93011E961B56B6AF004DD68F /* solas.h */; };
-		93011E981B56B6AF004DD68F /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93011E961B56B6AF004DD68F /* solas.h */; };
-		93011E991B56B6AF004DD68F /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93011E961B56B6AF004DD68F /* solas.h */; };
 		932E7E0C1B498E86004D8B89 /* libtakram_tween.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E21F451B48E826000A374A /* libtakram_tween.a */; };
 		9350587B1AEF555D0020E755 /* gesture_kind.h in Headers */ = {isa = PBXBuildFile; fileRef = 9350587A1AEF555B0020E755 /* gesture_kind.h */; };
 		9350587D1AEF555E0020E755 /* gesture_kind.h in Headers */ = {isa = PBXBuildFile; fileRef = 9350587A1AEF555B0020E755 /* gesture_kind.h */; };
 		935058CF1AEF6E2E0020E755 /* swipe_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* swipe_direction.h */; };
 		935058D11AEF6E2E0020E755 /* swipe_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* swipe_direction.h */; };
+		935193421AF544930073C001 /* date_time.h in Headers */ = {isa = PBXBuildFile; fileRef = 935193411AF544930073C001 /* date_time.h */; };
+		935193441AF544930073C001 /* date_time.h in Headers */ = {isa = PBXBuildFile; fileRef = 935193411AF544930073C001 /* date_time.h */; };
 		93547E791AF1267B00B4C6BE /* screen_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547E781AF1267B00B4C6BE /* screen_edge.h */; };
 		93547E7B1AF1267B00B4C6BE /* screen_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547E781AF1267B00B4C6BE /* screen_edge.h */; };
-		936732D41B56A7BE00CF0010 /* Solas.m in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.m */; };
-		936732D71B56A7D900CF0010 /* Solas.m in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.m */; };
-		936732D81B56A7DA00CF0010 /* Solas.m in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.m */; };
+		936E24441ADEA5A80004C396 /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
 		936E24461ADEA5A80004C396 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		936E24481ADEA5A80004C396 /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
+		936E24831ADEA5A80004C396 /* dispatch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F38E871AB60972009E3626 /* dispatch.mm */; };
+		936E24891ADEA5A80004C396 /* benchmark.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93A9BFFD1AC99A430081D3A0 /* benchmark.cc */; };
 		936E248B1ADEA5A80004C396 /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
 		936E24901ADEA5A80004C396 /* SLSQuartzLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 937E13941ADBDEB9008DB7A7 /* SLSQuartzLayer.mm */; };
 		936E24981ADEA5A80004C396 /* SLSNSBundle+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */; };
+		937D91FD1AF6C094000D8302 /* gl.h in Headers */ = {isa = PBXBuildFile; fileRef = 937D91FC1AF6C094000D8302 /* gl.h */; };
+		937D91FE1AF6C094000D8302 /* gl.h in Headers */ = {isa = PBXBuildFile; fileRef = 937D91FC1AF6C094000D8302 /* gl.h */; };
 		937D92001AF6C0BC000D8302 /* layer_framebuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 937D91FF1AF6C0BC000D8302 /* layer_framebuffer.cc */; };
 		937D92011AF6C0BC000D8302 /* layer_framebuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 937D91FF1AF6C0BC000D8302 /* layer_framebuffer.cc */; };
 		937D92031AF6C0C8000D8302 /* layer_framebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 937D92021AF6C0C8000D8302 /* layer_framebuffer.h */; };
@@ -33,15 +34,31 @@
 		938987DC1AD4AA0900DEC9E9 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B351AD0D23700969DC2 /* boost.framework */; };
 		938D13A61B508D4100CCA57D /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 938D13A51B508D4100CCA57D /* math.h */; };
 		938D13A71B508D4100CCA57D /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 938D13A51B508D4100CCA57D /* math.h */; };
+		939E963E1AD250AF00A7E21E /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
 		93A45B361AD0D23700969DC2 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B351AD0D23700969DC2 /* boost.framework */; };
+		93A9BFFE1AC99A430081D3A0 /* benchmark.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93A9BFFD1AC99A430081D3A0 /* benchmark.cc */; };
 		93AD7CEB1ADD395500B42B9E /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
 		93CAA60E1AD191DC005EDC09 /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
 		93CAA6491AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */; };
 		93CAA6541AD1AE32005EDC09 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
+		93D47A151AFCA5D0000F89B2 /* tree_iterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D47A141AFCA5D0000F89B2 /* tree_iterator.h */; };
+		93D47A171AFCA5D0000F89B2 /* tree_iterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D47A141AFCA5D0000F89B2 /* tree_iterator.h */; };
+		93D843BE1AF61A0F00ED6BDD /* enablers.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D52051AD5530F006EEF1B /* enablers.h */; };
 		93D843BF1AF61A0F00ED6BDD /* enum.h in Headers */ = {isa = PBXBuildFile; fileRef = 930398371AB2AEF400577048 /* enum.h */; };
+		93D843C01AF61A0F00ED6BDD /* singleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E6C1ACD6DDA008D27EA /* singleton.h */; };
+		93D843C11AF61A0F00ED6BDD /* benchmark.h in Headers */ = {isa = PBXBuildFile; fileRef = 938A07E41AB2D41D00CAE8CA /* benchmark.h */; };
+		93D843C81AF61A1000ED6BDD /* enablers.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D52051AD5530F006EEF1B /* enablers.h */; };
 		93D843C91AF61A1000ED6BDD /* enum.h in Headers */ = {isa = PBXBuildFile; fileRef = 930398371AB2AEF400577048 /* enum.h */; };
+		93D843CA1AF61A1000ED6BDD /* singleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E6C1ACD6DDA008D27EA /* singleton.h */; };
+		93D843CB1AF61A1000ED6BDD /* benchmark.h in Headers */ = {isa = PBXBuildFile; fileRef = 938A07E41AB2D41D00CAE8CA /* benchmark.h */; };
+		93D843CD1AF61A1500ED6BDD /* dispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E861AB60972009E3626 /* dispatch.h */; };
 		93D843CE1AF61A1500ED6BDD /* null_mutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E701ACEAF05008D27EA /* null_mutex.h */; };
+		93D843CF1AF61A1500ED6BDD /* utility.h in Headers */ = {isa = PBXBuildFile; fileRef = 930398341AB2AEE700577048 /* utility.h */; };
+		93D843D31AF61A1600ED6BDD /* dispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E861AB60972009E3626 /* dispatch.h */; };
 		93D843D41AF61A1600ED6BDD /* null_mutex.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E701ACEAF05008D27EA /* null_mutex.h */; };
+		93D843D51AF61A1600ED6BDD /* utility.h in Headers */ = {isa = PBXBuildFile; fileRef = 930398341AB2AEE700577048 /* utility.h */; };
+		93D843D61AF61A1900ED6BDD /* thread.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E881AB60972009E3626 /* thread.h */; };
+		93D843D81AF61A1900ED6BDD /* thread.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E881AB60972009E3626 /* thread.h */; };
 		93D8448D1AF61A3900ED6BDD /* event_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE21ADD395500B42B9E /* event_holder.h */; };
 		93D8448E1AF61A3900ED6BDD /* app_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707DA1AD692DF00E3E8AA /* app_event.h */; };
 		93D8448F1AF61A3900ED6BDD /* mouse_button.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6091AD16F40005EDC09 /* mouse_button.h */; };
@@ -55,7 +72,8 @@
 		93D844971AF61A3900ED6BDD /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5271AEB1E3F003AEC6C /* context_holder.h */; };
 		93D844981AF61A3900ED6BDD /* runnable.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6171AD1930A005EDC09 /* runnable.h */; };
 		93D844991AF61A3900ED6BDD /* runner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6161AD19304005EDC09 /* runner.h */; };
-		93D8449A1AF61A3900ED6BDD /* run_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA63C1AD1A518005EDC09 /* run_options.h */; };
+		93D8449A1AF61A3900ED6BDD /* runner_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA63C1AD1A518005EDC09 /* runner_options.h */; };
+		93D8449B1AF61A3900ED6BDD /* runner_factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E963B1AD250AF00A7E21E /* runner_factory.h */; };
 		93D8449C1AF61A3900ED6BDD /* run.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6521AD1ADBB005EDC09 /* run.h */; };
 		93D8449D1AF61A3900ED6BDD /* view.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE41ADD395500B42B9E /* view.h */; };
 		93D8449E1AF61A3900ED6BDD /* layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE11ADD395500B42B9E /* layer.h */; };
@@ -72,10 +90,13 @@
 		93D844BD1AF61A3A00ED6BDD /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5271AEB1E3F003AEC6C /* context_holder.h */; };
 		93D844BE1AF61A3A00ED6BDD /* runnable.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6171AD1930A005EDC09 /* runnable.h */; };
 		93D844BF1AF61A3A00ED6BDD /* runner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6161AD19304005EDC09 /* runner.h */; };
-		93D844C01AF61A3A00ED6BDD /* run_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA63C1AD1A518005EDC09 /* run_options.h */; };
+		93D844C01AF61A3A00ED6BDD /* runner_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA63C1AD1A518005EDC09 /* runner_options.h */; };
+		93D844C11AF61A3A00ED6BDD /* runner_factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E963B1AD250AF00A7E21E /* runner_factory.h */; };
 		93D844C21AF61A3A00ED6BDD /* run.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6521AD1ADBB005EDC09 /* run.h */; };
 		93D844C31AF61A3A00ED6BDD /* view.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE41ADD395500B42B9E /* view.h */; };
 		93D844C41AF61A3A00ED6BDD /* layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE11ADD395500B42B9E /* layer.h */; };
+		93D844C61AF61A3C00ED6BDD /* app.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B451AD1438900969DC2 /* app.h */; };
+		93D844C81AF61A3D00ED6BDD /* app.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B451AD1438900969DC2 /* app.h */; };
 		93E21F4A1B48E834000A374A /* libtakram_tween.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E21F451B48E826000A374A /* libtakram_tween.a */; };
 		93E33C8F1AEBB6F1001F90DE /* libSolas.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 936E241F1ADEA5550004C396 /* libSolas.a */; };
 		93ED100F1B01D69E003F5915 /* composite.h in Headers */ = {isa = PBXBuildFile; fileRef = 93ED100E1B01D69E003F5915 /* composite.h */; };
@@ -107,17 +128,25 @@
 		93EDFC201AEC8E13003CDD03 /* SLSNSBundle+Bundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6451AD1A843005EDC09 /* SLSNSBundle+Bundle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93EDFC381AEC8E2B003CDD03 /* Solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9A21AD97B2A009D0646 /* Solas.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93EDFC391AEC8E2C003CDD03 /* Solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9A21AD97B2A009D0646 /* Solas.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93F38E8F1AB60972009E3626 /* dispatch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F38E871AB60972009E3626 /* dispatch.mm */; };
 		93F857CA1B564B0500C32E8D /* SLSNSBundle+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */; };
 		93F857CB1B564B0500C32E8D /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
+		93F857CC1B564B0500C32E8D /* dispatch.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F38E871AB60972009E3626 /* dispatch.mm */; };
+		93F857CD1B564B0500C32E8D /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
 		93F857CF1B564B0500C32E8D /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
+		93F857D01B564B0500C32E8D /* benchmark.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93A9BFFD1AC99A430081D3A0 /* benchmark.cc */; };
 		93F857D11B564B0500C32E8D /* SLSQuartzLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 937E13941ADBDEB9008DB7A7 /* SLSQuartzLayer.mm */; };
 		93F857D21B564B0500C32E8D /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
 		93F857D81B564B0500C32E8D /* SLSDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9441AD94669009D0646 /* SLSDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93F857D91B564B0500C32E8D /* utility.h in Headers */ = {isa = PBXBuildFile; fileRef = 930398341AB2AEE700577048 /* utility.h */; };
 		93F857DA1B564B0500C32E8D /* gesture_kind.h in Headers */ = {isa = PBXBuildFile; fileRef = 9350587A1AEF555B0020E755 /* gesture_kind.h */; };
+		93F857DB1B564B0500C32E8D /* thread.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E881AB60972009E3626 /* thread.h */; };
 		93F857DC1B564B0500C32E8D /* key_modifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6081AD16EED005EDC09 /* key_modifier.h */; };
 		93F857DD1B564B0500C32E8D /* SLSDisplaySource.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CB51ADCA31900B42B9E /* SLSDisplaySource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93F857DE1B564B0500C32E8D /* SLSAnimationSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DD21ADDE3B4003F9A7A /* SLSAnimationSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93F857DF1B564B0500C32E8D /* SLSRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA60A1AD191DC005EDC09 /* SLSRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93F857E01B564B0500C32E8D /* singleton.h in Headers */ = {isa = PBXBuildFile; fileRef = 93229E6C1ACD6DDA008D27EA /* singleton.h */; };
+		93F857E11B564B0500C32E8D /* date_time.h in Headers */ = {isa = PBXBuildFile; fileRef = 935193411AF544930073C001 /* date_time.h */; };
 		93F857E21B564B0500C32E8D /* SLSNSBundle+Bundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6451AD1A843005EDC09 /* SLSNSBundle+Bundle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93F857E31B564B0500C32E8D /* SLSApplicationMain.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA64B1AD1AD4B005EDC09 /* SLSApplicationMain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93F857E41B564B0500C32E8D /* screen_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547E781AF1267B00B4C6BE /* screen_edge.h */; };
@@ -131,16 +160,22 @@
 		93F857EC1B564B0500C32E8D /* enum.h in Headers */ = {isa = PBXBuildFile; fileRef = 930398371AB2AEF400577048 /* enum.h */; };
 		93F857ED1B564B0500C32E8D /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 938D13A51B508D4100CCA57D /* math.h */; };
 		93F857EE1B564B0500C32E8D /* SLSEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B5E1AD14DC200969DC2 /* SLSEvents.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93F857EF1B564B0500C32E8D /* run_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA63C1AD1A518005EDC09 /* run_options.h */; };
+		93F857EF1B564B0500C32E8D /* runner_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA63C1AD1A518005EDC09 /* runner_options.h */; };
+		93F857F01B564B0500C32E8D /* runner_factory.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E963B1AD250AF00A7E21E /* runner_factory.h */; };
 		93F857F11B564B0500C32E8D /* SLSDisplayLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 938987D61AD21F2000DEC9E9 /* SLSDisplayLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93F857F21B564B0500C32E8D /* enablers.h in Headers */ = {isa = PBXBuildFile; fileRef = 930D52051AD5530F006EEF1B /* enablers.h */; };
 		93F857F31B564B0500C32E8D /* event_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE21ADD395500B42B9E /* event_holder.h */; };
+		93F857F41B564B0500C32E8D /* benchmark.h in Headers */ = {isa = PBXBuildFile; fileRef = 938A07E41AB2D41D00CAE8CA /* benchmark.h */; };
 		93F857F51B564B0500C32E8D /* layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE11ADD395500B42B9E /* layer.h */; };
 		93F857F61B564B0500C32E8D /* gesture_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B4F1AD14C4400969DC2 /* gesture_event.h */; };
+		93F857F71B564B0500C32E8D /* app.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B451AD1438900969DC2 /* app.h */; };
 		93F857F81B564B0500C32E8D /* view.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE41ADD395500B42B9E /* view.h */; };
 		93F857F91B564B0500C32E8D /* swipe_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* swipe_direction.h */; };
 		93F857FA1B564B0500C32E8D /* mouse_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B521AD14C4400969DC2 /* mouse_event.h */; };
 		93F857FB1B564B0500C32E8D /* key_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B501AD14C4400969DC2 /* key_event.h */; };
+		93F857FC1B564B0500C32E8D /* gl.h in Headers */ = {isa = PBXBuildFile; fileRef = 937D91FC1AF6C094000D8302 /* gl.h */; };
 		93F857FD1B564B0500C32E8D /* SLSQuartzLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 937E13931ADBDEB9008DB7A7 /* SLSQuartzLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		93F857FE1B564B0500C32E8D /* dispatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F38E861AB60972009E3626 /* dispatch.h */; };
 		93F857FF1B564B0500C32E8D /* mouse_button.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6091AD16F40005EDC09 /* mouse_button.h */; };
 		93F858001B564B0500C32E8D /* SLSEventDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B5F1AD1546300969DC2 /* SLSEventDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93F858011B564B0500C32E8D /* SLSDisplayDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E96891AD38BB300A7E21E /* SLSDisplayDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -148,7 +183,9 @@
 		93F858031B564B0500C32E8D /* touch_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B531AD14C4400969DC2 /* touch_event.h */; };
 		93F858041B564B0500C32E8D /* Solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9A21AD97B2A009D0646 /* Solas.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93F858051B564B0500C32E8D /* composite.h in Headers */ = {isa = PBXBuildFile; fileRef = 93ED100E1B01D69E003F5915 /* composite.h */; };
+		93F858061B564B0500C32E8D /* layer_framebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 937D92021AF6C0C8000D8302 /* layer_framebuffer.h */; };
 		93F858071B564B0500C32E8D /* backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD52C1AEB22F7003AEC6C /* backend.h */; };
+		93F858081B564B0500C32E8D /* tree_iterator.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D47A141AFCA5D0000F89B2 /* tree_iterator.h */; };
 		93F858731B564EBA00C32E8D /* libtakram_tween.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F8586D1B564E0100C32E8D /* libtakram_tween.a */; };
 		93F858941B56535B00C32E8D /* SLSNSWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F858791B56535B00C32E8D /* SLSNSWindowController.h */; };
 		93F858951B56535B00C32E8D /* SLSNSWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8587A1B56535B00C32E8D /* SLSNSWindowController.m */; };
@@ -174,6 +211,7 @@
 		93F858A91B56535B00C32E8D /* SLSNSApplicationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F8588E1B56535B00C32E8D /* SLSNSApplicationDelegate.h */; };
 		93F858AA1B56535B00C32E8D /* SLSNSApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588F1B56535B00C32E8D /* SLSNSApplicationDelegate.mm */; };
 		93F858AB1B56535B00C32E8D /* SLSNSApplication.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F858901B56535B00C32E8D /* SLSNSApplication.xib */; };
+		93F858C01B56536000C32E8D /* SolasTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F858AC1B56536000C32E8D /* SolasTouch.h */; };
 		93F858C11B56536000C32E8D /* SLSUIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F858AD1B56536000C32E8D /* SLSUIViewController.h */; };
 		93F858C21B56536000C32E8D /* SLSUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F858AE1B56536000C32E8D /* SLSUIViewController.m */; };
 		93F858C31B56536000C32E8D /* SLSUIEventSourceView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F858AF1B56536000C32E8D /* SLSUIEventSourceView.h */; };
@@ -193,9 +231,6 @@
 		93F858D11B56536000C32E8D /* SLSUIApplicationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F858BD1B56536000C32E8D /* SLSUIApplicationDelegate.h */; };
 		93F858D21B56536000C32E8D /* SLSUIApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F858BE1B56536000C32E8D /* SLSUIApplicationDelegate.mm */; };
 		93F858D31B5653A100C32E8D /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B351AD0D23700969DC2 /* boost.framework */; };
-		93F8592F1B57666800C32E8D /* runner_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F8592E1B57666800C32E8D /* runner_options.h */; };
-		93F859301B57666800C32E8D /* runner_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F8592E1B57666800C32E8D /* runner_options.h */; };
-		93F859311B57666800C32E8D /* runner_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F8592E1B57666800C32E8D /* runner_options.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -270,9 +305,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		93011E961B56B6AF004DD68F /* solas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = solas.h; sourceTree = "<group>"; };
+		930398341AB2AEE700577048 /* utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utility.h; sourceTree = "<group>"; };
 		930398371AB2AEF400577048 /* enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = enum.h; sourceTree = "<group>"; };
 		930398491AB2B0DF00577048 /* SolasTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SolasTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		930D52051AD5530F006EEF1B /* enablers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = enablers.h; sourceTree = "<group>"; };
 		932101891B48CE0400A63200 /* dependencies.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = dependencies.xcconfig; sourceTree = "<group>"; };
 		9321018A1B48CE0400A63200 /* product_debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = product_debug.xcconfig; sourceTree = "<group>"; };
 		9321018B1B48CE0400A63200 /* product_release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = product_release.xcconfig; sourceTree = "<group>"; };
@@ -281,24 +317,30 @@
 		9321018E1B48CE0400A63200 /* project_debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_debug.xcconfig; sourceTree = "<group>"; };
 		9321018F1B48CE0400A63200 /* project_release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_release.xcconfig; sourceTree = "<group>"; };
 		932101901B48CE0400A63200 /* project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
+		93229E6C1ACD6DDA008D27EA /* singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = singleton.h; sourceTree = "<group>"; };
 		93229E701ACEAF05008D27EA /* null_mutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = null_mutex.h; sourceTree = "<group>"; };
 		933FD5271AEB1E3F003AEC6C /* context_holder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = context_holder.h; sourceTree = "<group>"; };
 		933FD52C1AEB22F7003AEC6C /* backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = backend.h; sourceTree = "<group>"; };
 		9350587A1AEF555B0020E755 /* gesture_kind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gesture_kind.h; sourceTree = "<group>"; };
 		935058CE1AEF6E2E0020E755 /* swipe_direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swipe_direction.h; sourceTree = "<group>"; };
+		935193411AF544930073C001 /* date_time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = date_time.h; sourceTree = "<group>"; };
 		93547E781AF1267B00B4C6BE /* screen_edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screen_edge.h; sourceTree = "<group>"; };
-		936732D31B56A7BE00CF0010 /* Solas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Solas.m; sourceTree = "<group>"; };
 		936E241F1ADEA5550004C396 /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		937D91FC1AF6C094000D8302 /* gl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gl.h; sourceTree = "<group>"; };
 		937D91FF1AF6C0BC000D8302 /* layer_framebuffer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = layer_framebuffer.cc; sourceTree = "<group>"; };
 		937D92021AF6C0C8000D8302 /* layer_framebuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = layer_framebuffer.h; sourceTree = "<group>"; };
 		937E13931ADBDEB9008DB7A7 /* SLSQuartzLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSQuartzLayer.h; sourceTree = "<group>"; };
 		937E13941ADBDEB9008DB7A7 /* SLSQuartzLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSQuartzLayer.mm; sourceTree = "<group>"; };
-		938987C61AD1B93F00DEC9E9 /* framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = framework.plist; sourceTree = "<group>"; };
+		938987C61AD1B93F00DEC9E9 /* Framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Framework.plist; sourceTree = "<group>"; };
 		938987D61AD21F2000DEC9E9 /* SLSDisplayLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDisplayLink.h; sourceTree = "<group>"; };
+		938A07E41AB2D41D00CAE8CA /* benchmark.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = benchmark.h; sourceTree = "<group>"; };
 		938D13A51B508D4100CCA57D /* math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math.h; sourceTree = "<group>"; };
+		939E963A1AD250AF00A7E21E /* runner_factory.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = runner_factory.cc; sourceTree = "<group>"; };
+		939E963B1AD250AF00A7E21E /* runner_factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = runner_factory.h; sourceTree = "<group>"; };
 		939E967F1AD384C500A7E21E /* SLSEventSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSEventSource.h; sourceTree = "<group>"; };
 		939E96891AD38BB300A7E21E /* SLSDisplayDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSDisplayDelegate.h; sourceTree = "<group>"; };
 		93A45B351AD0D23700969DC2 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/osx/framework/boost.framework; sourceTree = "<group>"; };
+		93A45B451AD1438900969DC2 /* app.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = app.h; sourceTree = "<group>"; };
 		93A45B4F1AD14C4400969DC2 /* gesture_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gesture_event.h; sourceTree = "<group>"; };
 		93A45B501AD14C4400969DC2 /* key_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = key_event.h; sourceTree = "<group>"; };
 		93A45B511AD14C4400969DC2 /* motion_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = motion_event.h; sourceTree = "<group>"; };
@@ -306,6 +348,7 @@
 		93A45B531AD14C4400969DC2 /* touch_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = touch_event.h; sourceTree = "<group>"; };
 		93A45B5E1AD14DC200969DC2 /* SLSEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSEvents.h; sourceTree = "<group>"; };
 		93A45B5F1AD1546300969DC2 /* SLSEventDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSEventDelegate.h; sourceTree = "<group>"; };
+		93A9BFFD1AC99A430081D3A0 /* benchmark.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = benchmark.cc; sourceTree = "<group>"; };
 		93AD7CB51ADCA31900B42B9E /* SLSDisplaySource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDisplaySource.h; sourceTree = "<group>"; };
 		93AD7CE11ADD395500B42B9E /* layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = layer.h; sourceTree = "<group>"; };
 		93AD7CE21ADD395500B42B9E /* event_holder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event_holder.h; sourceTree = "<group>"; };
@@ -318,16 +361,20 @@
 		93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSRunner.mm; sourceTree = "<group>"; };
 		93CAA6161AD19304005EDC09 /* runner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = runner.h; sourceTree = "<group>"; };
 		93CAA6171AD1930A005EDC09 /* runnable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = runnable.h; sourceTree = "<group>"; };
-		93CAA63C1AD1A518005EDC09 /* run_options.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = run_options.h; sourceTree = "<group>"; };
+		93CAA63C1AD1A518005EDC09 /* runner_options.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = runner_options.h; sourceTree = "<group>"; };
 		93CAA6451AD1A843005EDC09 /* SLSNSBundle+Bundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SLSNSBundle+Bundle.h"; sourceTree = "<group>"; };
 		93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SLSNSBundle+Bundle.m"; sourceTree = "<group>"; };
 		93CAA64B1AD1AD4B005EDC09 /* SLSApplicationMain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSApplicationMain.h; sourceTree = "<group>"; };
 		93CAA6521AD1ADBB005EDC09 /* run.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = run.h; sourceTree = "<group>"; };
 		93CAA6531AD1AE32005EDC09 /* run.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = run.mm; sourceTree = "<group>"; };
+		93D47A141AFCA5D0000F89B2 /* tree_iterator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tree_iterator.h; sourceTree = "<group>"; };
 		93D73DD21ADDE3B4003F9A7A /* SLSAnimationSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSAnimationSource.h; sourceTree = "<group>"; };
 		93E21F2F1B48E7DE000A374A /* tween.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = tween.xcodeproj; path = "../takram-tween/tween.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		93E913581AB27DE400DDF7F9 /* Solas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Solas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93ED100E1B01D69E003F5915 /* composite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = composite.h; sourceTree = "<group>"; };
+		93F38E861AB60972009E3626 /* dispatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dispatch.h; sourceTree = "<group>"; };
+		93F38E871AB60972009E3626 /* dispatch.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = dispatch.mm; sourceTree = "<group>"; };
+		93F38E881AB60972009E3626 /* thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = thread.h; sourceTree = "<group>"; };
 		93F8580F1B564B0500C32E8D /* Solas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Solas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F858791B56535B00C32E8D /* SLSNSWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSNSWindowController.h; sourceTree = "<group>"; };
 		93F8587A1B56535B00C32E8D /* SLSNSWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSNSWindowController.m; sourceTree = "<group>"; };
@@ -353,6 +400,7 @@
 		93F8588E1B56535B00C32E8D /* SLSNSApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSNSApplicationDelegate.h; sourceTree = "<group>"; };
 		93F8588F1B56535B00C32E8D /* SLSNSApplicationDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSNSApplicationDelegate.mm; sourceTree = "<group>"; };
 		93F858901B56535B00C32E8D /* SLSNSApplication.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SLSNSApplication.xib; sourceTree = "<group>"; };
+		93F858AC1B56536000C32E8D /* SolasTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SolasTouch.h; sourceTree = "<group>"; };
 		93F858AD1B56536000C32E8D /* SLSUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIViewController.h; sourceTree = "<group>"; };
 		93F858AE1B56536000C32E8D /* SLSUIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIViewController.m; sourceTree = "<group>"; };
 		93F858AF1B56536000C32E8D /* SLSUIEventSourceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIEventSourceView.h; sourceTree = "<group>"; };
@@ -371,7 +419,6 @@
 		93F858BC1B56536000C32E8D /* SLSUIApplicationMain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIApplicationMain.mm; sourceTree = "<group>"; };
 		93F858BD1B56536000C32E8D /* SLSUIApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIApplicationDelegate.h; sourceTree = "<group>"; };
 		93F858BE1B56536000C32E8D /* SLSUIApplicationDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIApplicationDelegate.mm; sourceTree = "<group>"; };
-		93F8592E1B57666800C32E8D /* runner_options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = runner_options.h; sourceTree = "<group>"; };
 		93FEF9441AD94669009D0646 /* SLSDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSDefines.h; sourceTree = "<group>"; };
 		93FEF9A21AD97B2A009D0646 /* Solas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Solas.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -416,19 +463,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		93011E9C1B56B71A004DD68F /* src */ = {
+		930398331AB2AEE700577048 /* utility */ = {
 			isa = PBXGroup;
 			children = (
-				93011E961B56B6AF004DD68F /* solas.h */,
-				93F3BBD51AA205AA00FBF369 /* solas */,
+				930D52051AD5530F006EEF1B /* enablers.h */,
+				930398371AB2AEF400577048 /* enum.h */,
+				93229E6C1ACD6DDA008D27EA /* singleton.h */,
+				935193411AF544930073C001 /* date_time.h */,
+				93D47A141AFCA5D0000F89B2 /* tree_iterator.h */,
+				938A07E41AB2D41D00CAE8CA /* benchmark.h */,
+				93A9BFFD1AC99A430081D3A0 /* benchmark.cc */,
 			);
-			path = src;
+			path = utility;
 			sourceTree = "<group>";
 		};
 		930955021A4FB1E200D09023 /* config */ = {
 			isa = PBXGroup;
 			children = (
-				938987C61AD1B93F00DEC9E9 /* framework.plist */,
+				938987C61AD1B93F00DEC9E9 /* Framework.plist */,
 				932101891B48CE0400A63200 /* dependencies.xcconfig */,
 				932101901B48CE0400A63200 /* project.xcconfig */,
 				9321018E1B48CE0400A63200 /* project_debug.xcconfig */,
@@ -439,6 +491,47 @@
 				9321018C1B48CE0400A63200 /* product_test.xcconfig */,
 			);
 			path = config;
+			sourceTree = "<group>";
+		};
+		937D91FB1AF6C094000D8302 /* gl */ = {
+			isa = PBXGroup;
+			children = (
+				937D92021AF6C0C8000D8302 /* layer_framebuffer.h */,
+				937D91FF1AF6C0BC000D8302 /* layer_framebuffer.cc */,
+			);
+			path = gl;
+			sourceTree = "<group>";
+		};
+		93A45B441AD1438900969DC2 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				93B707DA1AD692DF00E3E8AA /* app_event.h */,
+				93CAA6091AD16F40005EDC09 /* mouse_button.h */,
+				93A45B521AD14C4400969DC2 /* mouse_event.h */,
+				93CAA6081AD16EED005EDC09 /* key_modifier.h */,
+				93A45B501AD14C4400969DC2 /* key_event.h */,
+				93A45B531AD14C4400969DC2 /* touch_event.h */,
+				9350587A1AEF555B0020E755 /* gesture_kind.h */,
+				935058CE1AEF6E2E0020E755 /* swipe_direction.h */,
+				93547E781AF1267B00B4C6BE /* screen_edge.h */,
+				93A45B4F1AD14C4400969DC2 /* gesture_event.h */,
+				93A45B511AD14C4400969DC2 /* motion_event.h */,
+				93AD7CE21ADD395500B42B9E /* event_holder.h */,
+				933FD52C1AEB22F7003AEC6C /* backend.h */,
+				933FD5271AEB1E3F003AEC6C /* context_holder.h */,
+				93CAA6171AD1930A005EDC09 /* runnable.h */,
+				93CAA6161AD19304005EDC09 /* runner.h */,
+				93CAA63C1AD1A518005EDC09 /* runner_options.h */,
+				939E963B1AD250AF00A7E21E /* runner_factory.h */,
+				939E963A1AD250AF00A7E21E /* runner_factory.cc */,
+				93CAA6521AD1ADBB005EDC09 /* run.h */,
+				93CAA6531AD1AE32005EDC09 /* run.mm */,
+				93ED100E1B01D69E003F5915 /* composite.h */,
+				93AD7CE11ADD395500B42B9E /* layer.h */,
+				93AD7CE41ADD395500B42B9E /* view.h */,
+				93AD7CE31ADD395500B42B9E /* view.cc */,
+			);
+			path = app;
 			sourceTree = "<group>";
 		};
 		93E21F3D1B48E826000A374A /* Products */ = {
@@ -456,7 +549,6 @@
 			isa = PBXGroup;
 			children = (
 				93FEF9A21AD97B2A009D0646 /* Solas.h */,
-				936732D31B56A7BE00CF0010 /* Solas.m */,
 				93CAA60A1AD191DC005EDC09 /* SLSRunner.h */,
 				93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */,
 				939E967F1AD384C500A7E21E /* SLSEventSource.h */,
@@ -478,40 +570,31 @@
 			path = objc;
 			sourceTree = "<group>";
 		};
-		93F3BBD51AA205AA00FBF369 /* solas */ = {
+		93F38E831AB60972009E3626 /* thread */ = {
 			isa = PBXGroup;
 			children = (
-				93B707DA1AD692DF00E3E8AA /* app_event.h */,
-				933FD52C1AEB22F7003AEC6C /* backend.h */,
-				93ED100E1B01D69E003F5915 /* composite.h */,
-				933FD5271AEB1E3F003AEC6C /* context_holder.h */,
-				930398371AB2AEF400577048 /* enum.h */,
-				93AD7CE21ADD395500B42B9E /* event_holder.h */,
-				93A45B4F1AD14C4400969DC2 /* gesture_event.h */,
-				9350587A1AEF555B0020E755 /* gesture_kind.h */,
-				93A45B501AD14C4400969DC2 /* key_event.h */,
-				93CAA6081AD16EED005EDC09 /* key_modifier.h */,
-				937D92021AF6C0C8000D8302 /* layer_framebuffer.h */,
-				937D91FF1AF6C0BC000D8302 /* layer_framebuffer.cc */,
-				93AD7CE11ADD395500B42B9E /* layer.h */,
-				938D13A51B508D4100CCA57D /* math.h */,
-				93A45B511AD14C4400969DC2 /* motion_event.h */,
-				93CAA6091AD16F40005EDC09 /* mouse_button.h */,
-				93A45B521AD14C4400969DC2 /* mouse_event.h */,
+				93F38E861AB60972009E3626 /* dispatch.h */,
+				93F38E871AB60972009E3626 /* dispatch.mm */,
 				93229E701ACEAF05008D27EA /* null_mutex.h */,
-				93CAA6521AD1ADBB005EDC09 /* run.h */,
-				93CAA6531AD1AE32005EDC09 /* run.mm */,
-				93CAA63C1AD1A518005EDC09 /* run_options.h */,
-				93CAA6171AD1930A005EDC09 /* runnable.h */,
-				93CAA6161AD19304005EDC09 /* runner.h */,
-				93F8592E1B57666800C32E8D /* runner_options.h */,
-				93547E781AF1267B00B4C6BE /* screen_edge.h */,
-				935058CE1AEF6E2E0020E755 /* swipe_direction.h */,
-				93A45B531AD14C4400969DC2 /* touch_event.h */,
-				93AD7CE41ADD395500B42B9E /* view.h */,
-				93AD7CE31ADD395500B42B9E /* view.cc */,
 			);
-			path = solas;
+			path = thread;
+			sourceTree = "<group>";
+		};
+		93F3BBD51AA205AA00FBF369 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				93A45B451AD1438900969DC2 /* app.h */,
+				93A45B441AD1438900969DC2 /* app */,
+				93F38E881AB60972009E3626 /* thread.h */,
+				93F38E831AB60972009E3626 /* thread */,
+				937D91FC1AF6C094000D8302 /* gl.h */,
+				937D91FB1AF6C094000D8302 /* gl */,
+				930398341AB2AEE700577048 /* utility.h */,
+				930398331AB2AEE700577048 /* utility */,
+				938D13A51B508D4100CCA57D /* math.h */,
+			);
+			name = src;
+			path = src/solas;
 			sourceTree = "<group>";
 		};
 		93F3BBD61AA205C200FBF369 /* test */ = {
@@ -563,6 +646,7 @@
 		93F858BF1B56536000C32E8D /* ios */ = {
 			isa = PBXGroup;
 			children = (
+				93F858AC1B56536000C32E8D /* SolasTouch.h */,
 				93F858AD1B56536000C32E8D /* SLSUIViewController.h */,
 				93F858AE1B56536000C32E8D /* SLSUIViewController.m */,
 				93F858AF1B56536000C32E8D /* SLSUIEventSourceView.h */,
@@ -588,7 +672,7 @@
 		93F8AD6617C8B39800310877 = {
 			isa = PBXGroup;
 			children = (
-				93011E9C1B56B71A004DD68F /* src */,
+				93F3BBD51AA205AA00FBF369 /* src */,
 				93F38E441AB5FA26009E3626 /* objc */,
 				93F3BBD61AA205C200FBF369 /* test */,
 				930955021A4FB1E200D09023 /* config */,
@@ -617,15 +701,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				93EDFC1A1AEC8E13003CDD03 /* SLSDefines.h in Headers */,
+				93D843CF1AF61A1500ED6BDD /* utility.h in Headers */,
 				9350587B1AEF555D0020E755 /* gesture_kind.h in Headers */,
+				93D843D61AF61A1900ED6BDD /* thread.h in Headers */,
 				93D844911AF61A3900ED6BDD /* key_modifier.h in Headers */,
 				93EDFC171AEC8E13003CDD03 /* SLSDisplaySource.h in Headers */,
-				93F859311B57666800C32E8D /* runner_options.h in Headers */,
 				93EDFC181AEC8E13003CDD03 /* SLSAnimationSource.h in Headers */,
 				93EDFC151AEC8E13003CDD03 /* SLSRunner.h in Headers */,
+				93D843C01AF61A0F00ED6BDD /* singleton.h in Headers */,
+				935193441AF544930073C001 /* date_time.h in Headers */,
 				93EDFC201AEC8E13003CDD03 /* SLSNSBundle+Bundle.h in Headers */,
 				93EDFC1F1AEC8E13003CDD03 /* SLSApplicationMain.h in Headers */,
-				93011E991B56B6AF004DD68F /* solas.h in Headers */,
 				93547E7B1AF1267B00B4C6BE /* screen_edge.h in Headers */,
 				93D843CE1AF61A1500ED6BDD /* null_mutex.h in Headers */,
 				93D844951AF61A3900ED6BDD /* motion_event.h in Headers */,
@@ -637,16 +723,22 @@
 				93D843BF1AF61A0F00ED6BDD /* enum.h in Headers */,
 				938D13A71B508D4100CCA57D /* math.h in Headers */,
 				93EDFC161AEC8E13003CDD03 /* SLSEventSource.h in Headers */,
-				93D8449A1AF61A3900ED6BDD /* run_options.h in Headers */,
+				93D8449A1AF61A3900ED6BDD /* runner_options.h in Headers */,
+				93D8449B1AF61A3900ED6BDD /* runner_factory.h in Headers */,
 				93EDFC1B1AEC8E13003CDD03 /* SLSEvents.h in Headers */,
+				93D843BE1AF61A0F00ED6BDD /* enablers.h in Headers */,
 				93D8448D1AF61A3900ED6BDD /* event_holder.h in Headers */,
 				93EDFC1E1AEC8E13003CDD03 /* SLSDisplayLink.h in Headers */,
+				93D843C11AF61A0F00ED6BDD /* benchmark.h in Headers */,
 				93D8449E1AF61A3900ED6BDD /* layer.h in Headers */,
 				93D844941AF61A3900ED6BDD /* gesture_event.h in Headers */,
+				93D844C61AF61A3C00ED6BDD /* app.h in Headers */,
 				93D8449D1AF61A3900ED6BDD /* view.h in Headers */,
 				935058D11AEF6E2E0020E755 /* swipe_direction.h in Headers */,
 				93D844901AF61A3900ED6BDD /* mouse_event.h in Headers */,
 				93D844921AF61A3900ED6BDD /* key_event.h in Headers */,
+				937D91FE1AF6C094000D8302 /* gl.h in Headers */,
+				93D843CD1AF61A1500ED6BDD /* dispatch.h in Headers */,
 				93D8448F1AF61A3900ED6BDD /* mouse_button.h in Headers */,
 				93EDFC191AEC8E13003CDD03 /* SLSQuartzLayer.h in Headers */,
 				93EDFC1C1AEC8E13003CDD03 /* SLSEventDelegate.h in Headers */,
@@ -656,6 +748,7 @@
 				93ED10111B01D69E003F5915 /* composite.h in Headers */,
 				937D92041AF6C0C8000D8302 /* layer_framebuffer.h in Headers */,
 				93D844961AF61A3900ED6BDD /* backend.h in Headers */,
+				93D47A171AFCA5D0000F89B2 /* tree_iterator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -664,7 +757,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				93EDFC021AEC8E12003CDD03 /* SLSDefines.h in Headers */,
+				93D843D51AF61A1600ED6BDD /* utility.h in Headers */,
 				9350587D1AEF555E0020E755 /* gesture_kind.h in Headers */,
+				93D843D81AF61A1900ED6BDD /* thread.h in Headers */,
 				93F858941B56535B00C32E8D /* SLSNSWindowController.h in Headers */,
 				93F858A91B56535B00C32E8D /* SLSNSApplicationDelegate.h in Headers */,
 				93D844B71AF61A3A00ED6BDD /* key_modifier.h in Headers */,
@@ -673,9 +768,10 @@
 				93F858A51B56535B00C32E8D /* SLSNSQuartzView.h in Headers */,
 				93F8589D1B56535B00C32E8D /* SLSNSOpenGLView.h in Headers */,
 				93EDFBFD1AEC8E12003CDD03 /* SLSRunner.h in Headers */,
+				93D843CA1AF61A1000ED6BDD /* singleton.h in Headers */,
+				935193421AF544930073C001 /* date_time.h in Headers */,
 				93EDFC081AEC8E12003CDD03 /* SLSNSBundle+Bundle.h in Headers */,
 				93EDFC071AEC8E12003CDD03 /* SLSApplicationMain.h in Headers */,
-				93F8592F1B57666800C32E8D /* runner_options.h in Headers */,
 				93547E791AF1267B00B4C6BE /* screen_edge.h in Headers */,
 				93D843D41AF61A1600ED6BDD /* null_mutex.h in Headers */,
 				93D844BB1AF61A3A00ED6BDD /* motion_event.h in Headers */,
@@ -688,23 +784,28 @@
 				938D13A61B508D4100CCA57D /* math.h in Headers */,
 				93F858A11B56535B00C32E8D /* SLSNSOpenGL4View.h in Headers */,
 				93EDFC031AEC8E12003CDD03 /* SLSEvents.h in Headers */,
-				93D844C01AF61A3A00ED6BDD /* run_options.h in Headers */,
+				93D844C01AF61A3A00ED6BDD /* runner_options.h in Headers */,
+				93D844C11AF61A3A00ED6BDD /* runner_factory.h in Headers */,
 				93EDFC061AEC8E12003CDD03 /* SLSDisplayLink.h in Headers */,
+				93D843C81AF61A1000ED6BDD /* enablers.h in Headers */,
 				93F8589B1B56535B00C32E8D /* SLSNSView.h in Headers */,
 				93D844B31AF61A3A00ED6BDD /* event_holder.h in Headers */,
+				93D843CB1AF61A1000ED6BDD /* benchmark.h in Headers */,
 				93D844C41AF61A3A00ED6BDD /* layer.h in Headers */,
 				93D844BA1AF61A3A00ED6BDD /* gesture_event.h in Headers */,
+				93D844C81AF61A3D00ED6BDD /* app.h in Headers */,
 				93F858A31B56535B00C32E8D /* SLSNSOpenGLLayer.h in Headers */,
 				93D844C31AF61A3A00ED6BDD /* view.h in Headers */,
 				935058CF1AEF6E2E0020E755 /* swipe_direction.h in Headers */,
 				93D844B61AF61A3A00ED6BDD /* mouse_event.h in Headers */,
 				93F858971B56535B00C32E8D /* SLSNSViewController.h in Headers */,
 				93D844B81AF61A3A00ED6BDD /* key_event.h in Headers */,
+				937D91FD1AF6C094000D8302 /* gl.h in Headers */,
 				93EDFC011AEC8E12003CDD03 /* SLSQuartzLayer.h in Headers */,
+				93D843D31AF61A1600ED6BDD /* dispatch.h in Headers */,
 				93D844B51AF61A3A00ED6BDD /* mouse_button.h in Headers */,
 				93EDFC041AEC8E12003CDD03 /* SLSEventDelegate.h in Headers */,
 				93F8589F1B56535B00C32E8D /* SLSNSOpenGL3View.h in Headers */,
-				93011E971B56B6AF004DD68F /* solas.h in Headers */,
 				93EDFC051AEC8E12003CDD03 /* SLSDisplayDelegate.h in Headers */,
 				93D844BE1AF61A3A00ED6BDD /* runnable.h in Headers */,
 				93D844B91AF61A3A00ED6BDD /* touch_event.h in Headers */,
@@ -712,6 +813,7 @@
 				93ED100F1B01D69E003F5915 /* composite.h in Headers */,
 				937D92031AF6C0C8000D8302 /* layer_framebuffer.h in Headers */,
 				93D844BC1AF61A3A00ED6BDD /* backend.h in Headers */,
+				93D47A151AFCA5D0000F89B2 /* tree_iterator.h in Headers */,
 				93F858991B56535B00C32E8D /* SLSNSEventSourceView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -722,12 +824,17 @@
 			files = (
 				93F858C91B56536000C32E8D /* SLSUIOpenGLES2View.h in Headers */,
 				93F857D81B564B0500C32E8D /* SLSDefines.h in Headers */,
+				93F858C01B56536000C32E8D /* SolasTouch.h in Headers */,
+				93F857D91B564B0500C32E8D /* utility.h in Headers */,
 				93F857DA1B564B0500C32E8D /* gesture_kind.h in Headers */,
+				93F857DB1B564B0500C32E8D /* thread.h in Headers */,
 				93F857DC1B564B0500C32E8D /* key_modifier.h in Headers */,
 				93F857DD1B564B0500C32E8D /* SLSDisplaySource.h in Headers */,
 				93F857DE1B564B0500C32E8D /* SLSAnimationSource.h in Headers */,
 				93F857DF1B564B0500C32E8D /* SLSRunner.h in Headers */,
+				93F857E01B564B0500C32E8D /* singleton.h in Headers */,
 				93F858D11B56536000C32E8D /* SLSUIApplicationDelegate.h in Headers */,
+				93F857E11B564B0500C32E8D /* date_time.h in Headers */,
 				93F857E21B564B0500C32E8D /* SLSNSBundle+Bundle.h in Headers */,
 				93F857E31B564B0500C32E8D /* SLSApplicationMain.h in Headers */,
 				93F858C71B56536000C32E8D /* SLSUIOpenGLESView.h in Headers */,
@@ -738,24 +845,28 @@
 				93F857E81B564B0500C32E8D /* runner.h in Headers */,
 				93F858C31B56536000C32E8D /* SLSUIEventSourceView.h in Headers */,
 				93F857E91B564B0500C32E8D /* context_holder.h in Headers */,
-				93F859301B57666800C32E8D /* runner_options.h in Headers */,
 				93F857EA1B564B0500C32E8D /* app_event.h in Headers */,
 				93F857EB1B564B0500C32E8D /* SLSEventSource.h in Headers */,
 				93F857EC1B564B0500C32E8D /* enum.h in Headers */,
 				93F857ED1B564B0500C32E8D /* math.h in Headers */,
 				93F857EE1B564B0500C32E8D /* SLSEvents.h in Headers */,
-				93F857EF1B564B0500C32E8D /* run_options.h in Headers */,
+				93F857EF1B564B0500C32E8D /* runner_options.h in Headers */,
+				93F857F01B564B0500C32E8D /* runner_factory.h in Headers */,
 				93F858CB1B56536000C32E8D /* SLSUIOpenGLES3View.h in Headers */,
 				93F857F11B564B0500C32E8D /* SLSDisplayLink.h in Headers */,
+				93F857F21B564B0500C32E8D /* enablers.h in Headers */,
 				93F857F31B564B0500C32E8D /* event_holder.h in Headers */,
+				93F857F41B564B0500C32E8D /* benchmark.h in Headers */,
 				93F857F51B564B0500C32E8D /* layer.h in Headers */,
-				93011E981B56B6AF004DD68F /* solas.h in Headers */,
 				93F857F61B564B0500C32E8D /* gesture_event.h in Headers */,
+				93F857F71B564B0500C32E8D /* app.h in Headers */,
 				93F857F81B564B0500C32E8D /* view.h in Headers */,
 				93F857F91B564B0500C32E8D /* swipe_direction.h in Headers */,
 				93F857FA1B564B0500C32E8D /* mouse_event.h in Headers */,
 				93F857FB1B564B0500C32E8D /* key_event.h in Headers */,
+				93F857FC1B564B0500C32E8D /* gl.h in Headers */,
 				93F857FD1B564B0500C32E8D /* SLSQuartzLayer.h in Headers */,
+				93F857FE1B564B0500C32E8D /* dispatch.h in Headers */,
 				93F857FF1B564B0500C32E8D /* mouse_button.h in Headers */,
 				93F858C51B56536000C32E8D /* SLSUIView.h in Headers */,
 				93F858001B564B0500C32E8D /* SLSEventDelegate.h in Headers */,
@@ -766,7 +877,9 @@
 				93F858031B564B0500C32E8D /* touch_event.h in Headers */,
 				93F858041B564B0500C32E8D /* Solas.h in Headers */,
 				93F858051B564B0500C32E8D /* composite.h in Headers */,
+				93F858061B564B0500C32E8D /* layer_framebuffer.h in Headers */,
 				93F858071B564B0500C32E8D /* backend.h in Headers */,
+				93F858081B564B0500C32E8D /* tree_iterator.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -996,7 +1109,9 @@
 				936E24981ADEA5A80004C396 /* SLSNSBundle+Bundle.m in Sources */,
 				936E24481ADEA5A80004C396 /* view.cc in Sources */,
 				937D92011AF6C0BC000D8302 /* layer_framebuffer.cc in Sources */,
-				936732D81B56A7DA00CF0010 /* Solas.m in Sources */,
+				936E24891ADEA5A80004C396 /* benchmark.cc in Sources */,
+				936E24831ADEA5A80004C396 /* dispatch.mm in Sources */,
+				936E24441ADEA5A80004C396 /* runner_factory.cc in Sources */,
 				936E24461ADEA5A80004C396 /* run.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1007,15 +1122,17 @@
 			files = (
 				93F8589C1B56535B00C32E8D /* SLSNSView.m in Sources */,
 				93CAA6491AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */,
-				936732D41B56A7BE00CF0010 /* Solas.m in Sources */,
 				93CAA60E1AD191DC005EDC09 /* SLSRunner.mm in Sources */,
 				93F858A01B56535B00C32E8D /* SLSNSOpenGL3View.m in Sources */,
 				93F858981B56535B00C32E8D /* SLSNSViewController.m in Sources */,
+				93F38E8F1AB60972009E3626 /* dispatch.mm in Sources */,
 				93F858A41B56535B00C32E8D /* SLSNSOpenGLLayer.mm in Sources */,
+				939E963E1AD250AF00A7E21E /* runner_factory.cc in Sources */,
 				937D92001AF6C0BC000D8302 /* layer_framebuffer.cc in Sources */,
 				93CAA6541AD1AE32005EDC09 /* run.mm in Sources */,
 				93F858A61B56535B00C32E8D /* SLSNSQuartzView.m in Sources */,
 				93F858951B56535B00C32E8D /* SLSNSWindowController.m in Sources */,
+				93A9BFFE1AC99A430081D3A0 /* benchmark.cc in Sources */,
 				937E13971ADBDEB9008DB7A7 /* SLSQuartzLayer.mm in Sources */,
 				93F8589A1B56535B00C32E8D /* SLSNSEventSourceView.mm in Sources */,
 				93F858A21B56535B00C32E8D /* SLSNSOpenGL4View.m in Sources */,
@@ -1036,13 +1153,15 @@
 				93F858C41B56536000C32E8D /* SLSUIEventSourceView.mm in Sources */,
 				93F858CA1B56536000C32E8D /* SLSUIOpenGLES2View.m in Sources */,
 				93F857CB1B564B0500C32E8D /* SLSRunner.mm in Sources */,
+				93F857CC1B564B0500C32E8D /* dispatch.mm in Sources */,
 				93F858C81B56536000C32E8D /* SLSUIOpenGLESView.mm in Sources */,
-				936732D71B56A7D900CF0010 /* Solas.m in Sources */,
 				93F858C61B56536000C32E8D /* SLSUIView.m in Sources */,
 				93F858CF1B56536000C32E8D /* SLSCADisplayLink.m in Sources */,
+				93F857CD1B564B0500C32E8D /* runner_factory.cc in Sources */,
 				93F858D01B56536000C32E8D /* SLSUIApplicationMain.mm in Sources */,
 				93F857CF1B564B0500C32E8D /* run.mm in Sources */,
 				93F858C21B56536000C32E8D /* SLSUIViewController.m in Sources */,
+				93F857D01B564B0500C32E8D /* benchmark.cc in Sources */,
 				93F858CE1B56536000C32E8D /* SLSUIQuartzView.m in Sources */,
 				93F857D11B564B0500C32E8D /* SLSQuartzLayer.mm in Sources */,
 				93F858CC1B56536000C32E8D /* SLSUIOpenGLES3View.m in Sources */,
@@ -1151,7 +1270,7 @@
 					"$(PROJECT_DIR)/build/boost/osx/framework",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = config/framework.plist;
+				INFOPLIST_FILE = config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
@@ -1195,7 +1314,7 @@
 					"$(PROJECT_DIR)/build/boost/osx/framework",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = config/framework.plist;
+				INFOPLIST_FILE = config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1239,7 +1358,7 @@
 					"$(PROJECT_DIR)/build/boost/osx/framework",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = config/framework.plist;
+				INFOPLIST_FILE = config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
@@ -1286,7 +1405,7 @@
 					"$(PROJECT_DIR)/build/boost/osx/framework",
 				);
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = config/framework.plist;
+				INFOPLIST_FILE = config/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (

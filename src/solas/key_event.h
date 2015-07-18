@@ -45,10 +45,8 @@ class KeyEvent final {
   KeyEvent(const KeyEvent& other) = default;
   KeyEvent& operator=(const KeyEvent& other) = delete;
 
-  // Attributes
-  bool empty() const { return type_ == Type::UNDEFINED; }
-
   // Properties
+  bool empty() const { return type_ == Type::UNDEFINED; }
   Type type() const { return type_; }
 
   // Conversion

@@ -36,7 +36,6 @@ namespace solas {
 
 class ContextHolder final {
  public:
-  // Constructors
   ContextHolder() {}
   template <class T>
   explicit ContextHolder(const T& value);

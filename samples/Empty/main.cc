@@ -24,10 +24,37 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "solas/app.h"
+#include <iostream>
 
-class App : public solas::app::View {};
+#include "solas.h"
+
+class App : public solas::View {
+ public:
+  void mousePressed() override {
+    std::cout << "mousePressed" << std::endl;
+  }
+  void mouseDragged() override {
+    std::cout << "mouseDragged" << std::endl;
+  }
+  void mouseReleased() override {
+    std::cout << "mouseReleased" << std::endl;
+  }
+  void mouseMoved() override {
+    std::cout << "mouseMoved" << std::endl;
+  }
+  void mouseEntered() override {
+    std::cout << "mouseEntered" << std::endl;
+  }
+  void mouseExited() override {
+    std::cout << "mouseExited" << std::endl;
+  }
+  void mouseWheel() override {
+    std::cout << "mouseWheel" << std::endl;
+  }
+};
 
 int main(int argc, char **argv) {
-  return solas::app::Run<App>(argc, argv);
+  solas::RunOptions options;
+  options.set_full_size_content(true);
+  return solas::run<App>(argc, argv, options);
 }

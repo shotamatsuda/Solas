@@ -50,4 +50,37 @@
   [self.window.contentView addSubview:view];
 }
 
+#pragma mark Configuring the Window Appearance
+
+- (BOOL)darkContent {
+  return [self.window.appearance.name
+      isEqualToString:NSAppearanceNameVibrantDark];
+}
+
+- (void)setDarkContent:(BOOL)darkContent {
+  NSString *appearanceName = NSAppearanceNameAqua;
+  if (darkContent) {
+    appearanceName = NSAppearanceNameVibrantDark;
+  }
+  self.window.appearance = [NSAppearance appearanceNamed:appearanceName];
+}
+
+- (BOOL)fullSizeContent {
+  return (self.window.titleVisibility == NSWindowTitleHidden &&
+          self.window.titlebarAppearsTransparent == YES &&
+          self.window.styleMask & NSFullSizeContentViewWindowMask);
+}
+
+- (void)setFullSizeContent:(BOOL)fullSizeContent {
+  if (fullSizeContent) {
+    self.window.titleVisibility = NSWindowTitleHidden;
+    self.window.titlebarAppearsTransparent = YES;
+    self.window.styleMask |= NSFullSizeContentViewWindowMask;
+  } else {
+    self.window.titleVisibility = NSWindowTitleVisible;
+    self.window.titlebarAppearsTransparent = NO;
+    self.window.styleMask ^= NSFullSizeContentViewWindowMask;
+  }
+}
+
 @end

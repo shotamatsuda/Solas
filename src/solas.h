@@ -1,5 +1,5 @@
 //
-//  main.cc
+//  solas.h
 //
 //  MIT License
 //
@@ -24,12 +24,33 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "solas/app.h"
+#pragma once
+#ifndef SOLAS_H_
+#define SOLAS_H_
 
-class App : public solas::app::View {
- public:
-};
+#include "solas/app_event.h"
+#include "solas/backend.h"
+#include "solas/composite.h"
+#include "solas/context_holder.h"
+#include "solas/enum.h"
+#include "solas/event_holder.h"
+#include "solas/gesture_event.h"
+#include "solas/gesture_kind.h"
+#include "solas/key_event.h"
+#include "solas/key_modifier.h"
+#include "solas/layer.h"
+#include "solas/math.h"
+#include "solas/motion_event.h"
+#include "solas/mouse_button.h"
+#include "solas/mouse_event.h"
+#include "solas/null_mutex.h"
+#include "solas/run_options.h"
+#include "solas/run.h"
+#include "solas/runnable.h"
+#include "solas/runner.h"
+#include "solas/screen_edge.h"
+#include "solas/swipe_direction.h"
+#include "solas/touch_event.h"
+#include "solas/view.h"
 
-int main(int argc, char **argv) {
-  return solas::app::Run<App>(argc, argv);
-}
+#endif  // SOLAS_H_

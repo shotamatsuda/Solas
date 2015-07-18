@@ -24,7 +24,6 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
 #import <TargetConditionals.h>
 
 #import "SLSAnimationSource.h"
@@ -39,6 +38,7 @@
 #import "SLSNSBundle+Bundle.h"
 
 #if TARGET_OS_IPHONE
+
 #import "SLSUIApplicationDelegate.h"
 #import "SLSUIEventSourceView.h"
 #import "SLSUIOpenGLES2View.h"
@@ -47,7 +47,11 @@
 #import "SLSUIQuartzView.h"
 #import "SLSUIView.h"
 #import "SLSUIViewController.h"
-#elif TARGET_OS_MAC
+
+#endif  // TARGET_OS_IPHONE
+
+#if TARGET_OS_MAC && !TARGET_OS_IPHONE
+
 #import "SLSNSApplicationDelegate.h"
 #import "SLSNSEventSourceView.h"
 #import "SLSNSOpenGL3View.h"
@@ -58,4 +62,5 @@
 #import "SLSNSView.h"
 #import "SLSNSViewController.h"
 #import "SLSNSWindowController.h"
-#endif
+
+#endif  // TARGET_OS_MAC && !TARGET_OS_IPHONE

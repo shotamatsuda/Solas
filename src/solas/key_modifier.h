@@ -28,7 +28,12 @@
 #ifndef SOLAS_KEY_MODIFIER_H_
 #define SOLAS_KEY_MODIFIER_H_
 
+#include <cassert>
 #include <cstdint>
+#include <ostream>
+#include <vector>
+
+#include <boost/algorithm/string.hpp>
 
 #include "solas/enum.h"
 
@@ -45,6 +50,35 @@ enum class KeyModifier : std::uint32_t {
 };
 
 SOLAS_ENUM_BITWISE_OPERATORS(KeyModifier)
+
+inline std::ostream& operator<<(std::ostream& os, KeyModifier modifier) {
+  if (modifier == KeyModifier::NONE) {
+    os << "none";
+  } else {
+    std::vector<std::string> list;
+    if ((modifier & KeyModifier::CAPS) != KeyModifier::NONE) {
+      list.emplace_back("caps");
+    }
+    if ((modifier & KeyModifier::SHIFT) != KeyModifier::NONE) {
+      list.emplace_back("shift");
+    }
+    if ((modifier & KeyModifier::CONTROL) != KeyModifier::NONE) {
+      list.emplace_back("control");
+    }
+    if ((modifier & KeyModifier::ALTERNATE) != KeyModifier::NONE) {
+      list.emplace_back("alternate");
+    }
+    if ((modifier & KeyModifier::COMMAND) != KeyModifier::NONE) {
+      list.emplace_back("command");
+    }
+    if ((modifier & KeyModifier::FUNCTION) != KeyModifier::NONE) {
+      list.emplace_back("function");
+    }
+    assert(!list.empty());
+    os << boost::algorithm::join(list, " ");
+  }
+  return os;
+}
 
 }  // namespace solas
 

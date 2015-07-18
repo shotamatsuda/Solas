@@ -28,24 +28,69 @@
 #ifndef SOLAS_MOUSE_BUTTON_H_
 #define SOLAS_MOUSE_BUTTON_H_
 
+#include <cassert>
+#include <ostream>
+
 namespace solas {
 
 enum class MouseButton : int {
   UNDEFINED = -1,
-  ZERO = 0,
-  ONE = 1,
-  TWO = 2,
+  LEFT = 0,
+  RIGHT = 1,
+  MIDDLE = 2,
+  ZERO = LEFT,
+  ONE = RIGHT,
+  TWO = MIDDLE,
   THREE = 3,
   FOUR = 4,
   FIVE = 5,
   SIX = 6,
   SEVEN = 7,
   EIGHT = 8,
-  NINE = 9,
-  LEFT = ZERO,
-  RIGHT = ONE,
-  MIDDLE = TWO
+  NINE = 9
 };
+
+inline std::ostream& operator<<(std::ostream& os, MouseButton button) {
+  switch (button) {
+    case MouseButton::UNDEFINED:
+      os << "undefined";
+      break;
+    case MouseButton::LEFT:
+      os << "left";
+      break;
+    case MouseButton::RIGHT:
+      os << "right";
+      break;
+    case MouseButton::MIDDLE:
+      os << "middle";
+      break;
+    case MouseButton::THREE:
+      os << "button3";
+      break;
+    case MouseButton::FOUR:
+      os << "button4";
+      break;
+    case MouseButton::FIVE:
+      os << "button5";
+      break;
+    case MouseButton::SIX:
+      os << "button6";
+      break;
+    case MouseButton::SEVEN:
+      os << "button7";
+      break;
+    case MouseButton::EIGHT:
+      os << "button8";
+      break;
+    case MouseButton::NINE:
+      os << "button9";
+      break;
+    default:
+      assert(false);
+      break;
+  }
+  return os;
+}
 
 }  // namespace solas
 

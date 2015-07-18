@@ -98,10 +98,8 @@ class GestureEvent final {
   GestureEvent(const GestureEvent& other) = default;
   GestureEvent& operator=(const GestureEvent& other) = delete;
 
-  // Attributes
-  bool empty() const { return type_ == Type::UNDEFINED; }
-
   // Properties
+  bool empty() const { return type_ == Type::UNDEFINED; }
   Type type() const { return type_; }
   GestureKind kind() const { return kind_; }
   const std::vector<Vec2d>& touches() const { return touches_; }
@@ -131,21 +129,19 @@ inline GestureEvent::GestureEvent()
       kind_(GestureKind::UNDEFINED) {}
 
 template <class Data>
-inline GestureEvent::GestureEvent(
-    Type type,
-    GestureKind kind,
-    const std::vector<Vec2d>& touches,
-    const Data& data)
+inline GestureEvent::GestureEvent(Type type,
+                                  GestureKind kind,
+                                  const std::vector<Vec2d>& touches,
+                                  const Data& data)
     : type_(type),
       kind_(kind),
       touches_(touches),
       data_(data) {}
 
-inline GestureEvent::GestureEvent(
-    Type type,
-    GestureKind kind,
-    const std::vector<Vec2d>& touches,
-    const boost::any& data)
+inline GestureEvent::GestureEvent(Type type,
+                                  GestureKind kind,
+                                  const std::vector<Vec2d>& touches,
+                                  const boost::any& data)
     : type_(type),
       kind_(kind),
       touches_(touches),

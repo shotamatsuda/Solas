@@ -1,5 +1,5 @@
 //
-//  solas/runner_options.h
+//  solas/run_options.h
 //
 //  MIT License
 //
@@ -25,45 +25,53 @@
 //
 
 #pragma once
-#ifndef SOLAS_RUNNER_OPTIONS_H_
-#define SOLAS_RUNNER_OPTIONS_H_
-
-#include "solas/backend.h"
+#ifndef SOLAS_RUN_OPTIONS_H_
+#define SOLAS_RUN_OPTIONS_H_
 
 namespace solas {
 
-class RunnerOptions final {
+class RunOptions final {
  public:
-  RunnerOptions();
+  RunOptions();
 
   // Copy semantics
-  RunnerOptions(const RunnerOptions& other) = default;
-  RunnerOptions& operator=(const RunnerOptions& other) = default;
+  RunOptions(const RunOptions& other) = default;
+  RunOptions& operator=(const RunOptions& other) = default;
 
   // Comparison
-  bool operator==(const RunnerOptions& other) const;
-  bool operator!=(const RunnerOptions& other) const;
+  bool operator==(const RunOptions& other) const;
+  bool operator!=(const RunOptions& other) const;
 
   // Properties
-  Backend backend() const { return backend_; }
-  void set_backend(Backend value) { backend_ = value; }
+  bool multiple_windows() const { return multiple_windows_; }
+  void set_multiple_windows(bool value) { multiple_windows_ = value; }
+  bool dark_content() const { return dark_content_; }
+  void set_dark_content(bool value) { dark_content_ = value; }
+  bool full_size_content() const { return full_size_content_; }
+  void set_full_size_content(bool value) { full_size_content_ = value; }
 
  private:
-  Backend backend_;
+  bool multiple_windows_;
+  bool dark_content_;
+  bool full_size_content_;
 };
 
 #pragma mark -
 
-inline RunnerOptions::RunnerOptions()
-    : backend_(Backend::OPENGL2 | Backend::OPENGLES2) {}
+inline RunOptions::RunOptions()
+    : multiple_windows_(true),
+      dark_content_(false),
+      full_size_content_(false) {}
 
 #pragma mark Comparison
 
-inline bool RunnerOptions::operator==(const RunnerOptions& other) const {
-  return (backend_ == other.backend_);
+inline bool RunOptions::operator==(const RunOptions& other) const {
+  return (multiple_windows_ == other.multiple_windows_ &&
+          dark_content_ == other.dark_content_ &&
+          full_size_content_ == other.full_size_content_);
 }
 
-inline bool RunnerOptions::operator!=(const RunnerOptions& other) const {
+inline bool RunOptions::operator!=(const RunOptions& other) const {
   return !operator==(other);
 }
 

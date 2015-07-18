@@ -90,15 +90,6 @@
           @selector(displayDelegate:update:)]) {
     [_displayDelegate displayDelegate:self update:SLSAppEventMake(&event)];
   }
-  const double scale = self.contentsScale;
-  GLint framebuffer;
-  glGetIntegerv(GL_FRAMEBUFFER_BINDING, &framebuffer);
-  _framebuffer.update(bounds.size.width, bounds.size.height, scale);
-  _framebuffer.bind();
-  glClearColor(1.0, 1.0, 1.0, 1.0);
-  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-  _framebuffer.transfer(framebuffer);
-  glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
   return YES;
 }
 
@@ -112,6 +103,8 @@
   glGetIntegerv(GL_FRAMEBUFFER_BINDING, &framebuffer);
   _framebuffer.update(bounds.size.width, bounds.size.height, scale);
   _framebuffer.bind();
+  glClearColor(1.0, 1.0, 1.0, 1.0);
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
   const solas::Size2d size(bounds.size.width, bounds.size.height);
   const solas::AppEvent event(context, size, scale);
   if ([_displayDelegate respondsToSelector:@selector(displayDelegate:draw:)]) {

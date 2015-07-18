@@ -35,7 +35,7 @@ class NullMutex final {
   // Constructors
   NullMutex() = default;
 
-  // Disallow copy and assign
+  // Disallow copy semantics
   NullMutex& operator=(const NullMutex& other) = delete;
   NullMutex(const NullMutex& other) = delete;
 

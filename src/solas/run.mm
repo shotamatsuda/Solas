@@ -30,7 +30,12 @@
 
 namespace solas {
 
-int Run(int argc, char **argv) {
+Run& Run::instance() {
+  static Run instance;
+  return instance;
+}
+
+int run(int argc, char **argv) {
   return SLSApplicationMain(argc, argv);
 }
 
