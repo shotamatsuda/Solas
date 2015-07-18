@@ -46,10 +46,10 @@ class GestureEvent final {
  public:
   enum class Type {
     UNDEFINED,
-    BEGIN,
-    CHANGE,
-    CANCEL,
-    END
+    BEGAN,
+    CHANGED,
+    CANCELLED,
+    ENDED
   };
 
   struct TapData {
@@ -186,16 +186,16 @@ inline std::ostream& operator<<(std::ostream& os, GestureEvent::Type type) {
     case GestureEvent::Type::UNDEFINED:
       os << "undefined";
       break;
-    case GestureEvent::Type::BEGIN:
+    case GestureEvent::Type::BEGAN:
       os << "begin";
       break;
-    case GestureEvent::Type::CHANGE:
+    case GestureEvent::Type::CHANGED:
       os << "change";
       break;
-    case GestureEvent::Type::CANCEL:
+    case GestureEvent::Type::CANCELLED:
       os << "cancel";
       break;
-    case GestureEvent::Type::END:
+    case GestureEvent::Type::ENDED:
       os << "end";
       break;
     default:

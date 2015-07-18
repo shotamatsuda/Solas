@@ -34,9 +34,9 @@ class MotionEvent final {
  public:
   enum class Type {
     UNDEFINED,
-    BEGIN,
-    CANCEL,
-    END
+    BEGAN,
+    CANCELLED,
+    ENDED
   };
 
  public:

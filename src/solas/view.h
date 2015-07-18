@@ -35,6 +35,7 @@
 
 #include <boost/signals2.hpp>
 
+#include "solas/app_event.h"
 #include "solas/composite.h"
 #include "solas/event_holder.h"
 #include "solas/gesture_event.h"
@@ -118,12 +119,18 @@ class View : public Runnable, public Composite {
   const takram::tween::TimelineHost * timeline_host() const override;
 
   // Lifecycle intended to be overriden
-  void setup() override {}
-  void update() override {}
-  void pre() override {}
-  void draw() override {}
-  void post() override {}
-  void exit() override {}
+  void setup(const AppEvent& event) {}
+  void update(const AppEvent& event) {}
+  void pre(const AppEvent& event) {}
+  void draw(const AppEvent& event) {}
+  void post(const AppEvent& event) {}
+  void exit(const AppEvent& event) {}
+  void setup() {}
+  void update() {}
+  void pre() {}
+  void draw() {}
+  void post() {}
+  void exit() {}
 
   // Events intended to be overriden
   virtual void mousePressed(const MouseEvent& event) {}
@@ -179,35 +186,35 @@ class View : public Runnable, public Composite {
   void handleGestureEvent(const GestureEvent& event);
   void handleMotionEvent(const MotionEvent& event);
 
-  // Lifecycle overridden from Runnable
-  void setup(const AppEvent& event) override;
-  void update(const AppEvent& event) override;
-  void pre(const AppEvent& event) override;
-  void draw(const AppEvent& event) override;
-  void post(const AppEvent& event) override;
-  void exit(const AppEvent& event) override;
+  // Lifecycle
+  void setup(const AppEvent& event, const Runner&) override;
+  void update(const AppEvent& event, const Runner&) override;
+  void pre(const AppEvent& event, const Runner&) override;
+  void draw(const AppEvent& event, const Runner&) override;
+  void post(const AppEvent& event, const Runner&) override;
+  void exit(const AppEvent& event, const Runner&) override;
 
-  // Events overridden from Runnable
-  void mouseDown(const MouseEvent& event) override;
-  void mouseDrag(const MouseEvent& event) override;
-  void mouseUp(const MouseEvent& event) override;
-  void mouseMove(const MouseEvent& event) override;
-  void mouseEnter(const MouseEvent& event) override;
-  void mouseExit(const MouseEvent& event) override;
-  void scrollWheel(const MouseEvent& event) override;
-  void keyDown(const KeyEvent& event) override;
-  void keyUp(const KeyEvent& event) override;
-  void touchesBegin(const TouchEvent& event) override;
-  void touchesMove(const TouchEvent& event) override;
-  void touchesCancel(const TouchEvent& event) override;
-  void touchesEnd(const TouchEvent& event) override;
-  void gestureBegin(const GestureEvent& event) override;
-  void gestureChange(const GestureEvent& event) override;
-  void gestureCancel(const GestureEvent& event) override;
-  void gestureEnd(const GestureEvent& event) override;
-  void motionBegin(const MotionEvent& event) override;
-  void motionCancel(const MotionEvent& event) override;
-  void motionEnd(const MotionEvent& event) override;
+  // Events
+  void mousePressed(const MouseEvent& event, const Runner&) override;
+  void mouseDragged(const MouseEvent& event, const Runner&) override;
+  void mouseReleased(const MouseEvent& event, const Runner&) override;
+  void mouseMoved(const MouseEvent& event, const Runner&) override;
+  void mouseEntered(const MouseEvent& event, const Runner&) override;
+  void mouseExited(const MouseEvent& event, const Runner&) override;
+  void mouseWheel(const MouseEvent& event, const Runner&) override;
+  void keyPressed(const KeyEvent& event, const Runner&) override;
+  void keyReleased(const KeyEvent& event, const Runner&) override;
+  void touchesBegan(const TouchEvent& event, const Runner&) override;
+  void touchesMoved(const TouchEvent& event, const Runner&) override;
+  void touchesCancelled(const TouchEvent& event, const Runner&) override;
+  void touchesEnded(const TouchEvent& event, const Runner&) override;
+  void gestureBegan(const GestureEvent& event, const Runner&) override;
+  void gestureChanged(const GestureEvent& event, const Runner&) override;
+  void gestureCancelled(const GestureEvent& event, const Runner&) override;
+  void gestureEnded(const GestureEvent& event, const Runner&) override;
+  void motionBegan(const MotionEvent& event, const Runner&) override;
+  void motionCancelled(const MotionEvent& event, const Runner&) override;
+  void motionEnded(const MotionEvent& event, const Runner&) override;
 
  private:
   std::queue<EventHolder> event_queue_;
@@ -389,128 +396,134 @@ inline void View::handleEvent(const EventHolder& event) {
 
 #pragma mark Lifecycle overridden from Runnable
 
-inline void View::setup(const AppEvent& event) {
+inline void View::setup(const AppEvent& event, const Runner&) {
   width_ = event.size().width;
   height_ = event.size().height;
   scale_ = event.scale();
-  Runnable::setup(event);
+  setup(event);
+  setup();
   app_event_signals_[AppEvent::Type::SETUP](event);
 }
 
-inline void View::update(const AppEvent& event) {
+inline void View::update(const AppEvent& event, const Runner&) {
   timeline<takram::tween::Time>().advance();
   timeline<takram::tween::Frame>().advance();
-  Runnable::update(event);
+  update(event);
+  update();
   app_event_signals_[AppEvent::Type::UPDATE](event);
 }
 
-inline void View::pre(const AppEvent& event) {
-  Runnable::pre(event);
+inline void View::pre(const AppEvent& event, const Runner&) {
+  pre(event);
+  pre();
   app_event_signals_[AppEvent::Type::PRE](event);
 }
 
-inline void View::draw(const AppEvent& event) {
+inline void View::draw(const AppEvent& event, const Runner&) {
   width_ = event.size().width;
   height_ = event.size().height;
   scale_ = event.scale();
   pmouse_ = dmouse_;
   ptouch_ = dtouch_;
-  Runnable::draw(event);
+  draw(event);
+  draw();
   app_event_signals_[AppEvent::Type::DRAW](event);
   dmouse_ = mouse_;
   dtouch_ = touch_;
   dequeueEvents();
 }
 
-inline void View::post(const AppEvent& event) {
+inline void View::post(const AppEvent& event, const Runner&) {
   app_event_signals_[AppEvent::Type::POST](event);
-  Runnable::post(event);
+  post(event);
+  post();
 }
 
-inline void View::exit(const AppEvent& event) {
-  app_event_signals_[AppEvent::Type::EXIT](event);
-  Runnable::exit(event);
+inline void View::exit(const AppEvent& event, const Runner&) {
+  app_event_signals_[AppEvent::Type::EXITED](event);
+  exit(event);
+  exit();
 }
 
 #pragma mark Events overridden from Runnable
 
-inline void View::mouseDown(const MouseEvent& event) {
+inline void View::mousePressed(const MouseEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::mouseDrag(const MouseEvent& event) {
+inline void View::mouseDragged(const MouseEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::mouseUp(const MouseEvent& event) {
+inline void View::mouseReleased(const MouseEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::mouseMove(const MouseEvent& event) {
+inline void View::mouseMoved(const MouseEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::mouseEnter(const MouseEvent& event) {
+inline void View::mouseEntered(const MouseEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::mouseExit(const MouseEvent& event) {
+inline void View::mouseExited(const MouseEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::scrollWheel(const MouseEvent& event) {
+inline void View::mouseWheel(const MouseEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::keyDown(const KeyEvent& event) {
+inline void View::keyPressed(const KeyEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::keyUp(const KeyEvent& event) {
+inline void View::keyReleased(const KeyEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::touchesBegin(const TouchEvent& event) {
+inline void View::touchesBegan(const TouchEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::touchesMove(const TouchEvent& event) {
+inline void View::touchesMoved(const TouchEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::touchesCancel(const TouchEvent& event) {
+inline void View::touchesCancelled(const TouchEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::touchesEnd(const TouchEvent& event) {
+inline void View::touchesEnded(const TouchEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::gestureBegin(const GestureEvent& event) {
+inline void View::gestureBegan(const GestureEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::gestureChange(const GestureEvent& event) {
+inline void View::gestureChanged(const GestureEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::gestureCancel(const GestureEvent& event) {
+inline void View::gestureCancelled(const GestureEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::gestureEnd(const GestureEvent& event) {
+inline void View::gestureEnded(const GestureEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::motionBegin(const MotionEvent& event) {
+inline void View::motionBegan(const MotionEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::motionCancel(const MotionEvent& event) {
+inline void View::motionCancelled(const MotionEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void View::motionEnd(const MotionEvent& event) {
+inline void View::motionEnded(const MotionEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 

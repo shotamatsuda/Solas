@@ -38,10 +38,10 @@ class TouchEvent final {
  public:
   enum class Type {
     UNDEFINED,
-    BEGIN,
-    MOVE,
-    CANCEL,
-    END
+    BEGAN,
+    MOVED,
+    CANCELLED,
+    ENDED
   };
 
  public:

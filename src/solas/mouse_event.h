@@ -40,12 +40,12 @@ class MouseEvent final {
  public:
   enum class Type {
     UNDEFINED,
-    DOWN,
-    DRAG,
-    UP,
-    MOVE,
-    ENTER,
-    EXIT,
+    PRESSED,
+    DRAGGED,
+    RELEASED,
+    MOVED,
+    ENTERED,
+    EXITED,
     WHEEL
   };
 

@@ -39,6 +39,8 @@
 
 namespace solas {
 
+class Runner;
+
 class Runnable {
  private:
   friend class Runner;
@@ -48,83 +50,39 @@ class Runnable {
 
  protected:
   // Lifecycle
-  virtual void setup(const AppEvent& event);
-  virtual void update(const AppEvent& event);
-  virtual void pre(const AppEvent& event);
-  virtual void draw(const AppEvent& event);
-  virtual void post(const AppEvent& event);
-  virtual void exit(const AppEvent& event);
+  virtual void setup(const AppEvent& event, const Runner&) = 0;
+  virtual void update(const AppEvent& event, const Runner&) = 0;
+  virtual void pre(const AppEvent& event, const Runner&) = 0;
+  virtual void draw(const AppEvent& event, const Runner&) = 0;
+  virtual void post(const AppEvent& event, const Runner&) = 0;
+  virtual void exit(const AppEvent& event, const Runner&) = 0;
 
   // Events
-  virtual void mousePressed(const MouseEvent& event) {}
-  virtual void mouseDragged(const MouseEvent& event) {}
-  virtual void mouseReleased(const MouseEvent& event) {}
-  virtual void mouseMoved(const MouseEvent& event) {}
-  virtual void mouseEntered(const MouseEvent& event) {}
-  virtual void mouseExited(const MouseEvent& event) {}
-  virtual void mouseWheel(const MouseEvent& event) {}
-  virtual void keyPressed(const KeyEvent& event) {}
-  virtual void keyReleased(const KeyEvent& event) {}
-  virtual void touchesBegan(const TouchEvent& event) {}
-  virtual void touchesMoved(const TouchEvent& event) {}
-  virtual void touchesCancelled(const TouchEvent& event) {}
-  virtual void touchesEnded(const TouchEvent& event) {}
-  virtual void gestureBegan(const GestureEvent& event) {}
-  virtual void gestureChanged(const GestureEvent& event) {}
-  virtual void gestureCancelled(const GestureEvent& event) {}
-  virtual void gestureEnded(const GestureEvent& event) {}
-  virtual void motionBegan(const MotionEvent& event) {}
-  virtual void motionCancelled(const MotionEvent& event) {}
-  virtual void motionEnded(const MotionEvent& event) {}
-
-  // Context
-  const ContextHolder& context() const;
-
- private:
-  ContextHolder context_;
+  virtual void mousePressed(const MouseEvent& event, const Runner&) = 0;
+  virtual void mouseDragged(const MouseEvent& event, const Runner&) = 0;
+  virtual void mouseReleased(const MouseEvent& event, const Runner&) = 0;
+  virtual void mouseMoved(const MouseEvent& event, const Runner&) = 0;
+  virtual void mouseEntered(const MouseEvent& event, const Runner&) = 0;
+  virtual void mouseExited(const MouseEvent& event, const Runner&) = 0;
+  virtual void mouseWheel(const MouseEvent& event, const Runner&) = 0;
+  virtual void keyPressed(const KeyEvent& event, const Runner&) = 0;
+  virtual void keyReleased(const KeyEvent& event, const Runner&) = 0;
+  virtual void touchesBegan(const TouchEvent& event, const Runner&) = 0;
+  virtual void touchesMoved(const TouchEvent& event, const Runner&) = 0;
+  virtual void touchesCancelled(const TouchEvent& event, const Runner&) = 0;
+  virtual void touchesEnded(const TouchEvent& event, const Runner&) = 0;
+  virtual void gestureBegan(const GestureEvent& event, const Runner&) = 0;
+  virtual void gestureChanged(const GestureEvent& event, const Runner&) = 0;
+  virtual void gestureCancelled(const GestureEvent& event, const Runner&) = 0;
+  virtual void gestureEnded(const GestureEvent& event, const Runner&) = 0;
+  virtual void motionBegan(const MotionEvent& event, const Runner&) = 0;
+  virtual void motionCancelled(const MotionEvent& event, const Runner&) = 0;
+  virtual void motionEnded(const MotionEvent& event, const Runner&) = 0;
 };
 
 #pragma mark -
 
 inline Runnable::~Runnable() {}
-
-#pragma mark Lifecycle
-
-inline void Runnable::setup(const AppEvent& event) {
-  context_ = event.context();
-  setup();
-}
-
-inline void Runnable::update(const AppEvent& event) {
-  context_ = event.context();
-  update();
-}
-
-inline void Runnable::pre(const AppEvent& event) {
-  context_ = event.context();
-  pre();
-}
-
-inline void Runnable::draw(const AppEvent& event) {
-  context_ = event.context();
-  draw();
-}
-
-inline void Runnable::post(const AppEvent& event) {
-  context_ = event.context();
-  post();
-}
-
-inline void Runnable::exit(const AppEvent& event) {
-  context_ = event.context();
-  exit();
-}
-
-#pragma mark Context
-
-inline const ContextHolder& Runnable::context() const {
-  return context_;
-}
 
 }  // namespace solas
 

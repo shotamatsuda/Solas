@@ -34,8 +34,8 @@ class KeyEvent final {
  public:
   enum class Type {
     UNDEFINED,
-    DOWN,
-    UP
+    PRESSED,
+    RELEASED
   };
 
  public:

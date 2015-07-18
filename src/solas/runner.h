@@ -114,13 +114,13 @@ inline Runner::~Runner() {
 
 inline void Runner::setup(const AppEvent& event) {
   if (runnable_) {
-    runnable_->setup(event);
+    runnable_->setup(event, *this);
   }
 }
 
 inline void Runner::update(const AppEvent& event) {
   if (runnable_ && setup_) {
-    runnable_->update(event);
+    runnable_->update(event, *this);
   }
 }
 
@@ -128,18 +128,18 @@ inline void Runner::draw(const AppEvent& event) {
   if (runnable_) {
     if (!setup_.exchange(true)) {
       // Setup and update when it's the first time to draw
-      runnable_->setup(event);
-      runnable_->update(event);
+      runnable_->setup(event, *this);
+      runnable_->update(event, *this);
     }
-    runnable_->pre(event);
-    runnable_->draw(event);
-    runnable_->post(event);
+    runnable_->pre(event, *this);
+    runnable_->draw(event, *this);
+    runnable_->post(event, *this);
   }
 }
 
 inline void Runner::exit(const AppEvent& event) {
   if (runnable_) {
-    runnable_->exit(event);
+    runnable_->exit(event, *this);
     // Delete the instance on the call of the exit in order not to perform
     // anything to static variables after their destruction.
     runnable_.reset(nullptr);
@@ -150,121 +150,121 @@ inline void Runner::exit(const AppEvent& event) {
 
 inline void Runner::mousePressed(const MouseEvent& event) {
   if (runnable_) {
-    runnable_->mousePressed(event);
+    runnable_->mousePressed(event, *this);
   }
 }
 
 inline void Runner::mouseDragged(const MouseEvent& event) {
   if (runnable_) {
-    runnable_->mouseDragged(event);
+    runnable_->mouseDragged(event, *this);
   }
 }
 
 inline void Runner::mouseReleased(const MouseEvent& event) {
   if (runnable_) {
-    runnable_->mouseReleased(event);
+    runnable_->mouseReleased(event, *this);
   }
 }
 
 inline void Runner::mouseMoved(const MouseEvent& event) {
   if (runnable_) {
-    runnable_->mouseMoved(event);
+    runnable_->mouseMoved(event, *this);
   }
 }
 
 inline void Runner::mouseEntered(const MouseEvent& event) {
   if (runnable_) {
-    runnable_->mouseEntered(event);
+    runnable_->mouseEntered(event, *this);
   }
 }
 
 inline void Runner::mouseExited(const MouseEvent& event) {
   if (runnable_) {
-    runnable_->mouseExited(event);
+    runnable_->mouseExited(event, *this);
   }
 }
 
 inline void Runner::mouseWheel(const MouseEvent& event) {
   if (runnable_) {
-    runnable_->mouseWheel(event);
+    runnable_->mouseWheel(event, *this);
   }
 }
 
 inline void Runner::keyPressed(const KeyEvent& event) {
   if (runnable_) {
-    runnable_->keyPressed(event);
+    runnable_->keyPressed(event, *this);
   }
 }
 
 inline void Runner::keyReleased(const KeyEvent& event) {
   if (runnable_) {
-    runnable_->keyReleased(event);
+    runnable_->keyReleased(event, *this);
   }
 }
 
 inline void Runner::touchesBegan(const TouchEvent& event) {
   if (runnable_) {
-    runnable_->touchesBegan(event);
+    runnable_->touchesBegan(event, *this);
   }
 }
 
 inline void Runner::touchesMoved(const TouchEvent& event) {
   if (runnable_) {
-    runnable_->touchesMoved(event);
+    runnable_->touchesMoved(event, *this);
   }
 }
 
 inline void Runner::touchesCancelled(const TouchEvent& event) {
   if (runnable_) {
-    runnable_->touchesCancelled(event);
+    runnable_->touchesCancelled(event, *this);
   }
 }
 
 inline void Runner::touchesEnded(const TouchEvent& event) {
   if (runnable_) {
-    runnable_->touchesEnded(event);
+    runnable_->touchesEnded(event, *this);
   }
 }
 
 inline void Runner::gestureBegan(const GestureEvent& event) {
   if (runnable_) {
-    runnable_->gestureBegan(event);
+    runnable_->gestureBegan(event, *this);
   }
 }
 
 inline void Runner::gestureChanged(const GestureEvent& event) {
   if (runnable_) {
-    runnable_->gestureChanged(event);
+    runnable_->gestureChanged(event, *this);
   }
 }
 
 inline void Runner::gestureCancelled(const GestureEvent& event) {
   if (runnable_) {
-    runnable_->gestureCancelled(event);
+    runnable_->gestureCancelled(event, *this);
   }
 }
 
 inline void Runner::gestureEnded(const GestureEvent& event) {
   if (runnable_) {
-    runnable_->gestureEnded(event);
+    runnable_->gestureEnded(event, *this);
   }
 }
 
 inline void Runner::motionBegan(const MotionEvent& event) {
   if (runnable_) {
-    runnable_->motionBegan(event);
+    runnable_->motionBegan(event, *this);
   }
 }
 
 inline void Runner::motionCancelled(const MotionEvent& event) {
   if (runnable_) {
-    runnable_->motionCancelled(event);
+    runnable_->motionCancelled(event, *this);
   }
 }
 
 inline void Runner::motionEnded(const MotionEvent& event) {
   if (runnable_) {
-    runnable_->motionEnded(event);
+    runnable_->motionEnded(event, *this);
   }
 }
 

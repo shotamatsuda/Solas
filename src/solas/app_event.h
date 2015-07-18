@@ -42,7 +42,7 @@ class AppEvent final {
     PRE,
     DRAW,
     POST,
-    EXIT
+    EXITED
   };
 
  public:

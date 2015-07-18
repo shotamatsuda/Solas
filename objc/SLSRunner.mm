@@ -109,7 +109,7 @@
 #pragma mark SLSEventDelegate
 
 - (void)eventDelegate:(id)eventDelegate
-            mouseDown:(SLSMouseEventConstRef)event {
+         mousePressed:(SLSMouseEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->mousePressed(*SLSMouseEventCast(event));
@@ -117,7 +117,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-            mouseDrag:(SLSMouseEventConstRef)event {
+         mouseDragged:(SLSMouseEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->mouseDragged(*SLSMouseEventCast(event));
@@ -125,7 +125,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-              mouseUp:(SLSMouseEventConstRef)event {
+        mouseReleased:(SLSMouseEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->mouseReleased(*SLSMouseEventCast(event));
@@ -133,7 +133,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-            mouseMove:(SLSMouseEventConstRef)event {
+           mouseMoved:(SLSMouseEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->mouseMoved(*SLSMouseEventCast(event));
@@ -141,7 +141,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-           mouseEnter:(SLSMouseEventConstRef)event {
+         mouseEntered:(SLSMouseEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->mouseEntered(*SLSMouseEventCast(event));
@@ -149,7 +149,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-            mouseExit:(SLSMouseEventConstRef)event {
+          mouseExited:(SLSMouseEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->mouseExited(*SLSMouseEventCast(event));
@@ -157,7 +157,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-          scrollWheel:(SLSMouseEventConstRef)event {
+           mouseWheel:(SLSMouseEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->mouseWheel(*SLSMouseEventCast(event));
@@ -165,7 +165,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-              keyDown:(SLSKeyEventConstRef)event {
+           keyPressed:(SLSKeyEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->keyPressed(*SLSKeyEventCast(event));
@@ -173,7 +173,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-                keyUp:(SLSKeyEventConstRef)event {
+          keyReleased:(SLSKeyEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->keyReleased(*SLSKeyEventCast(event));
@@ -181,7 +181,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-         touchesBegin:(SLSTouchEventConstRef)event {
+         touchesBegan:(SLSTouchEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->touchesBegan(*SLSTouchEventCast(event));
@@ -189,7 +189,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-          touchesMove:(SLSTouchEventConstRef)event {
+         touchesMoved:(SLSTouchEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->touchesMoved(*SLSTouchEventCast(event));
@@ -197,7 +197,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-        touchesCancel:(SLSTouchEventConstRef)event {
+     touchesCancelled:(SLSTouchEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->touchesCancelled(*SLSTouchEventCast(event));
@@ -205,7 +205,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-           touchesEnd:(SLSTouchEventConstRef)event {
+         touchesEnded:(SLSTouchEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->touchesEnded(*SLSTouchEventCast(event));
@@ -213,7 +213,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-         gestureBegin:(SLSGestureEventConstRef)event {
+         gestureBegan:(SLSGestureEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->gestureBegan(*SLSGestureEventCast(event));
@@ -221,7 +221,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-        gestureChange:(SLSGestureEventConstRef)event {
+       gestureChanged:(SLSGestureEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->gestureChanged(*SLSGestureEventCast(event));
@@ -229,7 +229,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-        gestureCancel:(SLSGestureEventConstRef)event {
+     gestureCancelled:(SLSGestureEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->gestureCancelled(*SLSGestureEventCast(event));
@@ -237,7 +237,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-           gestureEnd:(SLSGestureEventConstRef)event {
+         gestureEnded:(SLSGestureEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->gestureEnded(*SLSGestureEventCast(event));
@@ -245,7 +245,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-          motionBegin:(SLSMotionEventConstRef)event {
+          motionBegan:(SLSMotionEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->motionBegan(*SLSMotionEventCast(event));
@@ -253,7 +253,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-         motionCancel:(SLSMotionEventConstRef)event {
+      motionCancelled:(SLSMotionEventConstRef)event {
   if (_runner) {
     NSAssert(event, @"");
     _runner->motionCancelled(*SLSMotionEventCast(event));
@@ -261,7 +261,7 @@
 }
 
 - (void)eventDelegate:(id)eventDelegate
-            motionEnd:(SLSMotionEventConstRef)event  {
+          motionEnded:(SLSMotionEventConstRef)event  {
   if (_runner) {
     NSAssert(event, @"");
     _runner->motionEnded(*SLSMotionEventCast(event));

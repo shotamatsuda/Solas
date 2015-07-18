@@ -35,54 +35,54 @@ namespace solas {
 #pragma mark Event handlers
 
 void View::handleMouseEvent(const MouseEvent& event) {
-  if (event.type() == MouseEvent::Type::DOWN ||
-      event.type() == MouseEvent::Type::DRAG ||
-      event.type() == MouseEvent::Type::MOVE) {
+  if (event.type() == MouseEvent::Type::PRESSED ||
+      event.type() == MouseEvent::Type::DRAGGED ||
+      event.type() == MouseEvent::Type::MOVED) {
     pmouse_ = emouse_;
     mouse_ = event.location();
   }
   mouse_button_ = event.button();
   switch (event.type()) {
-    case MouseEvent::Type::DOWN:
+    case MouseEvent::Type::PRESSED:
       mouse_pressed_ = true;
       break;
-    case MouseEvent::Type::UP:
+    case MouseEvent::Type::RELEASED:
       mouse_pressed_ = false;
       break;
     default:
       break;
   }
-  if (event.type() == MouseEvent::Type::DRAG ||
-      event.type() == MouseEvent::Type::MOVE) {
+  if (event.type() == MouseEvent::Type::DRAGGED ||
+      event.type() == MouseEvent::Type::MOVED) {
     emouse_ = mouse_;
   }
   switch (event.type()) {
-    case MouseEvent::Type::DOWN:
+    case MouseEvent::Type::PRESSED:
       mousePressed(event);
       mousePressed();
       mouse_event_signals_[event.type()](event);
       break;
-    case MouseEvent::Type::DRAG:
+    case MouseEvent::Type::DRAGGED:
       mouseDragged(event);
       mouseDragged();
       mouse_event_signals_[event.type()](event);
       break;
-    case MouseEvent::Type::UP:
+    case MouseEvent::Type::RELEASED:
       mouseReleased(event);
       mouseReleased();
       mouse_event_signals_[event.type()](event);
       break;
-    case MouseEvent::Type::MOVE:
+    case MouseEvent::Type::MOVED:
       mouseMoved(event);
       mouseMoved();
       mouse_event_signals_[event.type()](event);
       break;
-    case MouseEvent::Type::ENTER:
+    case MouseEvent::Type::ENTERED:
       mouseEntered(event);
       mouseEntered();
       mouse_event_signals_[event.type()](event);
       break;
-    case MouseEvent::Type::EXIT:
+    case MouseEvent::Type::EXITED:
       mouseExited(event);
       mouseExited();
       mouse_event_signals_[event.type()](event);
@@ -99,12 +99,12 @@ void View::handleMouseEvent(const MouseEvent& event) {
 
 void View::handleKeyEvent(const KeyEvent& event) {
   switch (event.type()) {
-    case KeyEvent::Type::DOWN:
+    case KeyEvent::Type::PRESSED:
       keyPressed(event);
       keyPressed();
       key_event_signals_[event.type()](event);
       break;
-    case KeyEvent::Type::UP:
+    case KeyEvent::Type::RELEASED:
       keyReleased(event);
       keyReleased();
       key_event_signals_[event.type()](event);
@@ -115,45 +115,45 @@ void View::handleKeyEvent(const KeyEvent& event) {
 }
 
 void View::handleTouchEvent(const TouchEvent& event) {
-  if (event.type() == TouchEvent::Type::BEGIN) {
+  if (event.type() == TouchEvent::Type::BEGAN) {
     ptouch_ = etouch_;
     touch_ = event.touches().front();
-  } else if (event.type() == TouchEvent::Type::MOVE) {
+  } else if (event.type() == TouchEvent::Type::MOVED) {
     ptouch_ = etouch_;
     touch_ = event.touches().front();
   }
   switch (event.type()) {
-    case TouchEvent::Type::BEGIN:
+    case TouchEvent::Type::BEGAN:
       touch_pressed_ = true;
       break;
-    case TouchEvent::Type::CANCEL:
-    case TouchEvent::Type::END:
+    case TouchEvent::Type::CANCELLED:
+    case TouchEvent::Type::ENDED:
       touch_pressed_ = false;
       break;
     default:
       break;
   }
-  if (event.type() == TouchEvent::Type::BEGIN ||
-      event.type() == TouchEvent::Type::MOVE) {
+  if (event.type() == TouchEvent::Type::BEGAN ||
+      event.type() == TouchEvent::Type::MOVED) {
     etouch_ = touch_;
   }
   switch (event.type()) {
-    case TouchEvent::Type::BEGIN:
+    case TouchEvent::Type::BEGAN:
       touchesBegan(event);
       touchesBegan();
       touch_event_signals_[event.type()](event);
       break;
-    case TouchEvent::Type::MOVE:
+    case TouchEvent::Type::MOVED:
       touchesMoved(event);
       touchesMoved();
       touch_event_signals_[event.type()](event);
       break;
-    case TouchEvent::Type::CANCEL:
+    case TouchEvent::Type::CANCELLED:
       touchesCancelled(event);
       touchesCancelled();
       touch_event_signals_[event.type()](event);
       break;
-    case TouchEvent::Type::END:
+    case TouchEvent::Type::ENDED:
       touchesEnded(event);
       touchesEnded();
       touch_event_signals_[event.type()](event);
@@ -165,22 +165,22 @@ void View::handleTouchEvent(const TouchEvent& event) {
 
 void View::handleGestureEvent(const GestureEvent& event) {
   switch (event.type()) {
-    case GestureEvent::Type::BEGIN:
+    case GestureEvent::Type::BEGAN:
       gestureBegan(event);
       gestureBegan();
       gesture_event_signals_[event.type()](event);
       break;
-    case GestureEvent::Type::CHANGE:
+    case GestureEvent::Type::CHANGED:
       gestureChanged(event);
       gestureChanged();
       gesture_event_signals_[event.type()](event);
       break;
-    case GestureEvent::Type::CANCEL:
+    case GestureEvent::Type::CANCELLED:
       gestureCancelled(event);
       gestureCancelled();
       gesture_event_signals_[event.type()](event);
       break;
-    case GestureEvent::Type::END:
+    case GestureEvent::Type::ENDED:
       gestureEnded(event);
       gestureEnded();
       gesture_event_signals_[event.type()](event);
@@ -192,17 +192,17 @@ void View::handleGestureEvent(const GestureEvent& event) {
 
 void View::handleMotionEvent(const MotionEvent& event) {
   switch (event.type()) {
-    case MotionEvent::Type::BEGIN:
+    case MotionEvent::Type::BEGAN:
       motionBegan(event);
       motionBegan();
       motion_event_signals_[event.type()](event);
       break;
-    case MotionEvent::Type::CANCEL:
+    case MotionEvent::Type::CANCELLED:
       motionCancelled(event);
       motionCancelled();
       motion_event_signals_[event.type()](event);
       break;
-    case MotionEvent::Type::END:
+    case MotionEvent::Type::ENDED:
       motionEnded(event);
       motionEnded();
       motion_event_signals_[event.type()](event);

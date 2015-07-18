@@ -33,19 +33,19 @@
 
 #pragma mark Notifying Events to the Delegate
 
-- (void)notifyMouseDownWithEvent:(nonnull id)event;
-- (void)notifyMouseDragWithEvent:(nonnull id)event;
-- (void)notifyMouseUpWithEvent:(nonnull id)event;
-- (void)notifyMouseMoveWithEvent:(nonnull id)event;
-- (void)notifyMouseEnterWithEvent:(nonnull id)event;
-- (void)notifyMouseExitWithEvent:(nonnull id)event;
-- (void)notifyScrollWheelWithEvent:(nonnull id)event;
-- (void)notifyKeyDownWithEvent:(nonnull id)event;
-- (void)notifyKeyUpWithEvent:(nonnull id)event;
-- (void)notifyTouchesBeginWithEvent:(nonnull id)event;
-- (void)notifyTouchesMoveWithEvent:(nonnull id)event;
-- (void)notifyTouchesCancelWithEvent:(nonnull id)event;
-- (void)notifyTouchesEndWithEvent:(nonnull id)event;
+- (void)notifyMousePressedWithEvent:(nonnull id)event;
+- (void)notifyMouseDraggedWithEvent:(nonnull id)event;
+- (void)notifyMouseReleasedWithEvent:(nonnull id)event;
+- (void)notifyMouseMovedWithEvent:(nonnull id)event;
+- (void)notifyMouseEnteredWithEvent:(nonnull id)event;
+- (void)notifyMouseExitedWithEvent:(nonnull id)event;
+- (void)notifyMouseWheelWithEvent:(nonnull id)event;
+- (void)notifyKeyPressedWithEvent:(nonnull id)event;
+- (void)notifyKeyReleasedWithEvent:(nonnull id)event;
+- (void)notifyTouchesBeganWithEvent:(nonnull id)event;
+- (void)notifyTouchesMovedWithEvent:(nonnull id)event;
+- (void)notifyTouchesCancelledWithEvent:(nonnull id)event;
+- (void)notifyTouchesEndedWithEvent:(nonnull id)event;
 
 #pragma mark Managing the Delegate
 

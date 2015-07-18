@@ -33,13 +33,13 @@
 
 #pragma mark Notifying Events to the Delegate
 
-- (void)notifyTouchesBeginWithEvent:(nonnull UIEvent *)event;
-- (void)notifyTouchesMoveWithEvent:(nonnull UIEvent *)event;
-- (void)notifyTouchesCancelWithEvent:(nonnull UIEvent *)event;
-- (void)notifyTouchesEndWithEvent:(nonnull UIEvent *)event;
-- (void)notifyMotionBeginWithEvent:(nonnull UIEvent *)event;
-- (void)notifyMotionCancelWithEvent:(nonnull UIEvent *)event;
-- (void)notifyMotionEndWithEvent:(nonnull UIEvent *)event;
+- (void)notifyTouchesBeganWithEvent:(nonnull UIEvent *)event;
+- (void)notifyTouchesMovedWithEvent:(nonnull UIEvent *)event;
+- (void)notifyTouchesCancelledWithEvent:(nonnull UIEvent *)event;
+- (void)notifyTouchesEndedWithEvent:(nonnull UIEvent *)event;
+- (void)notifyMotionBeganWithEvent:(nonnull UIEvent *)event;
+- (void)notifyMotionCancelledWithEvent:(nonnull UIEvent *)event;
+- (void)notifyMotionEndedWithEvent:(nonnull UIEvent *)event;
 
 #ifdef __cplusplus
 

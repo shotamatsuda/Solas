@@ -37,8 +37,8 @@ enum class SwipeDirection {
   UNDEFINED,
   RIGHT,
   LEFT,
-  UP,
-  DOWN,
+  RELEASED,
+  PRESSED,
 };
 
 inline std::ostream& operator<<(std::ostream& os, SwipeDirection direction) {
@@ -52,10 +52,10 @@ inline std::ostream& operator<<(std::ostream& os, SwipeDirection direction) {
     case SwipeDirection::LEFT:
       os << "left";
       break;
-    case SwipeDirection::UP:
+    case SwipeDirection::RELEASED:
       os << "up";
       break;
-    case SwipeDirection::DOWN:
+    case SwipeDirection::PRESSED:
       os << "down";
       break;
     default:
