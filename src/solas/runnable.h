@@ -30,7 +30,6 @@
 
 #include "solas/app_event.h"
 #include "solas/backend.h"
-#include "solas/context_holder.h"
 #include "solas/gesture_event.h"
 #include "solas/key_event.h"
 #include "solas/motion_event.h"

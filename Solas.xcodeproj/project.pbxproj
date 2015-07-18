@@ -51,7 +51,6 @@
 		93D844941AF61A3900ED6BDD /* gesture_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B4F1AD14C4400969DC2 /* gesture_event.h */; };
 		93D844951AF61A3900ED6BDD /* motion_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B511AD14C4400969DC2 /* motion_event.h */; };
 		93D844961AF61A3900ED6BDD /* backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD52C1AEB22F7003AEC6C /* backend.h */; };
-		93D844971AF61A3900ED6BDD /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5271AEB1E3F003AEC6C /* context_holder.h */; };
 		93D844981AF61A3900ED6BDD /* runnable.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6171AD1930A005EDC09 /* runnable.h */; };
 		93D844991AF61A3900ED6BDD /* runner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6161AD19304005EDC09 /* runner.h */; };
 		93D8449A1AF61A3900ED6BDD /* run_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA63C1AD1A518005EDC09 /* run_options.h */; };
@@ -68,7 +67,6 @@
 		93D844BA1AF61A3A00ED6BDD /* gesture_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B4F1AD14C4400969DC2 /* gesture_event.h */; };
 		93D844BB1AF61A3A00ED6BDD /* motion_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B511AD14C4400969DC2 /* motion_event.h */; };
 		93D844BC1AF61A3A00ED6BDD /* backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD52C1AEB22F7003AEC6C /* backend.h */; };
-		93D844BD1AF61A3A00ED6BDD /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5271AEB1E3F003AEC6C /* context_holder.h */; };
 		93D844BE1AF61A3A00ED6BDD /* runnable.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6171AD1930A005EDC09 /* runnable.h */; };
 		93D844BF1AF61A3A00ED6BDD /* runner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6161AD19304005EDC09 /* runner.h */; };
 		93D844C01AF61A3A00ED6BDD /* run_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA63C1AD1A518005EDC09 /* run_options.h */; };
@@ -123,7 +121,6 @@
 		93F857E61B564B0500C32E8D /* motion_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B511AD14C4400969DC2 /* motion_event.h */; };
 		93F857E71B564B0500C32E8D /* run.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6521AD1ADBB005EDC09 /* run.h */; };
 		93F857E81B564B0500C32E8D /* runner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6161AD19304005EDC09 /* runner.h */; };
-		93F857E91B564B0500C32E8D /* context_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD5271AEB1E3F003AEC6C /* context_holder.h */; };
 		93F857EA1B564B0500C32E8D /* app_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707DA1AD692DF00E3E8AA /* app_event.h */; };
 		93F857EB1B564B0500C32E8D /* SLSEventSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E967F1AD384C500A7E21E /* SLSEventSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93F857EC1B564B0500C32E8D /* enum.h in Headers */ = {isa = PBXBuildFile; fileRef = 930398371AB2AEF400577048 /* enum.h */; };
@@ -230,7 +227,6 @@
 		9321018F1B48CE0400A63200 /* project_release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_release.xcconfig; sourceTree = "<group>"; };
 		932101901B48CE0400A63200 /* project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
 		93229E701ACEAF05008D27EA /* null_mutex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = null_mutex.h; sourceTree = "<group>"; };
-		933FD5271AEB1E3F003AEC6C /* context_holder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = context_holder.h; sourceTree = "<group>"; };
 		933FD52C1AEB22F7003AEC6C /* backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = backend.h; sourceTree = "<group>"; };
 		9350587A1AEF555B0020E755 /* gesture_kind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gesture_kind.h; sourceTree = "<group>"; };
 		935058CE1AEF6E2E0020E755 /* swipe_direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swipe_direction.h; sourceTree = "<group>"; };
@@ -417,7 +413,6 @@
 				93B707DA1AD692DF00E3E8AA /* app_event.h */,
 				933FD52C1AEB22F7003AEC6C /* backend.h */,
 				93ED100E1B01D69E003F5915 /* composite.h */,
-				933FD5271AEB1E3F003AEC6C /* context_holder.h */,
 				930398371AB2AEF400577048 /* enum.h */,
 				93AD7CE21ADD395500B42B9E /* event_holder.h */,
 				937D92021AF6C0C8000D8302 /* framebuffer.h */,
@@ -563,7 +558,6 @@
 				93D844951AF61A3900ED6BDD /* motion_event.h in Headers */,
 				93D8449C1AF61A3900ED6BDD /* run.h in Headers */,
 				93D844991AF61A3900ED6BDD /* runner.h in Headers */,
-				93D844971AF61A3900ED6BDD /* context_holder.h in Headers */,
 				93D8448E1AF61A3900ED6BDD /* app_event.h in Headers */,
 				93EDFC391AEC8E2C003CDD03 /* Solas.h in Headers */,
 				93D843BF1AF61A0F00ED6BDD /* enum.h in Headers */,
@@ -613,7 +607,6 @@
 				93D844BB1AF61A3A00ED6BDD /* motion_event.h in Headers */,
 				93D844C21AF61A3A00ED6BDD /* run.h in Headers */,
 				93D844BF1AF61A3A00ED6BDD /* runner.h in Headers */,
-				93D844BD1AF61A3A00ED6BDD /* context_holder.h in Headers */,
 				93D844B41AF61A3A00ED6BDD /* app_event.h in Headers */,
 				93EDFBFE1AEC8E12003CDD03 /* SLSEventSource.h in Headers */,
 				93D843C91AF61A1000ED6BDD /* enum.h in Headers */,
@@ -669,7 +662,6 @@
 				93F857E71B564B0500C32E8D /* run.h in Headers */,
 				93F857E81B564B0500C32E8D /* runner.h in Headers */,
 				93F858C31B56536000C32E8D /* SLSUIEventSourceView.h in Headers */,
-				93F857E91B564B0500C32E8D /* context_holder.h in Headers */,
 				93F859301B57666800C32E8D /* runner_options.h in Headers */,
 				93F857EA1B564B0500C32E8D /* app_event.h in Headers */,
 				93F857EB1B564B0500C32E8D /* SLSEventSource.h in Headers */,

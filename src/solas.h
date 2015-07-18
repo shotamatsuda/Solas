@@ -31,7 +31,6 @@
 #include "solas/app_event.h"
 #include "solas/backend.h"
 #include "solas/composite.h"
-#include "solas/context_holder.h"
 #include "solas/enum.h"
 #include "solas/event_holder.h"
 #include "solas/gesture_event.h"

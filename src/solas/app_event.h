@@ -28,7 +28,10 @@
 #ifndef SOLAS_APP_EVENT_H_
 #define SOLAS_APP_EVENT_H_
 
-#include "solas/context_holder.h"
+#include <functional>
+
+#include <boost/any.hpp>
+
 #include "solas/math.h"
 
 namespace solas {
@@ -55,12 +58,13 @@ class AppEvent final {
   AppEvent& operator=(const AppEvent& other) = delete;
 
   // Properties
-  const ContextHolder& context() const { return context_; }
+  template <class Context>
+  const Context& context() const;
   const Size2d& size() const { return size_; }
   double scale() const { return scale_; }
 
  private:
-  ContextHolder context_;
+  boost::any context_;
   Size2d size_;
   double scale_;
 };
@@ -71,9 +75,16 @@ template <class Context>
 inline AppEvent::AppEvent(const Context& context,
                           const Size2d& size,
                           double scale)
-    : context_(context),
+    : context_(std::reference_wrapper<const Context>(context)),
       size_(size),
       scale_(scale) {}
+
+#pragma mark Properties
+
+template <class Context>
+inline const Context& AppEvent::context() const {
+  return boost::any_cast<std::reference_wrapper<const Context>>(context_);
+}
 
 }  // namespace solas
 
