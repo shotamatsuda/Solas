@@ -1,18 +1,27 @@
 //
 //  SLSRunner.mm
 //
-//  takram design engineering Confidential
+//  MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
-//  All information contained herein is, and remains the property of takram
-//  design engineering and its suppliers, if any. The intellectual and
-//  technical concepts contained herein are proprietary to takram design
-//  engineering and its suppliers and may be covered by U.S. and Foreign
-//  Patents, patents in process, and are protected by trade secret or copyright
-//  law. Dissemination of this information or reproduction of this material is
-//  strictly forbidden unless prior written permission is obtained from takram
-//  design engineering.
+//  Permission is hereby granted, free of charge, to any person obtaining a
+//  copy of this software and associated documentation files (the "Software"),
+//  to deal in the Software without restriction, including without limitation
+//  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+//  and/or sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+//  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//  DEALINGS IN THE SOFTWARE.
 //
 
 #import "SLSRunner.h"
@@ -21,25 +30,28 @@
 
 #import "SLSEvents.h"
 
-#include <cassert>
 #include <memory>
 #include <type_traits>
 #include <utility>
 
-#include "solas/app/app_event.h"
-#include "solas/app/runner.h"
-#include "solas/app/runnable.h"
+#include "solas/app_event.h"
+#include "solas/runner.h"
+#include "solas/runnable.h"
 
 @interface SLSRunner () {
  @private
-  std::unique_ptr<solas::app::Runner> _runner;
+  std::unique_ptr<solas::Runner> _runner;
 }
 
 @end
 
 @implementation SLSRunner
 
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::app::Runner>&&)runner {
+- (instancetype)init {
+  return [self initWithRunnable:nullptr];
+}
+
+- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner {
   self = [super init];
   if (self) {
     _runner = std::move(runner);
@@ -53,27 +65,28 @@
 
 - (SLSRunnerBackend)backend {
   NSInteger backend = kSLSRunnerBackendUndefined;
-  using solas::app::Backend;
+  using solas::Backend;
   using Underlying = std::underlying_type<Backend>::type;
-  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGL2)) {
+  auto& options = _runner->options();
+  if (static_cast<Underlying>(options.backend() & Backend::OPENGL2)) {
     backend |= kSLSRunnerBackendOpenGL2;
   }
-  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGL3)) {
+  if (static_cast<Underlying>(options.backend() & Backend::OPENGL3)) {
     backend |= kSLSRunnerBackendOpenGL3;
   }
-  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGL4)) {
+  if (static_cast<Underlying>(options.backend() & Backend::OPENGL4)) {
     backend |= kSLSRunnerBackendOpenGL4;
   }
-  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGLES1)) {
+  if (static_cast<Underlying>(options.backend() & Backend::OPENGLES1)) {
     backend |= kSLSRunnerBackendOpenGLES1;
   }
-  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGLES2)) {
+  if (static_cast<Underlying>(options.backend() & Backend::OPENGLES2)) {
     backend |= kSLSRunnerBackendOpenGLES2;
   }
-  if (static_cast<Underlying>(_runner->backend() & Backend::OPENGLES3)) {
+  if (static_cast<Underlying>(options.backend() & Backend::OPENGLES3)) {
     backend |= kSLSRunnerBackendOpenGLES3;
   }
-  if (static_cast<Underlying>(_runner->backend() & Backend::QUARTZ)) {
+  if (static_cast<Underlying>(options.backend() & Backend::QUARTZ)) {
     backend |= kSLSRunnerBackendCoreGraphics;
   }
   return (SLSRunnerBackend)backend;
@@ -81,13 +94,13 @@
 
 #pragma mark SLSDisplayDelegate
 
-- (void)sender:(id)sender update:(SLSAppEventConstRef)event {
+- (void)displayDelegate:(id)displayDelegate update:(SLSAppEventConstRef)event {
   if (_runner) {
     _runner->update(*SLSAppEventCast(event));
   }
 }
 
-- (void)sender:(id)sender draw:(SLSAppEventConstRef)event {
+- (void)displayDelegate:(id)displayDelegate draw:(SLSAppEventConstRef)event {
   if (_runner) {
     _runner->draw(*SLSAppEventCast(event));
   }
@@ -95,143 +108,163 @@
 
 #pragma mark SLSEventDelegate
 
-- (void)sender:(id)sender mouseDown:(SLSMouseEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+         mousePressed:(SLSMouseEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->mouseDown(*SLSMouseEventCast(event));
+    NSAssert(event, @"");
+    _runner->mousePressed(*SLSMouseEventCast(event));
   }
 }
 
-- (void)sender:(id)sender mouseDrag:(SLSMouseEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+         mouseDragged:(SLSMouseEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->mouseDrag(*SLSMouseEventCast(event));
+    NSAssert(event, @"");
+    _runner->mouseDragged(*SLSMouseEventCast(event));
   }
 }
 
-- (void)sender:(id)sender mouseUp:(SLSMouseEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+        mouseReleased:(SLSMouseEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->mouseUp(*SLSMouseEventCast(event));
+    NSAssert(event, @"");
+    _runner->mouseReleased(*SLSMouseEventCast(event));
   }
 }
 
-- (void)sender:(id)sender mouseMove:(SLSMouseEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+           mouseMoved:(SLSMouseEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->mouseMove(*SLSMouseEventCast(event));
+    NSAssert(event, @"");
+    _runner->mouseMoved(*SLSMouseEventCast(event));
   }
 }
 
-- (void)sender:(id)sender mouseEnter:(SLSMouseEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+         mouseEntered:(SLSMouseEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->mouseEnter(*SLSMouseEventCast(event));
+    NSAssert(event, @"");
+    _runner->mouseEntered(*SLSMouseEventCast(event));
   }
 }
 
-- (void)sender:(id)sender mouseExit:(SLSMouseEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+          mouseExited:(SLSMouseEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->mouseExit(*SLSMouseEventCast(event));
+    NSAssert(event, @"");
+    _runner->mouseExited(*SLSMouseEventCast(event));
   }
 }
 
-- (void)sender:(id)sender scrollWheel:(SLSMouseEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+           mouseWheel:(SLSMouseEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->scrollWheel(*SLSMouseEventCast(event));
+    NSAssert(event, @"");
+    _runner->mouseWheel(*SLSMouseEventCast(event));
   }
 }
 
-- (void)sender:(id)sender keyDown:(SLSKeyEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+           keyPressed:(SLSKeyEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->keyDown(*SLSKeyEventCast(event));
+    NSAssert(event, @"");
+    _runner->keyPressed(*SLSKeyEventCast(event));
   }
 }
 
-- (void)sender:(id)sender keyUp:(SLSKeyEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+          keyReleased:(SLSKeyEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->keyUp(*SLSKeyEventCast(event));
+    NSAssert(event, @"");
+    _runner->keyReleased(*SLSKeyEventCast(event));
   }
 }
 
-- (void)sender:(id)sender touchesBegin:(SLSTouchEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+         touchesBegan:(SLSTouchEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->touchesBegin(*SLSTouchEventCast(event));
+    NSAssert(event, @"");
+    _runner->touchesBegan(*SLSTouchEventCast(event));
   }
 }
 
-- (void)sender:(id)sender touchesMove:(SLSTouchEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+         touchesMoved:(SLSTouchEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->touchesMove(*SLSTouchEventCast(event));
+    NSAssert(event, @"");
+    _runner->touchesMoved(*SLSTouchEventCast(event));
   }
 }
 
-- (void)sender:(id)sender touchesCancel:(SLSTouchEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+     touchesCancelled:(SLSTouchEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->touchesCancel(*SLSTouchEventCast(event));
+    NSAssert(event, @"");
+    _runner->touchesCancelled(*SLSTouchEventCast(event));
   }
 }
 
-- (void)sender:(id)sender touchesEnd:(SLSTouchEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+         touchesEnded:(SLSTouchEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->touchesEnd(*SLSTouchEventCast(event));
+    NSAssert(event, @"");
+    _runner->touchesEnded(*SLSTouchEventCast(event));
   }
 }
 
-- (void)sender:(id)sender gestureBegin:(SLSGestureEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+         gestureBegan:(SLSGestureEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->gestureBegin(*SLSGestureEventCast(event));
+    NSAssert(event, @"");
+    _runner->gestureBegan(*SLSGestureEventCast(event));
   }
 }
 
-- (void)sender:(id)sender gestureChange:(SLSGestureEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+       gestureChanged:(SLSGestureEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->gestureChange(*SLSGestureEventCast(event));
+    NSAssert(event, @"");
+    _runner->gestureChanged(*SLSGestureEventCast(event));
   }
 }
 
-- (void)sender:(id)sender gestureCancel:(SLSGestureEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+     gestureCancelled:(SLSGestureEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->gestureCancel(*SLSGestureEventCast(event));
+    NSAssert(event, @"");
+    _runner->gestureCancelled(*SLSGestureEventCast(event));
   }
 }
 
-- (void)sender:(id)sender gestureEnd:(SLSGestureEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+         gestureEnded:(SLSGestureEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->gestureEnd(*SLSGestureEventCast(event));
+    NSAssert(event, @"");
+    _runner->gestureEnded(*SLSGestureEventCast(event));
   }
 }
 
-- (void)sender:(id)sender motionBegin:(SLSMotionEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+          motionBegan:(SLSMotionEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->motionBegin(*SLSMotionEventCast(event));
+    NSAssert(event, @"");
+    _runner->motionBegan(*SLSMotionEventCast(event));
   }
 }
 
-- (void)sender:(id)sender motionCancel:(SLSMotionEventConstRef)event {
+- (void)eventDelegate:(id)eventDelegate
+      motionCancelled:(SLSMotionEventConstRef)event {
   if (_runner) {
-    assert(event);
-    _runner->motionCancel(*SLSMotionEventCast(event));
+    NSAssert(event, @"");
+    _runner->motionCancelled(*SLSMotionEventCast(event));
   }
 }
 
-- (void)sender:(id)sender motionEnd:(SLSMotionEventConstRef)event  {
+- (void)eventDelegate:(id)eventDelegate
+          motionEnded:(SLSMotionEventConstRef)event  {
   if (_runner) {
-    assert(event);
-    _runner->motionEnd(*SLSMotionEventCast(event));
+    NSAssert(event, @"");
+    _runner->motionEnded(*SLSMotionEventCast(event));
   }
 }
 

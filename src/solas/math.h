@@ -1,37 +1,109 @@
 //
 //  solas/math.h
 //
-//  takram design engineering Confidential
+//  MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
-//  All information contained herein is, and remains the property of takram
-//  design engineering and its suppliers, if any. The intellectual and
-//  technical concepts contained herein are proprietary to takram design
-//  engineering and its suppliers and may be covered by U.S. and Foreign
-//  Patents, patents in process, and are protected by trade secret or copyright
-//  law. Dissemination of this information or reproduction of this material is
-//  strictly forbidden unless prior written permission is obtained from takram
-//  design engineering.
+//  Permission is hereby granted, free of charge, to any person obtaining a
+//  copy of this software and associated documentation files (the "Software"),
+//  to deal in the Software without restriction, including without limitation
+//  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+//  and/or sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+//  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//  DEALINGS IN THE SOFTWARE.
 //
 
 #pragma once
 #ifndef SOLAS_MATH_H_
 #define SOLAS_MATH_H_
 
-#include "solas/math/axis.h"
-#include "solas/math/constants.h"
-#include "solas/math/functions.h"
-#include "solas/math/line.h"
-#include "solas/math/matrix.h"
-#include "solas/math/plane.h"
-#include "solas/math/polygon.h"
-#include "solas/math/promotion.h"
-#include "solas/math/random.h"
-#include "solas/math/rect.h"
-#include "solas/math/size.h"
-#include "solas/math/sphere.h"
-#include "solas/math/triangle.h"
-#include "solas/math/vector.h"
+#include "takram/math.h"
+
+namespace solas {
+
+namespace math = takram::math;
+
+using math::Axis;
+
+using math::Line;
+using math::Line2;
+using math::Line2i;
+using math::Line2f;
+using math::Line2d;
+using math::Line3;
+using math::Line3i;
+using math::Line3f;
+using math::Line3d;
+
+using math::Random;
+
+using math::Rect;
+using math::Recti;
+using math::Rectf;
+using math::Rectd;
+using math::Rectangle;
+using math::Rectanglei;
+using math::Rectanglef;
+using math::Rectangled;
+
+using math::Size;
+using math::Size2;
+using math::Size2i;
+using math::Size2f;
+using math::Size2d;
+using math::Size3;
+using math::Size3i;
+using math::Size3f;
+using math::Size3d;
+
+using math::Triangle;
+using math::Triangle2;
+using math::Triangle2i;
+using math::Triangle2f;
+using math::Triangle2d;
+using math::Triangle3;
+using math::Triangle3i;
+using math::Triangle3f;
+using math::Triangle3d;
+
+using math::Vector;
+using math::Vector2;
+using math::Vector2i;
+using math::Vector2f;
+using math::Vector2d;
+using math::Vector3;
+using math::Vector3i;
+using math::Vector3f;
+using math::Vector3d;
+using math::Vector4;
+using math::Vector4i;
+using math::Vector4f;
+using math::Vector4d;
+using math::Vec;
+using math::Vec2;
+using math::Vec2i;
+using math::Vec2f;
+using math::Vec2d;
+using math::Vec3;
+using math::Vec3i;
+using math::Vec3f;
+using math::Vec3d;
+using math::Vec4;
+using math::Vec4i;
+using math::Vec4f;
+using math::Vec4d;
+
+}  // namespace solas
 
 #endif  // SOLAS_MATH_H_

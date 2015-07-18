@@ -7,16 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		937E13BD1ADBF34B008DB7A7 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937E13BC1ADBF34B008DB7A7 /* OpenGLES.framework */; };
-		937E13BF1ADBF351008DB7A7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 937E13BE1ADBF350008DB7A7 /* OpenGL.framework */; };
+		936807901B57A6CE009F0934 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9368078F1B57A6CE009F0934 /* LaunchScreen.xib */; };
 		938D33011AF1F5B300E865AF /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF9901AD97397009D0646 /* main.cc */; };
-		93CA68111ADB5C5F009F131B /* SolasTouch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF9811AD972EA009D0646 /* SolasTouch.framework */; };
-		93CA68121ADB5C5F009F131B /* SolasTouch.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF9811AD972EA009D0646 /* SolasTouch.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		93D73E201ADE301E003F9A7A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 93D73E1F1ADE301E003F9A7A /* Default-568h@2x.png */; };
 		93EBABC71AD980ED00BF8959 /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF97F1AD972EA009D0646 /* Solas.framework */; };
 		93EBABC81AD980ED00BF8959 /* Solas.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF97F1AD972EA009D0646 /* Solas.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93EBABD71AD98A6200BF8959 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93EBABD01AD98A4C00BF8959 /* boost.framework */; };
 		93EBABD81AD98A6200BF8959 /* boost.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93EBABD01AD98A4C00BF8959 /* boost.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		93F859171B574EE100C32E8D /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF97F1AD972EA009D0646 /* Solas.framework */; };
+		93F859181B574EEC00C32E8D /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93EBABD21AD98A4C00BF8959 /* boost.framework */; };
 		93FEF9921AD97397009D0646 /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF9901AD97397009D0646 /* main.cc */; };
 /* End PBXBuildFile section */
 
@@ -28,20 +26,6 @@
 			remoteGlobalIDString = 936E241F1ADEA5550004C396;
 			remoteInfo = SolasStatic;
 		};
-		938D32FF1AF1F5B000E865AF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 93EDFB661AEC46C5003CDD03;
-			remoteInfo = SolasTouchStatic;
-		};
-		93CA68131ADB5C5F009F131B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 93E913751AB27E2600DDF7F9;
-			remoteInfo = SolasTouch;
-		};
 		93EBABC91AD980ED00BF8959 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
@@ -49,19 +33,26 @@
 			remoteGlobalIDString = 93E913571AB27DE400DDF7F9;
 			remoteInfo = Solas;
 		};
+		93F858DA1B56565A00C32E8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 93F8580F1B564B0500C32E8D;
+			remoteInfo = "Solas iOS";
+		};
+		93F859151B574EDC00C32E8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 93F857C21B564B0500C32E8D;
+			remoteInfo = "Solas iOS";
+		};
 		93FEF97E1AD972EA009D0646 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 93E913581AB27DE400DDF7F9;
 			remoteInfo = Solas;
-		};
-		93FEF9801AD972EA009D0646 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 93E913761AB27E2600DDF7F9;
-			remoteInfo = SolasTouch;
 		};
 		93FEF9821AD972EA009D0646 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -79,7 +70,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				93CA68121ADB5C5F009F131B /* SolasTouch.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,19 +89,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		937E13BC1ADBF34B008DB7A7 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.2.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
-		937E13BE1ADBF350008DB7A7 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		9368078F1B57A6CE009F0934 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
 		93CA67E11ADB5BF4009F131B /* Empty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Empty.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		93D479601AF83B12000F89B2 /* App-iOS.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-iOS.xcconfig"; sourceTree = SOURCE_ROOT; };
-		93D479611AF83B12000F89B2 /* App-OSX.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "App-OSX.xcconfig"; sourceTree = SOURCE_ROOT; };
-		93D73E0E1ADE29BE003F9A7A /* ProjectDebug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProjectDebug.xcconfig; sourceTree = SOURCE_ROOT; };
-		93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProjectRelease.xcconfig; sourceTree = SOURCE_ROOT; };
-		93D73E101ADE2A0A003F9A7A /* Project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = SOURCE_ROOT; };
-		93D73E1F1ADE301E003F9A7A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		93EBABBF1AD97E8C00BF8959 /* Info-iOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = SOURCE_ROOT; };
-		93EBABC01AD97E8C00BF8959 /* Info-OSX.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info-OSX.plist"; sourceTree = SOURCE_ROOT; };
 		93EBABD01AD98A4C00BF8959 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/osx/framework/boost.framework; sourceTree = "<group>"; };
 		93EBABD21AD98A4C00BF8959 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/ios/framework/boost.framework; sourceTree = "<group>"; };
+		93F859231B575DCC00C32E8D /* ios.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ios.plist; sourceTree = SOURCE_ROOT; };
+		93F859241B575DCC00C32E8D /* ios.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ios.xcconfig; sourceTree = SOURCE_ROOT; };
+		93F859251B575DCC00C32E8D /* osx.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = osx.plist; sourceTree = SOURCE_ROOT; };
+		93F859261B575DCC00C32E8D /* osx.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = osx.xcconfig; sourceTree = SOURCE_ROOT; };
+		93F859271B575DCC00C32E8D /* project_debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_debug.xcconfig; sourceTree = SOURCE_ROOT; };
+		93F859281B575DCC00C32E8D /* project_release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_release.xcconfig; sourceTree = SOURCE_ROOT; };
+		93F859291B575DCC00C32E8D /* project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = SOURCE_ROOT; };
 		93FEF94E1AD97263009D0646 /* Empty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Empty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93FEF9761AD972E8009D0646 /* Solas.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Solas.xcodeproj; path = ../Solas.xcodeproj; sourceTree = "<group>"; };
 		93FEF9901AD97397009D0646 /* main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cc; sourceTree = "<group>"; };
@@ -122,8 +110,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				937E13BD1ADBF34B008DB7A7 /* OpenGLES.framework in Frameworks */,
-				93CA68111ADB5C5F009F131B /* SolasTouch.framework in Frameworks */,
+				93F859171B574EE100C32E8D /* Solas.framework in Frameworks */,
+				93F859181B574EEC00C32E8D /* boost.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +119,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				937E13BF1ADBF351008DB7A7 /* OpenGL.framework in Frameworks */,
 				93EBABD71AD98A6200BF8959 /* boost.framework in Frameworks */,
 				93EBABC71AD980ED00BF8959 /* Solas.framework in Frameworks */,
 			);
@@ -140,108 +127,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		93D73DB51ADD560F003F9A7A /* System Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				93D73DB71ADD5618003F9A7A /* OS X */,
-				93D73DB81ADD561E003F9A7A /* iOS */,
-			);
-			name = "System Frameworks";
-			sourceTree = "<group>";
-		};
-		93D73DB71ADD5618003F9A7A /* OS X */ = {
-			isa = PBXGroup;
-			children = (
-				937E13BE1ADBF350008DB7A7 /* OpenGL.framework */,
-			);
-			name = "OS X";
-			sourceTree = "<group>";
-		};
-		93D73DB81ADD561E003F9A7A /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				937E13BC1ADBF34B008DB7A7 /* OpenGLES.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		93D73E211ADE3021003F9A7A /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				93D73E1F1ADE301E003F9A7A /* Default-568h@2x.png */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		93EBABD11AD98A4C00BF8959 /* OS X */ = {
+		93EBABD11AD98A4C00BF8959 /* osx */ = {
 			isa = PBXGroup;
 			children = (
 				93EBABD01AD98A4C00BF8959 /* boost.framework */,
 			);
-			name = "OS X";
+			name = osx;
 			sourceTree = "<group>";
 		};
-		93EBABD31AD98A4C00BF8959 /* iOS */ = {
+		93EBABD31AD98A4C00BF8959 /* ios */ = {
 			isa = PBXGroup;
 			children = (
 				93EBABD21AD98A4C00BF8959 /* boost.framework */,
 			);
-			name = iOS;
+			name = ios;
 			sourceTree = "<group>";
 		};
-		93EBABD41AD98A4C00BF8959 /* Frameworks */ = {
+		93EBABD41AD98A4C00BF8959 /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				93EBABD11AD98A4C00BF8959 /* OS X */,
-				93EBABD31AD98A4C00BF8959 /* iOS */,
+				93EBABD11AD98A4C00BF8959 /* osx */,
+				93EBABD31AD98A4C00BF8959 /* ios */,
 			);
-			name = Frameworks;
+			name = frameworks;
 			path = ..;
 			sourceTree = "<group>";
 		};
 		93FEF9451AD97263009D0646 = {
 			isa = PBXGroup;
 			children = (
-				93FEF9501AD97263009D0646 /* Source */,
-				93FEF9751AD972AA009D0646 /* Configurations */,
-				93D73E211ADE3021003F9A7A /* Supporting Files */,
-				93EBABD41AD98A4C00BF8959 /* Frameworks */,
-				93D73DB51ADD560F003F9A7A /* System Frameworks */,
-				93FEF94F1AD97263009D0646 /* Products */,
+				93FEF9501AD97263009D0646 /* src */,
+				93FEF9751AD972AA009D0646 /* config */,
+				93EBABD41AD98A4C00BF8959 /* frameworks */,
+				93FEF94F1AD97263009D0646 /* products */,
 				93FEF9761AD972E8009D0646 /* Solas.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
-		93FEF94F1AD97263009D0646 /* Products */ = {
+		93FEF94F1AD97263009D0646 /* products */ = {
 			isa = PBXGroup;
 			children = (
 				93FEF94E1AD97263009D0646 /* Empty.app */,
 				93CA67E11ADB5BF4009F131B /* Empty.app */,
 			);
-			name = Products;
+			name = products;
 			sourceTree = "<group>";
 		};
-		93FEF9501AD97263009D0646 /* Source */ = {
+		93FEF9501AD97263009D0646 /* src */ = {
 			isa = PBXGroup;
 			children = (
 				93FEF9901AD97397009D0646 /* main.cc */,
 			);
-			name = Source;
+			name = src;
 			path = Empty;
 			sourceTree = "<group>";
 		};
-		93FEF9751AD972AA009D0646 /* Configurations */ = {
+		93FEF9751AD972AA009D0646 /* config */ = {
 			isa = PBXGroup;
 			children = (
-				93EBABC01AD97E8C00BF8959 /* Info-OSX.plist */,
-				93EBABBF1AD97E8C00BF8959 /* Info-iOS.plist */,
-				93D479611AF83B12000F89B2 /* App-OSX.xcconfig */,
-				93D479601AF83B12000F89B2 /* App-iOS.xcconfig */,
-				93D73E101ADE2A0A003F9A7A /* Project.xcconfig */,
-				93D73E0E1ADE29BE003F9A7A /* ProjectDebug.xcconfig */,
-				93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */,
+				93F859251B575DCC00C32E8D /* osx.plist */,
+				93F859231B575DCC00C32E8D /* ios.plist */,
+				93F859261B575DCC00C32E8D /* osx.xcconfig */,
+				93F859241B575DCC00C32E8D /* ios.xcconfig */,
+				93F859291B575DCC00C32E8D /* project.xcconfig */,
+				93F859271B575DCC00C32E8D /* project_debug.xcconfig */,
+				93F859281B575DCC00C32E8D /* project_release.xcconfig */,
+				9368078F1B57A6CE009F0934 /* LaunchScreen.xib */,
 			);
-			name = Configurations;
+			name = config;
 			path = Zorozoro;
 			sourceTree = "<group>";
 		};
@@ -249,10 +202,9 @@
 			isa = PBXGroup;
 			children = (
 				93FEF97F1AD972EA009D0646 /* Solas.framework */,
-				93FEF9811AD972EA009D0646 /* SolasTouch.framework */,
+				93F858DB1B56565A00C32E8D /* Solas.framework */,
 				93FEF9831AD972EA009D0646 /* SolasTest */,
 				938D32FE1AF1F5B000E865AF /* libSolas.a */,
-				938D33001AF1F5B000E865AF /* libSolasTouch.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -260,9 +212,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		93CA67E01ADB5BF4009F131B /* EmptyTouch */ = {
+		93CA67E01ADB5BF4009F131B /* Empty iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "EmptyTouch" */;
+			buildConfigurationList = 93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "Empty iOS" */;
 			buildPhases = (
 				93CA67DD1ADB5BF4009F131B /* Sources */,
 				93CA67DE1ADB5BF4009F131B /* Frameworks */,
@@ -272,9 +224,9 @@
 			buildRules = (
 			);
 			dependencies = (
-				93CA68141ADB5C5F009F131B /* PBXTargetDependency */,
+				93F859161B574EDC00C32E8D /* PBXTargetDependency */,
 			);
-			name = EmptyTouch;
+			name = "Empt\U0010y iOS";
 			productName = ZorozoroTouch;
 			productReference = 93CA67E11ADB5BF4009F131B /* Empty.app */;
 			productType = "com.apple.product-type.application";
@@ -304,7 +256,7 @@
 		93FEF9461AD97263009D0646 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "takram design engineering";
 				TargetAttributes = {
 					93CA67E01ADB5BF4009F131B = {
@@ -325,7 +277,7 @@
 				Base,
 			);
 			mainGroup = 93FEF9451AD97263009D0646;
-			productRefGroup = 93FEF94F1AD97263009D0646 /* Products */;
+			productRefGroup = 93FEF94F1AD97263009D0646 /* products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
@@ -336,7 +288,7 @@
 			projectRoot = "";
 			targets = (
 				93FEF94D1AD97263009D0646 /* Empty */,
-				93CA67E01ADB5BF4009F131B /* EmptyTouch */,
+				93CA67E01ADB5BF4009F131B /* Empty iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -349,11 +301,11 @@
 			remoteRef = 938D32FD1AF1F5B000E865AF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		938D33001AF1F5B000E865AF /* libSolasTouch.a */ = {
+		93F858DB1B56565A00C32E8D /* Solas.framework */ = {
 			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSolasTouch.a;
-			remoteRef = 938D32FF1AF1F5B000E865AF /* PBXContainerItemProxy */;
+			fileType = wrapper.framework;
+			path = Solas.framework;
+			remoteRef = 93F858DA1B56565A00C32E8D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		93FEF97F1AD972EA009D0646 /* Solas.framework */ = {
@@ -361,13 +313,6 @@
 			fileType = wrapper.framework;
 			path = Solas.framework;
 			remoteRef = 93FEF97E1AD972EA009D0646 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		93FEF9811AD972EA009D0646 /* SolasTouch.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SolasTouch.framework;
-			remoteRef = 93FEF9801AD972EA009D0646 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		93FEF9831AD972EA009D0646 /* SolasTest */ = {
@@ -384,7 +329,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93D73E201ADE301E003F9A7A /* Default-568h@2x.png in Resources */,
+				936807901B57A6CE009F0934 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,30 +362,32 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		93CA68141ADB5C5F009F131B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SolasTouch;
-			targetProxy = 93CA68131ADB5C5F009F131B /* PBXContainerItemProxy */;
-		};
 		93EBABCA1AD980ED00BF8959 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Solas;
 			targetProxy = 93EBABC91AD980ED00BF8959 /* PBXContainerItemProxy */;
+		};
+		93F859161B574EDC00C32E8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Solas iOS";
+			targetProxy = 93F859151B574EDC00C32E8D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		93CA68011ADB5BF5009F131B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93D479601AF83B12000F89B2 /* App-iOS.xcconfig */;
+			baseConfigurationReference = 93F859241B575DCC00C32E8D /* ios.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = "Info-iOS.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/sgss/Dropbox/Github/solas/build/boost/ios/framework,
+				);
+				INFOPLIST_FILE = ios.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.takram.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Empty;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -450,15 +397,17 @@
 		};
 		93CA68021ADB5BF5009F131B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93D479601AF83B12000F89B2 /* App-iOS.xcconfig */;
+			baseConfigurationReference = 93F859241B575DCC00C32E8D /* ios.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = "Info-iOS.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/sgss/Dropbox/Github/solas/build/boost/ios/framework,
+				);
+				INFOPLIST_FILE = ios.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.takram.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Empty;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -469,45 +418,48 @@
 		};
 		93FEF9691AD97263009D0646 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93D73E0E1ADE29BE003F9A7A /* ProjectDebug.xcconfig */;
+			baseConfigurationReference = 93F859271B575DCC00C32E8D /* project_debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "-";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ENABLE_TESTABILITY = YES;
+				MACOSX_DEPLOYMENT_TARGET = "";
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
+				SDKROOT = macosx10.10;
 			};
 			name = Debug;
 		};
 		93FEF96A1AD97263009D0646 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93D73E0F1ADE29BE003F9A7A /* ProjectRelease.xcconfig */;
+			baseConfigurationReference = 93F859281B575DCC00C32E8D /* project_release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "-";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				SDKROOT = macosx;
+				MACOSX_DEPLOYMENT_TARGET = "";
+				SDKROOT = macosx10.10;
 			};
 			name = Release;
 		};
 		93FEF96C1AD97263009D0646 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93D479611AF83B12000F89B2 /* App-OSX.xcconfig */;
+			baseConfigurationReference = 93F859261B575DCC00C32E8D /* osx.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				INFOPLIST_FILE = "Info-OSX.plist";
+				INFOPLIST_FILE = osx.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.takram.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Empty;
 			};
 			name = Debug;
 		};
 		93FEF96D1AD97263009D0646 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93D479611AF83B12000F89B2 /* App-OSX.xcconfig */;
+			baseConfigurationReference = 93F859261B575DCC00C32E8D /* osx.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
-				INFOPLIST_FILE = "Info-OSX.plist";
+				INFOPLIST_FILE = osx.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.takram.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = Empty;
 			};
 			name = Release;
@@ -515,7 +467,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "EmptyTouch" */ = {
+		93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "Empty iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93CA68011ADB5BF5009F131B /* Debug */,
