@@ -61,7 +61,7 @@ class RunOptions final {
 inline RunOptions::RunOptions()
     : multiple_windows_(true),
       dark_content_(false),
-      full_size_content_(false) {}
+      full_size_content_(true) {}
 
 #pragma mark Comparison
 

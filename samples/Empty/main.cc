@@ -55,6 +55,5 @@ class App : public solas::Canvas {
 
 int main(int argc, char **argv) {
   solas::RunOptions options;
-  options.set_full_size_content(true);
   return solas::run<App>(argc, argv, options);
 }
