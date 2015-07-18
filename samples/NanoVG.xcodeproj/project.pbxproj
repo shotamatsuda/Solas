@@ -90,7 +90,7 @@
 
 /* Begin PBXFileReference section */
 		9368078F1B57A6CE009F0934 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
-		93CA67E11ADB5BF4009F131B /* Empty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Empty.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93CA67E11ADB5BF4009F131B /* NanoVG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NanoVG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93EBABD01AD98A4C00BF8959 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/osx/framework/boost.framework; sourceTree = "<group>"; };
 		93EBABD21AD98A4C00BF8959 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/ios/framework/boost.framework; sourceTree = "<group>"; };
 		93F859231B575DCC00C32E8D /* ios.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ios.plist; sourceTree = SOURCE_ROOT; };
@@ -100,7 +100,7 @@
 		93F859271B575DCC00C32E8D /* project_debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_debug.xcconfig; sourceTree = SOURCE_ROOT; };
 		93F859281B575DCC00C32E8D /* project_release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_release.xcconfig; sourceTree = SOURCE_ROOT; };
 		93F859291B575DCC00C32E8D /* project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = SOURCE_ROOT; };
-		93FEF94E1AD97263009D0646 /* Empty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Empty.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93FEF94E1AD97263009D0646 /* NanoVG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NanoVG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93FEF9761AD972E8009D0646 /* Solas.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Solas.xcodeproj; path = ../Solas.xcodeproj; sourceTree = "<group>"; };
 		93FEF9901AD97397009D0646 /* main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,8 +167,8 @@
 		93FEF94F1AD97263009D0646 /* products */ = {
 			isa = PBXGroup;
 			children = (
-				93FEF94E1AD97263009D0646 /* Empty.app */,
-				93CA67E11ADB5BF4009F131B /* Empty.app */,
+				93FEF94E1AD97263009D0646 /* NanoVG.app */,
+				93CA67E11ADB5BF4009F131B /* NanoVG.app */,
 			);
 			name = products;
 			sourceTree = "<group>";
@@ -179,7 +179,7 @@
 				93FEF9901AD97397009D0646 /* main.cc */,
 			);
 			name = src;
-			path = Empty;
+			path = NanoVG;
 			sourceTree = "<group>";
 		};
 		93FEF9751AD972AA009D0646 /* config */ = {
@@ -212,9 +212,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		93CA67E01ADB5BF4009F131B /* Empty iOS */ = {
+		93CA67E01ADB5BF4009F131B /* NanoVG iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "Empty iOS" */;
+			buildConfigurationList = 93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "NanoVG iOS" */;
 			buildPhases = (
 				93CA67DD1ADB5BF4009F131B /* Sources */,
 				93CA67DE1ADB5BF4009F131B /* Frameworks */,
@@ -226,14 +226,14 @@
 			dependencies = (
 				93F859161B574EDC00C32E8D /* PBXTargetDependency */,
 			);
-			name = "Empt\U0010y iOS";
+			name = "NanoVG iOS";
 			productName = ZorozoroTouch;
-			productReference = 93CA67E11ADB5BF4009F131B /* Empty.app */;
+			productReference = 93CA67E11ADB5BF4009F131B /* NanoVG.app */;
 			productType = "com.apple.product-type.application";
 		};
-		93FEF94D1AD97263009D0646 /* Empty */ = {
+		93FEF94D1AD97263009D0646 /* NanoVG */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93FEF96B1AD97263009D0646 /* Build configuration list for PBXNativeTarget "Empty" */;
+			buildConfigurationList = 93FEF96B1AD97263009D0646 /* Build configuration list for PBXNativeTarget "NanoVG" */;
 			buildPhases = (
 				93FEF94A1AD97263009D0646 /* Sources */,
 				93FEF94B1AD97263009D0646 /* Frameworks */,
@@ -245,9 +245,9 @@
 			dependencies = (
 				93EBABCA1AD980ED00BF8959 /* PBXTargetDependency */,
 			);
-			name = Empty;
+			name = NanoVG;
 			productName = Zorozoro;
-			productReference = 93FEF94E1AD97263009D0646 /* Empty.app */;
+			productReference = 93FEF94E1AD97263009D0646 /* NanoVG.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -261,13 +261,14 @@
 				TargetAttributes = {
 					93CA67E01ADB5BF4009F131B = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = CMMH8M4457;
 					};
 					93FEF94D1AD97263009D0646 = {
 						CreatedOnToolsVersion = 6.2;
 					};
 				};
 			};
-			buildConfigurationList = 93FEF9491AD97263009D0646 /* Build configuration list for PBXProject "Empty" */;
+			buildConfigurationList = 93FEF9491AD97263009D0646 /* Build configuration list for PBXProject "NanoVG" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -286,8 +287,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				93FEF94D1AD97263009D0646 /* Empty */,
-				93CA67E01ADB5BF4009F131B /* Empty iOS */,
+				93FEF94D1AD97263009D0646 /* NanoVG */,
+				93CA67E01ADB5BF4009F131B /* NanoVG iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -379,6 +380,7 @@
 			baseConfigurationReference = 93F859241B575DCC00C32E8D /* ios.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = ios.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -395,6 +397,7 @@
 			baseConfigurationReference = 93F859241B575DCC00C32E8D /* ios.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = ios.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -403,6 +406,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -457,7 +461,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "Empty iOS" */ = {
+		93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "NanoVG iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93CA68011ADB5BF5009F131B /* Debug */,
@@ -466,7 +470,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		93FEF9491AD97263009D0646 /* Build configuration list for PBXProject "Empty" */ = {
+		93FEF9491AD97263009D0646 /* Build configuration list for PBXProject "NanoVG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93FEF9691AD97263009D0646 /* Debug */,
@@ -475,7 +479,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		93FEF96B1AD97263009D0646 /* Build configuration list for PBXNativeTarget "Empty" */ = {
+		93FEF96B1AD97263009D0646 /* Build configuration list for PBXNativeTarget "NanoVG" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93FEF96C1AD97263009D0646 /* Debug */,

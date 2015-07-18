@@ -62,7 +62,7 @@ class Composite {
   virtual MouseButton mouse_button() const;
   virtual bool mouse_pressed() const;
 
-  // Keyboard
+  // Key
   virtual char key() const;
   virtual std::uint32_t key_code() const;
   virtual bool key_pressed() const;
@@ -145,7 +145,7 @@ inline bool Composite::mouse_pressed() const {
   return parent_->mouse_pressed();
 }
 
-#pragma mark Keyboard
+#pragma mark Key
 
 inline char Composite::key() const {
   assert(parent_);

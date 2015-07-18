@@ -1,5 +1,5 @@
 //
-//  Solas.h
+//  main.cc
 //
 //  MIT License
 //
@@ -24,53 +24,36 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#ifdef __OBJC__
-
-#import <TargetConditionals.h>
-
-#import "SLSAnimationSource.h"
-#import "SLSApplicationMain.h"
-#import "SLSDefines.h"
-#import "SLSDisplayDelegate.h"
-#import "SLSDisplayLink.h"
-#import "SLSDisplaySource.h"
-#import "SLSEventDelegate.h"
-#import "SLSEvents.h"
-#import "SLSEventSource.h"
-#import "SLSNSBundle+Bundle.h"
-
-#if TARGET_OS_IPHONE
-
-#import "SLSUIApplicationDelegate.h"
-#import "SLSUIEventSourceView.h"
-#import "SLSUIOpenGLES2View.h"
-#import "SLSUIOpenGLES3View.h"
-#import "SLSUIOpenGLESView.h"
-#import "SLSUIQuartzView.h"
-#import "SLSUIView.h"
-#import "SLSUIViewController.h"
-
-#endif  // TARGET_OS_IPHONE
-
-#if TARGET_OS_MAC && !TARGET_OS_IPHONE
-
-#import "SLSNSApplicationDelegate.h"
-#import "SLSNSEventSourceView.h"
-#import "SLSNSOpenGL3View.h"
-#import "SLSNSOpenGL4View.h"
-#import "SLSNSOpenGLLayer.h"
-#import "SLSNSOpenGLView.h"
-#import "SLSNSQuartzView.h"
-#import "SLSNSView.h"
-#import "SLSNSViewController.h"
-#import "SLSNSWindowController.h"
-
-#endif  // TARGET_OS_MAC && !TARGET_OS_IPHONE
-
-#endif  // __OBJC__
-
-#ifdef __cplusplus
+#include <iostream>
 
 #include "solas.h"
 
-#endif  // __cplusplus
+class App : public solas::Canvas {
+ public:
+  void mousePressed() override {
+    std::cout << "mousePressed" << std::endl;
+  }
+  void mouseDragged() override {
+    std::cout << "mouseDragged" << std::endl;
+  }
+  void mouseReleased() override {
+    std::cout << "mouseReleased" << std::endl;
+  }
+  void mouseMoved() override {
+    std::cout << "mouseMoved" << std::endl;
+  }
+  void mouseEntered() override {
+    std::cout << "mouseEntered" << std::endl;
+  }
+  void mouseExited() override {
+    std::cout << "mouseExited" << std::endl;
+  }
+  void mouseWheel() override {
+    std::cout << "mouseWheel" << std::endl;
+  }
+};
+
+int main(int argc, char **argv) {
+  solas::RunOptions options;
+  return solas::run<App>(argc, argv, options);
+}

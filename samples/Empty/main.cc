@@ -30,27 +30,57 @@
 
 class App : public solas::Canvas {
  public:
-  void mousePressed() override {
-    std::cout << "mousePressed" << std::endl;
-  }
-  void mouseDragged() override {
-    std::cout << "mouseDragged" << std::endl;
-  }
-  void mouseReleased() override {
-    std::cout << "mouseReleased" << std::endl;
-  }
-  void mouseMoved() override {
-    std::cout << "mouseMoved" << std::endl;
-  }
-  void mouseEntered() override {
-    std::cout << "mouseEntered" << std::endl;
-  }
-  void mouseExited() override {
-    std::cout << "mouseExited" << std::endl;
-  }
-  void mouseWheel() override {
-    std::cout << "mouseWheel" << std::endl;
-  }
+  void setup() override {}
+
+  void update() override {}
+
+  void pre() override {}
+
+  void draw() override {}
+
+  void post() override {}
+
+  void exit() override {}
+
+  void mousePressed() override {}
+
+  void mouseDragged() override {}
+
+  void mouseReleased() override {}
+
+  void mouseMoved() override {}
+
+  void mouseEntered() override {}
+
+  void mouseExited() override {}
+
+  void mouseWheel() override {}
+
+  void keyPressed() override {}
+
+  void keyReleased() override {}
+
+  void touchesBegan() override {}
+
+  void touchesMoved() override {}
+
+  void touchesCancelled() override {}
+
+  void touchesEnded() override {}
+
+  void gestureBegan() override {}
+
+  void gestureChanged() override {}
+
+  void gestureCancelled() override {}
+
+  void gestureEnded() override {}
+
+  void motionBegan() override {}
+
+  void motionCancelled() override {}
+
+  void motionEnded() override {}
 };
 
 int main(int argc, char **argv) {

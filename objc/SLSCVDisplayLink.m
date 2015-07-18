@@ -1,5 +1,5 @@
 //
-//  SLSCVDisplayLink.mm
+//  SLSCVDisplayLink.m
 //
 //  MIT License
 //
@@ -28,9 +28,6 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-#include <cstdint>
-#include <vector>
-
 @interface SLSDisplayLink ()
 
 @property (nonatomic, retain) id target;
@@ -41,8 +38,6 @@
 
 @implementation SLSDisplayLink
 
-namespace {
-
 static CVReturn DisplayLinkCallback(
     CVDisplayLinkRef displayLinkRef,
     const CVTimeStamp *now,
@@ -50,8 +45,6 @@ static CVReturn DisplayLinkCallback(
     CVOptionFlags flagsIn,
     CVOptionFlags *flagsOut,
     void *userInfo);
-
-}  // namespace
 
 - (instancetype)initWithTarget:(id)target selector:(SEL)selector {
   self = [super init];
@@ -87,8 +80,6 @@ static CVReturn DisplayLinkCallback(
   CVDisplayLinkStop(_link);
 }
 
-namespace {
-
 CVReturn DisplayLinkCallback(
     CVDisplayLinkRef displayLinkRef,
     const CVTimeStamp *now,
@@ -105,7 +96,5 @@ CVReturn DisplayLinkCallback(
   }
   return kCVReturnSuccess;
 }
-
-}  // namespace
 
 @end

@@ -16,9 +16,9 @@
 		935058D11AEF6E2E0020E755 /* swipe_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* swipe_direction.h */; };
 		93547E791AF1267B00B4C6BE /* screen_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547E781AF1267B00B4C6BE /* screen_edge.h */; };
 		93547E7B1AF1267B00B4C6BE /* screen_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547E781AF1267B00B4C6BE /* screen_edge.h */; };
-		936732D41B56A7BE00CF0010 /* Solas.m in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.m */; };
-		936732D71B56A7D900CF0010 /* Solas.m in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.m */; };
-		936732D81B56A7DA00CF0010 /* Solas.m in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.m */; };
+		936732D41B56A7BE00CF0010 /* Solas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.mm */; };
+		936732D71B56A7D900CF0010 /* Solas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.mm */; };
+		936732D81B56A7DA00CF0010 /* Solas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.mm */; };
 		936E24461ADEA5A80004C396 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		936E24481ADEA5A80004C396 /* canvas.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* canvas.cc */; };
 		936E248B1ADEA5A80004C396 /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
@@ -160,7 +160,7 @@
 		93F858A41B56535B00C32E8D /* SLSNSOpenGLLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F858891B56535B00C32E8D /* SLSNSOpenGLLayer.mm */; };
 		93F858A51B56535B00C32E8D /* SLSNSQuartzView.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F8588A1B56535B00C32E8D /* SLSNSQuartzView.h */; };
 		93F858A61B56535B00C32E8D /* SLSNSQuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588B1B56535B00C32E8D /* SLSNSQuartzView.m */; };
-		93F858A71B56535B00C32E8D /* SLSCVDisplayLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.mm */; };
+		93F858A71B56535B00C32E8D /* SLSCVDisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.m */; };
 		93F858A81B56535B00C32E8D /* SLSNSApplicationMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588D1B56535B00C32E8D /* SLSNSApplicationMain.m */; };
 		93F858A91B56535B00C32E8D /* SLSNSApplicationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F8588E1B56535B00C32E8D /* SLSNSApplicationDelegate.h */; };
 		93F858AA1B56535B00C32E8D /* SLSNSApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588F1B56535B00C32E8D /* SLSNSApplicationDelegate.mm */; };
@@ -227,7 +227,7 @@
 		9350587A1AEF555B0020E755 /* gesture_kind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gesture_kind.h; sourceTree = "<group>"; };
 		935058CE1AEF6E2E0020E755 /* swipe_direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swipe_direction.h; sourceTree = "<group>"; };
 		93547E781AF1267B00B4C6BE /* screen_edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screen_edge.h; sourceTree = "<group>"; };
-		936732D31B56A7BE00CF0010 /* Solas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Solas.m; sourceTree = "<group>"; };
+		936732D31B56A7BE00CF0010 /* Solas.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Solas.mm; sourceTree = "<group>"; };
 		936E241F1ADEA5550004C396 /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		937D91FF1AF6C0BC000D8302 /* framebuffer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framebuffer.cc; sourceTree = "<group>"; };
 		937D92021AF6C0C8000D8302 /* framebuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framebuffer.h; sourceTree = "<group>"; };
@@ -287,7 +287,7 @@
 		93F858891B56535B00C32E8D /* SLSNSOpenGLLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSNSOpenGLLayer.mm; sourceTree = "<group>"; };
 		93F8588A1B56535B00C32E8D /* SLSNSQuartzView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSNSQuartzView.h; sourceTree = "<group>"; };
 		93F8588B1B56535B00C32E8D /* SLSNSQuartzView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSNSQuartzView.m; sourceTree = "<group>"; };
-		93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSCVDisplayLink.mm; sourceTree = "<group>"; };
+		93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSCVDisplayLink.m; sourceTree = "<group>"; };
 		93F8588D1B56535B00C32E8D /* SLSNSApplicationMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSNSApplicationMain.m; sourceTree = "<group>"; };
 		93F8588E1B56535B00C32E8D /* SLSNSApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSNSApplicationDelegate.h; sourceTree = "<group>"; };
 		93F8588F1B56535B00C32E8D /* SLSNSApplicationDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSNSApplicationDelegate.mm; sourceTree = "<group>"; };
@@ -381,7 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				93FEF9A21AD97B2A009D0646 /* Solas.h */,
-				936732D31B56A7BE00CF0010 /* Solas.m */,
+				936732D31B56A7BE00CF0010 /* Solas.mm */,
 				93CAA60A1AD191DC005EDC09 /* SLSRunner.h */,
 				93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */,
 				939E967F1AD384C500A7E21E /* SLSEventSource.h */,
@@ -474,7 +474,7 @@
 				93F858891B56535B00C32E8D /* SLSNSOpenGLLayer.mm */,
 				93F8588A1B56535B00C32E8D /* SLSNSQuartzView.h */,
 				93F8588B1B56535B00C32E8D /* SLSNSQuartzView.m */,
-				93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.mm */,
+				93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.m */,
 				93F8588D1B56535B00C32E8D /* SLSNSApplicationMain.m */,
 				93F8588E1B56535B00C32E8D /* SLSNSApplicationDelegate.h */,
 				93F8588F1B56535B00C32E8D /* SLSNSApplicationDelegate.mm */,
@@ -781,9 +781,6 @@
 					93E913571AB27DE400DDF7F9 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
-					93F857C21B564B0500C32E8D = {
-						DevelopmentTeam = CMMH8M4457;
-					};
 				};
 			};
 			buildConfigurationList = 93F8AD6A17C8B39800310877 /* Build configuration list for PBXProject "Solas" */;
@@ -872,7 +869,7 @@
 				936E24981ADEA5A80004C396 /* SLSNSBundle+Bundle.m in Sources */,
 				936E24481ADEA5A80004C396 /* canvas.cc in Sources */,
 				937D92011AF6C0BC000D8302 /* framebuffer.cc in Sources */,
-				936732D81B56A7DA00CF0010 /* Solas.m in Sources */,
+				936732D81B56A7DA00CF0010 /* Solas.mm in Sources */,
 				936E24461ADEA5A80004C396 /* run.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -883,7 +880,7 @@
 			files = (
 				93F8589C1B56535B00C32E8D /* SLSNSView.m in Sources */,
 				93CAA6491AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */,
-				936732D41B56A7BE00CF0010 /* Solas.m in Sources */,
+				936732D41B56A7BE00CF0010 /* Solas.mm in Sources */,
 				93CAA60E1AD191DC005EDC09 /* SLSRunner.mm in Sources */,
 				93F858A01B56535B00C32E8D /* SLSNSOpenGL3View.m in Sources */,
 				93F858981B56535B00C32E8D /* SLSNSViewController.m in Sources */,
@@ -898,7 +895,7 @@
 				93F858A81B56535B00C32E8D /* SLSNSApplicationMain.m in Sources */,
 				93F858AA1B56535B00C32E8D /* SLSNSApplicationDelegate.mm in Sources */,
 				93AD7CEB1ADD395500B42B9E /* canvas.cc in Sources */,
-				93F858A71B56535B00C32E8D /* SLSCVDisplayLink.mm in Sources */,
+				93F858A71B56535B00C32E8D /* SLSCVDisplayLink.m in Sources */,
 				93F8589E1B56535B00C32E8D /* SLSNSOpenGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -913,7 +910,7 @@
 				93F858CA1B56536000C32E8D /* SLSUIOpenGLES2View.m in Sources */,
 				93F857CB1B564B0500C32E8D /* SLSRunner.mm in Sources */,
 				93F858C81B56536000C32E8D /* SLSUIOpenGLESView.mm in Sources */,
-				936732D71B56A7D900CF0010 /* Solas.m in Sources */,
+				936732D71B56A7D900CF0010 /* Solas.mm in Sources */,
 				93F858C61B56536000C32E8D /* SLSUIView.m in Sources */,
 				93F858CF1B56536000C32E8D /* SLSCADisplayLink.m in Sources */,
 				93F858D01B56536000C32E8D /* SLSUIApplicationMain.mm in Sources */,

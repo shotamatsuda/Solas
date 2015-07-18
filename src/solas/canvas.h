@@ -95,7 +95,7 @@ class Canvas : public Runnable, public Composite {
   MouseButton mouse_button() const override;
   bool mouse_pressed() const override;
 
-  // Keyboard
+  // Key
   char key() const override;
   std::uint32_t key_code() const override;
   bool key_pressed() const override;
@@ -229,7 +229,7 @@ class Canvas : public Runnable, public Composite {
   MouseButton mouse_button_;
   bool mouse_pressed_;
 
-  // Keyboard
+  // Key
   char key_;
   std::uint32_t key_code_;
   bool key_pressed_;
@@ -297,7 +297,7 @@ inline bool Canvas::mouse_pressed() const {
   return mouse_pressed_;
 }
 
-#pragma mark Keyboard
+#pragma mark Key
 
 inline char Canvas::key() const {
   return key_;
