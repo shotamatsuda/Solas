@@ -1,5 +1,5 @@
 //
-//  solas/layer_framebuffer.cc
+//  solas/framebuffer.cc
 //
 //  MIT License
 //
@@ -24,7 +24,7 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "solas/layer_framebuffer.h"
+#include "solas/framebuffer.h"
 
 #include <OpenGL/gl.h>
 #include <OpenGL/glext.h>
@@ -33,7 +33,7 @@ namespace solas {
 
 #pragma mark Using the framebuffer
 
-void LayerFramebuffer::update(GLsizei width, GLsizei height, double scale) {
+void Framebuffer::update(GLsizei width, GLsizei height, double scale) {
   width *= scale;
   height *= scale;
   if (width == width_ && height == height_) {
@@ -72,7 +72,7 @@ void LayerFramebuffer::update(GLsizei width, GLsizei height, double scale) {
   glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
 }
 
-void LayerFramebuffer::transfer(GLuint framebuffer) {
+void Framebuffer::transfer(GLuint framebuffer) {
   glBindFramebuffer(GL_READ_FRAMEBUFFER, framebuffer_);
   glBindFramebuffer(GL_DRAW_FRAMEBUFFER, framebuffer);
   glBlitFramebuffer(GLint(), GLint(), width_, height_,
@@ -80,7 +80,7 @@ void LayerFramebuffer::transfer(GLuint framebuffer) {
                     GL_COLOR_BUFFER_BIT, GL_LINEAR);
 }
 
-void LayerFramebuffer::bind() {
+void Framebuffer::bind() {
   glBindFramebuffer(GL_FRAMEBUFFER, framebuffer_);
 }
 

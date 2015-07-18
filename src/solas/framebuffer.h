@@ -1,5 +1,5 @@
 //
-//  solas/layer_framebuffer.h
+//  solas/framebuffer.h
 //
 //  MIT License
 //
@@ -25,20 +25,20 @@
 //
 
 #pragma once
-#ifndef SOLAS_LAYER_FRAMEBUFFER_H_
-#define SOLAS_LAYER_FRAMEBUFFER_H_
+#ifndef SOLAS_FRAMEBUFFER_H_
+#define SOLAS_FRAMEBUFFER_H_
 
 #include <cstdint>
 
 namespace solas {
 
-class LayerFramebuffer {
+class Framebuffer {
  public:
-  LayerFramebuffer();
+  Framebuffer();
 
   // Disallow copy semantics
-  LayerFramebuffer(const LayerFramebuffer& other) = delete;
-  LayerFramebuffer& operator=(const LayerFramebuffer& other) = delete;
+  Framebuffer(const Framebuffer& other) = delete;
+  Framebuffer& operator=(const Framebuffer& other) = delete;
 
   // Using the framebuffer
   void update(std::int32_t width, std::int32_t height, double scale = 1.0);
@@ -55,7 +55,7 @@ class LayerFramebuffer {
 
 #pragma mark -
 
-inline LayerFramebuffer::LayerFramebuffer()
+inline Framebuffer::Framebuffer()
     : width_(),
       height_(),
       framebuffer_(),
@@ -64,4 +64,4 @@ inline LayerFramebuffer::LayerFramebuffer()
 
 }  // namespace solas
 
-#endif  // SOLAS_LAYER_FRAMEBUFFER_H_
+#endif  // SOLAS_FRAMEBUFFER_H_

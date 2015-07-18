@@ -31,12 +31,12 @@
 #import <QuartzCore/QuartzCore.h>
 
 #include "solas/app_event.h"
-#include "solas/layer_framebuffer.h"
+#include "solas/framebuffer.h"
 #include "solas/math.h"
 
 @interface SLSNSOpenGLLayer () {
  @private
-  solas::LayerFramebuffer _framebuffer;
+  solas::Framebuffer _framebuffer;
 }
 
 @property (nonatomic, assign) NSOpenGLPixelFormatAttribute API;

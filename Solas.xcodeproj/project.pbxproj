@@ -25,10 +25,10 @@
 		936E248B1ADEA5A80004C396 /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
 		936E24901ADEA5A80004C396 /* SLSQuartzLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 937E13941ADBDEB9008DB7A7 /* SLSQuartzLayer.mm */; };
 		936E24981ADEA5A80004C396 /* SLSNSBundle+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */; };
-		937D92001AF6C0BC000D8302 /* layer_framebuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 937D91FF1AF6C0BC000D8302 /* layer_framebuffer.cc */; };
-		937D92011AF6C0BC000D8302 /* layer_framebuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 937D91FF1AF6C0BC000D8302 /* layer_framebuffer.cc */; };
-		937D92031AF6C0C8000D8302 /* layer_framebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 937D92021AF6C0C8000D8302 /* layer_framebuffer.h */; };
-		937D92041AF6C0C8000D8302 /* layer_framebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 937D92021AF6C0C8000D8302 /* layer_framebuffer.h */; };
+		937D92001AF6C0BC000D8302 /* framebuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 937D91FF1AF6C0BC000D8302 /* framebuffer.cc */; };
+		937D92011AF6C0BC000D8302 /* framebuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 937D91FF1AF6C0BC000D8302 /* framebuffer.cc */; };
+		937D92031AF6C0C8000D8302 /* framebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 937D92021AF6C0C8000D8302 /* framebuffer.h */; };
+		937D92041AF6C0C8000D8302 /* framebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 937D92021AF6C0C8000D8302 /* framebuffer.h */; };
 		937E13971ADBDEB9008DB7A7 /* SLSQuartzLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 937E13941ADBDEB9008DB7A7 /* SLSQuartzLayer.mm */; };
 		938987DC1AD4AA0900DEC9E9 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A45B351AD0D23700969DC2 /* boost.framework */; };
 		938D13A61B508D4100CCA57D /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 938D13A51B508D4100CCA57D /* math.h */; };
@@ -289,8 +289,8 @@
 		93547E781AF1267B00B4C6BE /* screen_edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screen_edge.h; sourceTree = "<group>"; };
 		936732D31B56A7BE00CF0010 /* Solas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Solas.m; sourceTree = "<group>"; };
 		936E241F1ADEA5550004C396 /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		937D91FF1AF6C0BC000D8302 /* layer_framebuffer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = layer_framebuffer.cc; sourceTree = "<group>"; };
-		937D92021AF6C0C8000D8302 /* layer_framebuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = layer_framebuffer.h; sourceTree = "<group>"; };
+		937D91FF1AF6C0BC000D8302 /* framebuffer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framebuffer.cc; sourceTree = "<group>"; };
+		937D92021AF6C0C8000D8302 /* framebuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framebuffer.h; sourceTree = "<group>"; };
 		937E13931ADBDEB9008DB7A7 /* SLSQuartzLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSQuartzLayer.h; sourceTree = "<group>"; };
 		937E13941ADBDEB9008DB7A7 /* SLSQuartzLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSQuartzLayer.mm; sourceTree = "<group>"; };
 		938987C61AD1B93F00DEC9E9 /* framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = framework.plist; sourceTree = "<group>"; };
@@ -487,12 +487,12 @@
 				933FD5271AEB1E3F003AEC6C /* context_holder.h */,
 				930398371AB2AEF400577048 /* enum.h */,
 				93AD7CE21ADD395500B42B9E /* event_holder.h */,
+				937D92021AF6C0C8000D8302 /* framebuffer.h */,
+				937D91FF1AF6C0BC000D8302 /* framebuffer.cc */,
 				93A45B4F1AD14C4400969DC2 /* gesture_event.h */,
 				9350587A1AEF555B0020E755 /* gesture_kind.h */,
 				93A45B501AD14C4400969DC2 /* key_event.h */,
 				93CAA6081AD16EED005EDC09 /* key_modifier.h */,
-				937D92021AF6C0C8000D8302 /* layer_framebuffer.h */,
-				937D91FF1AF6C0BC000D8302 /* layer_framebuffer.cc */,
 				93AD7CE11ADD395500B42B9E /* layer.h */,
 				938D13A51B508D4100CCA57D /* math.h */,
 				93A45B511AD14C4400969DC2 /* motion_event.h */,
@@ -654,7 +654,7 @@
 				93D844931AF61A3900ED6BDD /* touch_event.h in Headers */,
 				93EDFC1D1AEC8E13003CDD03 /* SLSDisplayDelegate.h in Headers */,
 				93ED10111B01D69E003F5915 /* composite.h in Headers */,
-				937D92041AF6C0C8000D8302 /* layer_framebuffer.h in Headers */,
+				937D92041AF6C0C8000D8302 /* framebuffer.h in Headers */,
 				93D844961AF61A3900ED6BDD /* backend.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -710,7 +710,7 @@
 				93D844B91AF61A3A00ED6BDD /* touch_event.h in Headers */,
 				93EDFC381AEC8E2B003CDD03 /* Solas.h in Headers */,
 				93ED100F1B01D69E003F5915 /* composite.h in Headers */,
-				937D92031AF6C0C8000D8302 /* layer_framebuffer.h in Headers */,
+				937D92031AF6C0C8000D8302 /* framebuffer.h in Headers */,
 				93D844BC1AF61A3A00ED6BDD /* backend.h in Headers */,
 				93F858991B56535B00C32E8D /* SLSNSEventSourceView.h in Headers */,
 			);
@@ -995,7 +995,7 @@
 				936E24901ADEA5A80004C396 /* SLSQuartzLayer.mm in Sources */,
 				936E24981ADEA5A80004C396 /* SLSNSBundle+Bundle.m in Sources */,
 				936E24481ADEA5A80004C396 /* view.cc in Sources */,
-				937D92011AF6C0BC000D8302 /* layer_framebuffer.cc in Sources */,
+				937D92011AF6C0BC000D8302 /* framebuffer.cc in Sources */,
 				936732D81B56A7DA00CF0010 /* Solas.m in Sources */,
 				936E24461ADEA5A80004C396 /* run.mm in Sources */,
 			);
@@ -1012,7 +1012,7 @@
 				93F858A01B56535B00C32E8D /* SLSNSOpenGL3View.m in Sources */,
 				93F858981B56535B00C32E8D /* SLSNSViewController.m in Sources */,
 				93F858A41B56535B00C32E8D /* SLSNSOpenGLLayer.mm in Sources */,
-				937D92001AF6C0BC000D8302 /* layer_framebuffer.cc in Sources */,
+				937D92001AF6C0BC000D8302 /* framebuffer.cc in Sources */,
 				93CAA6541AD1AE32005EDC09 /* run.mm in Sources */,
 				93F858A61B56535B00C32E8D /* SLSNSQuartzView.m in Sources */,
 				93F858951B56535B00C32E8D /* SLSNSWindowController.m in Sources */,
