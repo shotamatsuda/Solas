@@ -20,10 +20,6 @@
 		936732D41B56A7BE00CF0010 /* Solas.m in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.m */; };
 		936732D71B56A7D900CF0010 /* Solas.m in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.m */; };
 		936732D81B56A7DA00CF0010 /* Solas.m in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.m */; };
-<<<<<<< HEAD
-=======
-		936E24441ADEA5A80004C396 /* runner_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = 939E963A1AD250AF00A7E21E /* runner_factory.cc */; };
->>>>>>> 24dcbac43a646a4b82d3c038ae6bd82309e08dbb
 		936E24461ADEA5A80004C396 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		936E24481ADEA5A80004C396 /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
 		936E248B1ADEA5A80004C396 /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
@@ -726,10 +722,6 @@
 			files = (
 				93F858C91B56536000C32E8D /* SLSUIOpenGLES2View.h in Headers */,
 				93F857D81B564B0500C32E8D /* SLSDefines.h in Headers */,
-<<<<<<< HEAD
-=======
-				93F857D91B564B0500C32E8D /* utility.h in Headers */,
->>>>>>> 24dcbac43a646a4b82d3c038ae6bd82309e08dbb
 				93F857DA1B564B0500C32E8D /* gesture_kind.h in Headers */,
 				93F857DC1B564B0500C32E8D /* key_modifier.h in Headers */,
 				93F857DD1B564B0500C32E8D /* SLSDisplaySource.h in Headers */,
@@ -1004,14 +996,7 @@
 				936E24981ADEA5A80004C396 /* SLSNSBundle+Bundle.m in Sources */,
 				936E24481ADEA5A80004C396 /* view.cc in Sources */,
 				937D92011AF6C0BC000D8302 /* layer_framebuffer.cc in Sources */,
-<<<<<<< HEAD
 				936732D81B56A7DA00CF0010 /* Solas.m in Sources */,
-=======
-				936E24891ADEA5A80004C396 /* benchmark.cc in Sources */,
-				936732D81B56A7DA00CF0010 /* Solas.m in Sources */,
-				936E24831ADEA5A80004C396 /* dispatch.mm in Sources */,
-				936E24441ADEA5A80004C396 /* runner_factory.cc in Sources */,
->>>>>>> 24dcbac43a646a4b82d3c038ae6bd82309e08dbb
 				936E24461ADEA5A80004C396 /* run.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1131,7 +1116,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.10;
 			};
 			name = Debug;
 		};
@@ -1147,7 +1132,7 @@
 				);
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.10;
 			};
 			name = Release;
 		};
@@ -1188,7 +1173,7 @@
 					QuartzCore,
 				);
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.10;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1231,7 +1216,7 @@
 					QuartzCore,
 				);
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = macosx10.10;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
