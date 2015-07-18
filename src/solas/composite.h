@@ -35,10 +35,6 @@
 
 #include "solas/mouse_button.h"
 #include "solas/math.h"
-#include "takram/tween/timeline.h"
-#include "takram/tween/timeline_host.h"
-#include "takram/tween/timer.h"
-#include "takram/tween/tween.h"
 
 namespace solas {
 
@@ -76,28 +72,12 @@ class Composite {
   virtual const Vec2d& ptouch() const;
   virtual bool touch_pressed() const;
 
-  // Creating tweens
-  template <class Interval = takram::tween::Time, class... Args>
-  takram::tween::Tween<Interval> tween(Args&&... args);
-  template <class Interval = takram::tween::Time, class... Args>
-  takram::tween::Timer<Interval> timer(Args&&... args);
-
-  // Accessing timeline
-  template <class Interval = takram::tween::Time>
-  takram::tween::Timeline<Interval>& timeline();
-  template <class Interval = takram::tween::Time>
-  const takram::tween::Timeline<Interval>& timeline() const;
-
   // Aggregation
   virtual Composite * parent() const;
 
  protected:
   // Constructors
   Composite();
-
-  // Aggregation
-  virtual takram::tween::TimelineHost * timeline_host();
-  virtual const takram::tween::TimelineHost * timeline_host() const;
 
  private:
   Composite *parent_;
@@ -199,45 +179,11 @@ inline bool Composite::touch_pressed() const {
   return parent_->touch_pressed();
 }
 
-#pragma mark Creating tweens
-
-template <class Interval, class... Args>
-inline takram::tween::Tween<Interval> Composite::tween(Args&&... args) {
-  return timeline_host()->tween<Interval>(std::forward<Args>(args)...);
-}
-
-template <class Interval, class... Args>
-inline takram::tween::Timer<Interval> Composite::timer(Args&&... args) {
-  return timeline_host()->timer<Interval>(std::forward<Args>(args)...);
-}
-
-#pragma mark Accessing timeline
-
-template <class Interval>
-inline takram::tween::Timeline<Interval>& Composite::timeline() {
-  return timeline_host()->timeline<Interval>();
-}
-
-template <class Interval>
-inline const takram::tween::Timeline<Interval>& Composite::timeline() const {
-  return timeline_host()->timeline<Interval>();
-}
-
 #pragma mark Aggregation
 
 inline Composite * Composite::parent() const {
   assert(parent_);
   return parent_;
-}
-
-inline takram::tween::TimelineHost * Composite::timeline_host() {
-  assert(parent_);
-  return parent_->timeline_host();
-}
-
-inline const takram::tween::TimelineHost * Composite::timeline_host() const {
-  assert(parent_);
-  return parent_->timeline_host();
 }
 
 }  // namespace solas

@@ -10,7 +10,6 @@
 		93011E971B56B6AF004DD68F /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93011E961B56B6AF004DD68F /* solas.h */; };
 		93011E981B56B6AF004DD68F /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93011E961B56B6AF004DD68F /* solas.h */; };
 		93011E991B56B6AF004DD68F /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93011E961B56B6AF004DD68F /* solas.h */; };
-		932E7E0C1B498E86004D8B89 /* libtakram_tween.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E21F451B48E826000A374A /* libtakram_tween.a */; };
 		9350587B1AEF555D0020E755 /* gesture_kind.h in Headers */ = {isa = PBXBuildFile; fileRef = 9350587A1AEF555B0020E755 /* gesture_kind.h */; };
 		9350587D1AEF555E0020E755 /* gesture_kind.h in Headers */ = {isa = PBXBuildFile; fileRef = 9350587A1AEF555B0020E755 /* gesture_kind.h */; };
 		935058CF1AEF6E2E0020E755 /* swipe_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* swipe_direction.h */; };
@@ -76,7 +75,6 @@
 		93D844C21AF61A3A00ED6BDD /* run.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6521AD1ADBB005EDC09 /* run.h */; };
 		93D844C31AF61A3A00ED6BDD /* view.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE41ADD395500B42B9E /* view.h */; };
 		93D844C41AF61A3A00ED6BDD /* layer.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE11ADD395500B42B9E /* layer.h */; };
-		93E21F4A1B48E834000A374A /* libtakram_tween.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93E21F451B48E826000A374A /* libtakram_tween.a */; };
 		93E33C8F1AEBB6F1001F90DE /* libSolas.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 936E241F1ADEA5550004C396 /* libSolas.a */; };
 		93ED100F1B01D69E003F5915 /* composite.h in Headers */ = {isa = PBXBuildFile; fileRef = 93ED100E1B01D69E003F5915 /* composite.h */; };
 		93ED10111B01D69E003F5915 /* composite.h in Headers */ = {isa = PBXBuildFile; fileRef = 93ED100E1B01D69E003F5915 /* composite.h */; };
@@ -149,7 +147,6 @@
 		93F858041B564B0500C32E8D /* Solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9A21AD97B2A009D0646 /* Solas.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93F858051B564B0500C32E8D /* composite.h in Headers */ = {isa = PBXBuildFile; fileRef = 93ED100E1B01D69E003F5915 /* composite.h */; };
 		93F858071B564B0500C32E8D /* backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD52C1AEB22F7003AEC6C /* backend.h */; };
-		93F858731B564EBA00C32E8D /* libtakram_tween.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F8586D1B564E0100C32E8D /* libtakram_tween.a */; };
 		93F858941B56535B00C32E8D /* SLSNSWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F858791B56535B00C32E8D /* SLSNSWindowController.h */; };
 		93F858951B56535B00C32E8D /* SLSNSWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8587A1B56535B00C32E8D /* SLSNSWindowController.m */; };
 		93F858961B56535B00C32E8D /* SLSNSWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F8587B1B56535B00C32E8D /* SLSNSWindowController.xib */; };
@@ -199,61 +196,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		932E7E0A1B498E7F004D8B89 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93E21F2F1B48E7DE000A374A /* tween.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 93C6B51419B22F5500A1CF93;
-			remoteInfo = tween_static;
-		};
-		93E21F421B48E826000A374A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93E21F2F1B48E7DE000A374A /* tween.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 93D906811A4DC34900BBD89C;
-			remoteInfo = tween_shared;
-		};
-		93E21F441B48E826000A374A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93E21F2F1B48E7DE000A374A /* tween.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 93C6B51519B22F5500A1CF93;
-			remoteInfo = tween_static;
-		};
-		93E21F461B48E826000A374A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93E21F2F1B48E7DE000A374A /* tween.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 93F1B9F6180282B0002A5A5C;
-			remoteInfo = tween_test;
-		};
-		93E21F481B48E82F000A374A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93E21F2F1B48E7DE000A374A /* tween.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 93C6B51419B22F5500A1CF93;
-			remoteInfo = tween_static;
-		};
 		93E33C901AEBB6F7001F90DE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 93F8AD6717C8B39800310877 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 936E241E1ADEA5550004C396;
 			remoteInfo = SolasStatic;
-		};
-		93F858691B564E0000C32E8D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93E21F2F1B48E7DE000A374A /* tween.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 93F858341B564DDF00C32E8D;
-			remoteInfo = tween_ios;
-		};
-		93F8586C1B564E0100C32E8D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93E21F2F1B48E7DE000A374A /* tween.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 93F858631B564DDF00C32E8D;
-			remoteInfo = tween_ios;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -325,7 +273,6 @@
 		93CAA6521AD1ADBB005EDC09 /* run.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = run.h; sourceTree = "<group>"; };
 		93CAA6531AD1AE32005EDC09 /* run.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = run.mm; sourceTree = "<group>"; };
 		93D73DD21ADDE3B4003F9A7A /* SLSAnimationSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSAnimationSource.h; sourceTree = "<group>"; };
-		93E21F2F1B48E7DE000A374A /* tween.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = tween.xcodeproj; path = "../takram-tween/tween.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		93E913581AB27DE400DDF7F9 /* Solas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Solas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		93ED100E1B01D69E003F5915 /* composite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = composite.h; sourceTree = "<group>"; };
 		93F8580F1B564B0500C32E8D /* Solas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Solas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -390,7 +337,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				932E7E0C1B498E86004D8B89 /* libtakram_tween.a in Frameworks */,
 				93EDFBC31AEC8D18003CDD03 /* boost.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -399,7 +345,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93E21F4A1B48E834000A374A /* libtakram_tween.a in Frameworks */,
 				93A45B361AD0D23700969DC2 /* boost.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -408,7 +353,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93F858731B564EBA00C32E8D /* libtakram_tween.a in Frameworks */,
 				93F858D31B5653A100C32E8D /* boost.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,17 +383,6 @@
 				9321018C1B48CE0400A63200 /* product_test.xcconfig */,
 			);
 			path = config;
-			sourceTree = "<group>";
-		};
-		93E21F3D1B48E826000A374A /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				93E21F431B48E826000A374A /* libtakram_tween.dylib */,
-				93E21F451B48E826000A374A /* libtakram_tween.a */,
-				93F8586D1B564E0100C32E8D /* libtakram_tween.a */,
-				93E21F471B48E826000A374A /* takram_tween_test */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		93F38E441AB5FA26009E3626 /* objc */ = {
@@ -594,7 +527,6 @@
 				930955021A4FB1E200D09023 /* config */,
 				93F3BCB71AA2214B00FBF369 /* frameworks */,
 				93F8AD7017C8B39800310877 /* products */,
-				93E21F2F1B48E7DE000A374A /* tween.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -802,7 +734,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				932E7E0B1B498E7F004D8B89 /* PBXTargetDependency */,
 			);
 			name = SolasStatic;
 			productName = SolasStatic;
@@ -822,7 +753,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				93E21F491B48E82F000A374A /* PBXTargetDependency */,
 			);
 			name = Solas;
 			productName = Solas;
@@ -842,7 +772,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				93F8586A1B564E0000C32E8D /* PBXTargetDependency */,
 			);
 			name = "Solas iOS";
 			productName = Solas;
@@ -884,12 +813,6 @@
 			mainGroup = 93F8AD6617C8B39800310877;
 			productRefGroup = 93F8AD7017C8B39800310877 /* products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 93E21F3D1B48E826000A374A /* Products */;
-					ProjectRef = 93E21F2F1B48E7DE000A374A /* tween.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				93E913571AB27DE400DDF7F9 /* Solas */,
@@ -899,37 +822,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		93E21F431B48E826000A374A /* libtakram_tween.dylib */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = libtakram_tween.dylib;
-			remoteRef = 93E21F421B48E826000A374A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		93E21F451B48E826000A374A /* libtakram_tween.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libtakram_tween.a;
-			remoteRef = 93E21F441B48E826000A374A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		93E21F471B48E826000A374A /* takram_tween_test */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = takram_tween_test;
-			remoteRef = 93E21F461B48E826000A374A /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		93F8586D1B564E0100C32E8D /* libtakram_tween.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libtakram_tween.a;
-			remoteRef = 93F8586C1B564E0100C32E8D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		93E913561AB27DE400DDF7F9 /* Resources */ = {
@@ -962,7 +854,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "pushd \"${PROJECT_DIR}/src\"\n  for H in $(find . -name \"*.h\"); do\n    ditto \"${H}\" \"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/${H}\"\n  done\npopd\npushd \"${TAKRAM_MATH_DIR}/src\"\n  for H in $(find . -name \"*.h\"); do\n    ditto \"${H}\" \"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/${H}\"\n  done\npopd\npushd \"${TAKRAM_TWEEN_DIR}/src\"\n  for H in $(find . -name \"*.h\"); do\n    ditto \"${H}\" \"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/${H}\"\n  done\npopd";
+			shellScript = "pushd \"${PROJECT_DIR}/src\"\n  for H in $(find . -name \"*.h\"); do\n    ditto \"${H}\" \"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/${H}\"\n  done\npopd\npushd \"${TAKRAM_MATH_DIR}/src\"\n  for H in $(find . -name \"*.h\"); do\n    ditto \"${H}\" \"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/${H}\"\n  done\npopd";
 		};
 		93F8580B1B564B0500C32E8D /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -975,7 +867,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "pushd \"${PROJECT_DIR}/src\"\n  for H in $(find . -name \"*.h\"); do\n    ditto \"${H}\" \"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/${H}\"\n  done\npopd\npushd \"${TAKRAM_MATH_DIR}/src\"\n  for H in $(find . -name \"*.h\"); do\n    ditto \"${H}\" \"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/${H}\"\n  done\npopd\npushd \"${TAKRAM_TWEEN_DIR}/src\"\n  for H in $(find . -name \"*.h\"); do\n    ditto \"${H}\" \"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/${H}\"\n  done\npopd";
+			shellScript = "pushd \"${PROJECT_DIR}/src\"\n  for H in $(find . -name \"*.h\"); do\n    ditto \"${H}\" \"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/${H}\"\n  done\npopd\npushd \"${TAKRAM_MATH_DIR}/src\"\n  for H in $(find . -name \"*.h\"); do\n    ditto \"${H}\" \"${BUILT_PRODUCTS_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/${H}\"\n  done\npopd";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1053,25 +945,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		932E7E0B1B498E7F004D8B89 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = tween_static;
-			targetProxy = 932E7E0A1B498E7F004D8B89 /* PBXContainerItemProxy */;
-		};
-		93E21F491B48E82F000A374A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = tween_static;
-			targetProxy = 93E21F481B48E82F000A374A /* PBXContainerItemProxy */;
-		};
 		93E33C911AEBB6F7001F90DE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 936E241E1ADEA5550004C396 /* SolasStatic */;
 			targetProxy = 93E33C901AEBB6F7001F90DE /* PBXContainerItemProxy */;
-		};
-		93F8586A1B564E0000C32E8D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = tween_ios;
-			targetProxy = 93F858691B564E0000C32E8D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

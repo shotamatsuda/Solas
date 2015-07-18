@@ -46,9 +46,10 @@
 #include "solas/runnable.h"
 #include "solas/touch_event.h"
 #include "solas/math.h"
-#include "takram/tween/timeline_host.h"
 
 namespace solas {
+
+class Runner;
 
 class View : public Runnable, public Composite {
  public:
@@ -114,25 +115,21 @@ class View : public Runnable, public Composite {
   void disconnectEvent(Type type, const Slot& slot);
 
  protected:
-  // Aggregation
-  takram::tween::TimelineHost * timeline_host() override;
-  const takram::tween::TimelineHost * timeline_host() const override;
+  // Lifecycle
+  virtual void setup(const AppEvent& event) {}
+  virtual void update(const AppEvent& event) {}
+  virtual void pre(const AppEvent& event) {}
+  virtual void draw(const AppEvent& event) {}
+  virtual void post(const AppEvent& event) {}
+  virtual void exit(const AppEvent& event) {}
+  virtual void setup() {}
+  virtual void update() {}
+  virtual void pre() {}
+  virtual void draw() {}
+  virtual void post() {}
+  virtual void exit() {}
 
-  // Lifecycle intended to be overriden
-  void setup(const AppEvent& event) {}
-  void update(const AppEvent& event) {}
-  void pre(const AppEvent& event) {}
-  void draw(const AppEvent& event) {}
-  void post(const AppEvent& event) {}
-  void exit(const AppEvent& event) {}
-  void setup() {}
-  void update() {}
-  void pre() {}
-  void draw() {}
-  void post() {}
-  void exit() {}
-
-  // Events intended to be overriden
+  // Events
   virtual void mousePressed(const MouseEvent& event) {}
   virtual void mouseDragged(const MouseEvent& event) {}
   virtual void mouseReleased(const MouseEvent& event) {}
@@ -244,9 +241,6 @@ class View : public Runnable, public Composite {
   Vec2d etouch_;
   bool touch_pressed_;
 
-  // Tween
-  takram::tween::TimelineHost timeline_host_;
-
   // Event signals
   EventSignals<AppEvent> app_event_signals_;
   EventSignals<MouseEvent> mouse_event_signals_;
@@ -337,14 +331,6 @@ inline Composite * View::parent() const {
   return nullptr;
 }
 
-inline takram::tween::TimelineHost * View::timeline_host() {
-  return &timeline_host_;
-}
-
-inline const takram::tween::TimelineHost * View::timeline_host() const {
-  return &timeline_host_;
-}
-
 #pragma mark Event connection
 
 template <class Event, class Slot, class Type>
@@ -394,7 +380,7 @@ inline void View::handleEvent(const EventHolder& event) {
   }
 }
 
-#pragma mark Lifecycle overridden from Runnable
+#pragma mark Lifecycle
 
 inline void View::setup(const AppEvent& event, const Runner&) {
   width_ = event.size().width;
@@ -406,8 +392,6 @@ inline void View::setup(const AppEvent& event, const Runner&) {
 }
 
 inline void View::update(const AppEvent& event, const Runner&) {
-  timeline<takram::tween::Time>().advance();
-  timeline<takram::tween::Frame>().advance();
   update(event);
   update();
   app_event_signals_[AppEvent::Type::UPDATE](event);
@@ -445,7 +429,7 @@ inline void View::exit(const AppEvent& event, const Runner&) {
   exit();
 }
 
-#pragma mark Events overridden from Runnable
+#pragma mark Events
 
 inline void View::mousePressed(const MouseEvent& event, const Runner&) {
   enqueueEvent(event);
