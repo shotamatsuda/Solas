@@ -31,55 +31,30 @@
 class App : public solas::Canvas {
  public:
   void setup() override {}
-
   void update() override {}
-
   void pre() override {}
-
   void draw() override {}
-
   void post() override {}
-
   void exit() override {}
-
   void mousePressed() override {}
-
   void mouseDragged() override {}
-
   void mouseReleased() override {}
-
   void mouseMoved() override {}
-
   void mouseEntered() override {}
-
   void mouseExited() override {}
-
   void mouseWheel() override {}
-
   void keyPressed() override {}
-
   void keyReleased() override {}
-
   void touchesBegan() override {}
-
   void touchesMoved() override {}
-
   void touchesCancelled() override {}
-
   void touchesEnded() override {}
-
   void gestureBegan() override {}
-
   void gestureChanged() override {}
-
   void gestureCancelled() override {}
-
   void gestureEnded() override {}
-
   void motionBegan() override {}
-
   void motionCancelled() override {}
-
   void motionEnded() override {}
 };
 
