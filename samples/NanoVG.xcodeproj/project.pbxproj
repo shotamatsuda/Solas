@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		934273721B5B49AD006EC5A0 /* libtakram_nanovg_gl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 934273481B5AE072006EC5A0 /* libtakram_nanovg_gl2.a */; };
 		936807901B57A6CE009F0934 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9368078F1B57A6CE009F0934 /* LaunchScreen.xib */; };
 		938D33011AF1F5B300E865AF /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF9901AD97397009D0646 /* main.cc */; };
 		93EBABC71AD980ED00BF8959 /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF97F1AD972EA009D0646 /* Solas.framework */; };
@@ -19,6 +20,69 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		934273451B5AE072006EC5A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 938D14261B50949200CCA57D;
+			remoteInfo = nanovg_gl2_shared;
+		};
+		934273471B5AE072006EC5A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 93B5857D1B4E65B0009D7C5A;
+			remoteInfo = nanovg_gl2_static;
+		};
+		934273491B5AE072006EC5A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 938D14551B50969700CCA57D;
+			remoteInfo = nanovg_gl3_shared;
+		};
+		9342734B1B5AE072006EC5A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 938D14701B50969900CCA57D;
+			remoteInfo = nanovg_gl3_static;
+		};
+		9342734D1B5AE072006EC5A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 938D14311B5094FD00CCA57D;
+			remoteInfo = nanovg_gles2_shared;
+		};
+		9342734F1B5AE072006EC5A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 938D13E41B50928900CCA57D;
+			remoteInfo = nanovg_gles2_static;
+		};
+		934273511B5AE072006EC5A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 938D147B1B50969A00CCA57D;
+			remoteInfo = nanovg_gles3_shared;
+		};
+		934273531B5AE072006EC5A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 938D14941B50969B00CCA57D;
+			remoteInfo = nanovg_gles3_static;
+		};
+		934273601B5AE1D8006EC5A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 93B585641B4E65B0009D7C5A;
+			remoteInfo = nanovg_gl2_static;
+		};
 		938D32FD1AF1F5B000E865AF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
@@ -89,6 +153,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = nanovg.xcodeproj; path = "/Users/sgss/Dropbox/Github/solas/../takram-nanovg/nanovg.xcodeproj"; sourceTree = "<absolute>"; };
 		9368078F1B57A6CE009F0934 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
 		93CA67E11ADB5BF4009F131B /* NanoVG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NanoVG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93EBABD01AD98A4C00BF8959 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/osx/framework/boost.framework; sourceTree = "<group>"; };
@@ -119,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934273721B5B49AD006EC5A0 /* libtakram_nanovg_gl2.a in Frameworks */,
 				93EBABD71AD98A6200BF8959 /* boost.framework in Frameworks */,
 				93EBABC71AD980ED00BF8959 /* Solas.framework in Frameworks */,
 			);
@@ -127,6 +193,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9342733B1B5AE072006EC5A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				934273461B5AE072006EC5A0 /* libtakram_nanovg_gl2.dylib */,
+				934273481B5AE072006EC5A0 /* libtakram_nanovg_gl2.a */,
+				9342734A1B5AE072006EC5A0 /* libtakram_nanovg_gl3.dylib */,
+				9342734C1B5AE072006EC5A0 /* libtakram_nanovg_gl3.a */,
+				9342734E1B5AE072006EC5A0 /* libtakram_nanovg_gles2.dylib */,
+				934273501B5AE072006EC5A0 /* libtakram_nanovg_gles2.a */,
+				934273521B5AE072006EC5A0 /* libtakram_nanovg_gles3.dylib */,
+				934273541B5AE072006EC5A0 /* libtakram_nanovg_gles3.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		93EBABD11AD98A4C00BF8959 /* osx */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +242,7 @@
 				93EBABD41AD98A4C00BF8959 /* frameworks */,
 				93FEF94F1AD97263009D0646 /* products */,
 				93FEF9761AD972E8009D0646 /* Solas.xcodeproj */,
+				9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -243,6 +325,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				934273611B5AE1D8006EC5A0 /* PBXTargetDependency */,
 				93EBABCA1AD980ED00BF8959 /* PBXTargetDependency */,
 			);
 			name = NanoVG;
@@ -281,6 +364,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 9342733B1B5AE072006EC5A0 /* Products */;
+					ProjectRef = 9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */;
+				},
+				{
 					ProductGroup = 93FEF9771AD972E8009D0646 /* Products */;
 					ProjectRef = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
 				},
@@ -294,6 +381,62 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		934273461B5AE072006EC5A0 /* libtakram_nanovg_gl2.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libtakram_nanovg_gl2.dylib;
+			remoteRef = 934273451B5AE072006EC5A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		934273481B5AE072006EC5A0 /* libtakram_nanovg_gl2.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libtakram_nanovg_gl2.a;
+			remoteRef = 934273471B5AE072006EC5A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9342734A1B5AE072006EC5A0 /* libtakram_nanovg_gl3.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libtakram_nanovg_gl3.dylib;
+			remoteRef = 934273491B5AE072006EC5A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9342734C1B5AE072006EC5A0 /* libtakram_nanovg_gl3.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libtakram_nanovg_gl3.a;
+			remoteRef = 9342734B1B5AE072006EC5A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9342734E1B5AE072006EC5A0 /* libtakram_nanovg_gles2.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libtakram_nanovg_gles2.dylib;
+			remoteRef = 9342734D1B5AE072006EC5A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		934273501B5AE072006EC5A0 /* libtakram_nanovg_gles2.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libtakram_nanovg_gles2.a;
+			remoteRef = 9342734F1B5AE072006EC5A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		934273521B5AE072006EC5A0 /* libtakram_nanovg_gles3.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libtakram_nanovg_gles3.dylib;
+			remoteRef = 934273511B5AE072006EC5A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		934273541B5AE072006EC5A0 /* libtakram_nanovg_gles3.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libtakram_nanovg_gles3.a;
+			remoteRef = 934273531B5AE072006EC5A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		938D32FE1AF1F5B000E865AF /* libSolas.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -362,6 +505,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		934273611B5AE1D8006EC5A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = nanovg_gl2_static;
+			targetProxy = 934273601B5AE1D8006EC5A0 /* PBXContainerItemProxy */;
+		};
 		93EBABCA1AD980ED00BF8959 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Solas;
@@ -439,8 +587,19 @@
 			baseConfigurationReference = 93F859261B575DCC00C32E8D /* osx.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PROJECT_DIR)/../src\"",
+					"\"$(PROJECT_DIR)/../../takram-math/src\"",
+					"\"$(PROJECT_DIR)/../../takram-nanovg/src\"",
+					"\"$(PROJECT_DIR)/../../takram-nanovg/lib/nanovg/src\"",
+				);
 				INFOPLIST_FILE = osx.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					OpenGL,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.takram.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 			};
@@ -451,8 +610,19 @@
 			baseConfigurationReference = 93F859261B575DCC00C32E8D /* osx.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(PROJECT_DIR)/../src\"",
+					"\"$(PROJECT_DIR)/../../takram-math/src\"",
+					"\"$(PROJECT_DIR)/../../takram-nanovg/src\"",
+					"\"$(PROJECT_DIR)/../../takram-nanovg/lib/nanovg/src\"",
+				);
 				INFOPLIST_FILE = osx.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					OpenGL,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.takram.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 			};

@@ -27,30 +27,27 @@
 #include <iostream>
 
 #include "solas.h"
+#include "takram/nanovg.h"
+
+namespace nvg = takram::nanovg;
 
 class App : public solas::Canvas {
  public:
-  void mousePressed() override {
-    std::cout << "mousePressed" << std::endl;
+  void setup() override {
+    context_.init();
   }
-  void mouseDragged() override {
-    std::cout << "mouseDragged" << std::endl;
+
+  void draw() override {
+    context_.begin(width(), height());
+    nvg::beginPath();
+    nvg::circle(mouse().x, mouse().y, 5.0);
+    nvg::closePath();
+    nvg::fillColor(nvgRGB(0, 0, 0));
+    nvg::fill();
+    context_.end();
   }
-  void mouseReleased() override {
-    std::cout << "mouseReleased" << std::endl;
-  }
-  void mouseMoved() override {
-    std::cout << "mouseMoved" << std::endl;
-  }
-  void mouseEntered() override {
-    std::cout << "mouseEntered" << std::endl;
-  }
-  void mouseExited() override {
-    std::cout << "mouseExited" << std::endl;
-  }
-  void mouseWheel() override {
-    std::cout << "mouseWheel" << std::endl;
-  }
+
+  nvg::Context context_;
 };
 
 int main(int argc, char **argv) {
