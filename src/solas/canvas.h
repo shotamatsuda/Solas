@@ -398,29 +398,29 @@ inline void Canvas::update(const AppEvent& event, const Runner&) {
 }
 
 inline void Canvas::pre(const AppEvent& event, const Runner&) {
+  dequeueEvents();
+  width_ = event.size().width;
+  height_ = event.size().height;
+  scale_ = event.scale();
+  pmouse_ = dmouse_;
+  ptouch_ = dtouch_;
   pre(event);
   pre();
   app_event_signals_[AppEvent::Type::PRE](event);
 }
 
 inline void Canvas::draw(const AppEvent& event, const Runner&) {
-  width_ = event.size().width;
-  height_ = event.size().height;
-  scale_ = event.scale();
-  pmouse_ = dmouse_;
-  ptouch_ = dtouch_;
   draw(event);
   draw();
   app_event_signals_[AppEvent::Type::DRAW](event);
-  dmouse_ = mouse_;
-  dtouch_ = touch_;
-  dequeueEvents();
 }
 
 inline void Canvas::post(const AppEvent& event, const Runner&) {
   app_event_signals_[AppEvent::Type::POST](event);
   post(event);
   post();
+  dmouse_ = mouse_;
+  dtouch_ = touch_;
 }
 
 inline void Canvas::exit(const AppEvent& event, const Runner&) {
