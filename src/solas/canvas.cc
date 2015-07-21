@@ -29,8 +29,64 @@
 #include <cassert>
 
 #include "solas/mouse_button.h"
+#include "solas/runner.h"
 
 namespace solas {
+
+#pragma mark Lifecycle
+
+void Canvas::setup(const AppEvent& event, const Runner& runner) {
+  size_ = event.size();
+  scale_ = event.scale();
+  setup(event);
+  setup();
+  app_event_signals_[AppEvent::Type::SETUP](event);
+}
+
+void Canvas::update(const AppEvent& event, const Runner& runner) {
+  update(event);
+  update();
+  app_event_signals_[AppEvent::Type::UPDATE](event);
+}
+
+void Canvas::pre(const AppEvent& event, const Runner& runner) {
+  dequeueEvents();
+  size_ = event.size();
+  scale_ = event.scale();
+  pmouse_ = dmouse_;
+  ptouch_ = dtouch_;
+  pre(event);
+  pre();
+  app_event_signals_[AppEvent::Type::PRE](event);
+}
+
+void Canvas::draw(const AppEvent& event, const Runner& runner) {
+  draw(event);
+  draw();
+  app_event_signals_[AppEvent::Type::DRAW](event);
+}
+
+void Canvas::post(const AppEvent& event, const Runner& runner) {
+  app_event_signals_[AppEvent::Type::POST](event);
+  post(event);
+  post();
+  dmouse_ = mouse_;
+  dtouch_ = touch_;
+  if (resize_.first) {
+    runner.resize(resize_.second);
+    resize_.first = false;
+  }
+  if (fullscreen_.first) {
+    runner.fullscreen(fullscreen_.second);
+    fullscreen_.first = false;
+  }
+}
+
+void Canvas::exit(const AppEvent& event, const Runner& runner) {
+  app_event_signals_[AppEvent::Type::EXITED](event);
+  exit(event);
+  exit();
+}
 
 #pragma mark Event handlers
 

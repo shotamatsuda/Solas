@@ -24,6 +24,7 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
+#import <CoreGraphics/CoreGraphics.h>
 #import <Foundation/Foundation.h>
 
 #import "SLSDisplayDelegate.h"
@@ -48,16 +49,31 @@ typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
   kSLSRunnerBackendCoreGraphics = 1 << 6
 };
 
+@protocol SLSRunnerDelegate;
+
 @interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
 
 #ifdef __cplusplus
 
-- (instancetype)init;
-- (instancetype)initWithRunnable:(std::unique_ptr<solas::Runner>&&)runner
+- (nullable instancetype)init;
+- (nullable instancetype)initWithRunnable:
+    (std::unique_ptr<solas::Runner>&&)runner
     NS_DESIGNATED_INITIALIZER;
 
 #endif  // __cplusplus
 
 @property (nonatomic, readonly) SLSRunnerBackend backend;
+@property (nonatomic, weak, nullable) id<SLSRunnerDelegate> delegate;
+
+- (void)resize:(CGSize)size;
+- (void)fullscreen:(BOOL)flag;
+
+@end
+
+@protocol SLSRunnerDelegate <NSObject>
+
+@optional
+- (void)runner:(nonnull SLSRunner *)runner resize:(CGSize)size;
+- (void)runner:(nonnull SLSRunner *)runner fullscreen:(BOOL)flag;
 
 @end

@@ -79,7 +79,7 @@
   } else {
     self.window.titleVisibility = NSWindowTitleVisible;
     self.window.titlebarAppearsTransparent = NO;
-    self.window.styleMask ^= NSFullSizeContentViewWindowMask;
+    self.window.styleMask &= ~NSFullSizeContentViewWindowMask;
   }
 }
 

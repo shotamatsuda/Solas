@@ -7,59 +7,58 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		933114401B5C555400449CDE /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933114371B5C553B00449CDE /* Solas.framework */; };
+		933114431B5C555B00449CDE /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933114371B5C553B00449CDE /* Solas.framework */; };
 		936807901B57A6CE009F0934 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9368078F1B57A6CE009F0934 /* LaunchScreen.xib */; };
 		938D33011AF1F5B300E865AF /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF9901AD97397009D0646 /* main.cc */; };
-		93EBABC71AD980ED00BF8959 /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF97F1AD972EA009D0646 /* Solas.framework */; };
-		93EBABC81AD980ED00BF8959 /* Solas.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF97F1AD972EA009D0646 /* Solas.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		93EBABD71AD98A6200BF8959 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93EBABD01AD98A4C00BF8959 /* boost.framework */; };
 		93EBABD81AD98A6200BF8959 /* boost.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93EBABD01AD98A4C00BF8959 /* boost.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		93F859171B574EE100C32E8D /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93FEF97F1AD972EA009D0646 /* Solas.framework */; };
 		93F859181B574EEC00C32E8D /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93EBABD21AD98A4C00BF8959 /* boost.framework */; };
 		93FEF9921AD97397009D0646 /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF9901AD97397009D0646 /* main.cc */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		938D32FD1AF1F5B000E865AF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 936E241F1ADEA5550004C396;
-			remoteInfo = SolasStatic;
-		};
-		93EBABC91AD980ED00BF8959 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 93E913571AB27DE400DDF7F9;
-			remoteInfo = Solas;
-		};
-		93F858DA1B56565A00C32E8D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 93F8580F1B564B0500C32E8D;
-			remoteInfo = "Solas iOS";
-		};
-		93F859151B574EDC00C32E8D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 93F857C21B564B0500C32E8D;
-			remoteInfo = "Solas iOS";
-		};
-		93FEF97E1AD972EA009D0646 /* PBXContainerItemProxy */ = {
+		933114361B5C553B00449CDE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 93E913581AB27DE400DDF7F9;
 			remoteInfo = Solas;
 		};
-		93FEF9821AD972EA009D0646 /* PBXContainerItemProxy */ = {
+		933114381B5C553B00449CDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 93F8580F1B564B0500C32E8D;
+			remoteInfo = "Solas iOS";
+		};
+		9331143A1B5C553B00449CDE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 930398491AB2B0DF00577048;
 			remoteInfo = SolasTest;
+		};
+		9331143C1B5C553B00449CDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 936E241F1ADEA5550004C396;
+			remoteInfo = SolasStatic;
+		};
+		9331143E1B5C555000449CDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 93E913571AB27DE400DDF7F9;
+			remoteInfo = Solas;
+		};
+		933114411B5C555800449CDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 93F857C21B564B0500C32E8D;
+			remoteInfo = "Solas iOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -81,7 +80,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				93EBABD81AD98A6200BF8959 /* boost.framework in Embed Frameworks */,
-				93EBABC81AD980ED00BF8959 /* Solas.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,7 +99,7 @@
 		93F859281B575DCC00C32E8D /* project_release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_release.xcconfig; sourceTree = SOURCE_ROOT; };
 		93F859291B575DCC00C32E8D /* project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = SOURCE_ROOT; };
 		93FEF94E1AD97263009D0646 /* Empty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Empty.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		93FEF9761AD972E8009D0646 /* Solas.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Solas.xcodeproj; path = ../Solas.xcodeproj; sourceTree = "<group>"; };
+		93FEF9761AD972E8009D0646 /* Solas.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Solas.xcodeproj; path = ../Solas.xcodeproj; sourceTree = SOURCE_ROOT; };
 		93FEF9901AD97397009D0646 /* main.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cc; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,7 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93F859171B574EE100C32E8D /* Solas.framework in Frameworks */,
+				933114431B5C555B00449CDE /* Solas.framework in Frameworks */,
 				93F859181B574EEC00C32E8D /* boost.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -119,14 +117,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				933114401B5C555400449CDE /* Solas.framework in Frameworks */,
 				93EBABD71AD98A6200BF8959 /* boost.framework in Frameworks */,
-				93EBABC71AD980ED00BF8959 /* Solas.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		933114301B5C553B00449CDE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				933114371B5C553B00449CDE /* Solas.framework */,
+				933114391B5C553B00449CDE /* Solas.framework */,
+				9331143B1B5C553B00449CDE /* SolasTest */,
+				9331143D1B5C553B00449CDE /* libSolas.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		93EBABD11AD98A4C00BF8959 /* osx */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,23 +207,12 @@
 			path = Zorozoro;
 			sourceTree = "<group>";
 		};
-		93FEF9771AD972E8009D0646 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				93FEF97F1AD972EA009D0646 /* Solas.framework */,
-				93F858DB1B56565A00C32E8D /* Solas.framework */,
-				93FEF9831AD972EA009D0646 /* SolasTest */,
-				938D32FE1AF1F5B000E865AF /* libSolas.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		93CA67E01ADB5BF4009F131B /* Empty iOS */ = {
+		93CA67E01ADB5BF4009F131B /* Empty iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "Empty iOS" */;
+			buildConfigurationList = 93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "Empty iOS" */;
 			buildPhases = (
 				93CA67DD1ADB5BF4009F131B /* Sources */,
 				93CA67DE1ADB5BF4009F131B /* Frameworks */,
@@ -224,9 +222,9 @@
 			buildRules = (
 			);
 			dependencies = (
-				93F859161B574EDC00C32E8D /* PBXTargetDependency */,
+				933114421B5C555800449CDE /* PBXTargetDependency */,
 			);
-			name = "Empt\U0010y iOS";
+			name = "Empty iOS";
 			productName = ZorozoroTouch;
 			productReference = 93CA67E11ADB5BF4009F131B /* Empty.app */;
 			productType = "com.apple.product-type.application";
@@ -243,7 +241,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				93EBABCA1AD980ED00BF8959 /* PBXTargetDependency */,
+				9331143F1B5C555000449CDE /* PBXTargetDependency */,
 			);
 			name = Empty;
 			productName = Zorozoro;
@@ -280,45 +278,45 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 93FEF9771AD972E8009D0646 /* Products */;
+					ProductGroup = 933114301B5C553B00449CDE /* Products */;
 					ProjectRef = 93FEF9761AD972E8009D0646 /* Solas.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
 				93FEF94D1AD97263009D0646 /* Empty */,
-				93CA67E01ADB5BF4009F131B /* Empty iOS */,
+				93CA67E01ADB5BF4009F131B /* Empty iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		938D32FE1AF1F5B000E865AF /* libSolas.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libSolas.a;
-			remoteRef = 938D32FD1AF1F5B000E865AF /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		93F858DB1B56565A00C32E8D /* Solas.framework */ = {
+		933114371B5C553B00449CDE /* Solas.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Solas.framework;
-			remoteRef = 93F858DA1B56565A00C32E8D /* PBXContainerItemProxy */;
+			remoteRef = 933114361B5C553B00449CDE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		93FEF97F1AD972EA009D0646 /* Solas.framework */ = {
+		933114391B5C553B00449CDE /* Solas.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Solas.framework;
-			remoteRef = 93FEF97E1AD972EA009D0646 /* PBXContainerItemProxy */;
+			remoteRef = 933114381B5C553B00449CDE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		93FEF9831AD972EA009D0646 /* SolasTest */ = {
+		9331143B1B5C553B00449CDE /* SolasTest */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
 			path = SolasTest;
-			remoteRef = 93FEF9821AD972EA009D0646 /* PBXContainerItemProxy */;
+			remoteRef = 9331143A1B5C553B00449CDE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		9331143D1B5C553B00449CDE /* libSolas.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSolas.a;
+			remoteRef = 9331143C1B5C553B00449CDE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -361,15 +359,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		93EBABCA1AD980ED00BF8959 /* PBXTargetDependency */ = {
+		9331143F1B5C555000449CDE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Solas;
-			targetProxy = 93EBABC91AD980ED00BF8959 /* PBXContainerItemProxy */;
+			targetProxy = 9331143E1B5C555000449CDE /* PBXContainerItemProxy */;
 		};
-		93F859161B574EDC00C32E8D /* PBXTargetDependency */ = {
+		933114421B5C555800449CDE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Solas iOS";
-			targetProxy = 93F859151B574EDC00C32E8D /* PBXContainerItemProxy */;
+			targetProxy = 933114411B5C555800449CDE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -457,7 +455,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "Empty iOS" */ = {
+		93CA68071ADB5BF5009F131B /* Build configuration list for PBXNativeTarget "Empty iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				93CA68011ADB5BF5009F131B /* Debug */,

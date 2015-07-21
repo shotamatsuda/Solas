@@ -35,12 +35,45 @@
 #include <utility>
 
 #include "solas/app_event.h"
+#include "solas/math.h"
 #include "solas/runner.h"
 #include "solas/runnable.h"
+
+@class SLSRunner;
+
+namespace {
+
+class RunnerDelegate : public solas::RunnerDelegate {
+ public:
+  explicit RunnerDelegate(SLSRunner *runner);
+
+  void resize(const solas::Size2d& size) override;
+  void fullscreen(bool flag) override;
+
+ private:
+  SLSRunner *runner_;
+};
+
+#pragma mark -
+
+inline RunnerDelegate::RunnerDelegate(SLSRunner *runner) : runner_(runner) {}
+
+inline void RunnerDelegate::resize(const solas::Size2d& size) {
+  [runner_ resize:CGSizeMake(size.width, size.height)];
+}
+
+inline void RunnerDelegate::fullscreen(bool flag) {
+  [runner_ fullscreen:flag];
+}
+
+}  // namespace
+
+#pragma mark -
 
 @interface SLSRunner () {
  @private
   std::unique_ptr<solas::Runner> _runner;
+  std::unique_ptr<RunnerDelegate> _runnerDelegate;
 }
 
 @end
@@ -55,12 +88,15 @@
   self = [super init];
   if (self) {
     _runner = std::move(runner);
+    _runnerDelegate = std::make_unique<RunnerDelegate>(self);
+    _runner->set_delegate(_runnerDelegate.get());
   }
   return self;
 }
 
 - (void)dealloc {
   _runner.reset(nullptr);
+  _runnerDelegate.reset(nullptr);
 }
 
 - (SLSRunnerBackend)backend {
@@ -90,6 +126,18 @@
     backend |= kSLSRunnerBackendCoreGraphics;
   }
   return (SLSRunnerBackend)backend;
+}
+
+- (void)resize:(CGSize)size {
+  if ([_delegate respondsToSelector:@selector(runner:resize:)]) {
+    [_delegate runner:self resize:size];
+  }
+}
+
+- (void)fullscreen:(BOOL)flag {
+  if ([_delegate respondsToSelector:@selector(runner:resize:)]) {
+    [_delegate runner:self fullscreen:flag];
+  }
 }
 
 #pragma mark SLSDisplayDelegate

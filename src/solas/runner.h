@@ -35,9 +35,11 @@
 #include "solas/app_event.h"
 #include "solas/gesture_event.h"
 #include "solas/key_event.h"
+#include "solas/math.h"
 #include "solas/motion_event.h"
 #include "solas/mouse_event.h"
 #include "solas/runnable.h"
+#include "solas/runner_delegate.h"
 #include "solas/runner_options.h"
 #include "solas/touch_event.h"
 
@@ -62,6 +64,10 @@ class Runner final {
   void update(const AppEvent& event);
   void draw(const AppEvent& event);
   void exit(const AppEvent& event);
+
+  // Environment
+  void resize(const Size2d& size) const;
+  void fullscreen(bool flag) const;
 
   // Events
   void mousePressed(const MouseEvent& event);
@@ -88,23 +94,30 @@ class Runner final {
   // Options
   const RunnerOptions& options() const { return options_; }
 
+  // Delegate
+  RunnerDelegate * delegate() const { return delegate_; }
+  void set_delegate(RunnerDelegate *value) { delegate_ = value; }
+
  private:
   std::unique_ptr<Runnable> runnable_;
   std::atomic_bool setup_;
   RunnerOptions options_;
+  RunnerDelegate *delegate_;
 };
 
 #pragma mark -
 
 inline Runner::Runner(std::unique_ptr<Runnable>&& runnable)
     : runnable_(std::move(runnable)),
-      setup_(false) {}
+      setup_(false),
+      delegate_(nullptr) {}
 
 inline Runner::Runner(std::unique_ptr<Runnable>&& runnable,
                       const RunnerOptions& options)
     : runnable_(std::move(runnable)),
       options_(options),
-      setup_(false) {}
+      setup_(false),
+      delegate_(nullptr) {}
 
 inline Runner::~Runner() {
   exit(AppEvent());
@@ -143,6 +156,20 @@ inline void Runner::exit(const AppEvent& event) {
     // Delete the instance on the call of the exit in order not to perform
     // anything to static variables after their destruction.
     runnable_.reset(nullptr);
+  }
+}
+
+#pragma mark Environment
+
+inline void Runner::resize(const Size2d& size) const {
+  if (delegate_) {
+    delegate_->resize(size);
+  }
+}
+
+inline void Runner::fullscreen(bool flag) const {
+  if (delegate_) {
+    delegate_->fullscreen(flag);
   }
 }
 

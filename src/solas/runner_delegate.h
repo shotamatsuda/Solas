@@ -1,5 +1,5 @@
 //
-//  SLSNSViewController.h
+//  solas/runner_delegate.h
 //
 //  MIT License
 //
@@ -24,26 +24,27 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <AppKit/AppKit.h>
+#pragma once
+#ifndef SOLAS_RUNNER_DELEGATE_H_
+#define SOLAS_RUNNER_DELEGATE_H_
 
-#import "SLSAnimationSource.h"
-#import "SLSDisplaySource.h"
-#import "SLSEventSource.h"
-#import "SLSRunner.h"
+#include "solas/math.h"
 
-@interface SLSNSViewController : NSViewController <
-    SLSAnimationSource, SLSRunnerDelegate>
+namespace solas {
 
-- (nullable instancetype)initWithRunner:(nullable SLSRunner *)runner
-    NS_DESIGNATED_INITIALIZER;
+class RunnerDelegate {
+ public:
+  virtual ~RunnerDelegate() = 0;
 
-#pragma mark Accessing Views
+  // Environment
+  virtual void resize(const Size2d& size) = 0;
+  virtual void fullscreen(bool flag) = 0;
+};
 
-@property (nonatomic, weak, nullable) id<SLSEventSource> eventSource;
-@property (nonatomic, weak, nullable) id<SLSDisplaySource> displaySource;
+#pragma mark -
 
-#pragma mark Managing the Runner
+inline RunnerDelegate::~RunnerDelegate() {}
 
-@property (nonatomic, strong, nullable) SLSRunner *runner;
+}  // namespace solas
 
-@end
+#endif  // SOLAS_RUNNER_DELEGATE_H_

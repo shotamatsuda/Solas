@@ -26,6 +26,8 @@
 
 #import "SLSNSViewController.h"
 
+#import <CoreGraphics/CoreGraphics.h>
+
 #import "SLSEventSource.h"
 #import "SLSDisplayLink.h"
 #import "SLSDisplaySource.h"
@@ -101,7 +103,9 @@
 - (void)setRunner:(SLSRunner *)runner {
   if (runner != _runner) {
     [self stopAnimation];
+    _runner.delegate = nil;
     _runner = runner;
+    _runner.delegate = self;
     [self setUpContentView];
     [self startAnimation];
   }
@@ -121,6 +125,23 @@
 - (void)stopAnimation {
   if (_displayLink) {
     [_displayLink stop];
+  }
+}
+
+#pragma mark SLSRunnerDelegate
+
+- (void)runner:(nonnull SLSRunner *)runner resize:(CGSize)size {
+  NSWindow *window = self.view.window;
+  CGRect contentRect = [window contentRectForFrameRect:window.frame];
+  contentRect.origin.y += contentRect.size.height - size.height;
+  contentRect.size = size;
+  [window setFrame:[window frameRectForContentRect:contentRect] display:YES];
+}
+
+- (void)runner:(nonnull SLSRunner *)runner fullscreen:(BOOL)flag {
+  BOOL actual = self.view.window.styleMask & NSFullScreenWindowMask;
+  if ((flag && !actual) || (!flag && actual)) {
+    [self.view.window toggleFullScreen:self];
   }
 }
 

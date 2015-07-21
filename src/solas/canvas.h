@@ -32,6 +32,7 @@
 #include <list>
 #include <queue>
 #include <unordered_map>
+#include <utility>
 
 #include <boost/signals2.hpp>
 
@@ -66,10 +67,10 @@ class Canvas : public Runnable, public Composite {
   template <class Event, class Type = typename Event::Type>
   struct EventConnector {
     template <class Slot>
-    static EventConnection Connect(Type type, const Slot& slot, Canvas *canvas);
+    static EventConnection connect(Type type, const Slot& slot, Canvas *canvas);
 
     template <class Slot>
-    static void Disconnect(Type type, const Slot& slot, Canvas *canvas);
+    static void disconnect(Type type, const Slot& slot, Canvas *canvas);
   };
 
  public:
@@ -84,7 +85,12 @@ class Canvas : public Runnable, public Composite {
   Canvas(Canvas&& other) = default;
   Canvas& operator=(Canvas&& other) = default;
 
+  // Environment
+  void resize(const Size2d& size) const;
+  void fullscreen(bool flag) const;
+
   // Structure
+  const Size2d& size() const override;
   double width() const override;
   double height() const override;
   double scale() const override;
@@ -184,12 +190,12 @@ class Canvas : public Runnable, public Composite {
   void handleMotionEvent(const MotionEvent& event);
 
   // Lifecycle
-  void setup(const AppEvent& event, const Runner&) override;
-  void update(const AppEvent& event, const Runner&) override;
-  void pre(const AppEvent& event, const Runner&) override;
-  void draw(const AppEvent& event, const Runner&) override;
-  void post(const AppEvent& event, const Runner&) override;
-  void exit(const AppEvent& event, const Runner&) override;
+  void setup(const AppEvent& event, const Runner& runner) override;
+  void update(const AppEvent& event, const Runner& runner) override;
+  void pre(const AppEvent& event, const Runner& runner) override;
+  void draw(const AppEvent& event, const Runner& runner) override;
+  void post(const AppEvent& event, const Runner& runner) override;
+  void exit(const AppEvent& event, const Runner& runner) override;
 
   // Events
   void mousePressed(const MouseEvent& event, const Runner&) override;
@@ -216,9 +222,12 @@ class Canvas : public Runnable, public Composite {
  private:
   std::queue<EventHolder> event_queue_;
 
+  // Environment
+  mutable std::pair<bool, Size2d> resize_;
+  mutable std::pair<bool, bool> fullscreen_;
+
   // Structure
-  double width_;
-  double height_;
+  Size2d size_;
   double scale_;
 
   // Mouse
@@ -253,9 +262,7 @@ class Canvas : public Runnable, public Composite {
 #pragma mark -
 
 inline Canvas::Canvas()
-    : width_(),
-      height_(),
-      scale_(),
+    : scale_(),
       mouse_button_(MouseButton::UNDEFINED),
       mouse_pressed_(),
       key_(),
@@ -265,18 +272,34 @@ inline Canvas::Canvas()
 
 inline Canvas::~Canvas() {}
 
+#pragma mark Environment
+
+inline void Canvas::resize(const Size2d& size) const {
+  resize_.first = true;
+  resize_.second = size;
+}
+
+inline void Canvas::fullscreen(bool flag) const {
+  fullscreen_.first = true;
+  fullscreen_.second = true;
+}
+
 #pragma mark Structure
 
 inline double Canvas::width() const {
-  return width_;
+  return size_.width;
 }
 
 inline double Canvas::height() const {
-  return height_;
+  return size_.height;
 }
 
 inline double Canvas::scale() const {
   return scale_;
+}
+
+inline const Size2d& Canvas::size() const {
+  return size_;
 }
 
 #pragma mark Mouse
@@ -335,12 +358,12 @@ inline Composite * Canvas::parent() const {
 
 template <class Event, class Slot, class Type>
 inline Canvas::EventConnection Canvas::connect(Type type, const Slot& slot) {
-  return EventConnector<Event>::Connect(type, slot, this);
+  return EventConnector<Event>::connect(type, slot, this);
 }
 
 template <class Event, class Slot, class Type>
 inline void Canvas::disconnect(Type type, const Slot& slot) {
-  EventConnector<Event>::Disconnect(type, slot, this);
+  EventConnector<Event>::disconnect(type, slot, this);
 }
 
 #pragma mark Event handlers
@@ -378,55 +401,6 @@ inline void Canvas::handleEvent(const EventHolder& event) {
       assert(false);
       break;
   }
-}
-
-#pragma mark Lifecycle
-
-inline void Canvas::setup(const AppEvent& event, const Runner&) {
-  width_ = event.size().width;
-  height_ = event.size().height;
-  scale_ = event.scale();
-  setup(event);
-  setup();
-  app_event_signals_[AppEvent::Type::SETUP](event);
-}
-
-inline void Canvas::update(const AppEvent& event, const Runner&) {
-  update(event);
-  update();
-  app_event_signals_[AppEvent::Type::UPDATE](event);
-}
-
-inline void Canvas::pre(const AppEvent& event, const Runner&) {
-  dequeueEvents();
-  width_ = event.size().width;
-  height_ = event.size().height;
-  scale_ = event.scale();
-  pmouse_ = dmouse_;
-  ptouch_ = dtouch_;
-  pre(event);
-  pre();
-  app_event_signals_[AppEvent::Type::PRE](event);
-}
-
-inline void Canvas::draw(const AppEvent& event, const Runner&) {
-  draw(event);
-  draw();
-  app_event_signals_[AppEvent::Type::DRAW](event);
-}
-
-inline void Canvas::post(const AppEvent& event, const Runner&) {
-  app_event_signals_[AppEvent::Type::POST](event);
-  post(event);
-  post();
-  dmouse_ = mouse_;
-  dtouch_ = touch_;
-}
-
-inline void Canvas::exit(const AppEvent& event, const Runner&) {
-  app_event_signals_[AppEvent::Type::EXITED](event);
-  exit(event);
-  exit();
 }
 
 #pragma mark Events
@@ -518,12 +492,12 @@ struct Canvas::EventConnector<AppEvent> {
   using Type = AppEvent::Type;
 
   template <class Slot>
-  static EventConnection Connect(Type type, const Slot& slot, Canvas *canvas) {
+  static EventConnection connect(Type type, const Slot& slot, Canvas *canvas) {
     return canvas->app_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
-  static void Disconnect(Type type, const Slot& slot, Canvas *canvas) {
+  static void disconnect(Type type, const Slot& slot, Canvas *canvas) {
     canvas->app_event_signals_[type].disconnect(slot);
   }
 };
@@ -533,12 +507,12 @@ struct Canvas::EventConnector<MouseEvent> {
   using Type = MouseEvent::Type;
 
   template <class Slot>
-  static EventConnection Connect(Type type, const Slot& slot, Canvas *canvas) {
+  static EventConnection connect(Type type, const Slot& slot, Canvas *canvas) {
     return canvas->mouse_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
-  static void Disconnect(Type type, const Slot& slot, Canvas *canvas) {
+  static void disconnect(Type type, const Slot& slot, Canvas *canvas) {
     canvas->mouse_event_signals_[type].disconnect(slot);
   }
 };
@@ -548,12 +522,12 @@ struct Canvas::EventConnector<KeyEvent> {
   using Type = KeyEvent::Type;
 
   template <class Slot>
-  static EventConnection Connect(Type type, const Slot& slot, Canvas *canvas) {
+  static EventConnection connect(Type type, const Slot& slot, Canvas *canvas) {
     return canvas->key_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
-  static void Disconnect(Type type, const Slot& slot, Canvas *canvas) {
+  static void disconnect(Type type, const Slot& slot, Canvas *canvas) {
     canvas->key_event_signals_[type].disconnect(slot);
   }
 };
@@ -563,12 +537,12 @@ struct Canvas::EventConnector<TouchEvent> {
   using Type = TouchEvent::Type;
 
   template <class Slot>
-  static EventConnection Connect(Type type, const Slot& slot, Canvas *canvas) {
+  static EventConnection connect(Type type, const Slot& slot, Canvas *canvas) {
     return canvas->touch_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
-  static void Disconnect(Type type, const Slot& slot, Canvas *canvas) {
+  static void disconnect(Type type, const Slot& slot, Canvas *canvas) {
     canvas->touch_event_signals_[type].disconnect(slot);
   }
 };
@@ -578,12 +552,12 @@ struct Canvas::EventConnector<GestureEvent> {
   using Type = GestureEvent::Type;
 
   template <class Slot>
-  static EventConnection Connect(Type type, const Slot& slot, Canvas *canvas) {
+  static EventConnection connect(Type type, const Slot& slot, Canvas *canvas) {
     return canvas->gesture_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
-  static void Disconnect(Type type, const Slot& slot, Canvas *canvas) {
+  static void disconnect(Type type, const Slot& slot, Canvas *canvas) {
     canvas->gesture_event_signals_[type].disconnect(slot);
   }
 };
@@ -593,12 +567,12 @@ struct Canvas::EventConnector<MotionEvent> {
   using Type = MotionEvent::Type;
 
   template <class Slot>
-  static EventConnection Connect(Type type, const Slot& slot, Canvas *canvas) {
+  static EventConnection connect(Type type, const Slot& slot, Canvas *canvas) {
     return canvas->motion_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
-  static void Disconnect(Type type, const Slot& slot, Canvas *canvas) {
+  static void disconnect(Type type, const Slot& slot, Canvas *canvas) {
     canvas->motion_event_signals_[type].disconnect(slot);
   }
 };

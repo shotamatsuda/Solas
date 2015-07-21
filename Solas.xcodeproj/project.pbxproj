@@ -10,12 +10,18 @@
 		93011E971B56B6AF004DD68F /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93011E961B56B6AF004DD68F /* solas.h */; };
 		93011E981B56B6AF004DD68F /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93011E961B56B6AF004DD68F /* solas.h */; };
 		93011E991B56B6AF004DD68F /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93011E961B56B6AF004DD68F /* solas.h */; };
+		933113AB1B5C52FC00449CDE /* libtakram_math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933113A41B5C52CD00449CDE /* libtakram_math.a */; };
+		933113AE1B5C530300449CDE /* libtakram_math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933113A41B5C52CD00449CDE /* libtakram_math.a */; };
+		933113B11B5C530C00449CDE /* libtakram_math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933113A41B5C52CD00449CDE /* libtakram_math.a */; };
 		9350587B1AEF555D0020E755 /* gesture_kind.h in Headers */ = {isa = PBXBuildFile; fileRef = 9350587A1AEF555B0020E755 /* gesture_kind.h */; };
 		9350587D1AEF555E0020E755 /* gesture_kind.h in Headers */ = {isa = PBXBuildFile; fileRef = 9350587A1AEF555B0020E755 /* gesture_kind.h */; };
 		935058CF1AEF6E2E0020E755 /* swipe_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* swipe_direction.h */; };
 		935058D11AEF6E2E0020E755 /* swipe_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* swipe_direction.h */; };
 		93547E791AF1267B00B4C6BE /* screen_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547E781AF1267B00B4C6BE /* screen_edge.h */; };
 		93547E7B1AF1267B00B4C6BE /* screen_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547E781AF1267B00B4C6BE /* screen_edge.h */; };
+		935601CC1B5E704F007CBDCB /* runner_delegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 935601CB1B5E704F007CBDCB /* runner_delegate.h */; };
+		935601CD1B5E704F007CBDCB /* runner_delegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 935601CB1B5E704F007CBDCB /* runner_delegate.h */; };
+		935601CE1B5E704F007CBDCB /* runner_delegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 935601CB1B5E704F007CBDCB /* runner_delegate.h */; };
 		936732D41B56A7BE00CF0010 /* Solas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.mm */; };
 		936732D71B56A7D900CF0010 /* Solas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.mm */; };
 		936732D81B56A7DA00CF0010 /* Solas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.mm */; };
@@ -190,6 +196,55 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		933113A11B5C52CD00449CDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9309550E1A4FB1FC00D09023;
+			remoteInfo = math_shared;
+		};
+		933113A31B5C52CD00449CDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 93C6B51519B22F5500A1CF93;
+			remoteInfo = math_static;
+		};
+		933113A51B5C52CD00449CDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 93F858331B564DB200C32E8D;
+			remoteInfo = math_ios;
+		};
+		933113A71B5C52CD00449CDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 93F1B9F6180282B0002A5A5C;
+			remoteInfo = math_test;
+		};
+		933113A91B5C52F600449CDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 93C6B51419B22F5500A1CF93;
+			remoteInfo = math_static;
+		};
+		933113AC1B5C530000449CDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 93F858161B564DB200C32E8D;
+			remoteInfo = math_ios;
+		};
+		933113AF1B5C530800449CDE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 93C6B51419B22F5500A1CF93;
+			remoteInfo = math_static;
+		};
 		93E33C901AEBB6F7001F90DE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 93F8AD6717C8B39800310877 /* Project object */;
@@ -223,10 +278,12 @@
 		9321018E1B48CE0400A63200 /* project_debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_debug.xcconfig; sourceTree = "<group>"; };
 		9321018F1B48CE0400A63200 /* project_release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_release.xcconfig; sourceTree = "<group>"; };
 		932101901B48CE0400A63200 /* project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
+		9331138C1B5C52A000449CDE /* math.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = math.xcodeproj; path = "../takram-math/math.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		933FD52C1AEB22F7003AEC6C /* backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = backend.h; sourceTree = "<group>"; };
 		9350587A1AEF555B0020E755 /* gesture_kind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gesture_kind.h; sourceTree = "<group>"; };
 		935058CE1AEF6E2E0020E755 /* swipe_direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swipe_direction.h; sourceTree = "<group>"; };
 		93547E781AF1267B00B4C6BE /* screen_edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screen_edge.h; sourceTree = "<group>"; };
+		935601CB1B5E704F007CBDCB /* runner_delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = runner_delegate.h; sourceTree = "<group>"; };
 		936732D31B56A7BE00CF0010 /* Solas.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Solas.mm; sourceTree = "<group>"; };
 		936E241F1ADEA5550004C396 /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		937D91FF1AF6C0BC000D8302 /* framebuffer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framebuffer.cc; sourceTree = "<group>"; };
@@ -330,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93EDFBC31AEC8D18003CDD03 /* boost.framework in Frameworks */,
+				933113B11B5C530C00449CDE /* libtakram_math.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93A45B361AD0D23700969DC2 /* boost.framework in Frameworks */,
+				933113AB1B5C52FC00449CDE /* libtakram_math.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +405,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				93F858D31B5653A100C32E8D /* boost.framework in Frameworks */,
+				933113AE1B5C530300449CDE /* libtakram_math.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +435,17 @@
 				9321018C1B48CE0400A63200 /* product_test.xcconfig */,
 			);
 			path = config;
+			sourceTree = "<group>";
+		};
+		9331139B1B5C52CD00449CDE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				933113A21B5C52CD00449CDE /* libtakram_math.dylib */,
+				933113A41B5C52CD00449CDE /* libtakram_math.a */,
+				933113A61B5C52CD00449CDE /* libtakram_math.a */,
+				933113A81B5C52CD00449CDE /* takram_math_test */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		93F38E441AB5FA26009E3626 /* objc */ = {
@@ -430,6 +501,7 @@
 				93CAA6171AD1930A005EDC09 /* runnable.h */,
 				93CAA6161AD19304005EDC09 /* runner.h */,
 				93F8592E1B57666800C32E8D /* runner_options.h */,
+				935601CB1B5E704F007CBDCB /* runner_delegate.h */,
 				93547E781AF1267B00B4C6BE /* screen_edge.h */,
 				935058CE1AEF6E2E0020E755 /* swipe_direction.h */,
 				93A45B531AD14C4400969DC2 /* touch_event.h */,
@@ -517,6 +589,7 @@
 				930955021A4FB1E200D09023 /* config */,
 				93F3BCB71AA2214B00FBF369 /* frameworks */,
 				93F8AD7017C8B39800310877 /* products */,
+				9331138C1B5C52A000449CDE /* math.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -572,6 +645,7 @@
 				93EDFC1C1AEC8E13003CDD03 /* SLSEventDelegate.h in Headers */,
 				93D844981AF61A3900ED6BDD /* runnable.h in Headers */,
 				93D844931AF61A3900ED6BDD /* touch_event.h in Headers */,
+				935601CE1B5E704F007CBDCB /* runner_delegate.h in Headers */,
 				93EDFC1D1AEC8E13003CDD03 /* SLSDisplayDelegate.h in Headers */,
 				93ED10111B01D69E003F5915 /* composite.h in Headers */,
 				937D92041AF6C0C8000D8302 /* framebuffer.h in Headers */,
@@ -621,6 +695,7 @@
 				93EDFC011AEC8E12003CDD03 /* SLSQuartzLayer.h in Headers */,
 				93D844B51AF61A3A00ED6BDD /* mouse_button.h in Headers */,
 				93EDFC041AEC8E12003CDD03 /* SLSEventDelegate.h in Headers */,
+				935601CC1B5E704F007CBDCB /* runner_delegate.h in Headers */,
 				93F8589F1B56535B00C32E8D /* SLSNSOpenGL3View.h in Headers */,
 				93011E971B56B6AF004DD68F /* solas.h in Headers */,
 				93EDFC051AEC8E12003CDD03 /* SLSDisplayDelegate.h in Headers */,
@@ -675,6 +750,7 @@
 				93F857FF1B564B0500C32E8D /* mouse_button.h in Headers */,
 				93F858C51B56536000C32E8D /* SLSUIView.h in Headers */,
 				93F858001B564B0500C32E8D /* SLSEventDelegate.h in Headers */,
+				935601CD1B5E704F007CBDCB /* runner_delegate.h in Headers */,
 				93F858CD1B56536000C32E8D /* SLSUIQuartzView.h in Headers */,
 				93F858011B564B0500C32E8D /* SLSDisplayDelegate.h in Headers */,
 				93F858021B564B0500C32E8D /* runnable.h in Headers */,
@@ -718,6 +794,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				933113B01B5C530800449CDE /* PBXTargetDependency */,
 			);
 			name = SolasStatic;
 			productName = SolasStatic;
@@ -737,6 +814,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				933113AA1B5C52F600449CDE /* PBXTargetDependency */,
 			);
 			name = Solas;
 			productName = Solas;
@@ -756,6 +834,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				933113AD1B5C530000449CDE /* PBXTargetDependency */,
 			);
 			name = "Solas iOS";
 			productName = Solas;
@@ -794,6 +873,12 @@
 			mainGroup = 93F8AD6617C8B39800310877;
 			productRefGroup = 93F8AD7017C8B39800310877 /* products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9331139B1B5C52CD00449CDE /* Products */;
+					ProjectRef = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				93E913571AB27DE400DDF7F9 /* Solas */,
@@ -803,6 +888,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		933113A21B5C52CD00449CDE /* libtakram_math.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libtakram_math.dylib;
+			remoteRef = 933113A11B5C52CD00449CDE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		933113A41B5C52CD00449CDE /* libtakram_math.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libtakram_math.a;
+			remoteRef = 933113A31B5C52CD00449CDE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		933113A61B5C52CD00449CDE /* libtakram_math.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libtakram_math.a;
+			remoteRef = 933113A51B5C52CD00449CDE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		933113A81B5C52CD00449CDE /* takram_math_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = takram_math_test;
+			remoteRef = 933113A71B5C52CD00449CDE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		93E913561AB27DE400DDF7F9 /* Resources */ = {
@@ -926,6 +1042,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		933113AA1B5C52F600449CDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = math_static;
+			targetProxy = 933113A91B5C52F600449CDE /* PBXContainerItemProxy */;
+		};
+		933113AD1B5C530000449CDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = math_ios;
+			targetProxy = 933113AC1B5C530000449CDE /* PBXContainerItemProxy */;
+		};
+		933113B01B5C530800449CDE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = math_static;
+			targetProxy = 933113AF1B5C530800449CDE /* PBXContainerItemProxy */;
+		};
 		93E33C911AEBB6F7001F90DE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 936E241E1ADEA5550004C396 /* SolasStatic */;

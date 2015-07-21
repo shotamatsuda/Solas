@@ -28,7 +28,6 @@
 
 #include "solas.h"
 #include "takram/nanovg.h"
-#include "takram/nanovg/gl2.h"
 
 namespace nvg = takram::nanovg;
 

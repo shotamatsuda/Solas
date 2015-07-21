@@ -52,6 +52,7 @@ class Composite {
   Composite& operator=(Composite&& other);
 
   // Structure
+  virtual const Size2d& size() const;
   virtual double width() const;
   virtual double height() const;
   virtual double scale() const;
@@ -107,6 +108,11 @@ inline Composite& Composite::operator=(Composite&& other) {
 }
 
 #pragma mark Structure
+
+inline const Size2d& Composite::size() const {
+  assert(parent_);
+  return parent_->size();
+}
 
 inline double Composite::width() const {
   assert(parent_);
