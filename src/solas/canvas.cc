@@ -67,9 +67,9 @@ void Canvas::draw(const AppEvent& event, const Runner& runner) {
 }
 
 void Canvas::post(const AppEvent& event, const Runner& runner) {
-  app_event_signals_[AppEvent::Type::POST](event);
   post(event);
   post();
+  app_event_signals_[AppEvent::Type::POST](event);
   dmouse_ = mouse_;
   dtouch_ = touch_;
   if (resize_.first) {
@@ -83,9 +83,9 @@ void Canvas::post(const AppEvent& event, const Runner& runner) {
 }
 
 void Canvas::exit(const AppEvent& event, const Runner& runner) {
-  app_event_signals_[AppEvent::Type::EXITED](event);
   exit(event);
   exit();
+  app_event_signals_[AppEvent::Type::EXIT](event);
 }
 
 #pragma mark Event handlers

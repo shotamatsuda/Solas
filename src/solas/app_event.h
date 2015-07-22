@@ -39,31 +39,32 @@ namespace solas {
 class AppEvent final {
  public:
   enum class Type {
-    UNDEFINED,
     SETUP,
     UPDATE,
     PRE,
     DRAW,
     POST,
-    EXITED
+    EXIT
   };
 
  public:
-  AppEvent() {}
+  explicit AppEvent(Type type);
   template <class Context>
-  AppEvent(const Context& context, const Size2d& size, double scale);
+  AppEvent(Type type, const Context& context, const Size2d& size, double scale);
 
   // Copy semantics excluding assignment
   AppEvent(const AppEvent& other) = default;
   AppEvent& operator=(const AppEvent& other) = delete;
 
   // Properties
+  Type type() const { return type_; }
   template <class Context>
   const Context& context() const;
   const Size2d& size() const { return size_; }
   double scale() const { return scale_; }
 
  private:
+  Type type_;
   boost::any context_;
   Size2d size_;
   double scale_;
@@ -71,11 +72,15 @@ class AppEvent final {
 
 #pragma mark -
 
+inline AppEvent::AppEvent(Type type) : type_(type) {}
+
 template <class Context>
-inline AppEvent::AppEvent(const Context& context,
+inline AppEvent::AppEvent(Type type,
+                          const Context& context,
                           const Size2d& size,
                           double scale)
-    : context_(std::reference_wrapper<const Context>(context)),
+    : type_(type),
+      context_(std::reference_wrapper<const Context>(context)),
       size_(size),
       scale_(scale) {}
 

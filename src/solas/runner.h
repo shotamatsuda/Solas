@@ -120,7 +120,7 @@ inline Runner::Runner(std::unique_ptr<Runnable>&& runnable,
       delegate_(nullptr) {}
 
 inline Runner::~Runner() {
-  exit(AppEvent());
+  exit(AppEvent(AppEvent::Type::EXIT));
 }
 
 #pragma mark Lifecycle

@@ -85,7 +85,8 @@
                    displayTime:(const CVTimeStamp *)displayTime {
   const CGRect bounds = self.bounds;
   const solas::Size2d size(bounds.size.width, bounds.size.height);
-  const solas::AppEvent event(context, size, self.contentsScale);
+  const solas::AppEvent event(solas::AppEvent::Type::UPDATE,
+                              context, size, self.contentsScale);
   if ([_displayDelegate respondsToSelector:
           @selector(displayDelegate:update:)]) {
     [_displayDelegate displayDelegate:self update:SLSAppEventMake(&event)];
@@ -106,7 +107,8 @@
   glClearColor(1.0, 1.0, 1.0, 1.0);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
   const solas::Size2d size(bounds.size.width, bounds.size.height);
-  const solas::AppEvent event(context, size, scale);
+  const solas::AppEvent event(solas::AppEvent::Type::DRAW,
+                              context, size, scale);
   if ([_displayDelegate respondsToSelector:@selector(displayDelegate:draw:)]) {
     [_displayDelegate displayDelegate:self draw:SLSAppEventMake(&event)];
   }

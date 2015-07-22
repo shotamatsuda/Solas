@@ -44,13 +44,16 @@
 - (void)drawInContext:(CGContextRef)context {
   CGRect bounds = self.bounds;
   const solas::Size2d size(bounds.size.width, bounds.size.height);
-  const solas::AppEvent event(context, size, self.contentsScale);
   if ([_displayDelegate respondsToSelector:
           @selector(displayDelegate:update:)]) {
+    const solas::AppEvent event(solas::AppEvent::Type::UPDATE,
+                                context, size, self.contentsScale);
     [_displayDelegate displayDelegate:self update:SLSAppEventMake(&event)];
   }
   if ([_displayDelegate respondsToSelector:
           @selector(displayDelegate:draw:)]) {
+    const solas::AppEvent event(solas::AppEvent::Type::DRAW,
+                                context, size, self.contentsScale);
     [_displayDelegate displayDelegate:self draw:SLSAppEventMake(&event)];
   }
 }
