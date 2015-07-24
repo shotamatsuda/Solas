@@ -24,4 +24,8 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
+BOOST_OSX_HEADER_SEARCH_PATHS = "/usr/local/include"
+BOOST_IOS_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/build/boost/include"
+BOOST_OSX_LIBRARY_SEARCH_PATHS = "/usr/local/lib"
+BOOST_IOS_LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/build/boost/lib"
 TAKRAM_MATH_DIR = ../takram-math
