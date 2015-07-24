@@ -1060,7 +1060,6 @@
 					"$(BOOST_OSX_LIBRARY_SEARCH_PATHS)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -1077,7 +1076,6 @@
 					"$(BOOST_OSX_LIBRARY_SEARCH_PATHS)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -1097,7 +1095,6 @@
 					"$(BOOST_OSX_LIBRARY_SEARCH_PATHS)",
 				);
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = macosx10.10;
 			};
 			name = Debug;
 		};
@@ -1117,7 +1114,6 @@
 					"$(BOOST_OSX_LIBRARY_SEARCH_PATHS)",
 				);
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = macosx10.10;
 			};
 			name = Release;
 		};
@@ -1162,7 +1158,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.takram.Solas;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = macosx10.10;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1210,7 +1205,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.takram.Solas;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
-				SDKROOT = macosx10.10;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1325,6 +1319,7 @@
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = "";
 				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx10.10;
 			};
 			name = Debug;
 		};
@@ -1333,6 +1328,7 @@
 			baseConfigurationReference = 9321018F1B48CE0400A63200 /* project_release.xcconfig */;
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = "";
+				SDKROOT = macosx10.10;
 			};
 			name = Release;
 		};
