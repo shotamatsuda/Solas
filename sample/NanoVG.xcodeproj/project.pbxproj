@@ -9,13 +9,12 @@
 /* Begin PBXBuildFile section */
 		933114231B5C546900449CDE /* libtakram_nanovg_gl2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933114141B5C543B00449CDE /* libtakram_nanovg_gl2.a */; };
 		933114261B5C547800449CDE /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933114001B5C543B00449CDE /* Solas.framework */; };
-		933114291B5C548B00449CDE /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933114001B5C543B00449CDE /* Solas.framework */; };
 		9331142C1B5C549400449CDE /* libtakram_nanovg_gles2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9331141C1B5C543B00449CDE /* libtakram_nanovg_gles2.a */; };
 		936807901B57A6CE009F0934 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9368078F1B57A6CE009F0934 /* LaunchScreen.xib */; };
 		938D33011AF1F5B300E865AF /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF9901AD97397009D0646 /* main.cc */; };
-		93EBABD71AD98A6200BF8959 /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93EBABD01AD98A4C00BF8959 /* boost.framework */; };
-		93EBABD81AD98A6200BF8959 /* boost.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 93EBABD01AD98A4C00BF8959 /* boost.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		93F859181B574EEC00C32E8D /* boost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93EBABD21AD98A4C00BF8959 /* boost.framework */; };
+		939B37511B6202F10019F117 /* Solas.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 933114001B5C543B00449CDE /* Solas.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		939B37541B6203010019F117 /* Solas.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 933114021B5C543B00449CDE /* Solas.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		939B378D1B62077E0019F117 /* Solas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 933114001B5C543B00449CDE /* Solas.framework */; };
 		93FEF9921AD97397009D0646 /* main.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93FEF9901AD97397009D0646 /* main.cc */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +140,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				939B37541B6203010019F117 /* Solas.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,7 +151,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				93EBABD81AD98A6200BF8959 /* boost.framework in Embed Frameworks */,
+				939B37511B6202F10019F117 /* Solas.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,8 +162,6 @@
 		9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = nanovg.xcodeproj; path = "../../takram-nanovg/nanovg.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		9368078F1B57A6CE009F0934 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
 		93CA67E11ADB5BF4009F131B /* NanoVG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NanoVG.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		93EBABD01AD98A4C00BF8959 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/osx/framework/boost.framework; sourceTree = "<group>"; };
-		93EBABD21AD98A4C00BF8959 /* boost.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = boost.framework; path = build/boost/ios/framework/boost.framework; sourceTree = "<group>"; };
 		93F859231B575DCC00C32E8D /* ios.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ios.plist; sourceTree = SOURCE_ROOT; };
 		93F859241B575DCC00C32E8D /* ios.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ios.xcconfig; sourceTree = SOURCE_ROOT; };
 		93F859251B575DCC00C32E8D /* osx.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = osx.plist; sourceTree = SOURCE_ROOT; };
@@ -181,8 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				933114291B5C548B00449CDE /* Solas.framework in Frameworks */,
-				93F859181B574EEC00C32E8D /* boost.framework in Frameworks */,
+				939B378D1B62077E0019F117 /* Solas.framework in Frameworks */,
 				9331142C1B5C549400449CDE /* libtakram_nanovg_gles2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,7 +189,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				933114261B5C547800449CDE /* Solas.framework in Frameworks */,
-				93EBABD71AD98A6200BF8959 /* boost.framework in Frameworks */,
 				933114231B5C546900449CDE /* libtakram_nanovg_gl2.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,38 +222,11 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		93EBABD11AD98A4C00BF8959 /* osx */ = {
-			isa = PBXGroup;
-			children = (
-				93EBABD01AD98A4C00BF8959 /* boost.framework */,
-			);
-			name = osx;
-			sourceTree = "<group>";
-		};
-		93EBABD31AD98A4C00BF8959 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				93EBABD21AD98A4C00BF8959 /* boost.framework */,
-			);
-			name = ios;
-			sourceTree = "<group>";
-		};
-		93EBABD41AD98A4C00BF8959 /* frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				93EBABD11AD98A4C00BF8959 /* osx */,
-				93EBABD31AD98A4C00BF8959 /* ios */,
-			);
-			name = frameworks;
-			path = ..;
-			sourceTree = "<group>";
-		};
 		93FEF9451AD97263009D0646 = {
 			isa = PBXGroup;
 			children = (
 				93FEF9501AD97263009D0646 /* src */,
 				93FEF9751AD972AA009D0646 /* config */,
-				93EBABD41AD98A4C00BF8959 /* frameworks */,
 				93FEF94F1AD97263009D0646 /* products */,
 				93FEF9761AD972E8009D0646 /* Solas.xcodeproj */,
 				9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */,

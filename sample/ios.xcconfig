@@ -25,5 +25,4 @@
 //
 
 // Search Paths
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/../build/boost/ios/framework"
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/../src" "$(PROJECT_DIR)/../../takram-math/src"
+HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/../src" "$(PROJECT_DIR)/../../takram-math/src" "$(PROJECT_DIR)/../build/boost/include"
