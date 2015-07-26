@@ -9,19 +9,14 @@
 /* Begin PBXBuildFile section */
 		93011E971B56B6AF004DD68F /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93011E961B56B6AF004DD68F /* solas.h */; };
 		93011E981B56B6AF004DD68F /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93011E961B56B6AF004DD68F /* solas.h */; };
-		93011E991B56B6AF004DD68F /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93011E961B56B6AF004DD68F /* solas.h */; };
 		933113AB1B5C52FC00449CDE /* libtakram_math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933113A41B5C52CD00449CDE /* libtakram_math.a */; };
 		933113AE1B5C530300449CDE /* libtakram_math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933113A41B5C52CD00449CDE /* libtakram_math.a */; };
 		933113B11B5C530C00449CDE /* libtakram_math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933113A41B5C52CD00449CDE /* libtakram_math.a */; };
-		9350587B1AEF555D0020E755 /* gesture_kind.h in Headers */ = {isa = PBXBuildFile; fileRef = 9350587A1AEF555B0020E755 /* gesture_kind.h */; };
 		9350587D1AEF555E0020E755 /* gesture_kind.h in Headers */ = {isa = PBXBuildFile; fileRef = 9350587A1AEF555B0020E755 /* gesture_kind.h */; };
 		935058CF1AEF6E2E0020E755 /* swipe_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* swipe_direction.h */; };
-		935058D11AEF6E2E0020E755 /* swipe_direction.h in Headers */ = {isa = PBXBuildFile; fileRef = 935058CE1AEF6E2E0020E755 /* swipe_direction.h */; };
 		93547E791AF1267B00B4C6BE /* screen_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547E781AF1267B00B4C6BE /* screen_edge.h */; };
-		93547E7B1AF1267B00B4C6BE /* screen_edge.h in Headers */ = {isa = PBXBuildFile; fileRef = 93547E781AF1267B00B4C6BE /* screen_edge.h */; };
 		935601CC1B5E704F007CBDCB /* runner_delegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 935601CB1B5E704F007CBDCB /* runner_delegate.h */; };
 		935601CD1B5E704F007CBDCB /* runner_delegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 935601CB1B5E704F007CBDCB /* runner_delegate.h */; };
-		935601CE1B5E704F007CBDCB /* runner_delegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 935601CB1B5E704F007CBDCB /* runner_delegate.h */; };
 		936732D41B56A7BE00CF0010 /* Solas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.mm */; };
 		936732D71B56A7D900CF0010 /* Solas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.mm */; };
 		936732D81B56A7DA00CF0010 /* Solas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.mm */; };
@@ -33,32 +28,13 @@
 		937D92001AF6C0BC000D8302 /* framebuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 937D91FF1AF6C0BC000D8302 /* framebuffer.cc */; };
 		937D92011AF6C0BC000D8302 /* framebuffer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 937D91FF1AF6C0BC000D8302 /* framebuffer.cc */; };
 		937D92031AF6C0C8000D8302 /* framebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 937D92021AF6C0C8000D8302 /* framebuffer.h */; };
-		937D92041AF6C0C8000D8302 /* framebuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 937D92021AF6C0C8000D8302 /* framebuffer.h */; };
 		937E13971ADBDEB9008DB7A7 /* SLSQuartzLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 937E13941ADBDEB9008DB7A7 /* SLSQuartzLayer.mm */; };
 		938D13A61B508D4100CCA57D /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 938D13A51B508D4100CCA57D /* math.h */; };
-		938D13A71B508D4100CCA57D /* math.h in Headers */ = {isa = PBXBuildFile; fileRef = 938D13A51B508D4100CCA57D /* math.h */; };
 		93AD7CEB1ADD395500B42B9E /* canvas.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* canvas.cc */; };
 		93CAA60E1AD191DC005EDC09 /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
 		93CAA6491AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */; };
 		93CAA6541AD1AE32005EDC09 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
-		93D843BF1AF61A0F00ED6BDD /* enum.h in Headers */ = {isa = PBXBuildFile; fileRef = 930398371AB2AEF400577048 /* enum.h */; };
 		93D843C91AF61A1000ED6BDD /* enum.h in Headers */ = {isa = PBXBuildFile; fileRef = 930398371AB2AEF400577048 /* enum.h */; };
-		93D8448D1AF61A3900ED6BDD /* event_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE21ADD395500B42B9E /* event_holder.h */; };
-		93D8448E1AF61A3900ED6BDD /* app_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707DA1AD692DF00E3E8AA /* app_event.h */; };
-		93D8448F1AF61A3900ED6BDD /* mouse_button.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6091AD16F40005EDC09 /* mouse_button.h */; };
-		93D844901AF61A3900ED6BDD /* mouse_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B521AD14C4400969DC2 /* mouse_event.h */; };
-		93D844911AF61A3900ED6BDD /* key_modifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6081AD16EED005EDC09 /* key_modifier.h */; };
-		93D844921AF61A3900ED6BDD /* key_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B501AD14C4400969DC2 /* key_event.h */; };
-		93D844931AF61A3900ED6BDD /* touch_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B531AD14C4400969DC2 /* touch_event.h */; };
-		93D844941AF61A3900ED6BDD /* gesture_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B4F1AD14C4400969DC2 /* gesture_event.h */; };
-		93D844951AF61A3900ED6BDD /* motion_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B511AD14C4400969DC2 /* motion_event.h */; };
-		93D844961AF61A3900ED6BDD /* backend.h in Headers */ = {isa = PBXBuildFile; fileRef = 933FD52C1AEB22F7003AEC6C /* backend.h */; };
-		93D844981AF61A3900ED6BDD /* runnable.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6171AD1930A005EDC09 /* runnable.h */; };
-		93D844991AF61A3900ED6BDD /* runner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6161AD19304005EDC09 /* runner.h */; };
-		93D8449A1AF61A3900ED6BDD /* run_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA63C1AD1A518005EDC09 /* run_options.h */; };
-		93D8449C1AF61A3900ED6BDD /* run.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6521AD1ADBB005EDC09 /* run.h */; };
-		93D8449D1AF61A3900ED6BDD /* canvas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE41ADD395500B42B9E /* canvas.h */; };
-		93D8449E1AF61A3900ED6BDD /* group.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE11ADD395500B42B9E /* group.h */; };
 		93D844B31AF61A3A00ED6BDD /* event_holder.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE21ADD395500B42B9E /* event_holder.h */; };
 		93D844B41AF61A3A00ED6BDD /* app_event.h in Headers */ = {isa = PBXBuildFile; fileRef = 93B707DA1AD692DF00E3E8AA /* app_event.h */; };
 		93D844B51AF61A3A00ED6BDD /* mouse_button.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6091AD16F40005EDC09 /* mouse_button.h */; };
@@ -77,7 +53,6 @@
 		93D844C41AF61A3A00ED6BDD /* group.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CE11ADD395500B42B9E /* group.h */; };
 		93E33C8F1AEBB6F1001F90DE /* libSolas.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 936E241F1ADEA5550004C396 /* libSolas.a */; };
 		93ED100F1B01D69E003F5915 /* composite.h in Headers */ = {isa = PBXBuildFile; fileRef = 93ED100E1B01D69E003F5915 /* composite.h */; };
-		93ED10111B01D69E003F5915 /* composite.h in Headers */ = {isa = PBXBuildFile; fileRef = 93ED100E1B01D69E003F5915 /* composite.h */; };
 		93EDFBFD1AEC8E12003CDD03 /* SLSRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA60A1AD191DC005EDC09 /* SLSRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93EDFBFE1AEC8E12003CDD03 /* SLSEventSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E967F1AD384C500A7E21E /* SLSEventSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93EDFBFF1AEC8E12003CDD03 /* SLSDisplaySource.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CB51ADCA31900B42B9E /* SLSDisplaySource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -90,20 +65,7 @@
 		93EDFC061AEC8E12003CDD03 /* SLSDisplayLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 938987D61AD21F2000DEC9E9 /* SLSDisplayLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93EDFC071AEC8E12003CDD03 /* SLSApplicationMain.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA64B1AD1AD4B005EDC09 /* SLSApplicationMain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93EDFC081AEC8E12003CDD03 /* SLSNSBundle+Bundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6451AD1A843005EDC09 /* SLSNSBundle+Bundle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93EDFC151AEC8E13003CDD03 /* SLSRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA60A1AD191DC005EDC09 /* SLSRunner.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93EDFC161AEC8E13003CDD03 /* SLSEventSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E967F1AD384C500A7E21E /* SLSEventSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93EDFC171AEC8E13003CDD03 /* SLSDisplaySource.h in Headers */ = {isa = PBXBuildFile; fileRef = 93AD7CB51ADCA31900B42B9E /* SLSDisplaySource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93EDFC181AEC8E13003CDD03 /* SLSAnimationSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 93D73DD21ADDE3B4003F9A7A /* SLSAnimationSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93EDFC191AEC8E13003CDD03 /* SLSQuartzLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 937E13931ADBDEB9008DB7A7 /* SLSQuartzLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93EDFC1A1AEC8E13003CDD03 /* SLSDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9441AD94669009D0646 /* SLSDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93EDFC1B1AEC8E13003CDD03 /* SLSEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B5E1AD14DC200969DC2 /* SLSEvents.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93EDFC1C1AEC8E13003CDD03 /* SLSEventDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 93A45B5F1AD1546300969DC2 /* SLSEventDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93EDFC1D1AEC8E13003CDD03 /* SLSDisplayDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 939E96891AD38BB300A7E21E /* SLSDisplayDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93EDFC1E1AEC8E13003CDD03 /* SLSDisplayLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 938987D61AD21F2000DEC9E9 /* SLSDisplayLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93EDFC1F1AEC8E13003CDD03 /* SLSApplicationMain.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA64B1AD1AD4B005EDC09 /* SLSApplicationMain.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93EDFC201AEC8E13003CDD03 /* SLSNSBundle+Bundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 93CAA6451AD1A843005EDC09 /* SLSNSBundle+Bundle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93EDFC381AEC8E2B003CDD03 /* Solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9A21AD97B2A009D0646 /* Solas.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		93EDFC391AEC8E2C003CDD03 /* Solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 93FEF9A21AD97B2A009D0646 /* Solas.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		93F857CA1B564B0500C32E8D /* SLSNSBundle+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */; };
 		93F857CB1B564B0500C32E8D /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
 		93F857CF1B564B0500C32E8D /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
@@ -188,7 +150,6 @@
 		93F858D21B56536000C32E8D /* SLSUIApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F858BE1B56536000C32E8D /* SLSUIApplicationDelegate.mm */; };
 		93F8592F1B57666800C32E8D /* runner_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F8592E1B57666800C32E8D /* runner_options.h */; };
 		93F859301B57666800C32E8D /* runner_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F8592E1B57666800C32E8D /* runner_options.h */; };
-		93F859311B57666800C32E8D /* runner_options.h in Headers */ = {isa = PBXBuildFile; fileRef = 93F8592E1B57666800C32E8D /* runner_options.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -589,52 +550,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		936E241D1ADEA5550004C396 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				93EDFC1A1AEC8E13003CDD03 /* SLSDefines.h in Headers */,
-				9350587B1AEF555D0020E755 /* gesture_kind.h in Headers */,
-				93D844911AF61A3900ED6BDD /* key_modifier.h in Headers */,
-				93EDFC171AEC8E13003CDD03 /* SLSDisplaySource.h in Headers */,
-				93F859311B57666800C32E8D /* runner_options.h in Headers */,
-				93EDFC181AEC8E13003CDD03 /* SLSAnimationSource.h in Headers */,
-				93EDFC151AEC8E13003CDD03 /* SLSRunner.h in Headers */,
-				93EDFC201AEC8E13003CDD03 /* SLSNSBundle+Bundle.h in Headers */,
-				93EDFC1F1AEC8E13003CDD03 /* SLSApplicationMain.h in Headers */,
-				93011E991B56B6AF004DD68F /* solas.h in Headers */,
-				93547E7B1AF1267B00B4C6BE /* screen_edge.h in Headers */,
-				93D844951AF61A3900ED6BDD /* motion_event.h in Headers */,
-				93D8449C1AF61A3900ED6BDD /* run.h in Headers */,
-				93D844991AF61A3900ED6BDD /* runner.h in Headers */,
-				93D8448E1AF61A3900ED6BDD /* app_event.h in Headers */,
-				93EDFC391AEC8E2C003CDD03 /* Solas.h in Headers */,
-				93D843BF1AF61A0F00ED6BDD /* enum.h in Headers */,
-				938D13A71B508D4100CCA57D /* math.h in Headers */,
-				93EDFC161AEC8E13003CDD03 /* SLSEventSource.h in Headers */,
-				93D8449A1AF61A3900ED6BDD /* run_options.h in Headers */,
-				93EDFC1B1AEC8E13003CDD03 /* SLSEvents.h in Headers */,
-				93D8448D1AF61A3900ED6BDD /* event_holder.h in Headers */,
-				93EDFC1E1AEC8E13003CDD03 /* SLSDisplayLink.h in Headers */,
-				93D8449E1AF61A3900ED6BDD /* group.h in Headers */,
-				93D844941AF61A3900ED6BDD /* gesture_event.h in Headers */,
-				93D8449D1AF61A3900ED6BDD /* canvas.h in Headers */,
-				935058D11AEF6E2E0020E755 /* swipe_direction.h in Headers */,
-				93D844901AF61A3900ED6BDD /* mouse_event.h in Headers */,
-				93D844921AF61A3900ED6BDD /* key_event.h in Headers */,
-				93D8448F1AF61A3900ED6BDD /* mouse_button.h in Headers */,
-				93EDFC191AEC8E13003CDD03 /* SLSQuartzLayer.h in Headers */,
-				93EDFC1C1AEC8E13003CDD03 /* SLSEventDelegate.h in Headers */,
-				93D844981AF61A3900ED6BDD /* runnable.h in Headers */,
-				93D844931AF61A3900ED6BDD /* touch_event.h in Headers */,
-				935601CE1B5E704F007CBDCB /* runner_delegate.h in Headers */,
-				93EDFC1D1AEC8E13003CDD03 /* SLSDisplayDelegate.h in Headers */,
-				93ED10111B01D69E003F5915 /* composite.h in Headers */,
-				937D92041AF6C0C8000D8302 /* framebuffer.h in Headers */,
-				93D844961AF61A3900ED6BDD /* backend.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		93E913551AB27DE400DDF7F9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -771,7 +686,6 @@
 			buildPhases = (
 				936E241B1ADEA5550004C396 /* Sources */,
 				936E241C1ADEA5550004C396 /* Frameworks */,
-				936E241D1ADEA5550004C396 /* Headers */,
 			);
 			buildRules = (
 			);
