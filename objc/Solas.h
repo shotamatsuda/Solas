@@ -24,6 +24,9 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
+#ifndef SOLAS_H_
+#define SOLAS_H_
+
 #ifdef __OBJC__
 
 #import <TargetConditionals.h>
@@ -71,6 +74,29 @@
 
 #ifdef __cplusplus
 
-#include "solas.h"
+#include "solas/app_event.h"
+#include "solas/backend.h"
+#include "solas/canvas.h"
+#include "solas/composite.h"
+#include "solas/enum.h"
+#include "solas/event_holder.h"
+#include "solas/gesture_event.h"
+#include "solas/gesture_kind.h"
+#include "solas/group.h"
+#include "solas/key_event.h"
+#include "solas/key_modifier.h"
+#include "solas/math.h"
+#include "solas/motion_event.h"
+#include "solas/mouse_button.h"
+#include "solas/mouse_event.h"
+#include "solas/run_options.h"
+#include "solas/run.h"
+#include "solas/runnable.h"
+#include "solas/runner.h"
+#include "solas/screen_edge.h"
+#include "solas/swipe_direction.h"
+#include "solas/touch_event.h"
 
 #endif  // __cplusplus
+
+#endif  // SOLAS_H_

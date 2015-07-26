@@ -1,9 +1,9 @@
 //
-//  osx.xcconfig
+//  shared.xcconfig
 //
 //  MIT License
 //
-//  Copyright (C) 2015 Shota Matsuda
+//  Copyright (C) 2014-2015 Shota Matsuda
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -24,5 +24,13 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
+// Boost
+HEADER_SEARCH_PATHS[sdk=macosx*] = $(inherited) "/usr/local/include"
+HEADER_SEARCH_PATHS[sdk=iphoneos*] = $(inherited) "$(SOLAS_DIR)/build/boost/include"
+HEADER_SEARCH_PATHS[sdk=iphonesimulator*] = $(inherited) "$(SOLAS_DIR)/build/boost/include"
+LIBRARY_SEARCH_PATHS[sdk=macosx*] = $(inherited) "/usr/local/lib"
+LIBRARY_SEARCH_PATHS[sdk=iphoneos*] = $(inherited) "$(SOLAS_DIR)/build/boost/lib"
+LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*] = $(inherited) "$(SOLAS_DIR)/build/boost/lib"
+
 // Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/../src" "$(PROJECT_DIR)/../../takram-math/src" "/usr/local/include"
+HEADER_SEARCH_PATHS = $(inherited) "$(SOLAS_DIR)/src" "$(SOLAS_DIR)/objc" "$(SOLAS_DIR)/lib"

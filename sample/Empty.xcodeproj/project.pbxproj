@@ -88,11 +88,10 @@
 
 /* Begin PBXFileReference section */
 		9368078F1B57A6CE009F0934 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
+		93B4749E1B64CF8800613FB6 /* product.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = product.xcconfig; sourceTree = SOURCE_ROOT; };
 		93CA67E11ADB5BF4009F131B /* Empty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Empty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F859231B575DCC00C32E8D /* ios.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ios.plist; sourceTree = SOURCE_ROOT; };
-		93F859241B575DCC00C32E8D /* ios.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ios.xcconfig; sourceTree = SOURCE_ROOT; };
 		93F859251B575DCC00C32E8D /* osx.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = osx.plist; sourceTree = SOURCE_ROOT; };
-		93F859261B575DCC00C32E8D /* osx.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = osx.xcconfig; sourceTree = SOURCE_ROOT; };
 		93F859271B575DCC00C32E8D /* project_debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_debug.xcconfig; sourceTree = SOURCE_ROOT; };
 		93F859281B575DCC00C32E8D /* project_release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_release.xcconfig; sourceTree = SOURCE_ROOT; };
 		93F859291B575DCC00C32E8D /* project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -165,11 +164,10 @@
 			children = (
 				93F859251B575DCC00C32E8D /* osx.plist */,
 				93F859231B575DCC00C32E8D /* ios.plist */,
-				93F859261B575DCC00C32E8D /* osx.xcconfig */,
-				93F859241B575DCC00C32E8D /* ios.xcconfig */,
 				93F859291B575DCC00C32E8D /* project.xcconfig */,
 				93F859271B575DCC00C32E8D /* project_debug.xcconfig */,
 				93F859281B575DCC00C32E8D /* project_release.xcconfig */,
+				93B4749E1B64CF8800613FB6 /* product.xcconfig */,
 				9368078F1B57A6CE009F0934 /* LaunchScreen.xib */,
 			);
 			name = config;
@@ -343,7 +341,7 @@
 /* Begin XCBuildConfiguration section */
 		93CA68011ADB5BF5009F131B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F859241B575DCC00C32E8D /* ios.xcconfig */;
+			baseConfigurationReference = 93B4749E1B64CF8800613FB6 /* product.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -359,7 +357,7 @@
 		};
 		93CA68021ADB5BF5009F131B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F859241B575DCC00C32E8D /* ios.xcconfig */;
+			baseConfigurationReference = 93B4749E1B64CF8800613FB6 /* product.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -396,7 +394,7 @@
 		};
 		93FEF96C1AD97263009D0646 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F859261B575DCC00C32E8D /* osx.xcconfig */;
+			baseConfigurationReference = 93B4749E1B64CF8800613FB6 /* product.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = osx.plist;
@@ -408,7 +406,7 @@
 		};
 		93FEF96D1AD97263009D0646 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93F859261B575DCC00C32E8D /* osx.xcconfig */;
+			baseConfigurationReference = 93B4749E1B64CF8800613FB6 /* product.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				INFOPLIST_FILE = osx.plist;

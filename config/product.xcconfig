@@ -24,12 +24,10 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "dependencies.xcconfig"
+SOLAS_DIR = $(PROJECT_DIR)
+#include "shared.xcconfig"
 
-// Header Search Paths
-TAKRAM_MATH_HEADER_SEARCH_PATHS = "$(TAKRAM_MATH_DIR)/src" "$(TAKRAM_MATH_DIR)/lib"
-TAKRAM_TWEEN_HEADER_SEARCH_PATHS = "$(TAKRAM_TWEEN_DIR)/src" "$(TAKRAM_TWEEN_DIR)/lib"
-TAKRAM_HEADER_SEARCH_PATHS = $(TAKRAM_MATH_HEADER_SEARCH_PATHS) $(TAKRAM_TWEEN_HEADER_SEARCH_PATHS)
-
-// Search Paths
-ALWAYS_SEARCH_USER_PATHS = NO
+// Linking
+OTHER_LDFLAGS[sdk=macosx*] = $(inherited) -framework AppKit -framework CoreGraphics -framework Foundation -framework GLKit -framework ImageIO -framework OpenGL -framework QuartzCore
+OTHER_LDFLAGS[sdk=iphoneos*] = $(inherited) -framework CoreGraphics -framework Foundation -framework GLKit -framework ImageIO -framework MobileCoreServices -framework OpenGLES -framework QuartzCore -framework UIKit
+OTHER_LDFLAGS[sdk=iphonesimulator*] = $(inherited) -framework CoreGraphics -framework Foundation -framework GLKit -framework ImageIO -framework MobileCoreServices -framework OpenGLES -framework QuartzCore -framework UIKit
