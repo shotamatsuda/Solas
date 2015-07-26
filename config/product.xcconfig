@@ -27,6 +27,9 @@
 SOLAS_DIR = $(PROJECT_DIR)
 #include "shared.xcconfig"
 
+// Search Paths
+HEADER_SEARCH_PATHS = $(inherited) "$(SOLAS_DIR)/src" "$(SOLAS_DIR)/objc" "$(SOLAS_DIR)/lib"
+
 // Linking
 OTHER_LDFLAGS[sdk=macosx*] = $(inherited) -framework AppKit -framework CoreGraphics -framework Foundation -framework GLKit -framework ImageIO -framework OpenGL -framework QuartzCore
 OTHER_LDFLAGS[sdk=iphoneos*] = $(inherited) -framework CoreGraphics -framework Foundation -framework GLKit -framework ImageIO -framework MobileCoreServices -framework OpenGLES -framework QuartzCore -framework UIKit

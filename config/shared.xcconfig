@@ -31,6 +31,3 @@ HEADER_SEARCH_PATHS[sdk=iphonesimulator*] = $(inherited) "$(SOLAS_DIR)/build/boo
 LIBRARY_SEARCH_PATHS[sdk=macosx*] = $(inherited) "/usr/local/lib"
 LIBRARY_SEARCH_PATHS[sdk=iphoneos*] = $(inherited) "$(SOLAS_DIR)/build/boost/lib"
 LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*] = $(inherited) "$(SOLAS_DIR)/build/boost/lib"
-
-// Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(SOLAS_DIR)/src" "$(SOLAS_DIR)/objc" "$(SOLAS_DIR)/lib"
