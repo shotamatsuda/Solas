@@ -25,4 +25,4 @@
 //
 
 SOLAS_DIR = $(PROJECT_DIR)/..
-#include "../config/shared.xcconfig"
+#include "../config/dependencies.xcconfig"

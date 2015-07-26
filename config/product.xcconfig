@@ -25,7 +25,7 @@
 //
 
 SOLAS_DIR = $(PROJECT_DIR)
-#include "shared.xcconfig"
+#include "dependencies.xcconfig"
 
 // Search Paths
 HEADER_SEARCH_PATHS = $(inherited) "$(SOLAS_DIR)/src" "$(SOLAS_DIR)/objc" "$(SOLAS_DIR)/lib"
