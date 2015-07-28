@@ -10,6 +10,18 @@
 		933113AB1B5C52FC00449CDE /* libtakram_math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933113A41B5C52CD00449CDE /* libtakram_math.a */; };
 		933113AE1B5C530300449CDE /* libtakram_math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933113A41B5C52CD00449CDE /* libtakram_math.a */; };
 		933113B11B5C530C00449CDE /* libtakram_math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933113A41B5C52CD00449CDE /* libtakram_math.a */; };
+		93563B961B677EB9004C47E4 /* SLSNSWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8587A1B56535B00C32E8D /* SLSNSWindowController.m */; };
+		93563B971B677EB9004C47E4 /* SLSNSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8587D1B56535B00C32E8D /* SLSNSViewController.m */; };
+		93563B981B677EB9004C47E4 /* SLSNSEventSourceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F8587F1B56535B00C32E8D /* SLSNSEventSourceView.mm */; };
+		93563B991B677EB9004C47E4 /* SLSNSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F858811B56535B00C32E8D /* SLSNSView.m */; };
+		93563B9A1B677EB9004C47E4 /* SLSNSOpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F858831B56535B00C32E8D /* SLSNSOpenGLView.m */; };
+		93563B9B1B677EB9004C47E4 /* SLSNSOpenGL3View.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F858851B56535B00C32E8D /* SLSNSOpenGL3View.m */; };
+		93563B9C1B677EB9004C47E4 /* SLSNSOpenGL4View.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F858871B56535B00C32E8D /* SLSNSOpenGL4View.m */; };
+		93563B9D1B677EB9004C47E4 /* SLSNSOpenGLLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F858891B56535B00C32E8D /* SLSNSOpenGLLayer.mm */; };
+		93563B9E1B677EB9004C47E4 /* SLSNSQuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588B1B56535B00C32E8D /* SLSNSQuartzView.m */; };
+		93563B9F1B677EB9004C47E4 /* SLSCVDisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.m */; };
+		93563BA01B677EB9004C47E4 /* SLSNSApplicationMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588D1B56535B00C32E8D /* SLSNSApplicationMain.m */; };
+		93563BA11B677EB9004C47E4 /* SLSNSApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588F1B56535B00C32E8D /* SLSNSApplicationDelegate.mm */; };
 		936732D41B56A7BE00CF0010 /* Solas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.mm */; };
 		936732D71B56A7D900CF0010 /* Solas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.mm */; };
 		936732D81B56A7DA00CF0010 /* Solas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 936732D31B56A7BE00CF0010 /* Solas.mm */; };
@@ -699,12 +711,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				936E248B1ADEA5A80004C396 /* SLSRunner.mm in Sources */,
+				93563B9E1B677EB9004C47E4 /* SLSNSQuartzView.m in Sources */,
+				93563B961B677EB9004C47E4 /* SLSNSWindowController.m in Sources */,
+				93563B9B1B677EB9004C47E4 /* SLSNSOpenGL3View.m in Sources */,
+				93563B971B677EB9004C47E4 /* SLSNSViewController.m in Sources */,
 				936E24901ADEA5A80004C396 /* SLSQuartzLayer.mm in Sources */,
+				93563B981B677EB9004C47E4 /* SLSNSEventSourceView.mm in Sources */,
+				93563BA01B677EB9004C47E4 /* SLSNSApplicationMain.m in Sources */,
+				93563B991B677EB9004C47E4 /* SLSNSView.m in Sources */,
 				936E24981ADEA5A80004C396 /* SLSNSBundle+Bundle.m in Sources */,
+				93563B9F1B677EB9004C47E4 /* SLSCVDisplayLink.m in Sources */,
 				936E24481ADEA5A80004C396 /* canvas.cc in Sources */,
 				937D92011AF6C0BC000D8302 /* framebuffer.cc in Sources */,
 				936732D81B56A7DA00CF0010 /* Solas.mm in Sources */,
 				936E24461ADEA5A80004C396 /* run.mm in Sources */,
+				93563B9D1B677EB9004C47E4 /* SLSNSOpenGLLayer.mm in Sources */,
+				93563BA11B677EB9004C47E4 /* SLSNSApplicationDelegate.mm in Sources */,
+				93563B9C1B677EB9004C47E4 /* SLSNSOpenGL4View.m in Sources */,
+				93563B9A1B677EB9004C47E4 /* SLSNSOpenGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
