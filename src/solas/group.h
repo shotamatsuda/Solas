@@ -34,34 +34,34 @@
 
 namespace solas {
 
-template <class Canvas>
+template <class Root>
 class Group : public Composite {
  public:
-  explicit Group(Canvas *parent);
+  explicit Group(Root *parent);
   explicit Group(Group *parent);
 
   // Aggregation
-  Canvas& canvas() const;
+  Root& root() const;
 };
 
 #pragma mark -
 
-template <class Canvas>
-inline Group<Canvas>::Group(Canvas *parent) : Composite(parent) {}
+template <class Root>
+inline Group<Root>::Group(Root *parent) : Composite(parent) {}
 
-template <class Canvas>
-inline Group<Canvas>::Group(Group *parent) : Composite(parent) {}
+template <class Root>
+inline Group<Root>::Group(Group *parent) : Composite(parent) {}
 
 #pragma mark Aggregation
 
-template <class Canvas>
-inline Canvas& Group<Canvas>::canvas() const {
+template <class Root>
+inline Root& Group<Root>::root() const {
   Composite *current = parent();
   assert(current);
   while (current->parent()) {
     current = current->parent();
   }
-  return static_cast<Canvas&>(*current);
+  return static_cast<Root&>(*current);
 }
 
 }  // namespace solas
