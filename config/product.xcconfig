@@ -25,10 +25,11 @@
 //
 
 SOLAS_DIR = $(PROJECT_DIR)
-#include "dependencies.xcconfig"
+#include "shared.xcconfig"
 
 // Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(SOLAS_DIR)/src" "$(SOLAS_DIR)/objc" "$(SOLAS_DIR)/lib"
+HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib" $(BOOST_HEADER_SEARCH_PATHS)
+LIBRARY_SEARCH_PATHS = $(inherited) $(BOOST_LIBRARY_SEARCH_PATHS)
 
 // Linking
 OTHER_LDFLAGS[sdk=macosx*] = $(inherited) -framework AppKit -framework CoreGraphics -framework Foundation -framework GLKit -framework ImageIO -framework OpenGL -framework QuartzCore

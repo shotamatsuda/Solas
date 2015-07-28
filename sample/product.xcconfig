@@ -25,4 +25,7 @@
 //
 
 SOLAS_DIR = $(PROJECT_DIR)/..
-#include "../config/dependencies.xcconfig"
+#include "../config/shared.xcconfig"
+
+// Search Paths
+HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" $(BOOST_HEADER_SEARCH_PATHS)

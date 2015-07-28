@@ -167,7 +167,7 @@
 		93AD7CE21ADD395500B42B9E /* event_holder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event_holder.h; sourceTree = "<group>"; };
 		93AD7CE31ADD395500B42B9E /* canvas.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = canvas.cc; sourceTree = "<group>"; };
 		93AD7CE41ADD395500B42B9E /* canvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = canvas.h; sourceTree = "<group>"; };
-		93B4749D1B64CEF000613FB6 /* dependencies.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = dependencies.xcconfig; sourceTree = "<group>"; };
+		93B4749D1B64CEF000613FB6 /* shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = shared.xcconfig; sourceTree = "<group>"; };
 		93B707DA1AD692DF00E3E8AA /* app_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = app_event.h; sourceTree = "<group>"; };
 		93CAA6081AD16EED005EDC09 /* key_modifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = key_modifier.h; sourceTree = "<group>"; };
 		93CAA6091AD16F40005EDC09 /* mouse_button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mouse_button.h; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				938987C61AD1B93F00DEC9E9 /* framework.plist */,
-				93B4749D1B64CEF000613FB6 /* dependencies.xcconfig */,
+				93B4749D1B64CEF000613FB6 /* shared.xcconfig */,
 				932101901B48CE0400A63200 /* project.xcconfig */,
 				933295961B64D77600F63AB2 /* project_debug.xcconfig */,
 				933295971B64D77600F63AB2 /* project_release.xcconfig */,

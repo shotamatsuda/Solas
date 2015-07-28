@@ -1,5 +1,5 @@
 //
-//  dependencies.xcconfig
+//  shared.xcconfig
 //
 //  MIT License
 //
@@ -25,9 +25,9 @@
 //
 
 // Boost
-HEADER_SEARCH_PATHS[sdk=macosx*] = $(inherited) "/usr/local/include"
-HEADER_SEARCH_PATHS[sdk=iphoneos*] = $(inherited) "$(SOLAS_DIR)/build/boost/include"
-HEADER_SEARCH_PATHS[sdk=iphonesimulator*] = $(inherited) "$(SOLAS_DIR)/build/boost/include"
-LIBRARY_SEARCH_PATHS[sdk=macosx*] = $(inherited) "/usr/local/lib"
-LIBRARY_SEARCH_PATHS[sdk=iphoneos*] = $(inherited) "$(SOLAS_DIR)/build/boost/lib"
-LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*] = $(inherited) "$(SOLAS_DIR)/build/boost/lib"
+BOOST_HEADER_SEARCH_PATHS[sdk=macosx*] = "/usr/local/include"
+BOOST_HEADER_SEARCH_PATHS[sdk=iphoneos*] = "$(SOLAS_DIR)/build/boost/include"
+BOOST_HEADER_SEARCH_PATHS[sdk=iphonesimulator*] = "$(SOLAS_DIR)/build/boost/include"
+BOOST_LIBRARY_SEARCH_PATHS[sdk=macosx*] = "/usr/local/lib"
+BOOST_LIBRARY_SEARCH_PATHS[sdk=iphoneos*] = "$(SOLAS_DIR)/build/boost/lib"
+BOOST_LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*] = "$(SOLAS_DIR)/build/boost/lib"

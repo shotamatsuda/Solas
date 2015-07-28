@@ -519,7 +519,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93F859271B575DCC00C32E8D /* project_debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
 				MACOSX_DEPLOYMENT_TARGET = "";
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx10.10;
@@ -530,7 +529,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 93F859281B575DCC00C32E8D /* project_release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
 				MACOSX_DEPLOYMENT_TARGET = "";
 				SDKROOT = macosx10.10;
 			};
