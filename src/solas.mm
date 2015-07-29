@@ -1,5 +1,5 @@
 //
-//  Solas.m
+//  solas.m
 //
 //  MIT License
 //
@@ -24,4 +24,4 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "Solas.h"
+#import "solas.h"
