@@ -132,10 +132,6 @@ inline void RunnerDelegate::fullscreen(bool flag) {
   return _runner->options().translates_touches();
 }
 
-- (BOOL)movesWindow {
-  return _runner->options().moves_window();
-}
-
 - (void)resize:(CGSize)size {
   if ([_delegate respondsToSelector:@selector(runner:resize:)]) {
     [_delegate runner:self resize:size];

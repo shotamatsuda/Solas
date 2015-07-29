@@ -64,7 +64,6 @@ typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
 
 @property (nonatomic, readonly) SLSRunnerBackend backend;
 @property (nonatomic, readonly) BOOL translatesTouches;
-@property (nonatomic, readonly) BOOL movesWindow;
 @property (nonatomic, weak, nullable) id<SLSRunnerDelegate> delegate;
 
 - (void)resize:(CGSize)size;

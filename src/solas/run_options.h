@@ -53,12 +53,15 @@ class RunOptions final {
   void set_dark_content(bool value) { dark_content_ = value; }
   bool full_size_content() const { return full_size_content_; }
   void set_full_size_content(bool value) { full_size_content_ = value; }
+  bool moves_window() const { return moves_window_; }
+  void set_moves_window(bool value) { moves_window_ = value; }
 
  private:
   RunnerOptions runner_options_;
   bool multiple_windows_;
   bool dark_content_;
   bool full_size_content_;
+  bool moves_window_;
 };
 
 #pragma mark -
@@ -66,7 +69,8 @@ class RunOptions final {
 inline RunOptions::RunOptions()
     : multiple_windows_(true),
       dark_content_(false),
-      full_size_content_(true) {}
+      full_size_content_(true),
+      moves_window_(false) {}
 
 #pragma mark Comparison
 
@@ -74,7 +78,8 @@ inline bool RunOptions::operator==(const RunOptions& other) const {
   return (runner_options_ == other.runner_options_ &&
           multiple_windows_ == other.multiple_windows_ &&
           dark_content_ == other.dark_content_ &&
-          full_size_content_ == other.full_size_content_);
+          full_size_content_ == other.full_size_content_ &&
+          moves_window_ == other.moves_window_);
 }
 
 inline bool RunOptions::operator!=(const RunOptions& other) const {

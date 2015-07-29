@@ -105,6 +105,7 @@
   const auto& options = solas::Run::instance().options();
   windowController.darkContent = options.dark_content();
   windowController.fullSizeContent = options.full_size_content();
+  windowController.window.movableByWindowBackground = options.moves_window();
   [[NSNotificationCenter defaultCenter]
       addObserver:self
          selector:@selector(windowWillClose:)
