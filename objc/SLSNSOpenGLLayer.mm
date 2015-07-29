@@ -76,6 +76,8 @@
   [context makeCurrentContext];
   // Synchronize buffer swaps with the vertical refresh rate
   [context setValues:(GLint[]) {1} forParameter:NSOpenGLCPSwapInterval];
+  // Enable multithreading
+  CGLEnable(context.CGLContextObj, kCGLCEMPEngine);
   return context;
 }
 
