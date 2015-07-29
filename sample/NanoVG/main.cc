@@ -29,8 +29,6 @@
 #include "solas.h"
 #include "takram/nanovg.h"
 
-namespace nvg = takram::nanovg;
-
 class App : public solas::Canvas {
  public:
   void setup() override {
@@ -38,16 +36,17 @@ class App : public solas::Canvas {
   }
 
   void draw() override {
-    context_.begin(width(), height());
-    nvg::beginPath();
-    nvg::circle(mouse().x, mouse().y, 5.0);
-    nvg::closePath();
-    nvg::fillColor(nvgRGB(0, 0, 0));
-    nvg::fill();
+    context_.begin(size());
+    takram::nvg::beginPath();
+    takram::nvg::circle(mouse(), 5.0);
+    takram::nvg::closePath();
+    takram::nvg::fillColor(nvgRGB(0, 0, 0));
+    takram::nvg::fill();
     context_.end();
   }
 
-  nvg::Context context_;
+ private:
+  takram::nvg::Context context_;
 };
 
 int main(int argc, char **argv) {

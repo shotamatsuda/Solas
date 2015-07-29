@@ -42,8 +42,6 @@ class App : public solas::Canvas {
   }
   void mousePressed() override {
     std::cout << "mousePressed" << std::endl;
-    resize({1280, 720});
-    std::cout << size() << std::endl;
   }
   void mouseDragged() override {
     std::cout << "mouseDragged" << std::endl;

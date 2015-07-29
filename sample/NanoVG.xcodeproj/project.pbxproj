@@ -228,6 +228,7 @@
 		93FEF9501AD97263009D0646 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				9368078F1B57A6CE009F0934 /* LaunchScreen.xib */,
 				93FEF9901AD97397009D0646 /* main.cc */,
 			);
 			name = src;
@@ -243,7 +244,6 @@
 				93F859271B575DCC00C32E8D /* project_debug.xcconfig */,
 				93F859281B575DCC00C32E8D /* project_release.xcconfig */,
 				9332959C1B64D89900F63AB2 /* product.xcconfig */,
-				9368078F1B57A6CE009F0934 /* LaunchScreen.xib */,
 			);
 			name = config;
 			path = Zorozoro;
