@@ -28,6 +28,9 @@
 
 #import <GLKit/GLKit.h>
 
+#include "solas/app_event.h"
+#include "solas/math.h"
+
 @interface SLSUIOpenGLESView () <GLKViewDelegate, GLKViewControllerDelegate>
 
 #pragma mark Initialization

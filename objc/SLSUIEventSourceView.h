@@ -29,6 +29,14 @@
 #import "SLSEventDelegate.h"
 #import "SLSEventSource.h"
 
+#ifdef __cplusplus
+
+#include <boost/any.hpp>
+
+#include "solas/gesture_kind.h"
+
+#endif  // __cplusplus
+
 @interface SLSUIEventSourceView : UIView <SLSEventSource>
 
 #pragma mark Notifying Events to the Delegate

@@ -28,8 +28,9 @@
 
 #import "SLSEvents.h"
 
-#include <utility>
 #include <vector>
+
+#include <boost/any.hpp>
 
 #include "solas/gesture_event.h"
 #include "solas/gesture_kind.h"

@@ -29,7 +29,6 @@
 #import "SLSEvents.h"
 
 #include <string>
-#include <utility>
 
 #include "solas/gesture_event.h"
 #include "solas/key_event.h"
