@@ -454,8 +454,8 @@
 			children = (
 				93E913581AB27DE400DDF7F9 /* Solas.framework */,
 				93F8580F1B564B0500C32E8D /* Solas.framework */,
-				930398491AB2B0DF00577048 /* SolasTest */,
 				936E241F1ADEA5550004C396 /* libSolas.a */,
+				930398491AB2B0DF00577048 /* SolasTest */,
 			);
 			name = products;
 			sourceTree = "<group>";

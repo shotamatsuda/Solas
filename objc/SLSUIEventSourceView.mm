@@ -299,7 +299,7 @@
           initWithTarget:self action:@selector(handlePinchGesture:)];
   pinchGesture.cancelsTouchesInView = NO;
   [self addGestureRecognizer:pinchGesture];
-  
+
   // Rotation
   UIRotationGestureRecognizer *rotationGesture =
       [[UIRotationGestureRecognizer alloc]
