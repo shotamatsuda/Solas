@@ -28,6 +28,7 @@
 
 #import "SLSEvents.h"
 
+#include <string>
 #include <utility>
 
 #include "solas/gesture_event.h"
@@ -224,7 +225,11 @@
 
 - (solas::KeyEvent)keyEventWithEvent:(NSEvent *)event
     type:(solas::KeyEvent::Type)type {
-  return solas::KeyEvent();
+  return solas::KeyEvent(
+      type,
+      event.keyCode,
+      std::string(event.characters.UTF8String),
+      [self keyModifiersForEvent:event]);
 }
 
 - (solas::TouchEvent)touchEventWithEvent:(NSEvent *)event

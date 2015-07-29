@@ -61,8 +61,8 @@ class App : public solas::Canvas {
   void mouseWheel() override {
     std::cout << "mouseWheel" << std::endl;
   }
-  void keyPressed() override {
-    std::cout << "keyPressed" << std::endl;
+  void keyPressed(const solas::KeyEvent& event) override {
+    std::cout << "keyPressed: " << event.characters() << std::endl;
   }
   void keyReleased() override {
     std::cout << "keyReleased" << std::endl;

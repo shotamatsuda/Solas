@@ -126,6 +126,42 @@
   }
 }
 
+- (void)rightMouseDown:(NSEvent *)event {}
+
+- (void)otherMouseDown:(NSEvent *)event {}
+
+- (void)mouseUp:(NSEvent *)event {}
+
+- (void)rightMouseUp:(NSEvent *)event {}
+
+- (void)otherMouseUp:(NSEvent *)event {}
+
+- (void)mouseDragged:(NSEvent *)event {}
+
+- (void)rightMouseDragged:(NSEvent *)event {}
+
+- (void)otherMouseDragged:(NSEvent *)event {}
+
+- (void)mouseMoved:(NSEvent *)event {}
+
+- (void)mouseEntered:(NSEvent *)event {}
+
+- (void)mouseExited:(NSEvent *)event {}
+
+- (void)scrollWheel:(NSEvent *)event {}
+
+- (void)keyDown:(NSEvent *)event {}
+
+- (void)keyUp:(NSEvent *)event {}
+
+- (void)touchesBeganWithEvent:(NSEvent *)event {}
+
+- (void)touchesMovedWithEvent:(NSEvent *)event {}
+
+- (void)touchesCancelledWithEvent:(NSEvent *)event {}
+
+- (void)touchesEndedWithEvent:(NSEvent *)event {}
+
 #pragma mark Managing the Runner
 
 - (void)setRunner:(SLSRunner *)runner {

@@ -89,30 +89,37 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
   [self notifyTouchesBeganWithEvent:event];
+  [super touchesBegan:touches withEvent:event];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
   [self notifyTouchesMovedWithEvent:event];
+  [super touchesMoved:touches withEvent:event];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
   [self notifyTouchesCancelledWithEvent:event];
+  [super touchesCancelled:touches withEvent:event];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
   [self notifyTouchesEndedWithEvent:event];
+  [super touchesEnded:touches withEvent:event];
 }
 
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
   [self notifyMotionBeganWithEvent:event];
+  [super motionBegan:motion withEvent:event];
 }
 
 - (void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event {
   [self notifyMotionCancelledWithEvent:event];
+  [super motionCancelled:motion withEvent:event];
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
   [self notifyMotionEndedWithEvent:event];
+  [super motionEnded:motion withEvent:event];
 }
 
 #pragma mark Creating Events

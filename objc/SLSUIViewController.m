@@ -97,6 +97,20 @@
   _displaySource.displayDelegate = _runner;
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {}
+
+- (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {}
+
+- (void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event {}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {}
+
 #pragma mark Managing the Runner
 
 - (void)setRunner:(SLSRunner *)runner {
