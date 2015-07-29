@@ -25,3 +25,10 @@
 //
 
 #import "solas.h"
+
+namespace solas {
+
+const double version_number = 1.0;
+const unsigned char version_string[] = "1.0";
+
+}  // namespace solas

@@ -29,6 +29,13 @@
 
 #ifdef __cplusplus
 
+namespace solas {
+
+extern const double version_number;
+extern const unsigned char version_string[];
+
+}  // namespace solas
+
 #include "solas/app_event.h"
 #include "solas/backend.h"
 #include "solas/canvas.h"
