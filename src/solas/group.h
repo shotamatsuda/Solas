@@ -61,6 +61,7 @@ inline Root& Group<Root>::root() const {
   while (current->parent()) {
     current = current->parent();
   }
+  assert(current);
   return static_cast<Root&>(*current);
 }
 
