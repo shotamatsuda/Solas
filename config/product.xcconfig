@@ -28,7 +28,8 @@ SOLAS_DIR = $(PROJECT_DIR)
 #include "shared.xcconfig"
 
 // Search Paths
-HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib" $(BOOST_HEADER_SEARCH_PATHS)
+HEADER_SEARCH_PATHS = $(inherited) $(BOOST_HEADER_SEARCH_PATHS)
+USER_HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$(PROJECT_DIR)/lib"
 LIBRARY_SEARCH_PATHS = $(inherited) $(BOOST_LIBRARY_SEARCH_PATHS)
 
 // Linking
