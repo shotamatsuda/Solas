@@ -1,0 +1,44 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "58B6EBA1F8262F3B015D2616B601962F3369BF97",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "54A35B5F7E6CF0D37C23A7F208F4533C7D784BFD" : 0,
+    "8A4B832C137D1E3D3E3E9314E4E2F858C1866FAC" : 0,
+    "58B6EBA1F8262F3B015D2616B601962F3369BF97" : 0,
+    "5CC3662DE7B154BFBD52EC7DD2FAEF03F2CD148F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9D75F443-948D-48AA-8BB3-4FEBCE12E58A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "54A35B5F7E6CF0D37C23A7F208F4533C7D784BFD" : "takram-math\/",
+    "8A4B832C137D1E3D3E3E9314E4E2F858C1866FAC" : "takram-nanovg\/",
+    "58B6EBA1F8262F3B015D2616B601962F3369BF97" : "solas\/",
+    "5CC3662DE7B154BFBD52EC7DD2FAEF03F2CD148F" : "takram-nanovg\/lib\/nanovg\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "NanoVG",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "sample\/NanoVG.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:takram-design-engineering\/takram-math.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "54A35B5F7E6CF0D37C23A7F208F4533C7D784BFD"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:takram-design-engineering\/solas.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "58B6EBA1F8262F3B015D2616B601962F3369BF97"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:memononen\/nanovg.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5CC3662DE7B154BFBD52EC7DD2FAEF03F2CD148F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:takram-design-engineering\/takram-nanovg.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8A4B832C137D1E3D3E3E9314E4E2F858C1866FAC"
+    }
+  ]
+}

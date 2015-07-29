@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "58B6EBA1F8262F3B015D2616B601962F3369BF97",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "58B6EBA1F8262F3B015D2616B601962F3369BF97" : 0,
+    "54A35B5F7E6CF0D37C23A7F208F4533C7D784BFD" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9A83DDB5-D3D2-4FF7-9992-782D59B2E45B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "58B6EBA1F8262F3B015D2616B601962F3369BF97" : "solas\/",
+    "54A35B5F7E6CF0D37C23A7F208F4533C7D784BFD" : "takram-math\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Empty",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "sample\/Empty.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:takram-design-engineering\/takram-math.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "54A35B5F7E6CF0D37C23A7F208F4533C7D784BFD"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:takram-design-engineering\/solas.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "58B6EBA1F8262F3B015D2616B601962F3369BF97"
+    }
+  ]
+}

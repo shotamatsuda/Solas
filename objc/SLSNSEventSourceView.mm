@@ -1,18 +1,27 @@
 //
 //  SLSNSEventSourceView.mm
 //
-//  takram design engineering Confidential
+//  MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
-//  All information contained herein is, and remains the property of takram
-//  design engineering and its suppliers, if any. The intellectual and
-//  technical concepts contained herein are proprietary to takram design
-//  engineering and its suppliers and may be covered by U.S. and Foreign
-//  Patents, patents in process, and are protected by trade secret or copyright
-//  law. Dissemination of this information or reproduction of this material is
-//  strictly forbidden unless prior written permission is obtained from takram
-//  design engineering.
+//  Permission is hereby granted, free of charge, to any person obtaining a
+//  copy of this software and associated documentation files (the "Software"),
+//  to deal in the Software without restriction, including without limitation
+//  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+//  and/or sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+//  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//  DEALINGS IN THE SOFTWARE.
 //
 
 #import "SLSNSEventSourceView.h"
@@ -21,13 +30,13 @@
 
 #include <utility>
 
-#include "solas/app/gesture_event.h"
-#include "solas/app/key_event.h"
-#include "solas/app/key_modifier.h"
-#include "solas/app/mouse_button.h"
-#include "solas/app/mouse_event.h"
-#include "solas/app/touch_event.h"
-#include "solas/math/vector.h"
+#include "solas/gesture_event.h"
+#include "solas/key_event.h"
+#include "solas/key_modifier.h"
+#include "solas/mouse_button.h"
+#include "solas/mouse_event.h"
+#include "solas/touch_event.h"
+#include "solas/math.h"
 
 @interface SLSNSEventSourceView ()
 
@@ -39,13 +48,13 @@
 
 #pragma mark Creating Events
 
-- (solas::app::MouseEvent)mouseEventWithEvent:(NSEvent *)event
-    type:(solas::app::MouseEvent::Type)type;
-- (solas::app::KeyEvent)keyEventWithEvent:(NSEvent *)event
-    type:(solas::app::KeyEvent::Type)type;
-- (solas::app::TouchEvent)touchEventWithEvent:(NSEvent *)event
-    type:(solas::app::TouchEvent::Type)type;
-- (solas::app::KeyModifier)keyModifiersForEvent:(NSEvent *)event;
+- (solas::MouseEvent)mouseEventWithEvent:(NSEvent *)event
+    type:(solas::MouseEvent::Type)type;
+- (solas::KeyEvent)keyEventWithEvent:(NSEvent *)event
+    type:(solas::KeyEvent::Type)type;
+- (solas::TouchEvent)touchEventWithEvent:(NSEvent *)event
+    type:(solas::TouchEvent::Type)type;
+- (solas::KeyModifier)keyModifiersForEvent:(NSEvent *)event;
 
 @end
 
@@ -82,82 +91,105 @@
   return YES;
 }
 
+- (BOOL)mouseDownCanMoveWindow {
+  return YES;
+}
+
 #pragma mark Responding to Events
 
 - (void)mouseDown:(NSEvent *)event {
-  [self notifyMouseDownWithEvent:event];
+  [self notifyMousePressedWithEvent:event];
+  [super mouseDown:event];
 }
 
 - (void)rightMouseDown:(NSEvent *)event {
-  [self notifyMouseDownWithEvent:event];
+  [self notifyMousePressedWithEvent:event];
+  [super rightMouseDown:event];
 }
 
 - (void)otherMouseDown:(NSEvent *)event {
-  [self notifyMouseDownWithEvent:event];
+  [self notifyMousePressedWithEvent:event];
+  [super otherMouseDown:event];
 }
 
 - (void)mouseUp:(NSEvent *)event {
-  [self notifyMouseUpWithEvent:event];
+  [self notifyMouseReleasedWithEvent:event];
+  [super mouseUp:event];
 }
 
 - (void)rightMouseUp:(NSEvent *)event {
-  [self notifyMouseUpWithEvent:event];
+  [self notifyMouseReleasedWithEvent:event];
+  [super rightMouseUp:event];
 }
 
 - (void)otherMouseUp:(NSEvent *)event {
-  [self notifyMouseUpWithEvent:event];
+  [self notifyMouseReleasedWithEvent:event];
+  [super otherMouseUp:event];
 }
 
 - (void)mouseDragged:(NSEvent *)event {
-  [self notifyMouseDragWithEvent:event];
+  [self notifyMouseDraggedWithEvent:event];
+  [super mouseDragged:event];
 }
 
 - (void)rightMouseDragged:(NSEvent *)event {
-  [self notifyMouseDragWithEvent:event];
+  [self notifyMouseDraggedWithEvent:event];
+  [super rightMouseDragged:event];
 }
 
 - (void)otherMouseDragged:(NSEvent *)event {
-  [self notifyMouseDragWithEvent:event];
+  [self notifyMouseDraggedWithEvent:event];
+  [super otherMouseDragged:event];
 }
 
 - (void)mouseMoved:(NSEvent *)event {
-  [self notifyMouseMoveWithEvent:event];
+  [self notifyMouseMovedWithEvent:event];
+  [super mouseMoved:event];
 }
 
 - (void)mouseEntered:(NSEvent *)event {
-  [self notifyMouseEnterWithEvent:event];
+  [self notifyMouseEnteredWithEvent:event];
+  [super mouseEntered:event];
 }
 
 - (void)mouseExited:(NSEvent *)event {
-  [self notifyMouseExitWithEvent:event];
+  [self notifyMouseExitedWithEvent:event];
+  [super mouseExited:event];
 }
 
 - (void)scrollWheel:(NSEvent *)event {
-  [self notifyScrollWheelWithEvent:event];
+  [self notifyMouseWheelWithEvent:event];
+  [super scrollWheel:event];
 }
 
 - (void)keyDown:(NSEvent *)event {
-  [self notifyKeyDownWithEvent:event];
+  [self notifyKeyPressedWithEvent:event];
+  [super keyDown:event];
 }
 
 - (void)keyUp:(NSEvent *)event {
-  [self notifyKeyUpWithEvent:event];
+  [self notifyKeyReleasedWithEvent:event];
+  [super keyUp:event];
 }
 
 - (void)touchesBeganWithEvent:(NSEvent *)event {
-  [self notifyTouchesBeginWithEvent:event];
+  [self notifyTouchesBeganWithEvent:event];
+  [super touchesBeganWithEvent:event];
 }
 
 - (void)touchesMovedWithEvent:(NSEvent *)event {
-  [self notifyTouchesMoveWithEvent:event];
+  [self notifyTouchesMovedWithEvent:event];
+  [super touchesMovedWithEvent:event];
 }
 
 - (void)touchesCancelledWithEvent:(NSEvent *)event {
-  [self notifyTouchesCancelWithEvent:event];
+  [self notifyTouchesCancelledWithEvent:event];
+  [super touchesCancelledWithEvent:event];
 }
 
 - (void)touchesEndedWithEvent:(NSEvent *)event {
-  [self notifyTouchesEndWithEvent:event];
+  [self notifyTouchesEndedWithEvent:event];
+  [super touchesEndedWithEvent:event];
 }
 
 #pragma mark Initialization
@@ -171,162 +203,188 @@
            options:(NSTrackingMouseEnteredAndExited |
                     NSTrackingMouseMoved |
                     NSTrackingActiveInKeyWindow)
-            owner:self
-         userInfo:nil];
+             owner:self
+          userInfo:nil];
   [self addTrackingArea:_trackingArea];
 }
 
 #pragma mark Creating Events
 
-- (solas::app::MouseEvent)mouseEventWithEvent:(NSEvent *)event
-    type:(solas::app::MouseEvent::Type)type {
+- (solas::MouseEvent)mouseEventWithEvent:(NSEvent *)event
+    type:(solas::MouseEvent::Type)type {
   CGPoint location = [self convertPoint:event.locationInWindow
                                fromView:self.window.contentView];
-  return solas::app::MouseEvent(
+  return solas::MouseEvent(
       type,
-      solas::math::Vec2d(location.x, location.y),
-      static_cast<solas::app::MouseButton>(event.buttonNumber),
+      solas::Vec2d(location.x, location.y),
+      static_cast<solas::MouseButton>(event.buttonNumber),
       [self keyModifiersForEvent:event],
-      solas::math::Vec3d(event.deltaX, event.deltaY, event.deltaZ));
+      solas::Vec3d(event.deltaX, event.deltaY, event.deltaZ));
 }
 
-- (solas::app::KeyEvent)keyEventWithEvent:(NSEvent *)event
-    type:(solas::app::KeyEvent::Type)type {
-  return solas::app::KeyEvent();
+- (solas::KeyEvent)keyEventWithEvent:(NSEvent *)event
+    type:(solas::KeyEvent::Type)type {
+  return solas::KeyEvent();
 }
 
-- (solas::app::TouchEvent)touchEventWithEvent:(NSEvent *)event
-    type:(solas::app::TouchEvent::Type)type {
-  return solas::app::TouchEvent();
+- (solas::TouchEvent)touchEventWithEvent:(NSEvent *)event
+    type:(solas::TouchEvent::Type)type {
+  return solas::TouchEvent();
 }
 
-- (solas::app::KeyModifier)keyModifiersForEvent:(NSEvent *)event {
+- (solas::KeyModifier)keyModifiersForEvent:(NSEvent *)event {
   NSEventModifierFlags flags = event.modifierFlags;
-  solas::app::KeyModifier modifiers = solas::app::KeyModifier::NONE;
+  solas::KeyModifier modifiers = solas::KeyModifier::NONE;
   if (flags & NSAlphaShiftKeyMask) {
-    modifiers |= solas::app::KeyModifier::CAPS;
+    modifiers |= solas::KeyModifier::CAPS;
   }
   if (flags & NSShiftKeyMask) {
-    modifiers |= solas::app::KeyModifier::SHIFT;
+    modifiers |= solas::KeyModifier::SHIFT;
   }
   if (flags & NSControlKeyMask) {
-    modifiers |= solas::app::KeyModifier::CONTROL;
+    modifiers |= solas::KeyModifier::CONTROL;
   }
   if (flags & NSAlternateKeyMask) {
-    modifiers |= solas::app::KeyModifier::ALTERNATE;
+    modifiers |= solas::KeyModifier::ALTERNATE;
   }
   if (flags & NSCommandKeyMask) {
-    modifiers |= solas::app::KeyModifier::COMMAND;
+    modifiers |= solas::KeyModifier::COMMAND;
   }
   if (flags & NSFunctionKeyMask) {
-    modifiers |= solas::app::KeyModifier::FUNCTION;
+    modifiers |= solas::KeyModifier::FUNCTION;
   }
   return modifiers;
 }
 
 #pragma mark Notifying Events to the Delegate
 
-- (void)notifyMouseDownWithEvent:(id)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:mouseDown:)]) {
+- (void)notifyMousePressedWithEvent:(id)event {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:mousePressed:)]) {
     const auto mouseEvent([self mouseEventWithEvent:event
-        type:solas::app::MouseEvent::Type::DOWN]);
-    [_eventDelegate sender:self mouseDown:SLSMouseEventMake(&mouseEvent)];
+        type:solas::MouseEvent::Type::PRESSED]);
+    [_eventDelegate eventDelegate:self
+                     mousePressed:SLSMouseEventMake(&mouseEvent)];
   }
 }
 
-- (void)notifyMouseDragWithEvent:(id)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:mouseDrag:)]) {
+- (void)notifyMouseDraggedWithEvent:(id)event {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:mouseDragged:)]) {
     const auto mouseEvent([self mouseEventWithEvent:event
-        type:solas::app::MouseEvent::Type::DRAG]);
-    [_eventDelegate sender:self mouseDrag:SLSMouseEventMake(&mouseEvent)];
+        type:solas::MouseEvent::Type::DRAGGED]);
+    [_eventDelegate eventDelegate:self
+                     mouseDragged:SLSMouseEventMake(&mouseEvent)];
   }
 }
 
-- (void)notifyMouseUpWithEvent:(id)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:mouseUp:)]) {
+- (void)notifyMouseReleasedWithEvent:(id)event {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:mouseReleased:)]) {
     const auto mouseEvent([self mouseEventWithEvent:event
-        type:solas::app::MouseEvent::Type::UP]);
-    [_eventDelegate sender:self mouseUp:SLSMouseEventMake(&mouseEvent)];
+        type:solas::MouseEvent::Type::RELEASED]);
+    [_eventDelegate eventDelegate:self
+                    mouseReleased:SLSMouseEventMake(&mouseEvent)];
   }
 }
 
-- (void)notifyMouseMoveWithEvent:(id)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:mouseMove:)]) {
+- (void)notifyMouseMovedWithEvent:(id)event {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:mouseMoved:)]) {
     const auto mouseEvent([self mouseEventWithEvent:event
-        type:solas::app::MouseEvent::Type::MOVE]);
-    [_eventDelegate sender:self mouseMove:SLSMouseEventMake(&mouseEvent)];
+        type:solas::MouseEvent::Type::MOVED]);
+    [_eventDelegate eventDelegate:self
+                       mouseMoved:SLSMouseEventMake(&mouseEvent)];
   }
 }
 
-- (void)notifyMouseEnterWithEvent:(id)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:mouseEnter:)]) {
+- (void)notifyMouseEnteredWithEvent:(id)event {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:mouseEntered:)]) {
     const auto mouseEvent([self mouseEventWithEvent:event
-        type:solas::app::MouseEvent::Type::ENTER]);
-    [_eventDelegate sender:self mouseEnter:SLSMouseEventMake(&mouseEvent)];
+        type:solas::MouseEvent::Type::ENTERED]);
+    [_eventDelegate eventDelegate:self
+                     mouseEntered:SLSMouseEventMake(&mouseEvent)];
   }
 }
 
-- (void)notifyMouseExitWithEvent:(id)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:mouseExit:)]) {
+- (void)notifyMouseExitedWithEvent:(id)event {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:mouseExited:)]) {
     const auto mouseEvent([self mouseEventWithEvent:event
-        type:solas::app::MouseEvent::Type::EXIT]);
-    [_eventDelegate sender:self mouseExit:SLSMouseEventMake(&mouseEvent)];
+        type:solas::MouseEvent::Type::EXITED]);
+    [_eventDelegate eventDelegate:self
+                      mouseExited:SLSMouseEventMake(&mouseEvent)];
   }
 }
 
-- (void)notifyScrollWheelWithEvent:(id)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:scrollWheel:)]) {
+- (void)notifyMouseWheelWithEvent:(id)event {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:mouseWheel:)]) {
     const auto mouseEvent([self mouseEventWithEvent:event
-        type:solas::app::MouseEvent::Type::WHEEL]);
-    [_eventDelegate sender:self scrollWheel:SLSMouseEventMake(&mouseEvent)];
+        type:solas::MouseEvent::Type::WHEEL]);
+    [_eventDelegate eventDelegate:self
+                       mouseWheel:SLSMouseEventMake(&mouseEvent)];
   }
 }
 
-- (void)notifyKeyDownWithEvent:(id)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:keyDown:)]) {
+- (void)notifyKeyPressedWithEvent:(id)event {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:keyPressed:)]) {
     const auto keyEvent([self keyEventWithEvent:event
-        type:solas::app::KeyEvent::Type::DOWN]);
-    [_eventDelegate sender:self keyDown:SLSKeyEventMake(&keyEvent)];
+        type:solas::KeyEvent::Type::PRESSED]);
+    [_eventDelegate eventDelegate:self
+                       keyPressed:SLSKeyEventMake(&keyEvent)];
   }
 }
 
-- (void)notifyKeyUpWithEvent:(id)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:keyUp:)]) {
+- (void)notifyKeyReleasedWithEvent:(id)event {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:keyReleased:)]) {
     const auto keyEvent([self keyEventWithEvent:event
-        type:solas::app::KeyEvent::Type::UP]);
-    [_eventDelegate sender:self keyUp:SLSKeyEventMake(&keyEvent)];
+        type:solas::KeyEvent::Type::RELEASED]);
+    [_eventDelegate eventDelegate:self
+                      keyReleased:SLSKeyEventMake(&keyEvent)];
   }
 }
 
-- (void)notifyTouchesBeginWithEvent:(id)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:touchesBegin:)]) {
+- (void)notifyTouchesBeganWithEvent:(id)event {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:touchesBegan:)]) {
     const auto touchEvent([self touchEventWithEvent:event
-        type:solas::app::TouchEvent::Type::BEGIN]);
-    [_eventDelegate sender:self touchesBegin:SLSTouchEventMake(&touchEvent)];
+        type:solas::TouchEvent::Type::BEGAN]);
+    [_eventDelegate eventDelegate:self
+                     touchesBegan:SLSTouchEventMake(&touchEvent)];
   }
 }
 
-- (void)notifyTouchesMoveWithEvent:(id)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:touchesMove:)]) {
+- (void)notifyTouchesMovedWithEvent:(id)event {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:touchesMoved:)]) {
     const auto touchEvent([self touchEventWithEvent:event
-        type:solas::app::TouchEvent::Type::MOVE]);
-    [_eventDelegate sender:self touchesMove:SLSTouchEventMake(&touchEvent)];
+        type:solas::TouchEvent::Type::MOVED]);
+    [_eventDelegate eventDelegate:self
+                     touchesMoved:SLSTouchEventMake(&touchEvent)];
   }
 }
 
-- (void)notifyTouchesCancelWithEvent:(id)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:touchesCancel:)]) {
+- (void)notifyTouchesCancelledWithEvent:(id)event {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:touchesCancelled:)]) {
     const auto touchEvent([self touchEventWithEvent:event
-        type:solas::app::TouchEvent::Type::CANCEL]);
-    [_eventDelegate sender:self touchesCancel:SLSTouchEventMake(&touchEvent)];
+        type:solas::TouchEvent::Type::CANCELLED]);
+    [_eventDelegate eventDelegate:self
+                 touchesCancelled:SLSTouchEventMake(&touchEvent)];
   }
 }
 
-- (void)notifyTouchesEndWithEvent:(id)event {
-  if ([_eventDelegate respondsToSelector:@selector(sender:touchesEnd:)]) {
+- (void)notifyTouchesEndedWithEvent:(id)event {
+  if ([_eventDelegate respondsToSelector:
+          @selector(eventDelegate:touchesEnded:)]) {
     const auto touchEvent([self touchEventWithEvent:event
-        type:solas::app::TouchEvent::Type::END]);
-    [_eventDelegate sender:self touchesEnd:SLSTouchEventMake(&touchEvent)];
+        type:solas::TouchEvent::Type::ENDED]);
+    [_eventDelegate eventDelegate:self
+                     touchesEnded:SLSTouchEventMake(&touchEvent)];
   }
 }
 

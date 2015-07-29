@@ -1,21 +1,32 @@
 //
 //  SLSNSViewController.m
 //
-//  takram design engineering Confidential
+//  MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
-//  All information contained herein is, and remains the property of takram
-//  design engineering and its suppliers, if any. The intellectual and
-//  technical concepts contained herein are proprietary to takram design
-//  engineering and its suppliers and may be covered by U.S. and Foreign
-//  Patents, patents in process, and are protected by trade secret or copyright
-//  law. Dissemination of this information or reproduction of this material is
-//  strictly forbidden unless prior written permission is obtained from takram
-//  design engineering.
+//  Permission is hereby granted, free of charge, to any person obtaining a
+//  copy of this software and associated documentation files (the "Software"),
+//  to deal in the Software without restriction, including without limitation
+//  the rights to use, copy, modify, merge, publish, distribute, sublicense,
+//  and/or sell copies of the Software, and to permit persons to whom the
+//  Software is furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in
+//  all copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+//  THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+//  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+//  DEALINGS IN THE SOFTWARE.
 //
 
 #import "SLSNSViewController.h"
+
+#import <CoreGraphics/CoreGraphics.h>
 
 #import "SLSEventSource.h"
 #import "SLSDisplayLink.h"
@@ -77,6 +88,7 @@
   _contentView = [[viewClass alloc] initWithFrame:self.view.bounds];
   _contentView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
   [self.view addSubview:_contentView];
+  self.view.nextResponder = self;
 
   // Configure event and display sources
   NSAssert([_contentView conformsToProtocol:@protocol(SLSEventSource)], @"");
@@ -87,12 +99,41 @@
   _displaySource.displayDelegate = _runner;
 }
 
+- (void)mouseDown:(NSEvent *)event {
+  if (_runner.movesWindow) {
+    NSWindow *window = self.view.window;
+    CGPoint initialLocation = [window convertRectToScreen:
+        (CGRect){event.locationInWindow, CGSizeZero}].origin;
+    CGPoint initialOrigin = window.frame.origin;
+    NSUInteger eventMask = (NSLeftMouseDownMask |
+                            NSLeftMouseDraggedMask |
+                            NSLeftMouseUpMask);
+    event = [NSApp nextEventMatchingMask:eventMask
+                               untilDate:[NSDate distantFuture]
+                                  inMode:NSEventTrackingRunLoopMode
+                                 dequeue:YES];
+    while (event.type != NSLeftMouseUp) {
+      CGPoint location = [window convertRectToScreen:
+          (CGRect){event.locationInWindow, CGSizeZero}].origin;
+      [window setFrameOrigin:CGPointMake(
+          initialOrigin.x + round(location.x - initialLocation.x),
+          initialOrigin.y + round(location.y - initialLocation.y))];
+      event = [NSApp nextEventMatchingMask:eventMask
+                                 untilDate:[NSDate distantFuture]
+                                    inMode:NSEventTrackingRunLoopMode
+                                   dequeue:YES];
+    }
+  }
+}
+
 #pragma mark Managing the Runner
 
 - (void)setRunner:(SLSRunner *)runner {
   if (runner != _runner) {
     [self stopAnimation];
+    _runner.delegate = nil;
     _runner = runner;
+    _runner.delegate = self;
     [self setUpContentView];
     [self startAnimation];
   }
@@ -112,6 +153,23 @@
 - (void)stopAnimation {
   if (_displayLink) {
     [_displayLink stop];
+  }
+}
+
+#pragma mark SLSRunnerDelegate
+
+- (void)runner:(nonnull SLSRunner *)runner resize:(CGSize)size {
+  NSWindow *window = self.view.window;
+  CGRect contentRect = [window contentRectForFrameRect:window.frame];
+  contentRect.origin.y += contentRect.size.height - size.height;
+  contentRect.size = size;
+  [window setFrame:[window frameRectForContentRect:contentRect] display:YES];
+}
+
+- (void)runner:(nonnull SLSRunner *)runner fullscreen:(BOOL)flag {
+  BOOL actual = self.view.window.styleMask & NSFullScreenWindowMask;
+  if ((flag && !actual) || (!flag && actual)) {
+    [self.view.window toggleFullScreen:self];
   }
 }
 
