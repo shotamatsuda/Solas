@@ -99,78 +99,97 @@
 
 - (void)mouseDown:(NSEvent *)event {
   [self notifyMousePressedWithEvent:event];
+  [super mouseDown:event];
 }
 
 - (void)rightMouseDown:(NSEvent *)event {
   [self notifyMousePressedWithEvent:event];
+  [super rightMouseDown:event];
 }
 
 - (void)otherMouseDown:(NSEvent *)event {
   [self notifyMousePressedWithEvent:event];
+  [super otherMouseDown:event];
 }
 
 - (void)mouseUp:(NSEvent *)event {
   [self notifyMouseReleasedWithEvent:event];
+  [super mouseUp:event];
 }
 
 - (void)rightMouseUp:(NSEvent *)event {
   [self notifyMouseReleasedWithEvent:event];
+  [super rightMouseUp:event];
 }
 
 - (void)otherMouseUp:(NSEvent *)event {
   [self notifyMouseReleasedWithEvent:event];
+  [super otherMouseUp:event];
 }
 
 - (void)mouseDragged:(NSEvent *)event {
   [self notifyMouseDraggedWithEvent:event];
+  [super mouseDragged:event];
 }
 
 - (void)rightMouseDragged:(NSEvent *)event {
   [self notifyMouseDraggedWithEvent:event];
+  [super rightMouseDragged:event];
 }
 
 - (void)otherMouseDragged:(NSEvent *)event {
   [self notifyMouseDraggedWithEvent:event];
+  [super otherMouseDragged:event];
 }
 
 - (void)mouseMoved:(NSEvent *)event {
   [self notifyMouseMovedWithEvent:event];
+  [super mouseMoved:event];
 }
 
 - (void)mouseEntered:(NSEvent *)event {
   [self notifyMouseEnteredWithEvent:event];
+  [super mouseEntered:event];
 }
 
 - (void)mouseExited:(NSEvent *)event {
   [self notifyMouseExitedWithEvent:event];
+  [super mouseExited:event];
 }
 
 - (void)scrollWheel:(NSEvent *)event {
   [self notifyMouseWheelWithEvent:event];
+  [super scrollWheel:event];
 }
 
 - (void)keyDown:(NSEvent *)event {
   [self notifyKeyPressedWithEvent:event];
+  [super keyDown:event];
 }
 
 - (void)keyUp:(NSEvent *)event {
   [self notifyKeyReleasedWithEvent:event];
+  [super keyUp:event];
 }
 
 - (void)touchesBeganWithEvent:(NSEvent *)event {
   [self notifyTouchesBeganWithEvent:event];
+  [super touchesBeganWithEvent:event];
 }
 
 - (void)touchesMovedWithEvent:(NSEvent *)event {
   [self notifyTouchesMovedWithEvent:event];
+  [super touchesMovedWithEvent:event];
 }
 
 - (void)touchesCancelledWithEvent:(NSEvent *)event {
   [self notifyTouchesCancelledWithEvent:event];
+  [super touchesCancelledWithEvent:event];
 }
 
 - (void)touchesEndedWithEvent:(NSEvent *)event {
   [self notifyTouchesEndedWithEvent:event];
+  [super touchesEndedWithEvent:event];
 }
 
 #pragma mark Initialization

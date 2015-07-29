@@ -28,6 +28,8 @@
 #ifndef SOLAS_RUN_OPTIONS_H_
 #define SOLAS_RUN_OPTIONS_H_
 
+#include "solas/runner_options.h"
+
 namespace solas {
 
 class RunOptions final {
@@ -43,6 +45,8 @@ class RunOptions final {
   bool operator!=(const RunOptions& other) const;
 
   // Properties
+  RunnerOptions& runner_options() { return runner_options_; }
+  const RunnerOptions& runner_options() const { return runner_options_; }
   bool multiple_windows() const { return multiple_windows_; }
   void set_multiple_windows(bool value) { multiple_windows_ = value; }
   bool dark_content() const { return dark_content_; }
@@ -51,6 +55,7 @@ class RunOptions final {
   void set_full_size_content(bool value) { full_size_content_ = value; }
 
  private:
+  RunnerOptions runner_options_;
   bool multiple_windows_;
   bool dark_content_;
   bool full_size_content_;
@@ -66,7 +71,8 @@ inline RunOptions::RunOptions()
 #pragma mark Comparison
 
 inline bool RunOptions::operator==(const RunOptions& other) const {
-  return (multiple_windows_ == other.multiple_windows_ &&
+  return (runner_options_ == other.runner_options_ &&
+          multiple_windows_ == other.multiple_windows_ &&
           dark_content_ == other.dark_content_ &&
           full_size_content_ == other.full_size_content_);
 }

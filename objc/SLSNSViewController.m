@@ -88,6 +88,7 @@
   _contentView = [[viewClass alloc] initWithFrame:self.view.bounds];
   _contentView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
   [self.view addSubview:_contentView];
+  self.view.nextResponder = self;
 
   // Configure event and display sources
   NSAssert([_contentView conformsToProtocol:@protocol(SLSEventSource)], @"");
@@ -96,6 +97,33 @@
   _displaySource = (id<SLSDisplaySource>)_contentView;
   _eventSource.eventDelegate = _runner;
   _displaySource.displayDelegate = _runner;
+}
+
+- (void)mouseDown:(NSEvent *)event {
+  if (_runner.movesWindow) {
+    NSWindow *window = self.view.window;
+    CGPoint initialLocation = [window convertRectToScreen:
+        (CGRect){event.locationInWindow, CGSizeZero}].origin;
+    CGPoint initialOrigin = window.frame.origin;
+    NSUInteger eventMask = (NSLeftMouseDownMask |
+                            NSLeftMouseDraggedMask |
+                            NSLeftMouseUpMask);
+    event = [NSApp nextEventMatchingMask:eventMask
+                               untilDate:[NSDate distantFuture]
+                                  inMode:NSEventTrackingRunLoopMode
+                                 dequeue:YES];
+    while (event.type != NSLeftMouseUp) {
+      CGPoint location = [window convertRectToScreen:
+          (CGRect){event.locationInWindow, CGSizeZero}].origin;
+      [window setFrameOrigin:CGPointMake(
+          initialOrigin.x + round(location.x - initialLocation.x),
+          initialOrigin.y + round(location.y - initialLocation.y))];
+      event = [NSApp nextEventMatchingMask:eventMask
+                                 untilDate:[NSDate distantFuture]
+                                    inMode:NSEventTrackingRunLoopMode
+                                   dequeue:YES];
+    }
+  }
 }
 
 #pragma mark Managing the Runner

@@ -78,8 +78,9 @@ inline int run(int argc, char **argv, const RunOptions& options) {
 template <class Runnable>
 inline void Run::set(const RunOptions& options) {
   options_ = options;
-  invocation_ = []() -> std::unique_ptr<Runner> {
-    return std::make_unique<Runner>(std::make_unique<Runnable>());
+  invocation_ = [this]() -> std::unique_ptr<Runner> {
+    return std::make_unique<Runner>(std::make_unique<Runnable>(),
+                                    options_.runner_options());
   };
 }
 
