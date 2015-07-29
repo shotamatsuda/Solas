@@ -31,3 +31,8 @@ BOOST_HEADER_SEARCH_PATHS[sdk=iphonesimulator*] = "$(SOLAS_DIR)/build/boost/incl
 BOOST_LIBRARY_SEARCH_PATHS[sdk=macosx*] = "/usr/local/lib"
 BOOST_LIBRARY_SEARCH_PATHS[sdk=iphoneos*] = "$(SOLAS_DIR)/build/boost/lib"
 BOOST_LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*] = "$(SOLAS_DIR)/build/boost/lib"
+
+// Linking
+SOLAS_OTHER_LDFLAGS[sdk=macosx*] = -framework AppKit -framework CoreGraphics -framework Foundation -framework GLKit -framework ImageIO -framework OpenGL -framework QuartzCore
+SOLAS_OTHER_LDFLAGS[sdk=iphoneos*] = -framework CoreGraphics -framework Foundation -framework GLKit -framework ImageIO -framework MobileCoreServices -framework OpenGLES -framework QuartzCore -framework UIKit
+SOLAS_OTHER_LDFLAGS[sdk=iphonesimulator*] = -framework CoreGraphics -framework Foundation -framework GLKit -framework ImageIO -framework MobileCoreServices -framework OpenGLES -framework QuartzCore -framework UIKit

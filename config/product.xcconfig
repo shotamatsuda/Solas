@@ -32,6 +32,4 @@ HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/src" "$(PROJECT_DIR)/objc" "$
 LIBRARY_SEARCH_PATHS = $(inherited) $(BOOST_LIBRARY_SEARCH_PATHS)
 
 // Linking
-OTHER_LDFLAGS[sdk=macosx*] = $(inherited) -framework AppKit -framework CoreGraphics -framework Foundation -framework GLKit -framework ImageIO -framework OpenGL -framework QuartzCore
-OTHER_LDFLAGS[sdk=iphoneos*] = $(inherited) -framework CoreGraphics -framework Foundation -framework GLKit -framework ImageIO -framework MobileCoreServices -framework OpenGLES -framework QuartzCore -framework UIKit
-OTHER_LDFLAGS[sdk=iphonesimulator*] = $(inherited) -framework CoreGraphics -framework Foundation -framework GLKit -framework ImageIO -framework MobileCoreServices -framework OpenGLES -framework QuartzCore -framework UIKit
+OTHER_LDFLAGS = $(inherited) $(SOLAS_OTHER_LDFLAGS)
