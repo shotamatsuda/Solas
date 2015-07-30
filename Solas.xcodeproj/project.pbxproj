@@ -453,8 +453,8 @@
 			isa = PBXGroup;
 			children = (
 				93E913581AB27DE400DDF7F9 /* Solas.framework */,
-				93F8580F1B564B0500C32E8D /* Solas.framework */,
 				936E241F1ADEA5550004C396 /* libSolas.a */,
+				93F8580F1B564B0500C32E8D /* Solas.framework */,
 				930398491AB2B0DF00577048 /* SolasTest */,
 			);
 			name = products;
@@ -482,9 +482,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		930398481AB2B0DF00577048 /* SolasTest */ = {
+		930398481AB2B0DF00577048 /* Solas Test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9303984D1AB2B0DF00577048 /* Build configuration list for PBXNativeTarget "SolasTest" */;
+			buildConfigurationList = 9303984D1AB2B0DF00577048 /* Build configuration list for PBXNativeTarget "Solas Test" */;
 			buildPhases = (
 				930398451AB2B0DF00577048 /* Sources */,
 				930398461AB2B0DF00577048 /* Frameworks */,
@@ -495,14 +495,14 @@
 			dependencies = (
 				93E33C911AEBB6F7001F90DE /* PBXTargetDependency */,
 			);
-			name = SolasTest;
+			name = "Solas Test";
 			productName = SolasTest;
 			productReference = 930398491AB2B0DF00577048 /* SolasTest */;
 			productType = "com.apple.product-type.tool";
 		};
-		936E241E1ADEA5550004C396 /* SolasStatic */ = {
+		936E241E1ADEA5550004C396 /* Solas Static */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 936E24301ADEA5560004C396 /* Build configuration list for PBXNativeTarget "SolasStatic" */;
+			buildConfigurationList = 936E24301ADEA5560004C396 /* Build configuration list for PBXNativeTarget "Solas Static" */;
 			buildPhases = (
 				936E241B1ADEA5550004C396 /* Sources */,
 				936E241C1ADEA5550004C396 /* Frameworks */,
@@ -513,7 +513,7 @@
 			dependencies = (
 				933113B01B5C530800449CDE /* PBXTargetDependency */,
 			);
-			name = SolasStatic;
+			name = "Solas Static";
 			productName = SolasStatic;
 			productReference = 936E241F1ADEA5550004C396 /* libSolas.a */;
 			productType = "com.apple.product-type.library.static";
@@ -599,9 +599,9 @@
 			projectRoot = "";
 			targets = (
 				93E913571AB27DE400DDF7F9 /* Solas */,
+				936E241E1ADEA5550004C396 /* Solas Static */,
 				93F857C21B564B0500C32E8D /* Solas iOS */,
-				936E241E1ADEA5550004C396 /* SolasStatic */,
-				930398481AB2B0DF00577048 /* SolasTest */,
+				930398481AB2B0DF00577048 /* Solas Test */,
 			);
 		};
 /* End PBXProject section */
@@ -801,7 +801,7 @@
 		};
 		93E33C911AEBB6F7001F90DE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 936E241E1ADEA5550004C396 /* SolasStatic */;
+			target = 936E241E1ADEA5550004C396 /* Solas Static */;
 			targetProxy = 93E33C901AEBB6F7001F90DE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -959,7 +959,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9303984D1AB2B0DF00577048 /* Build configuration list for PBXNativeTarget "SolasTest" */ = {
+		9303984D1AB2B0DF00577048 /* Build configuration list for PBXNativeTarget "Solas Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9303984E1AB2B0DF00577048 /* Debug */,
@@ -968,7 +968,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		936E24301ADEA5560004C396 /* Build configuration list for PBXNativeTarget "SolasStatic" */ = {
+		936E24301ADEA5560004C396 /* Build configuration list for PBXNativeTarget "Solas Static" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				936E24311ADEA5560004C396 /* Debug */,

@@ -80,7 +80,7 @@ inline void Run::set(const RunOptions& options) {
   options_ = options;
   invocation_ = [this]() -> std::unique_ptr<Runner> {
     return std::make_unique<Runner>(std::make_unique<Runnable>(),
-                                    options_.runner_options());
+                                    options_.runner());
   };
 }
 
