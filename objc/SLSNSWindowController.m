@@ -29,6 +29,12 @@
 #import "SLSNSBundle+Bundle.h"
 #import "SLSNSViewController.h"
 
+@interface SLSNSWindowController ()
+
+@property (nonatomic, strong) IBOutlet NSView *contentView;
+
+@end
+
 @implementation SLSNSWindowController
 
 - (instancetype)initWithViewController:(SLSNSViewController *)viewController {
@@ -44,10 +50,11 @@
 
 - (void)windowDidLoad {
   [super windowDidLoad];
+  self.window.movableByWindowBackground = YES;
   NSView *view = _viewController.view;
-  view.frame = ((NSView *)self.window.contentView).frame;
+  view.frame = self.contentView.bounds;
   view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
-  [self.window.contentView addSubview:view];
+  [self.contentView addSubview:view];
 }
 
 #pragma mark Configuring the Window Appearance

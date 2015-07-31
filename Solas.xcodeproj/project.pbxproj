@@ -35,6 +35,8 @@
 		9383C0D81B685D3C0021D738 /* solas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9383C0D41B685D3C0021D738 /* solas.mm */; };
 		9383C0D91B685D3C0021D738 /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 9383C0D51B685D3C0021D738 /* solas.h */; };
 		9383C0DA1B685D3C0021D738 /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 9383C0D51B685D3C0021D738 /* solas.h */; };
+		93A761AD1B6B4C38006DDE12 /* SLSNSSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A761AC1B6B4C35006DDE12 /* SLSNSSplitView.m */; };
+		93A761AE1B6B4C38006DDE12 /* SLSNSSplitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93A761AC1B6B4C35006DDE12 /* SLSNSSplitView.m */; };
 		93AD7CEB1ADD395500B42B9E /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
 		93CAA60E1AD191DC005EDC09 /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
 		93CAA6491AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */; };
@@ -175,6 +177,8 @@
 		93A45B531AD14C4400969DC2 /* touch_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = touch_event.h; sourceTree = "<group>"; };
 		93A45B5E1AD14DC200969DC2 /* SLSEvents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSEvents.h; sourceTree = "<group>"; };
 		93A45B5F1AD1546300969DC2 /* SLSEventDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSEventDelegate.h; sourceTree = "<group>"; };
+		93A761AB1B6B4C35006DDE12 /* SLSNSSplitView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSNSSplitView.h; sourceTree = "<group>"; };
+		93A761AC1B6B4C35006DDE12 /* SLSNSSplitView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLSNSSplitView.m; sourceTree = "<group>"; };
 		93AD7CB51ADCA31900B42B9E /* SLSDisplaySource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDisplaySource.h; sourceTree = "<group>"; };
 		93AD7CE11ADD395500B42B9E /* group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = group.h; sourceTree = "<group>"; };
 		93AD7CE21ADD395500B42B9E /* event_holder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event_holder.h; sourceTree = "<group>"; };
@@ -393,6 +397,8 @@
 				93F8587F1B56535B00C32E8D /* SLSNSEventSourceView.mm */,
 				93F858801B56535B00C32E8D /* SLSNSView.h */,
 				93F858811B56535B00C32E8D /* SLSNSView.m */,
+				93A761AB1B6B4C35006DDE12 /* SLSNSSplitView.h */,
+				93A761AC1B6B4C35006DDE12 /* SLSNSSplitView.m */,
 				93F858821B56535B00C32E8D /* SLSNSOpenGLView.h */,
 				93F858831B56535B00C32E8D /* SLSNSOpenGLView.m */,
 				93F858841B56535B00C32E8D /* SLSNSOpenGL3View.h */,
@@ -713,6 +719,7 @@
 				936E248B1ADEA5A80004C396 /* SLSRunner.mm in Sources */,
 				93563B9E1B677EB9004C47E4 /* SLSNSQuartzView.m in Sources */,
 				93563B961B677EB9004C47E4 /* SLSNSWindowController.m in Sources */,
+				93A761AE1B6B4C38006DDE12 /* SLSNSSplitView.m in Sources */,
 				93563B9B1B677EB9004C47E4 /* SLSNSOpenGL3View.m in Sources */,
 				93563B971B677EB9004C47E4 /* SLSNSViewController.m in Sources */,
 				936E24901ADEA5A80004C396 /* SLSQuartzLayer.mm in Sources */,
@@ -739,6 +746,7 @@
 				93F8589C1B56535B00C32E8D /* SLSNSView.m in Sources */,
 				93CAA6491AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */,
 				93CAA60E1AD191DC005EDC09 /* SLSRunner.mm in Sources */,
+				93A761AD1B6B4C38006DDE12 /* SLSNSSplitView.m in Sources */,
 				93F858A01B56535B00C32E8D /* SLSNSOpenGL3View.m in Sources */,
 				93F858981B56535B00C32E8D /* SLSNSViewController.m in Sources */,
 				93F858A41B56535B00C32E8D /* SLSNSOpenGLLayer.mm in Sources */,
