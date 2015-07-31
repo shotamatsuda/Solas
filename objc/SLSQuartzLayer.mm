@@ -61,9 +61,11 @@
 #pragma mark Invalidating the Display Source
 
 - (void)setDisplaySourceNeedsDisplay {
+  // Don't wait until done here because CVDisplayLinkStop call on
+  // CVDisplayLink's deallocation on the main thread will result in deadlock.
   [self performSelectorOnMainThread:@selector(setNeedsDisplay)
                          withObject:nil
-                      waitUntilDone:YES];
+                      waitUntilDone:NO];
 }
 
 @end
