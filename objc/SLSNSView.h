@@ -31,6 +31,8 @@
 
 @interface SLSNSView : SLSNSEventSourceView <SLSDisplaySource>
 
+- (void)setMouseDownCanMoveWindow:(BOOL)flag;
+
 #pragma mark Invalidating the Display Source
 
 - (void)setDisplaySourceNeedsDisplay;

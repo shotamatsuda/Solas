@@ -49,23 +49,28 @@ class RunnerOptions final {
   void set_backend(Backend value) { backend_ = value; }
   bool translates_touches() const { return translates_touches_; }
   void set_translates_touches(bool value) { translates_touches_ = value; }
+  bool moves_window() const { return moves_window_; }
+  void set_moves_window(bool value) { moves_window_ = value; }
 
  private:
   Backend backend_;
   bool translates_touches_;
+  bool moves_window_;
 };
 
 #pragma mark -
 
 inline RunnerOptions::RunnerOptions()
     : backend_(Backend::OPENGL2 | Backend::OPENGLES2),
-      translates_touches_(true) {}
+      translates_touches_(true),
+      moves_window_(false) {}
 
 #pragma mark Comparison
 
 inline bool RunnerOptions::operator==(const RunnerOptions& other) const {
   return (backend_ == other.backend_ &&
-          translates_touches_ == other.translates_touches_);
+          translates_touches_ == other.translates_touches_ &&
+          moves_window_ == other.moves_window_);
 }
 
 inline bool RunnerOptions::operator!=(const RunnerOptions& other) const {

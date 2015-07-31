@@ -91,10 +91,6 @@
   return YES;
 }
 
-- (BOOL)mouseDownCanMoveWindow {
-  return YES;
-}
-
 #pragma mark Responding to Events
 
 - (void)mouseDown:(NSEvent *)event {
