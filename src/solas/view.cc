@@ -1,5 +1,5 @@
 //
-//  solas/canvas.cc
+//  solas/view.cc
 //
 //  MIT License
 //
@@ -24,7 +24,7 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include "solas/canvas.h"
+#include "solas/view.h"
 
 #include <cassert>
 
@@ -35,7 +35,7 @@ namespace solas {
 
 #pragma mark Lifecycle
 
-void Canvas::setup(const AppEvent& event, const Runner& runner) {
+void View::setup(const AppEvent& event, const Runner& runner) {
   size_ = event.size();
   scale_ = event.scale();
   setup(event);
@@ -43,13 +43,13 @@ void Canvas::setup(const AppEvent& event, const Runner& runner) {
   app_event_signals_[AppEvent::Type::SETUP](event);
 }
 
-void Canvas::update(const AppEvent& event, const Runner& runner) {
+void View::update(const AppEvent& event, const Runner& runner) {
   update(event);
   update();
   app_event_signals_[AppEvent::Type::UPDATE](event);
 }
 
-void Canvas::pre(const AppEvent& event, const Runner& runner) {
+void View::pre(const AppEvent& event, const Runner& runner) {
   dequeueEvents();
   size_ = event.size();
   scale_ = event.scale();
@@ -60,13 +60,13 @@ void Canvas::pre(const AppEvent& event, const Runner& runner) {
   app_event_signals_[AppEvent::Type::PRE](event);
 }
 
-void Canvas::draw(const AppEvent& event, const Runner& runner) {
+void View::draw(const AppEvent& event, const Runner& runner) {
   draw(event);
   draw();
   app_event_signals_[AppEvent::Type::DRAW](event);
 }
 
-void Canvas::post(const AppEvent& event, const Runner& runner) {
+void View::post(const AppEvent& event, const Runner& runner) {
   post(event);
   post();
   app_event_signals_[AppEvent::Type::POST](event);
@@ -82,7 +82,7 @@ void Canvas::post(const AppEvent& event, const Runner& runner) {
   }
 }
 
-void Canvas::exit(const AppEvent& event, const Runner& runner) {
+void View::exit(const AppEvent& event, const Runner& runner) {
   exit(event);
   exit();
   app_event_signals_[AppEvent::Type::EXIT](event);
@@ -90,7 +90,7 @@ void Canvas::exit(const AppEvent& event, const Runner& runner) {
 
 #pragma mark Event handlers
 
-void Canvas::handleMouseEvent(const MouseEvent& event) {
+void View::handleMouseEvent(const MouseEvent& event) {
   if (event.type() == MouseEvent::Type::PRESSED ||
       event.type() == MouseEvent::Type::DRAGGED ||
       event.type() == MouseEvent::Type::MOVED) {
@@ -153,7 +153,7 @@ void Canvas::handleMouseEvent(const MouseEvent& event) {
   }
 }
 
-void Canvas::handleKeyEvent(const KeyEvent& event) {
+void View::handleKeyEvent(const KeyEvent& event) {
   switch (event.type()) {
     case KeyEvent::Type::PRESSED:
       keyPressed(event);
@@ -170,7 +170,7 @@ void Canvas::handleKeyEvent(const KeyEvent& event) {
   }
 }
 
-void Canvas::handleTouchEvent(const TouchEvent& event) {
+void View::handleTouchEvent(const TouchEvent& event) {
   if (event.type() == TouchEvent::Type::BEGAN) {
     ptouch_ = etouch_;
     touch_ = event.touches().front();
@@ -219,7 +219,7 @@ void Canvas::handleTouchEvent(const TouchEvent& event) {
   }
 }
 
-void Canvas::handleGestureEvent(const GestureEvent& event) {
+void View::handleGestureEvent(const GestureEvent& event) {
   switch (event.type()) {
     case GestureEvent::Type::BEGAN:
       gestureBegan(event);
@@ -246,7 +246,7 @@ void Canvas::handleGestureEvent(const GestureEvent& event) {
   }
 }
 
-void Canvas::handleMotionEvent(const MotionEvent& event) {
+void View::handleMotionEvent(const MotionEvent& event) {
   switch (event.type()) {
     case MotionEvent::Type::BEGAN:
       motionBegan(event);

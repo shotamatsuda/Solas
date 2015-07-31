@@ -38,7 +38,6 @@ extern const unsigned char version_string[];
 
 #include "solas/app_event.h"
 #include "solas/backend.h"
-#include "solas/canvas.h"
 #include "solas/composite.h"
 #include "solas/enum.h"
 #include "solas/event_holder.h"
@@ -58,6 +57,7 @@ extern const unsigned char version_string[];
 #include "solas/screen_edge.h"
 #include "solas/swipe_direction.h"
 #include "solas/touch_event.h"
+#include "solas/view.h"
 
 #endif  // __cplusplus
 

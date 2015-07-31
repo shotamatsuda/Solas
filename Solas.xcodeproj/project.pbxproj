@@ -23,7 +23,7 @@
 		93563BA01B677EB9004C47E4 /* SLSNSApplicationMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588D1B56535B00C32E8D /* SLSNSApplicationMain.m */; };
 		93563BA11B677EB9004C47E4 /* SLSNSApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588F1B56535B00C32E8D /* SLSNSApplicationDelegate.mm */; };
 		936E24461ADEA5A80004C396 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
-		936E24481ADEA5A80004C396 /* canvas.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* canvas.cc */; };
+		936E24481ADEA5A80004C396 /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
 		936E248B1ADEA5A80004C396 /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
 		936E24901ADEA5A80004C396 /* SLSQuartzLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 937E13941ADBDEB9008DB7A7 /* SLSQuartzLayer.mm */; };
 		936E24981ADEA5A80004C396 /* SLSNSBundle+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */; };
@@ -35,7 +35,7 @@
 		9383C0D81B685D3C0021D738 /* solas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9383C0D41B685D3C0021D738 /* solas.mm */; };
 		9383C0D91B685D3C0021D738 /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 9383C0D51B685D3C0021D738 /* solas.h */; };
 		9383C0DA1B685D3C0021D738 /* solas.h in Headers */ = {isa = PBXBuildFile; fileRef = 9383C0D51B685D3C0021D738 /* solas.h */; };
-		93AD7CEB1ADD395500B42B9E /* canvas.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* canvas.cc */; };
+		93AD7CEB1ADD395500B42B9E /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
 		93CAA60E1AD191DC005EDC09 /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
 		93CAA6491AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6461AD1A843005EDC09 /* SLSNSBundle+Bundle.m */; };
 		93CAA6541AD1AE32005EDC09 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
@@ -44,7 +44,7 @@
 		93F857CB1B564B0500C32E8D /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
 		93F857CF1B564B0500C32E8D /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		93F857D11B564B0500C32E8D /* SLSQuartzLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 937E13941ADBDEB9008DB7A7 /* SLSQuartzLayer.mm */; };
-		93F857D21B564B0500C32E8D /* canvas.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* canvas.cc */; };
+		93F857D21B564B0500C32E8D /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
 		93F858951B56535B00C32E8D /* SLSNSWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8587A1B56535B00C32E8D /* SLSNSWindowController.m */; };
 		93F858961B56535B00C32E8D /* SLSNSWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F8587B1B56535B00C32E8D /* SLSNSWindowController.xib */; };
 		93F858981B56535B00C32E8D /* SLSNSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8587D1B56535B00C32E8D /* SLSNSViewController.m */; };
@@ -144,7 +144,7 @@
 
 /* Begin PBXFileReference section */
 		930398371AB2AEF400577048 /* enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = enum.h; sourceTree = "<group>"; };
-		930398491AB2B0DF00577048 /* SolasTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SolasTest; sourceTree = BUILT_PRODUCTS_DIR; };
+		930398491AB2B0DF00577048 /* SolasTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = SolasTest; path = "Solas Test"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9321018C1B48CE0400A63200 /* test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = test.xcconfig; sourceTree = "<group>"; };
 		9321018D1B48CE0400A63200 /* product.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = product.xcconfig; sourceTree = "<group>"; };
 		932101901B48CE0400A63200 /* project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
@@ -178,8 +178,8 @@
 		93AD7CB51ADCA31900B42B9E /* SLSDisplaySource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDisplaySource.h; sourceTree = "<group>"; };
 		93AD7CE11ADD395500B42B9E /* group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = group.h; sourceTree = "<group>"; };
 		93AD7CE21ADD395500B42B9E /* event_holder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event_holder.h; sourceTree = "<group>"; };
-		93AD7CE31ADD395500B42B9E /* canvas.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = canvas.cc; sourceTree = "<group>"; };
-		93AD7CE41ADD395500B42B9E /* canvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = canvas.h; sourceTree = "<group>"; };
+		93AD7CE31ADD395500B42B9E /* view.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = view.cc; sourceTree = "<group>"; };
+		93AD7CE41ADD395500B42B9E /* view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view.h; sourceTree = "<group>"; };
 		93B4749D1B64CEF000613FB6 /* shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = shared.xcconfig; sourceTree = "<group>"; };
 		93B707DA1AD692DF00E3E8AA /* app_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = app_event.h; sourceTree = "<group>"; };
 		93CAA6081AD16EED005EDC09 /* key_modifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = key_modifier.h; sourceTree = "<group>"; };
@@ -344,8 +344,6 @@
 			children = (
 				93B707DA1AD692DF00E3E8AA /* app_event.h */,
 				933FD52C1AEB22F7003AEC6C /* backend.h */,
-				93AD7CE41ADD395500B42B9E /* canvas.h */,
-				93AD7CE31ADD395500B42B9E /* canvas.cc */,
 				93ED100E1B01D69E003F5915 /* composite.h */,
 				930398371AB2AEF400577048 /* enum.h */,
 				93AD7CE21ADD395500B42B9E /* event_holder.h */,
@@ -370,6 +368,8 @@
 				93547E781AF1267B00B4C6BE /* screen_edge.h */,
 				935058CE1AEF6E2E0020E755 /* swipe_direction.h */,
 				93A45B531AD14C4400969DC2 /* touch_event.h */,
+				93AD7CE41ADD395500B42B9E /* view.h */,
+				93AD7CE31ADD395500B42B9E /* view.cc */,
 			);
 			path = solas;
 			sourceTree = "<group>";
@@ -721,7 +721,7 @@
 				93563B991B677EB9004C47E4 /* SLSNSView.m in Sources */,
 				936E24981ADEA5A80004C396 /* SLSNSBundle+Bundle.m in Sources */,
 				93563B9F1B677EB9004C47E4 /* SLSCVDisplayLink.m in Sources */,
-				936E24481ADEA5A80004C396 /* canvas.cc in Sources */,
+				936E24481ADEA5A80004C396 /* view.cc in Sources */,
 				9383C0D81B685D3C0021D738 /* solas.mm in Sources */,
 				937D92011AF6C0BC000D8302 /* framebuffer.cc in Sources */,
 				936E24461ADEA5A80004C396 /* run.mm in Sources */,
@@ -752,7 +752,7 @@
 				93F858A21B56535B00C32E8D /* SLSNSOpenGL4View.m in Sources */,
 				93F858A81B56535B00C32E8D /* SLSNSApplicationMain.m in Sources */,
 				93F858AA1B56535B00C32E8D /* SLSNSApplicationDelegate.mm in Sources */,
-				93AD7CEB1ADD395500B42B9E /* canvas.cc in Sources */,
+				93AD7CEB1ADD395500B42B9E /* view.cc in Sources */,
 				93F858A71B56535B00C32E8D /* SLSCVDisplayLink.m in Sources */,
 				93F8589E1B56535B00C32E8D /* SLSNSOpenGLView.m in Sources */,
 			);
@@ -777,7 +777,7 @@
 				93F858CE1B56536000C32E8D /* SLSUIQuartzView.m in Sources */,
 				93F857D11B564B0500C32E8D /* SLSQuartzLayer.mm in Sources */,
 				93F858CC1B56536000C32E8D /* SLSUIOpenGLES3View.m in Sources */,
-				93F857D21B564B0500C32E8D /* canvas.cc in Sources */,
+				93F857D21B564B0500C32E8D /* view.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

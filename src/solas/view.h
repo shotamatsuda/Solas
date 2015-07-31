@@ -1,5 +1,5 @@
 //
-//  solas/canvas.h
+//  solas/view.h
 //
 //  MIT License
 //
@@ -25,8 +25,8 @@
 //
 
 #pragma once
-#ifndef SOLAS_CANVAS_H_
-#define SOLAS_CANVAS_H_
+#ifndef SOLAS_VIEW_H_
+#define SOLAS_VIEW_H_
 
 #include <cstdint>
 #include <list>
@@ -52,7 +52,7 @@ namespace solas {
 
 class Runner;
 
-class Canvas : public Runnable, public Composite {
+class View : public Runnable, public Composite {
  public:
   using EventConnection = boost::signals2::connection;
   using EventConnectionList = std::list<boost::signals2::scoped_connection>;
@@ -67,23 +67,23 @@ class Canvas : public Runnable, public Composite {
   template <class Event, class Type = typename Event::Type>
   struct EventConnector {
     template <class Slot>
-    static EventConnection connect(Type type, const Slot& slot, Canvas *canvas);
+    static EventConnection connect(Type type, const Slot& slot, View *view);
 
     template <class Slot>
-    static void disconnect(Type type, const Slot& slot, Canvas *canvas);
+    static void disconnect(Type type, const Slot& slot, View *view);
   };
 
  public:
-  Canvas();
-  virtual ~Canvas() = 0;
+  View();
+  virtual ~View() = 0;
 
   // Disallow copy semantics
-  Canvas(const Canvas& other) = delete;
-  Canvas& operator=(const Canvas& other) = delete;
+  View(const View& other) = delete;
+  View& operator=(const View& other) = delete;
 
   // Move semantics
-  Canvas(Canvas&& other) = default;
-  Canvas& operator=(Canvas&& other) = default;
+  View(View&& other) = default;
+  View& operator=(View&& other) = default;
 
   // Environment
   void resize(const Size2d& size) const;
@@ -261,7 +261,7 @@ class Canvas : public Runnable, public Composite {
 
 #pragma mark -
 
-inline Canvas::Canvas()
+inline View::View()
     : scale_(),
       mouse_button_(MouseButton::UNDEFINED),
       mouse_pressed_(),
@@ -270,117 +270,117 @@ inline Canvas::Canvas()
       key_pressed_(),
       touch_pressed_() {}
 
-inline Canvas::~Canvas() {}
+inline View::~View() {}
 
 #pragma mark Environment
 
-inline void Canvas::resize(const Size2d& size) const {
+inline void View::resize(const Size2d& size) const {
   resize_.first = true;
   resize_.second = size;
 }
 
-inline void Canvas::fullscreen(bool flag) const {
+inline void View::fullscreen(bool flag) const {
   fullscreen_.first = true;
   fullscreen_.second = true;
 }
 
 #pragma mark Structure
 
-inline double Canvas::width() const {
+inline double View::width() const {
   return size_.width;
 }
 
-inline double Canvas::height() const {
+inline double View::height() const {
   return size_.height;
 }
 
-inline double Canvas::scale() const {
+inline double View::scale() const {
   return scale_;
 }
 
-inline const Size2d& Canvas::size() const {
+inline const Size2d& View::size() const {
   return size_;
 }
 
 #pragma mark Mouse
 
-inline const Vec2d& Canvas::mouse() const {
+inline const Vec2d& View::mouse() const {
   return mouse_;
 }
 
-inline const Vec2d& Canvas::pmouse() const {
+inline const Vec2d& View::pmouse() const {
   return pmouse_;
 }
 
-inline MouseButton Canvas::mouse_button() const {
+inline MouseButton View::mouse_button() const {
   return mouse_button_;
 }
 
-inline bool Canvas::mouse_pressed() const {
+inline bool View::mouse_pressed() const {
   return mouse_pressed_;
 }
 
 #pragma mark Key
 
-inline char Canvas::key() const {
+inline char View::key() const {
   return key_;
 }
 
-inline std::uint32_t Canvas::key_code() const {
+inline std::uint32_t View::key_code() const {
   return key_code_;
 }
 
-inline bool Canvas::key_pressed() const {
+inline bool View::key_pressed() const {
   return key_pressed_;
 }
 
 #pragma mark Touches
 
-inline const Vec2d& Canvas::touch() const {
+inline const Vec2d& View::touch() const {
   return touch_;
 }
 
-inline const Vec2d& Canvas::ptouch() const {
+inline const Vec2d& View::ptouch() const {
   return ptouch_;
 }
 
-inline bool Canvas::touch_pressed() const {
+inline bool View::touch_pressed() const {
   return touch_pressed_;
 }
 
 #pragma mark Aggregation
 
-inline Composite * Canvas::parent() const {
+inline Composite * View::parent() const {
   return nullptr;
 }
 
 #pragma mark Event connection
 
 template <class Event, class Slot, class Type>
-inline Canvas::EventConnection Canvas::connect(Type type, const Slot& slot) {
+inline View::EventConnection View::connect(Type type, const Slot& slot) {
   return EventConnector<Event>::connect(type, slot, this);
 }
 
 template <class Event, class Slot, class Type>
-inline void Canvas::disconnect(Type type, const Slot& slot) {
+inline void View::disconnect(Type type, const Slot& slot) {
   EventConnector<Event>::disconnect(type, slot, this);
 }
 
 #pragma mark Event handlers
 
 template <class Event>
-inline void Canvas::enqueueEvent(const Event& event) {
+inline void View::enqueueEvent(const Event& event) {
   event_queue_.emplace(event);
 }
 
-inline void Canvas::dequeueEvents() {
+inline void View::dequeueEvents() {
   while (!event_queue_.empty()) {
     handleEvent(event_queue_.front());
     event_queue_.pop();
   }
 }
 
-inline void Canvas::handleEvent(const EventHolder& event) {
+inline void View::handleEvent(const EventHolder& event) {
   switch (event.type()) {
     case EventHolder::Type::MOUSE:
       handleMouseEvent(event.mouse());
@@ -405,178 +405,178 @@ inline void Canvas::handleEvent(const EventHolder& event) {
 
 #pragma mark Events
 
-inline void Canvas::mousePressed(const MouseEvent& event, const Runner&) {
+inline void View::mousePressed(const MouseEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::mouseDragged(const MouseEvent& event, const Runner&) {
+inline void View::mouseDragged(const MouseEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::mouseReleased(const MouseEvent& event, const Runner&) {
+inline void View::mouseReleased(const MouseEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::mouseMoved(const MouseEvent& event, const Runner&) {
+inline void View::mouseMoved(const MouseEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::mouseEntered(const MouseEvent& event, const Runner&) {
+inline void View::mouseEntered(const MouseEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::mouseExited(const MouseEvent& event, const Runner&) {
+inline void View::mouseExited(const MouseEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::mouseWheel(const MouseEvent& event, const Runner&) {
+inline void View::mouseWheel(const MouseEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::keyPressed(const KeyEvent& event, const Runner&) {
+inline void View::keyPressed(const KeyEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::keyReleased(const KeyEvent& event, const Runner&) {
+inline void View::keyReleased(const KeyEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::touchesBegan(const TouchEvent& event, const Runner&) {
+inline void View::touchesBegan(const TouchEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::touchesMoved(const TouchEvent& event, const Runner&) {
+inline void View::touchesMoved(const TouchEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::touchesCancelled(const TouchEvent& event, const Runner&) {
+inline void View::touchesCancelled(const TouchEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::touchesEnded(const TouchEvent& event, const Runner&) {
+inline void View::touchesEnded(const TouchEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::gestureBegan(const GestureEvent& event, const Runner&) {
+inline void View::gestureBegan(const GestureEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::gestureChanged(const GestureEvent& event, const Runner&) {
+inline void View::gestureChanged(const GestureEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::gestureCancelled(const GestureEvent& event, const Runner&) {
+inline void View::gestureCancelled(const GestureEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::gestureEnded(const GestureEvent& event, const Runner&) {
+inline void View::gestureEnded(const GestureEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::motionBegan(const MotionEvent& event, const Runner&) {
+inline void View::motionBegan(const MotionEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::motionCancelled(const MotionEvent& event, const Runner&) {
+inline void View::motionCancelled(const MotionEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
-inline void Canvas::motionEnded(const MotionEvent& event, const Runner&) {
+inline void View::motionEnded(const MotionEvent& event, const Runner&) {
   enqueueEvent(event);
 }
 
 #pragma mark -
 
 template <>
-struct Canvas::EventConnector<AppEvent> {
+struct View::EventConnector<AppEvent> {
   using Type = AppEvent::Type;
 
   template <class Slot>
-  static EventConnection connect(Type type, const Slot& slot, Canvas *canvas) {
-    return canvas->app_event_signals_[type].connect(slot);
+  static EventConnection connect(Type type, const Slot& slot, View *view) {
+    return view->app_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
-  static void disconnect(Type type, const Slot& slot, Canvas *canvas) {
-    canvas->app_event_signals_[type].disconnect(slot);
+  static void disconnect(Type type, const Slot& slot, View *view) {
+    view->app_event_signals_[type].disconnect(slot);
   }
 };
 
 template <>
-struct Canvas::EventConnector<MouseEvent> {
+struct View::EventConnector<MouseEvent> {
   using Type = MouseEvent::Type;
 
   template <class Slot>
-  static EventConnection connect(Type type, const Slot& slot, Canvas *canvas) {
-    return canvas->mouse_event_signals_[type].connect(slot);
+  static EventConnection connect(Type type, const Slot& slot, View *view) {
+    return view->mouse_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
-  static void disconnect(Type type, const Slot& slot, Canvas *canvas) {
-    canvas->mouse_event_signals_[type].disconnect(slot);
+  static void disconnect(Type type, const Slot& slot, View *view) {
+    view->mouse_event_signals_[type].disconnect(slot);
   }
 };
 
 template <>
-struct Canvas::EventConnector<KeyEvent> {
+struct View::EventConnector<KeyEvent> {
   using Type = KeyEvent::Type;
 
   template <class Slot>
-  static EventConnection connect(Type type, const Slot& slot, Canvas *canvas) {
-    return canvas->key_event_signals_[type].connect(slot);
+  static EventConnection connect(Type type, const Slot& slot, View *view) {
+    return view->key_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
-  static void disconnect(Type type, const Slot& slot, Canvas *canvas) {
-    canvas->key_event_signals_[type].disconnect(slot);
+  static void disconnect(Type type, const Slot& slot, View *view) {
+    view->key_event_signals_[type].disconnect(slot);
   }
 };
 
 template <>
-struct Canvas::EventConnector<TouchEvent> {
+struct View::EventConnector<TouchEvent> {
   using Type = TouchEvent::Type;
 
   template <class Slot>
-  static EventConnection connect(Type type, const Slot& slot, Canvas *canvas) {
-    return canvas->touch_event_signals_[type].connect(slot);
+  static EventConnection connect(Type type, const Slot& slot, View *view) {
+    return view->touch_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
-  static void disconnect(Type type, const Slot& slot, Canvas *canvas) {
-    canvas->touch_event_signals_[type].disconnect(slot);
+  static void disconnect(Type type, const Slot& slot, View *view) {
+    view->touch_event_signals_[type].disconnect(slot);
   }
 };
 
 template <>
-struct Canvas::EventConnector<GestureEvent> {
+struct View::EventConnector<GestureEvent> {
   using Type = GestureEvent::Type;
 
   template <class Slot>
-  static EventConnection connect(Type type, const Slot& slot, Canvas *canvas) {
-    return canvas->gesture_event_signals_[type].connect(slot);
+  static EventConnection connect(Type type, const Slot& slot, View *view) {
+    return view->gesture_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
-  static void disconnect(Type type, const Slot& slot, Canvas *canvas) {
-    canvas->gesture_event_signals_[type].disconnect(slot);
+  static void disconnect(Type type, const Slot& slot, View *view) {
+    view->gesture_event_signals_[type].disconnect(slot);
   }
 };
 
 template <>
-struct Canvas::EventConnector<MotionEvent> {
+struct View::EventConnector<MotionEvent> {
   using Type = MotionEvent::Type;
 
   template <class Slot>
-  static EventConnection connect(Type type, const Slot& slot, Canvas *canvas) {
-    return canvas->motion_event_signals_[type].connect(slot);
+  static EventConnection connect(Type type, const Slot& slot, View *view) {
+    return view->motion_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
-  static void disconnect(Type type, const Slot& slot, Canvas *canvas) {
-    canvas->motion_event_signals_[type].disconnect(slot);
+  static void disconnect(Type type, const Slot& slot, View *view) {
+    view->motion_event_signals_[type].disconnect(slot);
   }
 };
 
 }  // namespace solas
 
-#endif  // SOLAS_CANVAS_H_
+#endif  // SOLAS_VIEW_H_
