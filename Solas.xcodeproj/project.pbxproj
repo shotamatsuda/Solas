@@ -144,7 +144,7 @@
 
 /* Begin PBXFileReference section */
 		930398371AB2AEF400577048 /* enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = enum.h; sourceTree = "<group>"; };
-		930398491AB2B0DF00577048 /* SolasTest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = SolasTest; path = "Solas Test"; sourceTree = BUILT_PRODUCTS_DIR; };
+		930398491AB2B0DF00577048 /* Solas Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Solas Test"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9321018C1B48CE0400A63200 /* test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = test.xcconfig; sourceTree = "<group>"; };
 		9321018D1B48CE0400A63200 /* product.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = product.xcconfig; sourceTree = "<group>"; };
 		932101901B48CE0400A63200 /* project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
@@ -455,7 +455,7 @@
 				93E913581AB27DE400DDF7F9 /* Solas.framework */,
 				936E241F1ADEA5550004C396 /* libSolas.a */,
 				93F8580F1B564B0500C32E8D /* Solas.framework */,
-				930398491AB2B0DF00577048 /* SolasTest */,
+				930398491AB2B0DF00577048 /* Solas Test */,
 			);
 			name = products;
 			sourceTree = "<group>";
@@ -497,7 +497,7 @@
 			);
 			name = "Solas Test";
 			productName = SolasTest;
-			productReference = 930398491AB2B0DF00577048 /* SolasTest */;
+			productReference = 930398491AB2B0DF00577048 /* Solas Test */;
 			productType = "com.apple.product-type.tool";
 		};
 		936E241E1ADEA5550004C396 /* Solas Static */ = {
