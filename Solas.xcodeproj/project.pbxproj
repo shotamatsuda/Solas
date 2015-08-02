@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93244E631B6DD51500CB2F87 /* SLSNSSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93244E611B6DD51500CB2F87 /* SLSNSSplitViewController.m */; };
+		93244E641B6DD51500CB2F87 /* SLSNSSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93244E611B6DD51500CB2F87 /* SLSNSSplitViewController.m */; };
 		933113AB1B5C52FC00449CDE /* libtakram_math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933113A41B5C52CD00449CDE /* libtakram_math.a */; };
 		933113AE1B5C530300449CDE /* libtakram_math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933113A41B5C52CD00449CDE /* libtakram_math.a */; };
 		933113B11B5C530C00449CDE /* libtakram_math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933113A41B5C52CD00449CDE /* libtakram_math.a */; };
@@ -150,6 +152,8 @@
 		9321018C1B48CE0400A63200 /* test.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = test.xcconfig; sourceTree = "<group>"; };
 		9321018D1B48CE0400A63200 /* product.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = product.xcconfig; sourceTree = "<group>"; };
 		932101901B48CE0400A63200 /* project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
+		93244E601B6DD51500CB2F87 /* SLSNSSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSNSSplitViewController.h; sourceTree = "<group>"; };
+		93244E611B6DD51500CB2F87 /* SLSNSSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSNSSplitViewController.m; sourceTree = "<group>"; };
 		9331138C1B5C52A000449CDE /* math.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = math.xcodeproj; path = "../takram-math/math.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		933295961B64D77600F63AB2 /* project_debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_debug.xcconfig; sourceTree = "<group>"; };
 		933295971B64D77600F63AB2 /* project_release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_release.xcconfig; sourceTree = "<group>"; };
@@ -399,6 +403,8 @@
 				93F858811B56535B00C32E8D /* SLSNSView.m */,
 				93A761AB1B6B4C35006DDE12 /* SLSNSSplitView.h */,
 				93A761AC1B6B4C35006DDE12 /* SLSNSSplitView.m */,
+				93244E601B6DD51500CB2F87 /* SLSNSSplitViewController.h */,
+				93244E611B6DD51500CB2F87 /* SLSNSSplitViewController.m */,
 				93F858821B56535B00C32E8D /* SLSNSOpenGLView.h */,
 				93F858831B56535B00C32E8D /* SLSNSOpenGLView.m */,
 				93F858841B56535B00C32E8D /* SLSNSOpenGL3View.h */,
@@ -730,6 +736,7 @@
 				93563B9F1B677EB9004C47E4 /* SLSCVDisplayLink.m in Sources */,
 				936E24481ADEA5A80004C396 /* view.cc in Sources */,
 				9383C0D81B685D3C0021D738 /* solas.mm in Sources */,
+				93244E641B6DD51500CB2F87 /* SLSNSSplitViewController.m in Sources */,
 				937D92011AF6C0BC000D8302 /* framebuffer.cc in Sources */,
 				936E24461ADEA5A80004C396 /* run.mm in Sources */,
 				93563B9D1B677EB9004C47E4 /* SLSNSOpenGLLayer.mm in Sources */,
@@ -757,6 +764,7 @@
 				937E13971ADBDEB9008DB7A7 /* SLSQuartzLayer.mm in Sources */,
 				93F8589A1B56535B00C32E8D /* SLSNSEventSourceView.mm in Sources */,
 				9383C0D61B685D3C0021D738 /* solas.mm in Sources */,
+				93244E631B6DD51500CB2F87 /* SLSNSSplitViewController.m in Sources */,
 				93F858A21B56535B00C32E8D /* SLSNSOpenGL4View.m in Sources */,
 				93F858A81B56535B00C32E8D /* SLSNSApplicationMain.m in Sources */,
 				93F858AA1B56535B00C32E8D /* SLSNSApplicationDelegate.mm in Sources */,

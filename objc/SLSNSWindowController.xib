@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8121.20" systemVersion="15A235d" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8121.20"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SLSNSWindowController">
@@ -25,17 +25,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
                         <subviews>
                             <customView id="Sgh-Y1-c1P">
-                                <rect key="frame" x="0.0" y="0.0" width="199" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="399" height="600"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="qFw-2e-Wic"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="ea8-TH-D5f"/>
                                 </constraints>
+                                <animations/>
                             </customView>
-                            <customView fixedFrame="YES" id="hNh-Vj-WSg">
-                                <rect key="frame" x="200" y="0.0" width="600" height="600"/>
+                            <customView id="hNh-Vj-WSg">
+                                <rect key="frame" x="400" y="0.0" width="400" height="600"/>
                                 <autoresizingMask key="autoresizingMask"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="TzH-0a-Ild"/>
+                                </constraints>
+                                <animations/>
                             </customView>
                         </subviews>
+                        <animations/>
                         <holdingPriorities>
                             <real value="251"/>
                             <real value="250"/>
@@ -56,7 +62,13 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="771" y="803"/>
+            <point key="canvasLocation" x="842" y="806"/>
         </window>
+        <viewController id="d1Q-OX-nYV" customClass="SLSNSSplitViewController">
+            <connections>
+                <outlet property="leadingView" destination="Sgh-Y1-c1P" id="zeq-1b-07b"/>
+                <outlet property="view" destination="XwZ-jb-Ivh" id="aj0-xT-3Ss"/>
+            </connections>
+        </viewController>
     </objects>
 </document>

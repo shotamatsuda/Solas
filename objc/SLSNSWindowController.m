@@ -52,9 +52,18 @@
   [super windowDidLoad];
   self.window.movableByWindowBackground = YES;
   NSView *view = _viewController.view;
-  view.frame = self.contentView.bounds;
-  view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+  view.translatesAutoresizingMaskIntoConstraints = NO;
   [self.contentView addSubview:view];
+  [self.contentView addConstraints:[NSLayoutConstraint
+      constraintsWithVisualFormat:@"|-0-[view]-0-|"
+      options:0
+      metrics:nil
+      views:NSDictionaryOfVariableBindings(view)]];
+  [self.contentView addConstraints:[NSLayoutConstraint
+      constraintsWithVisualFormat:@"V:|-0-[view]-0-|"
+      options:0
+      metrics:nil
+      views:NSDictionaryOfVariableBindings(view)]];
 }
 
 #pragma mark Configuring the Window Appearance
