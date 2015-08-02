@@ -30,18 +30,18 @@
 
 #pragma mark Accessing Views
 
-@property (nonatomic, weak, readonly, nullable) NSSplitView *splitView;
-@property (nonatomic, weak, nullable) IBOutlet NSView *leadingView;
-@property (nonatomic, weak, nullable) IBOutlet NSView *leadingHandle;
-@property (nonatomic, weak, nullable) IBOutlet NSView *trailingView;
-@property (nonatomic, weak, nullable) IBOutlet NSView *trailingHandle;
+@property (nonatomic, strong, readonly, nullable) NSSplitView *splitView;
+@property (nonatomic, strong, nullable) IBOutlet NSView *leadingView;
+@property (nonatomic, strong, nullable) IBOutlet NSView *leadingHandle;
+@property (nonatomic, strong, nullable) IBOutlet NSView *trailingView;
+@property (nonatomic, strong, nullable) IBOutlet NSView *trailingHandle;
 
 #pragma mark Controlling Subview's State
 
 @property (nonatomic, assign) BOOL leadingViewCollapsed;
 @property (nonatomic, assign) BOOL trailingViewCollapsed;
-@property (nonatomic, assign) BOOL leadingViewCollapsible;
-@property (nonatomic, assign) BOOL trailingViewCollapsible;
+@property (nonatomic, assign) IBInspectable BOOL leadingViewCollapsible;
+@property (nonatomic, assign) IBInspectable BOOL trailingViewCollapsible;
 
 #pragma mark Received Actions
 
