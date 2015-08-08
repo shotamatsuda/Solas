@@ -154,6 +154,19 @@ void View::handleMouseEvent(const MouseEvent& event) {
 }
 
 void View::handleKeyEvent(const KeyEvent& event) {
+  const auto str = event.characters().c_str();
+  key_ = str ? *str : char();
+  key_code_ = event.code();
+  switch (event.type()) {
+    case KeyEvent::Type::PRESSED:
+      key_pressed_ = true;
+      break;
+    case KeyEvent::Type::RELEASED:
+      key_pressed_ = false;
+      break;
+    default:
+      break;
+  }
   switch (event.type()) {
     case KeyEvent::Type::PRESSED:
       keyPressed(event);
