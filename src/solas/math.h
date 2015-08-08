@@ -49,13 +49,14 @@ using math::Line3d;
 using math::Random;
 
 using math::Rect;
-using math::Recti;
-using math::Rectf;
-using math::Rectd;
-using math::Rectangle;
-using math::Rectanglei;
-using math::Rectanglef;
-using math::Rectangled;
+using math::Rect2;
+using math::Rect2i;
+using math::Rect2f;
+using math::Rect2d;
+using math::Rectangle2;
+using math::Rectangle2i;
+using math::Rectangle2f;
+using math::Rectangle2d;
 
 using math::Size;
 using math::Size2;
@@ -77,19 +78,6 @@ using math::Triangle3i;
 using math::Triangle3f;
 using math::Triangle3d;
 
-using math::Vector;
-using math::Vector2;
-using math::Vector2i;
-using math::Vector2f;
-using math::Vector2d;
-using math::Vector3;
-using math::Vector3i;
-using math::Vector3f;
-using math::Vector3d;
-using math::Vector4;
-using math::Vector4i;
-using math::Vector4f;
-using math::Vector4d;
 using math::Vec;
 using math::Vec2;
 using math::Vec2i;
@@ -103,6 +91,19 @@ using math::Vec4;
 using math::Vec4i;
 using math::Vec4f;
 using math::Vec4d;
+using math::Vector;
+using math::Vector2;
+using math::Vector2i;
+using math::Vector2f;
+using math::Vector2d;
+using math::Vector3;
+using math::Vector3i;
+using math::Vector3f;
+using math::Vector3d;
+using math::Vector4;
+using math::Vector4i;
+using math::Vector4f;
+using math::Vector4d;
 
 }  // namespace solas
 
