@@ -28,10 +28,13 @@
 
 #import "SLSNSBundle+Bundle.h"
 #import "SLSNSViewController.h"
+#import "SLSNSSplitViewController.h"
 
 @interface SLSNSWindowController ()
 
 @property (nonatomic, strong) IBOutlet NSView *contentView;
+@property (nonatomic, strong)
+    IBOutlet SLSNSSplitViewController *splitViewController;
 
 @end
 
@@ -64,6 +67,7 @@
       options:0
       metrics:nil
       views:NSDictionaryOfVariableBindings(view)]];
+  _splitViewController.leadingViewCollapsed = YES;
 }
 
 #pragma mark Configuring the Window Appearance
