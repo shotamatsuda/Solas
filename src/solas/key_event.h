@@ -51,8 +51,8 @@ class KeyEvent final {
            KeyModifier modifiers);
 
   // Copy semantics excluding assignment
-  KeyEvent(const KeyEvent& other) = default;
-  KeyEvent& operator=(const KeyEvent& other) = delete;
+  KeyEvent(const KeyEvent&) = default;
+  KeyEvent& operator=(const KeyEvent&) = delete;
 
   // Properties
   bool empty() const { return type_ == Type::UNDEFINED; }

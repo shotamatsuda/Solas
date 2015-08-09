@@ -58,8 +58,8 @@ class MouseEvent final {
              const Vec3d& wheel = Vec3d());
 
   // Copy semantics excluding assignment
-  MouseEvent(const MouseEvent& other) = default;
-  MouseEvent& operator=(const MouseEvent& other) = delete;
+  MouseEvent(const MouseEvent&) = default;
+  MouseEvent& operator=(const MouseEvent&) = delete;
 
   // Properties
   bool empty() const { return type_ == Type::UNDEFINED; }

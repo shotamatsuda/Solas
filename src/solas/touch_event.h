@@ -49,8 +49,8 @@ class TouchEvent final {
   TouchEvent(Type type, const std::vector<Vec2d>& touches);
 
   // Copy semantics excluding assignment
-  TouchEvent(const TouchEvent& other) = default;
-  TouchEvent& operator=(const TouchEvent& other) = delete;
+  TouchEvent(const TouchEvent&) = default;
+  TouchEvent& operator=(const TouchEvent&) = delete;
 
   // Properties
   bool empty() const { return type_ == Type::UNDEFINED; }

@@ -43,8 +43,8 @@ int run(int argc, char **argv);
 class Run {
  public:
   // Disallow copy and assign
-  Run(const Run& other) = delete;
-  Run& operator=(const Run& other) = delete;
+  Run(const Run&) = delete;
+  Run& operator=(const Run&) = delete;
 
   // Singleton
   static Run& instance();

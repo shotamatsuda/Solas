@@ -37,8 +37,8 @@ class RunnerOptions final {
   RunnerOptions();
 
   // Copy semantics
-  RunnerOptions(const RunnerOptions& other) = default;
-  RunnerOptions& operator=(const RunnerOptions& other) = default;
+  RunnerOptions(const RunnerOptions&) = default;
+  RunnerOptions& operator=(const RunnerOptions&) = default;
 
   // Comparison
   bool operator==(const RunnerOptions& other) const;
@@ -79,4 +79,4 @@ inline bool RunnerOptions::operator!=(const RunnerOptions& other) const {
 
 }  // namespace solas
 
-#endif  // SOLAS_RUN_OPTIONS_H_
+#endif  // SOLAS_RUNNER_OPTIONS_H_
