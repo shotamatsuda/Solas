@@ -44,8 +44,8 @@ class Composite {
   virtual ~Composite() = 0;
 
   // Disallow copy semantics
-  Composite(const Composite& other) = delete;
-  Composite& operator=(const Composite& other) = delete;
+  Composite(const Composite&) = delete;
+  Composite& operator=(const Composite&) = delete;
 
   // Move semantics
   Composite(Composite&& other);

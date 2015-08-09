@@ -43,8 +43,8 @@ class MotionEvent final {
   MotionEvent();
 
   // Copy semantics excluding assignment
-  MotionEvent(const MotionEvent& other) = default;
-  MotionEvent& operator=(const MotionEvent& other) = delete;
+  MotionEvent(const MotionEvent&) = default;
+  MotionEvent& operator=(const MotionEvent&) = delete;
 
   // Properties
   bool empty() const { return type_ == Type::UNDEFINED; }

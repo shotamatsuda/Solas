@@ -52,12 +52,12 @@ class Runner final {
   ~Runner();
 
   // Disallow copy semantics
-  Runner(const Runner& other) = delete;
-  Runner& operator=(const Runner& other) = delete;
+  Runner(const Runner&) = delete;
+  Runner& operator=(const Runner&) = delete;
 
   // Move semantics
-  Runner(Runner&& other) = default;
-  Runner& operator=(Runner&& other) = default;
+  Runner(Runner&&) = default;
+  Runner& operator=(Runner&&) = default;
 
   // Lifecycle
   void setup(const AppEvent& event);

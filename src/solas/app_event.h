@@ -53,8 +53,8 @@ class AppEvent final {
   AppEvent(Type type, const Context& context, const Size2d& size, double scale);
 
   // Copy semantics excluding assignment
-  AppEvent(const AppEvent& other) = default;
-  AppEvent& operator=(const AppEvent& other) = delete;
+  AppEvent(const AppEvent&) = default;
+  AppEvent& operator=(const AppEvent&) = delete;
 
   // Properties
   Type type() const { return type_; }

@@ -78,12 +78,12 @@ class View : public Runnable, public Composite {
   virtual ~View() = 0;
 
   // Disallow copy semantics
-  View(const View& other) = delete;
-  View& operator=(const View& other) = delete;
+  View(const View&) = delete;
+  View& operator=(const View&) = delete;
 
   // Move semantics
-  View(View&& other) = default;
-  View& operator=(View&& other) = default;
+  View(View&&) = default;
+  View& operator=(View&&) = default;
 
   // Environment
   void resize(const Size2d& size) const;

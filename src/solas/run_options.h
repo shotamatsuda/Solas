@@ -37,8 +37,8 @@ class RunOptions final {
   RunOptions();
 
   // Copy semantics
-  RunOptions(const RunOptions& other) = default;
-  RunOptions& operator=(const RunOptions& other) = default;
+  RunOptions(const RunOptions&) = default;
+  RunOptions& operator=(const RunOptions&) = default;
 
   // Comparison
   bool operator==(const RunOptions& other) const;

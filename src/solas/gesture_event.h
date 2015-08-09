@@ -95,8 +95,8 @@ class GestureEvent final {
                const boost::any& data);
 
   // Copy semantics excluding assignment
-  GestureEvent(const GestureEvent& other) = default;
-  GestureEvent& operator=(const GestureEvent& other) = delete;
+  GestureEvent(const GestureEvent&) = default;
+  GestureEvent& operator=(const GestureEvent&) = delete;
 
   // Properties
   bool empty() const { return type_ == Type::UNDEFINED; }
