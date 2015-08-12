@@ -42,7 +42,7 @@ int run(int argc, char **argv);
 
 class Run {
  public:
-  // Disallow copy and assign
+  // Disallow copy semantics
   Run(const Run&) = delete;
   Run& operator=(const Run&) = delete;
 

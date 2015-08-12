@@ -230,7 +230,7 @@
 				933114001B5C543B00449CDE /* Solas.framework */,
 				933114061B5C543B00449CDE /* libSolas.a */,
 				933114021B5C543B00449CDE /* Solas.framework */,
-				933114041B5C543B00449CDE /* SolasTest */,
+				933114041B5C543B00449CDE /* Solas Test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -415,10 +415,9 @@
 			remoteRef = 933114011B5C543B00449CDE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		933114041B5C543B00449CDE /* SolasTest */ = {
+		933114041B5C543B00449CDE /* Solas Test */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
-			name = SolasTest;
 			path = "Solas Test";
 			remoteRef = 933114031B5C543B00449CDE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -583,6 +582,7 @@
 				INFOPLIST_FILE = ios.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-framework",
 					OpenGLES,
 				);
@@ -604,6 +604,7 @@
 				INFOPLIST_FILE = ios.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-framework",
 					OpenGLES,
 				);
@@ -642,6 +643,7 @@
 				INFOPLIST_FILE = osx.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-framework",
 					OpenGL,
 				);
@@ -658,6 +660,7 @@
 				INFOPLIST_FILE = osx.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-framework",
 					OpenGL,
 				);
