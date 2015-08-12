@@ -117,6 +117,48 @@
 			remoteGlobalIDString = 938D13CF1B50928900CCA57D;
 			remoteInfo = nanovg_gles2_static;
 		};
+		93A7B6C81B79B833007392DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93A7B6BF1B79B833007392DD /* graphics.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9309550E1A4FB1FC00D09023;
+			remoteInfo = graphics_shared;
+		};
+		93A7B6CA1B79B833007392DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93A7B6BF1B79B833007392DD /* graphics.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 93C6B51519B22F5500A1CF93;
+			remoteInfo = graphics_static;
+		};
+		93A7B6CC1B79B833007392DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93A7B6BF1B79B833007392DD /* graphics.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 93B474091B648C4C00613FB6;
+			remoteInfo = graphics_ios;
+		};
+		93A7B6CE1B79B833007392DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93A7B6BF1B79B833007392DD /* graphics.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 93F1B9F6180282B0002A5A5C;
+			remoteInfo = graphics_test;
+		};
+		93A7B6D61B79B84D007392DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93A7B6BF1B79B833007392DD /* graphics.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 93C6B51419B22F5500A1CF93;
+			remoteInfo = graphics_static;
+		};
+		93A7B6D81B79B850007392DD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 93A7B6BF1B79B833007392DD /* graphics.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 93B474081B648C4C00613FB6;
+			remoteInfo = graphics_ios;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -148,6 +190,7 @@
 		9332959C1B64D89900F63AB2 /* product.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = product.xcconfig; sourceTree = SOURCE_ROOT; };
 		9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = nanovg.xcodeproj; path = "../../takram-nanovg/nanovg.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		9368078F1B57A6CE009F0934 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
+		93A7B6BF1B79B833007392DD /* graphics.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = graphics.xcodeproj; path = "../../takram-graphics/graphics.xcodeproj"; sourceTree = "<group>"; };
 		93CA67E11ADB5BF4009F131B /* NanoVG.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NanoVG.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93F859231B575DCC00C32E8D /* ios.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ios.plist; sourceTree = SOURCE_ROOT; };
 		93F859251B575DCC00C32E8D /* osx.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = osx.plist; sourceTree = SOURCE_ROOT; };
@@ -185,9 +228,9 @@
 			isa = PBXGroup;
 			children = (
 				933114001B5C543B00449CDE /* Solas.framework */,
-				933114021B5C543B00449CDE /* Solas.framework */,
 				933114061B5C543B00449CDE /* libSolas.a */,
-				933114041B5C543B00449CDE /* SolasTest */,
+				933114021B5C543B00449CDE /* Solas.framework */,
+				933114041B5C543B00449CDE /* Solas Test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -205,6 +248,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		93A7B6C01B79B833007392DD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93A7B6C91B79B833007392DD /* libtakram_graphics.dylib */,
+				93A7B6CB1B79B833007392DD /* libtakram_graphics.a */,
+				93A7B6CD1B79B833007392DD /* libtakram_graphics.a */,
+				93A7B6CF1B79B833007392DD /* takram_graphics_test */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		93FEF9451AD97263009D0646 = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +266,7 @@
 				93FEF9751AD972AA009D0646 /* config */,
 				93FEF94F1AD97263009D0646 /* products */,
 				93FEF9761AD972E8009D0646 /* Solas.xcodeproj */,
+				93A7B6BF1B79B833007392DD /* graphics.xcodeproj */,
 				9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */,
 			);
 			sourceTree = "<group>";
@@ -265,6 +320,7 @@
 			);
 			dependencies = (
 				933114281B5C548900449CDE /* PBXTargetDependency */,
+				93A7B6D91B79B850007392DD /* PBXTargetDependency */,
 				9331142B1B5C549100449CDE /* PBXTargetDependency */,
 			);
 			name = "NanoVG iOS";
@@ -285,6 +341,7 @@
 			);
 			dependencies = (
 				933114251B5C547400449CDE /* PBXTargetDependency */,
+				93A7B6D71B79B84D007392DD /* PBXTargetDependency */,
 				933114221B5C546500449CDE /* PBXTargetDependency */,
 			);
 			name = NanoVG;
@@ -323,6 +380,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 93A7B6C01B79B833007392DD /* Products */;
+					ProjectRef = 93A7B6BF1B79B833007392DD /* graphics.xcodeproj */;
+				},
+				{
 					ProductGroup = 933114071B5C543B00449CDE /* Products */;
 					ProjectRef = 9342733A1B5AE072006EC5A0 /* nanovg.xcodeproj */;
 				},
@@ -354,10 +415,10 @@
 			remoteRef = 933114011B5C543B00449CDE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		933114041B5C543B00449CDE /* SolasTest */ = {
+		933114041B5C543B00449CDE /* Solas Test */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
-			path = SolasTest;
+			path = "Solas Test";
 			remoteRef = 933114031B5C543B00449CDE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -408,6 +469,34 @@
 			fileType = archive.ar;
 			path = libtakram_nanovg_gles3.a;
 			remoteRef = 9331141F1B5C543B00449CDE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		93A7B6C91B79B833007392DD /* libtakram_graphics.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libtakram_graphics.dylib;
+			remoteRef = 93A7B6C81B79B833007392DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		93A7B6CB1B79B833007392DD /* libtakram_graphics.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libtakram_graphics.a;
+			remoteRef = 93A7B6CA1B79B833007392DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		93A7B6CD1B79B833007392DD /* libtakram_graphics.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libtakram_graphics.a;
+			remoteRef = 93A7B6CC1B79B833007392DD /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		93A7B6CF1B79B833007392DD /* takram_graphics_test */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = takram_graphics_test;
+			remoteRef = 93A7B6CE1B79B833007392DD /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -470,6 +559,16 @@
 			name = nanovg_gles2_static;
 			targetProxy = 9331142A1B5C549100449CDE /* PBXContainerItemProxy */;
 		};
+		93A7B6D71B79B84D007392DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = graphics_static;
+			targetProxy = 93A7B6D61B79B84D007392DD /* PBXContainerItemProxy */;
+		};
+		93A7B6D91B79B850007392DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = graphics_ios;
+			targetProxy = 93A7B6D81B79B850007392DD /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -483,6 +582,7 @@
 				INFOPLIST_FILE = ios.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-framework",
 					OpenGLES,
 				);
@@ -504,6 +604,7 @@
 				INFOPLIST_FILE = ios.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-framework",
 					OpenGLES,
 				);
@@ -542,6 +643,7 @@
 				INFOPLIST_FILE = osx.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-framework",
 					OpenGL,
 				);
@@ -558,6 +660,7 @@
 				INFOPLIST_FILE = osx.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				OTHER_LDFLAGS = (
+					"$(inherited)",
 					"-framework",
 					OpenGL,
 				);

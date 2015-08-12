@@ -28,7 +28,7 @@
 
 #include "solas.h"
 
-class App : public solas::Canvas {
+class App : public solas::View {
  public:
   void setup() override {
     std::cout << "setup" << std::endl;

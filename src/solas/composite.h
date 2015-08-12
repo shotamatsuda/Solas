@@ -77,7 +77,6 @@ class Composite {
   virtual Composite * parent() const;
 
  protected:
-  // Constructors
   Composite();
 
  private:
