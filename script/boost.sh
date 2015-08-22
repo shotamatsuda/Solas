@@ -52,7 +52,7 @@ readonly SIM_XCRUN="xcrun --sdk iphonesimulator"
 readonly OSX_XCRUN="xcrun --sdk macosx"
 
 cleanup() {
-  echo "Cleaning everything before we start to build.."
+  echo "Cleaning everything before we start to build..."
   rm -rf "${BOOST_DIR}/iphoneos-build"
   rm -rf "${BOOST_DIR}/iphonesimulator-build"
   rm -rf "${BOOST_DIR}/osx-build"
@@ -76,7 +76,8 @@ download_boost() {
 
 extract_boost() {
   if [[ ! -f "${BOOST_ARCHIVE}" ]]; then
-    abort "Source archive is missing."
+    echo "Source archive is missing."
+    exit
   fi
   echo "Extracting boost into ${BOOST_DIR}..."
   if [[ ! -d "${BOOST_DIR}" ]]; then
