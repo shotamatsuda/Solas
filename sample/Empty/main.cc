@@ -1,7 +1,7 @@
 //
 //  main.cc
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -28,7 +28,7 @@
 
 #include "solas.h"
 
-class App : public solas::Canvas {
+class App : public solas::View {
  public:
   void setup() override {
     std::cout << "setup" << std::endl;

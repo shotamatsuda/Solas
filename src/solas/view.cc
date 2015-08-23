@@ -1,7 +1,7 @@
 //
 //  solas/view.cc
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -72,6 +72,10 @@ void View::post(const AppEvent& event, const Runner& runner) {
   app_event_signals_[AppEvent::Type::POST](event);
   dmouse_ = mouse_;
   dtouch_ = touch_;
+  if (frame_rate_.first) {
+    runner.frameRate(frame_rate_.second);
+    frame_rate_.first = false;
+  }
   if (resize_.first) {
     runner.resize(resize_.second);
     resize_.first = false;
@@ -154,6 +158,19 @@ void View::handleMouseEvent(const MouseEvent& event) {
 }
 
 void View::handleKeyEvent(const KeyEvent& event) {
+  const auto str = event.characters().c_str();
+  key_ = str ? *str : char();
+  key_code_ = event.code();
+  switch (event.type()) {
+    case KeyEvent::Type::PRESSED:
+      key_pressed_ = true;
+      break;
+    case KeyEvent::Type::RELEASED:
+      key_pressed_ = false;
+      break;
+    default:
+      break;
+  }
   switch (event.type()) {
     case KeyEvent::Type::PRESSED:
       keyPressed(event);

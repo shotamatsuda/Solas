@@ -1,7 +1,7 @@
 //
 //  SLSDisplayLink.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -34,6 +34,8 @@
                                           selector:(nonnull SEL)selector;
 
 #pragma mark Controlling the Display Link
+
+@property (nonatomic, assign) double frameRate;
 
 - (void)start;
 - (void)stop;

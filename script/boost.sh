@@ -2,7 +2,7 @@
 #
 #  boost.sh
 #
-#  MIT License
+#  The MIT License
 #
 #  Copyright (C) 2015 Shota Matsuda
 #
@@ -52,7 +52,7 @@ readonly SIM_XCRUN="xcrun --sdk iphonesimulator"
 readonly OSX_XCRUN="xcrun --sdk macosx"
 
 cleanup() {
-  echo "Cleaning everything before we start to build.."
+  echo "Cleaning everything before we start to build..."
   rm -rf "${BOOST_DIR}/iphoneos-build"
   rm -rf "${BOOST_DIR}/iphonesimulator-build"
   rm -rf "${BOOST_DIR}/osx-build"
@@ -62,7 +62,7 @@ cleanup() {
   rm -rf "${OSX_BUILD_DIR}"
 }
 
-downloadBoost() {
+download_boost() {
   if [[ ! -d "${BUILD_DIR}" ]]; then
     mkdir -p "${BUILD_DIR}"
   fi
@@ -74,9 +74,10 @@ downloadBoost() {
   fi
 }
 
-extractBoost() {
+extract_boost() {
   if [[ ! -f "${BOOST_ARCHIVE}" ]]; then
-    abort "Source archive is missing."
+    echo "Source archive is missing."
+    exit
   fi
   echo "Extracting boost into ${BOOST_DIR}..."
   if [[ ! -d "${BOOST_DIR}" ]]; then
@@ -88,7 +89,7 @@ extractBoost() {
   fi
 }
 
-bootstrapBoost() {
+bootstrap_boost() {
   cd "${BOOST_DIR}"
   if [[ ! "${BOOST_MODULES}" ]]; then
     echo "Bootstrapping"
@@ -101,7 +102,7 @@ bootstrapBoost() {
   fi
 }
 
-compileBoost() {
+compile_boost() {
   cd "${BOOST_DIR}"
   ./b2 \
       -j8 \
@@ -161,7 +162,7 @@ compileBoost() {
   #     stage
 }
 
-createUniversalLibraries() {
+create_universal_libraries() {
   cd "${BOOST_DIR}"
   mkdir -p "${BUILD_DIR}/lib"
   echo "Creating universal libraries..."
@@ -174,8 +175,8 @@ createUniversalLibraries() {
 }
 
 cleanup
-downloadBoost
-extractBoost
-bootstrapBoost
-compileBoost
-createUniversalLibraries
+download_boost
+extract_boost
+bootstrap_boost
+compile_boost
+create_universal_libraries

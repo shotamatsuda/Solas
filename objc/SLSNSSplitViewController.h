@@ -1,9 +1,9 @@
 //
-//  SLSNSApplicationDelegate.h
+//  SLSNSSplitViewController.h
 //
 //  The MIT License
 //
-//  Copyright (C) 2015 Shota Matsuda
+//  Copyright (C) 2014-2015 Shota Matsuda
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -26,15 +26,30 @@
 
 #import <AppKit/AppKit.h>
 
-@interface SLSNSApplicationDelegate : NSObject <
-    NSApplicationDelegate, NSUserInterfaceValidations>
+@interface SLSNSSplitViewController : NSViewController <NSSplitViewDelegate>
 
-#pragma mark Window Controllers
+#pragma mark Accessing Views
 
-@property (nonatomic, strong, readonly, nonnull) NSArray *windowControllers;
+@property (nonatomic, strong, readonly, nullable) NSSplitView *splitView;
+@property (nonatomic, strong, nullable) IBOutlet NSView *leadingView;
+@property (nonatomic, strong, nullable) IBOutlet NSView *leadingHandle;
+@property (nonatomic, strong, nullable) IBOutlet NSView *trailingView;
+@property (nonatomic, strong, nullable) IBOutlet NSView *trailingHandle;
+
+#pragma mark Controlling Subview's State
+
+@property (nonatomic, assign) BOOL leadingViewCollapsed;
+@property (nonatomic, assign) BOOL trailingViewCollapsed;
+@property (nonatomic, assign) IBInspectable BOOL leadingViewCollapsible;
+@property (nonatomic, assign) IBInspectable BOOL trailingViewCollapsible;
 
 #pragma mark Received Actions
 
-- (IBAction)newWindow:(nullable id)sender;
+- (IBAction)collapseLeadingView:(nullable id)sender;
+- (IBAction)collapseTrailingView:(nullable id)sender;
+- (IBAction)expandLeadingView:(nullable id)sender;
+- (IBAction)expandTrailingView:(nullable id)sender;
+- (IBAction)toggleLeadingViewCollapsed:(nullable id)sender;
+- (IBAction)toggleTrailingViewCollapsed:(nullable id)sender;
 
 @end

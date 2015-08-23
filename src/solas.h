@@ -1,7 +1,7 @@
 //
 //  solas.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -39,7 +39,6 @@ extern const unsigned char version_string[];
 #include "solas/app_event.h"
 #include "solas/backend.h"
 #include "solas/composite.h"
-#include "solas/enum.h"
 #include "solas/event_holder.h"
 #include "solas/gesture_event.h"
 #include "solas/gesture_kind.h"
@@ -50,10 +49,12 @@ extern const unsigned char version_string[];
 #include "solas/motion_event.h"
 #include "solas/mouse_button.h"
 #include "solas/mouse_event.h"
-#include "solas/run_options.h"
 #include "solas/run.h"
+#include "solas/run_options.h"
 #include "solas/runnable.h"
 #include "solas/runner.h"
+#include "solas/runner_options.h"
+#include "solas/runner_delegate.h"
 #include "solas/screen_edge.h"
 #include "solas/swipe_direction.h"
 #include "solas/touch_event.h"
@@ -101,6 +102,7 @@ extern const unsigned char version_string[];
 #import "SLSNSView.h"
 #import "SLSNSViewController.h"
 #import "SLSNSWindowController.h"
+#import "SLSScreenSaverView.h"
 
 #endif  // TARGET_OS_MAC && !TARGET_OS_IPHONE
 

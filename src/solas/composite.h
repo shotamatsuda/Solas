@@ -1,7 +1,7 @@
 //
 //  solas/composite.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -51,6 +51,11 @@ class Composite {
   Composite(Composite&& other);
   Composite& operator=(Composite&& other);
 
+  // Environment
+  virtual void frameRate(double fps) const;
+  virtual void resize(const Size2d& size) const;
+  virtual void fullscreen(bool flag) const;
+
   // Structure
   virtual const Size2d& size() const;
   virtual double width() const;
@@ -77,7 +82,6 @@ class Composite {
   virtual Composite * parent() const;
 
  protected:
-  // Constructors
   Composite();
 
  private:
@@ -105,6 +109,23 @@ inline Composite& Composite::operator=(Composite&& other) {
     std::swap(parent_, other.parent_);
   }
   return *this;
+}
+
+#pragma mark Environment
+
+inline void Composite::frameRate(double fps) const {
+  assert(parent_);
+  return parent_->frameRate(fps);
+}
+
+inline void Composite::resize(const Size2d& size) const {
+  assert(parent_);
+  return parent_->resize(size);
+}
+
+inline void Composite::fullscreen(bool flag) const {
+  assert(parent_);
+  return parent_->fullscreen(flag);
 }
 
 #pragma mark Structure

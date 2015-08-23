@@ -1,7 +1,7 @@
 //
 //  solas/run.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -42,7 +42,7 @@ int run(int argc, char **argv);
 
 class Run {
  public:
-  // Disallow copy and assign
+  // Disallow copy semantics
   Run(const Run&) = delete;
   Run& operator=(const Run&) = delete;
 

@@ -1,7 +1,7 @@
 //
 //  SLSNSWindowController.m
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -28,10 +28,13 @@
 
 #import "SLSNSBundle+Bundle.h"
 #import "SLSNSViewController.h"
+#import "SLSNSSplitViewController.h"
 
 @interface SLSNSWindowController ()
 
 @property (nonatomic, strong) IBOutlet NSView *contentView;
+@property (nonatomic, strong)
+    IBOutlet SLSNSSplitViewController *splitViewController;
 
 @end
 
@@ -52,11 +55,19 @@
   [super windowDidLoad];
   self.window.movableByWindowBackground = YES;
   NSView *view = _viewController.view;
-  view.frame = ((NSView *)self.window.contentView).frame;
-  view.frame = self.contentView.bounds;
-  view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
-  [self.window.contentView addSubview:view];
+  view.translatesAutoresizingMaskIntoConstraints = NO;
   [self.contentView addSubview:view];
+  [self.contentView addConstraints:[NSLayoutConstraint
+      constraintsWithVisualFormat:@"|-0-[view]-0-|"
+      options:0
+      metrics:nil
+      views:NSDictionaryOfVariableBindings(view)]];
+  [self.contentView addConstraints:[NSLayoutConstraint
+      constraintsWithVisualFormat:@"V:|-0-[view]-0-|"
+      options:0
+      metrics:nil
+      views:NSDictionaryOfVariableBindings(view)]];
+  _splitViewController.leadingViewCollapsed = YES;
 }
 
 #pragma mark Configuring the Window Appearance

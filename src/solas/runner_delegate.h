@@ -1,7 +1,7 @@
 //
 //  solas/runner_delegate.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -37,6 +37,7 @@ class RunnerDelegate {
   virtual ~RunnerDelegate() = 0;
 
   // Environment
+  virtual void frameRate(double fps) = 0;
   virtual void resize(const Size2d& size) = 0;
   virtual void fullscreen(bool flag) = 0;
 };

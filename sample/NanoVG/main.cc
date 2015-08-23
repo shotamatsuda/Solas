@@ -1,7 +1,7 @@
 //
 //  main.cc
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -24,12 +24,13 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#include <iostream>
+#define TAKRAM_HAS_NANOVG 1
 
 #include "solas.h"
+#include "takram/graphics.h"
 #include "takram/nanovg.h"
 
-class App : public solas::Canvas {
+class App : public solas::View {
  public:
   void setup() override {
     context_.init();
@@ -40,7 +41,7 @@ class App : public solas::Canvas {
     takram::nvg::beginPath();
     takram::nvg::circle(mouse(), 5.0);
     takram::nvg::closePath();
-    takram::nvg::fillColor(nvgRGB(0, 0, 0));
+    takram::nvg::fillColor(takram::Color3f::black());
     takram::nvg::fill();
     context_.end();
   }

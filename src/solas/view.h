@@ -1,7 +1,7 @@
 //
 //  solas/view.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -86,8 +86,9 @@ class View : public Runnable, public Composite {
   View& operator=(View&&) = default;
 
   // Environment
-  void resize(const Size2d& size) const;
-  void fullscreen(bool flag) const;
+  void frameRate(double fps) const override;
+  void resize(const Size2d& size) const override;
+  void fullscreen(bool flag) const override;
 
   // Structure
   const Size2d& size() const override;
@@ -223,6 +224,7 @@ class View : public Runnable, public Composite {
   std::queue<EventHolder> event_queue_;
 
   // Environment
+  mutable std::pair<bool, double> frame_rate_;
   mutable std::pair<bool, Size2d> resize_;
   mutable std::pair<bool, bool> fullscreen_;
 
@@ -273,6 +275,11 @@ inline View::View()
 inline View::~View() {}
 
 #pragma mark Environment
+
+inline void View::frameRate(double fps) const {
+  frame_rate_.first = true;
+  frame_rate_.second = fps;
+}
 
 inline void View::resize(const Size2d& size) const {
   resize_.first = true;
