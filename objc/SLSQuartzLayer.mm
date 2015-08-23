@@ -1,7 +1,7 @@
 //
 //  SLSQuartzLayer.mm
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -27,7 +27,7 @@
 #import "SLSQuartzLayer.h"
 
 #include "solas/app_event.h"
-#include "solas/math.h"
+#include "takram/math.h"
 
 @implementation SLSQuartzLayer
 
@@ -43,7 +43,7 @@
 
 - (void)drawInContext:(CGContextRef)context {
   CGRect bounds = self.bounds;
-  const solas::Size2d size(bounds.size.width, bounds.size.height);
+  const takram::Size2d size(bounds.size.width, bounds.size.height);
   if ([_displayDelegate respondsToSelector:
           @selector(displayDelegate:update:)]) {
     const solas::AppEvent event(solas::AppEvent::Type::UPDATE,
@@ -61,11 +61,15 @@
 #pragma mark Invalidating the Display Source
 
 - (void)setDisplaySourceNeedsDisplay {
-  // Don't wait until done here because CVDisplayLinkStop call on
-  // CVDisplayLink's deallocation on the main thread will result in deadlock.
-  [self performSelectorOnMainThread:@selector(setNeedsDisplay)
-                         withObject:nil
-                      waitUntilDone:NO];
+  if ([NSThread isMainThread]) {
+    [self setNeedsDisplay];
+  } else {
+    // Don't wait until done here because CVDisplayLinkStop call on
+    // CVDisplayLink's deallocation on the main thread will result in deadlock.
+    [self performSelectorOnMainThread:@selector(setNeedsDisplay)
+                           withObject:nil
+                        waitUntilDone:NO];
+  }
 }
 
 @end

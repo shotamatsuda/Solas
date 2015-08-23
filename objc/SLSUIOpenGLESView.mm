@@ -1,7 +1,7 @@
 //
 //  SLSUIOpenGLESView.mm
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -29,14 +29,13 @@
 #import <GLKit/GLKit.h>
 
 #include "solas/app_event.h"
-#include "solas/math.h"
+#include "takram/math.h"
 
-@interface SLSUIOpenGLESView () <GLKViewDelegate, GLKViewControllerDelegate>
+@interface SLSUIOpenGLESView () <GLKViewDelegate>
 
 #pragma mark Initialization
 
 @property (nonatomic, strong) GLKView *view;
-@property (nonatomic, strong) GLKViewController *viewController;
 
 - (void)setUpSLSUIOpenGLESView;
 
@@ -78,20 +77,29 @@
                             UIViewAutoresizingFlexibleHeight);
   _view.delegate = self;
   [self addSubview:_view];
-  _viewController = [[GLKViewController alloc] init];
-  _viewController.preferredFramesPerSecond = 60.0;
-  _viewController.view = _view;
-  _viewController.delegate = self;
 }
 
 #pragma mark Invalidating the Display Source
 
 - (void)setDisplaySourceNeedsDisplay {
-  // Don't wait until done here because CVDisplayLinkStop call on
-  // CVDisplayLink's deallocation on the main thread will result in deadlock.
-  [_view performSelectorOnMainThread:@selector(setNeedsDisplay)
-                          withObject:nil
-                       waitUntilDone:NO];
+  if ([NSThread isMainThread]) {
+    [_view setNeedsDisplay];
+  } else {
+    // Don't wait until done here because CVDisplayLinkStop call on
+    // CVDisplayLink's deallocation on the main thread will result in deadlock.
+    [_view performSelectorOnMainThread:@selector(setNeedsDisplay)
+                            withObject:nil
+                         waitUntilDone:NO];
+  }
+  CGRect bounds = self.bounds;
+  const takram::Size2d size(bounds.size.width, bounds.size.height);
+  const solas::AppEvent event(solas::AppEvent::Type::UPDATE,
+                              _view.context, size, [UIScreen mainScreen].scale);
+  if ([_displayDelegate respondsToSelector:
+          @selector(displayDelegate:update:)]) {
+    [_displayDelegate displayDelegate:self update:SLSAppEventMake(&event)];
+  }
+  [_view setNeedsDisplay];
 }
 
 #pragma mark GLKViewDelegate
@@ -100,24 +108,11 @@
   glClearColor(1.0, 1.0, 1.0, 1.0);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
   CGRect bounds = self.bounds;
-  const solas::Size2d size(bounds.size.width, bounds.size.height);
+  const takram::Size2d size(bounds.size.width, bounds.size.height);
   const solas::AppEvent event(solas::AppEvent::Type::DRAW,
                               _view.context, size, [UIScreen mainScreen].scale);
   if ([_displayDelegate respondsToSelector:@selector(displayDelegate:draw:)]) {
     [_displayDelegate displayDelegate:self draw:SLSAppEventMake(&event)];
-  }
-}
-
-#pragma mark GLKViewControllerDelegate
-
-- (void)glkViewControllerUpdate:(GLKViewController *)controller {
-  CGRect bounds = self.bounds;
-  const solas::Size2d size(bounds.size.width, bounds.size.height);
-  const solas::AppEvent event(solas::AppEvent::Type::UPDATE,
-                              _view.context, size, [UIScreen mainScreen].scale);
-  if ([_displayDelegate respondsToSelector:
-          @selector(displayDelegate:update:)]) {
-    [_displayDelegate displayDelegate:self update:SLSAppEventMake(&event)];
   }
 }
 

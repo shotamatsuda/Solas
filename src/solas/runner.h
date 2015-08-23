@@ -1,7 +1,7 @@
 //
 //  solas/runner.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -35,13 +35,13 @@
 #include "solas/app_event.h"
 #include "solas/gesture_event.h"
 #include "solas/key_event.h"
-#include "solas/math.h"
 #include "solas/motion_event.h"
 #include "solas/mouse_event.h"
 #include "solas/runnable.h"
 #include "solas/runner_delegate.h"
 #include "solas/runner_options.h"
 #include "solas/touch_event.h"
+#include "takram/math.h"
 
 namespace solas {
 
@@ -66,7 +66,8 @@ class Runner final {
   void exit(const AppEvent& event);
 
   // Environment
-  void resize(const Size2d& size) const;
+  void frameRate(double fps) const;
+  void resize(const takram::Size2d& size) const;
   void fullscreen(bool flag) const;
 
   // Events
@@ -161,7 +162,13 @@ inline void Runner::exit(const AppEvent& event) {
 
 #pragma mark Environment
 
-inline void Runner::resize(const Size2d& size) const {
+inline void Runner::frameRate(double fps) const {
+  if (delegate_) {
+    delegate_->frameRate(fps);
+  }
+}
+
+inline void Runner::resize(const takram::Size2d& size) const {
   if (delegate_) {
     delegate_->resize(size);
   }
@@ -232,7 +239,7 @@ inline void Runner::keyReleased(const KeyEvent& event) {
 inline void Runner::touchesBegan(const TouchEvent& event) {
   if (runnable_) {
     runnable_->touchesBegan(event, *this);
-    if (options_.translates_touches()) {
+    if (options_.translates_touches() && !event.touches().empty()) {
       const MouseEvent mouse_event(MouseEvent::Type::PRESSED,
                                    event.touches().front(),
                                    MouseButton::LEFT,
@@ -245,7 +252,7 @@ inline void Runner::touchesBegan(const TouchEvent& event) {
 inline void Runner::touchesMoved(const TouchEvent& event) {
   if (runnable_) {
     runnable_->touchesMoved(event, *this);
-    if (options_.translates_touches()) {
+    if (options_.translates_touches() && !event.touches().empty()) {
       const MouseEvent mouse_event(MouseEvent::Type::DRAGGED,
                                    event.touches().front(),
                                    MouseButton::LEFT,
@@ -258,7 +265,7 @@ inline void Runner::touchesMoved(const TouchEvent& event) {
 inline void Runner::touchesCancelled(const TouchEvent& event) {
   if (runnable_) {
     runnable_->touchesCancelled(event, *this);
-    if (options_.translates_touches()) {
+    if (options_.translates_touches() && !event.touches().empty()) {
       const MouseEvent mouse_event(MouseEvent::Type::RELEASED,
                                    event.touches().front(),
                                    MouseButton::LEFT,
@@ -271,7 +278,7 @@ inline void Runner::touchesCancelled(const TouchEvent& event) {
 inline void Runner::touchesEnded(const TouchEvent& event) {
   if (runnable_) {
     runnable_->touchesEnded(event, *this);
-    if (options_.translates_touches()) {
+    if (options_.translates_touches() && !event.touches().empty()) {
       const MouseEvent mouse_event(MouseEvent::Type::RELEASED,
                                    event.touches().front(),
                                    MouseButton::LEFT,

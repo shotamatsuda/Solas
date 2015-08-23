@@ -1,7 +1,7 @@
 //
 //  SLSNSOpenGLLayer.mm
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -32,7 +32,7 @@
 
 #include "solas/app_event.h"
 #include "solas/framebuffer.h"
-#include "solas/math.h"
+#include "takram/math.h"
 
 @interface SLSNSOpenGLLayer () {
  @private
@@ -86,7 +86,7 @@
                   forLayerTime:(CFTimeInterval)layerTime
                    displayTime:(const CVTimeStamp *)displayTime {
   const CGRect bounds = self.bounds;
-  const solas::Size2d size(bounds.size.width, bounds.size.height);
+  const takram::Size2d size(bounds.size.width, bounds.size.height);
   const solas::AppEvent event(solas::AppEvent::Type::UPDATE,
                               context, size, self.contentsScale);
   if ([_displayDelegate respondsToSelector:
@@ -108,7 +108,7 @@
   _framebuffer.bind();
   glClearColor(1.0, 1.0, 1.0, 1.0);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-  const solas::Size2d size(bounds.size.width, bounds.size.height);
+  const takram::Size2d size(bounds.size.width, bounds.size.height);
   const solas::AppEvent event(solas::AppEvent::Type::DRAW,
                               context, size, scale);
   if ([_displayDelegate respondsToSelector:@selector(displayDelegate:draw:)]) {
@@ -134,11 +134,15 @@
 #pragma mark Invalidating the Display Source
 
 - (void)setDisplaySourceNeedsDisplay {
-  // Don't wait until done here because CVDisplayLinkStop call on
-  // CVDisplayLink's deallocation on the main thread will result in deadlock.
-  [self performSelectorOnMainThread:@selector(setNeedsDisplay)
-                         withObject:nil
-                      waitUntilDone:NO];
+  if ([NSThread isMainThread]) {
+    [self setNeedsDisplay];
+  } else {
+    // Don't wait until done here because CVDisplayLinkStop call on
+    // CVDisplayLink's deallocation on the main thread will result in deadlock.
+    [self performSelectorOnMainThread:@selector(setNeedsDisplay)
+                           withObject:nil
+                        waitUntilDone:NO];
+  }
 }
 
 @end

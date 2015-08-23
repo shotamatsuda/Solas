@@ -1,7 +1,7 @@
 //
 //  SLSNSEventSourceView.mm
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -36,7 +36,7 @@
 #include "solas/mouse_button.h"
 #include "solas/mouse_event.h"
 #include "solas/touch_event.h"
-#include "solas/math.h"
+#include "takram/math.h"
 
 @interface SLSNSEventSourceView ()
 
@@ -212,10 +212,10 @@
                                fromView:self.window.contentView];
   return solas::MouseEvent(
       type,
-      solas::Vec2d(location.x, location.y),
+      takram::Vec2d(location.x, location.y),
       static_cast<solas::MouseButton>(event.buttonNumber),
       [self keyModifiersForEvent:event],
-      solas::Vec3d(event.deltaX, event.deltaY, event.deltaZ));
+      takram::Vec3d(event.deltaX, event.deltaY, event.deltaZ));
 }
 
 - (solas::KeyEvent)keyEventWithEvent:(NSEvent *)event
