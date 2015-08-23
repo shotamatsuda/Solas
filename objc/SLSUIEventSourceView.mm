@@ -36,7 +36,7 @@
 #include "solas/gesture_kind.h"
 #include "solas/motion_event.h"
 #include "solas/touch_event.h"
-#include "solas/math.h"
+#include "takram/math.h"
 
 @interface SLSUIEventSourceView () <UIGestureRecognizerDelegate>
 
@@ -127,7 +127,7 @@
 
 - (solas::TouchEvent)touchEventWithEvent:(UIEvent *)event
     type:(solas::TouchEvent::Type)type {
-  std::vector<solas::Vec2d> touches;
+  std::vector<takram::Vec2d> touches;
   for (UITouch *touch in event.allTouches) {
     CGPoint location = [touch locationInView:self];
     touches.emplace_back(location.x, location.y);
@@ -145,7 +145,7 @@
     type:(solas::GestureEvent::Type)type
     kind:(solas::GestureKind)kind
     data:(const boost::any&)data {
-  std::vector<solas::Vec2d> touches;
+  std::vector<takram::Vec2d> touches;
   for (NSInteger i = 0; i < recognizer.numberOfTouches; ++i) {
     CGPoint location = [recognizer locationOfTouch:i inView:self];
     touches.emplace_back(location.x, location.y);

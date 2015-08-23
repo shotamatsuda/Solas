@@ -27,7 +27,7 @@
 #import "SLSQuartzLayer.h"
 
 #include "solas/app_event.h"
-#include "solas/math.h"
+#include "takram/math.h"
 
 @implementation SLSQuartzLayer
 
@@ -43,7 +43,7 @@
 
 - (void)drawInContext:(CGContextRef)context {
   CGRect bounds = self.bounds;
-  const solas::Size2d size(bounds.size.width, bounds.size.height);
+  const takram::Size2d size(bounds.size.width, bounds.size.height);
   if ([_displayDelegate respondsToSelector:
           @selector(displayDelegate:update:)]) {
     const solas::AppEvent event(solas::AppEvent::Type::UPDATE,

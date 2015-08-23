@@ -29,7 +29,7 @@
 #import <GLKit/GLKit.h>
 
 #include "solas/app_event.h"
-#include "solas/math.h"
+#include "takram/math.h"
 
 @interface SLSUIOpenGLESView () <GLKViewDelegate>
 
@@ -92,7 +92,7 @@
                          waitUntilDone:NO];
   }
   CGRect bounds = self.bounds;
-  const solas::Size2d size(bounds.size.width, bounds.size.height);
+  const takram::Size2d size(bounds.size.width, bounds.size.height);
   const solas::AppEvent event(solas::AppEvent::Type::UPDATE,
                               _view.context, size, [UIScreen mainScreen].scale);
   if ([_displayDelegate respondsToSelector:
@@ -108,7 +108,7 @@
   glClearColor(1.0, 1.0, 1.0, 1.0);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
   CGRect bounds = self.bounds;
-  const solas::Size2d size(bounds.size.width, bounds.size.height);
+  const takram::Size2d size(bounds.size.width, bounds.size.height);
   const solas::AppEvent event(solas::AppEvent::Type::DRAW,
                               _view.context, size, [UIScreen mainScreen].scale);
   if ([_displayDelegate respondsToSelector:@selector(displayDelegate:draw:)]) {

@@ -28,7 +28,7 @@
 #ifndef SOLAS_RUNNER_DELEGATE_H_
 #define SOLAS_RUNNER_DELEGATE_H_
 
-#include "solas/math.h"
+#include "takram/math.h"
 
 namespace solas {
 
@@ -38,7 +38,7 @@ class RunnerDelegate {
 
   // Environment
   virtual void frameRate(double fps) = 0;
-  virtual void resize(const Size2d& size) = 0;
+  virtual void resize(const takram::Size2d& size) = 0;
   virtual void fullscreen(bool flag) = 0;
 };
 

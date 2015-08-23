@@ -35,13 +35,13 @@
 #include "solas/app_event.h"
 #include "solas/gesture_event.h"
 #include "solas/key_event.h"
-#include "solas/math.h"
 #include "solas/motion_event.h"
 #include "solas/mouse_event.h"
 #include "solas/runnable.h"
 #include "solas/runner_delegate.h"
 #include "solas/runner_options.h"
 #include "solas/touch_event.h"
+#include "takram/math.h"
 
 namespace solas {
 
@@ -67,7 +67,7 @@ class Runner final {
 
   // Environment
   void frameRate(double fps) const;
-  void resize(const Size2d& size) const;
+  void resize(const takram::Size2d& size) const;
   void fullscreen(bool flag) const;
 
   // Events
@@ -168,7 +168,7 @@ inline void Runner::frameRate(double fps) const {
   }
 }
 
-inline void Runner::resize(const Size2d& size) const {
+inline void Runner::resize(const takram::Size2d& size) const {
   if (delegate_) {
     delegate_->resize(size);
   }
