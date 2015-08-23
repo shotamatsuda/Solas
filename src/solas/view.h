@@ -88,6 +88,7 @@ class View : public Runnable, public Composite {
   // Environment
   void frameRate(double fps) const override;
   void resize(const Size2d& size) const override;
+  void resize(double width, double height) const override;
   void fullscreen(bool flag) const override;
 
   // Structure
@@ -284,6 +285,10 @@ inline void View::frameRate(double fps) const {
 inline void View::resize(const Size2d& size) const {
   resize_.first = true;
   resize_.second = size;
+}
+
+inline void View::resize(double width, double height) const {
+  resize(Size2d(width, height));
 }
 
 inline void View::fullscreen(bool flag) const {

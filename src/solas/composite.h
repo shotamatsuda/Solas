@@ -54,6 +54,7 @@ class Composite {
   // Environment
   virtual void frameRate(double fps) const;
   virtual void resize(const Size2d& size) const;
+  virtual void resize(double width, double height) const;
   virtual void fullscreen(bool flag) const;
 
   // Structure
@@ -121,6 +122,11 @@ inline void Composite::frameRate(double fps) const {
 inline void Composite::resize(const Size2d& size) const {
   assert(parent_);
   return parent_->resize(size);
+}
+
+inline void Composite::resize(double width, double height) const {
+  assert(parent_);
+  return parent_->resize(width, height);
 }
 
 inline void Composite::fullscreen(bool flag) const {
