@@ -943,7 +943,7 @@
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = "";
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.10;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -952,7 +952,7 @@
 			baseConfigurationReference = 933295971B64D77600F63AB2 /* project_release.xcconfig */;
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = "";
-				SDKROOT = macosx10.10;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
