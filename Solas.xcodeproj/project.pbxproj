@@ -21,7 +21,7 @@
 		93563B9C1B677EB9004C47E4 /* SLSNSOpenGL4View.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F858871B56535B00C32E8D /* SLSNSOpenGL4View.m */; };
 		93563B9D1B677EB9004C47E4 /* SLSNSOpenGLLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F858891B56535B00C32E8D /* SLSNSOpenGLLayer.mm */; };
 		93563B9E1B677EB9004C47E4 /* SLSNSQuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588B1B56535B00C32E8D /* SLSNSQuartzView.m */; };
-		93563B9F1B677EB9004C47E4 /* SLSCVDisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.m */; };
+		93563B9F1B677EB9004C47E4 /* SLSCVDisplayLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.mm */; };
 		93563BA01B677EB9004C47E4 /* SLSNSApplicationMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588D1B56535B00C32E8D /* SLSNSApplicationMain.m */; };
 		93563BA11B677EB9004C47E4 /* SLSNSApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588F1B56535B00C32E8D /* SLSNSApplicationDelegate.mm */; };
 		936E24461ADEA5A80004C396 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
@@ -59,7 +59,7 @@
 		93F858A21B56535B00C32E8D /* SLSNSOpenGL4View.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F858871B56535B00C32E8D /* SLSNSOpenGL4View.m */; };
 		93F858A41B56535B00C32E8D /* SLSNSOpenGLLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F858891B56535B00C32E8D /* SLSNSOpenGLLayer.mm */; };
 		93F858A61B56535B00C32E8D /* SLSNSQuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588B1B56535B00C32E8D /* SLSNSQuartzView.m */; };
-		93F858A71B56535B00C32E8D /* SLSCVDisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.m */; };
+		93F858A71B56535B00C32E8D /* SLSCVDisplayLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.mm */; };
 		93F858A81B56535B00C32E8D /* SLSNSApplicationMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588D1B56535B00C32E8D /* SLSNSApplicationMain.m */; };
 		93F858AA1B56535B00C32E8D /* SLSNSApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588F1B56535B00C32E8D /* SLSNSApplicationDelegate.mm */; };
 		93F858AB1B56535B00C32E8D /* SLSNSApplication.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93F858901B56535B00C32E8D /* SLSNSApplication.xib */; };
@@ -70,7 +70,7 @@
 		93F858CA1B56536000C32E8D /* SLSUIOpenGLES2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F858B61B56536000C32E8D /* SLSUIOpenGLES2View.m */; };
 		93F858CC1B56536000C32E8D /* SLSUIOpenGLES3View.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F858B81B56536000C32E8D /* SLSUIOpenGLES3View.m */; };
 		93F858CE1B56536000C32E8D /* SLSUIQuartzView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F858BA1B56536000C32E8D /* SLSUIQuartzView.m */; };
-		93F858CF1B56536000C32E8D /* SLSCADisplayLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F858BB1B56536000C32E8D /* SLSCADisplayLink.m */; };
+		93F858CF1B56536000C32E8D /* SLSCADisplayLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F858BB1B56536000C32E8D /* SLSCADisplayLink.mm */; };
 		93F858D01B56536000C32E8D /* SLSUIApplicationMain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F858BC1B56536000C32E8D /* SLSUIApplicationMain.mm */; };
 		93F858D21B56536000C32E8D /* SLSUIApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F858BE1B56536000C32E8D /* SLSUIApplicationDelegate.mm */; };
 /* End PBXBuildFile section */
@@ -225,7 +225,7 @@
 		93F858891B56535B00C32E8D /* SLSNSOpenGLLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSNSOpenGLLayer.mm; sourceTree = "<group>"; };
 		93F8588A1B56535B00C32E8D /* SLSNSQuartzView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSNSQuartzView.h; sourceTree = "<group>"; };
 		93F8588B1B56535B00C32E8D /* SLSNSQuartzView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSNSQuartzView.m; sourceTree = "<group>"; };
-		93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSCVDisplayLink.m; sourceTree = "<group>"; };
+		93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSCVDisplayLink.mm; sourceTree = "<group>"; };
 		93F8588D1B56535B00C32E8D /* SLSNSApplicationMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSNSApplicationMain.m; sourceTree = "<group>"; };
 		93F8588E1B56535B00C32E8D /* SLSNSApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSNSApplicationDelegate.h; sourceTree = "<group>"; };
 		93F8588F1B56535B00C32E8D /* SLSNSApplicationDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSNSApplicationDelegate.mm; sourceTree = "<group>"; };
@@ -244,7 +244,7 @@
 		93F858B81B56536000C32E8D /* SLSUIOpenGLES3View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIOpenGLES3View.m; sourceTree = "<group>"; };
 		93F858B91B56536000C32E8D /* SLSUIQuartzView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIQuartzView.h; sourceTree = "<group>"; };
 		93F858BA1B56536000C32E8D /* SLSUIQuartzView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSUIQuartzView.m; sourceTree = "<group>"; };
-		93F858BB1B56536000C32E8D /* SLSCADisplayLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSCADisplayLink.m; sourceTree = "<group>"; };
+		93F858BB1B56536000C32E8D /* SLSCADisplayLink.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSCADisplayLink.mm; sourceTree = "<group>"; };
 		93F858BC1B56536000C32E8D /* SLSUIApplicationMain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIApplicationMain.mm; sourceTree = "<group>"; };
 		93F858BD1B56536000C32E8D /* SLSUIApplicationDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSUIApplicationDelegate.h; sourceTree = "<group>"; };
 		93F858BE1B56536000C32E8D /* SLSUIApplicationDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = SLSUIApplicationDelegate.mm; sourceTree = "<group>"; };
@@ -415,7 +415,7 @@
 				93F858891B56535B00C32E8D /* SLSNSOpenGLLayer.mm */,
 				93F8588A1B56535B00C32E8D /* SLSNSQuartzView.h */,
 				93F8588B1B56535B00C32E8D /* SLSNSQuartzView.m */,
-				93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.m */,
+				93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.mm */,
 				93F8588D1B56535B00C32E8D /* SLSNSApplicationMain.m */,
 				93F8588E1B56535B00C32E8D /* SLSNSApplicationDelegate.h */,
 				93F8588F1B56535B00C32E8D /* SLSNSApplicationDelegate.mm */,
@@ -441,7 +441,7 @@
 				93F858B81B56536000C32E8D /* SLSUIOpenGLES3View.m */,
 				93F858B91B56536000C32E8D /* SLSUIQuartzView.h */,
 				93F858BA1B56536000C32E8D /* SLSUIQuartzView.m */,
-				93F858BB1B56536000C32E8D /* SLSCADisplayLink.m */,
+				93F858BB1B56536000C32E8D /* SLSCADisplayLink.mm */,
 				93F858BC1B56536000C32E8D /* SLSUIApplicationMain.mm */,
 				93F858BD1B56536000C32E8D /* SLSUIApplicationDelegate.h */,
 				93F858BE1B56536000C32E8D /* SLSUIApplicationDelegate.mm */,
@@ -733,7 +733,7 @@
 				93563BA01B677EB9004C47E4 /* SLSNSApplicationMain.m in Sources */,
 				93563B991B677EB9004C47E4 /* SLSNSView.m in Sources */,
 				936E24981ADEA5A80004C396 /* SLSNSBundle+Bundle.m in Sources */,
-				93563B9F1B677EB9004C47E4 /* SLSCVDisplayLink.m in Sources */,
+				93563B9F1B677EB9004C47E4 /* SLSCVDisplayLink.mm in Sources */,
 				936E24481ADEA5A80004C396 /* view.cc in Sources */,
 				9383C0D81B685D3C0021D738 /* solas.mm in Sources */,
 				93244E641B6DD51500CB2F87 /* SLSNSSplitViewController.m in Sources */,
@@ -769,7 +769,7 @@
 				93F858A81B56535B00C32E8D /* SLSNSApplicationMain.m in Sources */,
 				93F858AA1B56535B00C32E8D /* SLSNSApplicationDelegate.mm in Sources */,
 				93AD7CEB1ADD395500B42B9E /* view.cc in Sources */,
-				93F858A71B56535B00C32E8D /* SLSCVDisplayLink.m in Sources */,
+				93F858A71B56535B00C32E8D /* SLSCVDisplayLink.mm in Sources */,
 				93F8589E1B56535B00C32E8D /* SLSNSOpenGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -786,7 +786,7 @@
 				93F857CB1B564B0500C32E8D /* SLSRunner.mm in Sources */,
 				93F858C81B56536000C32E8D /* SLSUIOpenGLESView.mm in Sources */,
 				93F858C61B56536000C32E8D /* SLSUIView.m in Sources */,
-				93F858CF1B56536000C32E8D /* SLSCADisplayLink.m in Sources */,
+				93F858CF1B56536000C32E8D /* SLSCADisplayLink.mm in Sources */,
 				93F858D01B56536000C32E8D /* SLSUIApplicationMain.mm in Sources */,
 				93F857CF1B564B0500C32E8D /* run.mm in Sources */,
 				93F858C21B56536000C32E8D /* SLSUIViewController.m in Sources */,

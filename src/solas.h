@@ -102,6 +102,7 @@ extern const unsigned char version_string[];
 #import "SLSNSView.h"
 #import "SLSNSViewController.h"
 #import "SLSNSWindowController.h"
+#import "SLSScreenSaverView.h"
 
 #endif  // TARGET_OS_MAC && !TARGET_OS_IPHONE
 

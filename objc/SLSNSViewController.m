@@ -103,41 +103,23 @@
 }
 
 - (void)mouseDown:(NSEvent *)event {}
-
 - (void)rightMouseDown:(NSEvent *)event {}
-
 - (void)otherMouseDown:(NSEvent *)event {}
-
 - (void)mouseUp:(NSEvent *)event {}
-
 - (void)rightMouseUp:(NSEvent *)event {}
-
 - (void)otherMouseUp:(NSEvent *)event {}
-
 - (void)mouseDragged:(NSEvent *)event {}
-
 - (void)rightMouseDragged:(NSEvent *)event {}
-
 - (void)otherMouseDragged:(NSEvent *)event {}
-
 - (void)mouseMoved:(NSEvent *)event {}
-
 - (void)mouseEntered:(NSEvent *)event {}
-
 - (void)mouseExited:(NSEvent *)event {}
-
 - (void)scrollWheel:(NSEvent *)event {}
-
 - (void)keyDown:(NSEvent *)event {}
-
 - (void)keyUp:(NSEvent *)event {}
-
 - (void)touchesBeganWithEvent:(NSEvent *)event {}
-
 - (void)touchesMovedWithEvent:(NSEvent *)event {}
-
 - (void)touchesCancelledWithEvent:(NSEvent *)event {}
-
 - (void)touchesEndedWithEvent:(NSEvent *)event {}
 
 #pragma mark Managing the Runner
@@ -155,6 +137,14 @@
 
 #pragma mark Controlling Animation
 
+- (double)frameRate {
+  return _displayLink.frameRate;
+}
+
+- (void)setFrameRate:(double)frameRate {
+  _displayLink.frameRate = frameRate;
+}
+
 - (void)startAnimation {
   if (!_displayLink) {
     _displayLink = [SLSDisplayLink
@@ -171,6 +161,10 @@
 }
 
 #pragma mark SLSRunnerDelegate
+
+- (void)runner:(nonnull SLSRunner *)runner frameRate:(double)frameRate {
+  self.frameRate = frameRate;
+}
 
 - (void)runner:(nonnull SLSRunner *)runner resize:(CGSize)size {
   NSWindow *window = self.view.window;

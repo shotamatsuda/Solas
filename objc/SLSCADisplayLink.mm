@@ -1,5 +1,5 @@
 //
-//  SLSCADisplayLink.m
+//  SLSCADisplayLink.mm
 //
 //  The MIT License
 //
@@ -28,11 +28,19 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-@interface SLSDisplayLink ()
+#include <chrono>
+
+@interface SLSDisplayLink () {
+ @private
+  std::chrono::system_clock::time_point _accumulator;
+  std::chrono::microseconds _interval;
+}
 
 @property (nonatomic, retain) id target;
 @property (nonatomic, assign) SEL selector;
 @property (nonatomic, strong) CADisplayLink *link;
+
+- (void)callback:(CADisplayLink *)sender;
 
 @end
 
@@ -43,8 +51,8 @@
   if (self) {
     _target = target;
     _selector = selector;
-    _link = [CADisplayLink displayLinkWithTarget:target selector:selector];
-    _link.frameInterval = 1;
+    _link = [CADisplayLink displayLinkWithTarget:self
+                                        selector:@selector(callback:)];
   }
   return self;
 }
@@ -57,7 +65,19 @@
   [self stop];
 }
 
+#pragma mark Controlling the Display Link
+
+- (void)setFrameRate:(double)frameRate {
+  if (frameRate != _frameRate) {
+    _frameRate = frameRate;
+    _interval = std::chrono::microseconds(
+        static_cast<std::chrono::microseconds::rep>(
+            std::chrono::microseconds::period::den / frameRate));
+  }
+}
+
 - (void)start {
+  _accumulator = std::chrono::system_clock::now();
   [_link addToRunLoop:[NSRunLoop mainRunLoop]
               forMode:NSRunLoopCommonModes];
 }
@@ -65,6 +85,26 @@
 - (void)stop {
   [_link removeFromRunLoop:[NSRunLoop mainRunLoop]
                    forMode:NSRunLoopCommonModes];
+}
+
+- (void)callback:(CADisplayLink *)sender {
+  if (_interval == std::chrono::microseconds::zero()) {
+    [self.target performSelector:self.selector
+                        onThread:[NSThread currentThread]
+                      withObject:nil
+                   waitUntilDone:YES];
+  } else {
+    const auto elapsed =
+        std::chrono::duration_cast<std::chrono::microseconds>(
+            std::chrono::system_clock::now() - _accumulator);
+    if (elapsed > _interval) {
+      [self.target performSelector:self.selector
+                          onThread:[NSThread currentThread]
+                        withObject:nil
+                     waitUntilDone:YES];
+      _accumulator += _interval * (elapsed / _interval);
+    }
+  }
 }
 
 @end

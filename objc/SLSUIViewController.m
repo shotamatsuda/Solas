@@ -98,17 +98,11 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {}
-
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {}
-
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {}
-
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {}
-
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {}
-
 - (void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event {}
-
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {}
 
 #pragma mark Managing the Runner
@@ -116,13 +110,23 @@
 - (void)setRunner:(SLSRunner *)runner {
   if (runner != _runner) {
     [self stopAnimation];
+    _runner.delegate = nil;
     _runner = runner;
+    _runner.delegate = self;
     [self setUpContentView];
     [self startAnimation];
   }
 }
 
 #pragma mark Controlling Animation
+
+- (double)frameRate {
+  return _displayLink.frameRate;
+}
+
+- (void)setFrameRate:(double)frameRate {
+  _displayLink.frameRate = frameRate;
+}
 
 - (void)startAnimation {
   if (!_displayLink) {
@@ -137,6 +141,12 @@
   if (_displayLink) {
     [_displayLink stop];
   }
+}
+
+#pragma mark SLSRunnerDelegate
+
+- (void)runner:(nonnull SLSRunner *)runner frameRate:(double)frameRate {
+  self.frameRate = frameRate;
 }
 
 @end

@@ -46,7 +46,7 @@ namespace {
 class RunnerDelegate : public solas::RunnerDelegate {
  public:
   explicit RunnerDelegate(SLSRunner *runner);
-
+  void frameRate(double fps) override;
   void resize(const solas::Size2d& size) override;
   void fullscreen(bool flag) override;
 
@@ -57,6 +57,10 @@ class RunnerDelegate : public solas::RunnerDelegate {
 #pragma mark -
 
 inline RunnerDelegate::RunnerDelegate(SLSRunner *runner) : runner_(runner) {}
+
+inline void RunnerDelegate::frameRate(double fps) {
+  [runner_ frameRate:fps];
+}
 
 inline void RunnerDelegate::resize(const solas::Size2d& size) {
   [runner_ resize:CGSizeMake(size.width, size.height)];
@@ -134,6 +138,12 @@ inline void RunnerDelegate::fullscreen(bool flag) {
 
 - (BOOL)movesWindow {
   return _runner->options().moves_window();
+}
+
+- (void)frameRate:(double)frameRate {
+  if ([_delegate respondsToSelector:@selector(runner:frameRate:)]) {
+    [_delegate runner:self frameRate:frameRate];
+  }
 }
 
 - (void)resize:(CGSize)size {

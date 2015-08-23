@@ -35,6 +35,8 @@
 
 #pragma mark Controlling the Display Link
 
+@property (nonatomic, assign) double frameRate;
+
 - (void)start;
 - (void)stop;
 

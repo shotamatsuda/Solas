@@ -67,6 +67,7 @@ typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
 @property (nonatomic, readonly) BOOL movesWindow;
 @property (nonatomic, weak, nullable) id<SLSRunnerDelegate> delegate;
 
+- (void)frameRate:(double)frameRate;
 - (void)resize:(CGSize)size;
 - (void)fullscreen:(BOOL)flag;
 
@@ -75,6 +76,7 @@ typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
 @protocol SLSRunnerDelegate <NSObject>
 
 @optional
+- (void)runner:(nonnull SLSRunner *)runner frameRate:(double)frameRate;
 - (void)runner:(nonnull SLSRunner *)runner resize:(CGSize)size;
 - (void)runner:(nonnull SLSRunner *)runner fullscreen:(BOOL)flag;
 

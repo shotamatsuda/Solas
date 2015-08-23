@@ -66,6 +66,7 @@ class Runner final {
   void exit(const AppEvent& event);
 
   // Environment
+  void frameRate(double fps) const;
   void resize(const Size2d& size) const;
   void fullscreen(bool flag) const;
 
@@ -160,6 +161,12 @@ inline void Runner::exit(const AppEvent& event) {
 }
 
 #pragma mark Environment
+
+inline void Runner::frameRate(double fps) const {
+  if (delegate_) {
+    delegate_->frameRate(fps);
+  }
+}
 
 inline void Runner::resize(const Size2d& size) const {
   if (delegate_) {

@@ -37,7 +37,7 @@
 - (nullable instancetype)initWithRunner:(nullable SLSRunner *)runner
     NS_DESIGNATED_INITIALIZER;
 
-#pragma mark Accessing Views
+#pragma mark Managing Sources
 
 @property (nonatomic, weak, nullable) id<SLSEventSource> eventSource;
 @property (nonatomic, weak, nullable) id<SLSDisplaySource> displaySource;
@@ -45,5 +45,12 @@
 #pragma mark Managing the Runner
 
 @property (nonatomic, strong, nullable) SLSRunner *runner;
+
+#pragma mark Controlling Animation
+
+@property (nonatomic, assign) double frameRate;
+
+- (void)startAnimation;
+- (void)stopAnimation;
 
 @end

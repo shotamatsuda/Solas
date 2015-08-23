@@ -1,5 +1,5 @@
 //
-//  SLSCVDisplayLink.m
+//  SLSCVDisplayLink.mm
 //
 //  The MIT License
 //
@@ -28,7 +28,13 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-@interface SLSDisplayLink ()
+#include <chrono>
+
+@interface SLSDisplayLink () {
+ @private
+  std::chrono::system_clock::time_point _accumulator;
+  std::chrono::microseconds _interval;
+}
 
 @property (nonatomic, retain) id target;
 @property (nonatomic, assign) SEL selector;
@@ -72,7 +78,19 @@ static CVReturn DisplayLinkCallback(
   }
 }
 
+#pragma mark Controlling the Display Link
+
+- (void)setFrameRate:(double)frameRate {
+  if (frameRate != _frameRate) {
+    _frameRate = frameRate;
+    _interval = std::chrono::microseconds(
+        static_cast<std::chrono::microseconds::rep>(
+            std::chrono::microseconds::period::den / frameRate));
+  }
+}
+
 - (void)start {
+  _accumulator = std::chrono::system_clock::now();
   CVDisplayLinkStart(_link);
 }
 
@@ -89,10 +107,23 @@ CVReturn DisplayLinkCallback(
     void *userInfo) {
   @autoreleasepool {
     SLSDisplayLink *self = (__bridge SLSDisplayLink *)userInfo;
-    [self.target performSelector:self.selector
-                        onThread:[NSThread currentThread]
-                      withObject:nil
-                   waitUntilDone:YES];
+    if (self->_interval == std::chrono::microseconds::zero()) {
+      [self.target performSelector:self.selector
+                          onThread:[NSThread currentThread]
+                        withObject:nil
+                     waitUntilDone:YES];
+    } else {
+      const auto elapsed =
+          std::chrono::duration_cast<std::chrono::microseconds>(
+              std::chrono::system_clock::now() - self->_accumulator);
+      if (elapsed > self->_interval) {
+        [self.target performSelector:self.selector
+                            onThread:[NSThread currentThread]
+                          withObject:nil
+                       waitUntilDone:YES];
+        self->_accumulator += self->_interval * (elapsed / self->_interval);
+      }
+    }
   }
   return kCVReturnSuccess;
 }
