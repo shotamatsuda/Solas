@@ -32,7 +32,7 @@
 
 #include <boost/any.hpp>
 
-#include "solas/math.h"
+#include "takram/math.h"
 
 namespace solas {
 
@@ -50,7 +50,10 @@ class AppEvent final {
  public:
   explicit AppEvent(Type type);
   template <class Context>
-  AppEvent(Type type, const Context& context, const Size2d& size, double scale);
+  AppEvent(Type type,
+           const Context& context,
+           const takram::Size2d& size,
+           double scale);
 
   // Copy semantics excluding assignment
   AppEvent(const AppEvent&) = default;
@@ -60,13 +63,13 @@ class AppEvent final {
   Type type() const { return type_; }
   template <class Context>
   const Context& context() const;
-  const Size2d& size() const { return size_; }
+  const takram::Size2d& size() const { return size_; }
   double scale() const { return scale_; }
 
  private:
   Type type_;
   boost::any context_;
-  Size2d size_;
+  takram::Size2d size_;
   double scale_;
 };
 
@@ -77,7 +80,7 @@ inline AppEvent::AppEvent(Type type) : type_(type) {}
 template <class Context>
 inline AppEvent::AppEvent(Type type,
                           const Context& context,
-                          const Size2d& size,
+                          const takram::Size2d& size,
                           double scale)
     : type_(type),
       context_(std::reference_wrapper<const Context>(context)),

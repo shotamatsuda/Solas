@@ -171,7 +171,6 @@
 		9383C0D51B685D3C0021D738 /* solas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = solas.h; sourceTree = "<group>"; };
 		938987C61AD1B93F00DEC9E9 /* framework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = framework.plist; sourceTree = "<group>"; };
 		938987D61AD21F2000DEC9E9 /* SLSDisplayLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSDisplayLink.h; sourceTree = "<group>"; };
-		938D13A51B508D4100CCA57D /* math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = math.h; sourceTree = "<group>"; };
 		939E967F1AD384C500A7E21E /* SLSEventSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSEventSource.h; sourceTree = "<group>"; };
 		939E96891AD38BB300A7E21E /* SLSDisplayDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSDisplayDelegate.h; sourceTree = "<group>"; };
 		93A45B4F1AD14C4400969DC2 /* gesture_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gesture_event.h; sourceTree = "<group>"; };
@@ -362,7 +361,6 @@
 				93AD7CE11ADD395500B42B9E /* group.h */,
 				93A45B501AD14C4400969DC2 /* key_event.h */,
 				93CAA6081AD16EED005EDC09 /* key_modifier.h */,
-				938D13A51B508D4100CCA57D /* math.h */,
 				93A45B511AD14C4400969DC2 /* motion_event.h */,
 				93CAA6091AD16F40005EDC09 /* mouse_button.h */,
 				93A45B521AD14C4400969DC2 /* mouse_event.h */,

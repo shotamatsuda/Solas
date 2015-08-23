@@ -34,7 +34,7 @@
 #include <utility>
 
 #include "solas/mouse_button.h"
-#include "solas/math.h"
+#include "takram/math.h"
 
 namespace solas {
 
@@ -53,19 +53,19 @@ class Composite {
 
   // Environment
   virtual void frameRate(double fps) const;
-  virtual void resize(const Size2d& size) const;
+  virtual void resize(const takram::Size2d& size) const;
   virtual void resize(double width, double height) const;
   virtual void fullscreen(bool flag) const;
 
   // Structure
-  virtual const Size2d& size() const;
+  virtual const takram::Size2d& size() const;
   virtual double width() const;
   virtual double height() const;
   virtual double scale() const;
 
   // Mouse
-  virtual const Vec2d& mouse() const;
-  virtual const Vec2d& pmouse() const;
+  virtual const takram::Vec2d& mouse() const;
+  virtual const takram::Vec2d& pmouse() const;
   virtual MouseButton mouse_button() const;
   virtual bool mouse_pressed() const;
 
@@ -75,8 +75,8 @@ class Composite {
   virtual bool key_pressed() const;
 
   // Touches
-  virtual const Vec2d& touch() const;
-  virtual const Vec2d& ptouch() const;
+  virtual const takram::Vec2d& touch() const;
+  virtual const takram::Vec2d& ptouch() const;
   virtual bool touch_pressed() const;
 
   // Aggregation
@@ -119,7 +119,7 @@ inline void Composite::frameRate(double fps) const {
   return parent_->frameRate(fps);
 }
 
-inline void Composite::resize(const Size2d& size) const {
+inline void Composite::resize(const takram::Size2d& size) const {
   assert(parent_);
   return parent_->resize(size);
 }
@@ -136,7 +136,7 @@ inline void Composite::fullscreen(bool flag) const {
 
 #pragma mark Structure
 
-inline const Size2d& Composite::size() const {
+inline const takram::Size2d& Composite::size() const {
   assert(parent_);
   return parent_->size();
 }
@@ -158,12 +158,12 @@ inline double Composite::scale() const {
 
 #pragma mark Mouse
 
-inline const Vec2d& Composite::mouse() const {
+inline const takram::Vec2d& Composite::mouse() const {
   assert(parent_);
   return parent_->mouse();
 }
 
-inline const Vec2d& Composite::pmouse() const {
+inline const takram::Vec2d& Composite::pmouse() const {
   assert(parent_);
   return parent_->pmouse();
 }
@@ -197,12 +197,12 @@ inline bool Composite::key_pressed() const {
 
 #pragma mark Touches
 
-inline const Vec2d& Composite::touch() const {
+inline const takram::Vec2d& Composite::touch() const {
   assert(parent_);
   return parent_->touch();
 }
 
-inline const Vec2d& Composite::ptouch() const {
+inline const takram::Vec2d& Composite::ptouch() const {
   assert(parent_);
   return parent_->ptouch();
 }

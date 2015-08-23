@@ -45,7 +45,6 @@ extern const unsigned char version_string[];
 #include "solas/group.h"
 #include "solas/key_event.h"
 #include "solas/key_modifier.h"
-#include "solas/math.h"
 #include "solas/motion_event.h"
 #include "solas/mouse_button.h"
 #include "solas/mouse_event.h"
