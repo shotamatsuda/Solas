@@ -6,6 +6,7 @@ compiler:
 
 before_script:
   - git clone git://github.com/takram-design-engineering/takram-math.git ../takram-math
+  - brew install boost
 
 script:
   - xcodebuild -project Solas.xcodeproj -scheme "Solas" -configuration Debug build
