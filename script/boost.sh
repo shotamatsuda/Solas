@@ -89,7 +89,6 @@ extract_boost() {
 }
 
 bootstrap_boost() {
-  [[ BOOST_NO_BUILD ]] && return
   cd "${BOOST_DIR}"
   if [[ ! "${BOOST_MODULES}" ]]; then
     echo "Bootstrapping"
