@@ -3,6 +3,8 @@ Solas Framework
 
 Work in progress...
 
+[![Build Status](https://travis-ci.org/takram-design-engineering/solas.svg)](https://travis-ci.org/takram-design-engineering/solas)
+
 ## Setup Guide
 
 Run "setup.sh" inside "script" directory to initialize submodules and build dependant libraries.

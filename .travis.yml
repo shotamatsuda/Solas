@@ -1,0 +1,12 @@
+language: objective-c
+
+compiler:
+  - clang
+
+before_script:
+  - git clone git://github.com/takram-design-engineering/takram-math.git ../takram-math
+
+script:
+  - xcodebuild -project Solas.xcodeproj -scheme "Solas" -configuration Debug build
+  - xcodebuild -project Solas.xcodeproj -scheme "Solas iOS" -configuration Debug build
+  - xcodebuild -project Solas.xcodeproj -scheme "Solas Static" -configuration Debug build
