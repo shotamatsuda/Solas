@@ -11,4 +11,3 @@ before_script:
 script:
   - xcodebuild -project Solas.xcodeproj -scheme "Solas" -configuration Debug build
   - xcodebuild -project Solas.xcodeproj -scheme "Solas iOS" -configuration Debug build
-  - xcodebuild -project Solas.xcodeproj -scheme "Solas Static" -configuration Debug build

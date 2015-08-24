@@ -26,9 +26,8 @@
 #
 
 readonly BOOST_VERSION="1.58.0"
-readonly BOOST_MODULES=" \
-    chrono date_time filesystem graph random regex \
-    serialization signals system thread timer"
+readonly BOOST_MODULES=""
+readonly BOOST_NO_BUILD=true
 readonly COMPILER="clang"
 readonly COMPILER_FLAGS="-std=c++11 -stdlib=libc++"
 readonly IOS_SDK_VERSION=$(xcodebuild -showsdks | grep iphoneos |
@@ -90,6 +89,7 @@ extract_boost() {
 }
 
 bootstrap_boost() {
+  [[ BOOST_NO_BUILD ]] && return
   cd "${BOOST_DIR}"
   if [[ ! "${BOOST_MODULES}" ]]; then
     echo "Bootstrapping"
@@ -104,34 +104,36 @@ bootstrap_boost() {
 
 compile_boost() {
   cd "${BOOST_DIR}"
-  ./b2 \
-      -j8 \
-      --build-dir="iphoneos-build" \
-      --stagedir="iphoneos-build/stage" \
-      --prefix="${BUILD_DIR}" \
-      toolset="${COMPILER}" \
-      cflags="-arch armv7 -arch armv7s -arch arm64 -fvisibility=hidden \
-          -fvisibility-inlines-hidden ${COMPILER_FLAGS}" \
-      architecture="arm" \
-      target-os="iphone" \
-      threading="multi" \
-      define="_LITTLE_ENDIAN" \
-      link="static" \
-      include="${IOS_SDK_ROOT}/usr/include" \
-      stage
-  ./b2 \
-      -j8 \
-      --build-dir="iphonesimulator-build" \
-      --stagedir="iphonesimulator-build/stage" \
-      toolset="${COMPILER}" \
-      cflags="-arch i386 -arch x86_64 -fvisibility=hidden \
-          -fvisibility-inlines-hidden ${COMPILER_FLAGS}" \
-      architecture="x86" \
-      target-os="iphone" \
-      threading="multi" \
-      link="static" \
-      include="${SIM_SDK_ROOT}/usr/include" \
-      stage
+  if [[ ! BOOST_NO_BUILD ]]; then
+    ./b2 \
+        -j8 \
+        --build-dir="iphoneos-build" \
+        --stagedir="iphoneos-build/stage" \
+        --prefix="${BUILD_DIR}" \
+        toolset="${COMPILER}" \
+        cflags="-arch armv7 -arch armv7s -arch arm64 -fvisibility=hidden \
+            -fvisibility-inlines-hidden ${COMPILER_FLAGS}" \
+        architecture="arm" \
+        target-os="iphone" \
+        threading="multi" \
+        define="_LITTLE_ENDIAN" \
+        link="static" \
+        include="${IOS_SDK_ROOT}/usr/include" \
+        stage
+    ./b2 \
+        -j8 \
+        --build-dir="iphonesimulator-build" \
+        --stagedir="iphonesimulator-build/stage" \
+        toolset="${COMPILER}" \
+        cflags="-arch i386 -arch x86_64 -fvisibility=hidden \
+            -fvisibility-inlines-hidden ${COMPILER_FLAGS}" \
+        architecture="x86" \
+        target-os="iphone" \
+        threading="multi" \
+        link="static" \
+        include="${SIM_SDK_ROOT}/usr/include" \
+        stage
+  fi
   # Install for extracting headers
   ./b2 \
       -j8 \
@@ -149,17 +151,6 @@ compile_boost() {
       include="${IOS_SDK_ROOT}/usr/include" \
       install
   rm -r "${BUILD_DIR}/lib"
-  # ./b2 \
-  #     -j8 \
-  #     --build-dir="osx-build" \
-  #     --stagedir="osx-build/stage" \
-  #     toolset="${COMPILER}" \
-  #     cflags="-arch i386 -arch x86_64 -fvisibility=hidden \
-  #         -fvisibility-inlines-hidden ${COMPILER_FLAGS}" \
-  #     threading="multi" \
-  #     link="static" \
-  #     include="${OSX_SDK_ROOT}/usr/include" \
-  #     stage
 }
 
 create_universal_libraries() {
