@@ -1,7 +1,7 @@
 //
 //  SLSNSView.m
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -32,7 +32,10 @@
 #import "SLSDisplaySource.h"
 #import "SLSQuartzLayer.h"
 
-@interface SLSNSView ()
+@interface SLSNSView () {
+ @private
+  BOOL _mouseDownCanMoveWindow;
+}
 
 #pragma mark Initialization
 
@@ -69,6 +72,14 @@
 - (CALayer *)makeBackingLayer {
   NSAssert(NO, @"Subclass must implement makeBackingLayer");
   return nil;  // Implement in subviews
+}
+
+- (BOOL)mouseDownCanMoveWindow {
+  return _mouseDownCanMoveWindow;
+}
+
+- (void)setMouseDownCanMoveWindow:(BOOL)flag {
+  _mouseDownCanMoveWindow = flag;
 }
 
 #pragma mark Invalidating the Display Source

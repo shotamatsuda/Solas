@@ -1,7 +1,7 @@
 //
 //  solas/backend.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -30,6 +30,7 @@
 
 #include <cassert>
 #include <ostream>
+#include <string>
 #include <vector>
 
 #include <boost/algorithm/string.hpp>

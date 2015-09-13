@@ -1,7 +1,7 @@
 //
 //  SLSNSView.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -30,6 +30,8 @@
 #import "SLSNSEventSourceView.h"
 
 @interface SLSNSView : SLSNSEventSourceView <SLSDisplaySource>
+
+- (void)setMouseDownCanMoveWindow:(BOOL)flag;
 
 #pragma mark Invalidating the Display Source
 

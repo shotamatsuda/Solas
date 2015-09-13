@@ -1,7 +1,7 @@
 //
 //  solas/mouse_event.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -32,7 +32,7 @@
 
 #include "solas/key_modifier.h"
 #include "solas/mouse_button.h"
-#include "solas/math.h"
+#include "takram/math.h"
 
 namespace solas {
 
@@ -52,32 +52,32 @@ class MouseEvent final {
  public:
   MouseEvent();
   MouseEvent(Type type,
-             const Vec2d& location,
+             const takram::Vec2d& location,
              MouseButton button,
              KeyModifier modifiers,
-             const Vec3d& wheel = Vec3d());
+             const takram::Vec3d& wheel = takram::Vec3d());
 
   // Copy semantics excluding assignment
-  MouseEvent(const MouseEvent& other) = default;
-  MouseEvent& operator=(const MouseEvent& other) = delete;
+  MouseEvent(const MouseEvent&) = default;
+  MouseEvent& operator=(const MouseEvent&) = delete;
 
   // Properties
   bool empty() const { return type_ == Type::UNDEFINED; }
   Type type() const { return type_; }
-  const Vec2d& location() const { return location_; }
+  const takram::Vec2d& location() const { return location_; }
   MouseButton button() const { return button_; }
   KeyModifier modifiers() const { return modifiers_; }
-  const Vec3d& wheel() const { return wheel_; }
+  const takram::Vec3d& wheel() const { return wheel_; }
 
   // Conversion
   operator bool() const { return !empty(); }
 
  private:
   Type type_;
-  Vec2d location_;
+  takram::Vec2d location_;
   MouseButton button_;
   KeyModifier modifiers_;
-  Vec3d wheel_;
+  takram::Vec3d wheel_;
 };
 
 #pragma mark -
@@ -88,10 +88,10 @@ inline MouseEvent::MouseEvent()
       modifiers_(KeyModifier::NONE) {}
 
 inline MouseEvent::MouseEvent(Type type,
-                              const Vec2d& location,
+                              const takram::Vec2d& location,
                               MouseButton button,
                               KeyModifier modifiers,
-                              const Vec3d& wheel)
+                              const takram::Vec3d& wheel)
     : type_(type),
       location_(location),
       button_(button),

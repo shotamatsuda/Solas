@@ -1,7 +1,7 @@
 //
 //  SLSNSViewController.m
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -87,6 +87,9 @@
   }
   _contentView = [[viewClass alloc] initWithFrame:self.view.bounds];
   _contentView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+  if ([_contentView respondsToSelector:@selector(setMouseDownCanMoveWindow:)]) {
+    [(id)_contentView setMouseDownCanMoveWindow:_runner.movesWindow];
+  }
   [self.view addSubview:_contentView];
   self.view.nextResponder = self;
 
@@ -99,32 +102,25 @@
   _displaySource.displayDelegate = _runner;
 }
 
-- (void)mouseDown:(NSEvent *)event {
-  if (_runner.movesWindow) {
-    NSWindow *window = self.view.window;
-    CGPoint initialLocation = [window convertRectToScreen:
-        (CGRect){event.locationInWindow, CGSizeZero}].origin;
-    CGPoint initialOrigin = window.frame.origin;
-    NSUInteger eventMask = (NSLeftMouseDownMask |
-                            NSLeftMouseDraggedMask |
-                            NSLeftMouseUpMask);
-    event = [NSApp nextEventMatchingMask:eventMask
-                               untilDate:[NSDate distantFuture]
-                                  inMode:NSEventTrackingRunLoopMode
-                                 dequeue:YES];
-    while (event.type != NSLeftMouseUp) {
-      CGPoint location = [window convertRectToScreen:
-          (CGRect){event.locationInWindow, CGSizeZero}].origin;
-      [window setFrameOrigin:CGPointMake(
-          initialOrigin.x + round(location.x - initialLocation.x),
-          initialOrigin.y + round(location.y - initialLocation.y))];
-      event = [NSApp nextEventMatchingMask:eventMask
-                                 untilDate:[NSDate distantFuture]
-                                    inMode:NSEventTrackingRunLoopMode
-                                   dequeue:YES];
-    }
-  }
-}
+- (void)mouseDown:(NSEvent *)event {}
+- (void)rightMouseDown:(NSEvent *)event {}
+- (void)otherMouseDown:(NSEvent *)event {}
+- (void)mouseUp:(NSEvent *)event {}
+- (void)rightMouseUp:(NSEvent *)event {}
+- (void)otherMouseUp:(NSEvent *)event {}
+- (void)mouseDragged:(NSEvent *)event {}
+- (void)rightMouseDragged:(NSEvent *)event {}
+- (void)otherMouseDragged:(NSEvent *)event {}
+- (void)mouseMoved:(NSEvent *)event {}
+- (void)mouseEntered:(NSEvent *)event {}
+- (void)mouseExited:(NSEvent *)event {}
+- (void)scrollWheel:(NSEvent *)event {}
+- (void)keyDown:(NSEvent *)event {}
+- (void)keyUp:(NSEvent *)event {}
+- (void)touchesBeganWithEvent:(NSEvent *)event {}
+- (void)touchesMovedWithEvent:(NSEvent *)event {}
+- (void)touchesCancelledWithEvent:(NSEvent *)event {}
+- (void)touchesEndedWithEvent:(NSEvent *)event {}
 
 #pragma mark Managing the Runner
 
@@ -140,6 +136,14 @@
 }
 
 #pragma mark Controlling Animation
+
+- (double)frameRate {
+  return _displayLink.frameRate;
+}
+
+- (void)setFrameRate:(double)frameRate {
+  _displayLink.frameRate = frameRate;
+}
 
 - (void)startAnimation {
   if (!_displayLink) {
@@ -158,10 +162,15 @@
 
 #pragma mark SLSRunnerDelegate
 
+- (void)runner:(nonnull SLSRunner *)runner frameRate:(double)frameRate {
+  self.frameRate = frameRate;
+}
+
 - (void)runner:(nonnull SLSRunner *)runner resize:(CGSize)size {
   NSWindow *window = self.view.window;
   CGRect contentRect = [window contentRectForFrameRect:window.frame];
-  contentRect.origin.y += contentRect.size.height - size.height;
+  contentRect.origin.x += (contentRect.size.width - size.width) / 2.0;
+  contentRect.origin.y += (contentRect.size.height - size.height) / 2.0;
   contentRect.size = size;
   [window setFrame:[window frameRectForContentRect:contentRect] display:YES];
 }

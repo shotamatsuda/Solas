@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8121.20" systemVersion="15A216g" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="8121.20" systemVersion="15A244d" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8121.20"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SLSNSWindowController">
             <connections>
+                <outlet property="contentView" destination="hNh-Vj-WSg" id="N7M-IC-P1u"/>
+                <outlet property="splitViewController" destination="d1Q-OX-nYV" id="95F-I8-oMt"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -16,15 +18,58 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <rect key="contentRect" x="196" y="240" width="800" height="600"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
-            <view key="contentView" id="se5-gp-TjO">
+            <view key="contentView" id="se5-gp-TjO" customClass="NSVisualEffectView">
                 <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <splitView dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XwZ-jb-Ivh" customClass="SLSNSSplitView">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="600"/>
+                        <subviews>
+                            <customView id="Sgh-Y1-c1P">
+                                <rect key="frame" x="0.0" y="0.0" width="399" height="600"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="ea8-TH-D5f"/>
+                                </constraints>
+                                <animations/>
+                            </customView>
+                            <customView id="hNh-Vj-WSg">
+                                <rect key="frame" x="400" y="0.0" width="400" height="600"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="TzH-0a-Ild"/>
+                                </constraints>
+                                <animations/>
+                            </customView>
+                        </subviews>
+                        <animations/>
+                        <holdingPriorities>
+                            <real value="251"/>
+                            <real value="250"/>
+                        </holdingPriorities>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="opaque" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </splitView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="XwZ-jb-Ivh" secondAttribute="bottom" id="HoD-Av-MCV"/>
+                    <constraint firstItem="XwZ-jb-Ivh" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="YKl-EX-6uK"/>
+                    <constraint firstItem="XwZ-jb-Ivh" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="pgv-oG-yVk"/>
+                    <constraint firstAttribute="trailing" secondItem="XwZ-jb-Ivh" secondAttribute="trailing" id="wNG-a2-CQW"/>
+                </constraints>
                 <animations/>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="660" y="682"/>
+            <point key="canvasLocation" x="617" y="713"/>
         </window>
+        <viewController id="d1Q-OX-nYV" customClass="SLSNSSplitViewController">
+            <connections>
+                <outlet property="leadingView" destination="Sgh-Y1-c1P" id="zeq-1b-07b"/>
+                <outlet property="view" destination="XwZ-jb-Ivh" id="aj0-xT-3Ss"/>
+            </connections>
+        </viewController>
     </objects>
 </document>

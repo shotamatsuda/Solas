@@ -1,7 +1,7 @@
 //
 //  solas/run.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -42,9 +42,9 @@ int run(int argc, char **argv);
 
 class Run {
  public:
-  // Disallow copy and assign
-  Run(const Run& other) = delete;
-  Run& operator=(const Run& other) = delete;
+  // Disallow copy semantics
+  Run(const Run&) = delete;
+  Run& operator=(const Run&) = delete;
 
   // Singleton
   static Run& instance();
@@ -80,7 +80,7 @@ inline void Run::set(const RunOptions& options) {
   options_ = options;
   invocation_ = [this]() -> std::unique_ptr<Runner> {
     return std::make_unique<Runner>(std::make_unique<Runnable>(),
-                                    options_.runner_options());
+                                    options_.runner());
   };
 }
 

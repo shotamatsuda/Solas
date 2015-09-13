@@ -1,7 +1,7 @@
 //
 //  solas/runner_delegate.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -28,7 +28,7 @@
 #ifndef SOLAS_RUNNER_DELEGATE_H_
 #define SOLAS_RUNNER_DELEGATE_H_
 
-#include "solas/math.h"
+#include "takram/math.h"
 
 namespace solas {
 
@@ -37,7 +37,8 @@ class RunnerDelegate {
   virtual ~RunnerDelegate() = 0;
 
   // Environment
-  virtual void resize(const Size2d& size) = 0;
+  virtual void frameRate(double fps) = 0;
+  virtual void resize(const takram::Size2d& size) = 0;
   virtual void fullscreen(bool flag) = 0;
 };
 

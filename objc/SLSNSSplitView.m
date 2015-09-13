@@ -1,7 +1,7 @@
 //
-//  SLSCADisplayLink.m
+//  SLSNSSplitView.m
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -24,47 +24,12 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSDisplayLink.h"
+#import "SLSNSSplitView.h"
 
-#import <QuartzCore/QuartzCore.h>
+@implementation SLSNSSplitView
 
-@interface SLSDisplayLink ()
-
-@property (nonatomic, retain) id target;
-@property (nonatomic, assign) SEL selector;
-@property (nonatomic, strong) CADisplayLink *link;
-
-@end
-
-@implementation SLSDisplayLink
-
-- (instancetype)initWithTarget:(id)target selector:(SEL)selector {
-  self = [super init];
-  if (self) {
-    _target = target;
-    _selector = selector;
-    _link = [CADisplayLink displayLinkWithTarget:target selector:selector];
-    _link.frameInterval = 1;
-  }
-  return self;
-}
-
-+ (SLSDisplayLink *)displayLinkWithTarget:(id)target selector:(SEL)selector {
-  return [[self alloc] initWithTarget:target selector:selector];
-}
-
-- (void)dealloc {
-  [self stop];
-}
-
-- (void)start {
-  [_link addToRunLoop:[NSRunLoop mainRunLoop]
-              forMode:NSRunLoopCommonModes];
-}
-
-- (void)stop {
-  [_link removeFromRunLoop:[NSRunLoop mainRunLoop]
-                   forMode:NSRunLoopCommonModes];
+- (BOOL)mouseDownCanMoveWindow {
+  return YES;
 }
 
 @end

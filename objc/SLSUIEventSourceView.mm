@@ -1,7 +1,7 @@
 //
 //  SLSUIEventSourceView.mm
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -28,14 +28,15 @@
 
 #import "SLSEvents.h"
 
-#include <utility>
 #include <vector>
+
+#include <boost/any.hpp>
 
 #include "solas/gesture_event.h"
 #include "solas/gesture_kind.h"
 #include "solas/motion_event.h"
 #include "solas/touch_event.h"
-#include "solas/math.h"
+#include "takram/math.h"
 
 @interface SLSUIEventSourceView () <UIGestureRecognizerDelegate>
 
@@ -89,37 +90,44 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
   [self notifyTouchesBeganWithEvent:event];
+  [super touchesBegan:touches withEvent:event];
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
   [self notifyTouchesMovedWithEvent:event];
+  [super touchesMoved:touches withEvent:event];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
   [self notifyTouchesCancelledWithEvent:event];
+  [super touchesCancelled:touches withEvent:event];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
   [self notifyTouchesEndedWithEvent:event];
+  [super touchesEnded:touches withEvent:event];
 }
 
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event {
   [self notifyMotionBeganWithEvent:event];
+  [super motionBegan:motion withEvent:event];
 }
 
 - (void)motionCancelled:(UIEventSubtype)motion withEvent:(UIEvent *)event {
   [self notifyMotionCancelledWithEvent:event];
+  [super motionCancelled:motion withEvent:event];
 }
 
 - (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event {
   [self notifyMotionEndedWithEvent:event];
+  [super motionEnded:motion withEvent:event];
 }
 
 #pragma mark Creating Events
 
 - (solas::TouchEvent)touchEventWithEvent:(UIEvent *)event
     type:(solas::TouchEvent::Type)type {
-  std::vector<solas::Vec2d> touches;
+  std::vector<takram::Vec2d> touches;
   for (UITouch *touch in event.allTouches) {
     CGPoint location = [touch locationInView:self];
     touches.emplace_back(location.x, location.y);
@@ -137,7 +145,7 @@
     type:(solas::GestureEvent::Type)type
     kind:(solas::GestureKind)kind
     data:(const boost::any&)data {
-  std::vector<solas::Vec2d> touches;
+  std::vector<takram::Vec2d> touches;
   for (NSInteger i = 0; i < recognizer.numberOfTouches; ++i) {
     CGPoint location = [recognizer locationOfTouch:i inView:self];
     touches.emplace_back(location.x, location.y);
@@ -291,7 +299,7 @@
           initWithTarget:self action:@selector(handlePinchGesture:)];
   pinchGesture.cancelsTouchesInView = NO;
   [self addGestureRecognizer:pinchGesture];
-  
+
   // Rotation
   UIRotationGestureRecognizer *rotationGesture =
       [[UIRotationGestureRecognizer alloc]

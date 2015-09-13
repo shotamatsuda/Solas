@@ -1,7 +1,7 @@
 //
 //  solas/framebuffer.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -37,8 +37,8 @@ class Framebuffer {
   Framebuffer();
 
   // Disallow copy semantics
-  Framebuffer(const Framebuffer& other) = delete;
-  Framebuffer& operator=(const Framebuffer& other) = delete;
+  Framebuffer(const Framebuffer&) = delete;
+  Framebuffer& operator=(const Framebuffer&) = delete;
 
   // Using the framebuffer
   void update(std::int32_t width, std::int32_t height, double scale = 1.0);

@@ -1,7 +1,7 @@
 //
 //  solas/event_holder.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -59,8 +59,8 @@ class EventHolder final {
   explicit EventHolder(const MotionEvent& event);
 
   // Copy semantics excluding assignment
-  EventHolder(const EventHolder& other) = default;
-  EventHolder& operator=(const EventHolder& other) = delete;
+  EventHolder(const EventHolder&) = default;
+  EventHolder& operator=(const EventHolder&) = delete;
 
   // Properties
   Type type() const { return type_; }

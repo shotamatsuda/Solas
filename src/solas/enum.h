@@ -1,7 +1,7 @@
 //
 //  solas/enum.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -35,33 +35,33 @@
       return static_cast<std::underlying_type<T>::type>( \
           static_cast<std::underlying_type<T>::type>(a) & \
           static_cast<std::underlying_type<T>::type>(b)); \
-    }; \
+    } \
     constexpr T operator&(T a, T b) { \
       return static_cast<T>( \
           static_cast<std::underlying_type<T>::type>(a) & \
           static_cast<std::underlying_type<T>::type>(b)); \
-    }; \
+    } \
     constexpr T operator|(T a, T b) { \
       return static_cast<T>( \
           static_cast<std::underlying_type<T>::type>(a) | \
           static_cast<std::underlying_type<T>::type>(b)); \
-    }; \
+    } \
     constexpr T operator^(T a, T b) { \
       return static_cast<T>( \
           static_cast<std::underlying_type<T>::type>(a) ^ \
           static_cast<std::underlying_type<T>::type>(b)); \
-    }; \
+    } \
     constexpr T operator~(T a) { \
       return static_cast<T>(~static_cast<std::underlying_type<T>::type>(a)); \
-    }; \
+    } \
     constexpr T& operator&=(T& a, T b) { \
       return a = a & b; \
-    }; \
+    } \
     constexpr T& operator|=(T& a, T b) { \
       return a = a | b; \
-    }; \
+    } \
     constexpr T& operator^=(T& a, T b) { \
       return a = a ^ b; \
-    };
+    }
 
 #endif  // SOLAS_ENUM_H_

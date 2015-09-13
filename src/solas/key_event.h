@@ -1,7 +1,7 @@
 //
 //  solas/key_event.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -28,6 +28,11 @@
 #ifndef SOLAS_KEY_EVENT_H_
 #define SOLAS_KEY_EVENT_H_
 
+#include <cstdint>
+#include <string>
+
+#include "solas/key_modifier.h"
+
 namespace solas {
 
 class KeyEvent final {
@@ -40,25 +45,47 @@ class KeyEvent final {
 
  public:
   KeyEvent();
+  KeyEvent(Type type,
+           std::uint32_t code,
+           const std::string& characters,
+           KeyModifier modifiers);
 
   // Copy semantics excluding assignment
-  KeyEvent(const KeyEvent& other) = default;
-  KeyEvent& operator=(const KeyEvent& other) = delete;
+  KeyEvent(const KeyEvent&) = default;
+  KeyEvent& operator=(const KeyEvent&) = delete;
 
   // Properties
   bool empty() const { return type_ == Type::UNDEFINED; }
   Type type() const { return type_; }
+  std::uint32_t code() const { return code_; }
+  const std::string& characters() const { return characters_; }
+  KeyModifier modifiers() const { return modifiers_; }
 
   // Conversion
   operator bool() const { return !empty(); }
 
  private:
   Type type_;
+  std::uint32_t code_;
+  std::string characters_;
+  KeyModifier modifiers_;
 };
 
 #pragma mark -
 
-inline KeyEvent::KeyEvent() : type_(Type::UNDEFINED) {}
+inline KeyEvent::KeyEvent()
+    : type_(Type::UNDEFINED),
+      code_(),
+      modifiers_(KeyModifier::NONE) {}
+
+inline KeyEvent::KeyEvent(Type type,
+                          std::uint32_t code,
+                          const std::string& characters,
+                          KeyModifier modifiers)
+    : type_(type),
+      code_(code),
+      characters_(characters),
+      modifiers_(modifiers) {}
 
 }  // namespace solas
 

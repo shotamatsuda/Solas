@@ -1,7 +1,7 @@
 //
 //  solas/touch_event.h
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -30,7 +30,7 @@
 
 #include <vector>
 
-#include "solas/math.h"
+#include "takram/math.h"
 
 namespace solas {
 
@@ -46,30 +46,31 @@ class TouchEvent final {
 
  public:
   TouchEvent();
-  TouchEvent(Type type, const std::vector<Vec2d>& touches);
+  TouchEvent(Type type, const std::vector<takram::Vec2d>& touches);
 
   // Copy semantics excluding assignment
-  TouchEvent(const TouchEvent& other) = default;
-  TouchEvent& operator=(const TouchEvent& other) = delete;
+  TouchEvent(const TouchEvent&) = default;
+  TouchEvent& operator=(const TouchEvent&) = delete;
 
   // Properties
   bool empty() const { return type_ == Type::UNDEFINED; }
   Type type() const { return type_; }
-  const std::vector<Vec2d>& touches() const { return touches_; }
+  const std::vector<takram::Vec2d>& touches() const { return touches_; }
 
   // Conversion
   operator bool() const { return !empty(); }
 
  private:
   Type type_;
-  std::vector<Vec2d> touches_;
+  std::vector<takram::Vec2d> touches_;
 };
 
 #pragma mark -
 
 inline TouchEvent::TouchEvent() : type_(Type::UNDEFINED) {}
 
-inline TouchEvent::TouchEvent(Type type, const std::vector<Vec2d>& touches)
+inline TouchEvent::TouchEvent(Type type,
+                              const std::vector<takram::Vec2d>& touches)
     : type_(type),
       touches_(touches) {}
 

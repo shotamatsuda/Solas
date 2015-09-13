@@ -1,7 +1,7 @@
 //
 //  SLSNSEventSourceView.mm
 //
-//  MIT License
+//  The MIT License
 //
 //  Copyright (C) 2015 Shota Matsuda
 //
@@ -28,7 +28,7 @@
 
 #import "SLSEvents.h"
 
-#include <utility>
+#include <string>
 
 #include "solas/gesture_event.h"
 #include "solas/key_event.h"
@@ -36,7 +36,7 @@
 #include "solas/mouse_button.h"
 #include "solas/mouse_event.h"
 #include "solas/touch_event.h"
-#include "solas/math.h"
+#include "takram/math.h"
 
 @interface SLSNSEventSourceView ()
 
@@ -88,10 +88,6 @@
 }
 
 - (BOOL)acceptsFirstResponder {
-  return YES;
-}
-
-- (BOOL)mouseDownCanMoveWindow {
   return YES;
 }
 
@@ -216,15 +212,19 @@
                                fromView:self.window.contentView];
   return solas::MouseEvent(
       type,
-      solas::Vec2d(location.x, location.y),
+      takram::Vec2d(location.x, location.y),
       static_cast<solas::MouseButton>(event.buttonNumber),
       [self keyModifiersForEvent:event],
-      solas::Vec3d(event.deltaX, event.deltaY, event.deltaZ));
+      takram::Vec3d(event.deltaX, event.deltaY, event.deltaZ));
 }
 
 - (solas::KeyEvent)keyEventWithEvent:(NSEvent *)event
     type:(solas::KeyEvent::Type)type {
-  return solas::KeyEvent();
+  return solas::KeyEvent(
+      type,
+      event.keyCode,
+      std::string(event.characters.UTF8String),
+      [self keyModifiersForEvent:event]);
 }
 
 - (solas::TouchEvent)touchEventWithEvent:(NSEvent *)event
