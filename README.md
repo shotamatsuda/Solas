@@ -3,7 +3,8 @@ Solas Framework
 
 Work in progress...
 
-[![Build Status](https://travis-ci.org/takram-design-engineering/solas.svg)](https://travis-ci.org/takram-design-engineering/solas)
+[![Build Status](https://travis-ci.org/takram-design-engineering/solas.svg)](https://travis-ci.org/takram-design-engineering/solas) [![License](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat
+)](http://mit-license.org)
 
 ## Setup Guide
 
