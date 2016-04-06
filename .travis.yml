@@ -1,13 +1,19 @@
-osx_image: xcode6.4
+osx_image: xcode7.3
 language: objective-c
 compiler:
-- clang
+  - clang
+git:
+  submodules: false
+before_install:
+  - sed -i '' 's/git@github.com:/https:\/\/github.com\//' .gitmodules
+  - git submodule update --init --recursive
 before_script:
-- git clone git://github.com/takram-design-engineering/takram-math.git ../takram-math
-- "./script/boost.sh"
+  - git clone git://github.com/takram-design-engineering/takram-math.git ../takram-math
+  - ./script/setup.sh
 script:
-- xcodebuild -project Solas.xcodeproj -scheme "Solas" -configuration Debug build
-- xcodebuild -project Solas.xcodeproj -scheme "Solas iOS" -configuration Debug build
+  - xcodebuild -project Solas.xcodeproj -scheme "Solas" -configuration Debug build
+  - xcodebuild -project Solas.xcodeproj -scheme "Solas Static" -configuration Debug build
+  - xcodebuild -project Solas.xcodeproj -scheme "Solas iOS" -configuration Debug build
 notifications:
   slack:
     secure: LN0cFZR3UuyZVyKZ17b0n5m7z1PEb670kHzXSDAKRZbIBrAmEkt7Qo+p6BzZ5dfm7HpoRR/BrfsKTZBGCFF/mBaIpqCV4oW2PhYqzWhAHOpBBoUmm/nheEXwIjS5/5u47+YCfLi3o54/LrNK+gxtE3Vfg7Bc9ZlH0vs0Z6o+GeiwGNI4M7oCoMa0XfDAEHXnSWWjGolLSEiGdKBeH5VlKv7vOLgZgeGvSffuBHVOuPrHLH0ZEmR/cNRKfrxp6F00TzWS1QY6hJ0bYLU/fVw/6ExcJQtqyoWpMITsFmtvrA1gdy1fc21Wz/49npuLqU+XKryAG2YHR5obunXvcdfN1tzftNYmcDahZRMxOL+qoNUFZWz7dXOfzTFjU2ic/mJqb3zyaaW1zvOvPxPJWQYcIS/YSk40jyEqQh4Zt8ytopt+A5ru4ih9f7VOTjJlfF+SeZnY8zeRYDKjNuhVqnbOFA8CeZBJ4NOYRoIfinhPbUha4gBVQb+xvCKmAaPPUngJSgUbfqm1IbmhxYb5Pm8mS5jtMxc5lGNy8ZTGxpMPelY5TSk/Bc31iaKZE03/9l3iV58PifggYQaFZ2jaUq5Ic2QMAbYnO+1llv7XrNq48xSuBu5Gu/shqvQ6qgBy897OkrNR2VNH9fkkwrJKXxHaPXPhuq+0EbPUKA0hFOZRKiw=
