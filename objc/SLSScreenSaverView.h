@@ -1,9 +1,9 @@
 //
-//  solas.mm
+//  SLSScreenSaverView.h
 //
 //  The MIT License
 //
-//  Copyright (C) 2015 Shota Matsuda
+//  Copyright (C) 2015-2016 Shota Matsuda
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -24,11 +24,22 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "solas.h"
+#import <AppKit/AppKit.h>
+#import <ScreenSaver/ScreenSaver.h>
 
-namespace solas {
+#import "SLSDisplaySource.h"
+#import "SLSRunner.h"
+#import "SLSRunnerDelegate.h"
 
-const double version_number = 1.0;
-const unsigned char version_string[] = "1.0";
+@interface SLSScreenSaverView : ScreenSaverView <SLSRunnerDelegate>
 
-}  // namespace solas
+- (nullable instancetype)initWithRunner:(nullable SLSRunner *)runner
+                                  frame:(CGRect)frame
+                              isPreview:(BOOL)isPreview
+    NS_DESIGNATED_INITIALIZER;
+
+@property (nonatomic, readonly) NSOpenGLPixelFormatAttribute API;
+@property (nonatomic, strong, nonnull, readonly) SLSRunner *runner;
+@property (nonatomic, strong, nullable) id<SLSDisplaySource> displaySource;
+
+@end

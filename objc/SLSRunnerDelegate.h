@@ -1,5 +1,5 @@
 //
-//  solas.mm
+//  SLSRunnerDelegate.h
 //
 //  The MIT License
 //
@@ -24,11 +24,16 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "solas.h"
+#import <CoreGraphics/CoreGraphics.h>
+#import <Foundation/Foundation.h>
 
-namespace solas {
+@class SLSRunner;
 
-const double version_number = 1.0;
-const unsigned char version_string[] = "1.0";
+@protocol SLSRunnerDelegate <NSObject>
 
-}  // namespace solas
+@optional
+- (void)runner:(nonnull SLSRunner *)runner frameRate:(double)frameRate;
+- (void)runner:(nonnull SLSRunner *)runner resize:(CGSize)size;
+- (void)runner:(nonnull SLSRunner *)runner fullscreen:(BOOL)flag;
+
+@end

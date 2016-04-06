@@ -29,6 +29,7 @@
 
 #import "SLSDisplayDelegate.h"
 #import "SLSEventDelegate.h"
+#import "SLSRunnerDelegate.h"
 
 #ifdef __cplusplus
 
@@ -49,8 +50,6 @@ typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
   kSLSRunnerBackendCoreGraphics = 1 << 6
 };
 
-@protocol SLSRunnerDelegate;
-
 @interface SLSRunner : NSObject <SLSDisplayDelegate, SLSEventDelegate>
 
 #ifdef __cplusplus
@@ -70,14 +69,5 @@ typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
 - (void)frameRate:(double)frameRate;
 - (void)resize:(CGSize)size;
 - (void)fullscreen:(BOOL)flag;
-
-@end
-
-@protocol SLSRunnerDelegate <NSObject>
-
-@optional
-- (void)runner:(nonnull SLSRunner *)runner frameRate:(double)frameRate;
-- (void)runner:(nonnull SLSRunner *)runner resize:(CGSize)size;
-- (void)runner:(nonnull SLSRunner *)runner fullscreen:(BOOL)flag;
 
 @end
