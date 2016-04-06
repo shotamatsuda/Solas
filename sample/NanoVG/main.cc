@@ -37,13 +37,13 @@ class App : public solas::View {
   }
 
   void draw() override {
-    context_.begin(size());
-    takram::nvg::beginPath();
-    takram::nvg::circle(mouse(), 5.0);
-    takram::nvg::closePath();
-    takram::nvg::fillColor(takram::Color3f::black());
-    takram::nvg::fill();
-    context_.end();
+    nvgBeginFrame(context_, width(), height(), scale());
+    nvgBeginPath(context_);
+    nvgCircle(context_, mouse().x, mouse().y, 5.0);
+    nvgClosePath(context_);
+    nvgFillColor(context_, takram::Color3d::black());
+    nvgFill(context_);
+    nvgEndFrame(context_);
   }
 
  private:

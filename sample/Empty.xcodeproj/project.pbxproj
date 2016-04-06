@@ -124,9 +124,9 @@
 			isa = PBXGroup;
 			children = (
 				933114371B5C553B00449CDE /* Solas.framework */,
-				933114391B5C553B00449CDE /* Solas.framework */,
 				9331143D1B5C553B00449CDE /* libSolas.a */,
-				9331143B1B5C553B00449CDE /* SolasTest */,
+				933114391B5C553B00449CDE /* Solas.framework */,
+				9331143B1B5C553B00449CDE /* Solas Test */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,7 +221,7 @@
 		93FEF9461AD97263009D0646 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "takram design engineering";
 				TargetAttributes = {
 					93CA67E01ADB5BF4009F131B = {
@@ -272,10 +272,10 @@
 			remoteRef = 933114381B5C553B00449CDE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		9331143B1B5C553B00449CDE /* SolasTest */ = {
+		9331143B1B5C553B00449CDE /* Solas Test */ = {
 			isa = PBXReferenceProxy;
 			fileType = "compiled.mach-o.executable";
-			path = SolasTest;
+			path = "Solas Test";
 			remoteRef = 9331143A1B5C553B00449CDE /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -376,9 +376,9 @@
 			baseConfigurationReference = 93F859271B575DCC00C32E8D /* project_debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				MACOSX_DEPLOYMENT_TARGET = "";
+				ENABLE_TESTABILITY = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx10.10;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -387,8 +387,7 @@
 			baseConfigurationReference = 93F859281B575DCC00C32E8D /* project_release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				MACOSX_DEPLOYMENT_TARGET = "";
-				SDKROOT = macosx10.10;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};

@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-#  boost.sh
+#  build_boost.sh
 #
 #  The MIT License
 #
