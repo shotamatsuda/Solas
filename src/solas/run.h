@@ -28,8 +28,10 @@
 #ifndef SOLAS_RUN_H_
 #define SOLAS_RUN_H_
 
+#include <atomic>
 #include <functional>
 #include <memory>
+#include <mutex>
 
 #include "solas/runner.h"
 #include "solas/run_options.h"
@@ -59,10 +61,14 @@ class Run {
 
  private:
   Run() = default;
+  static void deleteInstance();
 
  private:
   std::function<std::unique_ptr<Runner>()> invocation_;
   RunOptions options_;
+  static std::atomic<Run *> instance_;
+  static std::mutex instance_mutex_;
+  static bool instance_deleted_;
 };
 
 #pragma mark -

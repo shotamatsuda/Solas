@@ -26,14 +26,43 @@
 
 #include "solas/run.h"
 
+#include <atomic>
+#include <cassert>
+#include <cstdlib>
+#include <mutex>
+
 #import "SLSApplicationMain.h"
 
 namespace solas {
 
+std::atomic<Run *> Run::instance_;
+std::mutex Run::instance_mutex_;
+bool Run::instance_deleted_;
+
+#pragma mark Singleton
+
 Run& Run::instance() {
-  static Run instance;
-  return instance;
+  auto instance = instance_.load(std::memory_order_consume);
+  if (!instance) {
+    std::lock_guard<std::mutex> lock(instance_mutex_);
+    instance = instance_.load(std::memory_order_consume);
+    if (!instance) {
+      assert(!instance_deleted_);
+      instance = new Run;
+      instance_.store(instance, std::memory_order_release);
+      std::atexit(&deleteInstance);
+    }
+  }
+  return *instance;
 }
+
+inline void Run::deleteInstance() {
+  std::lock_guard<std::mutex> lock(instance_mutex_);
+  delete instance_.exchange(nullptr);
+  instance_deleted_ = true;
+}
+
+#pragma mark -
 
 int run(int argc, char **argv) {
   return SLSApplicationMain(argc, argv);
