@@ -38,16 +38,16 @@ enum class MouseButton : int {
   LEFT = 0,
   RIGHT = 1,
   MIDDLE = 2,
-  ZERO = LEFT,
-  ONE = RIGHT,
-  TWO = MIDDLE,
-  THREE = 3,
-  FOUR = 4,
-  FIVE = 5,
-  SIX = 6,
-  SEVEN = 7,
-  EIGHT = 8,
-  NINE = 9
+  _0 = LEFT,
+  _1 = RIGHT,
+  _2 = MIDDLE,
+  _3 = 3,
+  _4 = 4,
+  _5 = 5,
+  _6 = 6,
+  _7 = 7,
+  _8 = 8,
+  _9 = 9
 };
 
 inline std::ostream& operator<<(std::ostream& os, MouseButton button) {
@@ -64,25 +64,25 @@ inline std::ostream& operator<<(std::ostream& os, MouseButton button) {
     case MouseButton::MIDDLE:
       os << "middle";
       break;
-    case MouseButton::THREE:
+    case MouseButton::_3:
       os << "button3";
       break;
-    case MouseButton::FOUR:
+    case MouseButton::_4:
       os << "button4";
       break;
-    case MouseButton::FIVE:
+    case MouseButton::_5:
       os << "button5";
       break;
-    case MouseButton::SIX:
+    case MouseButton::_6:
       os << "button6";
       break;
-    case MouseButton::SEVEN:
+    case MouseButton::_7:
       os << "button7";
       break;
-    case MouseButton::EIGHT:
+    case MouseButton::_8:
       os << "button8";
       break;
-    case MouseButton::NINE:
+    case MouseButton::_9:
       os << "button9";
       break;
     default:

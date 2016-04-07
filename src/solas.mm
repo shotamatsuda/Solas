@@ -1,5 +1,5 @@
 //
-//  solas.m
+//  solas.mm
 //
 //  The MIT License
 //

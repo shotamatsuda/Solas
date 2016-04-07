@@ -1,5 +1,5 @@
 //
-//  test.xcconfig
+//  SLSRunnerDelegate.h
 //
 //  The MIT License
 //
@@ -24,12 +24,16 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-SOLAS_DIR = $(PROJECT_DIR)
-#include "shared.xcconfig"
+#import <CoreGraphics/CoreGraphics.h>
+#import <Foundation/Foundation.h>
 
-// Linking
-OTHER_LDFLAGS = $(inherited) "$(PROJECT_DIR)/build/googletest/libgtest.a" "$(PROJECT_DIR)/build/googletest/libgtest_main.a"
+@class SLSRunner;
 
-// Search Paths
-HEADER_SEARCH_PATHS = $(inherited) $(BOOST_HEADER_SEARCH_PATHS)
-USER_HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/lib/googletest/googletest/include"
+@protocol SLSRunnerDelegate <NSObject>
+
+@optional
+- (void)runner:(nonnull SLSRunner *)runner frameRate:(double)frameRate;
+- (void)runner:(nonnull SLSRunner *)runner resize:(CGSize)size;
+- (void)runner:(nonnull SLSRunner *)runner fullScreen:(BOOL)flag;
+
+@end

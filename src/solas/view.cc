@@ -80,9 +80,9 @@ void View::post(const AppEvent& event, const Runner& runner) {
     runner.resize(resize_.second);
     resize_.first = false;
   }
-  if (fullscreen_.first) {
-    runner.fullscreen(fullscreen_.second);
-    fullscreen_.first = false;
+  if (full_screen_.first) {
+    runner.fullScreen(full_screen_.second);
+    full_screen_.first = false;
   }
 }
 

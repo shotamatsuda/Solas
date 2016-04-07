@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-#  boost.sh
+#  build_boost.sh
 #
 #  The MIT License
 #
@@ -68,7 +68,7 @@ download_boost() {
   if [[ ! -s "${BOOST_ARCHIVE}" ]]; then
     echo "Downloading boost ${BOOST_VERSION}"
     local version=$(echo "${BOOST_VERSION}" | sed "s/\./_/g")
-    curl -L -o "${BOOST_ARCHIVE}" \
+    curl -L --retry 10 -o "${BOOST_ARCHIVE}" \
         "http://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/boost_${version}.tar.bz2/download"
   fi
 }
@@ -106,6 +106,7 @@ compile_boost() {
   if [[ ! BOOST_NO_BUILD ]]; then
     ./b2 \
         -j8 \
+        -d0 \
         --build-dir="iphoneos-build" \
         --stagedir="iphoneos-build/stage" \
         --prefix="${BUILD_DIR}" \
@@ -121,6 +122,7 @@ compile_boost() {
         stage
     ./b2 \
         -j8 \
+        -d0 \
         --build-dir="iphonesimulator-build" \
         --stagedir="iphonesimulator-build/stage" \
         toolset="${COMPILER}" \
@@ -136,6 +138,7 @@ compile_boost() {
   # Install for extracting headers
   ./b2 \
       -j8 \
+      -d0 \
       --build-dir="iphoneos-build" \
       --stagedir="iphoneos-build/stage" \
       --prefix="${BUILD_DIR}" \

@@ -53,28 +53,26 @@ if [[ "${TYPE}" == "cmake" ]]; then
     exit 1
   fi
   mkdir -p "${TARGET_BUILD_DIR}"
-  pushd "${TARGET_BUILD_DIR}"
-    "${CMAKE}" -G "Unix Makefiles" \
-        -DCMAKE_BUILD_TYPE="RELEASE" \
-        -DCMAKE_C_COMPILER="${CLANG_CC}" \
-        -DCMAKE_CXX_COMPILER="${CLANG_CXX}" \
-        -DCMAKE_CXX_FLAGS="-stdlib=libc++" \
-        -DCMAKE_OSX_ARCHITECTURES="i386;x86_64" \
-        ${OPTIONS} \
-        "${TARGET_DIR}"
-    make -j8
-  popd
+  cd "${TARGET_BUILD_DIR}"
+  "${CMAKE}" -G "Unix Makefiles" \
+      -DCMAKE_BUILD_TYPE="RELEASE" \
+      -DCMAKE_C_COMPILER="${CLANG_CC}" \
+      -DCMAKE_CXX_COMPILER="${CLANG_CXX}" \
+      -DCMAKE_CXX_FLAGS="-stdlib=libc++" \
+      -DCMAKE_OSX_ARCHITECTURES="i386;x86_64" \
+      ${OPTIONS} \
+      "${TARGET_DIR}"
+  make -j8
 elif [[ "${TYPE}" == "configure" && ! -d "${TARGET_BUILD_DIR}" ]]; then
   mkdir -p "${TARGET_BUILD_DIR}"
-  pushd "${TARGET_BUILD_DIR}"
-    "${TARGET_DIR}/configure" \
-        --prefix="${TARGET_BUILD_DIR}" \
-        CC="${CLANG_CC}" \
-        CXX="${CLANG_CXX}" \
-        CXXFLAGS="-stdlib=libc++" \
-        ${OPTIONS}
-    make -j8
-    make install
-    make clean
-  popd
+  cd "${TARGET_BUILD_DIR}"
+  "${TARGET_DIR}/configure" \
+      --prefix="${TARGET_BUILD_DIR}" \
+      CC="${CLANG_CC}" \
+      CXX="${CLANG_CXX}" \
+      CXXFLAGS="-stdlib=libc++" \
+      ${OPTIONS}
+  make -j8
+  make install
+  make clean
 fi

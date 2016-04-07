@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-#  setup.sh
+#  make_gitignore.sh
 #
 #  The MIT License
 #
@@ -26,8 +26,19 @@
 #
 
 readonly PROJECT_DIR="$(cd "$(dirname "$0")/../"; pwd)"
+readonly FILES=("Global/OSX" "Global/Windows" "Global/Xcode" "VisualStudio")
 
-cd "${PROJECT_DIR}"
-git submodule update --init
-"script/build_boost.sh"
-"script/build.sh" cmake "lib/googletest/googletest" "build/googletest"
+repository_dir=$(mktemp -d -t "com.takram.gitignore")
+
+concat_gitignore() {
+  for file in "${FILES[@]}"; do
+    echo "# https://github.com/github/gitignore/blob/master/${file}.gitignore"
+    echo ""
+    cat "${repository_dir}/${file}.gitignore"
+    echo ""
+  done
+}
+
+git clone "https://github.com/github/gitignore.git" "${repository_dir}"
+concat_gitignore > "${PROJECT_DIR}/.gitignore"
+rm -rf "${repository_dir}"

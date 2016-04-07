@@ -16,13 +16,13 @@ Run "setup.sh" inside "script" directory to initialize submodules and build depe
 
 ### Submodules
 
-- [Google Testing Framework](https://chromium.googlesource.com/external/googletest)
+- [Google Test Framework](https://github.com/google/googletest)
 
 ## License
 
 The MIT License
 
-Copyright (C) 2015 Shota Matsuda
+Copyright (C) 2015-2016 Shota Matsuda
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

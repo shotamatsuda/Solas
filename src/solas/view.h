@@ -89,7 +89,7 @@ class View : public Runnable, public Composite {
   void frameRate(double fps) const override;
   void resize(const takram::Size2d& size) const override;
   void resize(double width, double height) const override;
-  void fullscreen(bool flag) const override;
+  void fullScreen(bool flag) const override;
 
   // Structure
   const takram::Size2d& size() const override;
@@ -227,7 +227,7 @@ class View : public Runnable, public Composite {
   // Environment
   mutable std::pair<bool, double> frame_rate_;
   mutable std::pair<bool, takram::Size2d> resize_;
-  mutable std::pair<bool, bool> fullscreen_;
+  mutable std::pair<bool, bool> full_screen_;
 
   // Structure
   takram::Size2d size_;
@@ -291,9 +291,9 @@ inline void View::resize(double width, double height) const {
   resize(takram::Size2d(width, height));
 }
 
-inline void View::fullscreen(bool flag) const {
-  fullscreen_.first = true;
-  fullscreen_.second = true;
+inline void View::fullScreen(bool flag) const {
+  full_screen_.first = true;
+  full_screen_.second = true;
 }
 
 #pragma mark Structure

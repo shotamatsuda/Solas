@@ -24,6 +24,7 @@
 		93563B9F1B677EB9004C47E4 /* SLSCVDisplayLink.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588C1B56535B00C32E8D /* SLSCVDisplayLink.mm */; };
 		93563BA01B677EB9004C47E4 /* SLSNSApplicationMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588D1B56535B00C32E8D /* SLSNSApplicationMain.m */; };
 		93563BA11B677EB9004C47E4 /* SLSNSApplicationDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F8588F1B56535B00C32E8D /* SLSNSApplicationDelegate.mm */; };
+		936AC4501CB5178300D7363F /* SLSScreenSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 936AC44F1CB5178300D7363F /* SLSScreenSaverView.m */; };
 		936E24461ADEA5A80004C396 /* run.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA6531AD1AE32005EDC09 /* run.mm */; };
 		936E24481ADEA5A80004C396 /* view.cc in Sources */ = {isa = PBXBuildFile; fileRef = 93AD7CE31ADD395500B42B9E /* view.cc */; };
 		936E248B1ADEA5A80004C396 /* SLSRunner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */; };
@@ -162,6 +163,8 @@
 		935058CE1AEF6E2E0020E755 /* swipe_direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swipe_direction.h; sourceTree = "<group>"; };
 		93547E781AF1267B00B4C6BE /* screen_edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screen_edge.h; sourceTree = "<group>"; };
 		935601CB1B5E704F007CBDCB /* runner_delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = runner_delegate.h; sourceTree = "<group>"; };
+		936AC44F1CB5178300D7363F /* SLSScreenSaverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSScreenSaverView.m; sourceTree = "<group>"; };
+		936AC4531CB517AE00D7363F /* SLSScreenSaverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSScreenSaverView.h; sourceTree = "<group>"; };
 		936E241F1ADEA5550004C396 /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		937D91FF1AF6C0BC000D8302 /* framebuffer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = framebuffer.cc; sourceTree = "<group>"; };
 		937D92021AF6C0C8000D8302 /* framebuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = framebuffer.h; sourceTree = "<group>"; };
@@ -187,6 +190,7 @@
 		93AD7CE21ADD395500B42B9E /* event_holder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = event_holder.h; sourceTree = "<group>"; };
 		93AD7CE31ADD395500B42B9E /* view.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = view.cc; sourceTree = "<group>"; };
 		93AD7CE41ADD395500B42B9E /* view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view.h; sourceTree = "<group>"; };
+		93B1D13B1CB51BDD00CAE0B9 /* SLSRunnerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSRunnerDelegate.h; sourceTree = "<group>"; };
 		93B4749D1B64CEF000613FB6 /* shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = shared.xcconfig; sourceTree = "<group>"; };
 		93B707DA1AD692DF00E3E8AA /* app_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = app_event.h; sourceTree = "<group>"; };
 		93CAA6081AD16EED005EDC09 /* key_modifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = key_modifier.h; sourceTree = "<group>"; };
@@ -327,6 +331,7 @@
 			children = (
 				93CAA60A1AD191DC005EDC09 /* SLSRunner.h */,
 				93CAA60B1AD191DC005EDC09 /* SLSRunner.mm */,
+				93B1D13B1CB51BDD00CAE0B9 /* SLSRunnerDelegate.h */,
 				939E967F1AD384C500A7E21E /* SLSEventSource.h */,
 				93AD7CB51ADCA31900B42B9E /* SLSDisplaySource.h */,
 				93D73DD21ADDE3B4003F9A7A /* SLSAnimationSource.h */,
@@ -418,6 +423,8 @@
 				93F8588E1B56535B00C32E8D /* SLSNSApplicationDelegate.h */,
 				93F8588F1B56535B00C32E8D /* SLSNSApplicationDelegate.mm */,
 				93F858901B56535B00C32E8D /* SLSNSApplication.xib */,
+				936AC4531CB517AE00D7363F /* SLSScreenSaverView.h */,
+				936AC44F1CB5178300D7363F /* SLSScreenSaverView.m */,
 			);
 			name = osx;
 			sourceTree = "<group>";
@@ -575,7 +582,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = sgss;
 				TargetAttributes = {
 					930398481AB2B0DF00577048 = {
@@ -678,7 +685,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/script/header.sh\" \"src\" \"objc\"\nditto \"${BUILT_PRODUCTS_DIR}/include\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Headers\"";
+			shellScript = "\"${PROJECT_DIR}/script/copy_headers.sh\" \"src\" \"objc\"\nditto \"${BUILT_PRODUCTS_DIR}/include\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Headers\"";
 		};
 		93B4749B1B64CDA800613FB6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -691,7 +698,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/script/header.sh\" \"src\" \"objc\"\nditto \"${BUILT_PRODUCTS_DIR}/include\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Headers\"";
+			shellScript = "\"${PROJECT_DIR}/script/copy_headers.sh\" \"src\" \"objc\"\nditto \"${BUILT_PRODUCTS_DIR}/include\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Headers\"";
 		};
 		93B4749C1B64CDC600613FB6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -704,7 +711,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/script/header.sh\" \"src\" \"objc\"";
+			shellScript = "\"${PROJECT_DIR}/script/copy_headers.sh\" \"src\" \"objc\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -720,27 +727,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				936E248B1ADEA5A80004C396 /* SLSRunner.mm in Sources */,
-				93563B9E1B677EB9004C47E4 /* SLSNSQuartzView.m in Sources */,
-				93563B961B677EB9004C47E4 /* SLSNSWindowController.m in Sources */,
-				93A761AE1B6B4C38006DDE12 /* SLSNSSplitView.m in Sources */,
-				93563B9B1B677EB9004C47E4 /* SLSNSOpenGL3View.m in Sources */,
-				93563B971B677EB9004C47E4 /* SLSNSViewController.m in Sources */,
-				936E24901ADEA5A80004C396 /* SLSQuartzLayer.mm in Sources */,
-				93563B981B677EB9004C47E4 /* SLSNSEventSourceView.mm in Sources */,
-				93563BA01B677EB9004C47E4 /* SLSNSApplicationMain.m in Sources */,
-				93563B991B677EB9004C47E4 /* SLSNSView.m in Sources */,
-				936E24981ADEA5A80004C396 /* SLSNSBundle+Bundle.m in Sources */,
 				93563B9F1B677EB9004C47E4 /* SLSCVDisplayLink.mm in Sources */,
-				936E24481ADEA5A80004C396 /* view.cc in Sources */,
-				9383C0D81B685D3C0021D738 /* solas.mm in Sources */,
+				93563BA11B677EB9004C47E4 /* SLSNSApplicationDelegate.mm in Sources */,
+				93563BA01B677EB9004C47E4 /* SLSNSApplicationMain.m in Sources */,
+				936E24981ADEA5A80004C396 /* SLSNSBundle+Bundle.m in Sources */,
+				93563B981B677EB9004C47E4 /* SLSNSEventSourceView.mm in Sources */,
+				93563B9B1B677EB9004C47E4 /* SLSNSOpenGL3View.m in Sources */,
+				93563B9C1B677EB9004C47E4 /* SLSNSOpenGL4View.m in Sources */,
+				93563B9D1B677EB9004C47E4 /* SLSNSOpenGLLayer.mm in Sources */,
+				93563B9A1B677EB9004C47E4 /* SLSNSOpenGLView.m in Sources */,
+				93563B9E1B677EB9004C47E4 /* SLSNSQuartzView.m in Sources */,
+				93A761AE1B6B4C38006DDE12 /* SLSNSSplitView.m in Sources */,
 				93244E641B6DD51500CB2F87 /* SLSNSSplitViewController.m in Sources */,
+				93563B991B677EB9004C47E4 /* SLSNSView.m in Sources */,
+				93563B971B677EB9004C47E4 /* SLSNSViewController.m in Sources */,
+				93563B961B677EB9004C47E4 /* SLSNSWindowController.m in Sources */,
+				936E24901ADEA5A80004C396 /* SLSQuartzLayer.mm in Sources */,
+				936E248B1ADEA5A80004C396 /* SLSRunner.mm in Sources */,
+				936AC4501CB5178300D7363F /* SLSScreenSaverView.m in Sources */,
 				937D92011AF6C0BC000D8302 /* framebuffer.cc in Sources */,
 				936E24461ADEA5A80004C396 /* run.mm in Sources */,
-				93563B9D1B677EB9004C47E4 /* SLSNSOpenGLLayer.mm in Sources */,
-				93563BA11B677EB9004C47E4 /* SLSNSApplicationDelegate.mm in Sources */,
-				93563B9C1B677EB9004C47E4 /* SLSNSOpenGL4View.m in Sources */,
-				93563B9A1B677EB9004C47E4 /* SLSNSOpenGLView.m in Sources */,
+				9383C0D81B685D3C0021D738 /* solas.mm in Sources */,
+				936E24481ADEA5A80004C396 /* view.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,27 +756,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93F8589C1B56535B00C32E8D /* SLSNSView.m in Sources */,
+				93F858A71B56535B00C32E8D /* SLSCVDisplayLink.mm in Sources */,
+				93F858AA1B56535B00C32E8D /* SLSNSApplicationDelegate.mm in Sources */,
+				93F858A81B56535B00C32E8D /* SLSNSApplicationMain.m in Sources */,
 				93CAA6491AD1A843005EDC09 /* SLSNSBundle+Bundle.m in Sources */,
-				93CAA60E1AD191DC005EDC09 /* SLSRunner.mm in Sources */,
-				93A761AD1B6B4C38006DDE12 /* SLSNSSplitView.m in Sources */,
+				93F8589A1B56535B00C32E8D /* SLSNSEventSourceView.mm in Sources */,
 				93F858A01B56535B00C32E8D /* SLSNSOpenGL3View.m in Sources */,
-				93F858981B56535B00C32E8D /* SLSNSViewController.m in Sources */,
+				93F858A21B56535B00C32E8D /* SLSNSOpenGL4View.m in Sources */,
 				93F858A41B56535B00C32E8D /* SLSNSOpenGLLayer.mm in Sources */,
-				937D92001AF6C0BC000D8302 /* framebuffer.cc in Sources */,
-				93CAA6541AD1AE32005EDC09 /* run.mm in Sources */,
+				93F8589E1B56535B00C32E8D /* SLSNSOpenGLView.m in Sources */,
 				93F858A61B56535B00C32E8D /* SLSNSQuartzView.m in Sources */,
+				93A761AD1B6B4C38006DDE12 /* SLSNSSplitView.m in Sources */,
+				93244E631B6DD51500CB2F87 /* SLSNSSplitViewController.m in Sources */,
+				93F8589C1B56535B00C32E8D /* SLSNSView.m in Sources */,
+				93F858981B56535B00C32E8D /* SLSNSViewController.m in Sources */,
 				93F858951B56535B00C32E8D /* SLSNSWindowController.m in Sources */,
 				937E13971ADBDEB9008DB7A7 /* SLSQuartzLayer.mm in Sources */,
-				93F8589A1B56535B00C32E8D /* SLSNSEventSourceView.mm in Sources */,
+				93CAA60E1AD191DC005EDC09 /* SLSRunner.mm in Sources */,
+				937D92001AF6C0BC000D8302 /* framebuffer.cc in Sources */,
+				93CAA6541AD1AE32005EDC09 /* run.mm in Sources */,
 				9383C0D61B685D3C0021D738 /* solas.mm in Sources */,
-				93244E631B6DD51500CB2F87 /* SLSNSSplitViewController.m in Sources */,
-				93F858A21B56535B00C32E8D /* SLSNSOpenGL4View.m in Sources */,
-				93F858A81B56535B00C32E8D /* SLSNSApplicationMain.m in Sources */,
-				93F858AA1B56535B00C32E8D /* SLSNSApplicationDelegate.mm in Sources */,
 				93AD7CEB1ADD395500B42B9E /* view.cc in Sources */,
-				93F858A71B56535B00C32E8D /* SLSCVDisplayLink.mm in Sources */,
-				93F8589E1B56535B00C32E8D /* SLSNSOpenGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,21 +784,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93F858D21B56536000C32E8D /* SLSUIApplicationDelegate.mm in Sources */,
+				93F858CF1B56536000C32E8D /* SLSCADisplayLink.mm in Sources */,
 				93F857CA1B564B0500C32E8D /* SLSNSBundle+Bundle.m in Sources */,
-				9383C0D71B685D3C0021D738 /* solas.mm in Sources */,
+				93F857D11B564B0500C32E8D /* SLSQuartzLayer.mm in Sources */,
+				93F857CB1B564B0500C32E8D /* SLSRunner.mm in Sources */,
+				93F858D21B56536000C32E8D /* SLSUIApplicationDelegate.mm in Sources */,
+				93F858D01B56536000C32E8D /* SLSUIApplicationMain.mm in Sources */,
 				93F858C41B56536000C32E8D /* SLSUIEventSourceView.mm in Sources */,
 				93F858CA1B56536000C32E8D /* SLSUIOpenGLES2View.m in Sources */,
-				93F857CB1B564B0500C32E8D /* SLSRunner.mm in Sources */,
-				93F858C81B56536000C32E8D /* SLSUIOpenGLESView.mm in Sources */,
-				93F858C61B56536000C32E8D /* SLSUIView.m in Sources */,
-				93F858CF1B56536000C32E8D /* SLSCADisplayLink.mm in Sources */,
-				93F858D01B56536000C32E8D /* SLSUIApplicationMain.mm in Sources */,
-				93F857CF1B564B0500C32E8D /* run.mm in Sources */,
-				93F858C21B56536000C32E8D /* SLSUIViewController.m in Sources */,
-				93F858CE1B56536000C32E8D /* SLSUIQuartzView.m in Sources */,
-				93F857D11B564B0500C32E8D /* SLSQuartzLayer.mm in Sources */,
 				93F858CC1B56536000C32E8D /* SLSUIOpenGLES3View.m in Sources */,
+				93F858C81B56536000C32E8D /* SLSUIOpenGLESView.mm in Sources */,
+				93F858CE1B56536000C32E8D /* SLSUIQuartzView.m in Sources */,
+				93F858C61B56536000C32E8D /* SLSUIView.m in Sources */,
+				93F858C21B56536000C32E8D /* SLSUIViewController.m in Sources */,
+				93F857CF1B564B0500C32E8D /* run.mm in Sources */,
+				9383C0D71B685D3C0021D738 /* solas.mm in Sources */,
 				93F857D21B564B0500C32E8D /* view.cc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -955,7 +963,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 933295961B64D77600F63AB2 /* project_debug.xcconfig */;
 			buildSettings = {
-				MACOSX_DEPLOYMENT_TARGET = "";
+				ENABLE_TESTABILITY = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -965,7 +973,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 933295971B64D77600F63AB2 /* project_release.xcconfig */;
 			buildSettings = {
-				MACOSX_DEPLOYMENT_TARGET = "";
 				SDKROOT = macosx;
 			};
 			name = Release;

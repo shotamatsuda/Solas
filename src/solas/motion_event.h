@@ -59,8 +59,7 @@ class MotionEvent final {
 
 #pragma mark -
 
-inline MotionEvent::MotionEvent()
-    : type_(Type::UNDEFINED) {}
+inline MotionEvent::MotionEvent() : type_(Type::UNDEFINED) {}
 
 }  // namespace solas
 

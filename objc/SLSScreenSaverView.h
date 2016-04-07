@@ -1,9 +1,9 @@
 //
-//  test.xcconfig
+//  SLSScreenSaverView.h
 //
 //  The MIT License
 //
-//  Copyright (C) 2015 Shota Matsuda
+//  Copyright (C) 2015-2016 Shota Matsuda
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a
 //  copy of this software and associated documentation files (the "Software"),
@@ -24,12 +24,22 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-SOLAS_DIR = $(PROJECT_DIR)
-#include "shared.xcconfig"
+#import <AppKit/AppKit.h>
+#import <ScreenSaver/ScreenSaver.h>
 
-// Linking
-OTHER_LDFLAGS = $(inherited) "$(PROJECT_DIR)/build/googletest/libgtest.a" "$(PROJECT_DIR)/build/googletest/libgtest_main.a"
+#import "SLSDisplaySource.h"
+#import "SLSRunner.h"
+#import "SLSRunnerDelegate.h"
 
-// Search Paths
-HEADER_SEARCH_PATHS = $(inherited) $(BOOST_HEADER_SEARCH_PATHS)
-USER_HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/lib/googletest/googletest/include"
+@interface SLSScreenSaverView : ScreenSaverView <SLSRunnerDelegate>
+
+- (nullable instancetype)initWithRunner:(nullable SLSRunner *)runner
+                                  frame:(CGRect)frame
+                              isPreview:(BOOL)isPreview
+    NS_DESIGNATED_INITIALIZER;
+
+@property (nonatomic, readonly) NSOpenGLPixelFormatAttribute API;
+@property (nonatomic, strong, nonnull, readonly) SLSRunner *runner;
+@property (nonatomic, strong, nullable) id<SLSDisplaySource> displaySource;
+
+@end
