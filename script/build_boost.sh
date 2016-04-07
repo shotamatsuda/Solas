@@ -68,7 +68,7 @@ download_boost() {
   if [[ ! -s "${BOOST_ARCHIVE}" ]]; then
     echo "Downloading boost ${BOOST_VERSION}"
     local version=$(echo "${BOOST_VERSION}" | sed "s/\./_/g")
-    curl -L -o "${BOOST_ARCHIVE}" \
+    curl -L --retry 10 -o "${BOOST_ARCHIVE}" \
         "http://sourceforge.net/projects/boost/files/boost/${BOOST_VERSION}/boost_${version}.tar.bz2/download"
   fi
 }
