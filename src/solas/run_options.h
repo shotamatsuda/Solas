@@ -40,10 +40,6 @@ class RunOptions final {
   RunOptions(const RunOptions&) = default;
   RunOptions& operator=(const RunOptions&) = default;
 
-  // Comparison
-  bool operator==(const RunOptions& other) const;
-  bool operator!=(const RunOptions& other) const;
-
   // Properties
   RunnerOptions& runner() { return runner_; }
   const RunnerOptions& runner() const { return runner_; }
@@ -61,6 +57,10 @@ class RunOptions final {
   bool full_size_content_;
 };
 
+// Comparison
+bool operator==(const RunOptions& lhs, const RunOptions& rhs);
+bool operator!=(const RunOptions& lhs, const RunOptions& rhs);
+
 #pragma mark -
 
 inline RunOptions::RunOptions()
@@ -70,15 +70,15 @@ inline RunOptions::RunOptions()
 
 #pragma mark Comparison
 
-inline bool RunOptions::operator==(const RunOptions& other) const {
-  return (runner_ == other.runner_ &&
-          multiple_windows_ == other.multiple_windows_ &&
-          dark_content_ == other.dark_content_ &&
-          full_size_content_ == other.full_size_content_);
+inline bool operator==(const RunOptions& lhs, const RunOptions& rhs) {
+  return (lhs.runner() == rhs.runner() &&
+          lhs.multiple_windows() == rhs.multiple_windows() &&
+          lhs.dark_content() == rhs.dark_content() &&
+          lhs.full_size_content() == rhs.full_size_content());
 }
 
-inline bool RunOptions::operator!=(const RunOptions& other) const {
-  return !operator==(other);
+inline bool operator!=(const RunOptions& lhs, const RunOptions& rhs) {
+  return !(lhs == rhs);
 }
 
 }  // namespace solas
