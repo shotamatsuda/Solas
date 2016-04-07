@@ -83,26 +83,30 @@
 
 - (void)windowWillClose:(NSNotification *)notification {
   const auto& options = solas::Run::instance().options();
-  if (options.multiple_windows()) {
-    NSWindow *window = notification.object;
-    [[NSNotificationCenter defaultCenter]
-        removeObserver:self
-                  name:NSWindowWillCloseNotification
-                object:window];
-    [_windowControllers removeObject:window.windowController];
+  if (!options.multiple_windows()) {
+    return;
   }
+  NSWindow *window = notification.object;
+  [[NSNotificationCenter defaultCenter]
+      removeObserver:self
+                name:NSWindowWillCloseNotification
+              object:window];
+  [_windowControllers removeObject:window.windowController];
 }
 
 #pragma mark Received Actions
 
 - (IBAction)newWindow:(id)sender {
+  const auto& options = solas::Run::instance().options();
+  if (!options.multiple_windows()) {
+    return;
+  }
   SLSRunner *runner = [[SLSRunner alloc]
       initWithRunnable:solas::Run::instance().create()];
   SLSNSViewController *viewController =
       [[SLSNSViewController alloc] initWithRunner:runner];
   SLSNSWindowController *windowController =
       [[SLSNSWindowController alloc] initWithViewController:viewController];
-  const auto& options = solas::Run::instance().options();
   windowController.darkContent = options.dark_content();
   windowController.fullSizeContent = options.full_size_content();
   [[NSNotificationCenter defaultCenter]
