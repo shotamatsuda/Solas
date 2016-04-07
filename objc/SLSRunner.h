@@ -68,6 +68,6 @@ typedef NS_ENUM(NSInteger, SLSRunnerBackend) {
 
 - (void)frameRate:(double)frameRate;
 - (void)resize:(CGSize)size;
-- (void)fullscreen:(BOOL)flag;
+- (void)fullScreen:(BOOL)flag;
 
 @end

@@ -34,6 +34,6 @@
 @optional
 - (void)runner:(nonnull SLSRunner *)runner frameRate:(double)frameRate;
 - (void)runner:(nonnull SLSRunner *)runner resize:(CGSize)size;
-- (void)runner:(nonnull SLSRunner *)runner fullscreen:(BOOL)flag;
+- (void)runner:(nonnull SLSRunner *)runner fullScreen:(BOOL)flag;
 
 @end

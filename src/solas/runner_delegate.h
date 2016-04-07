@@ -39,7 +39,7 @@ class RunnerDelegate {
   // Environment
   virtual void frameRate(double fps) = 0;
   virtual void resize(const takram::Size2d& size) = 0;
-  virtual void fullscreen(bool flag) = 0;
+  virtual void fullScreen(bool flag) = 0;
 };
 
 #pragma mark -

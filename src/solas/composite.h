@@ -55,7 +55,7 @@ class Composite {
   virtual void frameRate(double fps) const;
   virtual void resize(const takram::Size2d& size) const;
   virtual void resize(double width, double height) const;
-  virtual void fullscreen(bool flag) const;
+  virtual void fullScreen(bool flag) const;
 
   // Structure
   virtual const takram::Size2d& size() const;
@@ -129,9 +129,9 @@ inline void Composite::resize(double width, double height) const {
   return parent_->resize(width, height);
 }
 
-inline void Composite::fullscreen(bool flag) const {
+inline void Composite::fullScreen(bool flag) const {
   assert(parent_);
-  return parent_->fullscreen(flag);
+  return parent_->fullScreen(flag);
 }
 
 #pragma mark Structure

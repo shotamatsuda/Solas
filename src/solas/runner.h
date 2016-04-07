@@ -68,7 +68,7 @@ class Runner final {
   // Environment
   void frameRate(double fps) const;
   void resize(const takram::Size2d& size) const;
-  void fullscreen(bool flag) const;
+  void fullScreen(bool flag) const;
 
   // Events
   void mousePressed(const MouseEvent& event);
@@ -174,9 +174,9 @@ inline void Runner::resize(const takram::Size2d& size) const {
   }
 }
 
-inline void Runner::fullscreen(bool flag) const {
+inline void Runner::fullScreen(bool flag) const {
   if (delegate_) {
-    delegate_->fullscreen(flag);
+    delegate_->fullScreen(flag);
   }
 }
 

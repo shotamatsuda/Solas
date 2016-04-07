@@ -40,10 +40,6 @@ class RunnerOptions final {
   RunnerOptions(const RunnerOptions&) = default;
   RunnerOptions& operator=(const RunnerOptions&) = default;
 
-  // Comparison
-  bool operator==(const RunnerOptions& other) const;
-  bool operator!=(const RunnerOptions& other) const;
-
   // Properties
   Backend backend() const { return backend_; }
   void set_backend(Backend value) { backend_ = value; }
@@ -58,6 +54,10 @@ class RunnerOptions final {
   bool moves_window_;
 };
 
+// Comparison
+bool operator==(const RunnerOptions& lhs, const RunnerOptions& rhs);
+bool operator!=(const RunnerOptions& lhs, const RunnerOptions& rhs);
+
 #pragma mark -
 
 inline RunnerOptions::RunnerOptions()
@@ -67,14 +67,14 @@ inline RunnerOptions::RunnerOptions()
 
 #pragma mark Comparison
 
-inline bool RunnerOptions::operator==(const RunnerOptions& other) const {
-  return (backend_ == other.backend_ &&
-          translates_touches_ == other.translates_touches_ &&
-          moves_window_ == other.moves_window_);
+inline bool operator==(const RunnerOptions& lhs, const RunnerOptions& rhs) {
+  return (lhs.backend() == rhs.backend() &&
+          lhs.translates_touches() == rhs.translates_touches() &&
+          lhs.moves_window() == rhs.moves_window());
 }
 
-inline bool RunnerOptions::operator!=(const RunnerOptions& other) const {
-  return !operator==(other);
+inline bool operator!=(const RunnerOptions& lhs, const RunnerOptions& rhs) {
+  return !(lhs == rhs);
 }
 
 }  // namespace solas

@@ -48,7 +48,7 @@ class RunnerDelegate : public solas::RunnerDelegate {
   explicit RunnerDelegate(SLSRunner *runner);
   void frameRate(double fps) override;
   void resize(const takram::Size2d& size) override;
-  void fullscreen(bool flag) override;
+  void fullScreen(bool flag) override;
 
  private:
   SLSRunner *runner_;
@@ -66,8 +66,8 @@ inline void RunnerDelegate::resize(const takram::Size2d& size) {
   [runner_ resize:CGSizeMake(size.width, size.height)];
 }
 
-inline void RunnerDelegate::fullscreen(bool flag) {
-  [runner_ fullscreen:flag];
+inline void RunnerDelegate::fullScreen(bool flag) {
+  [runner_ fullScreen:flag];
 }
 
 }  // namespace
@@ -152,9 +152,9 @@ inline void RunnerDelegate::fullscreen(bool flag) {
   }
 }
 
-- (void)fullscreen:(BOOL)flag {
+- (void)fullScreen:(BOOL)flag {
   if ([_delegate respondsToSelector:@selector(runner:resize:)]) {
-    [_delegate runner:self fullscreen:flag];
+    [_delegate runner:self fullScreen:flag];
   }
 }
 

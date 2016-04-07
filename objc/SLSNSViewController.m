@@ -175,7 +175,7 @@
   [window setFrame:[window frameRectForContentRect:contentRect] display:YES];
 }
 
-- (void)runner:(nonnull SLSRunner *)runner fullscreen:(BOOL)flag {
+- (void)runner:(nonnull SLSRunner *)runner fullScreen:(BOOL)flag {
   BOOL actual = self.view.window.styleMask & NSFullScreenWindowMask;
   if ((flag && !actual) || (!flag && actual)) {
     [self.view.window toggleFullScreen:self];
