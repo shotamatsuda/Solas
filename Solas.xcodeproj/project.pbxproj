@@ -326,6 +326,68 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		93B1D1531CB74B9B00CAE0B9 /* event */ = {
+			isa = PBXGroup;
+			children = (
+				93B707DA1AD692DF00E3E8AA /* app_event.h */,
+				93A45B521AD14C4400969DC2 /* mouse_event.h */,
+				93A45B501AD14C4400969DC2 /* key_event.h */,
+				93A45B531AD14C4400969DC2 /* touch_event.h */,
+				93A45B4F1AD14C4400969DC2 /* gesture_event.h */,
+				93A45B511AD14C4400969DC2 /* motion_event.h */,
+				93AD7CE21ADD395500B42B9E /* event_holder.h */,
+			);
+			name = event;
+			sourceTree = "<group>";
+		};
+		93B1D1541CB74BD100CAE0B9 /* type */ = {
+			isa = PBXGroup;
+			children = (
+				933FD52C1AEB22F7003AEC6C /* backend.h */,
+				93CAA6091AD16F40005EDC09 /* mouse_button.h */,
+				93CAA6081AD16EED005EDC09 /* key_modifier.h */,
+				9350587A1AEF555B0020E755 /* gesture_kind.h */,
+				93547E781AF1267B00B4C6BE /* screen_edge.h */,
+				935058CE1AEF6E2E0020E755 /* swipe_direction.h */,
+			);
+			name = type;
+			sourceTree = "<group>";
+		};
+		93B1D1551CB74BE400CAE0B9 /* run */ = {
+			isa = PBXGroup;
+			children = (
+				93CAA6521AD1ADBB005EDC09 /* run.h */,
+				93CAA6531AD1AE32005EDC09 /* run.mm */,
+				93CAA63C1AD1A518005EDC09 /* run_options.h */,
+				93CAA6171AD1930A005EDC09 /* runnable.h */,
+				93CAA6161AD19304005EDC09 /* runner.h */,
+				93F8592E1B57666800C32E8D /* runner_options.h */,
+				935601CB1B5E704F007CBDCB /* runner_delegate.h */,
+			);
+			name = run;
+			sourceTree = "<group>";
+		};
+		93B1D1561CB74C2700CAE0B9 /* utility */ = {
+			isa = PBXGroup;
+			children = (
+				930398371AB2AEF400577048 /* enum.h */,
+				937D92021AF6C0C8000D8302 /* framebuffer.h */,
+				937D91FF1AF6C0BC000D8302 /* framebuffer.cc */,
+			);
+			name = utility;
+			sourceTree = "<group>";
+		};
+		93B1D1571CB74C3800CAE0B9 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				93ED100E1B01D69E003F5915 /* composite.h */,
+				93AD7CE11ADD395500B42B9E /* group.h */,
+				93AD7CE41ADD395500B42B9E /* view.h */,
+				93AD7CE31ADD395500B42B9E /* view.cc */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
 		93F38E441AB5FA26009E3626 /* objc */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,33 +416,11 @@
 		93F3BBD51AA205AA00FBF369 /* solas */ = {
 			isa = PBXGroup;
 			children = (
-				93B707DA1AD692DF00E3E8AA /* app_event.h */,
-				933FD52C1AEB22F7003AEC6C /* backend.h */,
-				93ED100E1B01D69E003F5915 /* composite.h */,
-				930398371AB2AEF400577048 /* enum.h */,
-				93AD7CE21ADD395500B42B9E /* event_holder.h */,
-				937D92021AF6C0C8000D8302 /* framebuffer.h */,
-				937D91FF1AF6C0BC000D8302 /* framebuffer.cc */,
-				93A45B4F1AD14C4400969DC2 /* gesture_event.h */,
-				9350587A1AEF555B0020E755 /* gesture_kind.h */,
-				93AD7CE11ADD395500B42B9E /* group.h */,
-				93A45B501AD14C4400969DC2 /* key_event.h */,
-				93CAA6081AD16EED005EDC09 /* key_modifier.h */,
-				93A45B511AD14C4400969DC2 /* motion_event.h */,
-				93CAA6091AD16F40005EDC09 /* mouse_button.h */,
-				93A45B521AD14C4400969DC2 /* mouse_event.h */,
-				93CAA6521AD1ADBB005EDC09 /* run.h */,
-				93CAA6531AD1AE32005EDC09 /* run.mm */,
-				93CAA63C1AD1A518005EDC09 /* run_options.h */,
-				93CAA6171AD1930A005EDC09 /* runnable.h */,
-				93CAA6161AD19304005EDC09 /* runner.h */,
-				93F8592E1B57666800C32E8D /* runner_options.h */,
-				935601CB1B5E704F007CBDCB /* runner_delegate.h */,
-				93547E781AF1267B00B4C6BE /* screen_edge.h */,
-				935058CE1AEF6E2E0020E755 /* swipe_direction.h */,
-				93A45B531AD14C4400969DC2 /* touch_event.h */,
-				93AD7CE41ADD395500B42B9E /* view.h */,
-				93AD7CE31ADD395500B42B9E /* view.cc */,
+				93B1D1541CB74BD100CAE0B9 /* type */,
+				93B1D1551CB74BE400CAE0B9 /* run */,
+				93B1D1571CB74C3800CAE0B9 /* view */,
+				93B1D1531CB74B9B00CAE0B9 /* event */,
+				93B1D1561CB74C2700CAE0B9 /* utility */,
 			);
 			path = solas;
 			sourceTree = "<group>";
