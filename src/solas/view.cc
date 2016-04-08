@@ -28,8 +28,12 @@
 
 #include <cassert>
 
-#include "solas/mouse_button.h"
+#include "solas/app_event.h"
+#include "solas/gesture_event.h"
+#include "solas/motion_event.h"
+#include "solas/mouse_event.h"
 #include "solas/runner.h"
+#include "solas/touch_event.h"
 
 namespace solas {
 

@@ -45,6 +45,7 @@
 #include "solas/mouse_button.h"
 #include "solas/mouse_event.h"
 #include "solas/runnable.h"
+#include "solas/runner.h"
 #include "solas/touch_event.h"
 #include "takram/math.h"
 

@@ -359,10 +359,10 @@
 				93CAA6521AD1ADBB005EDC09 /* run.h */,
 				93CAA6531AD1AE32005EDC09 /* run.mm */,
 				93CAA63C1AD1A518005EDC09 /* run_options.h */,
-				93CAA6171AD1930A005EDC09 /* runnable.h */,
 				93CAA6161AD19304005EDC09 /* runner.h */,
 				93F8592E1B57666800C32E8D /* runner_options.h */,
 				935601CB1B5E704F007CBDCB /* runner_delegate.h */,
+				93CAA6171AD1930A005EDC09 /* runnable.h */,
 			);
 			name = run;
 			sourceTree = "<group>";
