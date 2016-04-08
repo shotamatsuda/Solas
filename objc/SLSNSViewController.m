@@ -102,6 +102,14 @@
   _displaySource.displayDelegate = _runner;
 }
 
+- (void)tearDownContentView {
+  _displaySource.displayDelegate = nil;
+  _eventSource.eventDelegate = nil;
+  _displaySource = nil;
+  _eventSource = nil;
+  [_contentView removeFromSuperview];
+}
+
 - (void)mouseDown:(NSEvent *)event {}
 - (void)rightMouseDown:(NSEvent *)event {}
 - (void)otherMouseDown:(NSEvent *)event {}
@@ -127,6 +135,7 @@
 - (void)setRunner:(SLSRunner *)runner {
   if (runner != _runner) {
     [self stopAnimation];
+    [self tearDownContentView];
     _runner.delegate = nil;
     _runner = runner;
     _runner.delegate = self;
