@@ -45,7 +45,8 @@
 - (solas::TouchEvent)touchEventWithEvent:(UIEvent *)event
     type:(solas::TouchEvent::Type)type;
 - (solas::MotionEvent)motionEventWithEvent:(UIEvent *)event
-    type:(solas::MotionEvent::Type)type;
+    type:(solas::MotionEvent::Type)type
+    kind:(solas::MotionKind)kind;
 - (solas::GestureEvent)gestureEventWithRecognizer:
     (UIGestureRecognizer *)recognizer
     type:(solas::GestureEvent::Type)type
@@ -136,8 +137,9 @@
 }
 
 - (solas::MotionEvent)motionEventWithEvent:(UIEvent *)event
-    type:(solas::MotionEvent::Type)type {
-  return solas::MotionEvent();
+    type:(solas::MotionEvent::Type)type
+    kind:(solas::MotionKind)kind {
+  return solas::MotionEvent(type, kind);
 }
 
 - (solas::GestureEvent)gestureEventWithRecognizer:
@@ -198,8 +200,19 @@
 - (void)notifyMotionBeganWithEvent:(UIEvent *)event {
   if ([_eventDelegate respondsToSelector:
           @selector(eventDelegate:motionBegan:)]) {
+    auto kind = solas::MotionKind::UNDEFINED;
+    switch (event.subtype) {
+      case UIEventSubtypeMotionShake:
+        kind = solas::MotionKind::SHAKE;
+        break;
+      default:
+        break;
+    }
+    if (kind == solas::MotionKind::UNDEFINED) {
+      return;
+    }
     const auto motionEvent([self motionEventWithEvent:event
-        type:solas::MotionEvent::Type::BEGAN]);
+        type:solas::MotionEvent::Type::BEGAN kind:kind]);
     [_eventDelegate eventDelegate:self
                       motionBegan:SLSMotionEventMake(&motionEvent)];
   }
@@ -208,8 +221,19 @@
 - (void)notifyMotionCancelledWithEvent:(UIEvent *)event {
   if ([_eventDelegate respondsToSelector:
           @selector(eventDelegate:motionCancelled:)]) {
+    auto kind = solas::MotionKind::UNDEFINED;
+    switch (event.subtype) {
+      case UIEventSubtypeMotionShake:
+        kind = solas::MotionKind::SHAKE;
+        break;
+      default:
+        break;
+    }
+    if (kind == solas::MotionKind::UNDEFINED) {
+      return;
+    }
     const auto motionEvent([self motionEventWithEvent:event
-        type:solas::MotionEvent::Type::CANCELLED]);
+        type:solas::MotionEvent::Type::CANCELLED kind:kind]);
     [_eventDelegate eventDelegate:self
                   motionCancelled:SLSMotionEventMake(&motionEvent)];
   }
@@ -218,8 +242,19 @@
 - (void)notifyMotionEndedWithEvent:(UIEvent *)event {
   if ([_eventDelegate respondsToSelector:
           @selector(eventDelegate:motionEnded:)]) {
+    auto kind = solas::MotionKind::UNDEFINED;
+    switch (event.subtype) {
+      case UIEventSubtypeMotionShake:
+        kind = solas::MotionKind::SHAKE;
+        break;
+      default:
+        break;
+    }
+    if (kind == solas::MotionKind::UNDEFINED) {
+      return;
+    }
     const auto motionEvent([self motionEventWithEvent:event
-        type:solas::MotionEvent::Type::ENDED]);
+        type:solas::MotionEvent::Type::ENDED kind:kind]);
     [_eventDelegate eventDelegate:self
                       motionEnded:SLSMotionEventMake(&motionEvent)];
   }

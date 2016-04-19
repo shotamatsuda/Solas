@@ -191,6 +191,7 @@
 		93AD7CE31ADD395500B42B9E /* view.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = view.cc; sourceTree = "<group>"; };
 		93AD7CE41ADD395500B42B9E /* view.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view.h; sourceTree = "<group>"; };
 		93B1D13B1CB51BDD00CAE0B9 /* SLSRunnerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLSRunnerDelegate.h; sourceTree = "<group>"; };
+		93B1D16F1CB7BD6E00CAE0B9 /* motion_kind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = motion_kind.h; sourceTree = "<group>"; };
 		93B4749D1B64CEF000613FB6 /* shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = shared.xcconfig; sourceTree = "<group>"; };
 		93B707DA1AD692DF00E3E8AA /* app_event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = app_event.h; sourceTree = "<group>"; };
 		93CAA6081AD16EED005EDC09 /* key_modifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = key_modifier.h; sourceTree = "<group>"; };
@@ -349,6 +350,7 @@
 				9350587A1AEF555B0020E755 /* gesture_kind.h */,
 				93547E781AF1267B00B4C6BE /* screen_edge.h */,
 				935058CE1AEF6E2E0020E755 /* swipe_direction.h */,
+				93B1D16F1CB7BD6E00CAE0B9 /* motion_kind.h */,
 			);
 			name = type;
 			sourceTree = "<group>";

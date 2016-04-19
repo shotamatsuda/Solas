@@ -28,6 +28,11 @@
 #ifndef SOLAS_MOTION_EVENT_H_
 #define SOLAS_MOTION_EVENT_H_
 
+#include <cassert>
+#include <ostream>
+
+#include "solas/motion_kind.h"
+
 namespace solas {
 
 class MotionEvent final {
@@ -41,6 +46,7 @@ class MotionEvent final {
 
  public:
   MotionEvent();
+  MotionEvent(Type type, MotionKind kind);
 
   // Copy semantics excluding assignment
   MotionEvent(const MotionEvent&) = default;
@@ -49,17 +55,53 @@ class MotionEvent final {
   // Properties
   bool empty() const { return type_ == Type::UNDEFINED; }
   Type type() const { return type_; }
+  MotionKind kind() const { return kind_; }
 
   // Conversion
   operator bool() const { return !empty(); }
 
  private:
   Type type_;
+  MotionKind kind_;
 };
 
 #pragma mark -
 
-inline MotionEvent::MotionEvent() : type_(Type::UNDEFINED) {}
+inline MotionEvent::MotionEvent()
+    : type_(Type::UNDEFINED),
+      kind_(MotionKind::UNDEFINED) {}
+
+inline MotionEvent::MotionEvent(Type type, MotionKind kind)
+    : type_(type),
+      kind_(kind) {}
+
+#pragma mark Stream
+
+inline std::ostream& operator<<(std::ostream& os, MotionEvent::Type type) {
+  switch (type) {
+    case MotionEvent::Type::UNDEFINED:
+      os << "undefined";
+      break;
+    case MotionEvent::Type::BEGAN:
+      os << "begin";
+      break;
+    case MotionEvent::Type::CANCELLED:
+      os << "cancel";
+      break;
+    case MotionEvent::Type::ENDED:
+      os << "end";
+      break;
+    default:
+      assert(false);
+      break;
+  }
+  return os;
+}
+
+inline std::ostream& operator<<(std::ostream& os, const MotionEvent& event) {
+  os << "( type = " << event.type() << ", kind = " << event.kind();
+  return os << " )";
+}
 
 }  // namespace solas
 
