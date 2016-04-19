@@ -88,7 +88,7 @@
   _contentView = [[viewClass alloc] initWithFrame:self.view.bounds];
   _contentView.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
   if ([_contentView respondsToSelector:@selector(setMouseDownCanMoveWindow:)]) {
-    [(id)_contentView setMouseDownCanMoveWindow:_runner.movesWindow];
+    [(id)_contentView setMouseDownCanMoveWindow:_runner.draggingMovesWindow];
   }
   [self.view addSubview:_contentView];
   self.view.nextResponder = self;

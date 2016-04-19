@@ -136,8 +136,8 @@ inline void RunnerDelegate::fullScreen(bool flag) {
   return _runner->options().translates_touches();
 }
 
-- (BOOL)movesWindow {
-  return _runner->options().moves_window();
+- (BOOL)draggingMovesWindow {
+  return _runner->options().dragging_moves_window();
 }
 
 - (void)frameRate:(double)frameRate {

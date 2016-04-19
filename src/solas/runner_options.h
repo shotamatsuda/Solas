@@ -45,13 +45,13 @@ class RunnerOptions final {
   void set_backend(Backend value) { backend_ = value; }
   bool translates_touches() const { return translates_touches_; }
   void set_translates_touches(bool value) { translates_touches_ = value; }
-  bool moves_window() const { return moves_window_; }
-  void set_moves_window(bool value) { moves_window_ = value; }
+  bool dragging_moves_window() const { return dragging_moves_window_; }
+  void set_dragging_moves_window(bool value) { dragging_moves_window_ = value; }
 
  private:
   Backend backend_;
   bool translates_touches_;
-  bool moves_window_;
+  bool dragging_moves_window_;
 };
 
 // Comparison
@@ -63,14 +63,14 @@ bool operator!=(const RunnerOptions& lhs, const RunnerOptions& rhs);
 inline RunnerOptions::RunnerOptions()
     : backend_(Backend::OPENGL2 | Backend::OPENGLES2),
       translates_touches_(true),
-      moves_window_(false) {}
+      dragging_moves_window_(false) {}
 
 #pragma mark Comparison
 
 inline bool operator==(const RunnerOptions& lhs, const RunnerOptions& rhs) {
   return (lhs.backend() == rhs.backend() &&
           lhs.translates_touches() == rhs.translates_touches() &&
-          lhs.moves_window() == rhs.moves_window());
+          lhs.dragging_moves_window() == rhs.dragging_moves_window());
 }
 
 inline bool operator!=(const RunnerOptions& lhs, const RunnerOptions& rhs) {
