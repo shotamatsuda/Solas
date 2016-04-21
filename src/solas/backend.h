@@ -41,7 +41,7 @@ namespace solas {
 
 enum class Backend : int {
   UNDEFINED = 0,
-  QUARTZ = 1 << 0,
+  COREGRAPHICS = 1 << 0,
   OPENGL2 = 1 << 1,
   OPENGL3 = 1 << 2,
   OPENGL4 = 1 << 3,
@@ -57,8 +57,8 @@ inline std::ostream& operator<<(std::ostream& os, Backend backend) {
     os << "undefined";
   } else {
     std::vector<std::string> list;
-    if ((backend & Backend::QUARTZ) != Backend::UNDEFINED) {
-      list.emplace_back("quartz");
+    if ((backend & Backend::COREGRAPHICS) != Backend::UNDEFINED) {
+      list.emplace_back("coregraphics");
     }
     if ((backend & Backend::OPENGL2) != Backend::UNDEFINED) {
       list.emplace_back("opengl2");

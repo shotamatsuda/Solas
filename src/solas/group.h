@@ -40,6 +40,14 @@ class Group : public Composite {
   explicit Group(View *parent);
   explicit Group(Group *parent);
 
+  // Disallow copy semantics
+  Group(const Group&) = delete;
+  Group& operator=(const Group&) = delete;
+
+  // Move semantics
+  Group(Group&& other) = default;
+  Group& operator=(Group&& other) = default;
+
   // Aggregation
   View& view() const;
 };

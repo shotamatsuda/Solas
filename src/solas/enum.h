@@ -31,11 +31,6 @@
 #include <type_traits>
 
 #define SOLAS_ENUM_BITWISE_OPERATORS(T) \
-    constexpr std::underlying_type<T>::type operator%(T a, T b) { \
-      return static_cast<std::underlying_type<T>::type>( \
-          static_cast<std::underlying_type<T>::type>(a) & \
-          static_cast<std::underlying_type<T>::type>(b)); \
-    } \
     constexpr T operator&(T a, T b) { \
       return static_cast<T>( \
           static_cast<std::underlying_type<T>::type>(a) & \

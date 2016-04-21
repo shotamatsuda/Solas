@@ -108,6 +108,9 @@ inline void RunnerDelegate::fullScreen(bool flag) {
   using solas::Backend;
   using Underlying = std::underlying_type<Backend>::type;
   auto& options = _runner->options();
+  if (static_cast<Underlying>(options.backend() & Backend::COREGRAPHICS)) {
+    backend |= kSLSRunnerBackendCoreGraphics;
+  }
   if (static_cast<Underlying>(options.backend() & Backend::OPENGL2)) {
     backend |= kSLSRunnerBackendOpenGL2;
   }
@@ -125,9 +128,6 @@ inline void RunnerDelegate::fullScreen(bool flag) {
   }
   if (static_cast<Underlying>(options.backend() & Backend::OPENGLES3)) {
     backend |= kSLSRunnerBackendOpenGLES3;
-  }
-  if (static_cast<Underlying>(options.backend() & Backend::QUARTZ)) {
-    backend |= kSLSRunnerBackendCoreGraphics;
   }
   return (SLSRunnerBackend)backend;
 }
