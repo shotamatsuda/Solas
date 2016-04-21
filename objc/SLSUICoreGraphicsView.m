@@ -1,5 +1,5 @@
 //
-//  SLSUIQuartzView.h
+//  SLSUICoreGraphicsView.m
 //
 //  The MIT License
 //
@@ -24,10 +24,14 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "SLSUICoreGraphicsView.h"
 
-#import "SLSUIView.h"
+#import "SLSCoreGraphicsLayer.h"
 
-@interface SLSUIQuartzView : SLSUIView
+@implementation SLSUICoreGraphicsView
+
++ (Class)layerClass {
+  return [SLSCoreGraphicsLayer class];
+}
 
 @end

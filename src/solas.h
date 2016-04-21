@@ -80,11 +80,11 @@ extern const unsigned char version_string[];
 #if TARGET_OS_IPHONE
 
 #import "SLSUIApplicationDelegate.h"
+#import "SLSUICoreGraphicsView.h"
 #import "SLSUIEventSourceView.h"
 #import "SLSUIOpenGLES2View.h"
 #import "SLSUIOpenGLES3View.h"
 #import "SLSUIOpenGLESView.h"
-#import "SLSUIQuartzView.h"
 #import "SLSUIView.h"
 #import "SLSUIViewController.h"
 
@@ -93,12 +93,12 @@ extern const unsigned char version_string[];
 #if TARGET_OS_MAC && !TARGET_OS_IPHONE
 
 #import "SLSNSApplicationDelegate.h"
+#import "SLSNSCoreGraphicsView.h"
 #import "SLSNSEventSourceView.h"
 #import "SLSNSOpenGL3View.h"
 #import "SLSNSOpenGL4View.h"
 #import "SLSNSOpenGLLayer.h"
 #import "SLSNSOpenGLView.h"
-#import "SLSNSQuartzView.h"
 #import "SLSNSView.h"
 #import "SLSNSViewController.h"
 #import "SLSNSWindowController.h"

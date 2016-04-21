@@ -1,5 +1,5 @@
 //
-//  SLSNSQuartzView.h
+//  SLSNSCoreGraphicsView.h
 //
 //  The MIT License
 //
@@ -28,6 +28,6 @@
 
 #import "SLSNSView.h"
 
-@interface SLSNSQuartzView : SLSNSView
+@interface SLSNSCoreGraphicsView : SLSNSView
 
 @end

@@ -1,5 +1,5 @@
 //
-//  SLSNSQuartzView.m
+//  SLSNSCoreGraphicsView.m
 //
 //  The MIT License
 //
@@ -24,14 +24,14 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSNSQuartzView.h"
+#import "SLSNSCoreGraphicsView.h"
 
-#import "SLSQuartzLayer.h"
+#import "SLSCoreGraphicsLayer.h"
 
-@implementation SLSNSQuartzView
+@implementation SLSNSCoreGraphicsView
 
 - (CALayer *)makeBackingLayer {
-  return [SLSQuartzLayer layer];
+  return [SLSCoreGraphicsLayer layer];
 }
 
 @end

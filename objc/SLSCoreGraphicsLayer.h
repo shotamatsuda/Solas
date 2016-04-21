@@ -1,5 +1,5 @@
 //
-//  SLSUIQuartzView.m
+//  SLSCoreGraphicsLayer.h
 //
 //  The MIT License
 //
@@ -24,14 +24,20 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSUIQuartzView.h"
+#import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
 
-#import "SLSQuartzLayer.h"
+#import "SLSDisplayDelegate.h"
+#import "SLSDisplaySource.h"
 
-@implementation SLSUIQuartzView
+@interface SLSCoreGraphicsLayer : CALayer <SLSDisplaySource>
 
-+ (Class)layerClass {
-  return [SLSQuartzLayer class];
-}
+#pragma mark Invalidating the Display Source
+
+@property (nonatomic, assign) BOOL displaySourceNeedsDisplay;
+
+#pragma mark Managing the Delegate
+
+@property (atomic, weak, nullable) id<SLSDisplayDelegate> displayDelegate;
 
 @end

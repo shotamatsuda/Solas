@@ -1,5 +1,5 @@
 //
-//  SLSQuartzLayer.mm
+//  SLSCoreGraphicsLayer.mm
 //
 //  The MIT License
 //
@@ -24,12 +24,12 @@
 //  DEALINGS IN THE SOFTWARE.
 //
 
-#import "SLSQuartzLayer.h"
+#import "SLSCoreGraphicsLayer.h"
 
 #include "solas/app_event.h"
 #include "takram/math.h"
 
-@implementation SLSQuartzLayer
+@implementation SLSCoreGraphicsLayer
 
 - (instancetype)init {
   self = [super init];
