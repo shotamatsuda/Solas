@@ -49,7 +49,6 @@ readonly BOOST_DIR="${BUILD_DIR}/${BOOST_VERSION}"
 readonly ARM_XCRUN="xcrun --sdk iphoneos"
 readonly SIM_XCRUN="xcrun --sdk iphonesimulator"
 readonly OSX_XCRUN="xcrun --sdk macosx"
-readonly TRAVIS_WAIT=$(which travis_wait)
 
 cleanup() {
   echo "Cleaning everything before we start to build..."
@@ -105,7 +104,7 @@ bootstrap_boost() {
 compile_boost() {
   cd "${BOOST_DIR}"
   if [[ ! BOOST_NO_BUILD ]]; then
-    ${TRAVIS_WAIT} ./b2 \
+    ./b2 \
         -j8 \
         -d0 \
         --build-dir="iphoneos-build" \
@@ -121,7 +120,7 @@ compile_boost() {
         link="static" \
         include="${IOS_SDK_ROOT}/usr/include" \
         stage
-    ${TRAVIS_WAIT} ./b2 \
+    ./b2 \
         -j8 \
         -d0 \
         --build-dir="iphonesimulator-build" \

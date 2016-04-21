@@ -9,7 +9,7 @@ before_install:
   - git submodule update --init --recursive
 before_script:
   - git clone git://github.com/takram-design-engineering/takram-math.git ../takram-math
-  - ./script/setup.sh
+  - travis_wait 30 ./script/setup.sh
 script:
   - xcodebuild -project Solas.xcodeproj -scheme "Solas" -configuration Debug build
   - xcodebuild -project Solas.xcodeproj -scheme "Solas Static" -configuration Debug build
