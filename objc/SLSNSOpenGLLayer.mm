@@ -30,9 +30,10 @@
 #import <OpenGL/glext.h>
 #import <QuartzCore/QuartzCore.h>
 
+#include <glm/glm.hpp>
+
 #include "solas/app_event.h"
 #include "solas/framebuffer.h"
-#include "takram/math.h"
 
 @interface SLSNSOpenGLLayer () {
  @private
@@ -86,7 +87,7 @@
                   forLayerTime:(CFTimeInterval)layerTime
                    displayTime:(const CVTimeStamp *)displayTime {
   const CGRect bounds = self.bounds;
-  const takram::Size2d size(bounds.size.width, bounds.size.height);
+  const glm::vec2 size(bounds.size.width, bounds.size.height);
   const solas::AppEvent event(solas::AppEvent::Type::UPDATE,
                               context, size, self.contentsScale);
   if ([_displayDelegate respondsToSelector:
@@ -108,7 +109,7 @@
   _framebuffer.bind();
   glClearColor(1.0, 1.0, 1.0, 1.0);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-  const takram::Size2d size(bounds.size.width, bounds.size.height);
+  const glm::vec2 size(bounds.size.width, bounds.size.height);
   const solas::AppEvent event(solas::AppEvent::Type::DRAW,
                               context, size, scale);
   if ([_displayDelegate respondsToSelector:@selector(displayDelegate:draw:)]) {

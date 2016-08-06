@@ -31,12 +31,12 @@
 #include <vector>
 
 #include <boost/any.hpp>
+#include <glm/glm.hpp>
 
 #include "solas/gesture_event.h"
 #include "solas/gesture_kind.h"
 #include "solas/motion_event.h"
 #include "solas/touch_event.h"
-#include "takram/math.h"
 
 @interface SLSUIEventSourceView () <UIGestureRecognizerDelegate>
 
@@ -128,7 +128,7 @@
 
 - (solas::TouchEvent)touchEventWithEvent:(UIEvent *)event
     type:(solas::TouchEvent::Type)type {
-  std::vector<takram::Vec2d> touches;
+  std::vector<glm::vec2> touches;
   for (UITouch *touch in event.allTouches) {
     CGPoint location = [touch locationInView:self];
     touches.emplace_back(location.x, location.y);
@@ -147,7 +147,7 @@
     type:(solas::GestureEvent::Type)type
     kind:(solas::GestureKind)kind
     data:(const boost::any&)data {
-  std::vector<takram::Vec2d> touches;
+  std::vector<glm::vec2> touches;
   for (NSInteger i = 0; i < recognizer.numberOfTouches; ++i) {
     CGPoint location = [recognizer locationOfTouch:i inView:self];
     touches.emplace_back(location.x, location.y);

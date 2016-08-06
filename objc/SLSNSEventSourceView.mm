@@ -30,13 +30,14 @@
 
 #include <string>
 
+#include <glm/glm.hpp>
+
 #include "solas/gesture_event.h"
 #include "solas/key_event.h"
 #include "solas/key_modifier.h"
 #include "solas/mouse_button.h"
 #include "solas/mouse_event.h"
 #include "solas/touch_event.h"
-#include "takram/math.h"
 
 @interface SLSNSEventSourceView ()
 
@@ -212,10 +213,10 @@
                                fromView:self.window.contentView];
   return solas::MouseEvent(
       type,
-      takram::Vec2d(location.x, location.y),
+      glm::vec2(location.x, location.y),
       static_cast<solas::MouseButton>(event.buttonNumber),
       [self keyModifiersForEvent:event],
-      takram::Vec3d(event.deltaX, event.deltaY, event.deltaZ));
+      glm::vec3(event.deltaX, event.deltaY, event.deltaZ));
 }
 
 - (solas::KeyEvent)keyEventWithEvent:(NSEvent *)event

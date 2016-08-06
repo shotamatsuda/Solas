@@ -34,11 +34,12 @@
 #include <vector>
 
 #include <boost/any.hpp>
+#include <glm/glm.hpp>
 
 #include "solas/gesture_kind.h"
+#include "solas/glm.h"
 #include "solas/screen_edge.h"
 #include "solas/swipe_direction.h"
-#include "takram/math.h"
 
 namespace solas {
 
@@ -73,8 +74,8 @@ class GestureEvent final {
   };
 
   struct PanData {
-    takram::Vec2d translation;
-    takram::Vec2d velocity;
+    glm::vec2 translation;
+    glm::vec2 velocity;
     std::size_t touches;
   };
 
@@ -87,11 +88,11 @@ class GestureEvent final {
   template <class Data>
   GestureEvent(Type type,
                GestureKind kind,
-               const std::vector<takram::Vec2d>& touches,
+               const std::vector<glm::vec2>& touches,
                const Data& data);
   GestureEvent(Type type,
                GestureKind kind,
-               const std::vector<takram::Vec2d>& touches,
+               const std::vector<glm::vec2>& touches,
                const boost::any& data);
 
   // Copy semantics excluding assignment
@@ -102,7 +103,7 @@ class GestureEvent final {
   bool empty() const { return type_ == Type::UNDEFINED; }
   Type type() const { return type_; }
   GestureKind kind() const { return kind_; }
-  const std::vector<takram::Vec2d>& touches() const { return touches_; }
+  const std::vector<glm::vec2>& touches() const { return touches_; }
 
   // Gesture data
   const TapData& tap() const;
@@ -118,7 +119,7 @@ class GestureEvent final {
  private:
   Type type_;
   GestureKind kind_;
-  std::vector<takram::Vec2d> touches_;
+  std::vector<glm::vec2> touches_;
   boost::any data_;
 };
 
@@ -131,7 +132,7 @@ inline GestureEvent::GestureEvent()
 template <class Data>
 inline GestureEvent::GestureEvent(Type type,
                                   GestureKind kind,
-                                  const std::vector<takram::Vec2d>& touches,
+                                  const std::vector<glm::vec2>& touches,
                                   const Data& data)
     : type_(type),
       kind_(kind),
@@ -140,7 +141,7 @@ inline GestureEvent::GestureEvent(Type type,
 
 inline GestureEvent::GestureEvent(Type type,
                                   GestureKind kind,
-                                  const std::vector<takram::Vec2d>& touches,
+                                  const std::vector<glm::vec2>& touches,
                                   const boost::any& data)
     : type_(type),
       kind_(kind),

@@ -35,6 +35,7 @@
 #include <utility>
 
 #include <boost/signals2.hpp>
+#include <glm/glm.hpp>
 
 #include "solas/app_event.h"
 #include "solas/composite.h"
@@ -47,7 +48,6 @@
 #include "solas/runnable.h"
 #include "solas/runner.h"
 #include "solas/touch_event.h"
-#include "takram/math.h"
 
 namespace solas {
 
@@ -88,19 +88,19 @@ class View : public Runnable, public Composite {
 
   // Environment
   void frameRate(double fps) const override;
-  void resize(const takram::Size2d& size) const override;
+  void resize(const glm::vec2& size) const override;
   void resize(double width, double height) const override;
   void fullScreen(bool flag) const override;
 
   // Structure
-  const takram::Size2d& size() const override;
+  const glm::vec2& size() const override;
   double width() const override;
   double height() const override;
   double scale() const override;
 
   // Mouse
-  const takram::Vec2d& mouse() const override;
-  const takram::Vec2d& pmouse() const override;
+  const glm::vec2& mouse() const override;
+  const glm::vec2& pmouse() const override;
   MouseButton mouse_button() const override;
   bool mouse_pressed() const override;
 
@@ -110,8 +110,8 @@ class View : public Runnable, public Composite {
   bool key_pressed() const override;
 
   // Touches
-  const takram::Vec2d& touch() const override;
-  const takram::Vec2d& ptouch() const override;
+  const glm::vec2& touch() const override;
+  const glm::vec2& ptouch() const override;
   bool touch_pressed() const override;
 
   // Aggregation
@@ -227,18 +227,18 @@ class View : public Runnable, public Composite {
 
   // Environment
   mutable std::pair<bool, double> frame_rate_;
-  mutable std::pair<bool, takram::Size2d> resize_;
+  mutable std::pair<bool, glm::vec2> resize_;
   mutable std::pair<bool, bool> full_screen_;
 
   // Structure
-  takram::Size2d size_;
+  glm::vec2 size_;
   double scale_;
 
   // Mouse
-  takram::Vec2d mouse_;
-  takram::Vec2d pmouse_;
-  takram::Vec2d dmouse_;
-  takram::Vec2d emouse_;
+  glm::vec2 mouse_;
+  glm::vec2 pmouse_;
+  glm::vec2 dmouse_;
+  glm::vec2 emouse_;
   MouseButton mouse_button_;
   bool mouse_pressed_;
 
@@ -248,10 +248,10 @@ class View : public Runnable, public Composite {
   bool key_pressed_;
 
   // Mouse
-  takram::Vec2d touch_;
-  takram::Vec2d ptouch_;
-  takram::Vec2d dtouch_;
-  takram::Vec2d etouch_;
+  glm::vec2 touch_;
+  glm::vec2 ptouch_;
+  glm::vec2 dtouch_;
+  glm::vec2 etouch_;
   bool touch_pressed_;
 
   // Event signals
@@ -283,13 +283,13 @@ inline void View::frameRate(double fps) const {
   frame_rate_.second = fps;
 }
 
-inline void View::resize(const takram::Size2d& size) const {
+inline void View::resize(const glm::vec2& size) const {
   resize_.first = true;
   resize_.second = size;
 }
 
 inline void View::resize(double width, double height) const {
-  resize(takram::Size2d(width, height));
+  resize(glm::vec2(width, height));
 }
 
 inline void View::fullScreen(bool flag) const {
@@ -300,28 +300,28 @@ inline void View::fullScreen(bool flag) const {
 #pragma mark Structure
 
 inline double View::width() const {
-  return size_.width;
+  return size_.x;
 }
 
 inline double View::height() const {
-  return size_.height;
+  return size_.y;
 }
 
 inline double View::scale() const {
   return scale_;
 }
 
-inline const takram::Size2d& View::size() const {
+inline const glm::vec2& View::size() const {
   return size_;
 }
 
 #pragma mark Mouse
 
-inline const takram::Vec2d& View::mouse() const {
+inline const glm::vec2& View::mouse() const {
   return mouse_;
 }
 
-inline const takram::Vec2d& View::pmouse() const {
+inline const glm::vec2& View::pmouse() const {
   return pmouse_;
 }
 
@@ -349,11 +349,11 @@ inline bool View::key_pressed() const {
 
 #pragma mark Touches
 
-inline const takram::Vec2d& View::touch() const {
+inline const glm::vec2& View::touch() const {
   return touch_;
 }
 
-inline const takram::Vec2d& View::ptouch() const {
+inline const glm::vec2& View::ptouch() const {
   return ptouch_;
 }
 

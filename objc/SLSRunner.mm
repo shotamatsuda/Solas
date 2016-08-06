@@ -34,10 +34,11 @@
 #include <type_traits>
 #include <utility>
 
+#include <glm/glm.hpp>
+
 #include "solas/app_event.h"
 #include "solas/runner.h"
 #include "solas/runnable.h"
-#include "takram/math.h"
 
 @class SLSRunner;
 
@@ -47,7 +48,7 @@ class RunnerDelegate : public solas::RunnerDelegate {
  public:
   explicit RunnerDelegate(SLSRunner *runner);
   void frameRate(double fps) override;
-  void resize(const takram::Size2d& size) override;
+  void resize(const glm::vec2& size) override;
   void fullScreen(bool flag) override;
 
  private:
@@ -62,8 +63,8 @@ inline void RunnerDelegate::frameRate(double fps) {
   [runner_ frameRate:fps];
 }
 
-inline void RunnerDelegate::resize(const takram::Size2d& size) {
-  [runner_ resize:CGSizeMake(size.width, size.height)];
+inline void RunnerDelegate::resize(const glm::vec2& size) {
+  [runner_ resize:CGSizeMake(size.x, size.y)];
 }
 
 inline void RunnerDelegate::fullScreen(bool flag) {

@@ -26,8 +26,9 @@
 
 #import "SLSCoreGraphicsLayer.h"
 
+#include <glm/glm.hpp>
+
 #include "solas/app_event.h"
-#include "takram/math.h"
 
 @implementation SLSCoreGraphicsLayer
 
@@ -43,7 +44,7 @@
 
 - (void)drawInContext:(CGContextRef)context {
   CGRect bounds = self.bounds;
-  const takram::Size2d size(bounds.size.width, bounds.size.height);
+  const glm::vec2 size(bounds.size.width, bounds.size.height);
   if ([_displayDelegate respondsToSelector:
           @selector(displayDelegate:update:)]) {
     const solas::AppEvent event(solas::AppEvent::Type::UPDATE,

@@ -30,9 +30,10 @@
 
 #include <cstdint>
 
+#include <glm/glm.hpp>
+
 #include "solas/key_modifier.h"
 #include "solas/mouse_button.h"
-#include "takram/math.h"
 
 namespace solas {
 
@@ -52,10 +53,10 @@ class MouseEvent final {
  public:
   MouseEvent();
   MouseEvent(Type type,
-             const takram::Vec2d& location,
+             const glm::vec2& location,
              MouseButton button,
              KeyModifier modifiers,
-             const takram::Vec3d& wheel = takram::Vec3d());
+             const glm::vec3& wheel = glm::vec3());
 
   // Copy semantics excluding assignment
   MouseEvent(const MouseEvent&) = default;
@@ -64,20 +65,20 @@ class MouseEvent final {
   // Properties
   bool empty() const { return type_ == Type::UNDEFINED; }
   Type type() const { return type_; }
-  const takram::Vec2d& location() const { return location_; }
+  const glm::vec2& location() const { return location_; }
   MouseButton button() const { return button_; }
   KeyModifier modifiers() const { return modifiers_; }
-  const takram::Vec3d& wheel() const { return wheel_; }
+  const glm::vec3& wheel() const { return wheel_; }
 
   // Conversion
   operator bool() const { return !empty(); }
 
  private:
   Type type_;
-  takram::Vec2d location_;
+  glm::vec2 location_;
   MouseButton button_;
   KeyModifier modifiers_;
-  takram::Vec3d wheel_;
+  glm::vec3 wheel_;
 };
 
 #pragma mark -
@@ -88,10 +89,10 @@ inline MouseEvent::MouseEvent()
       modifiers_(KeyModifier::NONE) {}
 
 inline MouseEvent::MouseEvent(Type type,
-                              const takram::Vec2d& location,
+                              const glm::vec2& location,
                               MouseButton button,
                               KeyModifier modifiers,
-                              const takram::Vec3d& wheel)
+                              const glm::vec3& wheel)
     : type_(type),
       location_(location),
       button_(button),

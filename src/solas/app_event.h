@@ -31,8 +31,7 @@
 #include <functional>
 
 #include <boost/any.hpp>
-
-#include "takram/math.h"
+#include <glm/glm.hpp>
 
 namespace solas {
 
@@ -52,7 +51,7 @@ class AppEvent final {
   template <class Context>
   AppEvent(Type type,
            const Context& context,
-           const takram::Size2d& size,
+           const glm::vec2& size,
            double scale);
 
   // Copy semantics excluding assignment
@@ -63,13 +62,13 @@ class AppEvent final {
   Type type() const { return type_; }
   template <class Context>
   const Context& context() const;
-  const takram::Size2d& size() const { return size_; }
+  const glm::vec2& size() const { return size_; }
   double scale() const { return scale_; }
 
  private:
   Type type_;
   boost::any context_;
-  takram::Size2d size_;
+  glm::vec2 size_;
   double scale_;
 };
 
@@ -80,7 +79,7 @@ inline AppEvent::AppEvent(Type type) : type_(type) {}
 template <class Context>
 inline AppEvent::AppEvent(Type type,
                           const Context& context,
-                          const takram::Size2d& size,
+                          const glm::vec2& size,
                           double scale)
     : type_(type),
       context_(std::reference_wrapper<const Context>(context)),

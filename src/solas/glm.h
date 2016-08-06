@@ -1,5 +1,5 @@
 //
-//  solas/touch_event.h
+//  solas/glm.h
 //
 //  The MIT License
 //
@@ -25,55 +25,35 @@
 //
 
 #pragma once
-#ifndef SOLAS_TOUCH_EVENT_H_
-#define SOLAS_TOUCH_EVENT_H_
+#ifndef SOLAS_GLM_H_
+#define SOLAS_GLM_H_
 
-#include <vector>
+#include <ostream>
 
 #include <glm/glm.hpp>
 
 namespace solas {
 
-class TouchEvent final {
- public:
-  enum class Type {
-    UNDEFINED,
-    BEGAN,
-    MOVED,
-    CANCELLED,
-    ENDED
-  };
+template <class T, glm::precision P>
+inline std::ostream& operator<<(std::ostream& os, const glm::tvec1<T, P>& v) {
+  return os << "( " << v.x << " )";
+}
 
- public:
-  TouchEvent();
-  TouchEvent(Type type, const std::vector<glm::vec2>& touches);
+template <class T, glm::precision P>
+inline std::ostream& operator<<(std::ostream& os, const glm::tvec2<T, P>& v) {
+  return os << "( " << v.x << ", " << v.y << " )";
+}
 
-  // Copy semantics excluding assignment
-  TouchEvent(const TouchEvent&) = default;
-  TouchEvent& operator=(const TouchEvent&) = delete;
+template <class T, glm::precision P>
+inline std::ostream& operator<<(std::ostream& os, const glm::tvec3<T, P>& v) {
+  return os << "( " << v.x << ", " << v.y << ", " << v.z << " )";
+}
 
-  // Properties
-  bool empty() const { return type_ == Type::UNDEFINED; }
-  Type type() const { return type_; }
-  const std::vector<glm::vec2>& touches() const { return touches_; }
-
-  // Conversion
-  operator bool() const { return !empty(); }
-
- private:
-  Type type_;
-  std::vector<glm::vec2> touches_;
-};
-
-#pragma mark -
-
-inline TouchEvent::TouchEvent() : type_(Type::UNDEFINED) {}
-
-inline TouchEvent::TouchEvent(Type type,
-                              const std::vector<glm::vec2>& touches)
-    : type_(type),
-      touches_(touches) {}
+template <class T, glm::precision P>
+inline std::ostream& operator<<(std::ostream& os, const glm::tvec4<T, P>& v) {
+  return os << "( " << v.x << ", " << v.y << ", " << v.z << ", " << v.w << " )";
+}
 
 }  // namespace solas
 
-#endif  // SOLAS_TOUCH_EVENT_H_
+#endif  // SOLAS_GLM_H_

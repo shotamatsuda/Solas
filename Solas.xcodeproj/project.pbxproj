@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		93244E631B6DD51500CB2F87 /* SLSNSSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93244E611B6DD51500CB2F87 /* SLSNSSplitViewController.m */; };
 		93244E641B6DD51500CB2F87 /* SLSNSSplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93244E611B6DD51500CB2F87 /* SLSNSSplitViewController.m */; };
-		933113AB1B5C52FC00449CDE /* libtakram_math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933113A41B5C52CD00449CDE /* libtakram_math.a */; };
-		933113AE1B5C530300449CDE /* libtakram_math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933113A41B5C52CD00449CDE /* libtakram_math.a */; };
-		933113B11B5C530C00449CDE /* libtakram_math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 933113A41B5C52CD00449CDE /* libtakram_math.a */; };
 		93563B961B677EB9004C47E4 /* SLSNSWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8587A1B56535B00C32E8D /* SLSNSWindowController.m */; };
 		93563B971B677EB9004C47E4 /* SLSNSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 93F8587D1B56535B00C32E8D /* SLSNSViewController.m */; };
 		93563B981B677EB9004C47E4 /* SLSNSEventSourceView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93F8587F1B56535B00C32E8D /* SLSNSEventSourceView.mm */; };
@@ -77,55 +74,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		933113A11B5C52CD00449CDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 9309550E1A4FB1FC00D09023;
-			remoteInfo = math_shared;
-		};
-		933113A31B5C52CD00449CDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 93C6B51519B22F5500A1CF93;
-			remoteInfo = math_static;
-		};
-		933113A51B5C52CD00449CDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 93F858331B564DB200C32E8D;
-			remoteInfo = math_ios;
-		};
-		933113A71B5C52CD00449CDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 93F1B9F6180282B0002A5A5C;
-			remoteInfo = math_test;
-		};
-		933113A91B5C52F600449CDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 93C6B51419B22F5500A1CF93;
-			remoteInfo = math_static;
-		};
-		933113AC1B5C530000449CDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 93F858161B564DB200C32E8D;
-			remoteInfo = math_ios;
-		};
-		933113AF1B5C530800449CDE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 93C6B51419B22F5500A1CF93;
-			remoteInfo = math_static;
-		};
 		93E33C901AEBB6F7001F90DE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 93F8AD6717C8B39800310877 /* Project object */;
@@ -155,7 +103,6 @@
 		932101901B48CE0400A63200 /* project.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
 		93244E601B6DD51500CB2F87 /* SLSNSSplitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSNSSplitViewController.h; sourceTree = "<group>"; };
 		93244E611B6DD51500CB2F87 /* SLSNSSplitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSNSSplitViewController.m; sourceTree = "<group>"; };
-		9331138C1B5C52A000449CDE /* math.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = math.xcodeproj; path = "../takram-math/math.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		933295961B64D77600F63AB2 /* project_debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_debug.xcconfig; sourceTree = "<group>"; };
 		933295971B64D77600F63AB2 /* project_release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = project_release.xcconfig; sourceTree = "<group>"; };
 		933FD52C1AEB22F7003AEC6C /* backend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = backend.h; sourceTree = "<group>"; };
@@ -163,6 +110,7 @@
 		935058CE1AEF6E2E0020E755 /* swipe_direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = swipe_direction.h; sourceTree = "<group>"; };
 		93547E781AF1267B00B4C6BE /* screen_edge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screen_edge.h; sourceTree = "<group>"; };
 		935601CB1B5E704F007CBDCB /* runner_delegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = runner_delegate.h; sourceTree = "<group>"; };
+		935F12A51D56022100B3DBFE /* glm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glm.h; sourceTree = "<group>"; };
 		936AC44F1CB5178300D7363F /* SLSScreenSaverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLSScreenSaverView.m; sourceTree = "<group>"; };
 		936AC4531CB517AE00D7363F /* SLSScreenSaverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLSScreenSaverView.h; sourceTree = "<group>"; };
 		936E241F1ADEA5550004C396 /* libSolas.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSolas.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,7 +217,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				933113B11B5C530C00449CDE /* libtakram_math.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +224,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				933113AB1B5C52FC00449CDE /* libtakram_math.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +231,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				933113AE1B5C530300449CDE /* libtakram_math.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,17 +259,6 @@
 				9321018C1B48CE0400A63200 /* test.xcconfig */,
 			);
 			path = config;
-			sourceTree = "<group>";
-		};
-		9331139B1B5C52CD00449CDE /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				933113A21B5C52CD00449CDE /* libtakram_math.dylib */,
-				933113A41B5C52CD00449CDE /* libtakram_math.a */,
-				933113A61B5C52CD00449CDE /* libtakram_math.a */,
-				933113A81B5C52CD00449CDE /* takram_math_test */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		93B1D1531CB74B9B00CAE0B9 /* event */ = {
@@ -375,6 +309,7 @@
 				930398371AB2AEF400577048 /* enum.h */,
 				937D92021AF6C0C8000D8302 /* framebuffer.h */,
 				937D91FF1AF6C0BC000D8302 /* framebuffer.cc */,
+				935F12A51D56022100B3DBFE /* glm.h */,
 			);
 			name = utility;
 			sourceTree = "<group>";
@@ -504,7 +439,6 @@
 				93F3BBD61AA205C200FBF369 /* test */,
 				930955021A4FB1E200D09023 /* config */,
 				93F8AD7017C8B39800310877 /* products */,
-				9331138C1B5C52A000449CDE /* math.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -570,7 +504,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				933113B01B5C530800449CDE /* PBXTargetDependency */,
 			);
 			name = "Solas Static";
 			productName = SolasStatic;
@@ -590,7 +523,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				933113AA1B5C52F600449CDE /* PBXTargetDependency */,
 			);
 			name = Solas;
 			productName = Solas;
@@ -610,7 +542,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				933113AD1B5C530000449CDE /* PBXTargetDependency */,
 			);
 			name = "Solas iOS";
 			productName = Solas;
@@ -649,12 +580,6 @@
 			mainGroup = 93F8AD6617C8B39800310877;
 			productRefGroup = 93F8AD7017C8B39800310877 /* products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 9331139B1B5C52CD00449CDE /* Products */;
-					ProjectRef = 9331138C1B5C52A000449CDE /* math.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				93E913571AB27DE400DDF7F9 /* Solas */,
@@ -664,37 +589,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		933113A21B5C52CD00449CDE /* libtakram_math.dylib */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.dylib";
-			path = libtakram_math.dylib;
-			remoteRef = 933113A11B5C52CD00449CDE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		933113A41B5C52CD00449CDE /* libtakram_math.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libtakram_math.a;
-			remoteRef = 933113A31B5C52CD00449CDE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		933113A61B5C52CD00449CDE /* libtakram_math.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libtakram_math.a;
-			remoteRef = 933113A51B5C52CD00449CDE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		933113A81B5C52CD00449CDE /* takram_math_test */ = {
-			isa = PBXReferenceProxy;
-			fileType = "compiled.mach-o.executable";
-			path = takram_math_test;
-			remoteRef = 933113A71B5C52CD00449CDE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		93E913561AB27DE400DDF7F9 /* Resources */ = {
@@ -848,21 +742,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		933113AA1B5C52F600449CDE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = math_static;
-			targetProxy = 933113A91B5C52F600449CDE /* PBXContainerItemProxy */;
-		};
-		933113AD1B5C530000449CDE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = math_ios;
-			targetProxy = 933113AC1B5C530000449CDE /* PBXContainerItemProxy */;
-		};
-		933113B01B5C530800449CDE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = math_static;
-			targetProxy = 933113AF1B5C530800449CDE /* PBXContainerItemProxy */;
-		};
 		93E33C911AEBB6F7001F90DE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 936E241E1ADEA5550004C396 /* Solas Static */;
@@ -923,7 +802,7 @@
 				INFOPLIST_FILE = config/framework.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.takram.Solas;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shotamatsuda.Solas;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -945,7 +824,7 @@
 				INFOPLIST_FILE = config/framework.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.takram.Solas;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shotamatsuda.Solas;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -968,7 +847,7 @@
 				INFOPLIST_FILE = config/framework.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.takram.Solas;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shotamatsuda.Solas;
 				PRODUCT_NAME = Solas;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -992,7 +871,7 @@
 				INFOPLIST_FILE = config/framework.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.takram.Solas;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shotamatsuda.Solas;
 				PRODUCT_NAME = Solas;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
