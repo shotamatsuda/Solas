@@ -28,6 +28,7 @@
 #ifndef SOLAS_VIEW_H_
 #define SOLAS_VIEW_H_
 
+#include <cassert>
 #include <cstdint>
 #include <list>
 #include <queue>
@@ -506,11 +507,13 @@ struct View::EventConnector<AppEvent> {
 
   template <class Slot>
   static EventConnection connect(Type type, const Slot& slot, View *view) {
+    assert(view);
     return view->app_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
   static void disconnect(Type type, const Slot& slot, View *view) {
+    assert(view);
     view->app_event_signals_[type].disconnect(slot);
   }
 };
@@ -521,11 +524,13 @@ struct View::EventConnector<MouseEvent> {
 
   template <class Slot>
   static EventConnection connect(Type type, const Slot& slot, View *view) {
+    assert(view);
     return view->mouse_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
   static void disconnect(Type type, const Slot& slot, View *view) {
+    assert(view);
     view->mouse_event_signals_[type].disconnect(slot);
   }
 };
@@ -536,11 +541,13 @@ struct View::EventConnector<KeyEvent> {
 
   template <class Slot>
   static EventConnection connect(Type type, const Slot& slot, View *view) {
+    assert(view);
     return view->key_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
   static void disconnect(Type type, const Slot& slot, View *view) {
+    assert(view);
     view->key_event_signals_[type].disconnect(slot);
   }
 };
@@ -551,11 +558,13 @@ struct View::EventConnector<TouchEvent> {
 
   template <class Slot>
   static EventConnection connect(Type type, const Slot& slot, View *view) {
+    assert(view);
     return view->touch_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
   static void disconnect(Type type, const Slot& slot, View *view) {
+    assert(view);
     view->touch_event_signals_[type].disconnect(slot);
   }
 };
@@ -566,11 +575,13 @@ struct View::EventConnector<GestureEvent> {
 
   template <class Slot>
   static EventConnection connect(Type type, const Slot& slot, View *view) {
+    assert(view);
     return view->gesture_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
   static void disconnect(Type type, const Slot& slot, View *view) {
+    assert(view);
     view->gesture_event_signals_[type].disconnect(slot);
   }
 };
@@ -581,11 +592,13 @@ struct View::EventConnector<MotionEvent> {
 
   template <class Slot>
   static EventConnection connect(Type type, const Slot& slot, View *view) {
+    assert(view);
     return view->motion_event_signals_[type].connect(slot);
   }
 
   template <class Slot>
   static void disconnect(Type type, const Slot& slot, View *view) {
+    assert(view);
     view->motion_event_signals_[type].disconnect(slot);
   }
 };

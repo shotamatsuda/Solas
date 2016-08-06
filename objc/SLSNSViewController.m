@@ -178,8 +178,8 @@
 - (void)runner:(nonnull SLSRunner *)runner resize:(CGSize)size {
   NSWindow *window = self.view.window;
   CGRect contentRect = [window contentRectForFrameRect:window.frame];
-  contentRect.origin.x += (contentRect.size.width - size.width) / 2.0;
-  contentRect.origin.y += (contentRect.size.height - size.height) / 2.0;
+  contentRect.origin.x += (contentRect.size.width - size.width) * 0.5;
+  contentRect.origin.y += (contentRect.size.height - size.height) * 0.5;
   contentRect.size = size;
   [window setFrame:[window frameRectForContentRect:contentRect] display:YES];
 }

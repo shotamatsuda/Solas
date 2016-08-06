@@ -69,8 +69,7 @@ class TouchEvent final {
 
 inline TouchEvent::TouchEvent() : type_(Type::UNDEFINED) {}
 
-inline TouchEvent::TouchEvent(Type type,
-                              const std::vector<glm::vec2>& touches)
+inline TouchEvent::TouchEvent(Type type, const std::vector<glm::vec2>& touches)
     : type_(type),
       touches_(touches) {}
 
