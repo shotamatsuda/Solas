@@ -773,7 +773,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				EXECUTABLE_PREFIX = lib;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = Solas;
 			};
 			name = Debug;
 		};
@@ -784,7 +784,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				EXECUTABLE_PREFIX = lib;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = Solas;
 			};
 			name = Release;
 		};
@@ -803,7 +803,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shotamatsuda.Solas;
-				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = Solas;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -825,7 +825,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shotamatsuda.Solas;
-				PRODUCT_NAME = "$(PROJECT_NAME)";
+				PRODUCT_NAME = Solas;
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

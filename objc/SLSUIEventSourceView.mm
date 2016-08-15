@@ -462,9 +462,11 @@
 - (void)handlePanGesture:(UIPanGestureRecognizer *)recognizer {
   solas::GestureEvent::PanData data;
   CGPoint translation = [recognizer translationInView:self];
-  data.translation.set(translation.x, translation.y);
+  data.translation.x = translation.x;
+  data.translation.y = translation.y;
   CGPoint velocity = [recognizer velocityInView:self];
-  data.velocity.set(velocity.x, velocity.y);
+  data.velocity.x = velocity.x;
+  data.velocity.y = velocity.y;
   data.touches = recognizer.minimumNumberOfTouches;
   [self notifyGestureWithRecognizer:recognizer
       kind:solas::GestureKind::PAN data:data];

@@ -34,7 +34,13 @@ BOOST_LIBRARY_SEARCH_PATHS[sdk=iphonesimulator*] = "$(SOLAS_DIR)/build/boost/lib
 
 // GLM
 GLM_HEADER_SEARCH_PATHS[sdk=macosx*] = "/usr/local/include"
-GLM_LIBRARY_SEARCH_PATHS[sdk=macosx*] = "/usr/local/lib"
+GLM_HEADER_SEARCH_PATHS[sdk=iphoneos*] = "$(SOLAS_DIR)/lib/glm"
+GLM_HEADER_SEARCH_PATHS[sdk=iphonesimulator*] = "$(SOLAS_DIR)/lib/glm"
+
+// Search Paths
+SOLAS_HEADER_SEARCH_PATHS = $(BOOST_HEADER_SEARCH_PATHS) $(GLM_HEADER_SEARCH_PATHS)
+SOLAS_USER_HEADER_SEARCH_PATHS = "$(SOLAS_DIR)/src" "$(SOLAS_DIR)/objc" "$(SOLAS_DIR)/lib"
+SOLAS_LIBRARY_SEARCH_PATHS = $(BOOST_LIBRARY_SEARCH_PATHS)
 
 // Linking
 SOLAS_OTHER_LDFLAGS[sdk=macosx*] = -framework AppKit -framework CoreGraphics -framework Foundation -framework GLKit -framework ImageIO -framework OpenGL -framework QuartzCore -framework ScreenSaver

@@ -31,5 +31,5 @@ SOLAS_DIR = $(PROJECT_DIR)
 OTHER_LDFLAGS = $(inherited) "$(PROJECT_DIR)/build/googletest/libgtest.a" "$(PROJECT_DIR)/build/googletest/libgtest_main.a"
 
 // Search Paths
-HEADER_SEARCH_PATHS = $(inherited) $(BOOST_HEADER_SEARCH_PATHS) $(GLM_HEADER_SEARCH_PATHS)
-USER_HEADER_SEARCH_PATHS = $(inherited) "$(PROJECT_DIR)/lib/googletest/googletest/include"
+HEADER_SEARCH_PATHS = $(inherited) $(SOLAS_HEADER_SEARCH_PATHS)
+USER_HEADER_SEARCH_PATHS = $(inherited) $(SOLAS_USER_HEADER_SEARCH_PATHS) "$(PROJECT_DIR)/lib/googletest/googletest/include"
