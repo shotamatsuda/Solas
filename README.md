@@ -10,13 +10,10 @@ Work in progress...
 
 Run "setup.sh" inside "script" directory to initialize submodules and build dependant libraries.
 
-### Dependencies
-
-- [Math](https://github.com/takram-design-engineering/takram-math)
-
 ### Submodules
 
 - [Google Test Framework](https://github.com/google/googletest)
+- [OpenGL Mathematics](https://github.com/g-truc/glm)
 
 ## License
 
