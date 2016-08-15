@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "936E241E1ADEA5550004C396"
-               BuildableName = "libsolas.a"
+               BuildableName = "libSolas.a"
                BlueprintName = "Solas Static"
                ReferencedContainer = "container:solas.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "936E241E1ADEA5550004C396"
-            BuildableName = "libsolas.a"
+            BuildableName = "libSolas.a"
             BlueprintName = "Solas Static"
             ReferencedContainer = "container:solas.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "936E241E1ADEA5550004C396"
-            BuildableName = "libsolas.a"
+            BuildableName = "libSolas.a"
             BlueprintName = "Solas Static"
             ReferencedContainer = "container:solas.xcodeproj">
          </BuildableReference>
