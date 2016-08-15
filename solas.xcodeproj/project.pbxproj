@@ -83,18 +83,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		930398471AB2B0DF00577048 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		930398371AB2AEF400577048 /* enum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = enum.h; sourceTree = "<group>"; };
 		930398491AB2B0DF00577048 /* Solas Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Solas Test"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -481,7 +469,6 @@
 			buildPhases = (
 				930398451AB2B0DF00577048 /* Sources */,
 				930398461AB2B0DF00577048 /* Frameworks */,
-				930398471AB2B0DF00577048 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -499,7 +486,6 @@
 			buildPhases = (
 				936E241B1ADEA5550004C396 /* Sources */,
 				936E241C1ADEA5550004C396 /* Frameworks */,
-				93B4749C1B64CDC600613FB6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -515,10 +501,9 @@
 			buildConfigurationList = 93E9136B1AB27DE400DDF7F9 /* Build configuration list for PBXNativeTarget "Solas" */;
 			buildPhases = (
 				93E913531AB27DE400DDF7F9 /* Sources */,
-				93E913541AB27DE400DDF7F9 /* Frameworks */,
 				93E913561AB27DE400DDF7F9 /* Resources */,
+				93E913541AB27DE400DDF7F9 /* Frameworks */,
 				93B474991B64CA4800613FB6 /* Headers */,
-				93B474971B64CA1200613FB6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -537,7 +522,6 @@
 				93F857D31B564B0500C32E8D /* Frameworks */,
 				93F858091B564B0500C32E8D /* Resources */,
 				93F857D71B564B0500C32E8D /* Headers */,
-				93B4749B1B64CDA800613FB6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -608,48 +592,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		93B474971B64CA1200613FB6 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/script/copy_headers.sh\" \"src\" \"objc\"\nditto \"${BUILT_PRODUCTS_DIR}/include\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Headers\"";
-		};
-		93B4749B1B64CDA800613FB6 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/script/copy_headers.sh\" \"src\" \"objc\"\nditto \"${BUILT_PRODUCTS_DIR}/include\" \"${BUILT_PRODUCTS_DIR}/${CONTENTS_FOLDER_PATH}/Headers\"";
-		};
-		93B4749C1B64CDC600613FB6 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PROJECT_DIR}/script/copy_headers.sh\" \"src\" \"objc\"";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		930398451AB2B0DF00577048 /* Sources */ = {
